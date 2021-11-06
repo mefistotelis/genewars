@@ -49,17 +49,6 @@ struct mouse_info { // sizeof=16
 
 typedef struct mouse_info mouse_info;
 
-struct SREGS { // sizeof=12
-    uint16_t es; // offset=0
-    uint16_t cs; // offset=2
-    uint16_t ss; // offset=4
-    uint16_t ds; // offset=6
-    uint16_t fs; // offset=8
-    uint16_t gs; // offset=10
-};
-
-typedef struct SREGS SREGS;
-
 int LbMousePlace();
 int LbMouseRemove();
 int LbMouseChangeSpriteOffset();

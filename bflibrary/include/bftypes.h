@@ -53,6 +53,10 @@ typedef SLONG *PSLONG;
 
 typedef void *CALLBACK;
 
+typedef uint32_t REALFAR;
+
+typedef int32_t HTIMER;
+
 #ifdef __cplusplus
 };
 #endif
