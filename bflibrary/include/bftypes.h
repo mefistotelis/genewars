@@ -25,24 +25,33 @@ extern "C" {
 
 #include <stdint.h>
 
+typedef char BYTE;
 typedef char CBYTE;
 typedef uint8_t UBYTE;
 typedef int8_t SBYTE;
 
+typedef int16_t WORD;
 typedef uint16_t UWORD;
 typedef int16_t SWORD;
 
+typedef int32_t LONG;
 typedef int32_t SLONG;
 typedef uint32_t ULONG;
 
 typedef uint8_t BBOOL;
 typedef uint32_t BOOL;
 
-typedef SLONG *PSLONG;
+typedef CBYTE *PCBYTE;
+typedef UBYTE *PUBYTE;
+typedef SBYTE *PSBYTE;
+
+typedef UWORD *PUWORD;
+typedef SWORD *PSWORD;
 
 typedef ULONG *PULONG;
-typedef UWORD *PUWORD;
-typedef UBYTE *PUBYTE;
+typedef SLONG *PSLONG;
+
+typedef void *CALLBACK;
 
 #ifdef __cplusplus
 };
