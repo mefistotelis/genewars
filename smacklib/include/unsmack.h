@@ -19,6 +19,10 @@
 #ifndef UNSMACK_H_
 #define UNSMACK_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 int _SmackGetRect();
 int _Unsmack();
 int _SmackDoPCM();
@@ -26,6 +30,10 @@ int _SmackRemapTables();
 int _SmackDoTables();
 int _SmackGetSizeTables();
 int _SmackGetSizeDeltas();
+
+#ifdef __cplusplus
+};
+#endif
 
 #endif // UNSMACK_H_
 /******************************************************************************/

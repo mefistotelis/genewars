@@ -19,10 +19,19 @@
 #ifndef SNDMSS_H_
 #define SNDMSS_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 extern int junkmsstimer;
+
 int SMACKSOUNDUSEMSS();
 int SMACKSOUNDMSSLITEINIT();
 int SMACKSOUNDMSSLITEDONE();
+
+#ifdef __cplusplus
+};
+#endif
 
 #endif // SNDMSS_H_
 /******************************************************************************/

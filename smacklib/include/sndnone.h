@@ -19,9 +19,17 @@
 #ifndef SNDNONE_H_
 #define SNDNONE_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 extern int SmackTimerReadAddr;
 extern int SmackTimerSetupAddr;
 extern int SmackTimerDoneAddr;
+
+#ifdef __cplusplus
+};
+#endif
 
 #endif // SNDNONE_H_
 /******************************************************************************/

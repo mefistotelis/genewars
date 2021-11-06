@@ -19,12 +19,20 @@
 #ifndef DOSSMK_H_
 #define DOSSMK_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 int play_smk();
 int RADMALLOC();
 int RADFREE();
 extern int smack_malloc;
 extern int smack_free;
 extern int smack_draw_callback;
+
+#ifdef __cplusplus
+};
+#endif
 
 #endif // DOSSMK_H_
 /******************************************************************************/

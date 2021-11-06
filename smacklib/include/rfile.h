@@ -19,6 +19,10 @@
 #ifndef RFILE_H_
 #define RFILE_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 int _radopen();
 int _radcreate();
 int _radread();
@@ -31,6 +35,10 @@ int _IsRemote();
 int _radgetfiletime();
 int _radsetfiletime();
 int _raderase();
+
+#ifdef __cplusplus
+};
+#endif
 
 #endif // RFILE_H_
 /******************************************************************************/

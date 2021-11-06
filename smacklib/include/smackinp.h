@@ -19,6 +19,10 @@
 #ifndef SMACKINP_H_
 #define SMACKINP_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 int SMACKOPEN();
 int SMACKSIMULATE();
 int SMACKFRAMERATE();
@@ -38,6 +42,7 @@ int SMACKSOUNDINTRACK();
 int SMACKVOLUMEPAN();
 int SMACKSOUNDCHECK();
 int SMACKWAIT();
+
 extern int LowSoundOpenAddr;
 extern int LowSoundOffAddr;
 extern int LowSoundOnAddr;
@@ -47,6 +52,10 @@ extern int LowSoundCheckAddr;
 extern int LowSoundPlayedAddr;
 extern int LowSoundCloseAddr;
 int SMACKWRAPCOPY();
+
+#ifdef __cplusplus
+};
+#endif
 
 #endif // SMACKINP_H_
 /******************************************************************************/
