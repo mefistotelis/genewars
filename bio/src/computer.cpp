@@ -318,16 +318,6 @@ near BestForestSample::BestForestSample( XY, long unsigned, char unsigned, char 
 // code at 0001:00036998
 }
 
-Effect * ThingIDX::IsEffect()
-{
-// code at 0001:00036954
-}
-
-Event * ThingIDX::IsEvent()
-{
-// code at 0001:00036910
-}
-
 char unsigned Building::IsUpgradable()
 {
 // code at 0001:0003689c

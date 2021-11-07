@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file plant.cpp
+/** @file thingidx.cpp
  *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
@@ -16,77 +16,71 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "plant.hpp"
+#include "thingidx.hpp"
 
-void Plant::Draw(SWORD arg1, SWORD arg2)
+Effect * ThingIDX::IsEffect()
 {
-// code at 0001:00084878
+// code at 0001:00036954
 }
 
-Plant * Plant::Create(UBYTE arg1, UBYTE arg2, XY arg3)
+Event * ThingIDX::IsEvent()
 {
-// code at 0001:000849ad
+// code at 0001:00036910
 }
 
-void Plant::Resync()
+Creature * ThingIDX::IsCreature()
 {
-// code at 0001:00084b1b
+// code at 0001:00005970
 }
 
-void Plant::ChopDown()
+Plant * ThingIDX::IsPlant()
 {
-// code at 0001:00084b53
+// code at 0001:0000592c
 }
 
-void Plant::Die()
+ThingIDX & ThingIDX::operator =(ThingIDX const &arg1)
 {
-// code at 0001:00084c58
+// code at 0001:00048888
 }
 
-BBOOL Plant::Damage(SWORD arg1, Thing *arg2)
+char unsigned ThingIDX::Valid()
 {
-// code at 0001:00084db4
+// code at 0001:00004b38
 }
 
-void Plant::InitArray()
+void ThingIDX::Invalidate()
 {
-// code at 0001:00084e21
+// code at 0001:00004b14
 }
 
-void Plant::Read(SLONG &arg1)
+short ThingIDX::operator =(Thing *arg1)
 {
-// code at 0001:00084e62
+// code at 0001:00003860
 }
 
-void Plant::Write(SLONG &arg1)
+PlSpec * ThingIDX::IsPls()
 {
-// code at 0001:00084ec1
+// code at 0001:00003818
 }
 
-long Plant::ReadBuffer( Plant * *, long, long, BioGame & )
+Building * ThingIDX::IsBuilding()
 {
-// code at 0001:00084f02
+// code at 0001:000037d4
 }
 
-long Plant::WriteBuffer( Plant * *, long, long, BioGame & )
+Ethereal * ThingIDX::IsEthereal()
 {
-// code at 0001:00084f81
+// code at 0001:00003790
 }
 
-char unsigned Plant::Update()
+BBOOL ThingIDX::operator ==(Thing *arg1)
 {
-// code at 0001:00085000
+// code at 0001:00077bec
 }
 
-void Plant::UpdateAll()
+Thing * ThingIDX::operator &()
 {
-// code at 0001:0008552e
+// code at 0001:000858ce
 }
-
-BBOOL Plant::operator ==( Plant * )
-{
-// code at 0001:000856bf
-}
-
 
 /******************************************************************************/

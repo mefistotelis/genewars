@@ -1156,19 +1156,6 @@ typedef uint16_t wchar_t;
 typedef class Player Player;
 
 
-class PSpecies { // sizeof=32
-    char name[15]; // offset=0
-    SBYTE terrain[7]; // offset=16
-    UBYTE seedTime; // offset=24
-    UBYTE range; // offset=25
-    UBYTE maxNeighbours; // offset=26
-    UBYTE lifeSpan; // offset=27
-    UBYTE food; // offset=28
-    UBYTE wood; // offset=29
-    UBYTE seeds; // offset=30
-    UBYTE density; // offset=31
-};
-
 class CowboyIFC { // sizeof=15
     SBYTE go; // offset=0
     UBYTE gunType; // offset=1

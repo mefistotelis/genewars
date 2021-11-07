@@ -148,11 +148,6 @@ short WeightedAngle( char unsigned )
 // code at 0001:00077c3c
 }
 
-char unsigned ThingIDX::operator ==( Thing * )
-{
-// code at 0001:00077bec
-}
-
 long Creature::UseEnergy( long )
 {
 // code at 0001:00077b9c

@@ -19,9 +19,34 @@
 #ifndef THINGIDX_HPP_
 #define THINGIDX_HPP_
 
+#include "bftypes.h"
+
+class Ethereal;
+class Drone;
+class Event;
+class Effect;
+class Building;
+class PlSpec;
+class Plant;
+class Creature;
+class Thing;
+
+enum ThingType { // type=int8_t
+    TT_INVALID = 0,
+    TT_CREATURE,
+    TT_PLANT,
+    TT_PLS,
+    TT_BUILDING,
+    TT_EFFECT, // 5
+    TT_EVENT,
+    TT_DRONE,
+    TT_ETHEREAL,
+    TT_PROBE,
+};
+
 class ThingIDX { // sizeof=3
-    class ThingIDX * ThingIDX(class ThingIDX *arg1);
-    class ThingIDX * operator=(class ThingIDX *arg1);
+    ThingIDX(class ThingIDX *arg1);
+    ThingIDX & operator =(ThingIDX const &arg1);
     Ethereal * IsEthereal();
     Drone * IsDrone();
     Event * IsEvent();
@@ -30,29 +55,14 @@ class ThingIDX { // sizeof=3
     PlSpec * IsPls();
     Plant * IsPlant();
     Creature * IsCreature();
-    BBOOL operator==(Thing *arg1);
-    Thing * operator&();
-    SWORD operator=(Thing *arg1);
+    BBOOL operator ==(Thing *arg1);
+    Thing * operator &();
+    SWORD operator =(Thing *arg1);
     void Invalidate();
     BBOOL Valid();
     SWORD idx; // offset=0
     ThingType ttype; // offset=2
 };
-
-Effect * ThingIDX::IsEffect();
-Event * ThingIDX::IsEvent();
-Creature * ThingIDX::IsCreature();
-Plant * ThingIDX::IsPlant();
-ThingIDX & ThingIDX::operator =( ThingIDX const & );
-char unsigned ThingIDX::Valid();
-void ThingIDX::Invalidate();
-short ThingIDX::operator =( Thing * );
-PlSpec * ThingIDX::IsPls();
-Building * ThingIDX::IsBuilding();
-Ethereal * ThingIDX::IsEthereal();
-char unsigned ThingIDX::operator ==( Thing * );
-Thing * ThingIDX::operator &();
-
 
 #endif // THINGIDX_HPP_
 /******************************************************************************/

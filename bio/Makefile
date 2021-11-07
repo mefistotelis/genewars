@@ -82,6 +82,8 @@ obj/sound.o \
 obj/spec.o \
 obj/tables.o \
 obj/thing.o \
+obj/mvthing.o \
+obj/smvthing.o \
 obj/title.o \
 
 
@@ -89,6 +91,7 @@ OBJS = \
 obj/pchost.o \
 obj/pcmain.o \
 obj/planet.o \
+obj/thingidx.o \
 obj/xy.o \
 $(RES)
 
@@ -106,6 +109,8 @@ DBGFLAGS =
 LINKFLAGS = 
 # compiler warning generation flags
 WARNFLAGS = -Wall -Wno-sign-compare -Wno-unused-parameter
+# disable return type warns as our functions are empty
+WARNFLAGS += -Wno-return-type
 # disabled warnings: -Wextra -Wtype-limits
 CXXFLAGS = $(foreach path,$(CXXINCPATHS),-I$(path)) -c -fmessage-length=0 $(WARNFLAGS) $(DEPFLAGS) $(OPTFLAGS)
 CFLAGS = $(foreach path,$(INCPATHS),-I$(path)) -c -fmessage-length=0 $(WARNFLAGS) $(DEPFLAGS) $(OPTFLAGS)

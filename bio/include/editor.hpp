@@ -76,28 +76,6 @@ class HelpDraw { // sizeof=26
     MyGadget *gad; // offset=22
 };
 
-class FlatMap { // sizeof=6
-    void DrawOver(SWORD arg1, SWORD arg2, UBYTE arg3);
-    void Map2Screen(XY *arg1);
-    void Update(BBOOL arg1);
-    GridTile * XYOn(SWORD arg1, SWORD arg2, XY *arg3);
-    BBOOL Valid();
-    void CopyRegionFrom(SLONG arg1, SLONG arg2, SLONG arg3, SLONG arg4, SLONG arg5, SLONG arg6);
-    void Draw(UBYTE arg1, SWORD arg2, SWORD arg3);
-    void Draw(UBYTE arg1);
-    void FreeMe();
-    void UpdateGridTile(GridTile *arg1);
-    void MakeRadiationMap(UBYTE arg1);
-    void MakeEnergyMap(UBYTE arg1);
-    void MakeLifeformMap(UBYTE arg1);
-    void MakeTopographyMap(UBYTE arg1);
-    void ReDraw(UBYTE arg1);
-    PixBuffer * Init(Planet *arg1, UBYTE arg2, SWORD arg3, SWORD arg4, UBYTE arg5, BBOOL arg6);
-    UBYTE mapMode;
-    BBOOL useExplored;
-    PixBuffer *pixBuffer;
-};
-
 
 
 class ScreenLockHandler { // sizeof=2
@@ -145,7 +123,6 @@ class TextEntry { // sizeof=73
     CBYTE *text;
 };
 
-typedef class FlatMap FlatMap;
 
 class LevelHeader { // sizeof=187
     void TranslatePlanet();

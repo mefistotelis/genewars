@@ -48,16 +48,6 @@ char unsigned AtMmsEnd( MyMinSprite &, MySprite & )
 // code at 0001:000059b4
 }
 
-Creature * ThingIDX::IsCreature()
-{
-// code at 0001:00005970
-}
-
-Plant * ThingIDX::IsPlant()
-{
-// code at 0001:0000592c
-}
-
 void SmartMovingThing::SetMoveToInsideBuilding( Building *, XY )
 {
 // code at 0001:000058dc

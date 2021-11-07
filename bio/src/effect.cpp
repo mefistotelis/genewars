@@ -458,11 +458,6 @@ near MovingThing::MovingThing()
 // code at 0001:000488c4
 }
 
-ThingIDX & ThingIDX::operator =( ThingIDX const & )
-{
-// code at 0001:00048888
-}
-
 void (near * const __vftbl[])();
 
 void (near * const __vftbl[])();

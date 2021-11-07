@@ -23,8 +23,6 @@ typedef class Player Player;
 
 
 
-typedef class PSpecies PSpecies;
-
 
 typedef class GunSpec GunSpec;
 

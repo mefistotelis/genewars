@@ -258,6 +258,11 @@ GridTile & GridTile::operator =( GridTile const & )
 // code at 0001:00059864
 }
 
+char unsigned GridTile::IsOffMap()
+{
+// code at 0001:00085718
+}
+
 void RangeScan::Init( XY &, long unsigned, char unsigned )
 {
 // code at 0001:0005d721

@@ -52,86 +52,6 @@ enum { // type=int8_t
     FNDERR_TIRED,
 };
 
-enum EffectType { // type=uint8_t
-    EF_EXPLOSION_1 = 0,
-    EF_EXPLOSION_2,
-    EF_EXPLOSION_3,
-    EF_EXPLOSION_4,
-    EF_EXPLOSION_5,
-    EF_EXPLOSION_6, // 5
-    EF_TURBO,
-    EF_CHOP,
-    EF_TIMBER,
-    EF_RADIATION,
-    EF_TELEPORT, // 10
-    EF_LASER,
-    EF_LASER_TAIL,
-    EF_METEOR,
-    EF_SHARD_1,
-    EF_SHARD_2, // 15
-    EF_SHARD_3,
-    EF_FIRE,
-    EF_GRENADE,
-    EF_BOLT,
-    EF_BOLT_BLAST, // 20
-    EF_BUBBLE,
-    EF_RIPPLE,
-    EF_TURRET_SHOT_1,
-    EF_TURRET_SHOT_2,
-    EF_TURRET_SHOT_3, // 25
-    EF_ETHEREAL,
-    EF_DEBRIS_1,
-    EF_DEBRIS_2,
-    EF_DEBRIS_3,
-    EF_DEBRIS_4, // 30
-    EF_DEBRIS_5,
-    EF_BLOOD,
-    EF_SPARK,
-    EF_FLAME_BREATH,
-    EF_STUN, // 35
-    EF_DRAGWOODDISK,
-    EF_GUNSHOT1,
-    EF_GUNSHOT2,
-    EF_GUNSHOT3,
-    EF_GUNSHOT4, // 40
-    EF_STASISSHOT1,
-    EF_STASISSHOT2,
-    EF_STASISSHOT3,
-    EF_PELLETPOOF,
-    EF_POD, // 45
-    EF_SMOKE,
-    EF_SPARKLE,
-    EF_SPLASH,
-    EF_SMUGGLER,
-    EF_DEMO_CHARGE, // 50
-    EF_DEMO_EXPLOSION,
-    EF_SPIT,
-    EF_SPIT_HIT,
-    EF_ETHEREAL_LEAVE,
-    EF_CHUNK_1, // 55
-    EF_CHUNK_2,
-    EF_CHUNK_3,
-    EF_CHUNK_4,
-    EF_MONOLITH,
-    EF_GOODSPARKLE, // 60
-    EF_BADSPARKLE,
-    EF_FIRE_SPIT,
-    EF_NAPALM,
-    EF_ZONEMARKER,
-    EF_SHIELDHITARC, // 65
-    EF_SHIELDFLICKER,
-    EF_DRAGTREE,
-    EF_FREEDRAGTREE,
-    EF_DEADSPECIALIST,
-    EF_SOUNDTAG, // 70
-    EF_END,
-    EF_LAST_SPRITE_EFFECT,
-    EF_NULL = 255,
-};
-
-typedef enum EffectType EffectType;
-
-typedef uint8_t BBOOL;
 
 enum { // type=int8_t
     CL_BLACK = 0,
@@ -213,20 +133,6 @@ class PowerGraph { // sizeof=45
 typedef class PowerGraph PowerGraph;
 
 
-class PSpecies { // sizeof=32
-    char name[15]; // offset=0
-    SBYTE terrain[7]; // offset=16
-    UBYTE seedTime; // offset=24
-    UBYTE range; // offset=25
-    UBYTE maxNeighbours; // offset=26
-    UBYTE lifeSpan; // offset=27
-    UBYTE food; // offset=28
-    UBYTE wood; // offset=29
-    UBYTE seeds; // offset=30
-    UBYTE density; // offset=31
-};
-
-typedef class PSpecies PSpecies;
 
 
 struct BuildingStage { // sizeof=1

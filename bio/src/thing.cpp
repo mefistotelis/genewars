@@ -83,11 +83,6 @@ char unsigned ScanRecord::IsRecorded( XY )
 // code at 0001:0008584c
 }
 
-Thing * ThingIDX::operator &()
-{
-// code at 0001:000858ce
-}
-
 void Thing::Read( long & )
 {
 // code at 0001:00085a1c

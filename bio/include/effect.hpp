@@ -96,8 +96,6 @@ enum EventHelpType { // type=int8_t
     MAX_EVH,
 };
 
-typedef enum EventHelpType EventHelpType;
-
 enum EventType { // type=int8_t
     EV_DROP_LAB = 0,
     EV_ETHEREAL,
@@ -110,8 +108,6 @@ enum EventType { // type=int8_t
     EV_SMUGGLER,
 };
 
-typedef enum EventType EventType;
-
 enum EffectStatType { // type=int8_t
     ET_PLAYONCE = 0,
     ET_COLLIDE,
@@ -121,8 +117,6 @@ enum EffectStatType { // type=int8_t
     ET_INDEFINITE, // 5
     ET_PERMANENT,
 };
-
-typedef enum EffectStatType EffectStatType;
 
 enum EffectType { // type=uint8_t
     EF_EXPLOSION_1 = 0,
@@ -200,8 +194,6 @@ enum EffectType { // type=uint8_t
     EF_LAST_SPRITE_EFFECT,
     EF_NULL = 255,
 };
-
-typedef enum EffectType EffectType;
 
 class Point { // sizeof=12
     void Set(SLONG arg1, SLONG arg2, SLONG arg3);
@@ -441,109 +433,6 @@ class StasisBoltScan : RangeScanner { // sizeof=50
     Effect shot;
     BBOOL hitThing; // offset=41
 };
-
-typedef class StasisBoltScan StasisBoltScan;
-
-typedef struct PolyPoint PolyPoint;
-
-typedef class ShotHitScan ShotHitScan;
-
-typedef class FireScan FireScan;
-
-typedef class MonolithHitScan MonolithHitScan;
-
-void Point::Set( long, long, long );
-char unsigned SoundManager::__defarg();
-SoundRequest * SoundManager::GetSoundReq( Thing * );
-short Thing::__defarg();
-char unsigned Thing::__defarg();
-char unsigned Thing::IsEnemy( Thing * );
-long MovingThing::Altitude();
-long MovingThing::AltAboveGround();
-char unsigned MovingThing::IsMovable();
-char unsigned MovingThing::IsStaticallyDrawn();
-char unsigned MovingThing::IsMovingThing();
-char unsigned MovingThing::IsVectorable();
-char unsigned MovingThing::IsScreenPointInside( short, short, short, short );
-void MovingThing::Init( ThingType, XY, char unsigned, short, long, Vector const & );
-char unsigned MovingThing::ShapeFacing();
-short MovingThing::MaxMoveSpeed();
-void MovingThing::StopMoving();
-void MovingThing::NewGridUpdate( GridTile * );
-char unsigned MovingThing::NeedToAvoid( GridTile * );
-char unsigned MovingThing::IsASplasher();
-void MovingThing::ChangeMove( ComponentVector const & );
-char unsigned MovingThing::IsMoving( short );
-void SmartMovingThing::Init( ThingType, XY, char unsigned, short, long, Vector const & );
-void SmartMovingThing::StartAMove( XY );
-void SmartMovingThing::StopMoving();
-char unsigned SmartMovingThing::IsDoneMovingToTgt();
-char unsigned SmartMovingThing::IsStuck();
-char unsigned SmartMovingThing::IsFlying();
-char unsigned SmartMovingThing::IsIgnoreClutter();
-void SmartMovingThing::ClearRescanPath();
-void SmartMovingThing::ClearMoveToTgt();
-char unsigned Creature::CanArmor();
-char unsigned PlSpec::IsDead();
-char unsigned PlSpec::IsScreenPointInside( short, short, short, short );
-char unsigned PlSpec::IsMovable();
-char unsigned Effect::IsPackSpecValid();
-void Effect::UnpackSpec( Specialist & );
-char unsigned Thing::TToggle4();
-void MovingThing::DrawOnMap( short, short );
-void Event::Free();
-near ShotHitScan::ShotHitScan( Effect &, long );
-void ShotHitScan::PerGrid();
-near FireScan::FireScan( Effect & );
-void FireScan::PerGrid();
-near MonolithHitScan::MonolithHitScan( Effect & );
-void MonolithHitScan::PerGrid();
-near StasisBoltScan::StasisBoltScan( Effect &, long );
-void StasisBoltScan::PerGrid();
-void FlickerStuff::Invalidate();
-char unsigned FlickerStuff::Valid();
-void FlickerHandler::Free( char unsigned );
-Effect * Effect::Create( EffectType, XY, long, Vector const &, short unsigned, char unsigned, char signed, Thing * );
-void Effect::Free();
-void Effect::InitArray();
-void Effect::Resync();
-void Effect::Read( long & );
-void Effect::Write( long & );
-void Effect::DrawOnMap( short, short );
-char unsigned Effect::MakeFire( GridTile *, long );
-char unsigned Effect::IsChunkyDeath();
-char unsigned Effect::IsScreenPointInside( short, short, short, short );
-long Effect::ReadBuffer( Effect * *, long, long, BioGame & );
-long Effect::WriteBuffer( Effect * *, long, long, BioGame & );
-void Effect::DrawZoneMarker( long, long, long, long );
-Plant * Effect::StripDragTree( GridTile * );
-void Effect::KillSoundOffTag( XY, SampleID, char unsigned );
-char unsigned Effect::CreateNewEffectFromOld( EffectStats const & );
-char unsigned Effect::Update();
-void Effect::UpdateAll();
-char signed FlickerHandler::Create();
-char unsigned Event::CreateSphereRing( Point *, char unsigned *, char unsigned );
-Event * Event::Create( char unsigned, XY, char unsigned, Thing * );
-void Event::InitArray();
-void Event::Resync();
-void Event::Read( long & );
-void Event::Write( long & );
-long Event::ReadBuffer( Event * *, long, long, BioGame & );
-near PlSpec::PlSpec();
-near SmartMovingThing::SmartMovingThing();
-near MovingThing::MovingThing();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-long Event::WriteBuffer( Event * *, long, long, BioGame & );
-char unsigned Event::Update();
-void Event::UpdateAll();
-char unsigned Effect::operator ==( Effect * );
-char unsigned Event::operator ==( Event * );
 
 #endif // BIO_EFFECT_HPP_
 /******************************************************************************/

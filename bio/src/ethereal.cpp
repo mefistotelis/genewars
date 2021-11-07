@@ -28,16 +28,6 @@ void ComponentVector::Set( short, short, short )
 // code at 0001:00004b70
 }
 
-char unsigned ThingIDX::Valid()
-{
-// code at 0001:00004b38
-}
-
-void ThingIDX::Invalidate()
-{
-// code at 0001:00004b14
-}
-
 near RangeScan::RangeScan( XY &, long unsigned, char unsigned )
 {
 // code at 0001:00004ad8
@@ -456,26 +446,6 @@ char unsigned Player::Valid()
 short Vector::ComputeComponentVector( ComponentVector & ) const
 {
 // code at 0001:000038c8
-}
-
-short ThingIDX::operator =( Thing * )
-{
-// code at 0001:00003860
-}
-
-PlSpec * ThingIDX::IsPls()
-{
-// code at 0001:00003818
-}
-
-Building * ThingIDX::IsBuilding()
-{
-// code at 0001:000037d4
-}
-
-Ethereal * ThingIDX::IsEthereal()
-{
-// code at 0001:00003790
 }
 
 char unsigned Thing::TToggle()

@@ -1,8 +1,8 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file optimize.hpp
- *     Header file for optimize.cpp.
+/** @file mvthing.cpp
+ *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
  * @par Comment:
@@ -16,26 +16,6 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#ifndef BIO_OPTIMIZE_HPP_
-#define BIO_OPTIMIZE_HPP_
+#include "mvthing.hpp"
 
-typedef class Player Player;
-
-
-
-
-
-void BlastScreens();
-void ZeroVRAM();
-void FragCopyBScreenToWScreen( XY, XY );
-void MapDisplay::FragCopyBScreenToWScreen();
-void FragCopyWScreenToVRAM( XY, XY );
-void CopyRegion( short, short, short, short, short, short );
-void RefreshFromBScreenNormal();
-void MapDisplay::RefreshFromBScreen();
-void RefreshToVRAM();
-void copy_svga_box( short unsigned, short unsigned, short unsigned, short unsigned );
-void SwapScreensBio();
-
-#endif // BIO_OPTIMIZE_HPP_
 /******************************************************************************/
