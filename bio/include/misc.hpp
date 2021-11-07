@@ -28,24 +28,15 @@ typedef enum TopoType TopoType;
 
 typedef class Player Player;
 
-
-struct Stuff { // sizeof=8
-    BBOOL IsEZone();
-    XY loc; // offset=0
-    UBYTE type; // offset=4
-    SBYTE gpNumber; // offset=5
-    BuildingStage building; // offset=6
-    UBYTE buildingPoints; // offset=7
-    UBYTE numTrees; // offset=8
-    UBYTE numCreatures; // offset=9
-    UBYTE ezSize; // offset=10
-    UBYTE crStudy; // offset=11
-    SBYTE ezLinkTo; // offset=12
-    UBYTE player; // offset=13
-    UBYTE score; // offset=14
-    CreatureSpeciesForHerd crSpecies; // offset=15
-    UBYTE species; // offset=16
+struct OriBlock { // sizeof=9
+    UBYTE Count; // offset=0
+    UBYTE Block[3]; // offset=1
+    UBYTE Orient[3]; // offset=5
 };
+
+typedef struct OriBlock OriBlock;
+
+
 
 
 class EventHelp { // sizeof=150
@@ -361,10 +352,6 @@ class HelpDraw { // sizeof=26
     MyGadget *gad; // offset=22
 };
 
-long GridTile::__defarg();
-void GridTile::SetFoundation();
-void GridTile::ClearFoundation();
-char unsigned GridTile::IsCrater();
 void EtherealZone::Invalidate();
 void EtherealZone::Deactivate();
 void EtherealZone::Exhaust();

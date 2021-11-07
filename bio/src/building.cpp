@@ -18,26 +18,6 @@
 /******************************************************************************/
 #include "building.hpp"
 
-XY XY::operator +=( XY )
-{
-// code at 0001:00040be0
-}
-
-XY XY::BaseTile() const
-{
-// code at 0001:00040ba4
-}
-
-void XY::ClearFoundation( char unsigned ) const
-{
-// code at 0001:00040b78
-}
-
-void XY::SetFoundation( char unsigned ) const
-{
-// code at 0001:00040b48
-}
-
 near Vector::Vector( short, short, short )
 {
 // code at 0001:00040b04

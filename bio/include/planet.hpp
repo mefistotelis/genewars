@@ -19,6 +19,10 @@
 #ifndef BIO_PLANET_HPP_
 #define BIO_PLANET_HPP_
 
+#include "bftypes.h"
+#include "xy.hpp"
+#include "stuff.hpp"
+
 class Planet { // sizeof=127
     char * GetMissionBriefingString(char *arg1, UBYTE arg2);
     BBOOL AllComputersStarted();
@@ -26,8 +30,8 @@ class Planet { // sizeof=127
     void PlaceStuff(XY arg1, UBYTE arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5);
     void ShuffleLZs();
     void SlapBuildingDown(XY arg1, UBYTE arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5);
-    void MakeBuilding(Stuff *arg1);
-    void MakeHerd(Stuff *arg1);
+    void MakeBuilding(Stuff &stuff);
+    void MakeHerd(Stuff &stuff);
     void MakeForest(XY arg1, UBYTE arg2, UBYTE arg3);
     void MakeStuff();
     void ClearStuff();
@@ -68,53 +72,11 @@ class Planet { // sizeof=127
     UBYTE victoryFlags; // offset=126
 };
 
-typedef class Planet Planet;
-
-
-
-struct VMod { // sizeof=2
-    UBYTE Block; // offset=0
-    UBYTE Orient; // offset=1
-};
-
-typedef struct VMod VMod;
-
-struct Corners { // sizeof=4
-    SBYTE Cnw; // offset=0
-    SBYTE Cne; // offset=1
-    SBYTE Cse; // offset=2
-    SBYTE Csw; // offset=3
-};
-
-typedef struct Corners Corners;
-
-struct OriBlock { // sizeof=9
-    UBYTE Count; // offset=0
-    UBYTE Block[3]; // offset=1
-    UBYTE Orient[3]; // offset=5
-};
-
-typedef struct OriBlock OriBlock;
-
-char unsigned Planet::__defarg();
 void GenerateBlockTable();
 void shade_map();
 void GrowWorld();
 void FlattenShores();
 void ensure_no_overlaps();
-void Planet::Generate();
-void Planet::ClearStuff();
-void Planet::SlapBuildingDown( XY, char unsigned, char unsigned, char unsigned, char unsigned );
-void Planet::PlaceStuff( XY, char unsigned, char unsigned, char unsigned, char unsigned );
-void Planet::PlaceStuff( Stuff * );
-void Planet::MakeStuff();
-void Planet::MakeForest( XY, char unsigned, char unsigned );
-void Planet::MakeHerd( Stuff & );
-GridTile & GridTile::operator =( GridTile const & );
-void Planet::MakeBuilding( Stuff & );
-void Planet::ShuffleLZs();
-char unsigned Planet::AllComputersStarted();
-char * Planet::GetMissionBriefingString( char *, char unsigned );
 
 #endif // BIO_PLANET_HPP_
 /******************************************************************************/

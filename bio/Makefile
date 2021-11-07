@@ -74,7 +74,6 @@ obj/options.o \
 obj/packets.o \
 obj/pads.o \
 \
-obj/planet.o \
 obj/plant.o \
 obj/player.o \
 obj/setup.o \
@@ -89,6 +88,8 @@ obj/title.o \
 OBJS = \
 obj/pchost.o \
 obj/pcmain.o \
+obj/planet.o \
+obj/xy.o \
 $(RES)
 
 GENSRC   = obj/ver_defs.h

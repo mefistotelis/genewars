@@ -201,7 +201,6 @@ class MapDisplay { // sizeof=217
 
 
 
-char unsigned GridTile::IsOffMap();
 void Plant::Draw( short, short );
 Plant * Plant::Create( char unsigned, char unsigned, XY );
 void Plant::Resync();

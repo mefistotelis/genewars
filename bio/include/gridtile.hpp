@@ -137,6 +137,8 @@ class WeightedTgtRangeScanner : WeightedRangeScanner { // sizeof=238
 long GridTile::__defarg();
 long GridTile::__defarg();
 long GridTile::__defarg();
+long GridTile::__defarg();
+long GridTile::__defarg();
 char unsigned Creature::IsBones();
 GridTile * GridTile::GetRealGrid( XY );
 GridTile * GridTile::GetRealGrid( short, short );
@@ -185,6 +187,16 @@ void RangeScan::Init( XY &, long unsigned, char unsigned );
 void RangeScanner::Do();
 void WeightedRangeScanner::Do();
 void WeightedTgtRangeScanner::Do();
+XY GridTile::GetXY();
+long GridTile::__defarg();
+char unsigned GridTile::IsFoundation();
+long GridTile::__defarg();
+void GridTile::SetFoundation();
+void GridTile::ClearFoundation();
+char unsigned GridTile::IsCrater();
+GridTile & GridTile::operator =( GridTile const & );
+char unsigned GridTile::IsOffMap();
+char unsigned GridTile::__defarg();
 
 #endif // BIO_GRIDTILE_HPP_
 /******************************************************************************/

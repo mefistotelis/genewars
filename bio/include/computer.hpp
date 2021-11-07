@@ -182,12 +182,6 @@ typedef class PowerGraph PowerGraph;
 
 typedef class PSpecies PSpecies;
 
-struct CreatureSpeciesForHerd { // sizeof=1
-    uint8_t player; // offset=0
-    uint8_t species; // offset=1
-};
-
-typedef struct CreatureSpeciesForHerd CreatureSpeciesForHerd;
 
 struct BuildingStage { // sizeof=1
     uint8_t player; // offset=0
@@ -1330,7 +1324,6 @@ void Packet::SetPacket( char unsigned, short );
 void Packet::SetPacket( char unsigned, short, short );
 void Packet::SetPacket( char unsigned, short, short, short, short );
 void Packet::SetPacket( char unsigned, short, short, short, short, short );
-long GridTile::__defarg();
 char unsigned SmartMovingThing::IsAvoidActive();
 char unsigned Gene::IsBasicInGene( CreatureBaseSpecies );
 char unsigned Creature::__defarg();

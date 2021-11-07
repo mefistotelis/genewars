@@ -18,11 +18,6 @@
 /******************************************************************************/
 #include "thing.hpp"
 
-XY XY::operator /( int ) const
-{
-// code at 0001:00088fc4
-}
-
 long ComponentVector::Length()
 {
 // code at 0001:00088f68

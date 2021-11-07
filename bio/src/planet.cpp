@@ -18,20 +18,70 @@
 /******************************************************************************/
 #include "planet.hpp"
 
-XY XY::operator *( int ) const
+void Planet::Generate()
 {
-// code at 0001:00059970
+// code at 0001:00058aaa
 }
 
-XY XY::operator &=( int )
+void Planet::ClearStuff()
 {
-// code at 0001:00059934
+// code at 0001:00058b1f
 }
 
-char unsigned Planet::__defarg()
+void Planet::SlapBuildingDown(XY arg1, UBYTE arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5)
+{
+// code at 0001:00058c22
+}
+
+void Planet::PlaceStuff(XY arg1, UBYTE arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5)
+{
+// code at 0001:00058d57
+}
+
+void Planet::PlaceStuff(Stuff *arg1)
+{
+// code at 0001:00058e0e
+}
+
+void Planet::MakeStuff()
+{
+// code at 0001:00058e77
+}
+
+void Planet::MakeForest(XY arg1, UBYTE arg2, UBYTE arg3)
+{
+// code at 0001:00058f57
+}
+
+void Planet::MakeHerd(Stuff &stuff)
+{
+// code at 0001:00059460
+}
+
+void Planet::MakeBuilding(Stuff &stuff)
+{
+// code at 0001:00059512
+}
+
+void Planet::ShuffleLZs()
+{
+// code at 0001:000595ec
+}
+
+BBOOL Planet::AllComputersStarted()
+{
+// code at 0001:0005974e
+}
+
+char * Planet::GetMissionBriefingString(char *arg1, UBYTE arg2)
+{
+// code at 0001:000597ab
+}
+
+/*unsigned char Planet::__defarg()
 {
 // code at 0001:00059914
-}
+}*/
 
 void GenerateBlockTable()
 {
@@ -57,71 +107,5 @@ void ensure_no_overlaps()
 {
 // code at 0001:0005895f
 }
-
-void Planet::Generate()
-{
-// code at 0001:00058aaa
-}
-
-void Planet::ClearStuff()
-{
-// code at 0001:00058b1f
-}
-
-void Planet::SlapBuildingDown( XY, char unsigned, char unsigned, char unsigned, char unsigned )
-{
-// code at 0001:00058c22
-}
-
-void Planet::PlaceStuff( XY, char unsigned, char unsigned, char unsigned, char unsigned )
-{
-// code at 0001:00058d57
-}
-
-void Planet::PlaceStuff( Stuff * )
-{
-// code at 0001:00058e0e
-}
-
-void Planet::MakeStuff()
-{
-// code at 0001:00058e77
-}
-
-void Planet::MakeForest( XY, char unsigned, char unsigned )
-{
-// code at 0001:00058f57
-}
-
-void Planet::MakeHerd( Stuff & )
-{
-// code at 0001:00059460
-}
-
-GridTile & GridTile::operator =( GridTile const & )
-{
-// code at 0001:00059864
-}
-
-void Planet::MakeBuilding( Stuff & )
-{
-// code at 0001:00059512
-}
-
-void Planet::ShuffleLZs()
-{
-// code at 0001:000595ec
-}
-
-char unsigned Planet::AllComputersStarted()
-{
-// code at 0001:0005974e
-}
-
-char * Planet::GetMissionBriefingString( char *, char unsigned )
-{
-// code at 0001:000597ab
-}
-
 
 /******************************************************************************/

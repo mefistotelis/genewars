@@ -49,6 +49,21 @@ class SpecRaceData { // sizeof=16
 
 typedef class SpecRaceData SpecRaceData;
 
+struct Corners { // sizeof=4
+    SBYTE Cnw; // offset=0
+    SBYTE Cne; // offset=1
+    SBYTE Cse; // offset=2
+    SBYTE Csw; // offset=3
+};
+
+typedef struct Corners Corners;
+
+struct VMod { // sizeof=2
+    UBYTE Block; // offset=0
+    UBYTE Orient; // offset=1
+};
+
+typedef struct VMod VMod;
 
 
 extern TbLoadFiles startup_files[];

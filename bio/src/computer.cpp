@@ -38,16 +38,6 @@ void Packet::SetPacket( char unsigned, short, short, short, short, short )
 // code at 0001:00037940
 }
 
-char unsigned XY::operator ==( XY ) const
-{
-// code at 0001:000378f0
-}
-
-char unsigned XY::IsFoundationSiteWrong( char unsigned ) const
-{
-// code at 0001:000378bc
-}
-
 long GridTile::__defarg()
 {
 // code at 0001:00037898

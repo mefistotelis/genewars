@@ -228,12 +228,6 @@ class PSpecies { // sizeof=32
 
 typedef class PSpecies PSpecies;
 
-struct CreatureSpeciesForHerd { // sizeof=1
-    uint8_t player; // offset=0
-    uint8_t species; // offset=1
-};
-
-typedef struct CreatureSpeciesForHerd CreatureSpeciesForHerd;
 
 struct BuildingStage { // sizeof=1
     uint8_t player; // offset=0
@@ -1094,7 +1088,6 @@ typedef class LumberjackScan LumberjackScan;
 
 typedef class FarmerPlantingScan FarmerPlantingScan;
 
-char unsigned GridTile::__defarg();
 near WeightedRangeScanner::WeightedRangeScanner( XY &, long unsigned );
 char unsigned SoundManager::__defarg();
 char unsigned SoundManager::__defarg();

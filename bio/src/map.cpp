@@ -18,16 +18,6 @@
 /******************************************************************************/
 #include "map.hpp"
 
-XY XY::operator >>=( int )
-{
-// code at 0001:00056db4
-}
-
-XY XY::operator <<=( int )
-{
-// code at 0001:00056d78
-}
-
 char unsigned FlatMap::Valid()
 {
 // code at 0001:00056d40

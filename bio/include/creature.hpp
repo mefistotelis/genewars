@@ -119,12 +119,6 @@ enum CreatureState { // type=int8_t
 
 typedef enum CreatureState CreatureState;
 
-struct Normal { // sizeof=12
-    SLONG NX; // offset=0
-    SLONG NY; // offset=4
-    SLONG NZ; // offset=8
-};
-
 typedef struct Normal Normal;
 
 typedef class ThingIDX ThingIDX;
@@ -135,12 +129,6 @@ typedef class Player Player;
 
 typedef class Creature Creature;
 
-struct CreatureSpeciesForHerd { // sizeof=1
-    uint8_t player; // offset=0
-    uint8_t species; // offset=1
-};
-
-typedef struct CreatureSpeciesForHerd CreatureSpeciesForHerd;
 
 
 

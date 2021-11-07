@@ -18,11 +18,6 @@
 /******************************************************************************/
 #include "spec.hpp"
 
-XY XY::operator >>( int ) const
-{
-// code at 0001:000781c8
-}
-
 char unsigned GridTile::__defarg()
 {
 // code at 0001:000781a8

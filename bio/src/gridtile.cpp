@@ -253,6 +253,11 @@ void GridTile::FixErrorsAndShores( XY, XY, char unsigned )
 // code at 0001:0005d5f2
 }
 
+GridTile & GridTile::operator =( GridTile const & )
+{
+// code at 0001:00059864
+}
+
 void RangeScan::Init( XY &, long unsigned, char unsigned )
 {
 // code at 0001:0005d721

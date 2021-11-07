@@ -23,11 +23,6 @@ void Packet::SetPacket( char unsigned, short, short, short )
 // code at 0001:000262ec
 }
 
-XY XY::CenterFrom() const
-{
-// code at 0001:000262ac
-}
-
 long GridTile::__defarg()
 {
 // code at 0001:00026288

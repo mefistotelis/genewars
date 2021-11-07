@@ -55,13 +55,6 @@ typedef class PowerGraph PowerGraph;
 
 typedef class TheBase TheBase;
 
-struct BuildingStage { // sizeof=1
-    uint8_t player; // offset=0
-    uint8_t stage; // offset=1
-};
-
-typedef struct BuildingStage BuildingStage;
-
 class Building : StaticThing { // sizeof=67
     class Building * operator=(class Building *arg1);
     class Building * Building(class Building *arg1);
@@ -572,7 +565,6 @@ typedef class TurretScan TurretScan;
 
 typedef class ShieldScan ShieldScan;
 
-long GridTile::__defarg();
 char unsigned Thing::IsNew();
 long unsigned Thing::SquareTrueRangeTo( Thing * );
 short Thing::DirTo( Thing * );

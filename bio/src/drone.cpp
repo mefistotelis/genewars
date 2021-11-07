@@ -18,21 +18,6 @@
 /******************************************************************************/
 #include "drone.hpp"
 
-char unsigned XY::operator !=( XY ) const
-{
-// code at 0001:00005bc0
-}
-
-XY XY::operator +( XY ) const
-{
-// code at 0001:00005b80
-}
-
-XY XY::Set( short, short )
-{
-// code at 0001:00005b44
-}
-
 char unsigned MovingThing::Update()
 {
 // code at 0001:00005b0c

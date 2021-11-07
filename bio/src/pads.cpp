@@ -18,16 +18,6 @@
 /******************************************************************************/
 #include "pads.hpp"
 
-short XY::__defarg()
-{
-// code at 0001:0001e13c
-}
-
-void XY::Clear()
-{
-// code at 0001:0001e10c
-}
-
 char unsigned Thing::IsIndy()
 {
 // code at 0001:0001e0cc

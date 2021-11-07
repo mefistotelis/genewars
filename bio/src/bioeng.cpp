@@ -33,21 +33,6 @@ void base_mapxy_to_screenxy( long *, long *, short, short )
 // code at 0001:0004a04a
 }
 
-long XY::AltAt() const
-{
-// code at 0001:0004a0d6
-}
-
-long XY::ShadeAt() const
-{
-// code at 0001:0004a2a6
-}
-
-void XY::EverythingAt( long &, char unsigned & ) const
-{
-// code at 0001:0004a4f5
-}
-
 void find_mapxy( short *, short *, long, long )
 {
 // code at 0001:0004a7cb

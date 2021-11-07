@@ -18,16 +18,6 @@
 /******************************************************************************/
 #include "ethereal.hpp"
 
-char unsigned XY::__defarg()
-{
-// code at 0001:00004c30
-}
-
-XY XY::Add( short, short )
-{
-// code at 0001:00004bf4
-}
-
 near Vector::Vector()
 {
 // code at 0001:00004bac
@@ -501,16 +491,6 @@ Player & Thing::Player()
 char * Config::InstalledFile( char * )
 {
 // code at 0001:000036ac
-}
-
-GridTile * XY::GridtileAt() const
-{
-// code at 0001:00003664
-}
-
-char unsigned XY::TerrainAt() const
-{
-// code at 0001:00003630
 }
 
 PlSpec * Player::GetTeam( char unsigned )

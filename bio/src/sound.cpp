@@ -18,21 +18,6 @@
 /******************************************************************************/
 #include "sound.hpp"
 
-XY XY::operator -( XY ) const
-{
-// code at 0001:0003940c
-}
-
-XY XY::operator /=( int )
-{
-// code at 0001:000393c0
-}
-
-XY XY::operator <<( int ) const
-{
-// code at 0001:0003937c
-}
-
 char unsigned SoundTag::IsNewSample()
 {
 // code at 0001:00039344

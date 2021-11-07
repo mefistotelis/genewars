@@ -18,11 +18,6 @@
 /******************************************************************************/
 #include "player.hpp"
 
-Building * XY::__defarg()
-{
-// code at 0001:00052bf0
-}
-
 void Creature::SetPlayerActive( CreatureUserAction )
 {
 // code at 0001:00052bbc
@@ -61,11 +56,6 @@ void Specialist::ClearPlanetside()
 void PlSpec::InterruptMove()
 {
 // code at 0001:00052a9c
-}
-
-char unsigned XY::IsPassable( char unsigned, MovingThing * ) const
-{
-// code at 0001:00052a38
 }
 
 void PlSpec::SetupMoveToTgt( XY )

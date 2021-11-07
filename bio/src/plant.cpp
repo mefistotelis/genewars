@@ -18,11 +18,6 @@
 /******************************************************************************/
 #include "plant.hpp"
 
-XY XY::operator &( int ) const
-{
-// code at 0001:00085750
-}
-
 char unsigned GridTile::IsOffMap()
 {
 // code at 0001:00085718

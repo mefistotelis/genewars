@@ -491,7 +491,6 @@ char unsigned Effect::IsPackSpecValid();
 void Effect::UnpackSpec( Specialist & );
 char unsigned Thing::TToggle4();
 void MovingThing::DrawOnMap( short, short );
-XY GridTile::GetXY();
 void Event::Free();
 near ShotHitScan::ShotHitScan( Effect &, long );
 void ShotHitScan::PerGrid();

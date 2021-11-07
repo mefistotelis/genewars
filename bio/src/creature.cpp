@@ -18,16 +18,6 @@
 /******************************************************************************/
 #include "creature.hpp"
 
-XY XY::operator +( int ) const
-{
-// code at 0001:00084838
-}
-
-XY XY::operator -( int ) const
-{
-// code at 0001:000847f8
-}
-
 near WeightedRangeScanner::WeightedRangeScanner( XY &, long unsigned, XY *, long )
 {
 // code at 0001:00084770
@@ -191,11 +181,6 @@ void SmartMovingThing::SetMoveToBuilding( Building * )
 char unsigned SmartMovingThing::SetMoveToTgtTest( XY )
 {
 // code at 0001:00084078
-}
-
-char unsigned XY::IsPassable( char unsigned, Building *, MovingThing * ) const
-{
-// code at 0001:00083ff8
 }
 
 char unsigned Creature::AdultScale8()

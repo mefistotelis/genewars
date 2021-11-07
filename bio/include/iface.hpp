@@ -602,8 +602,6 @@ class IFCPlanetside : IFCBase { // sizeof=46
 };
 
 void Packet::SetPacket( char unsigned, short, short, short );
-long GridTile::__defarg();
-char unsigned GridTile::IsFoundation();
 char unsigned Thing::__defarg();
 char unsigned Thing::__defarg();
 char unsigned Creature::IsFrozen();
