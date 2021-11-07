@@ -66,6 +66,7 @@ obj/general/sqroot.o \
 obj/os/sdir.o \
 obj/os/sfile.o \
 obj/os/skeybd.o \
+obj/os/smemory.o \
 obj/os/smouse.o \
 obj/os/spalette.o \
 obj/os/sscreen.o \
@@ -74,8 +75,8 @@ obj/os/svesa.o \
 obj/os/swindows.o \
 
 
-INCS = -Iinclude
-CXXINCS = -Iinclude
+INCS = -I./include
+CXXINCS = -I./include
 # flags to generate dependency files
 DEPFLAGS = -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" 
 # code optimization flags
