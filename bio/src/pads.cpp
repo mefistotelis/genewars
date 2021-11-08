@@ -18,86 +18,6 @@
 /******************************************************************************/
 #include "pads.hpp"
 
-char unsigned Thing::IsIndy()
-{
-// code at 0001:0001e0cc
-}
-
-long Thing::Altitude()
-{
-// code at 0001:0001e0a4
-}
-
-long Thing::AltAboveGround()
-{
-// code at 0001:0001e080
-}
-
-char unsigned Thing::IsMovable()
-{
-// code at 0001:0001e05c
-}
-
-char unsigned Thing::IsMovingThing()
-{
-// code at 0001:0001e038
-}
-
-char unsigned Thing::IsFlying()
-{
-// code at 0001:0001e014
-}
-
-void Thing::Draw( XY )
-{
-// code at 0001:0001dfdc
-}
-
-char unsigned Thing::IsScreenPointInside( short, short, short, short )
-{
-// code at 0001:0001df78
-}
-
-void Thing::DrawOnMap( short, short )
-{
-// code at 0001:0001df40
-}
-
-void Thing::Init( ThingType, XY, char unsigned, short )
-{
-// code at 0001:0001de8c
-}
-
-void Thing::Discover()
-{
-// code at 0001:0001de60
-}
-
-void Thing::Undiscover()
-{
-// code at 0001:0001de34
-}
-
-char unsigned Thing::Damage( long, Thing * )
-{
-// code at 0001:0001ddfc
-}
-
-void Thing::StartFightWith( Thing * )
-{
-// code at 0001:0001dde0
-}
-
-char unsigned Thing::IsStasis()
-{
-// code at 0001:0001ddbc
-}
-
-char unsigned Thing::IsIgnoreClutter()
-{
-// code at 0001:0001dd98
-}
-
 void StaticThing::DrawOnMap( short, short )
 {
 // code at 0001:0001dd3c
@@ -321,41 +241,6 @@ char unsigned Player::IsSamePlayer( Thing * )
 void BoundMmsToMySprite( MyMinSprite &, MySprite & )
 {
 // code at 0001:0001d1f8
-}
-
-void Thing::Draw( short, short )
-{
-// code at 0001:0001d0d4
-}
-
-MyFrame * Thing::GetFrame()
-{
-// code at 0001:0001d068
-}
-
-void Thing::Sound( SampleID, char unsigned, char unsigned, char unsigned, long unsigned )
-{
-// code at 0001:0001d020
-}
-
-void Thing::StopSound( SampleID )
-{
-// code at 0001:0001cff8
-}
-
-void Thing::FadeSound( SampleID, short, char unsigned )
-{
-// code at 0001:0001cfc0
-}
-
-void Thing::FadeOutSound( SampleID, char unsigned )
-{
-// code at 0001:0001cf88
-}
-
-char unsigned Thing::IsSoundPlaying( SampleID )
-{
-// code at 0001:0001cf44
 }
 
 void StaticThing::DrawNoDraw( short, short )
@@ -647,11 +532,6 @@ void (near * const __vftbl[])();
 void (near * const __vftbl[])();
 
 void (near * const __vftbl[])();
-
-near Thing::Thing()
-{
-// code at 0001:0001cb28
-}
 
 void CreaturePad::MapDraw()
 {

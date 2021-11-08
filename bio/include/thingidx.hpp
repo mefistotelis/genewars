@@ -45,7 +45,7 @@ enum ThingType { // type=int8_t
 };
 
 class ThingIDX { // sizeof=3
-    ThingIDX(class ThingIDX *arg1);
+    // ThingIDX(ThingIDX *arg1); -- generate default copy constructor
     ThingIDX & operator =(ThingIDX const &arg1);
     Ethereal * IsEthereal();
     Drone * IsDrone();

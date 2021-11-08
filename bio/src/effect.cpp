@@ -33,21 +33,6 @@ SoundRequest * SoundManager::GetSoundReq( Thing * )
 // code at 0001:00049ae8
 }
 
-short Thing::__defarg()
-{
-// code at 0001:00049ac4
-}
-
-char unsigned Thing::__defarg()
-{
-// code at 0001:00049aa4
-}
-
-char unsigned Thing::IsEnemy( Thing * )
-{
-// code at 0001:00049a68
-}
-
 long MovingThing::Altitude()
 {
 // code at 0001:00049a40
@@ -211,11 +196,6 @@ void TheShip::RocketToOrbit()
 void ResearchGrid::CountAMonolithTouch( Creature * )
 {
 // code at 0001:00049314
-}
-
-char unsigned Thing::TToggle4()
-{
-// code at 0001:000492d0
 }
 
 void MovingThing::DrawOnMap( short, short )

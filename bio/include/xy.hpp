@@ -33,7 +33,7 @@ struct Normal { // sizeof=12
 };
 
 class XY { // sizeof=4
-    XY(class XY *obj1);
+    // XY(class XY *obj1); -- generate default copy constructor
     void LockUnlockFoundation(UBYTE arg1, BBOOL arg2) const;
     void MarkFoundation(UBYTE arg1, BBOOL arg2) const;
     UBYTE RawDirTo(XY arg1);

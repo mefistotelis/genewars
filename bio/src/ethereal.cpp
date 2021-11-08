@@ -83,41 +83,6 @@ char unsigned SoundManager::__defarg()
 // code at 0001:0000490c
 }
 
-char unsigned Thing::__defarg()
-{
-// code at 0001:000048ec
-}
-
-long unsigned Thing::__defarg()
-{
-// code at 0001:000048c8
-}
-
-char unsigned Thing::__defarg()
-{
-// code at 0001:000048a8
-}
-
-char unsigned Thing::Valid()
-{
-// code at 0001:00004870
-}
-
-void Thing::Invalidate()
-{
-// code at 0001:0000484c
-}
-
-long unsigned Thing::TrueRangeTo( Thing * )
-{
-// code at 0001:000047f4
-}
-
-long unsigned Thing::SquareRangeTo( Thing * )
-{
-// code at 0001:000047c0
-}
-
 void MovingThing::ChangeMove( Vector const & )
 {
 // code at 0001:00004784
@@ -431,16 +396,6 @@ void IFCBase::__vfthunk()
 char unsigned Player::Valid()
 {
 // code at 0001:00003a34
-}
-
-char unsigned Thing::TToggle()
-{
-// code at 0001:00003760
-}
-
-Player & Thing::Player()
-{
-// code at 0001:000036f4
 }
 
 char * Config::InstalledFile( char * )

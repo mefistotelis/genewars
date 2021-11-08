@@ -23,31 +23,6 @@ long GridTile::__defarg()
 // code at 0001:0004097c
 }
 
-char unsigned Thing::IsNew()
-{
-// code at 0001:00040944
-}
-
-long unsigned Thing::SquareTrueRangeTo( Thing * )
-{
-// code at 0001:000408ec
-}
-
-short Thing::DirTo( Thing * )
-{
-// code at 0001:000408b8
-}
-
-char unsigned Thing::IsSamePlayer( Thing * )
-{
-// code at 0001:0004087c
-}
-
-char unsigned Thing::BaseColor()
-{
-// code at 0001:00040850
-}
-
 @ * Creature::__defarg()
 {
 // code at 0001:0004082c

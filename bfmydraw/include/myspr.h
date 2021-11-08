@@ -26,7 +26,7 @@ extern "C" {
 #endif
 
 struct MyMinSprite { // sizeof=5
-    MyMinSprite(const struct MyMinSprite &spr1);
+    //MyMinSprite(const struct MyMinSprite &spr1); -- generate default copy constructor
     UBYTE frameDelay; // offset=0
     UBYTE current; // offset=1
     SBYTE delta; // offset=2

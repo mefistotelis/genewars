@@ -43,11 +43,6 @@ long GridTile::__defarg()
 // code at 0001:00037898
 }
 
-char unsigned SmartMovingThing::IsAvoidActive()
-{
-// code at 0001:00037858
-}
-
 char unsigned Gene::IsBasicInGene( CreatureBaseSpecies )
 {
 // code at 0001:00037814

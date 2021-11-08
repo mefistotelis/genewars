@@ -33,7 +33,7 @@ class Player;
 
 class Thing { // sizeof=39
     Thing * operator=(Thing *arg1);
-    Thing(Thing *arg1);
+    //Thing(Thing *arg1); -- generate default copy constructor
     Thing();
     Vector PredictTargetShot(Thing *arg1, SLONG arg2, SLONG arg3, ULONG arg4);
     UBYTE CreateEffectExplosion(EffectType arg1, UBYTE arg2, SLONG arg3, SLONG arg4, UBYTE arg5);
@@ -68,18 +68,18 @@ class Thing { // sizeof=39
     SLONG Altitude();
     BBOOL IsDitheredColor();
     UBYTE BaseColor();
-    BBOOL IsEnemy(Thing *arg1);
-    BBOOL IsSamePlayer(Thing *arg1);
+    BBOOL IsEnemy(Thing *tng1);
+    BBOOL IsSamePlayer(Thing *tng1);
     BBOOL IsIndy();
-    SWORD DirTo(Thing *arg1);
-    ULONG RangeTo(Thing *arg1);
-    ULONG SquareRangeTo(Thing *arg1);
-    ULONG TrueRangeTo(Thing *arg1);
-    ULONG SquareTrueRangeTo(Thing *arg1);
+    SWORD DirTo(Thing *tng1);
+    ULONG RangeTo(Thing *tng1);
+    ULONG SquareRangeTo(Thing *tng1);
+    ULONG TrueRangeTo(Thing *tng1);
+    ULONG SquareTrueRangeTo(Thing *tng1);
     BBOOL TToggle4();
     BBOOL TToggle();
-    TheBase * Base();
-    Player * Player();
+    TheBase & Base();
+    Player & Player();
     BBOOL IsNew();
     void Invalidate();
     BBOOL Valid();

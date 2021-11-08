@@ -33,31 +33,6 @@ near WeightedTgtRangeScanner::WeightedTgtRangeScanner( XY &, long unsigned, XY *
 // code at 0001:00084698
 }
 
-char unsigned Thing::IsDitheredColor()
-{
-// code at 0001:00084658
-}
-
-char unsigned SmartMovingThing::IsAvoidWaiting()
-{
-// code at 0001:00084618
-}
-
-void SmartMovingThing::ClearIsFlying()
-{
-// code at 0001:000845f0
-}
-
-void SmartMovingThing::SetIsFlying()
-{
-// code at 0001:000845bc
-}
-
-void SmartMovingThing::SetMoveToTgtWithDir( XY )
-{
-// code at 0001:0008457c
-}
-
 char unsigned Creature::__defarg()
 {
 // code at 0001:0008455c

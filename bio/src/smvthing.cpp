@@ -93,5 +93,30 @@ void SmartMovingThing::PreMoveSituationCheck()
 // code at 0001:00088b04
 }
 
+char unsigned SmartMovingThing::IsAvoidActive()
+{
+// code at 0001:00037858
+}
+
+char unsigned SmartMovingThing::IsAvoidWaiting()
+{
+// code at 0001:00084618
+}
+
+void SmartMovingThing::ClearIsFlying()
+{
+// code at 0001:000845f0
+}
+
+void SmartMovingThing::SetIsFlying()
+{
+// code at 0001:000845bc
+}
+
+void SmartMovingThing::SetMoveToTgtWithDir( XY )
+{
+// code at 0001:0008457c
+}
+
 
 /******************************************************************************/

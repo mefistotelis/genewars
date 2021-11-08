@@ -33,16 +33,6 @@ char unsigned GridTile::IsFoundation()
 // code at 0001:0002624c
 }
 
-char unsigned Thing::__defarg()
-{
-// code at 0001:0002622c
-}
-
-char unsigned Thing::__defarg()
-{
-// code at 0001:0002620c
-}
-
 char unsigned Creature::IsFrozen()
 {
 // code at 0001:000261d4
@@ -246,11 +236,6 @@ char unsigned Player::IsEnemy( Thing * )
 char unsigned Player::BaseColor()
 {
 // code at 0001:00025608
-}
-
-TheBase & Thing::Base()
-{
-// code at 0001:00025598
 }
 
 char unsigned Building::IsDamaged()

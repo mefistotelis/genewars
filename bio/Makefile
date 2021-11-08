@@ -81,7 +81,6 @@ obj/smemory.o \
 obj/sound.o \
 obj/spec.o \
 obj/tables.o \
-obj/thing.o \
 obj/mvthing.o \
 obj/smvthing.o \
 obj/title.o \
@@ -93,6 +92,7 @@ obj/pchost.o \
 obj/pcmain.o \
 obj/planet.o \
 obj/thingidx.o \
+obj/thing.o \
 obj/xy.o \
 $(RES)
 
