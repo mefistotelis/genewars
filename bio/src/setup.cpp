@@ -48,11 +48,6 @@ void Creature::Undiscover()
 // code at 0001:00061830
 }
 
-char unsigned Effect::IsDead()
-{
-// code at 0001:0006180c
-}
-
 char unsigned Event::IsStaticallyDrawn()
 {
 // code at 0001:000617e8
@@ -98,16 +93,6 @@ char unsigned Player::__defarg()
 // code at 0001:00061604
 }
 
-char unsigned Effect::IsMovable()
-{
-// code at 0001:000615d0
-}
-
-char unsigned Effect::IsASplasher()
-{
-// code at 0001:0006159c
-}
-
 void start_game()
 {
 // code at 0001:00060954
@@ -121,11 +106,6 @@ near Ethereal::Ethereal()
 near Event::Event()
 {
 // code at 0001:000614f4
-}
-
-near Effect::Effect()
-{
-// code at 0001:000614bc
 }
 
 near Creature::Creature()

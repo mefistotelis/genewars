@@ -68,5 +68,70 @@ void WeightedTgtRangeScanner::Do()
 // code at 0001:0005dbb7
 }
 
+void ResearchGrid::CountAMonolithTouch( Creature * )
+{
+// code at 0001:00049314
+}
+
+void Event::Free()
+{
+// code at 0001:000490e0
+}
+
+near ShotHitScan::ShotHitScan( Effect &, long )
+{
+// code at 0001:0004902c
+}
+
+void ShotHitScan::PerGrid()
+{
+// code at 0001:00048ee0
+}
+
+near FireScan::FireScan( Effect & )
+{
+// code at 0001:00048e90
+}
+
+void FireScan::PerGrid()
+{
+// code at 0001:00048cf8
+}
+
+near MonolithHitScan::MonolithHitScan( Effect & )
+{
+// code at 0001:00048c94
+}
+
+void MonolithHitScan::PerGrid()
+{
+// code at 0001:00048c08
+}
+
+near StasisBoltScan::StasisBoltScan( Effect &, long )
+{
+// code at 0001:00048b78
+}
+
+void StasisBoltScan::PerGrid()
+{
+// code at 0001:00048a20
+}
+
+void FlickerStuff::Invalidate()
+{
+// code at 0001:000489fc
+}
+
+char unsigned FlickerStuff::Valid()
+{
+// code at 0001:000489d0
+}
+
+void FlickerHandler::Free( char unsigned )
+{
+// code at 0001:000489a0
+}
+
 
 /******************************************************************************/

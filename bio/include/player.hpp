@@ -150,61 +150,6 @@ class Player { // sizeof=233
     UBYTE solarSystem; // offset=232
 };
 
-class SoundManager { // sizeof=159
-    class SoundManager * SoundManager(class SoundManager *arg1);
-    BBOOL CanSamplePlay(ULONG arg1, SampleID arg2, UBYTE arg3);
-    UBYTE ComputePan(XY arg1);
-    UBYTE ComputeVolume(XY arg1, UBYTE arg2);
-    SoundRequest * GetSoundReq(Thing *arg1, SoundRequest *arg2, BBOOL arg3);
-    SampleInfo * GetSampleInfo(ULONG arg1, SampleID arg2);
-    void SubmitBufferedSound(char *arg1, SoundRequest *arg2);
-    void SubmitSoundRequest(SoundRequest *arg1);
-    void FreeRequest(SoundRequest *arg1);
-    void StopSpeech();
-    void StartSpeech(SoundRequest *arg1);
-    void FadeOutAmbient(SoundRequest *arg1);
-    void StopOldAndEstablishAmbient();
-    void EstablishAmbient();
-    UBYTE GetCDTrackPlaying();
-    BBOOL IsCDPlaying();
-    BBOOL IsNarratorSpeaking();
-    UBYTE NumRequests();
-    SoundRequest * GetSoundReq(Thing *arg1);
-    SoundRequest * GetNextSoundReq(Thing *arg1, SoundRequest *arg2);
-    SoundRequest * GetSoundReq(ULONG arg1, SampleID arg2);
-    void KillAllSounds();
-    void CloseAllSpeech();
-    void StopCD();
-    void PlayCDTrack(UBYTE arg1);
-    void StopSound(UBYTE arg1, SampleID arg2);
-    void RegisterFreedThing(Thing *arg1);
-    void ProcessSounds();
-    void Sound(UBYTE arg1, char *arg2, BufferSubmitMode arg3, UBYTE arg4, UBYTE arg5, UBYTE arg6, ULONG arg7, UBYTE arg8);
-    void Sound(Thing *arg1, char *arg2, BufferSubmitMode arg3, UBYTE arg4, UBYTE arg5, UBYTE arg6, ULONG arg7);
-    void Sound(UBYTE arg1, SampleID arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5, ULONG arg6, UBYTE arg7);
-    void Sound(Thing *arg1, SampleID arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5, ULONG arg6);
-    void ChangeAmbientVolume(UBYTE arg1);
-    void SilenceAmbientSample();
-    void ChangeAmbientSample(SampleID arg1);
-    class SoundManager * SoundManager(XY arg1);
-    SpeechFileStatus speech[17];
-    UBYTE playingCDTrack;
-    BBOOL narratorSpeaking;
-    SBYTE samplesPlaying[93];
-    SampleBufferQueue bufferQueue;
-    char sampleToLoadInBuffer[63];
-    UBYTE sampleBuffer[255];
-    SoundRequest *bufferReq;
-    UBYTE numRequests;
-    UBYTE ambientSampleVolume;
-    SampleID ambientSampleNum;
-    SoundTag bumpTags[8];
-    SoundRequest requests[8];
-    XY origin;
-};
-
-
-
 class PaletteSelector { // sizeof=81
     class PaletteSelector * PaletteSelector(class PaletteSelector *arg1);
     void RestoreSelectFilter();
@@ -311,65 +256,6 @@ class GroupPad : MainInterfacePad { // sizeof=35
 
 typedef class GroupPad GroupPad;
 
-class IFCPlanetside : IFCBase { // sizeof=46
-    class IFCPlanetside * IFCPlanetside(class IFCPlanetside *arg1);
-    void DrawTgtFlag();
-    void DrawBadBar(UBYTE arg1);
-    void BarHelp(MyGadget *arg1);
-    void MapHelp(MyGadget *arg1);
-    void GeneralGadgetHelp(MyGadget *arg1);
-    void CircleHelp(MyGadget *arg1);
-    void TgtFlagEffect(XY arg1, Thing *arg2);
-    void JumpToNextBuilding();
-    void ClearInterfaceReferencesTo(Thing *arg1);
-    void CyanFlicker(UBYTE arg1);
-    void EnableAllCircles();
-    void DisableAllCircles();
-    void DrawAllBottomControls();
-    void DrawGameMap();
-    void DrawGoopMeter();
-    void DrawBadOMeter();
-    void ResetForNewGame();
-    BBOOL IsOnOffSwitchOn();
-    void SetOnOffSwitch(BBOOL arg1);
-    void SetBarsRefresh(UBYTE arg1);
-    void CloseActivePad();
-    BBOOL IsThingSelectedInPad(Thing *arg1);
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    class IFCPlanetside * IFCPlanetside(MyGadget *arg1);
-    void (**__vfptr)();
-    unsigned int *__vbptr;
-    uint8_t helpState;
-    uint8_t onOffSwitchState;
-    UBYTE masterSoundVolume;
-    XY tgtFlagXY;
-    MyMinSprite tgtFlagMMs;
-    XY mapMouseScroll;
-    Building *jumpBuilding;
-    MyGadget *gad; // offset=4
-    MyAnimBank *anb; // offset=8
-    MySprite *mSpr; // offset=12
-    TbSprite *spr; // offset=16
-    MyAnimBank *pIconsAnb; // offset=20
-    MySprite *pIconsMSpr; // offset=24
-    TbSprite *pIconsSpr; // offset=28
-    TeamCircles circles; // offset=32
-    BuildingPad buildingPad; // offset=82
-    PaletteSelector actionPalette; // offset=95
-    WindowPad winPad; // offset=108
-    GroupPad groupPad; // offset=120
-    GroupSelect group; // offset=155
-    CreaturePad creaturePad; // offset=157
-    EtherealScope eScope; // offset=176
-    uint8_t noSwitch; // offset=187
-    MainInterfacePad *mainPad; // offset=188
-    BasicPad basicPad; // offset=192
-    ClonePad clonePad; // offset=201
-    LabPad labPad; // offset=214
-};
 
 void Creature::SetPlayerActive( CreatureUserAction );
 char unsigned Plant::IsDead();

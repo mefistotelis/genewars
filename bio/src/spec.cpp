@@ -93,11 +93,6 @@ long PlSpec::ArchitectPelletCost()
 // code at 0001:00077e5c
 }
 
-void Effect::PackSpec( Specialist & )
-{
-// code at 0001:00077e1c
-}
-
 void TopoGrid::Invalidate()
 {
 // code at 0001:00077df8

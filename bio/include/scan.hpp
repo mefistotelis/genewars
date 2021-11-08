@@ -107,5 +107,46 @@ class WeightedTgtRangeScanner : WeightedRangeScanner { // sizeof=238
     Thing *tgtThing; // offset=106
 };
 
+class ShotHitScan : RangeScanner { // sizeof=62
+    class ShotHitScan * ShotHitScan(class ShotHitScan *arg1);
+    void PerGrid();
+    class ShotHitScan * ShotHitScan(Effect arg1, SLONG arg2);
+    void (**__vfptr)();
+    ULONG bestRange;
+    ULONG sqShotRadius;
+    Thing *creator;
+    Effect shot;
+    Thing *hitThing; // offset=41
+    BBOOL ricochet; // offset=45
+};
+
+class FireScan : RangeScanner { // sizeof=45
+    class FireScan * FireScan(class FireScan *arg1);
+    void PerGrid();
+    class FireScan * FireScan(Effect arg1);
+    void (**__vfptr)();
+    Effect fire;
+};
+
+class MonolithHitScan : RangeScanner { // sizeof=53
+    class MonolithHitScan * MonolithHitScan(class MonolithHitScan *arg1);
+    void PerGrid();
+    class MonolithHitScan * MonolithHitScan(Effect arg1);
+    void (**__vfptr)();
+    ULONG bestRange;
+    Effect mono;
+    Thing *hitThing; // offset=41
+};
+
+class StasisBoltScan : RangeScanner { // sizeof=50
+    class StasisBoltScan * StasisBoltScan(class StasisBoltScan *arg1);
+    void PerGrid();
+    class StasisBoltScan * StasisBoltScan(Effect arg1, SLONG arg2);
+    void (**__vfptr)();
+    ULONG sqShotRadius;
+    Effect shot;
+    BBOOL hitThing; // offset=41
+};
+
 #endif // SCAN_HPP_
 /******************************************************************************/

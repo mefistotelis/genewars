@@ -133,11 +133,6 @@ void Plant::ClearBeingEaten()
 // code at 0001:000841a4
 }
 
-GridTile * Effect::__defarg()
-{
-// code at 0001:00084180
-}
-
 char unsigned * __defarg()
 {
 // code at 0001:0008415c

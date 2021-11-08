@@ -238,11 +238,6 @@ char signed Player::GetNum( PlSpec * )
 // code at 0001:000254e4
 }
 
-EtherealZone & Effect::GetEZone()
-{
-// code at 0001:000254b0
-}
-
 long PlSpec::ArchitectBuildCost( BuildingType )
 {
 // code at 0001:00025470

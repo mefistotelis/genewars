@@ -19,60 +19,6 @@
 #ifndef BIO_CONTROL_HPP_
 #define BIO_CONTROL_HPP_
 
-class SoundManager { // sizeof=159
-    class SoundManager * SoundManager(class SoundManager *arg1);
-    BBOOL CanSamplePlay(ULONG arg1, SampleID arg2, UBYTE arg3);
-    UBYTE ComputePan(XY arg1);
-    UBYTE ComputeVolume(XY arg1, UBYTE arg2);
-    SoundRequest * GetSoundReq(Thing *arg1, SoundRequest *arg2, BBOOL arg3);
-    SampleInfo * GetSampleInfo(ULONG arg1, SampleID arg2);
-    void SubmitBufferedSound(char *arg1, SoundRequest *arg2);
-    void SubmitSoundRequest(SoundRequest *arg1);
-    void FreeRequest(SoundRequest *arg1);
-    void StopSpeech();
-    void StartSpeech(SoundRequest *arg1);
-    void FadeOutAmbient(SoundRequest *arg1);
-    void StopOldAndEstablishAmbient();
-    void EstablishAmbient();
-    UBYTE GetCDTrackPlaying();
-    BBOOL IsCDPlaying();
-    BBOOL IsNarratorSpeaking();
-    UBYTE NumRequests();
-    SoundRequest * GetSoundReq(Thing *arg1);
-    SoundRequest * GetNextSoundReq(Thing *arg1, SoundRequest *arg2);
-    SoundRequest * GetSoundReq(ULONG arg1, SampleID arg2);
-    void KillAllSounds();
-    void CloseAllSpeech();
-    void StopCD();
-    void PlayCDTrack(UBYTE arg1);
-    void StopSound(UBYTE arg1, SampleID arg2);
-    void RegisterFreedThing(Thing *arg1);
-    void ProcessSounds();
-    void Sound(UBYTE arg1, char *arg2, BufferSubmitMode arg3, UBYTE arg4, UBYTE arg5, UBYTE arg6, ULONG arg7, UBYTE arg8);
-    void Sound(Thing *arg1, char *arg2, BufferSubmitMode arg3, UBYTE arg4, UBYTE arg5, UBYTE arg6, ULONG arg7);
-    void Sound(UBYTE arg1, SampleID arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5, ULONG arg6, UBYTE arg7);
-    void Sound(Thing *arg1, SampleID arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5, ULONG arg6);
-    void ChangeAmbientVolume(UBYTE arg1);
-    void SilenceAmbientSample();
-    void ChangeAmbientSample(SampleID arg1);
-    class SoundManager * SoundManager(XY arg1);
-    SpeechFileStatus speech[17];
-    UBYTE playingCDTrack;
-    BBOOL narratorSpeaking;
-    SBYTE samplesPlaying[93];
-    SampleBufferQueue bufferQueue;
-    char sampleToLoadInBuffer[63];
-    UBYTE sampleBuffer[255];
-    SoundRequest *bufferReq;
-    UBYTE numRequests;
-    UBYTE ambientSampleVolume;
-    SampleID ambientSampleNum;
-    SoundTag bumpTags[8];
-    SoundRequest requests[8];
-    XY origin;
-};
-
-
 class TextEntry { // sizeof=73
     class TextEntry * TextEntry(class TextEntry *arg1);
     BBOOL ValidChar(UBYTE arg1);

@@ -28,36 +28,6 @@ enum PadBmp { // type=int8_t
 
 typedef enum PadBmp PadBmp;
 
-class SoundRequest { // sizeof=23
-    BBOOL Valid();
-    void Invalidate();
-    SampleInfo *sampleInfo; // offset=0
-    Thing *thing; // offset=4
-    ULONG id; // offset=8
-    ULONG pitch; // offset=12
-    SampleID sampleNum; // offset=16
-    UBYTE volume; // offset=18
-    SBYTE loop; // offset=19
-    UBYTE type; // offset=20
-    UBYTE pan; // offset=21
-    BBOOL makeSoft; // offset=22
-};
-
-typedef class SoundRequest SoundRequest;
-
-class SampleBufferQueue { // sizeof=94
-    void Reset();
-    char * GetNext(SoundRequest *arg1);
-    BBOOL Add(char *arg1, SoundRequest *arg2);
-    UBYTE size;
-    UBYTE first;
-    char names[3][63];
-    SoundRequest req[3];
-};
-
-typedef class SampleBufferQueue SampleBufferQueue;
-
-
 class MapBucketThing { // sizeof=10
     SWORD next; // offset=0
     SWORD x; // offset=2
@@ -384,65 +354,6 @@ class GroupPad : MainInterfacePad { // sizeof=35
 
 typedef class GroupPad GroupPad;
 
-class IFCPlanetside : IFCBase { // sizeof=46
-    class IFCPlanetside * IFCPlanetside(class IFCPlanetside *arg1);
-    void DrawTgtFlag();
-    void DrawBadBar(UBYTE arg1);
-    void BarHelp(MyGadget *arg1);
-    void MapHelp(MyGadget *arg1);
-    void GeneralGadgetHelp(MyGadget *arg1);
-    void CircleHelp(MyGadget *arg1);
-    void TgtFlagEffect(XY arg1, Thing *arg2);
-    void JumpToNextBuilding();
-    void ClearInterfaceReferencesTo(Thing *arg1);
-    void CyanFlicker(UBYTE arg1);
-    void EnableAllCircles();
-    void DisableAllCircles();
-    void DrawAllBottomControls();
-    void DrawGameMap();
-    void DrawGoopMeter();
-    void DrawBadOMeter();
-    void ResetForNewGame();
-    BBOOL IsOnOffSwitchOn();
-    void SetOnOffSwitch(BBOOL arg1);
-    void SetBarsRefresh(UBYTE arg1);
-    void CloseActivePad();
-    BBOOL IsThingSelectedInPad(Thing *arg1);
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    class IFCPlanetside * IFCPlanetside(MyGadget *arg1);
-    void (**__vfptr)();
-    unsigned int *__vbptr;
-    uint8_t helpState;
-    uint8_t onOffSwitchState;
-    UBYTE masterSoundVolume;
-    XY tgtFlagXY;
-    MyMinSprite tgtFlagMMs;
-    XY mapMouseScroll;
-    Building *jumpBuilding;
-    MyGadget *gad; // offset=4
-    MyAnimBank *anb; // offset=8
-    MySprite *mSpr; // offset=12
-    TbSprite *spr; // offset=16
-    MyAnimBank *pIconsAnb; // offset=20
-    MySprite *pIconsMSpr; // offset=24
-    TbSprite *pIconsSpr; // offset=28
-    TeamCircles circles; // offset=32
-    BuildingPad buildingPad; // offset=82
-    PaletteSelector actionPalette; // offset=95
-    WindowPad winPad; // offset=108
-    GroupPad groupPad; // offset=120
-    GroupSelect group; // offset=155
-    CreaturePad creaturePad; // offset=157
-    EtherealScope eScope; // offset=176
-    uint8_t noSwitch; // offset=187
-    MainInterfacePad *mainPad; // offset=188
-    BasicPad basicPad; // offset=192
-    ClonePad clonePad; // offset=201
-    LabPad labPad; // offset=214
-};
 
 char unsigned Thing::IsIndy();
 long Thing::Altitude();

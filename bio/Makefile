@@ -56,7 +56,6 @@ obj/custom.o \
 obj/data.o \
 obj/draw.o \
 obj/editor.o \
-obj/effect.o \
 obj/ethereal.o \
 obj/font.o \
 obj/iface.o \
@@ -89,6 +88,7 @@ obj/thing.o \
 obj/mvthing.o \
 obj/smvthing.o \
 obj/drone.o \
+obj/effect.o \
 obj/io.o \
 obj/game.o \
 obj/pchost.o \

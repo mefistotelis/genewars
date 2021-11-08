@@ -18,122 +18,22 @@
 /******************************************************************************/
 #include "effect.hpp"
 
-void Point::Set( long, long, long )
+/*Effect::Effect()
 {
-// code at 0001:00049cac
-}
-
-char unsigned SoundManager::__defarg()
-{
-// code at 0001:00049b24
-}
-
-SoundRequest * SoundManager::GetSoundReq( Thing * )
-{
-// code at 0001:00049ae8
-}
-
-char unsigned Creature::CanArmor()
-{
-// code at 0001:000494e8
-}
-
-char unsigned PlSpec::IsDead()
-{
-// code at 0001:000494a8
-}
-
-char unsigned PlSpec::IsScreenPointInside( short, short, short, short )
-{
-// code at 0001:00049444
-}
-
-char unsigned PlSpec::IsMovable()
-{
-// code at 0001:00049408
-}
+// code at 0001:000614bc
+}*/
 
 char unsigned Effect::IsPackSpecValid()
 {
 // code at 0001:000493cc
 }
 
-void Effect::UnpackSpec( Specialist & )
+void Effect::UnpackSpec(Specialist &spec)
 {
 // code at 0001:00049374
 }
 
-void TheShip::RocketToOrbit()
-{
-// code at 0001:00049340
-}
-
-void ResearchGrid::CountAMonolithTouch( Creature * )
-{
-// code at 0001:00049314
-}
-
-void Event::Free()
-{
-// code at 0001:000490e0
-}
-
-near ShotHitScan::ShotHitScan( Effect &, long )
-{
-// code at 0001:0004902c
-}
-
-void ShotHitScan::PerGrid()
-{
-// code at 0001:00048ee0
-}
-
-near FireScan::FireScan( Effect & )
-{
-// code at 0001:00048e90
-}
-
-void FireScan::PerGrid()
-{
-// code at 0001:00048cf8
-}
-
-near MonolithHitScan::MonolithHitScan( Effect & )
-{
-// code at 0001:00048c94
-}
-
-void MonolithHitScan::PerGrid()
-{
-// code at 0001:00048c08
-}
-
-near StasisBoltScan::StasisBoltScan( Effect &, long )
-{
-// code at 0001:00048b78
-}
-
-void StasisBoltScan::PerGrid()
-{
-// code at 0001:00048a20
-}
-
-void FlickerStuff::Invalidate()
-{
-// code at 0001:000489fc
-}
-
-char unsigned FlickerStuff::Valid()
-{
-// code at 0001:000489d0
-}
-
-void FlickerHandler::Free( char unsigned )
-{
-// code at 0001:000489a0
-}
-
-Effect * Effect::Create( EffectType, XY, long, Vector const &, short unsigned, char unsigned, char signed, Thing * )
+Effect * Effect::Create(EffectType arg1, XY cor2, SLONG arg3, Vector const &vec4, UWORD arg5, UBYTE arg6, SBYTE arg7, ::Thing *tng8)
 {
 // code at 0001:00040c1c
 }
@@ -153,47 +53,47 @@ void Effect::Resync()
 // code at 0001:000425bd
 }
 
-void Effect::Read( long & )
+void Effect::Read(SLONG &arg1)
 {
 // code at 0001:000426ba
 }
 
-void Effect::Write( long & )
+void Effect::Write(SLONG &arg1)
 {
 // code at 0001:00042719
 }
 
-void Effect::DrawOnMap( short, short )
+void Effect::DrawOnMap(SWORD arg1, SWORD arg2)
 {
 // code at 0001:0004275a
 }
 
-char unsigned Effect::MakeFire( GridTile *, long )
+UBYTE Effect::MakeFire(GridTile *arg1, SLONG arg2)
 {
 // code at 0001:0004393a
 }
 
-char unsigned Effect::IsChunkyDeath()
+BBOOL Effect::IsChunkyDeath()
 {
 // code at 0001:000439e4
 }
 
-char unsigned Effect::IsScreenPointInside( short, short, short, short )
+BBOOL Effect::IsScreenPointInside(SWORD arg1, SWORD arg2, SWORD arg3, SWORD arg4)
 {
 // code at 0001:00043a2e
 }
 
-long Effect::ReadBuffer( Effect * *, long, long, BioGame & )
+SLONG Effect::ReadBuffer(Effect **eff1, SLONG arg2, SLONG arg3, BioGame &game)
 {
 // code at 0001:00043adb
 }
 
-long Effect::WriteBuffer( Effect * *, long, long, BioGame & )
+SLONG Effect::WriteBuffer(Effect **eff1, SLONG arg2, SLONG arg3, BioGame &game)
 {
 // code at 0001:00043b5a
 }
 
-void Effect::DrawZoneMarker( long, long, long, long )
+void Effect::DrawZoneMarker(SLONG arg1, SLONG arg2, SLONG arg3, SLONG arg4)
 {
 // code at 0001:00043bd9
 }
@@ -203,17 +103,17 @@ Plant * Effect::StripDragTree( GridTile * )
 // code at 0001:00044158
 }
 
-void Effect::KillSoundOffTag( XY, SampleID, char unsigned )
+void Effect::KillSoundOffTag(XY cor1, SampleID arg2, BBOOL arg3)
 {
 // code at 0001:00044292
 }
 
-char unsigned Effect::CreateNewEffectFromOld( EffectStats const & )
+UBYTE Effect::CreateNewEffectFromOld(EffectStats const &effsta)
 {
 // code at 0001:00044343
 }
 
-char unsigned Effect::Update()
+UBYTE Effect::Update()
 {
 // code at 0001:0004443b
 }
@@ -223,89 +123,60 @@ void Effect::UpdateAll()
 // code at 0001:00047866
 }
 
-char signed FlickerHandler::Create()
-{
-// code at 0001:00047a17
-}
-
-char unsigned Event::CreateSphereRing( Point *, char unsigned *, char unsigned )
-{
-// code at 0001:00047a78
-}
-
-Event * Event::Create( char unsigned, XY, char unsigned, Thing * )
-{
-// code at 0001:00047bce
-}
-
-void Event::InitArray()
-{
-// code at 0001:00047eb6
-}
-
-void Event::Resync()
-{
-// code at 0001:00047f02
-}
-
-void Event::Read( long & )
-{
-// code at 0001:00047f1c
-}
-
-void Event::Write( long & )
-{
-// code at 0001:00047f7b
-}
-
-long Event::ReadBuffer( Event * *, long, long, BioGame & )
-{
-// code at 0001:00047fbc
-}
-
-near PlSpec::PlSpec()
-{
-// code at 0001:00048968
-}
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-long Event::WriteBuffer( Event * *, long, long, BioGame & )
-{
-// code at 0001:0004803b
-}
-
-char unsigned Event::Update()
-{
-// code at 0001:000480ba
-}
-
-void Event::UpdateAll()
-{
-// code at 0001:000486a7
-}
-
-char unsigned Effect::operator ==( Effect * )
+BBOOL Effect::operator ==(Effect *eff1)
 {
 // code at 0001:000487d4
 }
 
-char unsigned Event::operator ==( Event * )
+EtherealZone & Effect::GetEZone()
 {
-// code at 0001:0004882d
+// code at 0001:000254b0
 }
+
+BBOOL Effect::IsDead()
+{
+// code at 0001:0006180c
+}
+
+BBOOL Effect::IsMovable()
+{
+// code at 0001:000615d0
+}
+
+BBOOL Effect::IsASplasher()
+{
+// code at 0001:0006159c
+}
+
+void Effect::PackSpec(Specialist &spec)
+{
+// code at 0001:00077e1c
+}
+
+/*GridTile * Effect::__defarg()
+{
+// code at 0001:00084180
+}*/
+
+/*short unsigned Effect::__defarg()
+{
+// code at 0001:000044c0
+}*/
+
+/*char unsigned Effect::__defarg()
+{
+// code at 0001:000044a0
+}*/
+
+/*char signed Effect::__defarg()
+{
+// code at 0001:00004480
+}*/
+
+/*Thing * Effect::__defarg()
+{
+// code at 0001:0000445c
+}*/
 
 
 /******************************************************************************/

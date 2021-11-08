@@ -98,26 +98,6 @@ char unsigned Building::IsObservable()
 // code at 0001:000044e4
 }
 
-short unsigned Effect::__defarg()
-{
-// code at 0001:000044c0
-}
-
-char unsigned Effect::__defarg()
-{
-// code at 0001:000044a0
-}
-
-char signed Effect::__defarg()
-{
-// code at 0001:00004480
-}
-
-Thing * Effect::__defarg()
-{
-// code at 0001:0000445c
-}
-
 void Ethereal::SetMoveToTgtWithAlt( XY, long )
 {
 // code at 0001:00004424
