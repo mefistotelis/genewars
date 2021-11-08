@@ -20,7 +20,8 @@
 #define THEBASE_HPP_
 
 class TheBase { // sizeof=121
-    class TheBase * TheBase(class TheBase *arg1);
+public:
+    TheBase(TheBase *arg1);
     void ComputeCenter();
     Building * NearestAnyBuilding(XY arg1, ULONG arg2, UWORD arg3, SBYTE arg4);
     void UseGoop(SLONG arg1);

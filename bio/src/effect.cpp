@@ -33,131 +33,6 @@ SoundRequest * SoundManager::GetSoundReq( Thing * )
 // code at 0001:00049ae8
 }
 
-long MovingThing::Altitude()
-{
-// code at 0001:00049a40
-}
-
-long MovingThing::AltAboveGround()
-{
-// code at 0001:00049a14
-}
-
-char unsigned MovingThing::IsMovable()
-{
-// code at 0001:000499f0
-}
-
-char unsigned MovingThing::IsStaticallyDrawn()
-{
-// code at 0001:000499cc
-}
-
-char unsigned MovingThing::IsMovingThing()
-{
-// code at 0001:000499a8
-}
-
-char unsigned MovingThing::IsVectorable()
-{
-// code at 0001:00049984
-}
-
-char unsigned MovingThing::IsScreenPointInside( short, short, short, short )
-{
-// code at 0001:00049904
-}
-
-void MovingThing::Init( ThingType, XY, char unsigned, short, long, Vector const & )
-{
-// code at 0001:00049890
-}
-
-char unsigned MovingThing::ShapeFacing()
-{
-// code at 0001:0004985c
-}
-
-short MovingThing::MaxMoveSpeed()
-{
-// code at 0001:00049838
-}
-
-void MovingThing::StopMoving()
-{
-// code at 0001:00049814
-}
-
-void MovingThing::NewGridUpdate( GridTile * )
-{
-// code at 0001:000497f8
-}
-
-char unsigned MovingThing::NeedToAvoid( GridTile * )
-{
-// code at 0001:000497d4
-}
-
-char unsigned MovingThing::IsASplasher()
-{
-// code at 0001:000497b0
-}
-
-void MovingThing::ChangeMove( ComponentVector const & )
-{
-// code at 0001:00049774
-}
-
-char unsigned MovingThing::IsMoving( short )
-{
-// code at 0001:00049728
-}
-
-void SmartMovingThing::Init( ThingType, XY, char unsigned, short, long, Vector const & )
-{
-// code at 0001:000496d8
-}
-
-void SmartMovingThing::StartAMove( XY )
-{
-// code at 0001:000496bc
-}
-
-void SmartMovingThing::StopMoving()
-{
-// code at 0001:00049680
-}
-
-char unsigned SmartMovingThing::IsDoneMovingToTgt()
-{
-// code at 0001:00049640
-}
-
-char unsigned SmartMovingThing::IsStuck()
-{
-// code at 0001:00049600
-}
-
-char unsigned SmartMovingThing::IsFlying()
-{
-// code at 0001:000495c0
-}
-
-char unsigned SmartMovingThing::IsIgnoreClutter()
-{
-// code at 0001:00049580
-}
-
-void SmartMovingThing::ClearRescanPath()
-{
-// code at 0001:0004955c
-}
-
-void SmartMovingThing::ClearMoveToTgt()
-{
-// code at 0001:0004952c
-}
-
 char unsigned Creature::CanArmor()
 {
 // code at 0001:000494e8
@@ -196,11 +71,6 @@ void TheShip::RocketToOrbit()
 void ResearchGrid::CountAMonolithTouch( Creature * )
 {
 // code at 0001:00049314
-}
-
-void MovingThing::DrawOnMap( short, short )
-{
-// code at 0001:0004917c
 }
 
 XY GridTile::GetXY()
@@ -401,16 +271,6 @@ long Event::ReadBuffer( Event * *, long, long, BioGame & )
 near PlSpec::PlSpec()
 {
 // code at 0001:00048968
-}
-
-near SmartMovingThing::SmartMovingThing()
-{
-// code at 0001:00048930
-}
-
-near MovingThing::MovingThing()
-{
-// code at 0001:000488c4
 }
 
 void (near * const __vftbl[])();

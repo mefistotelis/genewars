@@ -83,46 +83,6 @@ char unsigned SoundManager::__defarg()
 // code at 0001:0000490c
 }
 
-void MovingThing::ChangeMove( Vector const & )
-{
-// code at 0001:00004784
-}
-
-char unsigned SmartMovingThing::IsMovingToAlt()
-{
-// code at 0001:00004744
-}
-
-void SmartMovingThing::ClearAvoidActive()
-{
-// code at 0001:00004718
-}
-
-void SmartMovingThing::ClearAvoidLooping()
-{
-// code at 0001:000046f4
-}
-
-void SmartMovingThing::SetRescanPath()
-{
-// code at 0001:000046d0
-}
-
-void SmartMovingThing::SetMoveToTgt( XY )
-{
-// code at 0001:00004670
-}
-
-void SmartMovingThing::SetMoveToThing( Thing * )
-{
-// code at 0001:00004614
-}
-
-void SmartMovingThing::SetMoveToAlt( long )
-{
-// code at 0001:000045cc
-}
-
 char unsigned Building::IsBuilt()
 {
 // code at 0001:0000458c

@@ -94,7 +94,7 @@ class SampleBufferQueue { // sizeof=94
 typedef class SampleBufferQueue SampleBufferQueue;
 
 class SoundManager { // sizeof=159
-    class SoundManager * SoundManager(class SoundManager *arg1);
+    SoundManager(SoundManager *arg1);
     BBOOL CanSamplePlay(ULONG arg1, SampleID arg2, UBYTE arg3);
     UBYTE ComputePan(XY arg1);
     UBYTE ComputeVolume(XY arg1, UBYTE arg2);

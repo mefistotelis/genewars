@@ -32,6 +32,7 @@ class TheBase;
 class Player;
 
 class Thing { // sizeof=39
+public:
     Thing * operator=(Thing *arg1);
     //Thing(Thing *arg1); -- generate default copy constructor
     Thing();

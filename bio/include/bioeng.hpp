@@ -24,12 +24,8 @@ struct Reorient { // sizeof=8
     SLONG Y; // offset=4
 };
 
-typedef struct Reorient Reorient;
-
-typedef class Player Player;
-
-
 class BioGame { // sizeof=118
+public:
     class BioGame * operator=(class BioGame *arg1);
     class BioGame * BioGame(class BioGame *arg1);
     BBOOL ReadName(char *arg1, char *arg2);
@@ -73,6 +69,7 @@ class BioGame { // sizeof=118
 
 
 class MapBucketThing { // sizeof=10
+public:
     SWORD next; // offset=0
     SWORD x; // offset=2
     SWORD yDev; // offset=4

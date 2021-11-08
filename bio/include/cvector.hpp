@@ -24,6 +24,7 @@
 class ComponentVector;
 
 class Vector { // sizeof=6
+public:
     Vector & operator =(Vector const &v1);
     Vector(Vector const &v1);
     SWORD ComputeComponentVector(ComponentVector &v1) const;
@@ -39,6 +40,7 @@ class Vector { // sizeof=6
 };
 
 class ComponentVector { // sizeof=6
+public:
     ComponentVector & operator =(ComponentVector const &v1);
     ComponentVector(class ComponentVector const &v1);
     SWORD ComputeVector(Vector &v1) const;

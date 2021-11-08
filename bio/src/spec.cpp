@@ -53,21 +53,6 @@ char unsigned SoundManager::IsNarratorSpeaking()
 // code at 0001:000780a4
 }
 
-char unsigned MovingThing::IsMoving()
-{
-// code at 0001:00078044
-}
-
-void SmartMovingThing::ClearIgnoreClutter()
-{
-// code at 0001:00078020
-}
-
-void SmartMovingThing::SetIgnoreClutter()
-{
-// code at 0001:00077ffc
-}
-
 char unsigned Creature::IsDraggingStuff()
 {
 // code at 0001:00077fbc

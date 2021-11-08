@@ -20,6 +20,7 @@
 #define THESHIP_HPP_
 
 class TheShip { // sizeof=140
+public:
     class TheShip * operator=(class TheShip *arg1);
     int SpecsInTeamBelongingToRace(PlayerRace arg1);
     void GetMoreSpecialists(PlayerRace arg1);

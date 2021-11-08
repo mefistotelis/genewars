@@ -118,5 +118,120 @@ void SmartMovingThing::SetMoveToTgtWithDir( XY )
 // code at 0001:0008457c
 }
 
+void SmartMovingThing::SetMoveToBuilding( Building * )
+{
+// code at 0001:00084100
+}
+
+char unsigned SmartMovingThing::SetMoveToTgtTest( XY )
+{
+// code at 0001:00084078
+}
+
+char unsigned SmartMovingThing::IsMovingToTgt()
+{
+// code at 0001:00005acc
+}
+
+void SmartMovingThing::SetMoveToInsideBuilding( Building *, XY )
+{
+// code at 0001:000058dc
+}
+
+void SmartMovingThing::Init( ThingType, XY, char unsigned, short, long, Vector const & )
+{
+// code at 0001:000496d8
+}
+
+void SmartMovingThing::StartAMove( XY )
+{
+// code at 0001:000496bc
+}
+
+void SmartMovingThing::StopMoving()
+{
+// code at 0001:00049680
+}
+
+char unsigned SmartMovingThing::IsDoneMovingToTgt()
+{
+// code at 0001:00049640
+}
+
+char unsigned SmartMovingThing::IsStuck()
+{
+// code at 0001:00049600
+}
+
+char unsigned SmartMovingThing::IsFlying()
+{
+// code at 0001:000495c0
+}
+
+char unsigned SmartMovingThing::IsIgnoreClutter()
+{
+// code at 0001:00049580
+}
+
+void SmartMovingThing::ClearRescanPath()
+{
+// code at 0001:0004955c
+}
+
+void SmartMovingThing::ClearMoveToTgt()
+{
+// code at 0001:0004952c
+}
+
+near SmartMovingThing::SmartMovingThing()
+{
+// code at 0001:00048930
+}
+
+char unsigned SmartMovingThing::IsMovingToAlt()
+{
+// code at 0001:00004744
+}
+
+void SmartMovingThing::ClearAvoidActive()
+{
+// code at 0001:00004718
+}
+
+void SmartMovingThing::ClearAvoidLooping()
+{
+// code at 0001:000046f4
+}
+
+void SmartMovingThing::SetRescanPath()
+{
+// code at 0001:000046d0
+}
+
+void SmartMovingThing::SetMoveToTgt( XY )
+{
+// code at 0001:00004670
+}
+
+void SmartMovingThing::SetMoveToThing( Thing * )
+{
+// code at 0001:00004614
+}
+
+void SmartMovingThing::SetMoveToAlt( long )
+{
+// code at 0001:000045cc
+}
+
+void SmartMovingThing::ClearIgnoreClutter()
+{
+// code at 0001:00078020
+}
+
+void SmartMovingThing::SetIgnoreClutter()
+{
+// code at 0001:00077ffc
+}
+
 
 /******************************************************************************/

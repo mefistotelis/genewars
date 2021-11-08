@@ -148,16 +148,6 @@ char unsigned * __defarg()
 // code at 0001:00084138
 }
 
-void SmartMovingThing::SetMoveToBuilding( Building * )
-{
-// code at 0001:00084100
-}
-
-char unsigned SmartMovingThing::SetMoveToTgtTest( XY )
-{
-// code at 0001:00084078
-}
-
 char unsigned Creature::AdultScale8()
 {
 // code at 0001:00083f4c

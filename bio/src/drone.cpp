@@ -18,16 +18,6 @@
 /******************************************************************************/
 #include "drone.hpp"
 
-char unsigned MovingThing::Update()
-{
-// code at 0001:00005b0c
-}
-
-char unsigned SmartMovingThing::IsMovingToTgt()
-{
-// code at 0001:00005acc
-}
-
 char unsigned Plant::IsFallen()
 {
 // code at 0001:00005a90
@@ -46,11 +36,6 @@ char unsigned Building::IsBusted()
 char unsigned AtMmsEnd( MyMinSprite &, MySprite & )
 {
 // code at 0001:000059b4
-}
-
-void SmartMovingThing::SetMoveToInsideBuilding( Building *, XY )
-{
-// code at 0001:000058dc
 }
 
 void Drone::InitArray()

@@ -77,23 +77,22 @@ obj/pads.o \
 obj/plant.o \
 obj/player.o \
 obj/setup.o \
-obj/smemory.o \
 obj/sound.o \
 obj/spec.o \
 obj/tables.o \
-obj/mvthing.o \
 obj/smvthing.o \
 obj/title.o \
 
 
 OBJS = \
 obj/cvector.o \
-obj/pchost.o \
-obj/pcmain.o \
+obj/xy.o \
 obj/planet.o \
 obj/thingidx.o \
+obj/mvthing.o \
 obj/thing.o \
-obj/xy.o \
+obj/pchost.o \
+obj/pcmain.o \
 $(RES)
 
 GENSRC   = obj/ver_defs.h
