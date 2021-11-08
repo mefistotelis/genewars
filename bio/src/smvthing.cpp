@@ -18,6 +18,11 @@
 /******************************************************************************/
 #include "smvthing.hpp"
 
+SmartMovingThing::SmartMovingThing()
+{
+// code at 0001:00048930
+}
+
 char unsigned SmartMovingThing::IsRescanNeeded()
 {
 // code at 0001:00088f28
@@ -33,7 +38,7 @@ char unsigned SmartMovingThing::IsMovingToBuilding()
 // code at 0001:00088ea4
 }
 
-char unsigned SmartMovingThing::IsAvoidLooping()
+BBOOL SmartMovingThing::IsAvoidLooping()
 {
 // code at 0001:00088e64
 }
@@ -43,32 +48,32 @@ void SmartMovingThing::SetAvoidLooping()
 // code at 0001:00088e40
 }
 
-char unsigned SmartMovingThing::IsMovingToBuildingInsides()
+BBOOL SmartMovingThing::IsMovingToBuildingInsides()
 {
 // code at 0001:00088e00
 }
 
-char unsigned SmartMovingThing::ScanAroundObstacle( XY, char unsigned, XY &, char unsigned )
+UBYTE SmartMovingThing::ScanAroundObstacle(XY arg1, BBOOL arg2, XY &arg3, UBYTE arg4)
 {
 // code at 0001:00087277
 }
 
-char unsigned SmartMovingThing::ScanAroundObstacleIgnoringBuildings( XY, char unsigned, XY &, char unsigned )
+UBYTE SmartMovingThing::ScanAroundObstacleIgnoringBuildings(XY arg1, BBOOL arg2, XY &arg3, UBYTE arg4)
 {
 // code at 0001:000874fc
 }
 
-long SmartMovingThing::SquareTrueRangeToWhereGoingTo()
+SLONG SmartMovingThing::SquareTrueRangeToWhereGoingTo()
 {
 // code at 0001:00087710
 }
 
-void SmartMovingThing::VectorToWhereGoingTo( Vector & )
+void SmartMovingThing::VectorToWhereGoingTo(Vector &arg1)
 {
 // code at 0001:000877ea
 }
 
-void SmartMovingThing::SetSpeedHandler( Normal &, short )
+void SmartMovingThing::SetSpeedHandler(Normal &arg1, SWORD arg2)
 {
 // code at 0001:00087907
 }
@@ -83,7 +88,7 @@ void SmartMovingThing::Physics()
 // code at 0001:00087be9
 }
 
-char unsigned SmartMovingThing::SetMoveInDir( short, short, char unsigned )
+BBOOL SmartMovingThing::SetMoveInDir(SWORD arg1, SWORD arg2, BBOOL arg3)
 {
 // code at 0001:00088941
 }
@@ -113,17 +118,17 @@ void SmartMovingThing::SetIsFlying()
 // code at 0001:000845bc
 }
 
-void SmartMovingThing::SetMoveToTgtWithDir( XY )
+void SmartMovingThing::SetMoveToTgtWithDir(XY cor1)
 {
 // code at 0001:0008457c
 }
 
-void SmartMovingThing::SetMoveToBuilding( Building * )
+void SmartMovingThing::SetMoveToBuilding(Building *obj1)
 {
 // code at 0001:00084100
 }
 
-char unsigned SmartMovingThing::SetMoveToTgtTest( XY )
+BBOOL SmartMovingThing::SetMoveToTgtTest(XY cor1)
 {
 // code at 0001:00084078
 }
@@ -133,12 +138,12 @@ char unsigned SmartMovingThing::IsMovingToTgt()
 // code at 0001:00005acc
 }
 
-void SmartMovingThing::SetMoveToInsideBuilding( Building *, XY )
+void SmartMovingThing::SetMoveToInsideBuilding(Building *obj1, XY cor1)
 {
 // code at 0001:000058dc
 }
 
-void SmartMovingThing::Init( ThingType, XY, char unsigned, short, long, Vector const & )
+void SmartMovingThing::Init(ThingType arg1, XY arg2, UBYTE arg3, SWORD arg4, SLONG arg5, Vector const &arg6)
 {
 // code at 0001:000496d8
 }
@@ -183,11 +188,6 @@ void SmartMovingThing::ClearMoveToTgt()
 // code at 0001:0004952c
 }
 
-near SmartMovingThing::SmartMovingThing()
-{
-// code at 0001:00048930
-}
-
 char unsigned SmartMovingThing::IsMovingToAlt()
 {
 // code at 0001:00004744
@@ -213,12 +213,12 @@ void SmartMovingThing::SetMoveToTgt( XY )
 // code at 0001:00004670
 }
 
-void SmartMovingThing::SetMoveToThing( Thing * )
+void SmartMovingThing::SetMoveToThing(::Thing *tng1)
 {
 // code at 0001:00004614
 }
 
-void SmartMovingThing::SetMoveToAlt( long )
+void SmartMovingThing::SetMoveToAlt(SLONG arg1)
 {
 // code at 0001:000045cc
 }

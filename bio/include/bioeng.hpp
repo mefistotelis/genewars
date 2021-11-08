@@ -27,7 +27,7 @@ struct Reorient { // sizeof=8
 class BioGame { // sizeof=118
 public:
     class BioGame * operator=(class BioGame *arg1);
-    class BioGame * BioGame(class BioGame *arg1);
+    //BioGame(class BioGame *arg1); -- generate default copy constructor
     BBOOL ReadName(char *arg1, char *arg2);
     void CheckForVictory();
     void Compare(BioGame *arg1);

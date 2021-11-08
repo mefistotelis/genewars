@@ -58,7 +58,7 @@ class TextEntry { // sizeof=73
 };
 
 class Trigger { // sizeof=7
-    class Trigger * Trigger(class Trigger *arg1);
+    //Trigger(Trigger *arg1); -- generate default copy constructor
     void Invalidate();
     BBOOL Valid();
     BBOOL Update(UBYTE arg1);

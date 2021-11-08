@@ -80,7 +80,6 @@ obj/setup.o \
 obj/sound.o \
 obj/spec.o \
 obj/tables.o \
-obj/smvthing.o \
 obj/title.o \
 
 
@@ -89,8 +88,9 @@ obj/cvector.o \
 obj/xy.o \
 obj/planet.o \
 obj/thingidx.o \
-obj/mvthing.o \
 obj/thing.o \
+obj/mvthing.o \
+obj/smvthing.o \
 obj/pchost.o \
 obj/pcmain.o \
 $(RES)

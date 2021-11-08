@@ -20,10 +20,10 @@
 
 class Player;
 
-Thing::Thing()
+/*Thing::Thing()
 {
 // code at 0001:0001cb28
-}
+}*/
 
 void Thing::Read(SLONG &arg1)
 {

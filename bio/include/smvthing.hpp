@@ -20,29 +20,30 @@
 #define SMVTHING_HPP_
 
 #include "bftypes.h"
-#include "thing.h"
+#include "mvthing.hpp"
 
 class SmartMovingThing : MovingThing { // sizeof=85
-    class SmartMovingThing * operator=(class SmartMovingThing *arg1);
-    class SmartMovingThing * SmartMovingThing(class SmartMovingThing *arg1);
-    class SmartMovingThing * SmartMovingThing();
+public:
+    SmartMovingThing * operator=(SmartMovingThing *arg1);
+    //SmartMovingThing(class SmartMovingThing *arg1); -- generate default copy constructor
+    SmartMovingThing();
     BBOOL IsMovingToBuildingInsides();
-    UBYTE ScanAroundObstacleIgnoringBuildings(XY arg1, BBOOL arg2, XY *arg3, UBYTE arg4);
-    UBYTE ScanAroundObstacle(XY arg1, BBOOL arg2, XY *arg3, UBYTE arg4);
-    void VectorToWhereGoingTo(Vector *arg1);
+    UBYTE ScanAroundObstacleIgnoringBuildings(XY arg1, BBOOL arg2, XY &arg3, UBYTE arg4);
+    UBYTE ScanAroundObstacle(XY arg1, BBOOL arg2, XY &arg3, UBYTE arg4);
+    void VectorToWhereGoingTo(Vector &arg1);
     SLONG SquareTrueRangeToWhereGoingTo();
     void TurnToDesiredAngle();
-    void SetSpeedHandler(Normal *arg1, SWORD arg2);
+    void SetSpeedHandler(Normal &arg1, SWORD arg2);
     BBOOL SetMoveInDir(SWORD arg1, SWORD arg2, BBOOL arg3);
     void ClearMoveToTgt();
     void SetIgnoreClutter();
     void SetMoveToAlt(SLONG arg1);
-    void SetMoveToInsideBuilding(Building *arg1, XY arg2);
-    void SetMoveToBuilding(Building *arg1);
-    void SetMoveToThing(Thing *arg1);
-    void SetMoveToTgtWithDir(XY arg1);
-    BBOOL SetMoveToTgtTest(XY arg1);
-    void SetMoveToTgt(XY arg1);
+    void SetMoveToInsideBuilding(Building *obj1, XY cor1);
+    void SetMoveToBuilding(Building *obj1);
+    void SetMoveToThing(::Thing *tng1);
+    void SetMoveToTgtWithDir(XY cor1);
+    BBOOL SetMoveToTgtTest(XY cor1);
+    void SetMoveToTgt(XY cor1);
     void SetAvoidLooping();
     void SetRescanPath();
     void SetIsFlying();
@@ -71,8 +72,8 @@ class SmartMovingThing : MovingThing { // sizeof=85
     void StopMoving();
     void Physics();
     void StartAMove(XY arg1);
-    void Init(ThingType arg1, XY arg2, UBYTE arg3, SWORD arg4, SLONG arg5, Vector *arg6);
-    void (**__vfptr)();
+    void Init(ThingType arg1, XY arg2, UBYTE arg3, SWORD arg4, SLONG arg5, Vector const &arg6);
+    //void (**__vfptr)();
     SLONG desiredAngleZ; // offset=69
     XY avoid; // offset=70
     UWORD mflags; // offset=73

@@ -35,7 +35,7 @@ class Thing { // sizeof=39
 public:
     Thing * operator=(Thing *arg1);
     //Thing(Thing *arg1); -- generate default copy constructor
-    Thing();
+    //Thing(); -- generate default no-arg constructor
     Vector PredictTargetShot(Thing *arg1, SLONG arg2, SLONG arg3, ULONG arg4);
     UBYTE CreateEffectExplosion(EffectType arg1, UBYTE arg2, SLONG arg3, SLONG arg4, UBYTE arg5);
     BBOOL operator ==(Thing *arg1);
