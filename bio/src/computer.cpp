@@ -38,11 +38,6 @@ void Packet::SetPacket( char unsigned, short, short, short, short, short )
 // code at 0001:00037940
 }
 
-long GridTile::__defarg()
-{
-// code at 0001:00037898
-}
-
 char unsigned Gene::IsBasicInGene( CreatureBaseSpecies )
 {
 // code at 0001:00037814

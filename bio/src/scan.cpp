@@ -48,5 +48,25 @@ char unsigned ScanRecord::IsRecorded( XY )
 // code at 0001:0008584c
 }
 
+void RangeScan::Init( XY &, long unsigned, char unsigned )
+{
+// code at 0001:0005d721
+}
+
+void RangeScanner::Do()
+{
+// code at 0001:0005d926
+}
+
+void WeightedRangeScanner::Do()
+{
+// code at 0001:0005d9f1
+}
+
+void WeightedTgtRangeScanner::Do()
+{
+// code at 0001:0005dbb7
+}
+
 
 /******************************************************************************/

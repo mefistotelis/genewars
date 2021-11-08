@@ -355,43 +355,6 @@ typedef class Gene Gene;
 
 typedef void AwarenessScan;
 
-class RangeScan { // sizeof=20
-    class RangeScan * RangeScan(class RangeScan *arg1);
-    void Init(XY *arg1, ULONG arg2, BBOOL arg3);
-    class RangeScan * RangeScan(XY *arg1, ULONG arg2, BBOOL arg3);
-    XY tgt;
-    SWORD yHi;
-    SWORD yLo;
-    SWORD xHi;
-    SWORD xLo;
-    XY xy;
-    SWORD yD;
-    SWORD xD;
-};
-
-class RangeScanner : RangeScan { // sizeof=41
-    class RangeScanner * RangeScanner(class RangeScanner *arg1);
-    void PerGrid();
-    void Do();
-    class RangeScanner * RangeScanner(XY arg1, ULONG arg2);
-    void (**__vfptr)();
-    ULONG maxRange;
-    ULONG squareMaxRange;
-    ULONG squareRange;
-    GridTile *g;
-    BBOOL foundAThing; // offset=20
-};
-
-class WeightedRangeScanner : RangeScanner { // sizeof=106
-    class WeightedRangeScanner * WeightedRangeScanner(class WeightedRangeScanner *arg1);
-    void Do();
-    class WeightedRangeScanner * WeightedRangeScanner(XY arg1, ULONG arg2, XY *arg3, SLONG arg4);
-    class WeightedRangeScanner * WeightedRangeScanner(XY arg1, ULONG arg2);
-    void (**__vfptr)();
-    SLONG dirWeights[15];
-    UBYTE bestDir; // offset=41
-};
-
 struct __24e741VDI_HDR { // sizeof=10
     BYTE ID[7]; // offset=0
     ULONG driver_version; // offset=8

@@ -168,34 +168,6 @@ class AwarenessScan : RangeScanner { // sizeof=228
     int food[15]; // offset=237
 };
 
-class RangeScanner : RangeScan { // sizeof=41
-    class RangeScanner * RangeScanner(class RangeScanner *arg1);
-    void PerGrid();
-    void Do();
-    class RangeScanner * RangeScanner(XY *arg1, ULONG arg2);
-    void (**__vfptr)();
-    ULONG maxRange;
-    ULONG squareMaxRange;
-    ULONG squareRange;
-    GridTile *g;
-    BBOOL foundAThing; // offset=20
-};
-
-class RangeScan { // sizeof=20
-    class RangeScan * RangeScan(class RangeScan *arg1);
-    void Init(XY *arg1, ULONG arg2, BBOOL arg3);
-    class RangeScan * RangeScan(XY *arg1, ULONG arg2, BBOOL arg3);
-    XY tgt;
-    SWORD yHi;
-    SWORD yLo;
-    SWORD xHi;
-    SWORD xLo;
-    XY xy;
-    SWORD yD;
-    SWORD xD;
-};
-
-typedef class AwarenessScan AwarenessScan;
 
 class Creature : SmartMovingThing { // sizeof=124
     class Creature * operator=(class Creature *arg1);
@@ -396,28 +368,6 @@ class Creature : SmartMovingThing { // sizeof=124
     CreatureSpecies species; // offset=122
     UBYTE frozen; // offset=123
 };
-
-class WeightedRangeScanner : RangeScanner { // sizeof=106
-    class WeightedRangeScanner * WeightedRangeScanner(class WeightedRangeScanner *arg1);
-    void Do();
-    class WeightedRangeScanner * WeightedRangeScanner(XY arg1, ULONG arg2, XY *arg3, SLONG arg4);
-    class WeightedRangeScanner * WeightedRangeScanner(XY arg1, ULONG arg2);
-    void (**__vfptr)();
-    SLONG dirWeights[15];
-    UBYTE bestDir; // offset=41
-};
-
-class WeightedTgtRangeScanner : WeightedRangeScanner { // sizeof=238
-    class WeightedTgtRangeScanner * WeightedTgtRangeScanner(class WeightedTgtRangeScanner *arg1);
-    void Do();
-    class WeightedTgtRangeScanner * WeightedTgtRangeScanner(XY arg1, ULONG arg2, XY *arg3, SLONG arg4);
-    class WeightedTgtRangeScanner * WeightedTgtRangeScanner(XY arg1, ULONG arg2);
-    void (**__vfptr)();
-    Thing *bestThings[15];
-    int bestPerSector[15];
-    Thing *tgtThing; // offset=106
-};
-
 
 class MapBucketThing { // sizeof=10
     SWORD next; // offset=0

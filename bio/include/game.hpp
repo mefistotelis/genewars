@@ -19,11 +19,12 @@
 #ifndef BIO_GAME_HPP_
 #define BIO_GAME_HPP_
 
-void game();
-void PlayIntro();
-void PlaySmacker( char *, char unsigned, char unsigned );
 extern short unsigned persecond;
 extern char unsigned fullUpdate;
+
+void game();
+void PlayIntro();
+void PlaySmacker( char *arg1, unsigned char arg2, unsigned char arg3);
 
 #endif // BIO_GAME_HPP_
 /******************************************************************************/

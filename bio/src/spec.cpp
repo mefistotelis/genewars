@@ -18,11 +18,6 @@
 /******************************************************************************/
 #include "spec.hpp"
 
-char unsigned GridTile::__defarg()
-{
-// code at 0001:000781a8
-}
-
 near WeightedRangeScanner::WeightedRangeScanner( XY &, long unsigned )
 {
 // code at 0001:00078154

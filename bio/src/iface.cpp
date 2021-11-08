@@ -23,16 +23,6 @@ void Packet::SetPacket( char unsigned, short, short, short )
 // code at 0001:000262ec
 }
 
-long GridTile::__defarg()
-{
-// code at 0001:00026288
-}
-
-char unsigned GridTile::IsFoundation()
-{
-// code at 0001:0002624c
-}
-
 char unsigned Creature::IsFrozen()
 {
 // code at 0001:000261d4

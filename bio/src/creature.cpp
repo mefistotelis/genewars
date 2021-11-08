@@ -148,6 +148,11 @@ char unsigned * __defarg()
 // code at 0001:00084138
 }
 
+char unsigned Creature::IsBones()
+{
+// code at 0001:0005dcb0
+}
+
 char unsigned Creature::AdultScale8()
 {
 // code at 0001:00083f4c

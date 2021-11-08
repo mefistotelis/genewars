@@ -19,9 +19,9 @@
 #ifndef BIO_IO_HPP_
 #define BIO_IO_HPP_
 
-void near load_game();
-void near save_game();
-void near get_players_packets();
+void load_game();
+void save_game();
+void get_players_packets();
 
 #endif // BIO_IO_HPP_
 /******************************************************************************/

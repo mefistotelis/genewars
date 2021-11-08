@@ -22,9 +22,9 @@
 #include "bftypes.h"
 
 class RangeScan { // sizeof=20
-    class RangeScan * RangeScan(class RangeScan *arg1);
+    RangeScan * RangeScan(RangeScan *arg1);
     void Init(XY *arg1, ULONG arg2, BBOOL arg3);
-    class RangeScan * RangeScan(XY *arg1, ULONG arg2, BBOOL arg3);
+    RangeScan(XY *arg1, ULONG arg2, BBOOL arg3);
     XY tgt;
     SWORD yHi;
     SWORD yLo;
@@ -35,12 +35,25 @@ class RangeScan { // sizeof=20
     SWORD xD;
 };
 
+class RangeScanner : RangeScan { // sizeof=41
+    class RangeScanner * RangeScanner(class RangeScanner *arg1);
+    void PerGrid();
+    void Do();
+    class RangeScanner * RangeScanner(XY arg1, ULONG arg2);
+    void (**__vfptr)();
+    ULONG maxRange;
+    ULONG squareMaxRange;
+    ULONG squareRange;
+    GridTile *g;
+    BBOOL foundAThing; // offset=20
+};
+
 class PolarRangeScan : RangeScan { // sizeof=51
-    class PolarRangeScan * PolarRangeScan(class PolarRangeScan *arg1);
+    PolarRangeScan * PolarRangeScan(PolarRangeScan *arg1);
     void displayDebug(XY arg1, ULONG *arg2);
     void PerGrid();
     void Do();
-    class PolarRangeScan * PolarRangeScan(XY arg1, ULONG arg2, UBYTE arg3);
+    PolarRangeScan(XY arg1, ULONG arg2, UBYTE arg3);
     void (**__vfptr)();
     ULONG ringRange;
     BBOOL satisfied;
@@ -73,6 +86,26 @@ class ScanRecord { // sizeof=128
     XY xy[127];
 };
 
+class WeightedRangeScanner : RangeScanner { // sizeof=106
+    class WeightedRangeScanner * WeightedRangeScanner(class WeightedRangeScanner *arg1);
+    void Do();
+    class WeightedRangeScanner * WeightedRangeScanner(XY arg1, ULONG arg2, XY *arg3, SLONG arg4);
+    class WeightedRangeScanner * WeightedRangeScanner(XY arg1, ULONG arg2);
+    void (**__vfptr)();
+    SLONG dirWeights[15];
+    UBYTE bestDir; // offset=41
+};
+
+class WeightedTgtRangeScanner : WeightedRangeScanner { // sizeof=238
+    class WeightedTgtRangeScanner * WeightedTgtRangeScanner(class WeightedTgtRangeScanner *arg1);
+    void Do();
+    class WeightedTgtRangeScanner * WeightedTgtRangeScanner(XY arg1, ULONG arg2, XY *arg3, SLONG arg4);
+    class WeightedTgtRangeScanner * WeightedTgtRangeScanner(XY arg1, ULONG arg2);
+    void (**__vfptr)();
+    Thing *bestThings[15];
+    int bestPerSector[15];
+    Thing *tgtThing; // offset=106
+};
 
 #endif // SCAN_HPP_
 /******************************************************************************/

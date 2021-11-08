@@ -59,10 +59,7 @@ obj/editor.o \
 obj/effect.o \
 obj/ethereal.o \
 obj/font.o \
-obj/game.o \
-obj/gridtile.o \
 obj/iface.o \
-obj/io.o \
 obj/lab.o \
 obj/level.o \
 obj/map.o \
@@ -85,12 +82,15 @@ obj/title.o \
 OBJS = \
 obj/cvector.o \
 obj/xy.o \
+obj/gridtile.o \
 obj/planet.o \
 obj/thingidx.o \
 obj/thing.o \
 obj/mvthing.o \
 obj/smvthing.o \
 obj/drone.o \
+obj/io.o \
+obj/game.o \
 obj/pchost.o \
 obj/pcmain.o \
 $(RES)

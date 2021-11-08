@@ -136,34 +136,6 @@ typedef void AwarenessScan;
 
 
 
-class RangeScan { // sizeof=20
-    class RangeScan * RangeScan(class RangeScan *arg1);
-    void Init(XY *arg1, ULONG arg2, BBOOL arg3);
-    class RangeScan * RangeScan(XY *arg1, ULONG arg2, BBOOL arg3);
-    XY tgt;
-    SWORD yHi;
-    SWORD yLo;
-    SWORD xHi;
-    SWORD xLo;
-    XY xy;
-    SWORD yD;
-    SWORD xD;
-};
-
-class RangeScanner : RangeScan { // sizeof=41
-    class RangeScanner * RangeScanner(class RangeScanner *arg1);
-    void PerGrid();
-    void Do();
-    class RangeScanner * RangeScanner(XY arg1, ULONG arg2);
-    void (**__vfptr)();
-    ULONG maxRange;
-    ULONG squareMaxRange;
-    ULONG squareRange;
-    GridTile *g;
-    BBOOL foundAThing; // offset=20
-};
-
-
 class MapBucketThing { // sizeof=10
     SWORD next; // offset=0
     SWORD x; // offset=2

@@ -18,26 +18,6 @@
 /******************************************************************************/
 #include "misc.hpp"
 
-long GridTile::__defarg()
-{
-// code at 0001:000938c0
-}
-
-void GridTile::SetFoundation()
-{
-// code at 0001:0009388c
-}
-
-void GridTile::ClearFoundation()
-{
-// code at 0001:00093868
-}
-
-char unsigned GridTile::IsCrater()
-{
-// code at 0001:00093820
-}
-
 void EtherealZone::Invalidate()
 {
 // code at 0001:000937fc

@@ -73,11 +73,6 @@ void ResearchGrid::CountAMonolithTouch( Creature * )
 // code at 0001:00049314
 }
 
-XY GridTile::GetXY()
-{
-// code at 0001:0004910c
-}
-
 void Event::Free()
 {
 // code at 0001:000490e0

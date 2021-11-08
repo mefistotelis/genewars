@@ -18,62 +18,42 @@
 /******************************************************************************/
 #include "gridtile.hpp"
 
-long GridTile::__defarg()
-{
-// code at 0001:0005dd30
-}
-
-long GridTile::__defarg()
-{
-// code at 0001:0005dd0c
-}
-
-long GridTile::__defarg()
-{
-// code at 0001:0005dce8
-}
-
-char unsigned Creature::IsBones()
-{
-// code at 0001:0005dcb0
-}
-
-GridTile * GridTile::GetRealGrid( XY )
+GridTile * GridTile::GetRealGrid(XY cor1)
 {
 // code at 0001:0005dc60
 }
 
-GridTile * GridTile::GetRealGrid( short, short )
+GridTile * GridTile::GetRealGrid(SWORD arg1, SWORD arg2)
 {
 // code at 0001:0005dc10
 }
 
-void GridTile::Add( Thing * )
+void GridTile::Add(Thing *tng1)
 {
 // code at 0001:00059b5f
 }
 
-void GridTile::Remove( Thing * )
+void GridTile::Remove(Thing *tng1)
 {
 // code at 0001:00059c49
 }
 
-Thing * GridTile::GetHuntTarget( Creature * )
+Thing * GridTile::GetHuntTarget(Creature *crtr)
 {
 // code at 0001:00059f20
 }
 
-Creature * GridTile::GetMate( Creature * )
+Creature * GridTile::GetMate(Creature *crtr)
 {
 // code at 0001:0005a16c
 }
 
-Creature * GridTile::GetEnemyCreature( char unsigned )
+Creature * GridTile::GetEnemyCreature(UBYTE arg1)
 {
 // code at 0001:0005a1ed
 }
 
-Creature * GridTile::GetMyCreature( char unsigned )
+Creature * GridTile::GetMyCreature(UBYTE arg1)
 {
 // code at 0001:0005a270
 }
@@ -83,22 +63,22 @@ Creature * GridTile::GetBestBones()
 // code at 0001:0005a2d5
 }
 
-long GridTile::ClutterRating( Thing * )
+SLONG GridTile::ClutterRating(Thing *tng1)
 {
 // code at 0001:0005a36c
 }
 
-void GridTile::ClearAtDropOff( char unsigned )
+void GridTile::ClearAtDropOff(BBOOL arg1)
 {
 // code at 0001:0005a4ea
 }
 
-Plant * GridTile::GetAnyPlant( char unsigned )
+Plant * GridTile::GetAnyPlant(UBYTE arg1)
 {
 // code at 0001:0005a5a9
 }
 
-Plant * GridTile::GetLivePlant( char unsigned )
+Plant * GridTile::GetLivePlant(UBYTE arg1)
 {
 // code at 0001:0005a61a
 }
@@ -108,7 +88,7 @@ Plant * GridTile::GetDeadPlant()
 // code at 0001:0005a6a3
 }
 
-Plant * GridTile::GetFallenPlant( long unsigned )
+Plant * GridTile::GetFallenPlant(BOOL arg1)
 {
 // code at 0001:0005a723
 }
@@ -118,37 +98,37 @@ Building * GridTile::GetBuilding()
 // code at 0001:0005a7cf
 }
 
-PlSpec * GridTile::GetPlSpec( char unsigned, PlSpec * )
+PlSpec * GridTile::GetPlSpec(UBYTE arg1, PlSpec *spec)
 {
 // code at 0001:0005a828
 }
 
-PlSpec * GridTile::GetEnemyPlSpec( char unsigned, char signed )
+PlSpec * GridTile::GetEnemyPlSpec(UBYTE arg1, SBYTE arg2)
 {
 // code at 0001:0005a89e
 }
 
-char unsigned GridTile::IsThingHere( Thing & )
+BBOOL GridTile::IsThingHere(Thing &tng1)
 {
 // code at 0001:0005a917
 }
 
-char unsigned GridTile::GetTerrain( XY )
+UBYTE GridTile::GetTerrain(XY cor1)
 {
 // code at 0001:0005a96b
 }
 
-long unsigned GridTile::CountAllPlants( char unsigned )
+ULONG GridTile::CountAllPlants(BBOOL arg1)
 {
 // code at 0001:0005ab0c
 }
 
-long unsigned GridTile::CountAllCreatures()
+ULONG GridTile::CountAllCreatures()
 {
 // code at 0001:0005ab99
 }
 
-Creature * GridTile::GetFirstCreatureOnTile( long unsigned & )
+Creature * GridTile::GetFirstCreatureOnTile(ULONG &arg1)
 {
 // code at 0001:0005ac12
 }
@@ -168,12 +148,12 @@ void GridTile::NormalizeThingAlts()
 // code at 0001:0005ad82
 }
 
-void GridTile::InsureOrientation( long )
+void GridTile::InsureOrientation(SLONG arg1)
 {
 // code at 0001:0005ae48
 }
 
-void GridTile::InsureNoOverlaps( long )
+void GridTile::InsureNoOverlaps(SLONG arg1)
 {
 // code at 0001:0005b74b
 }
@@ -183,37 +163,37 @@ void GridTile::GrowTile()
 // code at 0001:0005ba7a
 }
 
-void GridTile::LightShade( long )
+void GridTile::LightShade(SLONG arg1)
 {
 // code at 0001:0005bb97
 }
 
-short GridTile::EffectAlt( XY, short )
+SWORD GridTile::EffectAlt(XY arg1, SWORD arg2)
 {
 // code at 0001:0005be82
 }
 
-short GridTile::EffectAlt( short, long )
+SWORD GridTile::EffectAlt(SWORD arg1, SLONG arg2)
 {
 // code at 0001:0005c00d
 }
 
-char unsigned GridTile::Flatten( XY, short, short )
+BBOOL GridTile::Flatten(XY arg1, SWORD arg2, SWORD arg3)
 {
 // code at 0001:0005c18e
 }
 
-short GridTile::AverageTile( long )
+SWORD GridTile::AverageTile(SLONG arg1)
 {
 // code at 0001:0005c477
 }
 
-void GridTile::ComputeMinMax( short &, short &, long )
+void GridTile::ComputeMinMax(SWORD &arg1, SWORD &arg2, SLONG arg3)
 {
 // code at 0001:0005c5b8
 }
 
-short GridTile::ComputeTileDelta( long )
+SWORD GridTile::ComputeTileDelta(SLONG arg1)
 {
 // code at 0001:0005c690
 }
@@ -223,37 +203,37 @@ void GridTile::ComputeTempDev()
 // code at 0001:0005c8ef
 }
 
-void GridTile::MakeAllRock( long )
+void GridTile::MakeAllRock(SLONG arg1)
 {
 // code at 0001:0005c9b9
 }
 
-void GridTile::FlattenShores( long )
+void GridTile::FlattenShores(SLONG arg1)
 {
 // code at 0001:0005cc30
 }
 
-void GridTile::UpdateArea( XY, XY )
+void GridTile::UpdateArea(XY cor1, XY cor2)
 {
 // code at 0001:0005d070
 }
 
-void GridTile::LockRegion( XY, char unsigned, char unsigned )
+void GridTile::LockRegion(XY cor1, UBYTE arg2, UBYTE arg3)
 {
 // code at 0001:0005d4f0
 }
 
-void GridTile::UnlockRegion( XY, char unsigned, char unsigned )
+void GridTile::UnlockRegion(XY cor1, UBYTE arg2, UBYTE arg3)
 {
 // code at 0001:0005d571
 }
 
-void GridTile::FixErrorsAndShores( XY, XY, char unsigned )
+void GridTile::FixErrorsAndShores(XY cor1, XY cor2, BBOOL arg3)
 {
 // code at 0001:0005d5f2
 }
 
-GridTile & GridTile::operator =( GridTile const & )
+GridTile & GridTile::operator =(GridTile const &arg1)
 {
 // code at 0001:00059864
 }
@@ -263,25 +243,69 @@ char unsigned GridTile::IsOffMap()
 // code at 0001:00085718
 }
 
-void RangeScan::Init( XY &, long unsigned, char unsigned )
+XY GridTile::GetXY()
 {
-// code at 0001:0005d721
+// code at 0001:0004910c
 }
 
-void RangeScanner::Do()
+void GridTile::SetFoundation()
 {
-// code at 0001:0005d926
+// code at 0001:0009388c
 }
 
-void WeightedRangeScanner::Do()
+void GridTile::ClearFoundation()
 {
-// code at 0001:0005d9f1
+// code at 0001:00093868
 }
 
-void WeightedTgtRangeScanner::Do()
+BBOOL GridTile::IsCrater()
 {
-// code at 0001:0005dbb7
+// code at 0001:00093820
 }
 
+BBOOL GridTile::IsFoundation()
+{
+// code at 0001:0002624c
+}
+
+/*long GridTile::__defarg()
+{
+// code at 0001:000938c0
+}*/
+
+/*long GridTile::__defarg()
+{
+// code at 0001:00026288
+}*/
+
+/*long GridTile::__defarg()
+{
+// code at 0001:0004097c
+}*/
+
+/*long GridTile::__defarg()
+{
+// code at 0001:00037898
+}*/
+
+/*long GridTile::__defarg()
+{
+// code at 0001:0005dd30
+}*/
+
+/*long GridTile::__defarg()
+{
+// code at 0001:0005dd0c
+}*/
+
+/*long GridTile::__defarg()
+{
+// code at 0001:0005dce8
+}*/
+
+/*char unsigned GridTile::__defarg()
+{
+// code at 0001:000781a8
+}*/
 
 /******************************************************************************/

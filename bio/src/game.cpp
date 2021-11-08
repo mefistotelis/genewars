@@ -18,6 +18,10 @@
 /******************************************************************************/
 #include "game.hpp"
 
+short unsigned persecond;
+
+char unsigned fullUpdate;
+
 void game()
 {
 // code at 0001:0005f41c
@@ -28,14 +32,9 @@ void PlayIntro()
 // code at 0001:0005f640
 }
 
-void PlaySmacker( char *, char unsigned, char unsigned )
+void PlaySmacker( char *arg1, unsigned char arg2, unsigned char arg3)
 {
 // code at 0001:0005f67f
 }
-
-short unsigned persecond;
-
-char unsigned fullUpdate;
-
 
 /******************************************************************************/
