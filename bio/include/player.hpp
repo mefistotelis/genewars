@@ -40,6 +40,7 @@ enum SpecialistClass { // type=int8_t
 typedef enum SpecialistClass SpecialistClass;
 
 class Specialist { // sizeof=36
+public:
     void ClearPlanetside();
     void SetPlanetside();
     BBOOL IsPlanetside();

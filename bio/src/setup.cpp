@@ -63,31 +63,6 @@ char unsigned Event::IsDead()
 // code at 0001:000617c4
 }
 
-char unsigned Drone::IsDead()
-{
-// code at 0001:0006178c
-}
-
-short Drone::MaxMoveSpeed()
-{
-// code at 0001:00061768
-}
-
-char unsigned Drone::ShapeFacing()
-{
-// code at 0001:00061744
-}
-
-void Drone::StartAMove( XY )
-{
-// code at 0001:00061720
-}
-
-void Drone::Discover()
-{
-// code at 0001:00061704
-}
-
 char unsigned Ethereal::IsDead()
 {
 // code at 0001:000616e0
@@ -141,11 +116,6 @@ void start_game()
 near Ethereal::Ethereal()
 {
 // code at 0001:00061564
-}
-
-near Drone::Drone()
-{
-// code at 0001:0006152c
 }
 
 near Event::Event()

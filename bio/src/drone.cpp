@@ -18,22 +18,12 @@
 /******************************************************************************/
 #include "drone.hpp"
 
-char unsigned Plant::IsFallen()
+/*Drone::Drone()
 {
-// code at 0001:00005a90
-}
+// code at 0001:0006152c
+}*/
 
-char unsigned Building::IsPowered()
-{
-// code at 0001:00005a50
-}
-
-char unsigned Building::IsBusted()
-{
-// code at 0001:00005a10
-}
-
-char unsigned AtMmsEnd( MyMinSprite &, MySprite & )
+unsigned char AtMmsEnd(MyMinSprite &spr1, MySprite &spr2)
 {
 // code at 0001:000059b4
 }
@@ -48,27 +38,27 @@ void Drone::Resync()
 // code at 0001:00004c99
 }
 
-void Drone::Read( long & )
+void Drone::Read(SLONG &arg1)
 {
 // code at 0001:00004cbf
 }
 
-void Drone::Write( long & )
+void Drone::Write(SLONG &arg1)
 {
 // code at 0001:00004d1e
 }
 
-long Drone::ReadBuffer( Drone * *, long, long, BioGame & )
+SLONG Drone::ReadBuffer(Drone **drn1, SLONG arg2, SLONG arg3, BioGame &game)
 {
 // code at 0001:00004d5f
 }
 
-long Drone::WriteBuffer( Drone * *, long, long, BioGame & )
+SLONG Drone::WriteBuffer(Drone **drn1, SLONG arg2, SLONG arg3, BioGame &game)
 {
 // code at 0001:00004dde
 }
 
-Drone * Drone::Create( Building *, Thing *, DroneType )
+Drone * Drone::Create(Building *arg1, ::Thing *arg2, DroneType arg3)
 {
 // code at 0001:00004e5d
 }
@@ -88,7 +78,7 @@ void Drone::GoBoom()
 // code at 0001:000050f1
 }
 
-char unsigned Drone::Damage( long, Thing * )
+BBOOL Drone::Damage(SLONG arg1, ::Thing *arg2)
 {
 // code at 0001:00005150
 }
@@ -103,7 +93,7 @@ void Drone::DropWhateverYouWereDragging()
 // code at 0001:0000533e
 }
 
-char unsigned Drone::Update()
+UBYTE Drone::Update()
 {
 // code at 0001:00005421
 }
@@ -113,5 +103,29 @@ void Drone::UpdateAll()
 // code at 0001:0000588d
 }
 
+BBOOL Drone::IsDead()
+{
+// code at 0001:0006178c
+}
+
+SWORD Drone::MaxMoveSpeed()
+{
+// code at 0001:00061768
+}
+
+UBYTE Drone::ShapeFacing()
+{
+// code at 0001:00061744
+}
+
+void Drone::StartAMove(XY arg1)
+{
+// code at 0001:00061720
+}
+
+void Drone::Discover()
+{
+// code at 0001:00061704
+}
 
 /******************************************************************************/

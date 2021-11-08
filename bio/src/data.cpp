@@ -18,6 +18,21 @@
 /******************************************************************************/
 #include "data.hpp"
 
+char unsigned Plant::IsFallen()
+{
+// code at 0001:00005a90
+}
+
+char unsigned Building::IsPowered()
+{
+// code at 0001:00005a50
+}
+
+char unsigned Building::IsBusted()
+{
+// code at 0001:00005a10
+}
+
 near GEngine::GEngine()
 {
 // code at 0001:0005ea30

@@ -55,7 +55,6 @@ obj/creature.o \
 obj/custom.o \
 obj/data.o \
 obj/draw.o \
-obj/drone.o \
 obj/editor.o \
 obj/effect.o \
 obj/ethereal.o \
@@ -91,6 +90,7 @@ obj/thingidx.o \
 obj/thing.o \
 obj/mvthing.o \
 obj/smvthing.o \
+obj/drone.o \
 obj/pchost.o \
 obj/pcmain.o \
 $(RES)
