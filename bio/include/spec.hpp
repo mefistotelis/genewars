@@ -314,18 +314,6 @@ class PlSpec : SmartMovingThing { // sizeof=200
 };
 
 
-class EffectStats { // sizeof=6
-    EffectStatType type; // offset=0
-    BBOOL gravity; // offset=1
-    UBYTE priority; // offset=2
-    EffectType makes; // offset=3
-    BBOOL movable; // offset=4
-    BBOOL splash; // offset=5
-};
-
-typedef class EffectStats EffectStats;
-
-
 class Point { // sizeof=12
     void Set(SLONG arg1, SLONG arg2, SLONG arg3);
     SLONG X; // offset=0

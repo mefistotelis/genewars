@@ -18,5 +18,80 @@
 /******************************************************************************/
 #include "smvthing.hpp"
 
+char unsigned SmartMovingThing::IsRescanNeeded()
+{
+// code at 0001:00088f28
+}
+
+char unsigned SmartMovingThing::IsStoppedOn( XY )
+{
+// code at 0001:00088ed0
+}
+
+char unsigned SmartMovingThing::IsMovingToBuilding()
+{
+// code at 0001:00088ea4
+}
+
+char unsigned SmartMovingThing::IsAvoidLooping()
+{
+// code at 0001:00088e64
+}
+
+void SmartMovingThing::SetAvoidLooping()
+{
+// code at 0001:00088e40
+}
+
+char unsigned SmartMovingThing::IsMovingToBuildingInsides()
+{
+// code at 0001:00088e00
+}
+
+char unsigned SmartMovingThing::ScanAroundObstacle( XY, char unsigned, XY &, char unsigned )
+{
+// code at 0001:00087277
+}
+
+char unsigned SmartMovingThing::ScanAroundObstacleIgnoringBuildings( XY, char unsigned, XY &, char unsigned )
+{
+// code at 0001:000874fc
+}
+
+long SmartMovingThing::SquareTrueRangeToWhereGoingTo()
+{
+// code at 0001:00087710
+}
+
+void SmartMovingThing::VectorToWhereGoingTo( Vector & )
+{
+// code at 0001:000877ea
+}
+
+void SmartMovingThing::SetSpeedHandler( Normal &, short )
+{
+// code at 0001:00087907
+}
+
+void SmartMovingThing::TurnToDesiredAngle()
+{
+// code at 0001:00087a0c
+}
+
+void SmartMovingThing::Physics()
+{
+// code at 0001:00087be9
+}
+
+char unsigned SmartMovingThing::SetMoveInDir( short, short, char unsigned )
+{
+// code at 0001:00088941
+}
+
+void SmartMovingThing::PreMoveSituationCheck()
+{
+// code at 0001:00088b04
+}
+
 
 /******************************************************************************/

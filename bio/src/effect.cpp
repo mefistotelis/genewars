@@ -23,31 +23,6 @@ void Point::Set( long, long, long )
 // code at 0001:00049cac
 }
 
-Vector Vector::operator >>( int )
-{
-// code at 0001:00049c6c
-}
-
-void Vector::Set( short, short, short )
-{
-// code at 0001:00049c30
-}
-
-ComponentVector ComponentVector::operator +( ComponentVector )
-{
-// code at 0001:00049bc8
-}
-
-near ComponentVector::ComponentVector( short, short, short )
-{
-// code at 0001:00049b84
-}
-
-void ComponentVector::Clear()
-{
-// code at 0001:00049b44
-}
-
 char unsigned SoundManager::__defarg()
 {
 // code at 0001:00049b24

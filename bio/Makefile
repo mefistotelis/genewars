@@ -88,6 +88,7 @@ obj/title.o \
 
 
 OBJS = \
+obj/cvector.o \
 obj/pchost.o \
 obj/pcmain.o \
 obj/planet.o \

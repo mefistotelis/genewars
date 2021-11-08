@@ -18,16 +18,6 @@
 /******************************************************************************/
 #include "ethereal.hpp"
 
-near Vector::Vector()
-{
-// code at 0001:00004bac
-}
-
-void ComponentVector::Set( short, short, short )
-{
-// code at 0001:00004b70
-}
-
 near RangeScan::RangeScan( XY &, long unsigned, char unsigned )
 {
 // code at 0001:00004ad8
@@ -443,11 +433,6 @@ char unsigned Player::Valid()
 // code at 0001:00003a34
 }
 
-short Vector::ComputeComponentVector( ComponentVector & ) const
-{
-// code at 0001:000038c8
-}
-
 char unsigned Thing::TToggle()
 {
 // code at 0001:00003760
@@ -598,16 +583,6 @@ void Ethereal::PuttAroundPoint( XY, long )
 // code at 0001:00000f89
 }
 
-ComponentVector & ComponentVector::operator =( ComponentVector const & )
-{
-// code at 0001:00001404
-}
-
-near Vector::Vector( Vector const & )
-{
-// code at 0001:000013b8
-}
-
 void (near * const __vftbl[])();
 
 int unsigned const __vbtbl[];
@@ -629,11 +604,6 @@ int unsigned const __vbtbl[];
 int unsigned const __vbtbl[];
 
 int unsigned const __vbtbl[];
-
-Vector & Vector::operator =( Vector const & )
-{
-// code at 0001:00001388
-}
 
 char unsigned Ethereal::Update()
 {

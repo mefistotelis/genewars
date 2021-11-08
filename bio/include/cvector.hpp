@@ -19,67 +19,48 @@
 #ifndef CVECTOR_HPP_
 #define CVECTOR_HPP_
 
+#include "bftypes.h"
+
+class ComponentVector;
+
 class Vector { // sizeof=6
-    class Vector * operator=(class Vector *arg1);
-    class Vector * Vector(class Vector *arg1);
-    SWORD ComputeComponentVector(ComponentVector *arg1);
+    Vector & operator =(Vector const &v1);
+    Vector(Vector const &v1);
+    SWORD ComputeComponentVector(ComponentVector &v1) const;
     void Clear();
-    void Set(SWORD arg1, SWORD arg2, SWORD arg3);
-    Vector operator<<(int arg1);
-    Vector operator>>(int arg1);
-    class Vector * Vector(SWORD arg1, SWORD arg2, SWORD arg3);
-    class Vector * Vector();
+    void Set(SWORD nang, SWORD nangZ, SWORD nlen);
+    Vector operator <<(int arg1);
+    Vector operator >>(int arg1);
+    Vector(SWORD nang, SWORD nangZ, SWORD nlen);
+    Vector();
     SWORD angle; // offset=0
     SWORD angleZ; // offset=2
     SWORD length; // offset=4
 };
 
-typedef class Vector Vector;
-
-typedef class ComponentVector ComponentVector;
-
 class ComponentVector { // sizeof=6
-    class ComponentVector * operator=(class ComponentVector *arg1);
-    class ComponentVector * ComponentVector(class ComponentVector *arg1);
-    SWORD ComputeVector(Vector *arg1);
+    ComponentVector & operator =(ComponentVector const &v1);
+    ComponentVector(class ComponentVector const &v1);
+    SWORD ComputeVector(Vector &v1) const;
     SLONG Length();
     void Clear();
-    void Set(SWORD arg1, SWORD arg2, SWORD arg3);
-    class ComponentVector * ComponentVector(SWORD arg1, SWORD arg2, SWORD arg3);
-    class ComponentVector * ComponentVector();
-    BBOOL operator!=(ComponentVector arg1);
-    BBOOL operator==(ComponentVector arg1);
-    ComponentVector operator<<=(int arg1);
-    ComponentVector operator>>=(int arg1);
-    ComponentVector operator/=(int arg1);
-    ComponentVector operator*=(int arg1);
-    ComponentVector operator-=(ComponentVector arg1);
-    ComponentVector operator-(ComponentVector arg1);
-    ComponentVector operator+=(ComponentVector arg1);
-    ComponentVector operator+(ComponentVector arg1);
+    void Set(SWORD nx, SWORD ny, SWORD nz);
+    ComponentVector(SWORD nx, SWORD ny, SWORD nz);
+    ComponentVector();
+    BBOOL operator !=(ComponentVector v1);
+    BBOOL operator ==(ComponentVector v1);
+    ComponentVector operator <<=(int v1);
+    ComponentVector operator >>=(int v1);
+    ComponentVector operator /=(int v1);
+    ComponentVector operator *=(int v1);
+    ComponentVector operator -=(ComponentVector v1);
+    ComponentVector operator -(ComponentVector v1);
+    ComponentVector operator +=(ComponentVector v1);
+    ComponentVector operator +(ComponentVector v1);
     SWORD dx; // offset=0
     SWORD dy; // offset=2
     SWORD dz; // offset=4
 };
-
-Vector::Vector( short, short, short );
-Vector Vector::operator >>( int );
-void Vector::Set( short, short, short );
-Vector::Vector();
-short Vector::ComputeComponentVector( ComponentVector & ) const;
-Vector::Vector( Vector const & );
-Vector & Vector::operator =( Vector const & );
-
-void ComponentVector::Set( short, short, short );
-ComponentVector ComponentVector::operator +=( ComponentVector );
-ComponentVector::ComponentVector();
-short ComponentVector::ComputeVector( Vector & ) const;
-ComponentVector ComponentVector::operator +( ComponentVector );
-ComponentVector::ComponentVector( short, short, short );
-void ComponentVector::Clear();
-ComponentVector::ComponentVector( ComponentVector const & );
-ComponentVector & ComponentVector::operator =( ComponentVector const & );
-long ComponentVector::Length();
 
 #endif // CVECTOR_HPP_
 /******************************************************************************/

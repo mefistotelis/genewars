@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file thing.cpp
+/** @file scan.cpp
  *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
@@ -16,31 +16,37 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "thing.hpp"
+#include "scan.hpp"
 
-void Thing::Read(SLONG &arg1)
+near PassableTerrainScan::PassableTerrainScan( SmartMovingThing &, long unsigned )
 {
-// code at 0001:00085a1c
+// code at 0001:00088da8
 }
 
-void Thing::Write(SLONG &arg1)
+near ScanRecord::ScanRecord()
 {
-// code at 0001:00085a65
+// code at 0001:00088d70
 }
 
-UBYTE Thing::CreateEffectExplosion(EffectType arg1, UBYTE arg2, SLONG arg3, SLONG arg4, UBYTE arg5)
+int ScanRecord::Hash( XY )
 {
-// code at 0001:00085a98
+// code at 0001:00088d34
 }
 
-Vector Thing::PredictTargetShot( Thing *, long, long, long unsigned )
+void PassableTerrainScan::PerGrid()
 {
-// code at 0001:00085e65
+// code at 0001:00085790
 }
 
-BBOOL Thing::operator ==(Thing *arg1)
+void ScanRecord::Add( XY )
 {
-// code at 0001:00088b8e
+// code at 0001:000857e9
 }
+
+char unsigned ScanRecord::IsRecorded( XY )
+{
+// code at 0001:0008584c
+}
+
 
 /******************************************************************************/

@@ -20,8 +20,16 @@
 #define BIO_THING_HPP_
 
 #include "bftypes.h"
+#include "myspr.h"
 #include "xy.hpp"
+#include "cvector.hpp"
 #include "thingidx.hpp"
+#include "effectstat.hpp"
+#include "sndsample.hpp"
+
+class MyFrame;
+class TheBase;
+class Player;
 
 class Thing { // sizeof=39
     Thing * operator=(Thing *arg1);
@@ -29,7 +37,7 @@ class Thing { // sizeof=39
     Thing();
     Vector PredictTargetShot(Thing *arg1, SLONG arg2, SLONG arg3, ULONG arg4);
     UBYTE CreateEffectExplosion(EffectType arg1, UBYTE arg2, SLONG arg3, SLONG arg4, UBYTE arg5);
-    BBOOL operator==(Thing *arg1);
+    BBOOL operator ==(Thing *arg1);
     BBOOL IsStaticallyDrawn();
     BBOOL IsDead();
     UBYTE Update();
@@ -41,8 +49,8 @@ class Thing { // sizeof=39
     void FadeSound(SampleID arg1, SWORD arg2, UBYTE arg3);
     void StopSound(SampleID arg1);
     void Sound(SampleID arg1, UBYTE arg2, UBYTE arg3, UBYTE arg4, ULONG arg5);
-    void Write(SLONG *arg1);
-    void Read(SLONG *arg1);
+    void Write(SLONG &arg1);
+    void Read(SLONG &arg1);
     void StartFightWith(Thing *arg1);
     BBOOL Damage(SLONG arg1, Thing *arg2);
     void Undiscover();
@@ -75,7 +83,7 @@ class Thing { // sizeof=39
     BBOOL IsNew();
     void Invalidate();
     BBOOL Valid();
-    void (**__vfptr)();
+    /* void (**__vfptr)(); */
     ThingIDX prev; // offset=0
     ThingIDX next; // offset=3
     ThingType ttype; // offset=6
@@ -100,7 +108,7 @@ class StaticThing : Thing { // sizeof=43
     void DrawNoDraw(SWORD arg1, SWORD arg2);
     void Resync();
     void DrawOnMap(SWORD arg1, SWORD arg2);
-    void (**__vfptr)();
+    /* void (**__vfptr)(); */
     MyFrame *oldFrame;
 };
 

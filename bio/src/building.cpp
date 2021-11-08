@@ -18,26 +18,6 @@
 /******************************************************************************/
 #include "building.hpp"
 
-near Vector::Vector( short, short, short )
-{
-// code at 0001:00040b04
-}
-
-ComponentVector ComponentVector::operator +=( ComponentVector )
-{
-// code at 0001:00040ab0
-}
-
-near ComponentVector::ComponentVector()
-{
-// code at 0001:00040a68
-}
-
-short ComponentVector::ComputeVector( Vector & ) const
-{
-// code at 0001:000409a0
-}
-
 long GridTile::__defarg()
 {
 // code at 0001:0004097c
@@ -371,11 +351,6 @@ void Building::Write( long & )
 long Building::ReadBuffer( Building * *, long, long, BioGame & )
 {
 // code at 0001:0003c727
-}
-
-near ComponentVector::ComponentVector( ComponentVector const & )
-{
-// code at 0001:0003ffc4
 }
 
 void (near * const __vftbl[])();
