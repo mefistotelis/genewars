@@ -18,44 +18,9 @@
 /******************************************************************************/
 #include "setup.hpp"
 
-char unsigned Ethereal::IsDead()
-{
-// code at 0001:000616e0
-}
-
-char unsigned Ethereal::IsFlying()
-{
-// code at 0001:000616bc
-}
-
-char unsigned Ethereal::IsVectorable()
-{
-// code at 0001:00061698
-}
-
-short Ethereal::MaxMoveSpeed()
-{
-// code at 0001:0006165c
-}
-
-void Ethereal::StartAMove( XY )
-{
-// code at 0001:00061640
-}
-
-void Ethereal::Discover()
-{
-// code at 0001:00061624
-}
-
 void start_game()
 {
 // code at 0001:00060954
-}
-
-near Ethereal::Ethereal()
-{
-// code at 0001:00061564
 }
 
 

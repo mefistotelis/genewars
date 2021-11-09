@@ -55,6 +55,7 @@ obj/data.o \
 obj/draw.o \
 obj/editor.o \
 obj/ethereal.o \
+obj/etherealz.o \
 obj/font.o \
 obj/iface.o \
 obj/lab.o \

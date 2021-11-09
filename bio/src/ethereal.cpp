@@ -18,69 +18,39 @@
 /******************************************************************************/
 #include "ethereal.hpp"
 
-near RangeScan::RangeScan( XY &, long unsigned, char unsigned )
+/*Ethereal::Ethereal()
 {
-// code at 0001:00004ad8
+// code at 0001:00061564
+}*/
+
+char unsigned Ethereal::IsDead()
+{
+// code at 0001:000616e0
 }
 
-near RangeScanner::RangeScanner( XY &, long unsigned )
+char unsigned Ethereal::IsFlying()
 {
-// code at 0001:00004a74
+// code at 0001:000616bc
 }
 
-char unsigned SoundManager::__defarg()
+char unsigned Ethereal::IsVectorable()
 {
-// code at 0001:00004a54
+// code at 0001:00061698
 }
 
-char unsigned SoundManager::__defarg()
+short Ethereal::MaxMoveSpeed()
 {
-// code at 0001:00004a34
+// code at 0001:0006165c
 }
 
-char unsigned SoundManager::__defarg()
+void Ethereal::StartAMove( XY )
 {
-// code at 0001:00004a14
+// code at 0001:00061640
 }
 
-long unsigned SoundManager::__defarg()
+void Ethereal::Discover()
 {
-// code at 0001:000049f0
-}
-
-char unsigned SoundManager::__defarg()
-{
-// code at 0001:000049d0
-}
-
-BufferSubmitMode SoundManager::__defarg()
-{
-// code at 0001:000049b0
-}
-
-char unsigned SoundManager::__defarg()
-{
-// code at 0001:00004990
-}
-
-char unsigned SoundManager::__defarg()
-{
-// code at 0001:00004970
-}
-
-char unsigned SoundManager::__defarg()
-{
-// code at 0001:00004950
-}
-
-long unsigned SoundManager::__defarg()
-{
-// code at 0001:0000492c
-}
-
-char unsigned SoundManager::__defarg()
-{
-// code at 0001:0000490c
+// code at 0001:00061624
 }
 
 void Ethereal::SetMoveToTgtWithAlt( XY, long )
@@ -91,246 +61,6 @@ void Ethereal::SetMoveToTgtWithAlt( XY, long )
 void Ethereal::SetMoveToThingWithAlt( Thing *, long )
 {
 // code at 0001:000043ec
-}
-
-char unsigned EtherealZone::IsActive()
-{
-// code at 0001:000043b4
-}
-
-char unsigned EtherealZone::IsExhausted()
-{
-// code at 0001:0000437c
-}
-
-void MainInterfacePad::__vfthunk( Thing * )
-{
-// code at 0001:00004344
-}
-
-char unsigned MainInterfacePad::__vfthunk( short )
-{
-// code at 0001:00004308
-}
-
-void MainInterfacePad::__vfthunk( char signed )
-{
-// code at 0001:000042d0
-}
-
-void MainInterfacePad::__vfthunk()
-{
-// code at 0001:0000429c
-}
-
-void MainInterfacePad::__vfthunk( Thing * )
-{
-// code at 0001:00004264
-}
-
-char unsigned MainInterfacePad::__vfthunk( short )
-{
-// code at 0001:00004228
-}
-
-void MainInterfacePad::__vfthunk( char signed )
-{
-// code at 0001:000041f0
-}
-
-void MainInterfacePad::__vfthunk()
-{
-// code at 0001:000041bc
-}
-
-void MainInterfacePad::__vfthunk()
-{
-// code at 0001:00004188
-}
-
-void MainInterfacePad::__vfthunk( Thing * )
-{
-// code at 0001:00004150
-}
-
-char unsigned MainInterfacePad::__vfthunk( short )
-{
-// code at 0001:00004114
-}
-
-void MainInterfacePad::__vfthunk( char signed )
-{
-// code at 0001:000040dc
-}
-
-void MainInterfacePad::__vfthunk()
-{
-// code at 0001:000040a8
-}
-
-void MainInterfacePad::__vfthunk( Thing * )
-{
-// code at 0001:00004070
-}
-
-char unsigned MainInterfacePad::__vfthunk( short )
-{
-// code at 0001:00004034
-}
-
-void MainInterfacePad::__vfthunk( char signed )
-{
-// code at 0001:00003ffc
-}
-
-void MainInterfacePad::__vfthunk()
-{
-// code at 0001:00003fc8
-}
-
-void MainInterfacePad::__vfthunk()
-{
-// code at 0001:00003f94
-}
-
-void MainInterfacePad::__vfthunk( Thing * )
-{
-// code at 0001:00003f5c
-}
-
-char unsigned MainInterfacePad::__vfthunk( short )
-{
-// code at 0001:00003f20
-}
-
-void MainInterfacePad::__vfthunk( char signed )
-{
-// code at 0001:00003ee8
-}
-
-void MainInterfacePad::__vfthunk()
-{
-// code at 0001:00003eb4
-}
-
-void MainInterfacePad::__vfthunk()
-{
-// code at 0001:00003e80
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003e4c
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003e18
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003de4
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003db0
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003d7c
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003d48
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003d14
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003ce0
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003cac
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003c78
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003c44
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003c10
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003bdc
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003ba8
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003b74
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003b40
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003b0c
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003ad8
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003aa4
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003a70
-}
-
-char * Config::InstalledFile( char * )
-{
-// code at 0001:000036ac
-}
-
-near EtherealTargetScan::EtherealTargetScan( Ethereal &, long unsigned )
-{
-// code at 0001:00003560
-}
-
-void EtherealTargetScan::PerGrid()
-{
-// code at 0001:00003438
 }
 
 void Ethereal::InitArray()
@@ -453,28 +183,6 @@ void Ethereal::PuttAroundPoint( XY, long )
 // code at 0001:00000f89
 }
 
-void (near * const __vftbl[])();
-
-int unsigned const __vbtbl[];
-
-int unsigned const __vbtbl[];
-
-int unsigned const __vbtbl[];
-
-int unsigned const __vbtbl[];
-
-int unsigned const __vbtbl[];
-
-int unsigned const __vbtbl[];
-
-int unsigned const __vbtbl[];
-
-int unsigned const __vbtbl[];
-
-int unsigned const __vbtbl[];
-
-int unsigned const __vbtbl[];
-
 char unsigned Ethereal::Update()
 {
 // code at 0001:00001061
@@ -484,8 +192,5 @@ void Ethereal::UpdateAll()
 {
 // code at 0001:00001126
 }
-
-void (near * const __vftbl[])();
-
 
 /******************************************************************************/
