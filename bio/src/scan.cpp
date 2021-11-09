@@ -68,11 +68,6 @@ void WeightedTgtRangeScanner::Do()
 // code at 0001:0005dbb7
 }
 
-void ResearchGrid::CountAMonolithTouch( Creature * )
-{
-// code at 0001:00049314
-}
-
 near ShotHitScan::ShotHitScan( Effect &, long )
 {
 // code at 0001:0004902c
@@ -131,11 +126,6 @@ void FlickerHandler::Free( char unsigned )
 char unsigned MapDisplay::IsGlassBuildings()
 {
 // code at 0001:00040614
-}
-
-char unsigned ResearchGrid::AddToAGrid( CreatureSpecies, long )
-{
-// code at 0001:00040564
 }
 
 char unsigned IFCPlanetside::IsThingSelectedInPad( Thing * )

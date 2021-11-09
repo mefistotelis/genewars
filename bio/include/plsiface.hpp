@@ -24,6 +24,8 @@
 #include "thingidx.hpp"
 #include "plantstat.hpp"
 
+class MyAnimBank;
+
 class BuilderIFC { // sizeof=18
     SBYTE go; // offset=0
     SBYTE object; // offset=1
@@ -72,6 +74,15 @@ class PLSInterface { // sizeof=22
     CowboyIFC cowboy; // offset=6
     BuilderIFC builder; // offset=7
     SBYTE go; // offset=8
+};
+
+class PlSpecLoader { // sizeof=80
+    void Free(PlayerRace arg1, SpecialistClass arg2, MyAnimBank *arg3);
+    void Free(PlSpec *arg1);
+    MyAnimBank * Load(PlayerRace arg1, SpecialistClass arg2);
+    BBOOL Load(PlSpec *arg1);
+    MyAnimBank *anbs[3][3];
+    SBYTE counters[3][3];
 };
 
 #endif // BIO_PLSIFACE_HPP_

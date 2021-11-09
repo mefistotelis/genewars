@@ -18,11 +18,6 @@
 /******************************************************************************/
 #include "level.hpp"
 
-void Player::SetPlayerPointer()
-{
-// code at 0001:00015818
-}
-
 void IFCBase::__vfthunk()
 {
 // code at 0001:000157e4

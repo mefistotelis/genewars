@@ -18,6 +18,31 @@
 /******************************************************************************/
 #include "spec.hpp"
 
+void Specialist::Invalidate()
+{
+// code at 0001:00052b64
+}
+
+void Specialist::SetOnTeam()
+{
+// code at 0001:00052b40
+}
+
+void Specialist::ClearOnTeam()
+{
+// code at 0001:00052b1c
+}
+
+void Specialist::SetPlanetside()
+{
+// code at 0001:00052af8
+}
+
+void Specialist::ClearPlanetside()
+{
+// code at 0001:00052ad4
+}
+
 near WeightedRangeScanner::WeightedRangeScanner( XY &, long unsigned )
 {
 // code at 0001:00078154

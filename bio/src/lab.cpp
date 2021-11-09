@@ -18,11 +18,6 @@
 /******************************************************************************/
 #include "lab.hpp"
 
-char unsigned ResearchGrid::IsIndexWithinCreaturesDiscovered( int )
-{
-// code at 0001:00018260
-}
-
 near MainInterfacePad::MainInterfacePad()
 {
 // code at 0001:0001822c

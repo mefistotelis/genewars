@@ -21,47 +21,54 @@
 
 #include "bftypes.h"
 #include "xy.hpp"
+#include "thebase.hpp"
+#include "theship.hpp"
+#include "research.hpp"
+#include "playerstat.hpp"
 
 class Packet;
+class Thing;
+class PlSpec;
+class Specialist;
 
 class Player { // sizeof=233
-    class Player * operator=(class Player *arg1);
-    class Player * Player(class Player *arg1);
-    void pPA_WIN_LEVEL(Packet *arg1);
-    void pPA_LEAVE_STAT_SCREEN(Packet *arg1);
-    void pPA_JOINSESSION(Packet *arg1);
-    void pPA_SETUPSTUFF(Packet *arg1);
-    void pPA_SESSIONINFOREQUEST(Packet *arg1);
-    void pPA_CREATURE_ACTION(Packet *arg1);
-    void pPA_SET_SHIELD_MODE(Packet *arg1);
-    void pPA_SET_SHEPHERD_THING(Packet *arg1);
-    void pPA_IFC_ABORT_SPECIAL(Packet *arg1);
-    void pPA_ACTIVATE_BUILDING(Packet *arg1);
-    void pPA_UPGRADE_BUILDING(Packet *arg1);
-    void pPA_GROUP(Packet *arg1);
-    void pPA_SET_SENTINEL_ZONE(Packet *arg1);
-    void pPA_IFC_MOVE_GO(Packet *arg1);
-    void pPA_CHEAT(Packet *arg1);
-    void pPA_RANDOM_SEED(Packet *arg1);
-    void pPA_ADD_PLANT(Packet *arg1);
-    void pPA_NEWSPECIES(Packet *arg1);
-    void pPA_SET_DROP_ZONE(Packet *arg1);
-    void pPA_CREATE_A_CREATURE(Packet *arg1);
-    void pPA_CREATE_CREATURE(Packet *arg1);
-    void pPA_LANDING(Packet *arg1);
-    void pPA_REMOVE_TEAM_MEMBER(Packet *arg1);
-    void pPA_ADD_TEAM_MEMBER(Packet *arg1);
-    void pPA_IFC_GO(Packet *arg1);
-    void pPA_ABORT_MOVE(Packet *arg1);
-    void pPA_MOVE_TO(Packet *arg1);
+    Player & operator =(Player const &plyr1);
+    //Player(class Player *arg1); -- generate default copy constructor
+    void pPA_WIN_LEVEL(Packet *pkt);
+    void pPA_LEAVE_STAT_SCREEN(Packet *pkt);
+    void pPA_JOINSESSION(Packet *pkt);
+    void pPA_SETUPSTUFF(Packet *pkt);
+    void pPA_SESSIONINFOREQUEST(Packet *pkt);
+    void pPA_CREATURE_ACTION(Packet *pkt);
+    void pPA_SET_SHIELD_MODE(Packet *pkt);
+    void pPA_SET_SHEPHERD_THING(Packet *pkt);
+    void pPA_IFC_ABORT_SPECIAL(Packet *pkt);
+    void pPA_ACTIVATE_BUILDING(Packet *pkt);
+    void pPA_UPGRADE_BUILDING(Packet *pkt);
+    void pPA_GROUP(Packet *pkt);
+    void pPA_SET_SENTINEL_ZONE(Packet *pkt);
+    void pPA_IFC_MOVE_GO(Packet *pkt);
+    void pPA_CHEAT(Packet *pkt);
+    void pPA_RANDOM_SEED(Packet *pkt);
+    void pPA_ADD_PLANT(Packet *pkt);
+    void pPA_NEWSPECIES(Packet *pkt);
+    void pPA_SET_DROP_ZONE(Packet *pkt);
+    void pPA_CREATE_A_CREATURE(Packet *pkt);
+    void pPA_CREATE_CREATURE(Packet *pkt);
+    void pPA_LANDING(Packet *pkt);
+    void pPA_REMOVE_TEAM_MEMBER(Packet *pkt);
+    void pPA_ADD_TEAM_MEMBER(Packet *pkt);
+    void pPA_IFC_GO(Packet *pkt);
+    void pPA_ABORT_MOVE(Packet *pkt);
+    void pPA_MOVE_TO(Packet *pkt);
     UBYTE BaseColor();
-    BBOOL IsSamePlayer(Thing *arg1);
-    BBOOL IsEnemy(Thing *arg1);
+    BBOOL IsSamePlayer(Thing *tng1);
+    BBOOL IsEnemy(Thing *tng1);
     void OverlayInto(Player *arg1);
-    BBOOL DataRequestFromHost(void *arg1, SLONG arg2, char arg3);
+    BBOOL DataRequestFromHost(void *arg1, SLONG arg2, char arg3); // 3rd argument uncertain
     void SetTargetPointer();
     void SetPlayerPointer();
-    SBYTE next_tool(SBYTE arg1, Specialist *arg2);
+    SBYTE next_tool(SBYTE arg1, Specialist &spcls);
     void DisplayEtherealPoints();
     void EtherealPoints();
     void PaletteFromTerraform();
@@ -78,8 +85,8 @@ class Player { // sizeof=233
     void RemoveTeamMember(SWORD arg1, BBOOL arg2);
     BBOOL AddTeamMember(SWORD arg1);
     void DefaultTeam();
-    void AddGood(SLONG arg1, Thing *arg2);
-    void AddBad(SLONG arg1, Thing *arg2);
+    void AddGood(SLONG arg1, Thing *tng2);
+    void AddBad(SLONG arg1, Thing *tng2);
     void AddBad(SLONG arg1, XY arg2);
     void FreeAllAllocs();
     void Reset();
@@ -88,7 +95,7 @@ class Player { // sizeof=233
     void MakeValid();
     BBOOL Valid();
     void Init();
-    class Player * Player(UBYTE arg1);
+    //Player(UBYTE arg1);
     UBYTE ControlType; // offset=0
     UBYTE idx; // offset=1
     BBOOL computer; // offset=2

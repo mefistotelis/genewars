@@ -52,7 +52,6 @@ class TurnPrintInfo { // sizeof=110
 };
 
 
-typedef class PLSInterface PLSInterface;
 
 
 

@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file setup.cpp
+/** @file research.cpp
  *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
@@ -16,75 +16,48 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "setup.hpp"
+#include "research.hpp"
 
-char unsigned Ethereal::IsDead()
+BBOOL ResearchGrid::CanPlantThisSpecies(PlantSpecies arg1)
 {
-// code at 0001:000616e0
+// code at 0001:00025ed8
 }
 
-char unsigned Ethereal::IsFlying()
+BBOOL ResearchGrid::IsIndexWithinCreaturesDiscovered(int arg1)
 {
-// code at 0001:000616bc
+// code at 0001:00018260
 }
 
-char unsigned Ethereal::IsVectorable()
+SLONG ResearchGrid::ResearchCeiling()
 {
-// code at 0001:00061698
+// code at 0001:0001d528
 }
 
-short Ethereal::MaxMoveSpeed()
+BBOOL ResearchGrid::IsAGridStudyAtMax(UBYTE arg1)
 {
-// code at 0001:0006165c
+// code at 0001:0001d4e0
 }
 
-void Ethereal::StartAMove( XY )
+BBOOL ResearchGrid::RegisterCreature(CreatureSpecies arg1)
 {
-// code at 0001:00061640
+// code at 0001:0005288c
 }
 
-void Ethereal::Discover()
+void ResearchGrid::CheatGetAllCreatures()
 {
-// code at 0001:00061624
-}
-
-void start_game()
-{
-// code at 0001:00060954
-}
-
-near Ethereal::Ethereal()
-{
-// code at 0001:00061564
+// code at 0001:0005290a
 }
 
 
-void setup_game()
+void ResearchGrid::CountAMonolithTouch(Creature *arg1)
 {
-// code at 0001:00060db5
+// code at 0001:00049314
 }
 
-void reset_game()
+BBOOL ResearchGrid::AddToAGrid(CreatureSpecies arg1, SLONG arg2)
 {
-// code at 0001:00061182
+// code at 0001:00040564
 }
-
-void setup_map()
-{
-// code at 0001:000611b9
-}
-
-void setup_strings( char *, char * *, long )
-{
-// code at 0001:00061250
-}
-
-near BioGame::BioGame()
-{
-// code at 0001:000612e4
-}
-
-char unsigned const __typesig[];
 
 
 /******************************************************************************/

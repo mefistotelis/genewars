@@ -18,16 +18,6 @@
 /******************************************************************************/
 #include "title.hpp"
 
-long Player::__defarg()
-{
-// code at 0001:0004e5ac
-}
-
-void Player::MakeValid()
-{
-// code at 0001:0004e568
-}
-
 void IFCTitle::PlugIn()
 {
 // code at 0001:0004be3c
@@ -151,11 +141,6 @@ void IFCLoseLevel::Draw()
 void IFCStatScreen::PlugIn()
 {
 // code at 0001:0004dece
-}
-
-Player & Player::operator =( Player const & )
-{
-// code at 0001:0004e1c8
 }
 
 void IFCStatScreen::PullOut()

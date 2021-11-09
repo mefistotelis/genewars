@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file setup.cpp
+/** @file plspec.cpp
  *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
@@ -16,75 +16,18 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "setup.hpp"
+#include "plspec.hpp"
 
-char unsigned Ethereal::IsDead()
+void PlSpec::InterruptMove()
 {
-// code at 0001:000616e0
+// code at 0001:00052a9c
 }
 
-char unsigned Ethereal::IsFlying()
+void PlSpec::SetupMoveToTgt( XY )
 {
-// code at 0001:000616bc
+// code at 0001:000529cc
 }
 
-char unsigned Ethereal::IsVectorable()
-{
-// code at 0001:00061698
-}
-
-short Ethereal::MaxMoveSpeed()
-{
-// code at 0001:0006165c
-}
-
-void Ethereal::StartAMove( XY )
-{
-// code at 0001:00061640
-}
-
-void Ethereal::Discover()
-{
-// code at 0001:00061624
-}
-
-void start_game()
-{
-// code at 0001:00060954
-}
-
-near Ethereal::Ethereal()
-{
-// code at 0001:00061564
-}
-
-
-void setup_game()
-{
-// code at 0001:00060db5
-}
-
-void reset_game()
-{
-// code at 0001:00061182
-}
-
-void setup_map()
-{
-// code at 0001:000611b9
-}
-
-void setup_strings( char *, char * *, long )
-{
-// code at 0001:00061250
-}
-
-near BioGame::BioGame()
-{
-// code at 0001:000612e4
-}
-
-char unsigned const __typesig[];
 
 
 /******************************************************************************/

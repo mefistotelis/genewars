@@ -22,6 +22,7 @@
 #include "bftypes.h"
 #include "xy.hpp"
 #include "stuff.hpp"
+#include "thebase.hpp"
 
 enum { // type=int8_t
     PLANET_TYPE_JUNGLE = 0,

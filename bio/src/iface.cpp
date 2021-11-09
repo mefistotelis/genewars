@@ -73,11 +73,6 @@ void MapDisplay::ToggleGlassBuildings()
 // code at 0001:00025f18
 }
 
-char unsigned ResearchGrid::CanPlantThisSpecies( PlantSpecies )
-{
-// code at 0001:00025ed8
-}
-
 void IFCBase::SetPacket( char unsigned )
 {
 // code at 0001:00025eb0
@@ -186,31 +181,6 @@ near EtherealScope::EtherealScope()
 void EtherealScope::Init()
 {
 // code at 0001:000256b8
-}
-
-Thing * Player::__defarg()
-{
-// code at 0001:00025694
-}
-
-Thing * Player::__defarg()
-{
-// code at 0001:00025670
-}
-
-char unsigned Player::IsEnemy( Thing * )
-{
-// code at 0001:00025634
-}
-
-char unsigned Player::BaseColor()
-{
-// code at 0001:00025608
-}
-
-char signed Player::GetNum( PlSpec * )
-{
-// code at 0001:000254e4
 }
 
 long PlSpec::ArchitectBuildCost( BuildingType )

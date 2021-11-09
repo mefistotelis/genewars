@@ -318,19 +318,9 @@ void IFCBase::__vfthunk()
 // code at 0001:00003a70
 }
 
-char unsigned Player::Valid()
-{
-// code at 0001:00003a34
-}
-
 char * Config::InstalledFile( char * )
 {
 // code at 0001:000036ac
-}
-
-PlSpec * Player::GetTeam( char unsigned )
-{
-// code at 0001:000035dc
 }
 
 near EtherealTargetScan::EtherealTargetScan( Ethereal &, long unsigned )

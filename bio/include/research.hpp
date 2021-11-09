@@ -19,6 +19,12 @@
 #ifndef BIO_RESEARCH_HPP_
 #define BIO_RESEARCH_HPP_
 
+#include "bftypes.h"
+#include "plantstat.hpp"
+#include "creaturestat.hpp"
+
+class Creature;
+
 class ResearchGrid { // sizeof=200
     void CheatGetAllCreatures();
     BBOOL RegisterCreature(CreatureSpecies arg1);

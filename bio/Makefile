@@ -67,7 +67,6 @@ obj/options.o \
 obj/packets.o \
 obj/pads.o \
 \
-obj/player.o \
 obj/setup.o \
 obj/sound.o \
 obj/spec.o \
@@ -92,6 +91,8 @@ obj/drone.o \
 obj/event.o \
 obj/effect.o \
 obj/creature.o \
+obj/research.o \
+obj/player.o \
 obj/io.o \
 obj/game.o \
 obj/pchost.o \

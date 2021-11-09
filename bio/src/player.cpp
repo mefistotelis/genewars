@@ -18,40 +18,15 @@
 /******************************************************************************/
 #include "player.hpp"
 
-void Specialist::Invalidate()
+/*Player::Player(UBYTE arg1)
 {
-// code at 0001:00052b64
-}
+// code at 0001:00050843
+}*/
 
-void Specialist::SetOnTeam()
+/*Player & Player::.tdctor()
 {
-// code at 0001:00052b40
-}
-
-void Specialist::ClearOnTeam()
-{
-// code at 0001:00052b1c
-}
-
-void Specialist::SetPlanetside()
-{
-// code at 0001:00052af8
-}
-
-void Specialist::ClearPlanetside()
-{
-// code at 0001:00052ad4
-}
-
-void PlSpec::InterruptMove()
-{
-// code at 0001:00052a9c
-}
-
-void PlSpec::SetupMoveToTgt( XY )
-{
-// code at 0001:000529cc
-}
+// code at 0001:00061450
+}*/
 
 void Player::Invalidate()
 {
@@ -68,19 +43,14 @@ void Player::ResetTeamLandings()
 // code at 0001:0005057b
 }
 
-char unsigned Player::AddTeamMember( short )
+BBOOL Player::AddTeamMember(SWORD arg1)
 {
 // code at 0001:000505cc
 }
 
-void Player::RemoveTeamMember( short, char unsigned )
+void Player::RemoveTeamMember(SWORD arg1, BBOOL arg2)
 {
 // code at 0001:000506cb
-}
-
-near Player::Player( char unsigned )
-{
-// code at 0001:00050843
 }
 
 void Player::Init()
@@ -88,22 +58,22 @@ void Player::Init()
 // code at 0001:0005088d
 }
 
-void Player::OverlayInto( Player * )
+void Player::OverlayInto(Player *arg1)
 {
 // code at 0001:00050965
 }
 
-void Player::AddBad( long, XY )
+void Player::AddBad(SLONG arg1, XY arg2)
 {
 // code at 0001:000509ab
 }
 
-void Player::AddBad( long, Thing * )
+void Player::AddBad(SLONG arg1, Thing *tng2)
 {
 // code at 0001:000509e3
 }
 
-void Player::AddGood( long, Thing * )
+void Player::AddGood(SLONG arg1, Thing *tng2)
 {
 // code at 0001:00050a76
 }
@@ -133,7 +103,7 @@ void Player::DisplayEtherealPoints()
 // code at 0001:00050bc5
 }
 
-char unsigned Player::PrepTeamForPlanetside( long )
+BBOOL Player::PrepTeamForPlanetside(SLONG arg1)
 {
 // code at 0001:00050c0a
 }
@@ -148,7 +118,7 @@ void Player::LandTeamNotOnPlanet()
 // code at 0001:00050e57
 }
 
-void Player::YankTeamMemberOffPlanet( char unsigned )
+void Player::YankTeamMemberOffPlanet(UBYTE arg1)
 {
 // code at 0001:00050fc5
 }
@@ -163,147 +133,199 @@ void Player::Reset()
 // code at 0001:000510fb
 }
 
-char signed Player::next_tool( char signed, Specialist & )
+SBYTE Player::next_tool(SBYTE arg1, Specialist &spcls)
 {
 // code at 0001:00051151
 }
 
-char unsigned Player::DataRequestFromHost( void *, long )
+BBOOL Player::DataRequestFromHost(void *arg1, SLONG arg2, char arg3)
 {
 // code at 0001:00051174
 }
 
-void Player::pPA_MOVE_TO( Packet * )
+char unsigned Player::Valid()
+{
+// code at 0001:00003a34
+}
+
+PlSpec * Player::GetTeam( char unsigned )
+{
+// code at 0001:000035dc
+}
+
+char unsigned Player::IsEnemy( Thing * )
+{
+// code at 0001:00025634
+}
+
+char unsigned Player::BaseColor()
+{
+// code at 0001:00025608
+}
+
+char signed Player::GetNum( PlSpec * )
+{
+// code at 0001:000254e4
+}
+
+void Player::SetPlayerPointer()
+{
+// code at 0001:00015818
+}
+
+char unsigned Player::IsSamePlayer( Thing * )
+{
+// code at 0001:0001d230
+}
+
+void Player::MakeValid()
+{
+// code at 0001:0004e568
+}
+
+Player & Player::operator =(Player const &plyr1)
+{
+// code at 0001:0004e1c8
+}
+
+void Player::pPA_MOVE_TO(Packet *pkt)
 {
 // code at 0001:00051252
 }
 
-void Player::pPA_IFC_GO( Packet * )
+void Player::pPA_IFC_GO(Packet *pkt)
 {
 // code at 0001:000512e6
 }
 
-void Player::pPA_IFC_ABORT_SPECIAL( Packet * )
+void Player::pPA_IFC_ABORT_SPECIAL(Packet *pkt)
 {
 // code at 0001:00051464
 }
 
-void Player::pPA_IFC_MOVE_GO( Packet * )
+void Player::pPA_IFC_MOVE_GO(Packet *pkt)
 {
 // code at 0001:000514ba
 }
 
-void Player::pPA_ADD_TEAM_MEMBER( Packet * )
+void Player::pPA_ADD_TEAM_MEMBER(Packet *pkt)
 {
 // code at 0001:0005169b
 }
 
-void Player::pPA_REMOVE_TEAM_MEMBER( Packet * )
+void Player::pPA_REMOVE_TEAM_MEMBER(Packet *pkt)
 {
 // code at 0001:000516c4
 }
 
-void Player::pPA_SET_DROP_ZONE( Packet * )
+void Player::pPA_SET_DROP_ZONE(Packet *pkt)
 {
 // code at 0001:000516f2
 }
 
-void Player::pPA_LANDING( Packet * )
+void Player::pPA_LANDING(Packet *pkt)
 {
 // code at 0001:0005173e
 }
 
-void Player::pPA_ABORT_MOVE( Packet * )
+void Player::pPA_ABORT_MOVE(Packet *pkt)
 {
 // code at 0001:0005177b
 }
 
-void Player::pPA_RANDOM_SEED( Packet * )
+void Player::pPA_RANDOM_SEED(Packet *pkt)
 {
 // code at 0001:000517c6
 }
 
-void Player::pPA_CREATE_A_CREATURE( Packet * )
+void Player::pPA_CREATE_A_CREATURE(Packet *pkt)
 {
 // code at 0001:000517ed
 }
 
-void Player::pPA_CHEAT( Packet * )
+void Player::pPA_CHEAT(Packet *pkt)
 {
 // code at 0001:00051878
 }
 
-void Player::pPA_GROUP( Packet * )
+void Player::pPA_GROUP(Packet *pkt)
 {
 // code at 0001:00051eb1
 }
 
-void Player::pPA_SET_SENTINEL_ZONE( Packet * )
+void Player::pPA_SET_SENTINEL_ZONE(Packet *pkt)
 {
 // code at 0001:000520dc
 }
 
-void Player::pPA_SET_SHEPHERD_THING( Packet * )
+void Player::pPA_SET_SHEPHERD_THING(Packet *pkt)
 {
 // code at 0001:0005214e
 }
 
-void Player::pPA_UPGRADE_BUILDING( Packet * )
+void Player::pPA_UPGRADE_BUILDING(Packet *pkt)
 {
 // code at 0001:00052359
 }
 
-void Player::pPA_ACTIVATE_BUILDING( Packet * )
+void Player::pPA_ACTIVATE_BUILDING(Packet *pkt)
 {
 // code at 0001:0005238f
 }
 
-void Player::pPA_SET_SHIELD_MODE( Packet * )
+void Player::pPA_SET_SHIELD_MODE(Packet *pkt)
 {
 // code at 0001:000524ae
 }
 
-void Player::pPA_CREATURE_ACTION( Packet * )
+void Player::pPA_CREATURE_ACTION(Packet *pkt)
 {
 // code at 0001:000525f1
 }
 
-void Player::pPA_SESSIONINFOREQUEST( Packet * )
+void Player::pPA_SESSIONINFOREQUEST(Packet *pkt)
 {
 // code at 0001:00052696
 }
 
-void Player::pPA_SETUPSTUFF( Packet * )
+void Player::pPA_SETUPSTUFF(Packet *pkt)
 {
 // code at 0001:00052723
 }
 
-void Player::pPA_JOINSESSION( Packet * )
+void Player::pPA_JOINSESSION(Packet *pkt)
 {
 // code at 0001:0005279f
 }
 
-void (near * const __vftbl[])();
-
-void Player::pPA_LEAVE_STAT_SCREEN( Packet * )
+void Player::pPA_LEAVE_STAT_SCREEN(Packet *pkt)
 {
 // code at 0001:000527c7
 }
 
-void Player::pPA_WIN_LEVEL( Packet * )
+void Player::pPA_WIN_LEVEL(Packet *pkt)
 {
 // code at 0001:00052810
 }
 
-char unsigned ResearchGrid::RegisterCreature( CreatureSpecies )
+/*char unsigned Player::__defarg()
 {
-// code at 0001:0005288c
-}
+// code at 0001:00061604
+}*/
 
-void ResearchGrid::CheatGetAllCreatures()
+/*Thing * Player::__defarg()
 {
-// code at 0001:0005290a
-}
+// code at 0001:00025694
+}*/
 
+/*Thing * Player::__defarg()
+{
+// code at 0001:00025670
+}*/
+
+/*long Player::__defarg()
+{
+// code at 0001:0004e5ac
+}*/
 
 /******************************************************************************/

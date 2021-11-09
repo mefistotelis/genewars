@@ -98,16 +98,6 @@ char unsigned MapDisplay::IsDrawFoundations()
 // code at 0001:0001d560
 }
 
-long ResearchGrid::ResearchCeiling()
-{
-// code at 0001:0001d528
-}
-
-char unsigned ResearchGrid::IsAGridStudyAtMax( char unsigned )
-{
-// code at 0001:0001d4e0
-}
-
 void IFCBase::SetPacket( char unsigned, short, short, short )
 {
 // code at 0001:0001d48c
@@ -156,11 +146,6 @@ void MainInterfacePad::NullUserPointer()
 void MainInterfacePad::SetViewerClip()
 {
 // code at 0001:0001d26c
-}
-
-char unsigned Player::IsSamePlayer( Thing * )
-{
-// code at 0001:0001d230
 }
 
 void BoundMmsToMySprite( MyMinSprite &, MySprite & )
