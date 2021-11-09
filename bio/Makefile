@@ -46,7 +46,6 @@ LIBS = bflibrary bfmydraw bfnet2 bfsound smack
 
 OBJS_TODO = \
 obj/bioeng.o \
-obj/building.o \
 obj/ceditor.o \
 obj/clone.o \
 obj/computer.o \
@@ -87,6 +86,7 @@ obj/thingidx.o \
 obj/thing.o \
 obj/mvthing.o \
 obj/plant.o \
+obj/building.o \
 obj/smvthing.o \
 obj/drone.o \
 obj/effect.o \

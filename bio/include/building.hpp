@@ -21,7 +21,10 @@
 
 #include "bftypes.h"
 #include "buildingstat.hpp"
+#include "creaturestat.hpp"
 #include "thing.hpp"
+
+class BioGame;
 
 class Building : StaticThing { // sizeof=67
     Building * operator =(Building *bldg1);
@@ -29,7 +32,7 @@ class Building : StaticThing { // sizeof=67
     //Building();
     BBOOL operator ==(Building *bldg1);
     char * GetName();
-    Creature * GeneLabMadeCreature(BBOOL *arg1);
+    Creature * GeneLabMadeCreature(BBOOL &arg1);
     BBOOL IsMineMinedOut();
     BBOOL CanMakeSpeciesInGenelab(CreatureSpecies arg1);
     BBOOL IsGenelabBusy();
@@ -70,18 +73,18 @@ class Building : StaticThing { // sizeof=67
     void StopAnyContinuousSound();
     void FinishBuilding();
     void Free();
-    void Init(UBYTE arg1, BuildingType arg2, XY arg3);
+    void Init(UBYTE arg1, BuildingType arg2, XY cor3);
     void Draw(SWORD arg1, SWORD arg2);
-    SLONG WriteBuffer(Building **arg1, SLONG arg2, SLONG arg3, BioGame *arg4);
-    SLONG ReadBuffer(Building **arg1, SLONG arg2, SLONG arg3, BioGame *arg4);
+    SLONG WriteBuffer(Building **bldng, SLONG arg2, SLONG arg3, BioGame &game);
+    SLONG ReadBuffer(Building **bldng, SLONG arg2, SLONG arg3, BioGame &game);
     void InitArray();
     void UpdateAll();
     BBOOL IsDead();
-    BBOOL Damage(SLONG arg1, Thing *arg2);
+    BBOOL Damage(SLONG arg1, ::Thing *arg2);
     UBYTE Update();
     void Resync();
-    void Write(SLONG *arg1);
-    void Read(SLONG *arg1);
+    void Write(SLONG &arg1);
+    void Read(SLONG &arg1);
     void (**__vfptr)();
     SWORD build; // offset=43
     BuildingType type; // offset=45

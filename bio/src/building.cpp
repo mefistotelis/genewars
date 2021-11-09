@@ -18,6 +18,11 @@
 /******************************************************************************/
 #include "building.hpp"
 
+/*Building::Building()
+{
+// code at 0001:0001cb90
+}*/
+
 void Building::SetBusted()
 {
 // code at 0001:000407c8
@@ -38,12 +43,12 @@ void Building::ClearDisabled()
 // code at 0001:00040754
 }
 
-char unsigned Building::IsAGoopStorage()
+BBOOL Building::IsAGoopStorage()
 {
 // code at 0001:000406fc
 }
 
-long unsigned Building::TurretRange()
+ULONG Building::TurretRange()
 {
 // code at 0001:000406c8
 }
@@ -53,7 +58,7 @@ void Building::Draw( short, short )
 // code at 0001:0003b134
 }
 
-void Building::Init( char unsigned, BuildingType, XY )
+void Building::Init(UBYTE arg1, BuildingType arg2, XY cor3)
 {
 // code at 0001:0003b5f5
 }
@@ -63,7 +68,7 @@ void Building::FinishBuilding()
 // code at 0001:0003b706
 }
 
-char unsigned Building::Build( short unsigned, char unsigned )
+BBOOL Building::Build(UWORD arg1, BBOOL arg2)
 {
 // code at 0001:0003b973
 }
@@ -78,7 +83,7 @@ void Building::StopAnyContinuousSound()
 // code at 0001:0003bc20
 }
 
-char unsigned Building::Damage( long, Thing * )
+BBOOL Building::Damage(SLONG arg1, ::Thing *tng2)
 {
 // code at 0001:0003bca9
 }
@@ -108,27 +113,27 @@ void Building::Resync()
 // code at 0001:0003c64f
 }
 
-void Building::Read( long & )
+void Building::Read(SLONG &arg1)
 {
 // code at 0001:0003c687
 }
 
-void Building::Write( long & )
+void Building::Write(SLONG &arg1)
 {
 // code at 0001:0003c6e6
 }
 
-long Building::ReadBuffer( Building * *, long, long, BioGame & )
+SLONG Building::ReadBuffer(Building **bldng, SLONG arg2, SLONG arg3, BioGame &game)
 {
 // code at 0001:0003c727
 }
 
-long Building::WriteBuffer( Building * *, long, long, BioGame & )
+SLONG Building::WriteBuffer(Building **bldng, SLONG arg2, SLONG arg3, BioGame &game)
 {
 // code at 0001:0003c7a6
 }
 
-char unsigned Building::Update()
+UBYTE Building::Update()
 {
 // code at 0001:0003c825
 }
@@ -138,122 +143,122 @@ void Building::UpdateAll()
 // code at 0001:0003fa01
 }
 
-char unsigned Building::operator ==( Building * )
+BBOOL Building::operator ==(Building *bldg1)
 {
 // code at 0001:0003ff6a
 }
 
-char unsigned Building::IsFunctional()
+BBOOL Building::IsFunctional()
 {
 // code at 0001:00016bfc
 }
 
-char unsigned Building::IsUpgradeOK()
+BBOOL Building::IsUpgradeOK()
 {
 // code at 0001:00037680
 }
 
-char unsigned Building::IsBeingUpgraded()
+BBOOL Building::IsBeingUpgraded()
 {
 // code at 0001:00037644
 }
 
-char unsigned Building::IsBeingWrecked()
+BBOOL Building::IsBeingWrecked()
 {
 // code at 0001:00037604
 }
 
-char unsigned Building::CanMakeSpeciesInGenelab( CreatureSpecies )
+BBOOL Building::CanMakeSpeciesInGenelab(CreatureSpecies arg1)
 {
 // code at 0001:000375a8
 }
 
-char unsigned Building::IsMineMinedOut()
+BBOOL Building::IsMineMinedOut()
 {
 // code at 0001:00037568
 }
 
-char unsigned Building::IsUpgradable()
+BBOOL Building::IsUpgradable()
 {
 // code at 0001:0003689c
 }
 
-Creature * Building::GeneLabMadeCreature( char unsigned & )
+Creature * Building::GeneLabMadeCreature(BBOOL &arg1)
 {
 // code at 0001:000367ec
 }
 
-char unsigned Building::IsPowered()
+BBOOL Building::IsPowered()
 {
 // code at 0001:00005a50
 }
 
-char unsigned Building::IsBusted()
+BBOOL Building::IsBusted()
 {
 // code at 0001:00005a10
 }
 
-char unsigned Building::IsBuilt()
+BBOOL Building::IsBuilt()
 {
 // code at 0001:0000458c
 }
 
-char unsigned Building::IsDisabled()
+BBOOL Building::IsDisabled()
 {
 // code at 0001:0000454c
 }
 
-char unsigned Building::IsObservable()
+BBOOL Building::IsObservable()
 {
 // code at 0001:000044e4
 }
 
-char unsigned Building::IsDamaged()
+BBOOL Building::IsDamaged()
 {
 // code at 0001:00025540
 }
 
-char unsigned Building::IsGenelabReady()
+BBOOL Building::IsGenelabReady()
 {
 // code at 0001:00018310
 }
 
-char unsigned Building::IsGenelabBusy()
+BBOOL Building::IsGenelabBusy()
 {
 // code at 0001:000182d8
 }
 
-char unsigned Building::IsDead()
+BBOOL Building::IsDead()
 {
 // code at 0001:0001db74
 }
 
-char unsigned Building::IsWrecking()
+BBOOL Building::IsWrecking()
 {
 // code at 0001:0001db34
 }
 
-char unsigned Building::IsAPowerGenerator()
+BBOOL Building::IsAPowerGenerator()
 {
 // code at 0001:0001dad4
 }
 
-long unsigned Building::MaxGoopStorage()
+ULONG Building::MaxGoopStorage()
 {
 // code at 0001:0001da20
 }
 
-long unsigned Building::MaxSawmillWood()
+ULONG Building::MaxSawmillWood()
 {
 // code at 0001:0001d9ec
 }
 
-long unsigned Building::PowerStationRange()
+ULONG Building::PowerStationRange()
 {
 // code at 0001:0001d9b4
 }
 
-long unsigned Building::ShieldRange()
+ULONG Building::ShieldRange()
 {
 // code at 0001:0001d980
 }
@@ -261,11 +266,6 @@ long unsigned Building::ShieldRange()
 char * Building::GetName()
 {
 // code at 0001:0001cec4
-}
-
-near Building::Building()
-{
-// code at 0001:0001cb90
 }
 
 void Building::SetUpgradeOK()
