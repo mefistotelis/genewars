@@ -58,11 +58,6 @@ long unsigned Building::TurretRange()
 // code at 0001:000406c8
 }
 
-char unsigned TheBase::AddGoop( long unsigned )
-{
-// code at 0001:00040674
-}
-
 Thing * Event::__defarg()
 {
 // code at 0001:00040650
@@ -96,11 +91,6 @@ char unsigned IFCPlanetside::IsThingSelectedInPad( Thing * )
 void IFCPlanetside::CloseActivePad()
 {
 // code at 0001:000404dc
-}
-
-void TheBase::UseGoop( long )
-{
-// code at 0001:00040448
 }
 
 void Creature::Free()
@@ -143,11 +133,6 @@ near ShieldScan::ShieldScan( Building & )
 // code at 0001:00040064
 }
 
-char unsigned PowerGraph::PowerToColor( short )
-{
-// code at 0001:00040010
-}
-
 void ShieldScan::BounceThingOffShield( MovingThing *, char unsigned )
 {
 // code at 0001:0003944c
@@ -156,96 +141,6 @@ void ShieldScan::BounceThingOffShield( MovingThing *, char unsigned )
 void ShieldScan::PerGrid()
 {
 // code at 0001:0003959f
-}
-
-void PowerGraph::Update( short, short, short )
-{
-// code at 0001:00039aa7
-}
-
-void PowerGraph::Draw( long, long )
-{
-// code at 0001:00039b3c
-}
-
-near TheBase::TheBase()
-{
-// code at 0001:00039cfb
-}
-
-void TheBase::Reset()
-{
-// code at 0001:00039d1e
-}
-
-char unsigned TheBase::IsAnyBuildingNeedingWork( char unsigned )
-{
-// code at 0001:00039d64
-}
-
-void TheBase::StartFoundation( BuilderIFC &, XY )
-{
-// code at 0001:00039dfc
-}
-
-Building * TheBase::AddNewBuilding( BuildingType, XY )
-{
-// code at 0001:0003a4ba
-}
-
-void TheBase::RemoveBuilding( char unsigned )
-{
-// code at 0001:0003a664
-}
-
-Building * TheBase::JumpToNextPowerStation( Building * )
-{
-// code at 0001:0003a75c
-}
-
-Building * TheBase::NearestBuilding( XY, long unsigned, short unsigned )
-{
-// code at 0001:0003a7f3
-}
-
-char unsigned TheBase::InPowerStationRange( XY )
-{
-// code at 0001:0003a92b
-}
-
-Building * TheBase::NearestAnyBuilding( XY, long unsigned, short unsigned, char signed )
-{
-// code at 0001:0003a9de
-}
-
-Building * TheBase::NearestBuildingNeedingWork( XY, char unsigned )
-{
-// code at 0001:0003aaf9
-}
-
-void TheBase::ComputeCenter()
-{
-// code at 0001:0003abc1
-}
-
-void TheBase::ComputeGoopCapacity()
-{
-// code at 0001:0003aca9
-}
-
-void TheBase::StoreGoopInBuildings()
-{
-// code at 0001:0003adfc
-}
-
-char unsigned TheBase::IsBuildable( BuildingType )
-{
-// code at 0001:0003afe8
-}
-
-char unsigned TheBase::IsUpgradable( BuildingType, char unsigned )
-{
-// code at 0001:0003b097
 }
 
 void Building::Draw( short, short )

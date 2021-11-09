@@ -28,11 +28,6 @@ char unsigned Building::IsGenelabBusy()
 // code at 0001:000182d8
 }
 
-long TheBase::Goop()
-{
-// code at 0001:000182ac
-}
-
 char unsigned ResearchGrid::IsIndexWithinCreaturesDiscovered( int )
 {
 // code at 0001:00018260

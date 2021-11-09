@@ -19,41 +19,7 @@
 #ifndef BIO_BUILDING_HPP_
 #define BIO_BUILDING_HPP_
 
-enum BuildingType { // type=int8_t
-    BCID_GENELAB = 0,
-    BCID_TURRET,
-    BCID_SAWMILL,
-    BCID_POWERSTATION,
-    BCID_FARM,
-    BCID_LAUNCHER, // 5
-    BCID_SOLAR,
-    BCID_OBSERVATORY,
-    BCID_WIND,
-    BCID_NUCLEAR,
-    BCID_OPERATIONS, // 10
-    BCID_MINE,
-    BCID_SHIELD,
-    BCID_GOOPVAT,
-    MAX_BUILDINGTYPES,
-};
-
-typedef enum BuildingType BuildingType;
-
-typedef class Building Building;
-
-class PowerGraph { // sizeof=45
-    UBYTE PowerToColor(SWORD arg1);
-    void Draw(SLONG arg1, SLONG arg2);
-    void Update(SWORD arg1, SWORD arg2, SWORD arg3);
-    UBYTE index;
-    SWORD lo[49];
-    SWORD hi[49];
-    SWORD history[49];
-};
-
-typedef class PowerGraph PowerGraph;
-
-typedef class TheBase TheBase;
+#include "buildingstat.hpp"
 
 class Building : StaticThing { // sizeof=67
     class Building * operator=(class Building *arg1);
@@ -287,68 +253,6 @@ class ShieldScan : RangeScanner { // sizeof=49
     Building shield;
 };
 
-typedef class FarmScan FarmScan;
-
-typedef class SawmillScan SawmillScan;
-
-typedef class TurretScan TurretScan;
-
-typedef class ShieldScan ShieldScan;
-
-char unsigned Thing::IsNew();
-long unsigned Thing::SquareTrueRangeTo( Thing * );
-short Thing::DirTo( Thing * );
-char unsigned Thing::IsSamePlayer( Thing * );
-char unsigned Thing::BaseColor();
-@ * Creature::__defarg();
-short Creature::IsStasisForHowLong();
-void Building::SetBusted();
-void Building::ClearBusted();
-void Building::SetDisabled();
-void Building::ClearDisabled();
-char unsigned Building::IsAGoopStorage();
-long unsigned Building::TurretRange();
-Thing * Event::__defarg();
-char unsigned MapDisplay::IsGlassBuildings();
-char unsigned IFCPlanetside::IsThingSelectedInPad( Thing * );
-void IFCPlanetside::CloseActivePad();
-void Creature::Free();
-void Plant::Free();
-near TurretScan::TurretScan( Building & );
-void TurretScan::PerGrid();
-near SawmillScan::SawmillScan( Building & );
-void SawmillScan::PerGrid();
-near FarmScan::FarmScan( Building & );
-void FarmScan::PerGrid();
-near ShieldScan::ShieldScan( Building & );
-char unsigned PowerGraph::PowerToColor( short );
-void ShieldScan::BounceThingOffShield( MovingThing *, char unsigned );
-void ShieldScan::PerGrid();
-void PowerGraph::Update( short, short, short );
-void PowerGraph::Draw( long, long );
-void Building::Draw( short, short );
-void Building::Init( char unsigned, BuildingType, XY );
-void Building::FinishBuilding();
-char unsigned Building::Build( short unsigned, char unsigned );
-void Building::Free();
-void Building::StopAnyContinuousSound();
-char unsigned Building::Damage( long, Thing * );
-void Building::DisableBuilding();
-void Building::StartWreck( PlSpec * );
-void Building::UserUpgrade();
-void Building::InitArray();
-void Building::Resync();
-void Building::Read( long & );
-void Building::Write( long & );
-long Building::ReadBuffer( Building * *, long, long, BioGame & );
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-long Building::WriteBuffer( Building * *, long, long, BioGame & );
-char unsigned Building::Update();
-void Building::UpdateAll();
-char unsigned Building::operator ==( Building * );
-extern void (near * const __vftbl[])();
 
 #endif // BIO_BUILDING_HPP_
 /******************************************************************************/

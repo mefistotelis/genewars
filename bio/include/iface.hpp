@@ -104,7 +104,16 @@ class ShepherdIFC { // sizeof=10
     HerdMode mode; // offset=9
 };
 
-typedef class ShepherdIFC ShepherdIFC;
+class CowboyIFC { // sizeof=15
+    SBYTE go; // offset=0
+    UBYTE gunType; // offset=1
+    SWORD hits; // offset=2
+    SWORD misses; // offset=4
+    SWORD shots; // offset=6
+    SWORD firingArc; // offset=8
+    SLONG gunRange; // offset=10
+    CreatureSpecies studySpecies; // offset=14
+};
 
 class PLSInterface { // sizeof=22
     class PLSInterface * operator=(class PLSInterface *arg1);

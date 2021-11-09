@@ -139,36 +139,6 @@ class EventHelp { // sizeof=150
     BBOOL eventLog[149]; // offset=0
 };
 
-typedef class EventHelp EventHelp;
-
-class CowboyIFC { // sizeof=15
-    SBYTE go; // offset=0
-    UBYTE gunType; // offset=1
-    SWORD hits; // offset=2
-    SWORD misses; // offset=4
-    SWORD shots; // offset=6
-    SWORD firingArc; // offset=8
-    SLONG gunRange; // offset=10
-    CreatureSpecies studySpecies; // offset=14
-};
-
-typedef class CowboyIFC CowboyIFC;
-
-
-struct TbLoadFiles { // sizeof=44
-    CBYTE FName[27]; // offset=0
-    void **Start; // offset=28
-    void **SEnd; // offset=32
-    ULONG SLength; // offset=36
-    UWORD Flags; // offset=40
-    UWORD Spare; // offset=42
-};
-
-typedef struct TbLoadFiles TbLoadFiles;
-
-
-typedef class BioGame BioGame;
-
 class GunSpec { // sizeof=7
     SWORD shotSpeed; // offset=0
     SWORD shotLifeInTurns; // offset=2

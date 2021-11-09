@@ -19,8 +19,6 @@
 #ifndef BIO_TITLE_HPP_
 #define BIO_TITLE_HPP_
 
-typedef struct TbLoadFiles TbLoadFiles;
-
 class Specialist { // sizeof=36
     class Specialist * operator=(class Specialist *arg1);
     void ClearPlanetside();
@@ -48,20 +46,6 @@ class Specialist { // sizeof=36
 typedef class Specialist Specialist;
 
 typedef class Player Player;
-
-
-class PowerGraph { // sizeof=45
-    class PowerGraph * operator=(class PowerGraph *arg1);
-    UBYTE PowerToColor(SWORD arg1);
-    void Draw(SLONG arg1, SLONG arg2);
-    void Update(SWORD arg1, SWORD arg2, SWORD arg3);
-    UBYTE index;
-    SWORD lo[49];
-    SWORD hi[49];
-    SWORD history[49];
-};
-
-typedef class PowerGraph PowerGraph;
 
 
 struct __1td29bmSpr { // sizeof=12

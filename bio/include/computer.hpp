@@ -90,20 +90,6 @@ class Specialist { // sizeof=36
 
 typedef class Player Player;
 
-class PowerGraph { // sizeof=45
-    UBYTE PowerToColor(SWORD arg1);
-    void Draw(SLONG arg1, SLONG arg2);
-    void Update(SWORD arg1, SWORD arg2, SWORD arg3);
-    UBYTE index;
-    SWORD lo[49];
-    SWORD hi[49];
-    SWORD history[49];
-};
-
-typedef class PowerGraph PowerGraph;
-
-
-
 struct BuildingStage { // sizeof=1
     uint8_t player; // offset=0
     uint8_t stage; // offset=1

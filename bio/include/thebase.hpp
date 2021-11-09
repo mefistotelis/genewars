@@ -19,11 +19,28 @@
 #ifndef THEBASE_HPP_
 #define THEBASE_HPP_
 
+#include "bftypes.h"
+#include "xy.hpp"
+#include "buildingstat.hpp"
+
+class Building;
+class BuilderIFC;
+
+class PowerGraph { // sizeof=45
+    UBYTE PowerToColor(SWORD arg1);
+    void Draw(SLONG arg1, SLONG arg2);
+    void Update(SWORD arg1, SWORD arg2, SWORD arg3);
+    UBYTE index;
+    SWORD lo[49];
+    SWORD hi[49];
+    SWORD history[49];
+};
+
 class TheBase { // sizeof=121
 public:
-    TheBase(TheBase *arg1);
+    //TheBase(TheBase *arg1);
     void ComputeCenter();
-    Building * NearestAnyBuilding(XY arg1, ULONG arg2, UWORD arg3, SBYTE arg4);
+    Building * NearestAnyBuilding(XY cor1, ULONG arg2, UWORD arg3, SBYTE arg4);
     void UseGoop(SLONG arg1);
     SLONG Goop();
     BBOOL AddGoop(ULONG arg1);
@@ -33,18 +50,18 @@ public:
     BBOOL IsEtherealApproach();
     BBOOL IsLowPower();
     BBOOL IsUnderAttack();
-    BBOOL InPowerStationRange(XY arg1);
+    BBOOL InPowerStationRange(XY cor1);
     BBOOL IsAnyBuildingNeedingWork(BBOOL arg1);
     void StoreGoopInBuildings();
     void ComputeGoopCapacity();
-    void StartFoundation(BuilderIFC *arg1, XY arg2);
+    void StartFoundation(BuilderIFC &bldr, XY cor2);
     Building * JumpToNextPowerStation(Building *arg1);
-    Building * NearestBuildingNeedingWork(XY arg1, BBOOL arg2);
-    Building * NearestBuilding(XY arg1, ULONG arg2, UWORD arg3);
+    Building * NearestBuildingNeedingWork(XY cor1, BBOOL arg2);
+    Building * NearestBuilding(XY cor1, ULONG arg2, UWORD arg3);
     void RemoveBuilding(UBYTE arg1);
-    Building * AddNewBuilding(BuildingType arg1, XY arg2);
+    Building * AddNewBuilding(BuildingType arg1, XY cor2);
     void Reset();
-    class TheBase * TheBase();
+    //TheBase();
     UBYTE player; // offset=0
     SBYTE numBuildings; // offset=1
     SLONG startingGoop; // offset=2
@@ -64,26 +81,6 @@ public:
     UWORD pad[2]; // offset=111
     SLONG numCreatures; // offset=117
 };
-
-char unsigned TheBase::AddGoop( long unsigned );
-void TheBase::UseGoop( long );
-near TheBase::TheBase();
-void TheBase::Reset();
-char unsigned TheBase::IsAnyBuildingNeedingWork( char unsigned );
-void TheBase::StartFoundation( BuilderIFC &, XY );
-Building * TheBase::AddNewBuilding( BuildingType, XY );
-void TheBase::RemoveBuilding( char unsigned );
-Building * TheBase::JumpToNextPowerStation( Building * );
-Building * TheBase::NearestBuilding( XY, long unsigned, short unsigned );
-char unsigned TheBase::InPowerStationRange( XY );
-Building * TheBase::NearestAnyBuilding( XY, long unsigned, short unsigned, char signed );
-Building * TheBase::NearestBuildingNeedingWork( XY, char unsigned );
-void TheBase::ComputeCenter();
-void TheBase::ComputeGoopCapacity();
-void TheBase::StoreGoopInBuildings();
-char unsigned TheBase::IsBuildable( BuildingType );
-char unsigned TheBase::IsUpgradable( BuildingType, char unsigned );
-long TheBase::Goop();
 
 #endif // THEBASE_HPP_
 /******************************************************************************/

@@ -86,12 +86,6 @@ typedef uint32_t time_t;
 
 typedef uint16_t wchar_t;
 
-struct TbSprite { // sizeof=6
-    SBYTE *Data; // offset=0
-    UBYTE SWidth; // offset=4
-    UBYTE SHeight; // offset=5
-};
-
 class Specialist { // sizeof=36
     void ClearPlanetside();
     void SetPlanetside();
@@ -120,21 +114,6 @@ typedef class Specialist Specialist;
 typedef class Player Player;
 
 
-class PowerGraph { // sizeof=45
-    UBYTE PowerToColor(SWORD arg1);
-    void Draw(SLONG arg1, SLONG arg2);
-    void Update(SWORD arg1, SWORD arg2, SWORD arg3);
-    UBYTE index;
-    SWORD lo[49];
-    SWORD hi[49];
-    SWORD history[49];
-};
-
-typedef class PowerGraph PowerGraph;
-
-
-
-
 struct BuildingStage { // sizeof=1
     uint8_t player; // offset=0
     uint8_t stage; // offset=1
@@ -149,37 +128,6 @@ class EventHelp { // sizeof=150
 };
 
 typedef class EventHelp EventHelp;
-
-class CowboyIFC { // sizeof=15
-    SBYTE go; // offset=0
-    UBYTE gunType; // offset=1
-    SWORD hits; // offset=2
-    SWORD misses; // offset=4
-    SWORD shots; // offset=6
-    SWORD firingArc; // offset=8
-    SLONG gunRange; // offset=10
-    CreatureSpecies studySpecies; // offset=14
-};
-
-typedef class CowboyIFC CowboyIFC;
-
-
-struct TbLoadFiles { // sizeof=44
-    CBYTE FName[27]; // offset=0
-    void **Start; // offset=28
-    void **SEnd; // offset=32
-    ULONG SLength; // offset=36
-    UWORD Flags; // offset=40
-    UWORD Spare; // offset=42
-};
-
-typedef struct TbLoadFiles TbLoadFiles;
-
-
-
-
-
-typedef class PlSpec PlSpec;
 
 class GunSpec { // sizeof=7
     SWORD shotSpeed; // offset=0

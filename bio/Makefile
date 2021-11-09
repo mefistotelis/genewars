@@ -82,6 +82,7 @@ obj/cvector.o \
 obj/xy.o \
 obj/gridtile.o \
 obj/planet.o \
+obj/thebase.o \
 obj/thingidx.o \
 obj/thing.o \
 obj/mvthing.o \
