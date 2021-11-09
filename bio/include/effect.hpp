@@ -31,6 +31,7 @@ class Vector;
 class EtherealZone;
 
 class Effect : MovingThing { // sizeof=81
+public:
     Effect * operator=(Effect *eff1);
     //Effect(Effect *eff1); -- generate default copy constructor
     //Effect(); -- generate default no-args constructor

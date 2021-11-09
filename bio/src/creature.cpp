@@ -118,21 +118,6 @@ char unsigned Creature::CanDive()
 // code at 0001:00084228
 }
 
-void Plant::SetBeingEaten()
-{
-// code at 0001:00084204
-}
-
-char unsigned Plant::IsBeingEaten()
-{
-// code at 0001:000841c8
-}
-
-void Plant::ClearBeingEaten()
-{
-// code at 0001:000841a4
-}
-
 char unsigned * __defarg()
 {
 // code at 0001:0008415c

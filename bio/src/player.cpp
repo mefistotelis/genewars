@@ -23,11 +23,6 @@ void Creature::SetPlayerActive( CreatureUserAction )
 // code at 0001:00052bbc
 }
 
-char unsigned Plant::IsDead()
-{
-// code at 0001:00052b84
-}
-
 void Specialist::Invalidate()
 {
 // code at 0001:00052b64
@@ -341,11 +336,6 @@ void Player::pPA_SETUPSTUFF( Packet * )
 void Player::pPA_JOINSESSION( Packet * )
 {
 // code at 0001:0005279f
-}
-
-near Plant::Plant()
-{
-// code at 0001:00052994
 }
 
 void (near * const __vftbl[])();

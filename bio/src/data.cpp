@@ -132,11 +132,6 @@ void Event::UpdateAll()
 // code at 0001:000486a7
 }
 
-char unsigned Plant::IsFallen()
-{
-// code at 0001:00005a90
-}
-
 char unsigned Building::IsPowered()
 {
 // code at 0001:00005a50

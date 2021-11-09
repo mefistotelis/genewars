@@ -21,6 +21,7 @@
 
 #include "bftypes.h"
 #include "xy.hpp"
+#include "thing.hpp"
 
 class BioGame;
 
@@ -40,7 +41,7 @@ enum PlantSpecies { // type=int8_t
     MAX_PSPECIES,
 };
 
-class PSpecies { // sizeof=32
+struct PSpecies { // sizeof=32
     char name[15]; // offset=0
     SBYTE terrain[7]; // offset=16
     UBYTE seedTime; // offset=24
@@ -54,19 +55,20 @@ class PSpecies { // sizeof=32
 };
 
 class Plant : StaticThing { // sizeof=49
-    class Plant * operator=(class Plant *arg1);
-    Plant(class Plant *arg1);
-    Plant();
-    BBOOL operator ==(Plant *arg1);
-    SLONG WriteBuffer(Plant **arg1, SLONG arg2, SLONG arg3, BioGame *arg4);
-    SLONG ReadBuffer(Plant **arg1, SLONG arg2, SLONG arg3, BioGame *arg4);
+public:
+    Plant * operator=(Plant * plnt1);
+    //Plant(Plant *arg1); -- generate default copy constructor
+    //Plant(); -- generate default no-args constructor
+    BBOOL operator ==(Plant * plnt1);
+    SLONG WriteBuffer(Plant **plnt1, SLONG arg2, SLONG arg3, BioGame &game);
+    SLONG ReadBuffer(Plant **plnt1, SLONG arg2, SLONG arg3, BioGame &game);
     void UpdateAll();
     Plant * Create(UBYTE arg1, UBYTE arg2, XY arg3);
     void InitArray();
     void Draw(SWORD arg1, SWORD arg2);
     void ChopDown();
     void Die();
-    PSpecies * Species();
+    PSpecies const & Species();
     void Free();
     void ClearBeingEaten();
     BBOOL IsBeingEaten();
@@ -74,11 +76,11 @@ class Plant : StaticThing { // sizeof=49
     BBOOL IsDead();
     void SetBeingEaten();
     UBYTE Update();
-    BBOOL Damage(SWORD arg1, Thing *arg2);
+    BBOOL Damage(SWORD arg1, ::Thing *tng2);
     void Resync();
     void Write(SLONG &arg1);
     void Read(SLONG &arg1);
-    /* void (**__vfptr)(); */
+    //void (**__vfptr)();
     PlantSpecies species; // offset=43
     SWORD health; // offset=44
     UBYTE flags; // offset=46

@@ -69,7 +69,6 @@ obj/options.o \
 obj/packets.o \
 obj/pads.o \
 \
-obj/plant.o \
 obj/player.o \
 obj/setup.o \
 obj/sound.o \
@@ -86,6 +85,7 @@ obj/planet.o \
 obj/thingidx.o \
 obj/thing.o \
 obj/mvthing.o \
+obj/plant.o \
 obj/smvthing.o \
 obj/drone.o \
 obj/effect.o \

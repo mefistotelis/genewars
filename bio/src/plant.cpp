@@ -18,6 +18,11 @@
 /******************************************************************************/
 #include "plant.hpp"
 
+/*Plant::Plant()
+{
+// code at 0001:00052994
+}*/
+
 void Plant::Draw(SWORD arg1, SWORD arg2)
 {
 // code at 0001:00084878
@@ -43,7 +48,7 @@ void Plant::Die()
 // code at 0001:00084c58
 }
 
-BBOOL Plant::Damage(SWORD arg1, Thing *arg2)
+BBOOL Plant::Damage(SWORD arg1, ::Thing *tng2)
 {
 // code at 0001:00084db4
 }
@@ -63,17 +68,17 @@ void Plant::Write(SLONG &arg1)
 // code at 0001:00084ec1
 }
 
-long Plant::ReadBuffer( Plant * *, long, long, BioGame & )
+SLONG Plant::ReadBuffer(Plant **plnt1, SLONG arg2, SLONG arg3, BioGame &game)
 {
 // code at 0001:00084f02
 }
 
-long Plant::WriteBuffer( Plant * *, long, long, BioGame & )
+SLONG Plant::WriteBuffer(Plant **plnt1, SLONG arg2, SLONG arg3, BioGame &game)
 {
 // code at 0001:00084f81
 }
 
-char unsigned Plant::Update()
+UBYTE Plant::Update()
 {
 // code at 0001:00085000
 }
@@ -83,10 +88,44 @@ void Plant::UpdateAll()
 // code at 0001:0008552e
 }
 
-BBOOL Plant::operator ==( Plant * )
+BBOOL Plant::operator ==(Plant * plnt1)
 {
 // code at 0001:000856bf
 }
 
+void Plant::Free()
+{
+// code at 0001:000403d8
+}
+
+PSpecies const & Plant::Species()
+{
+// code at 0001:00036738
+}
+
+void Plant::SetBeingEaten()
+{
+// code at 0001:00084204
+}
+
+BBOOL Plant::IsBeingEaten()
+{
+// code at 0001:000841c8
+}
+
+void Plant::ClearBeingEaten()
+{
+// code at 0001:000841a4
+}
+
+BBOOL Plant::IsFallen()
+{
+// code at 0001:00005a90
+}
+
+BBOOL Plant::IsDead()
+{
+// code at 0001:00052b84
+}
 
 /******************************************************************************/

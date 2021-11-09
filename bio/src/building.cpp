@@ -108,11 +108,6 @@ void Creature::Free()
 // code at 0001:00040410
 }
 
-void Plant::Free()
-{
-// code at 0001:000403d8
-}
-
 near TurretScan::TurretScan( Building & )
 {
 // code at 0001:00040370

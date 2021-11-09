@@ -323,11 +323,6 @@ char unsigned Creature::IsSpecial()
 // code at 0001:0003676c
 }
 
-PSpecies const & Plant::Species()
-{
-// code at 0001:00036738
-}
-
 EtherealZone * GuardPoint::EZone()
 {
 // code at 0001:000366ec
