@@ -1045,8 +1045,6 @@ class IFCEditor : IFCBase { // sizeof=18
     UBYTE enteringName; // offset=254
 };
 
-typedef class IFCEditor IFCEditor;
-
 class IFCCompEditor : IFCBase { // sizeof=193
     class IFCCompEditor * IFCCompEditor(class IFCCompEditor *arg1);
     void PrintCompPlayersToFile();

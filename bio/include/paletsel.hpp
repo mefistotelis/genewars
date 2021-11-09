@@ -47,7 +47,7 @@ class PaletteSelector { // sizeof=81
     void CreatePlantMenu();
     void CreateBuildingMenu();
     void Close();
-    void Create(Thing *arg1);
+    void Create(Thing *tng1);
     void Init();
     //PaletteSelector(); -- generate default no-args constructor
     uint8_t open;

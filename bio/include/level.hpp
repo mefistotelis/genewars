@@ -104,7 +104,7 @@ struct AutoPilot { // sizeof=33
 
 
 class IFCLevel : IFCBase { // sizeof=203
-    class IFCLevel * IFCLevel(class IFCLevel *arg1);
+    //IFCLevel(IFCLevel *arg1);
     void DrawBriefing();
     void DrawPlanet();
     void DrawLockOn();

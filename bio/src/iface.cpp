@@ -18,51 +18,6 @@
 /******************************************************************************/
 #include "iface.hpp"
 
-char unsigned IsoMapBuffer::__defarg()
-{
-// code at 0001:00026070
-}
-
-void IsoMapBuffer::Draw( char unsigned )
-{
-// code at 0001:00026044
-}
-
-void MapDisplay::SetCanSelectThing()
-{
-// code at 0001:00026020
-}
-
-void MapDisplay::ClearCanSelectThing()
-{
-// code at 0001:00025ffc
-}
-
-char unsigned MapDisplay::IsRegisteredRightClick()
-{
-// code at 0001:00025fc0
-}
-
-void MapDisplay::SetRegisteredRightClick()
-{
-// code at 0001:00025f9c
-}
-
-void MapDisplay::ClearRegisteredRightClick()
-{
-// code at 0001:00025f78
-}
-
-char unsigned MapDisplay::IsModified()
-{
-// code at 0001:00025f3c
-}
-
-void MapDisplay::ToggleGlassBuildings()
-{
-// code at 0001:00025f18
-}
-
 void IFCBase::SetPacket( char unsigned )
 {
 // code at 0001:00025eb0
@@ -503,56 +458,6 @@ void InfoRequester::Draw()
 // code at 0001:00024cf4
 }
 
-void DrawRangeVSprite( short, short, short, short, long, long, TbSprite *, TbSprite * )
-{
-// code at 0001:00024e7f
-}
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-int unsigned const __vbtbl[];
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void DrawRangeHSprite( short, short, short, short, long, long, TbSprite *, TbSprite * )
-{
-// code at 0001:00024ef9
-}
-
-void DrawRangeVBar( short, short, short, short, long, long, char unsigned, char unsigned )
-{
-// code at 0001:00024f73
-}
-
-void DrawRangeHBar( short, short, short, short, long, long, char unsigned )
-{
-// code at 0001:0002505e
-}
-
-void DrawRangeHBarDrawFlags( short, short, short, short, long, long, char unsigned, short unsigned )
-{
-// code at 0001:00025101
-}
 
 
 /******************************************************************************/

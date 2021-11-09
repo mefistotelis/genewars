@@ -27,11 +27,11 @@ class BioGame;
 class Point;
 
 class Event : Thing { // sizeof=49
-    Event * operator=(class Event *arg1);
+    Event * operator =(class Event *arg1);
     //Event(class Event *arg1); -- generate default copy constructor
     //Event(); -- generate default no-args constructor
     BBOOL CreateSphereRing(Point *arg1, BBOOL *arg2, UBYTE arg3);
-    BBOOL operator==(Event *arg1);
+    BBOOL operator ==(Event *arg1);
     SLONG WriteBuffer(Event **arg1, SLONG arg2, SLONG arg3, BioGame &game);
     SLONG ReadBuffer(Event **arg1, SLONG arg2, SLONG arg3, BioGame &game);
     void UpdateAll();

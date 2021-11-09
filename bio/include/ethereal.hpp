@@ -66,8 +66,8 @@ enum EtherealType { // type=int8_t
 
 class Ethereal : SmartMovingThing { // sizeof=102
     Ethereal * operator =(Ethereal *arg1);
-    //Ethereal(Ethereal *arg1);
-    //Ethereal();
+    //Ethereal(Ethereal *arg1); -- generate default copy constructor
+    //Ethereal(); -- generate default no-args constructor
     void SetMoveToThingWithAlt(::Thing *tng1, SLONG arg2);
     void SetMoveToTgtWithAlt(XY arg1, SLONG arg2);
     void AbsolveBad();

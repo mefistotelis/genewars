@@ -24,7 +24,7 @@
 
 class SmartMovingThing : MovingThing { // sizeof=85
 public:
-    SmartMovingThing * operator=(SmartMovingThing *arg1);
+    SmartMovingThing * operator =(SmartMovingThing *arg1);
     //SmartMovingThing(class SmartMovingThing *arg1); -- generate default copy constructor
     SmartMovingThing();
     BBOOL IsMovingToBuildingInsides();

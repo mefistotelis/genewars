@@ -23,21 +23,6 @@ char unsigned EventHelp::__defarg()
 // code at 0001:00016b3c
 }
 
-void IsoMapBuffer::SetNewXlatedTop( char unsigned, char unsigned )
-{
-// code at 0001:00016b00
-}
-
-char unsigned MapDisplay::IsFullScreen()
-{
-// code at 0001:00016ac0
-}
-
-void MapDisplay::SetScrolled()
-{
-// code at 0001:00016a9c
-}
-
 void IFCBase::SetPacket( char unsigned, short )
 {
 // code at 0001:00016a68

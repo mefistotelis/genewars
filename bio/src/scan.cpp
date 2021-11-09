@@ -123,11 +123,6 @@ void FlickerHandler::Free( char unsigned )
 // code at 0001:000489a0
 }
 
-char unsigned MapDisplay::IsGlassBuildings()
-{
-// code at 0001:00040614
-}
-
 char unsigned IFCPlanetside::IsThingSelectedInPad( Thing * )
 {
 // code at 0001:0004052c

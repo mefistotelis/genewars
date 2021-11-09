@@ -77,7 +77,7 @@ class IFCStartNetwork : IFCBase { // sizeof=19
     void Draw();
     void PullOut();
     void PlugIn();
-    void (**__vfptr)();
+    //void (**__vfptr)();
     unsigned int *__vbptr;
 };
 
@@ -88,7 +88,7 @@ class IFCGeneratePlanet : IFCBase { // sizeof=19
     void Draw();
     void PullOut();
     void PlugIn();
-    void (**__vfptr)();
+    //void (**__vfptr)();
     unsigned int *__vbptr;
 };
 
@@ -108,7 +108,7 @@ class IFCJoiningPlayer : IFCBase { // sizeof=27
     void Draw();
     void PullOut();
     void PlugIn();
-    void (**__vfptr)();
+    //void (**__vfptr)();
     unsigned int *__vbptr;
     IFCBase *previousIFC;
     ULONG joiningPlayers; // offset=4
@@ -121,7 +121,7 @@ class IFCWinLevel : IFCBase { // sizeof=19
     void Draw();
     void PullOut();
     void PlugIn();
-    void (**__vfptr)();
+    //void (**__vfptr)();
     unsigned int *__vbptr;
 };
 
@@ -132,7 +132,7 @@ class IFCLoseLevel : IFCBase { // sizeof=19
     void Draw();
     void PullOut();
     void PlugIn();
-    void (**__vfptr)();
+    //void (**__vfptr)();
     unsigned int *__vbptr;
 };
 
@@ -143,7 +143,7 @@ class IFCStatScreen : IFCBase { // sizeof=19
     void Draw();
     void PullOut();
     void PlugIn();
-    void (**__vfptr)();
+    //void (**__vfptr)();
     unsigned int *__vbptr;
 };
 

@@ -38,31 +38,6 @@ void HelpDraw::SetColors( char unsigned, char unsigned, char unsigned, char unsi
 // code at 0001:0000bb3c
 }
 
-char unsigned FlatMap::__defarg()
-{
-// code at 0001:0000bb1c
-}
-
-char unsigned FlatMap::__defarg()
-{
-// code at 0001:0000bafc
-}
-
-char unsigned FlatMap::__defarg()
-{
-// code at 0001:0000badc
-}
-
-void FlatMap::FreeMe()
-{
-// code at 0001:0000baac
-}
-
-void FlatMap::Draw( char unsigned )
-{
-// code at 0001:0000ba80
-}
-
 void IFCBase::NewInterface( IFCBase & )
 {
 // code at 0001:0000ba54

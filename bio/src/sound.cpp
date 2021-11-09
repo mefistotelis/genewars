@@ -48,11 +48,6 @@ char unsigned SpeechFileStatus::Valid()
 // code at 0001:00039268
 }
 
-char unsigned MapDisplay::IsExploredTerrainInView()
-{
-// code at 0001:0003923c
-}
-
 char unsigned IFCBase::IsCurrent()
 {
 // code at 0001:00039204

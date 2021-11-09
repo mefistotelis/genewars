@@ -18,46 +18,6 @@
 /******************************************************************************/
 #include "pads.hpp"
 
-char unsigned MapDisplay::__defarg()
-{
-// code at 0001:0001d6ec
-}
-
-MyMinSprite * MapDisplay::__defarg()
-{
-// code at 0001:0001d6c8
-}
-
-MyMinSprite * MapDisplay::__defarg()
-{
-// code at 0001:0001d6a4
-}
-
-char unsigned MapDisplay::IsOnScreen( short, short )
-{
-// code at 0001:0001d634
-}
-
-char unsigned MapDisplay::IsScrolling()
-{
-// code at 0001:0001d5f4
-}
-
-void MapDisplay::SetDrawFoundations()
-{
-// code at 0001:0001d5c8
-}
-
-void MapDisplay::ClearDrawFoundations()
-{
-// code at 0001:0001d59c
-}
-
-char unsigned MapDisplay::IsDrawFoundations()
-{
-// code at 0001:0001d560
-}
-
 void IFCBase::SetPacket( char unsigned, short, short, short )
 {
 // code at 0001:0001d48c

@@ -38,15 +38,5 @@ void find_mapxy( short *, short *, long, long )
 // code at 0001:0004a7cb
 }
 
-void MapDisplay::draw_column( long, long, long )
-{
-// code at 0001:0004ab0b
-}
-
-void MapDisplay::draw_delta_column( long, long, long, long &, long & )
-{
-// code at 0001:0004b3be
-}
-
 
 /******************************************************************************/

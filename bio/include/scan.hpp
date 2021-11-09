@@ -22,7 +22,7 @@
 #include "bftypes.h"
 
 class RangeScan { // sizeof=20
-    RangeScan * RangeScan(RangeScan *arg1);
+    //RangeScan(RangeScan *rscan1);
     void Init(XY *arg1, ULONG arg2, BBOOL arg3);
     RangeScan(XY *arg1, ULONG arg2, BBOOL arg3);
     XY tgt;
@@ -36,11 +36,11 @@ class RangeScan { // sizeof=20
 };
 
 class RangeScanner : RangeScan { // sizeof=41
-    class RangeScanner * RangeScanner(class RangeScanner *arg1);
+    //RangeScanner(RangeScanner *rscnr1);
     void PerGrid();
     void Do();
     class RangeScanner * RangeScanner(XY arg1, ULONG arg2);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     ULONG maxRange;
     ULONG squareMaxRange;
     ULONG squareRange;
@@ -49,12 +49,12 @@ class RangeScanner : RangeScan { // sizeof=41
 };
 
 class PolarRangeScan : RangeScan { // sizeof=51
-    PolarRangeScan * PolarRangeScan(PolarRangeScan *arg1);
+    //PolarRangeScan(PolarRangeScan *rscan1);
     void displayDebug(XY arg1, ULONG *arg2);
     void PerGrid();
     void Do();
     PolarRangeScan(XY arg1, ULONG arg2, UBYTE arg3);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     ULONG ringRange;
     BBOOL satisfied;
     UBYTE foundationSize;
@@ -67,41 +67,41 @@ class PolarRangeScan : RangeScan { // sizeof=51
 };
 
 class PassableTerrainScan : PolarRangeScan { // sizeof=60
-    class PassableTerrainScan * PassableTerrainScan(class PassableTerrainScan *arg1);
+    //PassableTerrainScan(PassableTerrainScan *rscan1);
     void PerGrid();
-    class PassableTerrainScan * PassableTerrainScan(SmartMovingThing arg1, ULONG arg2);
-    void (**__vfptr)();
+    PassableTerrainScan(SmartMovingThing arg1, ULONG arg2);
+    //void (**__vfptr)();
     SmartMovingThing thing;
     BBOOL foundAPlace; // offset=51
     XY goToXY; // offset=52
 };
 
 class ScanRecord { // sizeof=128
-    class ScanRecord * ScanRecord(class ScanRecord *arg1);
+    //ScanRecord(ScanRecord *rscan1);
     int Hash(XY arg1);
     BBOOL IsRecorded(XY arg1);
     void Add(XY arg1);
-    class ScanRecord * ScanRecord();
+    //ScanRecord();
     BBOOL used[127];
     XY xy[127];
 };
 
 class WeightedRangeScanner : RangeScanner { // sizeof=106
-    class WeightedRangeScanner * WeightedRangeScanner(class WeightedRangeScanner *arg1);
+    //WeightedRangeScanner(WeightedRangeScanner *arg1);
     void Do();
-    class WeightedRangeScanner * WeightedRangeScanner(XY arg1, ULONG arg2, XY *arg3, SLONG arg4);
-    class WeightedRangeScanner * WeightedRangeScanner(XY arg1, ULONG arg2);
-    void (**__vfptr)();
+    WeightedRangeScanner(XY arg1, ULONG arg2, XY *arg3, SLONG arg4);
+    WeightedRangeScanner(XY arg1, ULONG arg2);
+    //void (**__vfptr)();
     SLONG dirWeights[15];
     UBYTE bestDir; // offset=41
 };
 
 class WeightedTgtRangeScanner : WeightedRangeScanner { // sizeof=238
-    class WeightedTgtRangeScanner * WeightedTgtRangeScanner(class WeightedTgtRangeScanner *arg1);
+    //WeightedTgtRangeScanner(WeightedTgtRangeScanner *arg1);
     void Do();
-    class WeightedTgtRangeScanner * WeightedTgtRangeScanner(XY arg1, ULONG arg2, XY *arg3, SLONG arg4);
-    class WeightedTgtRangeScanner * WeightedTgtRangeScanner(XY arg1, ULONG arg2);
-    void (**__vfptr)();
+    WeightedTgtRangeScanner(XY arg1, ULONG arg2, XY *arg3, SLONG arg4);
+    WeightedTgtRangeScanner(XY arg1, ULONG arg2);
+    //void (**__vfptr)();
     Thing *bestThings[15];
     int bestPerSector[15];
     Thing *tgtThing; // offset=106
@@ -111,7 +111,7 @@ class ShotHitScan : RangeScanner { // sizeof=62
     class ShotHitScan * ShotHitScan(class ShotHitScan *arg1);
     void PerGrid();
     class ShotHitScan * ShotHitScan(Effect arg1, SLONG arg2);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     ULONG bestRange;
     ULONG sqShotRadius;
     Thing *creator;
@@ -132,7 +132,7 @@ class MonolithHitScan : RangeScanner { // sizeof=53
     class MonolithHitScan * MonolithHitScan(class MonolithHitScan *arg1);
     void PerGrid();
     class MonolithHitScan * MonolithHitScan(Effect arg1);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     ULONG bestRange;
     Effect mono;
     Thing *hitThing; // offset=41
@@ -142,7 +142,7 @@ class StasisBoltScan : RangeScanner { // sizeof=50
     class StasisBoltScan * StasisBoltScan(class StasisBoltScan *arg1);
     void PerGrid();
     class StasisBoltScan * StasisBoltScan(Effect arg1, SLONG arg2);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     ULONG sqShotRadius;
     Effect shot;
     BBOOL hitThing; // offset=41
@@ -152,7 +152,7 @@ class TurretScan : RangeScanner { // sizeof=53
     class TurretScan * TurretScan(class TurretScan *arg1);
     void PerGrid();
     class TurretScan * TurretScan(Building arg1);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     SLONG closestRange;
     Building turret;
     Thing *tgtThing; // offset=41
@@ -162,7 +162,7 @@ class SawmillScan : RangeScanner { // sizeof=53
     class SawmillScan * SawmillScan(class SawmillScan *arg1);
     void PerGrid();
     class SawmillScan * SawmillScan(Building arg1);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     SLONG bestValue;
     Building sawmill;
     Plant *tgtPlant; // offset=41
@@ -172,7 +172,7 @@ class FarmScan : RangeScanner { // sizeof=53
     class FarmScan * FarmScan(class FarmScan *arg1);
     void PerGrid();
     class FarmScan * FarmScan(Building arg1);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     SLONG bestValue;
     Building farm;
     Thing *tgt; // offset=41
@@ -183,7 +183,7 @@ class ShieldScan : RangeScanner { // sizeof=49
     void BounceThingOffShield(MovingThing *arg1, BBOOL arg2);
     void PerGrid();
     class ShieldScan * ShieldScan(Building arg1);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     ULONG squareShieldRange;
     Building shield;
 };
@@ -193,7 +193,7 @@ class AwarenessScan : RangeScanner { // sizeof=228
     void Do();
     void PerGrid();
     class AwarenessScan * AwarenessScan(Creature arg1);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     ASpecies speci;
     Creature c;
     int mates[15]; // offset=45
@@ -246,21 +246,21 @@ class CollectorScan : WeightedTgtRangeScanner { // sizeof=246
 };
 
 class BuilderTreeScan : RangeScanner { // sizeof=49
-    class BuilderTreeScan * BuilderTreeScan(class BuilderTreeScan *arg1);
+    //BuilderTreeScan(BuilderTreeScan *arg1);
     void PerGrid();
-    class BuilderTreeScan * BuilderTreeScan(Creature arg1);
-    void (**__vfptr)();
+    BuilderTreeScan(Creature arg1);
+    //void (**__vfptr)();
     ULONG bestRange;
     Plant *tgtPlant; // offset=41
 };
 
 class PolarSliceScan : RangeScan { // sizeof=48
-    class PolarSliceScan * PolarSliceScan(class PolarSliceScan *arg1);
+    //PolarSliceScan(PolarSliceScan *arg1);
     void displayDebug(XY arg1, UBYTE arg2, ULONG *arg3);
     void PerGrid();
     void Do();
-    class PolarSliceScan * PolarSliceScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
-    void (**__vfptr)();
+    PolarSliceScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
+    //void (**__vfptr)();
     BBOOL satisfied;
     UBYTE foundationSize;
     ULONG tileRange;
@@ -273,13 +273,13 @@ class PolarSliceScan : RangeScan { // sizeof=48
 };
 
 class PolarEverythingScan : RangeScan { // sizeof=47
-    class PolarEverythingScan * PolarEverythingScan(class PolarEverythingScan *arg1);
+    //PolarEverythingScan(PolarEverythingScan *arg1);
     void displayDebug(XY arg1, UBYTE arg2, ULONG *arg3);
     void PerGrid();
     void Do();
     BBOOL Scan(UBYTE arg1);
-    class PolarEverythingScan * PolarEverythingScan(XY arg1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5, BBOOL arg6);
-    void (**__vfptr)();
+    PolarEverythingScan(XY arg1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5, BBOOL arg6);
+    //void (**__vfptr)();
     BBOOL fromCenter;
     BBOOL satisfied;
     UBYTE foundationSize;
@@ -294,11 +294,11 @@ class PolarEverythingScan : RangeScan { // sizeof=47
 };
 
 class TimeSliceScan : RangeScan { // sizeof=47
-    class TimeSliceScan * TimeSliceScan(class TimeSliceScan *arg1);
+    //TimeSliceScan(TimeSliceScan *arg1);
     void PerGrid();
     BBOOL Do();
-    class TimeSliceScan * TimeSliceScan(BaseScan arg1, XY arg2, ULONG arg3);
-    void (**__vfptr)();
+    TimeSliceScan(BaseScan arg1, XY arg2, ULONG arg3);
+    //void (**__vfptr)();
     ULONG maxRange;
     ULONG squareMaxRange;
     ULONG squareRange;

@@ -28,8 +28,6 @@ struct TextWindowInfo { // sizeof=24
     SLONG Height; // offset=20
 };
 
-typedef struct TextWindowInfo TextWindowInfo;
-
 struct DrawJustifyData { // sizeof=20
     SLONG MaxWidth; // offset=0
     SLONG NumberOfWords; // offset=4
@@ -37,15 +35,6 @@ struct DrawJustifyData { // sizeof=20
     SLONG PixelsRemaining; // offset=12
     BOOL Overflow; // offset=16
 };
-
-typedef struct DrawJustifyData DrawJustifyData;
-
-typedef class ThingIDX ThingIDX;
-
-typedef class XY XY;
-
-
-typedef class Player Player;
 
 struct FontKernData { // sizeof=225
     UBYTE KernedCount; // offset=0
@@ -69,15 +58,11 @@ struct FontInfo { // sizeof=28
     ULONG OutlineColour; // offset=24
 };
 
-typedef struct FontInfo FontInfo;
-
 struct TbSpriteData { // sizeof=12
     TbSprite *Start; // offset=0
     TbSprite *End; // offset=4
     SBYTE *Data; // offset=8
 };
-
-typedef struct TbSpriteData TbSpriteData;
 
 void SetTxtWindow( long, long, long, long );
 void SetGraphicsWindowToTextWindow();

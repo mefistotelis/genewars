@@ -39,10 +39,8 @@ class TopoGrid { // sizeof=176
     SWORD alts[8][8]; // offset=14
 };
 
-typedef class TopoGrid TopoGrid;
-
 class TopoMorpher { // sizeof=49
-    class TopoMorpher * TopoMorpher(class TopoMorpher *arg1);
+    //TopoMorpher(TopoMorpher *arg1);
     void AbortTopoGrid(UBYTE arg1);
     BBOOL IsTopoGridValid(UBYTE arg1);
     UBYTE TopoGridIDX(TopoGrid *arg1);
@@ -50,12 +48,10 @@ class TopoMorpher { // sizeof=49
     TopoGrid * Flat(XY arg1, UBYTE arg2, SLONG arg3, SLONG arg4);
     TopoGrid * Crater(XY arg1, UBYTE arg2);
     TopoGrid * Create(XY arg1, UBYTE arg2, SLONG arg3, SLONG arg4);
-    class TopoMorpher * TopoMorpher();
+    TopoMorpher * TopoMorpher();
     TopoGrid topos[24]; // offset=0
     UBYTE numTopos; // offset=48
 };
-
-typedef class TopoMorpher TopoMorpher;
 
 #endif // BIO_TOPO_HPP_
 /******************************************************************************/

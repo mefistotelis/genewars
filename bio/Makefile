@@ -58,13 +58,12 @@ obj/font.o \
 obj/iface.o \
 obj/lab.o \
 obj/level.o \
-obj/map.o \
+obj/mapdisp.o \
 obj/misc.o \
 obj/nibble.o \
 obj/optimize.o \
 obj/options.o \
 obj/pads.o \
-obj/paletsel.o \
 \
 obj/setup.o \
 obj/sound.o \
@@ -81,6 +80,8 @@ obj/planet.o \
 obj/thebase.o \
 obj/theship.o \
 obj/packets.o \
+obj/paletsel.o \
+obj/map.o \
 obj/thingidx.o \
 obj/thing.o \
 obj/mvthing.o \
@@ -91,7 +92,7 @@ obj/drone.o \
 obj/event.o \
 obj/effect.o \
 obj/ethereal.o \
-obj/etherealz.o \
+obj/etherealzn.o \
 obj/creature.o \
 obj/research.o \
 obj/player.o \

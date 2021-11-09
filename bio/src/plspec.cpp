@@ -43,7 +43,7 @@ void PlSpec::InterruptMove()
 // code at 0001:00052a9c
 }
 
-void PlSpec::SetupMoveToTgt( XY )
+void PlSpec::SetupMoveToTgt(XY arg1)
 {
 // code at 0001:000529cc
 }
@@ -128,7 +128,7 @@ void PlSpec::SetAltSpecialFlipToThing(::Thing *tng1)
 // code at 0001:00077024
 }
 
-void PlSpec::SetupMoveToSpecialTgt( XY )
+void PlSpec::SetupMoveToSpecialTgt(XY arg1)
 {
 // code at 0001:00076fd4
 }
@@ -143,7 +143,7 @@ void PlSpec::SetupMoveAwayFromThing(::Thing *tng1)
 // code at 0001:00076f2c
 }
 
-void PlSpec::SetupMoveToInsideBuilding( Building *, XY )
+void PlSpec::SetupMoveToInsideBuilding(Building *arg1, XY arg2)
 {
 // code at 0001:00076ed0
 }
@@ -158,7 +158,7 @@ void PlSpec::Speech(ULONG arg1, BufferSubmitMode arg2)
 // code at 0001:00070395
 }
 
-void PlSpec::Init( char unsigned, char unsigned )
+void PlSpec::Init(UBYTE arg1, UBYTE arg2)
 {
 // code at 0001:00070452
 }
@@ -198,32 +198,32 @@ void PlSpec::Discover()
 // code at 0001:00071904
 }
 
-void PlSpec::BeginMove( char signed )
+void PlSpec::BeginMove(SBYTE arg1)
 {
 // code at 0001:00071982
 }
 
-void PlSpec::GetAbducted( Ethereal * )
+void PlSpec::GetAbducted(Ethereal *arg1)
 {
 // code at 0001:00071a25
 }
 
-void PlSpec::AbortSpecial( char unsigned )
+void PlSpec::AbortSpecial(BBOOL arg1)
 {
 // code at 0001:00071a73
 }
 
-void PlSpec::StartAMove( XY )
+void PlSpec::StartAMove(XY arg1)
 {
 // code at 0001:00071dbc
 }
 
-void PlSpec::SetTarget( char unsigned )
+void PlSpec::SetTarget(UBYTE arg1)
 {
 // code at 0001:00071de9
 }
 
-void PlSpec::BuilderSetDemoCharges( char signed )
+void PlSpec::BuilderSetDemoCharges(SBYTE arg1)
 {
 // code at 0001:00076e38
 }
@@ -233,7 +233,7 @@ void PlSpec::InitiateMove()
 // code at 0001:00071f5f
 }
 
-char unsigned PlSpec::DoMove( char unsigned )
+char unsigned PlSpec::DoMove(BBOOL arg1)
 {
 // code at 0001:00072167
 }

@@ -133,10 +133,10 @@ class InfoRequester { // sizeof=142
 };
 
 class EtherealScope { // sizeof=11
-    class EtherealScope * EtherealScope(class EtherealScope *arg1);
+    //EtherealScope(EtherealScope *arg1);
     void Draw();
     void Init();
-    class EtherealScope * EtherealScope();
+    //EtherealScope();
     BBOOL blipHitSaucer;
     UBYTE saucerFade;
     SLONG blipRange;
@@ -204,11 +204,6 @@ class IFCPlanetside : IFCBase { // sizeof=46
     LabPad labPad; // offset=214
 };
 
-void DrawRangeVSprite( short, short, short, short, long, long, TbSprite *, TbSprite * );
-void DrawRangeHSprite( short, short, short, short, long, long, TbSprite *, TbSprite * );
-void DrawRangeVBar( short, short, short, short, long, long, char unsigned, char unsigned );
-void DrawRangeHBar( short, short, short, short, long, long, char unsigned );
-void DrawRangeHBarDrawFlags( short, short, short, short, long, long, char unsigned, short unsigned );
 
 #endif // BIO_IFACE_HPP_
 /******************************************************************************/

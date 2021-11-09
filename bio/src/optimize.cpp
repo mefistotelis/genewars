@@ -33,11 +33,6 @@ void FragCopyBScreenToWScreen( XY, XY )
 // code at 0001:00063f75
 }
 
-void MapDisplay::FragCopyBScreenToWScreen()
-{
-// code at 0001:00064137
-}
-
 void FragCopyWScreenToVRAM( XY, XY )
 {
 // code at 0001:000644f7
@@ -51,11 +46,6 @@ void CopyRegion( short, short, short, short, short, short )
 void RefreshFromBScreenNormal()
 {
 // code at 0001:00064aed
-}
-
-void MapDisplay::RefreshFromBScreen()
-{
-// code at 0001:00064c2d
 }
 
 void RefreshToVRAM()
