@@ -34,6 +34,7 @@ LIBS =
 OBJS = \
 obj/drawspr.o \
 obj/drawsprr.o \
+obj/drawrng.o \
 obj/mygad.o \
 obj/myspr.o \
 obj/mysprr.o \
