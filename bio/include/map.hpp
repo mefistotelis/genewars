@@ -158,44 +158,6 @@ class MapDisplay { // sizeof=217
     IsoMapBuffer isoMap; // offset=39
 };
 
-class GroupSelect { // sizeof=110
-    SBYTE ActionOn(Thing *arg1, BBOOL arg2);
-    void DrawGroupSelected();
-    BBOOL GroupSelectThings();
-    void SetTarget(XY arg1);
-    void ClearAnchorGroupSelecting();
-    void SetAnchorGroupSelecting(SWORD arg1, SWORD arg2);
-    void ClearGroupSelecting();
-    void SetGroupSelecting();
-    BBOOL IsAnchorGroupSelecting();
-    void SwitchOffGroup(SWORD *arg1, SWORD arg2, UBYTE arg3, UBYTE arg4);
-    void AssignTargetToGroup(Thing *arg1, SWORD *arg2, SWORD arg3, UBYTE arg4, UBYTE arg5, UBYTE arg6);
-    void AssignXYToGroup(XY arg1, SWORD *arg2, SWORD arg3, UBYTE arg4, UBYTE arg5);
-    void AssignXYToTeam(XY arg1, UBYTE arg2, UBYTE arg3);
-    BBOOL SetGroupSwitchTo();
-    void RemoveIdxFromGroup(SWORD arg1);
-    void AddIdxToGroup(SWORD arg1);
-    BBOOL IsTargetSet();
-    BBOOL IsGroupSelecting();
-    BBOOL IsAGroupCurrentlySelected();
-    void ResetGroup();
-    void Draw();
-    BBOOL Update(SWORD *arg1);
-    void Close();
-    void Init();
-    UBYTE plsMask;
-    MyMinSprite mMs;
-    UBYTE flags;
-    UBYTE numPls;
-    UWORD numGroupSelected;
-    XY corner2;
-    XY corner1;
-    SWORD groupSelectedThings[43];
-    XY target; // offset=0
-};
-
-
-
 struct posasxy { // sizeof=2
     UBYTE X; // offset=0
     UBYTE Y; // offset=1

@@ -18,11 +18,6 @@
 /******************************************************************************/
 #include "clone.hpp"
 
-char unsigned Building::IsFunctional()
-{
-// code at 0001:00016bfc
-}
-
 char unsigned Specialist::Valid()
 {
 // code at 0001:00016bd4

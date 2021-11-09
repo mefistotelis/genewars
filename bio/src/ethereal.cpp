@@ -83,21 +83,6 @@ char unsigned SoundManager::__defarg()
 // code at 0001:0000490c
 }
 
-char unsigned Building::IsBuilt()
-{
-// code at 0001:0000458c
-}
-
-char unsigned Building::IsDisabled()
-{
-// code at 0001:0000454c
-}
-
-char unsigned Building::IsObservable()
-{
-// code at 0001:000044e4
-}
-
 void Ethereal::SetMoveToTgtWithAlt( XY, long )
 {
 // code at 0001:00004424

@@ -102,9 +102,9 @@ public:
 };
 
 class StaticThing : Thing { // sizeof=43
-    class StaticThing * operator=(class StaticThing *arg1);
-    StaticThing(StaticThing *arg1);
-    StaticThing();
+    class StaticThing * operator=(class StaticThing *tng1);
+    //StaticThing(StaticThing *tng1); -- generate default copy constructor
+    //StaticThing(); -- generate default no-args constructor
     BBOOL IsStaticallyDrawn();
     void DrawNoDraw(SWORD arg1, SWORD arg2);
     void Resync();

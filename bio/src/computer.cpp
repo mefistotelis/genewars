@@ -73,31 +73,6 @@ void Creature::SetTurf( XY )
 // code at 0001:000376c0
 }
 
-char unsigned Building::IsUpgradeOK()
-{
-// code at 0001:00037680
-}
-
-char unsigned Building::IsBeingUpgraded()
-{
-// code at 0001:00037644
-}
-
-char unsigned Building::IsBeingWrecked()
-{
-// code at 0001:00037604
-}
-
-char unsigned Building::CanMakeSpeciesInGenelab( CreatureSpecies )
-{
-// code at 0001:000375a8
-}
-
-char unsigned Building::IsMineMinedOut()
-{
-// code at 0001:00037568
-}
-
 char unsigned PlSpec::IsBusyDoingSomething()
 {
 // code at 0001:0003752c
@@ -306,16 +281,6 @@ near PointSample::PointSample( XY, long unsigned, char unsigned )
 near BestForestSample::BestForestSample( XY, long unsigned, char unsigned, char unsigned, long unsigned )
 {
 // code at 0001:00036998
-}
-
-char unsigned Building::IsUpgradable()
-{
-// code at 0001:0003689c
-}
-
-Creature * Building::GeneLabMadeCreature( char unsigned & )
-{
-// code at 0001:000367ec
 }
 
 char unsigned Creature::IsSpecial()

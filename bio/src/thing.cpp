@@ -275,4 +275,29 @@ BBOOL Thing::IsSoundPlaying(SampleID arg1)
 // code at 0001:000048a8
 }*/
 
+/*StaticThing::StaticThing()
+{
+// code at 0001:0001cb58
+}*/
+
+void StaticThing::DrawOnMap(SWORD arg1, SWORD arg2)
+{
+// code at 0001:0001dd3c
+}
+
+void StaticThing::Resync()
+{
+// code at 0001:0001dd18
+}
+
+BBOOL StaticThing::IsStaticallyDrawn()
+{
+// code at 0001:0001dcf4
+}
+
+void StaticThing::DrawNoDraw(SWORD arg1, SWORD arg2)
+{
+// code at 0001:0001cef4
+}
+
 /******************************************************************************/

@@ -133,5 +133,90 @@ void FlickerHandler::Free( char unsigned )
 // code at 0001:000489a0
 }
 
+Thing * Event::__defarg()
+{
+// code at 0001:00040650
+}
+
+char unsigned MapDisplay::IsGlassBuildings()
+{
+// code at 0001:00040614
+}
+
+void TheShip::RocketToOrbit()
+{
+// code at 0001:00049340
+}
+
+void TheShip::Update()
+{
+// code at 0001:000405e4
+}
+
+char unsigned ResearchGrid::AddToAGrid( CreatureSpecies, long )
+{
+// code at 0001:00040564
+}
+
+char unsigned IFCPlanetside::IsThingSelectedInPad( Thing * )
+{
+// code at 0001:0004052c
+}
+
+void IFCPlanetside::CloseActivePad()
+{
+// code at 0001:000404dc
+}
+
+void Creature::Free()
+{
+// code at 0001:00040410
+}
+
+near TurretScan::TurretScan( Building & )
+{
+// code at 0001:00040370
+}
+
+void TurretScan::PerGrid()
+{
+// code at 0001:000402f8
+}
+
+near SawmillScan::SawmillScan( Building & )
+{
+// code at 0001:00040278
+}
+
+void SawmillScan::PerGrid()
+{
+// code at 0001:00040214
+}
+
+near FarmScan::FarmScan( Building & )
+{
+// code at 0001:00040194
+}
+
+void FarmScan::PerGrid()
+{
+// code at 0001:000400dc
+}
+
+near ShieldScan::ShieldScan( Building & )
+{
+// code at 0001:00040064
+}
+
+void ShieldScan::BounceThingOffShield( MovingThing *, char unsigned )
+{
+// code at 0001:0003944c
+}
+
+void ShieldScan::PerGrid()
+{
+// code at 0001:0003959f
+}
+
 
 /******************************************************************************/

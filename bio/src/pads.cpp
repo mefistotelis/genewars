@@ -18,21 +18,6 @@
 /******************************************************************************/
 #include "pads.hpp"
 
-void StaticThing::DrawOnMap( short, short )
-{
-// code at 0001:0001dd3c
-}
-
-void StaticThing::Resync()
-{
-// code at 0001:0001dd18
-}
-
-char unsigned StaticThing::IsStaticallyDrawn()
-{
-// code at 0001:0001dcf4
-}
-
 long Creature::Lifespan()
 {
 // code at 0001:0001dcbc
@@ -56,41 +41,6 @@ short unsigned Creature::TurfRange()
 char unsigned Creature::GetYesPitch()
 {
 // code at 0001:0001dbac
-}
-
-char unsigned Building::IsDead()
-{
-// code at 0001:0001db74
-}
-
-char unsigned Building::IsWrecking()
-{
-// code at 0001:0001db34
-}
-
-char unsigned Building::IsAPowerGenerator()
-{
-// code at 0001:0001dad4
-}
-
-long unsigned Building::MaxGoopStorage()
-{
-// code at 0001:0001da20
-}
-
-long unsigned Building::MaxSawmillWood()
-{
-// code at 0001:0001d9ec
-}
-
-long unsigned Building::PowerStationRange()
-{
-// code at 0001:0001d9b4
-}
-
-long unsigned Building::ShieldRange()
-{
-// code at 0001:0001d980
 }
 
 char unsigned PlSpec::IsActionAbortable()
@@ -241,16 +191,6 @@ char unsigned Player::IsSamePlayer( Thing * )
 void BoundMmsToMySprite( MyMinSprite &, MySprite & )
 {
 // code at 0001:0001d1f8
-}
-
-void StaticThing::DrawNoDraw( short, short )
-{
-// code at 0001:0001cef4
-}
-
-char * Building::GetName()
-{
-// code at 0001:0001cec4
 }
 
 void TeamCircles::Reset()
@@ -512,26 +452,6 @@ char unsigned CreaturePad::Update( short )
 {
 // code at 0001:0001c39b
 }
-
-near Building::Building()
-{
-// code at 0001:0001cb90
-}
-
-near StaticThing::StaticThing()
-{
-// code at 0001:0001cb58
-}
-
-int unsigned const __vbtbl[];
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
 
 void CreaturePad::MapDraw()
 {

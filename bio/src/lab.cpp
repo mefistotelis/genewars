@@ -18,16 +18,6 @@
 /******************************************************************************/
 #include "lab.hpp"
 
-char unsigned Building::IsGenelabReady()
-{
-// code at 0001:00018310
-}
-
-char unsigned Building::IsGenelabBusy()
-{
-// code at 0001:000182d8
-}
-
 char unsigned ResearchGrid::IsIndexWithinCreaturesDiscovered( int )
 {
 // code at 0001:00018260

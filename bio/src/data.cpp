@@ -132,16 +132,6 @@ void Event::UpdateAll()
 // code at 0001:000486a7
 }
 
-char unsigned Building::IsPowered()
-{
-// code at 0001:00005a50
-}
-
-char unsigned Building::IsBusted()
-{
-// code at 0001:00005a10
-}
-
 near GEngine::GEngine()
 {
 // code at 0001:0005ea30

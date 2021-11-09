@@ -38,78 +38,6 @@ class MapBucketThing { // sizeof=10
 typedef class MapBucketThing MapBucketThing;
 
 
-class PaletteSelector { // sizeof=81
-    class PaletteSelector * PaletteSelector(class PaletteSelector *arg1);
-    void RestoreSelectFilter();
-    void SetSelectFilter(UBYTE arg1);
-    void ClearSelect();
-    BBOOL IsSelectActive();
-    void SlideClose();
-    void SlideOpen();
-    SBYTE GetSelected();
-    void UnlockPalette();
-    void LockPalette();
-    void Draw();
-    BBOOL Update(SWORD arg1);
-    void CreateShepherdMenu();
-    void CreatePlantMenu();
-    void CreateBuildingMenu();
-    void Close();
-    void Create(Thing *arg1);
-    void Init();
-    class PaletteSelector * PaletteSelector();
-    uint8_t open;
-    uint8_t closed;
-    uint8_t selectFilterStored;
-    SBYTE slideDelta;
-    SBYTE x;
-    UBYTE saveSelectFilter;
-    UBYTE listSize;
-    UBYTE error[31];
-    UBYTE mapTo[31];
-    SBYTE select[2];
-    UBYTE top[2];
-    BBOOL active;
-    PaletteSelectorMode mode;
-    Thing *activeThing;
-};
-
-class GroupSelect { // sizeof=110
-    SBYTE ActionOn(Thing *arg1, BBOOL arg2);
-    void DrawGroupSelected();
-    BBOOL GroupSelectThings();
-    void SetTarget(XY arg1);
-    void ClearAnchorGroupSelecting();
-    void SetAnchorGroupSelecting(SWORD arg1, SWORD arg2);
-    void ClearGroupSelecting();
-    void SetGroupSelecting();
-    BBOOL IsAnchorGroupSelecting();
-    void SwitchOffGroup(SWORD *arg1, SWORD arg2, UBYTE arg3, UBYTE arg4);
-    void AssignTargetToGroup(Thing *arg1, SWORD *arg2, SWORD arg3, UBYTE arg4, UBYTE arg5, UBYTE arg6);
-    void AssignXYToGroup(XY arg1, SWORD *arg2, SWORD arg3, UBYTE arg4, UBYTE arg5);
-    void AssignXYToTeam(XY arg1, UBYTE arg2, UBYTE arg3);
-    BBOOL SetGroupSwitchTo();
-    void RemoveIdxFromGroup(SWORD arg1);
-    void AddIdxToGroup(SWORD arg1);
-    BBOOL IsTargetSet();
-    BBOOL IsGroupSelecting();
-    BBOOL IsAGroupCurrentlySelected();
-    void ResetGroup();
-    void Draw();
-    BBOOL Update(SWORD *arg1);
-    void Close();
-    void Init();
-    UBYTE plsMask;
-    MyMinSprite mMs;
-    UBYTE flags;
-    UBYTE numPls;
-    UWORD numGroupSelected;
-    XY corner2;
-    XY corner1;
-    SWORD groupSelectedThings[43];
-    XY target; // offset=0
-};
-
 class MainInterfacePad { // sizeof=10
     class MainInterfacePad * MainInterfacePad(class MainInterfacePad *arg1);
     void StopStaticNoise();
@@ -174,20 +102,7 @@ class TeamCircles { // sizeof=63
 
 typedef class TeamCircles TeamCircles;
 
-typedef class PaletteSelector PaletteSelector;
 
-class EtherealScope { // sizeof=11
-    class EtherealScope * EtherealScope(class EtherealScope *arg1);
-    void Draw();
-    void Init();
-    class EtherealScope * EtherealScope();
-    BBOOL blipHitSaucer;
-    UBYTE saucerFade;
-    SLONG blipRange;
-    MyMinSprite etherealMms;
-};
-
-typedef class EtherealScope EtherealScope;
 
 class BasicPad : MainInterfacePad { // sizeof=22
     class BasicPad * BasicPad(class BasicPad *arg1);
@@ -335,7 +250,42 @@ class ClonePad : MainInterfacePad { // sizeof=175
 
 typedef class ClonePad ClonePad;
 
-typedef class GroupSelect GroupSelect;
+
+class GroupSelect { // sizeof=110
+    SBYTE ActionOn(Thing *arg1, BBOOL arg2);
+    void DrawGroupSelected();
+    BBOOL GroupSelectThings();
+    void SetTarget(XY arg1);
+    void ClearAnchorGroupSelecting();
+    void SetAnchorGroupSelecting(SWORD arg1, SWORD arg2);
+    void ClearGroupSelecting();
+    void SetGroupSelecting();
+    BBOOL IsAnchorGroupSelecting();
+    void SwitchOffGroup(SWORD *arg1, SWORD arg2, UBYTE arg3, UBYTE arg4);
+    void AssignTargetToGroup(Thing *arg1, SWORD *arg2, SWORD arg3, UBYTE arg4, UBYTE arg5, UBYTE arg6);
+    void AssignXYToGroup(XY arg1, SWORD *arg2, SWORD arg3, UBYTE arg4, UBYTE arg5);
+    void AssignXYToTeam(XY arg1, UBYTE arg2, UBYTE arg3);
+    BBOOL SetGroupSwitchTo();
+    void RemoveIdxFromGroup(SWORD arg1);
+    void AddIdxToGroup(SWORD arg1);
+    BBOOL IsTargetSet();
+    BBOOL IsGroupSelecting();
+    BBOOL IsAGroupCurrentlySelected();
+    void ResetGroup();
+    void Draw();
+    BBOOL Update(SWORD *arg1);
+    void Close();
+    void Init();
+    UBYTE plsMask;
+    MyMinSprite mMs;
+    UBYTE flags;
+    UBYTE numPls;
+    UWORD numGroupSelected;
+    XY corner2;
+    XY corner1;
+    SWORD groupSelectedThings[43];
+    XY target; // offset=0
+};
 
 class GroupPad : MainInterfacePad { // sizeof=35
     class GroupPad * GroupPad(class GroupPad *arg1);

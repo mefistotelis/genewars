@@ -58,26 +58,6 @@ void Creature::ClearDraggingStuff()
 // code at 0001:00077f90
 }
 
-void Building::SetUpgradeOK()
-{
-// code at 0001:00077f6c
-}
-
-void Building::ClearUpgradeOK()
-{
-// code at 0001:00077f48
-}
-
-void Building::SetBeingWrecked()
-{
-// code at 0001:00077f24
-}
-
-void Building::ClearBeingWrecked()
-{
-// code at 0001:00077f00
-}
-
 long PlSpec::ScientistStudyRange()
 {
 // code at 0001:00077ec8

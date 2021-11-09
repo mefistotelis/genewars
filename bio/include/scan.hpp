@@ -148,5 +148,45 @@ class StasisBoltScan : RangeScanner { // sizeof=50
     BBOOL hitThing; // offset=41
 };
 
+class TurretScan : RangeScanner { // sizeof=53
+    class TurretScan * TurretScan(class TurretScan *arg1);
+    void PerGrid();
+    class TurretScan * TurretScan(Building arg1);
+    void (**__vfptr)();
+    SLONG closestRange;
+    Building turret;
+    Thing *tgtThing; // offset=41
+};
+
+class SawmillScan : RangeScanner { // sizeof=53
+    class SawmillScan * SawmillScan(class SawmillScan *arg1);
+    void PerGrid();
+    class SawmillScan * SawmillScan(Building arg1);
+    void (**__vfptr)();
+    SLONG bestValue;
+    Building sawmill;
+    Plant *tgtPlant; // offset=41
+};
+
+class FarmScan : RangeScanner { // sizeof=53
+    class FarmScan * FarmScan(class FarmScan *arg1);
+    void PerGrid();
+    class FarmScan * FarmScan(Building arg1);
+    void (**__vfptr)();
+    SLONG bestValue;
+    Building farm;
+    Thing *tgt; // offset=41
+};
+
+class ShieldScan : RangeScanner { // sizeof=49
+    class ShieldScan * ShieldScan(class ShieldScan *arg1);
+    void BounceThingOffShield(MovingThing *arg1, BBOOL arg2);
+    void PerGrid();
+    class ShieldScan * ShieldScan(Building arg1);
+    void (**__vfptr)();
+    ULONG squareShieldRange;
+    Building shield;
+};
+
 #endif // SCAN_HPP_
 /******************************************************************************/

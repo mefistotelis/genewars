@@ -228,11 +228,6 @@ char unsigned Player::BaseColor()
 // code at 0001:00025608
 }
 
-char unsigned Building::IsDamaged()
-{
-// code at 0001:00025540
-}
-
 char signed Player::GetNum( PlSpec * )
 {
 // code at 0001:000254e4

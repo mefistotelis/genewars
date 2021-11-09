@@ -595,6 +595,16 @@ CreatureUserAction Creature::ActionOn( Thing *, char unsigned, char unsigned )
 // code at 0001:0007d632
 }
 
+@ * Creature::__defarg()
+{
+// code at 0001:0004082c
+}
+
+short Creature::IsStasisForHowLong()
+{
+// code at 0001:000407ec
+}
+
 void (near * const __vftbl[])();
 
 char signed const Creature::void UpdateFrozen( GridTile * )::.0::recessiveFreezeFactor[];
