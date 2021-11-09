@@ -44,12 +44,6 @@ enum ScoreType { // type=int8_t
 
 typedef enum ScoreType ScoreType;
 
-enum HerdMode { // type=int8_t
-    HERD_EAT = 0,
-    HERD_FIGHT,
-    HERD_BREED,
-    MAX_HERDMODES,
-};
 
 
 typedef uint8_t BBOOL;
@@ -108,28 +102,7 @@ class Point { // sizeof=12
 
 typedef class Point Point;
 
-typedef class ASpecies ASpecies;
 
-class Gene { // sizeof=2
-    BBOOL IsBasicInGene(CreatureBaseSpecies arg1);
-    CreatureBaseSpecies dominant; // offset=0
-    CreatureBaseSpecies recessive; // offset=1
-};
-
-typedef class Gene Gene;
-
-typedef void AwarenessScan;
-
-
-
-class MapBucketThing { // sizeof=10
-    SWORD next; // offset=0
-    SWORD x; // offset=2
-    SWORD yDev; // offset=4
-    Thing *thing; // offset=6
-};
-
-typedef class MapBucketThing MapBucketThing;
 
 
 
@@ -1066,12 +1039,10 @@ void Packet::SetPacket( char unsigned, short, short );
 void Packet::SetPacket( char unsigned, short, short, short, short );
 void Packet::SetPacket( char unsigned, short, short, short, short, short );
 char unsigned SmartMovingThing::IsAvoidActive();
-char unsigned Gene::IsBasicInGene( CreatureBaseSpecies );
 char unsigned Creature::__defarg();
 void Creature::SetMemory( XY );
 char unsigned Creature::IsHungry();
 char unsigned Creature::IsScrapping();
-char unsigned Creature::CanChopTrees( Gene & );
 void Creature::SetTurf( XY );
 char unsigned Building::IsUpgradeOK();
 char unsigned Building::IsBeingUpgraded();

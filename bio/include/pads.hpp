@@ -82,28 +82,6 @@ typedef class MainInterfacePad MainInterfacePad;
 
 typedef struct MyGadget MyGadget;
 
-class TeamCircles { // sizeof=63
-    void StopStatic(UBYTE arg1);
-    void StartStatic(UBYTE arg1, BBOOL arg2);
-    void SelectCircle(UBYTE arg1);
-    void DrawTeamCircle(UBYTE arg1);
-    void Reset();
-    void Draw();
-    void Update();
-    void Init();
-    BBOOL red[4];
-    SBYTE circleFadeDelta;
-    TeamCircleMode modes[4]; // offset=0
-    SBYTE circleActive; // offset=5
-    SBYTE circleFadeLevel; // offset=6
-    MyMinSprite mMs[4]; // offset=7
-    MyMinSprite staticMms[4]; // offset=32
-};
-
-typedef class TeamCircles TeamCircles;
-
-
-
 class BasicPad : MainInterfacePad { // sizeof=22
     class BasicPad * BasicPad(class BasicPad *arg1);
     void MapDraw();
@@ -374,10 +352,6 @@ void StaticThing::DrawNoDraw( short, short );
 char * Building::GetName();
 void TeamCircles::Reset();
 long Creature::QualityXlate( char signed, long );
-ASpecies & Creature::Species();
-Gene & Creature::Gene();
-char * Creature::GetName();
-SampleID Creature::GetYesSample();
 void Creature::SoundYesSample();
 void IFCPlanetside::SetBarsRefresh( char unsigned );
 void MainInterfacePad::Init( Thing * );

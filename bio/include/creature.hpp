@@ -19,47 +19,28 @@
 #ifndef BIO_CREATURE_HPP_
 #define BIO_CREATURE_HPP_
 
-class AwarenessScan : RangeScanner { // sizeof=228
-    class AwarenessScan * AwarenessScan(class AwarenessScan *arg1);
-    void Do();
-    void PerGrid();
-    class AwarenessScan * AwarenessScan(Creature arg1);
-    void (**__vfptr)();
-    ASpecies speci;
-    Creature c;
-    int mates[15]; // offset=45
-    int threats[15]; // offset=46
-    int terrain[15]; // offset=109
-    int enemies[15]; // offset=110
-    SWORD foundEnemies; // offset=173
-    int friends[15]; // offset=174
-    SWORD foundThreats; // offset=175
-    SWORD foundFriends; // offset=177
-    SWORD foundFood; // offset=179
-    SWORD foundMates; // offset=181
-    UBYTE bestEnemies; // offset=183
-    UBYTE bestFriends; // offset=184
-    UBYTE bestFood; // offset=185
-    UBYTE bestMates; // offset=186
-    UBYTE bestTerrain; // offset=187
-    UBYTE bestThreats; // offset=188
-    UBYTE foodRankings[2]; // offset=189
-    Thing *bestThing; // offset=192
-    Creature *bestMate; // offset=196
-    Thing *bestEnemy; // offset=200
-    Thing *bestThreat; // offset=204
-    SLONG bestRanking; // offset=208
-    SLONG bestMateRanking; // offset=212
-    SLONG bestEnemyRanking; // offset=216
-    SLONG bestThreatRanking; // offset=220
-    int food[15]; // offset=237
+#include "bftypes.h"
+#include "myspr.h"
+#include "creaturestat.hpp"
+#include "effectstat.hpp"
+#include "smvthing.hpp"
+
+class BioGame;
+class Building;
+class GridTile;
+class AwarenessScan;
+class TheBase;
+
+class Gene { // sizeof=2
+    BBOOL IsBasicInGene(CreatureBaseSpecies arg1);
+    CreatureBaseSpecies dominant; // offset=0
+    CreatureBaseSpecies recessive; // offset=1
 };
 
-
 class Creature : SmartMovingThing { // sizeof=124
-    class Creature * operator=(class Creature *arg1);
-    class Creature * Creature(class Creature *arg1);
-    class Creature * Creature();
+    Creature * operator =(Creature *crtr1);
+    //Creature(Creature *arg1); -- generate default copy constructor
+    //Creature(); -- generate default no-args constructor
     void EveryCR_BONES3(GridTile *arg1);
     void EveryCR_BONES2(GridTile *arg1);
     void EveryCR_BONES1(GridTile *arg1);
@@ -83,8 +64,8 @@ class Creature : SmartMovingThing { // sizeof=124
     void EveryCR_DIVING(GridTile *arg1);
     void EveryCR_HUNTING(GridTile *arg1);
     void EveryCR_MOVING(GridTile *arg1);
-    BBOOL ZeroJOB_BUILD(GridTile *arg1, AwarenessScan *arg2);
-    BBOOL ZeroJOB_WORK(GridTile *arg1, AwarenessScan *arg2);
+    BBOOL ZeroJOB_BUILD(GridTile *arg1, AwarenessScan &arg2);
+    BBOOL ZeroJOB_WORK(GridTile *arg1, AwarenessScan &arg2);
     void ZeroCR_BONES3(GridTile *arg1);
     void ZeroCR_BONES2(GridTile *arg1);
     void ZeroCR_BONES1(GridTile *arg1);
@@ -114,36 +95,36 @@ class Creature : SmartMovingThing { // sizeof=124
     void ZeroCR_MOVING(GridTile *arg1);
     SLONG SpitCost();
     void UpdateFrozen(GridTile *arg1);
-    BBOOL CheckJobs(GridTile *arg1, AwarenessScan *arg2);
+    BBOOL CheckJobs(GridTile *arg1, AwarenessScan &scan);
     void UpdateGrowth();
-    void HandleSpecialsForHunting(Thing *arg1, SLONG arg2);
-    BBOOL SpitAt(Thing *arg1, EffectType arg2);
-    BBOOL BreatheFire(Thing *arg1);
+    void HandleSpecialsForHunting(::Thing *tng1, SLONG arg2);
+    BBOOL SpitAt(::Thing *tng1, EffectType arg2);
+    BBOOL BreatheFire(::Thing *tng1);
     void SetResting(SLONG arg1, GridTile *arg2);
     void AssignAnim();
     void AnimUpdate();
     void EndUpdateCheck();
     BBOOL UpdateCriticalStuff(GridTile *arg1);
-    BBOOL Instincts(GridTile *arg1, AwarenessScan *arg2);
-    Effect * SetDragWoodDisk(Building *arg1);
-    MovingThing * SetDraggingStuff(Thing *arg1, GridTile *arg2);
+    BBOOL Instincts(GridTile *arg1, AwarenessScan &scan);
+    Effect * SetDragWoodDisk(Building &bldg);
+    ::MovingThing * SetDraggingStuff(::Thing &tng1, GridTile *arg2);
     BBOOL AddEnergy(SLONG arg1, UBYTE arg2);
-    Building * ChooseNewDragToBuilding(TheBase *arg1, Building *arg2, Building *arg3);
+    Building * ChooseNewDragToBuilding(TheBase &base, Building *arg2, Building *arg3);
     BBOOL ChooseVegiOrBones(GridTile *arg1);
     BBOOL IsInRangeOfShepherd(HerdMode arg1, HerdMode arg2, PlSpec **arg3);
-    BBOOL operator==(Creature *arg1);
-    void VoidPlTarget(Thing *arg1, BBOOL arg2);
-    SLONG WriteBuffer(Creature **arg1, SLONG arg2, SLONG arg3, BioGame *arg4);
-    SLONG ReadBuffer(Creature **arg1, SLONG arg2, SLONG arg3, BioGame *arg4);
+    BBOOL operator ==(Creature *crtr1);
+    void VoidPlTarget(::Thing *tng1, BBOOL arg2);
+    SLONG WriteBuffer(Creature **crtr, SLONG arg2, SLONG arg3, BioGame &game);
+    SLONG ReadBuffer(Creature **crtr, SLONG arg2, SLONG arg3, BioGame &game);
     void UpdateAll();
-    Creature * Create(UBYTE arg1, CreatureSpecies arg2, XY arg3, UBYTE arg4, Creature *arg5);
+    Creature * Create(UBYTE arg1, CreatureSpecies arg2, XY cor3, UBYTE arg4, Creature *arg5);
     void InitArray();
     void ShatterFrozen();
-    CreatureUserAction ActionOn(Thing *arg1, BBOOL arg2, BBOOL arg3);
-    void StartPickupThing(MovingThing *arg1);
-    void SetPlayerMoveTo(XY arg1);
-    BBOOL SetWorkingOn(Thing *arg1);
-    BBOOL SetHunting(Thing *arg1, BBOOL arg2);
+    CreatureUserAction ActionOn(::Thing *tng1, BBOOL arg2, BBOOL arg3);
+    void StartPickupThing(::MovingThing *tng1);
+    void SetPlayerMoveTo(XY cor1);
+    BBOOL SetWorkingOn(::Thing *tng1);
+    BBOOL SetHunting(::Thing *tng1, BBOOL arg2);
     void Kill(BBOOL arg1);
     void DropWhateverYouWereDragging();
     void StopWhateverYouWereDoing();
@@ -169,7 +150,7 @@ class Creature : SmartMovingThing { // sizeof=124
     void ClearBeingEaten();
     void SetBeingEaten();
     BBOOL CanGetOrders();
-    BBOOL CanChopTrees(Gene *arg1);
+    BBOOL CanChopTrees(::Gene const &gene);
     BBOOL IsFrozen();
     BBOOL IsScrapping();
     BBOOL IsHungry();
@@ -199,9 +180,9 @@ class Creature : SmartMovingThing { // sizeof=124
     SBYTE ResearchPercent(SBYTE arg1);
     SLONG ResearchValue();
     char * GetName();
-    Gene * Gene();
-    ASpecies * Species();
-    void VectorToWhereGoingTo(Vector *arg1);
+    Gene & Gene();
+    ASpecies & Species();
+    void VectorToWhereGoingTo(Vector &vec1);
     SLONG SquareTrueRangeToWhereGoingTo();
     void Undiscover();
     void Discover();
@@ -214,26 +195,26 @@ class Creature : SmartMovingThing { // sizeof=124
     BBOOL IsVectorable();
     BBOOL NeedToAvoid(GridTile *arg1);
     void NewGridUpdate(GridTile *arg1);
-    void SetSpeedHandler(Normal *arg1, SWORD arg2);
-    void StartAMove(XY arg1);
+    void SetSpeedHandler(Normal &nrm1, SWORD arg2);
+    void StartAMove(XY cor1);
     SWORD MaxMoveSpeed();
-    void StartFightWith(Thing *arg1);
-    BBOOL Damage(SLONG arg1, Thing *arg2);
+    void StartFightWith(::Thing *arg1);
+    BBOOL Damage(SLONG arg1, ::Thing *tng2);
     UBYTE Update();
     void Resync();
-    void Write(SLONG *arg1);
-    void Read(SLONG *arg1);
-    void Init(ThingType arg1, XY arg2, UBYTE arg3, SWORD arg4, SLONG arg5, Vector *arg6);
-    void (**__vfptr)();
-    MyMinSprite huntingMMs;
-    MyMinSprite scaredMMs;
-    MyMinSprite tiredMMs;
-    MyMinSprite hungryMMs;
-    MyMinSprite packMMs;
-    MyMinSprite packLeadersMMs;
-    MyMinSprite shepherdedMMs;
-    MyMinSprite heartMMs;
-    MyMinSprite woodDiskMMs;
+    void Write(SLONG &arg1);
+    void Read(SLONG &arg1);
+    void Init(ThingType arg1, XY arg2, UBYTE arg3, SWORD arg4, SLONG arg5, Vector const &vec6);
+    //void (**__vfptr)();
+    static MyMinSprite huntingMMs;
+    static MyMinSprite scaredMMs;
+    static MyMinSprite tiredMMs;
+    static MyMinSprite hungryMMs;
+    static MyMinSprite packMMs;
+    static MyMinSprite packLeadersMMs;
+    static MyMinSprite shepherdedMMs;
+    static MyMinSprite heartMMs;
+    static MyMinSprite woodDiskMMs;
     ThingIDX target; // offset=85
     ThingIDX plTarget; // offset=88
     ThingIDX utility; // offset=91
@@ -255,209 +236,6 @@ class Creature : SmartMovingThing { // sizeof=124
     CreatureSpecies species; // offset=122
     UBYTE frozen; // offset=123
 };
-
-class MapBucketThing { // sizeof=10
-    SWORD next; // offset=0
-    SWORD x; // offset=2
-    SWORD yDev; // offset=4
-    Thing *thing; // offset=6
-};
-
-typedef class MapBucketThing MapBucketThing;
-
-
-
-typedef struct MyGadget MyGadget;
-
-class TeamCircles { // sizeof=63
-    void StopStatic(UBYTE arg1);
-    void StartStatic(UBYTE arg1, BBOOL arg2);
-    void SelectCircle(UBYTE arg1);
-    void DrawTeamCircle(UBYTE arg1);
-    void Reset();
-    void Draw();
-    void Update();
-    void Init();
-    BBOOL red[4];
-    SBYTE circleFadeDelta;
-    TeamCircleMode modes[4]; // offset=0
-    SBYTE circleActive; // offset=5
-    SBYTE circleFadeLevel; // offset=6
-    MyMinSprite mMs[4]; // offset=7
-    MyMinSprite staticMms[4]; // offset=32
-};
-
-typedef class TeamCircles TeamCircles;
-
-class ChopperScan : WeightedTgtRangeScanner { // sizeof=110
-    class ChopperScan * ChopperScan(class ChopperScan *arg1);
-    void PerGrid();
-    class ChopperScan * ChopperScan(Creature arg1);
-    void (**__vfptr)();
-    int bestRanges[15];
-    Plant *closestPerSector[15];
-};
-
-class CollectorScan : WeightedTgtRangeScanner { // sizeof=246
-    class CollectorScan * CollectorScan(class CollectorScan *arg1);
-    void PerGrid();
-    class CollectorScan * CollectorScan(Creature arg1, BBOOL arg2, BBOOL arg3);
-    void (**__vfptr)();
-    UBYTE bonesBonus;
-    UBYTE plantBonus;
-    BBOOL lookForBones;
-    BBOOL lookForPlants;
-    Creature c;
-};
-
-class BuilderTreeScan : RangeScanner { // sizeof=49
-    class BuilderTreeScan * BuilderTreeScan(class BuilderTreeScan *arg1);
-    void PerGrid();
-    class BuilderTreeScan * BuilderTreeScan(Creature arg1);
-    void (**__vfptr)();
-    ULONG bestRange;
-    Plant *tgtPlant; // offset=41
-};
-
-typedef class BuilderTreeScan BuilderTreeScan;
-
-typedef class CollectorScan CollectorScan;
-
-typedef class ChopperScan ChopperScan;
-
-near WeightedRangeScanner::WeightedRangeScanner( XY &, long unsigned, XY *, long );
-near WeightedTgtRangeScanner::WeightedTgtRangeScanner( XY &, long unsigned );
-near WeightedTgtRangeScanner::WeightedTgtRangeScanner( XY &, long unsigned, XY *, long );
-char unsigned Thing::IsDitheredColor();
-char unsigned SmartMovingThing::IsAvoidWaiting();
-void SmartMovingThing::ClearIsFlying();
-void SmartMovingThing::SetIsFlying();
-void SmartMovingThing::SetMoveToTgtWithDir( XY );
-char unsigned Creature::__defarg();
-HerdMode Creature::__defarg();
-PlSpec * * Creature::__defarg();
-long Creature::Strength();
-long Creature::Defense();
-long Creature::Speed();
-long Creature::Health();
-long Creature::Energy();
-long Creature::Childhood();
-void Creature::InvalidateMemory();
-char unsigned Creature::IsMemoryValid();
-char unsigned Creature::IsAdult();
-char unsigned Creature::IsBeingEaten();
-void Creature::SetBeingEaten();
-void Creature::ClearBeingEaten();
-char unsigned Creature::CanSpit();
-char unsigned Creature::CanDive();
-void Plant::SetBeingEaten();
-char unsigned Plant::IsBeingEaten();
-void Plant::ClearBeingEaten();
-GridTile * Effect::__defarg();
-char unsigned * __defarg();
-char unsigned * __defarg();
-void SmartMovingThing::SetMoveToBuilding( Building * );
-char unsigned SmartMovingThing::SetMoveToTgtTest( XY );
-char unsigned Creature::AdultScale8();
-char unsigned Creature::CanFly();
-void Creature::SetupMove( short );
-near AwarenessScan::AwarenessScan( Creature & );
-void AwarenessScan::PerGrid();
-void AwarenessScan::Do();
-near ChopperScan::ChopperScan( Creature & );
-void ChopperScan::PerGrid();
-near CollectorScan::CollectorScan( Creature &, char unsigned, char unsigned );
-void CollectorScan::PerGrid();
-near BuilderTreeScan::BuilderTreeScan( Creature & );
-void BuilderTreeScan::PerGrid();
-extern char signed const Creature::void UpdateFrozen( GridTile * )::.0::dominantFreezeFactor[];
-char signed Creature::ResearchPercent( char signed );
-void Creature::UpdateFrozen( GridTile * );
-void Creature::Discover();
-void Creature::Draw( short, short );
-void Creature::DrawOnMap( short, short );
-char unsigned Creature::IsVectorable();
-char unsigned Creature::IsScreenPointInside( short, short, short, short );
-void Creature::Resync();
-Creature * Creature::Create( char unsigned, CreatureSpecies, XY, char unsigned, Creature * );
-void Creature::InitArray();
-void Creature::Read( long & );
-void Creature::Write( long & );
-long Creature::ReadBuffer( Creature * *, long, long, BioGame & );
-long Creature::SpitCost();
-long Creature::WriteBuffer( Creature * *, long, long, BioGame & );
-short Creature::MaxMoveSpeed();
-void Creature::SetResting( long, GridTile * );
-char unsigned Creature::BreatheFire( Thing * );
-char unsigned Creature::SpitAt( Thing *, EffectType );
-long Creature::SquareTrueRangeToWhereGoingTo();
-void Creature::VectorToWhereGoingTo( Vector & );
-char unsigned Creature::NeedToAvoid( GridTile * );
-void Creature::NewGridUpdate( GridTile * );
-void Creature::SetSpeedHandler( Normal &, short );
-char unsigned Creature::SetHunting( Thing *, char unsigned );
-void Creature::ShatterFrozen();
-char unsigned Creature::Damage( long, Thing * );
-char unsigned Creature::AddEnergy( long, char unsigned );
-void Creature::SetStasis( short );
-void Creature::StartFightWith( Thing * );
-void Creature::DropWhateverYouWereDragging();
-void Creature::StopWhateverYouWereDoing();
-void Creature::Kill( char unsigned );
-void Creature::ZeroCR_ORBIT( GridTile * );
-void Creature::ZeroCR_KISSING( GridTile * );
-void Creature::EveryCR_DIVING( GridTile * );
-void Creature::ZeroCR_DIVING( GridTile * );
-void Creature::StartPickupThing( MovingThing * );
-Effect * Creature::SetDragWoodDisk( Building & );
-MovingThing * Creature::SetDraggingStuff( Thing &, GridTile * );
-void Creature::EveryCR_HUNTING( GridTile * );
-void Creature::EveryCR_INLOVE( GridTile * );
-void Creature::ZeroCR_CHOPPING( GridTile * );
-void Creature::EveryCR_KISSING( GridTile * );
-void Creature::EveryCR_FIGHTING( GridTile * );
-void Creature::EveryCR_NAPALM( GridTile * );
-void Creature::ZeroCR_PICKUP( GridTile * );
-void Creature::ZeroCR_FROZEN( GridTile * );
-void Creature::ZeroCR_BUILDING( GridTile * );
-void Creature::ZeroCR_STUNNED( GridTile * );
-void Creature::ZeroCR_FIGHTING( GridTile * );
-void Creature::ZeroCR_DYING( GridTile * );
-void Creature::ZeroCR_STASIS( GridTile * );
-void Creature::EveryCR_BONES1( GridTile * );
-void Creature::EveryCR_BONES2( GridTile * );
-void Creature::EveryCR_BONES3( GridTile * );
-void Creature::EveryCR_EATMEAT( GridTile * );
-void Creature::EveryCR_EATBONES( GridTile * );
-void Creature::EveryCR_EATVEGI( GridTile * );
-char unsigned Creature::Instincts( GridTile *, AwarenessScan & );
-char unsigned Creature::CheckJobs( GridTile *, AwarenessScan & );
-void Creature::EveryCR_RESTING( GridTile * );
-void Creature::ZeroCR_RESTING( GridTile * );
-void Creature::HandleSpecialsForHunting( Thing *, long );
-char unsigned Creature::IsInRangeOfShepherd( HerdMode, HerdMode, PlSpec * * );
-Building * Creature::ChooseNewDragToBuilding( TheBase &, Building *, Building * );
-char unsigned Creature::ZeroJOB_WORK( GridTile *, AwarenessScan & );
-char unsigned Creature::ZeroJOB_BUILD( GridTile *, AwarenessScan & );
-char unsigned Creature::SetWorkingOn( Thing * );
-void Creature::StartAMove( XY );
-void Creature::SetPlayerMoveTo( XY );
-char unsigned Creature::UpdateCriticalStuff( GridTile * );
-void Creature::AssignAnim();
-void Creature::UpdateGrowth();
-void Creature::AnimUpdate();
-void Creature::EndUpdateCheck();
-char unsigned Creature::Update();
-void Creature::UpdateAll();
-void Creature::VoidPlTarget( Thing *, char unsigned );
-CreatureUserAction Creature::ActionOn( Thing *, char unsigned, char unsigned );
-extern void (near * const __vftbl[])();
-extern char signed const Creature::void UpdateFrozen( GridTile * )::.0::recessiveFreezeFactor[];
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-char unsigned Creature::operator ==( Creature * );
-extern void (near * const __vftbl[])();
 
 #endif // BIO_CREATURE_HPP_
 /******************************************************************************/

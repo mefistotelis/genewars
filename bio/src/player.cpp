@@ -18,11 +18,6 @@
 /******************************************************************************/
 #include "player.hpp"
 
-void Creature::SetPlayerActive( CreatureUserAction )
-{
-// code at 0001:00052bbc
-}
-
 void Specialist::Invalidate()
 {
 // code at 0001:00052b64

@@ -18,31 +18,6 @@
 /******************************************************************************/
 #include "pads.hpp"
 
-long Creature::Lifespan()
-{
-// code at 0001:0001dcbc
-}
-
-char unsigned Creature::IsPlayerActive()
-{
-// code at 0001:0001dc84
-}
-
-char unsigned Creature::IsTurfSet()
-{
-// code at 0001:0001dc44
-}
-
-short unsigned Creature::TurfRange()
-{
-// code at 0001:0001dbe8
-}
-
-char unsigned Creature::GetYesPitch()
-{
-// code at 0001:0001dbac
-}
-
 char unsigned PlSpec::IsActionAbortable()
 {
 // code at 0001:0001d948
@@ -196,36 +171,6 @@ void BoundMmsToMySprite( MyMinSprite &, MySprite & )
 void TeamCircles::Reset()
 {
 // code at 0001:0001ce98
-}
-
-long Creature::QualityXlate( char signed, long )
-{
-// code at 0001:0001ce54
-}
-
-ASpecies & Creature::Species()
-{
-// code at 0001:0001ce20
-}
-
-Gene & Creature::Gene()
-{
-// code at 0001:0001cdf0
-}
-
-char * Creature::GetName()
-{
-// code at 0001:0001cdc0
-}
-
-SampleID Creature::GetYesSample()
-{
-// code at 0001:0001cd88
-}
-
-void Creature::SoundYesSample()
-{
-// code at 0001:0001cd28
 }
 
 void IFCPlanetside::SetBarsRefresh( char unsigned )

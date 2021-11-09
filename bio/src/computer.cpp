@@ -38,41 +38,6 @@ void Packet::SetPacket( char unsigned, short, short, short, short, short )
 // code at 0001:00037940
 }
 
-char unsigned Gene::IsBasicInGene( CreatureBaseSpecies )
-{
-// code at 0001:00037814
-}
-
-char unsigned Creature::__defarg()
-{
-// code at 0001:000377f4
-}
-
-void Creature::SetMemory( XY )
-{
-// code at 0001:000377c8
-}
-
-char unsigned Creature::IsHungry()
-{
-// code at 0001:00037788
-}
-
-char unsigned Creature::IsScrapping()
-{
-// code at 0001:0003773c
-}
-
-char unsigned Creature::CanChopTrees( Gene & )
-{
-// code at 0001:000376ec
-}
-
-void Creature::SetTurf( XY )
-{
-// code at 0001:000376c0
-}
-
 char unsigned PlSpec::IsBusyDoingSomething()
 {
 // code at 0001:0003752c
@@ -281,11 +246,6 @@ near PointSample::PointSample( XY, long unsigned, char unsigned )
 near BestForestSample::BestForestSample( XY, long unsigned, char unsigned, char unsigned, long unsigned )
 {
 // code at 0001:00036998
-}
-
-char unsigned Creature::IsSpecial()
-{
-// code at 0001:0003676c
 }
 
 EtherealZone * GuardPoint::EZone()

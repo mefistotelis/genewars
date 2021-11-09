@@ -48,16 +48,6 @@ char unsigned SoundManager::IsNarratorSpeaking()
 // code at 0001:000780a4
 }
 
-char unsigned Creature::IsDraggingStuff()
-{
-// code at 0001:00077fbc
-}
-
-void Creature::ClearDraggingStuff()
-{
-// code at 0001:00077f90
-}
-
 long PlSpec::ScientistStudyRange()
 {
 // code at 0001:00077ec8
@@ -101,11 +91,6 @@ void TopoMorpher::AbortTopoGrid( char unsigned )
 short WeightedAngle( char unsigned )
 {
 // code at 0001:00077c3c
-}
-
-long Creature::UseEnergy( long )
-{
-// code at 0001:00077b9c
 }
 
 near LumberjackScan::LumberjackScan( PlSpec & )

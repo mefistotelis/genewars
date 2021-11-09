@@ -149,24 +149,6 @@ class GunSpec { // sizeof=7
 typedef class GunSpec GunSpec;
 
 
-class ASpecies { // sizeof=45
-    SLONG smarts; // offset=0
-    UBYTE strength; // offset=4
-    UBYTE defense; // offset=5
-    SLONG speed; // offset=6
-    SLONG lifeSpan; // offset=10
-    SLONG health; // offset=14
-    SLONG energy; // offset=18
-    SLONG restFrequency; // offset=22
-    UBYTE birthsPerLife; // offset=26
-    SWORD mass; // offset=27
-    UBYTE food[2]; // offset=29
-    SLONG costInGoop; // offset=32
-    UBYTE wuss; // offset=36
-    SLONG halfLife; // offset=37
-    SLONG birthSpan; // offset=41
-};
-
 struct __24e741VDI_HDR { // sizeof=10
     BYTE ID[7]; // offset=0
     ULONG driver_version; // offset=8

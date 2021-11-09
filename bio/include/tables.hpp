@@ -29,7 +29,6 @@ typedef class GunSpec GunSpec;
 
 
 
-typedef class ASpecies ASpecies;
 
 class EqRange { // sizeof=2
     UBYTE base; // offset=0

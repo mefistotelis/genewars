@@ -18,6 +18,8 @@
 /******************************************************************************/
 #include "effect.hpp"
 
+MyMinSprite Effect::ezStarMMs;
+
 /*Effect::Effect()
 {
 // code at 0001:000614bc

@@ -50,7 +50,6 @@ obj/ceditor.o \
 obj/clone.o \
 obj/computer.o \
 obj/control.o \
-obj/creature.o \
 obj/custom.o \
 obj/data.o \
 obj/draw.o \
@@ -90,6 +89,7 @@ obj/building.o \
 obj/smvthing.o \
 obj/drone.o \
 obj/effect.o \
+obj/creature.o \
 obj/io.o \
 obj/game.o \
 obj/pchost.o \

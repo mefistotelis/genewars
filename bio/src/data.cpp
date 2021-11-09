@@ -33,11 +33,6 @@ SoundRequest * SoundManager::GetSoundReq( Thing * )
 // code at 0001:00049ae8
 }
 
-char unsigned Creature::CanArmor()
-{
-// code at 0001:000494e8
-}
-
 char unsigned PlSpec::IsDead()
 {
 // code at 0001:000494a8
@@ -576,17 +571,6 @@ InfoRequester request;
 
 Computer computers[];
 
-MyMinSprite Creature::woodDiskMMs;
-
-MyMinSprite Creature::heartMMs;
-
-MyMinSprite Creature::shepherdedMMs;
-
-MyMinSprite Creature::packLeadersMMs;
-
-MyMinSprite Creature::packMMs;
-
-MyMinSprite Creature::hungryMMs;
 
 long unsigned buildingsAllowed;
 
@@ -602,13 +586,6 @@ MyGadget ifcPalette_gads[];
 
 MyGadget ifcLab_gads[];
 
-MyMinSprite Creature::tiredMMs;
-
-MyMinSprite Creature::scaredMMs;
-
-MyMinSprite Creature::huntingMMs;
-
-MyMinSprite Effect::ezStarMMs;
 
 MyAnimBank * tubespec_anb;
 

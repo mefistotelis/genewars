@@ -214,24 +214,6 @@ class InfoRequester { // sizeof=142
     TurnPrintInfo titleTpi;
 };
 
-class TeamCircles { // sizeof=63
-    void StopStatic(UBYTE arg1);
-    void StartStatic(UBYTE arg1, BBOOL arg2);
-    void SelectCircle(UBYTE arg1);
-    void DrawTeamCircle(UBYTE arg1);
-    void Reset();
-    void Draw();
-    void Update();
-    void Init();
-    BBOOL red[4];
-    SBYTE circleFadeDelta;
-    TeamCircleMode modes[4]; // offset=0
-    SBYTE circleActive; // offset=5
-    SBYTE circleFadeLevel; // offset=6
-    MyMinSprite mMs[4]; // offset=7
-    MyMinSprite staticMms[4]; // offset=32
-};
-
 class EtherealScope { // sizeof=11
     class EtherealScope * EtherealScope(class EtherealScope *arg1);
     void Draw();

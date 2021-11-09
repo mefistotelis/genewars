@@ -62,7 +62,7 @@ public:
     void Write(SLONG &arg1);
     void Read(SLONG &arg1);
     //void (**__vfptr)();
-    MyMinSprite ezStarMMs;
+    static MyMinSprite ezStarMMs;
     EffectType type; // offset=69
     SBYTE state; // offset=70
     ThingIDX thing; // offset=71

@@ -168,11 +168,6 @@ void IFCPlanetside::CloseActivePad()
 // code at 0001:000404dc
 }
 
-void Creature::Free()
-{
-// code at 0001:00040410
-}
-
 near TurretScan::TurretScan( Building & )
 {
 // code at 0001:00040370
@@ -216,6 +211,66 @@ void ShieldScan::BounceThingOffShield( MovingThing *, char unsigned )
 void ShieldScan::PerGrid()
 {
 // code at 0001:0003959f
+}
+
+WeightedRangeScanner::WeightedRangeScanner( XY &, long unsigned, XY *, long )
+{
+// code at 0001:00084770
+}
+
+WeightedTgtRangeScanner::WeightedTgtRangeScanner( XY &, long unsigned )
+{
+// code at 0001:00084708
+}
+
+WeightedTgtRangeScanner::WeightedTgtRangeScanner( XY &, long unsigned, XY *, long )
+{
+// code at 0001:00084698
+}
+
+AwarenessScan::AwarenessScan( Creature & )
+{
+// code at 0001:00083c1c
+}
+
+void AwarenessScan::PerGrid()
+{
+// code at 0001:00083440
+}
+
+void AwarenessScan::Do()
+{
+// code at 0001:00083208
+}
+
+ChopperScan::ChopperScan( Creature & )
+{
+// code at 0001:000831b8
+}
+
+void ChopperScan::PerGrid()
+{
+// code at 0001:000830f0
+}
+
+near CollectorScan::CollectorScan( Creature &, char unsigned, char unsigned )
+{
+// code at 0001:00082f1c
+}
+
+void CollectorScan::PerGrid()
+{
+// code at 0001:00082cd0
+}
+
+near BuilderTreeScan::BuilderTreeScan( Creature & )
+{
+// code at 0001:00082c6c
+}
+
+void BuilderTreeScan::PerGrid()
+{
+// code at 0001:00082c08
 }
 
 

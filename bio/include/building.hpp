@@ -20,6 +20,8 @@
 #define BIO_BUILDING_HPP_
 
 #include "bftypes.h"
+#include "xy.hpp"
+#include "thingidx.hpp"
 #include "buildingstat.hpp"
 #include "creaturestat.hpp"
 #include "thing.hpp"
@@ -85,7 +87,7 @@ class Building : StaticThing { // sizeof=67
     void Resync();
     void Write(SLONG &arg1);
     void Read(SLONG &arg1);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     SWORD build; // offset=43
     BuildingType type; // offset=45
     UBYTE stage; // offset=46

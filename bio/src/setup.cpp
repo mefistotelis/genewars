@@ -18,36 +18,6 @@
 /******************************************************************************/
 #include "setup.hpp"
 
-void Creature::Init( ThingType, XY, char unsigned, short, long, Vector const & )
-{
-// code at 0001:0006195c
-}
-
-char unsigned Creature::IsDead()
-{
-// code at 0001:00061924
-}
-
-char unsigned Creature::IsStasis()
-{
-// code at 0001:000618e8
-}
-
-char unsigned Creature::IsDoneMovingToTgt()
-{
-// code at 0001:000618a8
-}
-
-char unsigned Creature::IsStuck()
-{
-// code at 0001:00061868
-}
-
-void Creature::Undiscover()
-{
-// code at 0001:00061830
-}
-
 char unsigned Event::IsStaticallyDrawn()
 {
 // code at 0001:000617e8
@@ -106,11 +76,6 @@ near Ethereal::Ethereal()
 near Event::Event()
 {
 // code at 0001:000614f4
-}
-
-near Creature::Creature()
-{
-// code at 0001:00061484
 }
 
 void (near * const __vftbl[])();

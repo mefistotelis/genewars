@@ -23,26 +23,6 @@ void Packet::SetPacket( char unsigned, short, short, short )
 // code at 0001:000262ec
 }
 
-char unsigned Creature::IsFrozen()
-{
-// code at 0001:000261d4
-}
-
-char unsigned Creature::CanGetOrders()
-{
-// code at 0001:00026178
-}
-
-void Creature::ClearPlayerActive()
-{
-// code at 0001:00026150
-}
-
-long Creature::ViewScale8()
-{
-// code at 0001:000260d0
-}
-
 char unsigned PlSpec::IsFullyCloaked()
 {
 // code at 0001:00026090

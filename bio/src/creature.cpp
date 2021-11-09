@@ -18,62 +18,60 @@
 /******************************************************************************/
 #include "creature.hpp"
 
-near WeightedRangeScanner::WeightedRangeScanner( XY &, long unsigned, XY *, long )
+BBOOL Gene::IsBasicInGene(CreatureBaseSpecies arg1)
 {
-// code at 0001:00084770
+// code at 0001:00037814
 }
 
-near WeightedTgtRangeScanner::WeightedTgtRangeScanner( XY &, long unsigned )
-{
-// code at 0001:00084708
-}
+MyMinSprite Creature::woodDiskMMs;
 
-near WeightedTgtRangeScanner::WeightedTgtRangeScanner( XY &, long unsigned, XY *, long )
-{
-// code at 0001:00084698
-}
+MyMinSprite Creature::heartMMs;
 
-char unsigned Creature::__defarg()
-{
-// code at 0001:0008455c
-}
+MyMinSprite Creature::shepherdedMMs;
 
-HerdMode Creature::__defarg()
-{
-// code at 0001:0008453c
-}
+MyMinSprite Creature::packLeadersMMs;
 
-PlSpec * * Creature::__defarg()
-{
-// code at 0001:00084518
-}
+MyMinSprite Creature::packMMs;
 
-long Creature::Strength()
+MyMinSprite Creature::hungryMMs;
+
+MyMinSprite Creature::tiredMMs;
+
+MyMinSprite Creature::scaredMMs;
+
+MyMinSprite Creature::huntingMMs;
+
+/*Creature::Creature()
+{
+// code at 0001:00061484
+}*/
+
+SLONG Creature::Strength()
 {
 // code at 0001:000844dc
 }
 
-long Creature::Defense()
+SLONG Creature::Defense()
 {
 // code at 0001:000844a0
 }
 
-long Creature::Speed()
+SLONG Creature::Speed()
 {
 // code at 0001:00084468
 }
 
-long Creature::Health()
+SLONG Creature::Health()
 {
 // code at 0001:00084430
 }
 
-long Creature::Energy()
+SLONG Creature::Energy()
 {
 // code at 0001:000843f8
 }
 
-long Creature::Childhood()
+SLONG Creature::Childhood()
 {
 // code at 0001:000843cc
 }
@@ -118,16 +116,6 @@ char unsigned Creature::CanDive()
 // code at 0001:00084228
 }
 
-char unsigned * __defarg()
-{
-// code at 0001:0008415c
-}
-
-char unsigned * __defarg()
-{
-// code at 0001:00084138
-}
-
 char unsigned Creature::IsBones()
 {
 // code at 0001:0005dcb0
@@ -148,60 +136,15 @@ void Creature::SetupMove( short )
 // code at 0001:00083ec4
 }
 
-near AwarenessScan::AwarenessScan( Creature & )
-{
-// code at 0001:00083c1c
-}
-
-void AwarenessScan::PerGrid()
-{
-// code at 0001:00083440
-}
-
-void AwarenessScan::Do()
-{
-// code at 0001:00083208
-}
-
-near ChopperScan::ChopperScan( Creature & )
-{
-// code at 0001:000831b8
-}
-
-void ChopperScan::PerGrid()
-{
-// code at 0001:000830f0
-}
-
-near CollectorScan::CollectorScan( Creature &, char unsigned, char unsigned )
-{
-// code at 0001:00082f1c
-}
-
-void CollectorScan::PerGrid()
-{
-// code at 0001:00082cd0
-}
-
-near BuilderTreeScan::BuilderTreeScan( Creature & )
-{
-// code at 0001:00082c6c
-}
-
-void BuilderTreeScan::PerGrid()
-{
-// code at 0001:00082c08
-}
-
-char signed const Creature::void UpdateFrozen( GridTile * )::.0::dominantFreezeFactor[];
-
 char signed Creature::ResearchPercent( char signed )
 {
 // code at 0001:00082ba0
 }
 
-void Creature::UpdateFrozen( GridTile * )
+void Creature::UpdateFrozen(GridTile *arg1)
 {
+    static signed char const dominantFreezeFactor[] = {0}; // size undetermined
+    static signed char const recessiveFreezeFactor[] = {0}; // size undetermined
 // code at 0001:00082994
 }
 
@@ -235,7 +178,7 @@ void Creature::Resync()
 // code at 0001:0007915d
 }
 
-Creature * Creature::Create( char unsigned, CreatureSpecies, XY, char unsigned, Creature * )
+Creature * Creature::Create(UBYTE arg1, CreatureSpecies arg2, XY cor3, UBYTE arg4, Creature *arg5)
 {
 // code at 0001:000791d6
 }
@@ -245,27 +188,27 @@ void Creature::InitArray()
 // code at 0001:0007959d
 }
 
-void Creature::Read( long & )
+void Creature::Read(SLONG &arg1)
 {
 // code at 0001:00079624
 }
 
-void Creature::Write( long & )
+void Creature::Write(SLONG &arg1)
 {
 // code at 0001:00079683
 }
 
-long Creature::ReadBuffer( Creature * *, long, long, BioGame & )
+SLONG Creature::ReadBuffer(Creature **crtr, SLONG arg2, SLONG arg3, BioGame &game)
 {
 // code at 0001:000796c4
 }
 
-long Creature::SpitCost()
+SLONG Creature::SpitCost()
 {
 // code at 0001:00082958
 }
 
-long Creature::WriteBuffer( Creature * *, long, long, BioGame & )
+SLONG Creature::WriteBuffer(Creature **crtr, SLONG arg2, SLONG arg3, BioGame &game)
 {
 // code at 0001:00079743
 }
@@ -275,47 +218,47 @@ short Creature::MaxMoveSpeed()
 // code at 0001:000797c2
 }
 
-void Creature::SetResting( long, GridTile * )
+void Creature::SetResting(SLONG arg1, GridTile *arg2)
 {
 // code at 0001:000797ff
 }
 
-char unsigned Creature::BreatheFire( Thing * )
+BBOOL Creature::BreatheFire(::Thing *tng1)
 {
 // code at 0001:00079883
 }
 
-char unsigned Creature::SpitAt( Thing *, EffectType )
+BBOOL Creature::SpitAt(::Thing *tng1, EffectType arg2)
 {
 // code at 0001:00079970
 }
 
-long Creature::SquareTrueRangeToWhereGoingTo()
+SLONG Creature::SquareTrueRangeToWhereGoingTo()
 {
 // code at 0001:00079b35
 }
 
-void Creature::VectorToWhereGoingTo( Vector & )
+void Creature::VectorToWhereGoingTo(Vector &vec1)
 {
 // code at 0001:00079c94
 }
 
-char unsigned Creature::NeedToAvoid( GridTile * )
+BBOOL Creature::NeedToAvoid(GridTile *arg1)
 {
 // code at 0001:00079e28
 }
 
-void Creature::NewGridUpdate( GridTile * )
+void Creature::NewGridUpdate(GridTile *arg1)
 {
 // code at 0001:00079fd7
 }
 
-void Creature::SetSpeedHandler( Normal &, short )
+void Creature::SetSpeedHandler(Normal &nrm1, SWORD arg2)
 {
 // code at 0001:0007a161
 }
 
-char unsigned Creature::SetHunting( Thing *, char unsigned )
+BBOOL Creature::SetHunting(::Thing *tng1, BBOOL arg2)
 {
 // code at 0001:0007a29b
 }
@@ -325,22 +268,22 @@ void Creature::ShatterFrozen()
 // code at 0001:0007a3e7
 }
 
-char unsigned Creature::Damage( long, Thing * )
+BBOOL Creature::Damage(SLONG arg1, ::Thing *tng2)
 {
 // code at 0001:0007a4cb
 }
 
-char unsigned Creature::AddEnergy( long, char unsigned )
+BBOOL Creature::AddEnergy(SLONG arg1, UBYTE arg2)
 {
 // code at 0001:0007ae11
 }
 
-void Creature::SetStasis( short )
+void Creature::SetStasis(SWORD arg1)
 {
 // code at 0001:0007aec3
 }
 
-void Creature::StartFightWith( Thing * )
+void Creature::StartFightWith(::Thing *arg1)
 {
 // code at 0001:0007af56
 }
@@ -355,202 +298,202 @@ void Creature::StopWhateverYouWereDoing()
 // code at 0001:0007b29f
 }
 
-void Creature::Kill( char unsigned )
+void Creature::Kill(BBOOL arg1)
 {
 // code at 0001:0007b3f8
 }
 
-void Creature::ZeroCR_ORBIT( GridTile * )
+void Creature::ZeroCR_ORBIT(GridTile *arg1)
 {
 // code at 0001:000826e4
 }
 
-void Creature::ZeroCR_KISSING( GridTile * )
+void Creature::ZeroCR_KISSING(GridTile *arg1)
 {
 // code at 0001:0008210c
 }
 
-void Creature::EveryCR_DIVING( GridTile * )
+void Creature::EveryCR_DIVING(GridTile *arg1)
 {
 // code at 0001:00081f2c
 }
 
-void Creature::ZeroCR_DIVING( GridTile * )
+void Creature::ZeroCR_DIVING(GridTile *arg1)
 {
 // code at 0001:00081e6c
 }
 
-void Creature::StartPickupThing( MovingThing * )
+void Creature::StartPickupThing(::MovingThing *tng1)
 {
 // code at 0001:0007b601
 }
 
-Effect * Creature::SetDragWoodDisk( Building & )
+Effect * Creature::SetDragWoodDisk(Building &bldg)
 {
 // code at 0001:0007b661
 }
 
-MovingThing * Creature::SetDraggingStuff( Thing &, GridTile * )
+::MovingThing * Creature::SetDraggingStuff(::Thing &tng1, GridTile *arg2)
 {
 // code at 0001:0007b6f0
 }
 
-void Creature::EveryCR_HUNTING( GridTile * )
+void Creature::EveryCR_HUNTING(GridTile *arg1)
 {
 // code at 0001:00081734
 }
 
-void Creature::EveryCR_INLOVE( GridTile * )
+void Creature::EveryCR_INLOVE(GridTile *arg1)
 {
 // code at 0001:00081458
 }
 
-void Creature::ZeroCR_CHOPPING( GridTile * )
+void Creature::ZeroCR_CHOPPING(GridTile *arg1)
 {
 // code at 0001:00081374
 }
 
-void Creature::EveryCR_KISSING( GridTile * )
+void Creature::EveryCR_KISSING(GridTile *arg1)
 {
 // code at 0001:0008127c
 }
 
-void Creature::EveryCR_FIGHTING( GridTile * )
+void Creature::EveryCR_FIGHTING(GridTile *arg1)
 {
 // code at 0001:0008122c
 }
 
-void Creature::EveryCR_NAPALM( GridTile * )
+void Creature::EveryCR_NAPALM(GridTile *arg1)
 {
 // code at 0001:000810e8
 }
 
-void Creature::ZeroCR_PICKUP( GridTile * )
+void Creature::ZeroCR_PICKUP(GridTile *arg1)
 {
 // code at 0001:00080f80
 }
 
-void Creature::ZeroCR_FROZEN( GridTile * )
+void Creature::ZeroCR_FROZEN(GridTile *arg1)
 {
 // code at 0001:00080f54
 }
 
-void Creature::ZeroCR_BUILDING( GridTile * )
+void Creature::ZeroCR_BUILDING(GridTile *arg1)
 {
 // code at 0001:00080d80
 }
 
-void Creature::ZeroCR_STUNNED( GridTile * )
+void Creature::ZeroCR_STUNNED(GridTile *arg1)
 {
 // code at 0001:00080ba4
 }
 
-void Creature::ZeroCR_FIGHTING( GridTile * )
+void Creature::ZeroCR_FIGHTING(GridTile *arg1)
 {
 // code at 0001:000804f0
 }
 
-void Creature::ZeroCR_DYING( GridTile * )
+void Creature::ZeroCR_DYING(GridTile *arg1)
 {
 // code at 0001:00080484
 }
 
-void Creature::ZeroCR_STASIS( GridTile * )
+void Creature::ZeroCR_STASIS(GridTile *arg1)
 {
 // code at 0001:000803d8
 }
 
-void Creature::EveryCR_BONES1( GridTile * )
+void Creature::EveryCR_BONES1(GridTile *arg1)
 {
 // code at 0001:0008034c
 }
 
-void Creature::EveryCR_BONES2( GridTile * )
+void Creature::EveryCR_BONES2(GridTile *arg1)
 {
 // code at 0001:000802e4
 }
 
-void Creature::EveryCR_BONES3( GridTile * )
+void Creature::EveryCR_BONES3(GridTile *arg1)
 {
 // code at 0001:00080274
 }
 
-void Creature::EveryCR_EATMEAT( GridTile * )
+void Creature::EveryCR_EATMEAT(GridTile *arg1)
 {
 // code at 0001:0007fd5c
 }
 
-void Creature::EveryCR_EATBONES( GridTile * )
+void Creature::EveryCR_EATBONES(GridTile *arg1)
 {
 // code at 0001:0007fafc
 }
 
-void Creature::EveryCR_EATVEGI( GridTile * )
+void Creature::EveryCR_EATVEGI(GridTile *arg1)
 {
 // code at 0001:0007f870
 }
 
-char unsigned Creature::Instincts( GridTile *, AwarenessScan & )
+BBOOL Creature::Instincts(GridTile *arg1, AwarenessScan &scan)
 {
 // code at 0001:0007f130
 }
 
-char unsigned Creature::CheckJobs( GridTile *, AwarenessScan & )
+BBOOL Creature::CheckJobs(GridTile *arg1, AwarenessScan &scan)
 {
 // code at 0001:0007efe8
 }
 
-void Creature::EveryCR_RESTING( GridTile * )
+void Creature::EveryCR_RESTING(GridTile *arg1)
 {
 // code at 0001:0007edbc
 }
 
-void Creature::ZeroCR_RESTING( GridTile * )
+void Creature::ZeroCR_RESTING(GridTile *arg1)
 {
 // code at 0001:0007eac0
 }
 
-void Creature::HandleSpecialsForHunting( Thing *, long )
+void Creature::HandleSpecialsForHunting(::Thing *tng1, SLONG arg2)
 {
 // code at 0001:0007b8eb
 }
 
-char unsigned Creature::IsInRangeOfShepherd( HerdMode, HerdMode, PlSpec * * )
+BBOOL Creature::IsInRangeOfShepherd(HerdMode arg1, HerdMode arg2, PlSpec **arg3)
 {
 // code at 0001:0007bb49
 }
 
-Building * Creature::ChooseNewDragToBuilding( TheBase &, Building *, Building * )
+Building * Creature::ChooseNewDragToBuilding(TheBase &base, Building *arg2, Building *arg3)
 {
 // code at 0001:0007bc3b
 }
 
-char unsigned Creature::ZeroJOB_WORK( GridTile *, AwarenessScan & )
+BBOOL Creature::ZeroJOB_WORK(GridTile *arg1, AwarenessScan &arg2)
 {
 // code at 0001:0007de54
 }
 
-char unsigned Creature::ZeroJOB_BUILD( GridTile *, AwarenessScan & )
+BBOOL Creature::ZeroJOB_BUILD(GridTile *arg1, AwarenessScan &arg2)
 {
 // code at 0001:0007db04
 }
 
-char unsigned Creature::SetWorkingOn( Thing * )
+BBOOL Creature::SetWorkingOn(::Thing *tng1)
 {
 // code at 0001:0007bd78
 }
 
-void Creature::StartAMove( XY )
+void Creature::StartAMove(XY cor1)
 {
 // code at 0001:0007c1a5
 }
 
-void Creature::SetPlayerMoveTo( XY )
+void Creature::SetPlayerMoveTo(XY cor1)
 {
 // code at 0001:0007c1e2
 }
 
-char unsigned Creature::UpdateCriticalStuff( GridTile * )
+char unsigned Creature::UpdateCriticalStuff(GridTile *arg1)
 {
 // code at 0001:0007c2df
 }
@@ -585,19 +528,14 @@ void Creature::UpdateAll()
 // code at 0001:0007d34f
 }
 
-void Creature::VoidPlTarget( Thing *, char unsigned )
+void Creature::VoidPlTarget(::Thing *tng1, BBOOL arg2)
 {
 // code at 0001:0007d5ac
 }
 
-CreatureUserAction Creature::ActionOn( Thing *, char unsigned, char unsigned )
+CreatureUserAction Creature::ActionOn(::Thing *tng1, BBOOL arg2, BBOOL arg3)
 {
 // code at 0001:0007d632
-}
-
-@ * Creature::__defarg()
-{
-// code at 0001:0004082c
 }
 
 short Creature::IsStasisForHowLong()
@@ -605,22 +543,209 @@ short Creature::IsStasisForHowLong()
 // code at 0001:000407ec
 }
 
-void (near * const __vftbl[])();
-
-char signed const Creature::void UpdateFrozen( GridTile * )::.0::recessiveFreezeFactor[];
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-char unsigned Creature::operator ==( Creature * )
+BBOOL Creature::operator ==(Creature *crtr1)
 {
 // code at 0001:0007d972
 }
 
-void (near * const __vftbl[])();
+void Creature::SetMemory( XY )
+{
+// code at 0001:000377c8
+}
 
+BBOOL Creature::IsHungry()
+{
+// code at 0001:00037788
+}
+
+BBOOL Creature::IsScrapping()
+{
+// code at 0001:0003773c
+}
+
+BBOOL Creature::CanChopTrees(::Gene const &gene)
+{
+// code at 0001:000376ec
+}
+
+void Creature::SetTurf( XY )
+{
+// code at 0001:000376c0
+}
+
+BBOOL Creature::CanArmor()
+{
+// code at 0001:000494e8
+}
+
+BBOOL Creature::IsSpecial()
+{
+// code at 0001:0003676c
+}
+
+BBOOL Creature::IsFrozen()
+{
+// code at 0001:000261d4
+}
+
+BBOOL Creature::CanGetOrders()
+{
+// code at 0001:00026178
+}
+
+void Creature::ClearPlayerActive()
+{
+// code at 0001:00026150
+}
+
+SLONG Creature::ViewScale8()
+{
+// code at 0001:000260d0
+}
+
+SLONG Creature::Lifespan()
+{
+// code at 0001:0001dcbc
+}
+
+BBOOL Creature::IsPlayerActive()
+{
+// code at 0001:0001dc84
+}
+
+BBOOL Creature::IsTurfSet()
+{
+// code at 0001:0001dc44
+}
+
+UWORD Creature::TurfRange()
+{
+// code at 0001:0001dbe8
+}
+
+UBYTE Creature::GetYesPitch()
+{
+// code at 0001:0001dbac
+}
+
+SLONG Creature::QualityXlate(SBYTE arg1, SLONG arg2)
+{
+// code at 0001:0001ce54
+}
+
+ASpecies & Creature::Species()
+{
+// code at 0001:0001ce20
+}
+
+Gene & Creature::Gene()
+{
+// code at 0001:0001cdf0
+}
+
+char * Creature::GetName()
+{
+// code at 0001:0001cdc0
+}
+
+SampleID Creature::GetYesSample()
+{
+// code at 0001:0001cd88
+}
+
+void Creature::SoundYesSample()
+{
+// code at 0001:0001cd28
+}
+
+void Creature::SetPlayerActive( CreatureUserAction )
+{
+// code at 0001:00052bbc
+}
+
+void Creature::Free()
+{
+// code at 0001:00040410
+}
+
+void Creature::Init(ThingType arg1, XY arg2, UBYTE arg3, SWORD arg4, SLONG arg5, Vector const &vec6)
+{
+// code at 0001:0006195c
+}
+
+char unsigned Creature::IsDead()
+{
+// code at 0001:00061924
+}
+
+char unsigned Creature::IsStasis()
+{
+// code at 0001:000618e8
+}
+
+char unsigned Creature::IsDoneMovingToTgt()
+{
+// code at 0001:000618a8
+}
+
+char unsigned Creature::IsStuck()
+{
+// code at 0001:00061868
+}
+
+void Creature::Undiscover()
+{
+// code at 0001:00061830
+}
+
+char unsigned Creature::IsDraggingStuff()
+{
+// code at 0001:00077fbc
+}
+
+void Creature::ClearDraggingStuff()
+{
+// code at 0001:00077f90
+}
+
+SLONG Creature::UseEnergy(SLONG arg1)
+{
+// code at 0001:00077b9c
+}
+
+/*char unsigned Creature::__defarg()
+{
+// code at 0001:000377f4
+}*/
+
+/*@ * Creature::__defarg()
+{
+// code at 0001:0004082c
+}*/
+
+/*char unsigned Creature::__defarg()
+{
+// code at 0001:0008455c
+}*/
+
+/*HerdMode Creature::__defarg()
+{
+// code at 0001:0008453c
+}*/
+
+/*PlSpec * * Creature::__defarg()
+{
+// code at 0001:00084518
+}*/
+
+/*char unsigned * __defarg()
+{
+// code at 0001:0008415c
+}*/
+
+/*char unsigned * __defarg()
+{
+// code at 0001:00084138
+}*/
 
 /******************************************************************************/

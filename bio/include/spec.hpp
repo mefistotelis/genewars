@@ -262,35 +262,7 @@ class PlSpec : SmartMovingThing { // sizeof=200
 };
 
 
-class ASpecies { // sizeof=45
-    SLONG smarts; // offset=0
-    UBYTE strength; // offset=4
-    UBYTE defense; // offset=5
-    SLONG speed; // offset=6
-    SLONG lifeSpan; // offset=10
-    SLONG health; // offset=14
-    SLONG energy; // offset=18
-    SLONG restFrequency; // offset=22
-    UBYTE birthsPerLife; // offset=26
-    SWORD mass; // offset=27
-    UBYTE food[2]; // offset=29
-    SLONG costInGoop; // offset=32
-    UBYTE wuss; // offset=36
-    SLONG halfLife; // offset=37
-    SLONG birthSpan; // offset=41
-};
 
-typedef class ASpecies ASpecies;
-
-class Gene { // sizeof=2
-    BBOOL IsBasicInGene(CreatureBaseSpecies arg1);
-    CreatureBaseSpecies dominant; // offset=0
-    CreatureBaseSpecies recessive; // offset=1
-};
-
-typedef class Gene Gene;
-
-typedef void AwarenessScan;
 
 struct __24e741VDI_HDR { // sizeof=10
     BYTE ID[7]; // offset=0
@@ -476,25 +448,6 @@ class Config { // sizeof=184
     SoundConfig sound; // offset=1
 };
 
-class TeamCircles { // sizeof=63
-    void StopStatic(UBYTE arg1);
-    void StartStatic(UBYTE arg1, BBOOL arg2);
-    void SelectCircle(UBYTE arg1);
-    void DrawTeamCircle(UBYTE arg1);
-    void Reset();
-    void Draw();
-    void Update();
-    void Init();
-    BBOOL red[4];
-    SBYTE circleFadeDelta;
-    TeamCircleMode modes[4]; // offset=0
-    SBYTE circleActive; // offset=5
-    SBYTE circleFadeLevel; // offset=6
-    MyMinSprite mMs[4]; // offset=7
-    MyMinSprite staticMms[4]; // offset=32
-};
-
-typedef class TeamCircles TeamCircles;
 
 struct FontKernData { // sizeof=225
     UBYTE KernedCount; // offset=0

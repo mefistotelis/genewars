@@ -84,15 +84,6 @@ typedef class Player Player;
 
 
 
-class Gene { // sizeof=2
-    BBOOL IsBasicInGene(CreatureBaseSpecies arg1);
-    CreatureBaseSpecies dominant; // offset=0
-    CreatureBaseSpecies recessive; // offset=1
-};
-
-typedef class Gene Gene;
-
-typedef void AwarenessScan;
 
 
 class GameFlags { // sizeof=1
@@ -737,26 +728,6 @@ class IFCCustom : IFCBase { // sizeof=192
 };
 
 typedef class IFCCustom IFCCustom;
-
-class TeamCircles { // sizeof=63
-    void StopStatic(UBYTE arg1);
-    void StartStatic(UBYTE arg1, BBOOL arg2);
-    void SelectCircle(UBYTE arg1);
-    void DrawTeamCircle(UBYTE arg1);
-    void Reset();
-    void Draw();
-    void Update();
-    void Init();
-    BBOOL red[4];
-    SBYTE circleFadeDelta;
-    TeamCircleMode modes[4]; // offset=0
-    SBYTE circleActive; // offset=5
-    SBYTE circleFadeLevel; // offset=6
-    MyMinSprite mMs[4]; // offset=7
-    MyMinSprite staticMms[4]; // offset=32
-};
-
-typedef class TeamCircles TeamCircles;
 
 class PaletteSelector { // sizeof=81
     class PaletteSelector * PaletteSelector(class PaletteSelector *arg1);

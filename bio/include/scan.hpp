@@ -188,5 +188,71 @@ class ShieldScan : RangeScanner { // sizeof=49
     Building shield;
 };
 
+class AwarenessScan : RangeScanner { // sizeof=228
+    class AwarenessScan * AwarenessScan(class AwarenessScan *arg1);
+    void Do();
+    void PerGrid();
+    class AwarenessScan * AwarenessScan(Creature arg1);
+    void (**__vfptr)();
+    ASpecies speci;
+    Creature c;
+    int mates[15]; // offset=45
+    int threats[15]; // offset=46
+    int terrain[15]; // offset=109
+    int enemies[15]; // offset=110
+    SWORD foundEnemies; // offset=173
+    int friends[15]; // offset=174
+    SWORD foundThreats; // offset=175
+    SWORD foundFriends; // offset=177
+    SWORD foundFood; // offset=179
+    SWORD foundMates; // offset=181
+    UBYTE bestEnemies; // offset=183
+    UBYTE bestFriends; // offset=184
+    UBYTE bestFood; // offset=185
+    UBYTE bestMates; // offset=186
+    UBYTE bestTerrain; // offset=187
+    UBYTE bestThreats; // offset=188
+    UBYTE foodRankings[2]; // offset=189
+    Thing *bestThing; // offset=192
+    Creature *bestMate; // offset=196
+    Thing *bestEnemy; // offset=200
+    Thing *bestThreat; // offset=204
+    SLONG bestRanking; // offset=208
+    SLONG bestMateRanking; // offset=212
+    SLONG bestEnemyRanking; // offset=216
+    SLONG bestThreatRanking; // offset=220
+    int food[15]; // offset=237
+};
+
+class ChopperScan : WeightedTgtRangeScanner { // sizeof=110
+    class ChopperScan * ChopperScan(class ChopperScan *arg1);
+    void PerGrid();
+    class ChopperScan * ChopperScan(Creature arg1);
+    void (**__vfptr)();
+    int bestRanges[15];
+    Plant *closestPerSector[15];
+};
+
+class CollectorScan : WeightedTgtRangeScanner { // sizeof=246
+    class CollectorScan * CollectorScan(class CollectorScan *arg1);
+    void PerGrid();
+    class CollectorScan * CollectorScan(Creature arg1, BBOOL arg2, BBOOL arg3);
+    void (**__vfptr)();
+    UBYTE bonesBonus;
+    UBYTE plantBonus;
+    BBOOL lookForBones;
+    BBOOL lookForPlants;
+    Creature c;
+};
+
+class BuilderTreeScan : RangeScanner { // sizeof=49
+    class BuilderTreeScan * BuilderTreeScan(class BuilderTreeScan *arg1);
+    void PerGrid();
+    class BuilderTreeScan * BuilderTreeScan(Creature arg1);
+    void (**__vfptr)();
+    ULONG bestRange;
+    Plant *tgtPlant; // offset=41
+};
+
 #endif // SCAN_HPP_
 /******************************************************************************/

@@ -47,34 +47,5 @@ class TeamCircles { // sizeof=63
     MyMinSprite staticMms[4]; // offset=32
 };
 
-typedef class TeamCircles TeamCircles;
-
-char unsigned Building::IsFunctional();
-char unsigned Specialist::Valid();
-char unsigned Specialist::IsOnTeam();
-char unsigned Specialist::IsPlanetside();
-char unsigned EventHelp::__defarg();
-void IsoMapBuffer::SetNewXlatedTop( char unsigned, char unsigned );
-char unsigned MapDisplay::IsFullScreen();
-void MapDisplay::SetScrolled();
-void IFCBase::SetPacket( char unsigned, short );
-void IFCBase::SetPacket( char unsigned, short, short );
-char unsigned IFCBase::PacketAction();
-void IFCPlanetside::SetOnOffSwitch( char unsigned );
-void ClonePad::Init( Thing * );
-void ClonePad::Close();
-char unsigned ClonePad::Update( short );
-void ClonePad::Draw( char signed );
-char signed ClonePad::FindCrewType( char signed & );
-char signed ClonePad::FindTeamNum();
-void ClonePad::CrewHelp( MyGadget * );
-void ClonePad::TeamHelp( MyGadget * );
-void ClonePad::DrawMainPanelEdge();
-void ClonePad::DrawCrew();
-void ClonePad::DrawTeam();
-char signed ClonePad::FindBestSpecialist( char unsigned, char unsigned );
-void ClonePad::AddSpecialist( char unsigned, char unsigned );
-void ClonePad::RemoveSpecialist( char unsigned );
-
 #endif // BIO_CLONE_HPP_
 /******************************************************************************/

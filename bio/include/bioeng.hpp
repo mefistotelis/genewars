@@ -68,16 +68,6 @@ public:
 
 
 
-class MapBucketThing { // sizeof=10
-public:
-    SWORD next; // offset=0
-    SWORD x; // offset=2
-    SWORD yDev; // offset=4
-    Thing *thing; // offset=6
-};
-
-typedef class MapBucketThing MapBucketThing;
-
 struct EnginePoint { // sizeof=12
     SLONG Y; // offset=0
     SLONG Shade; // offset=4
