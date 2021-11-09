@@ -19,6 +19,11 @@
 #ifndef THESHIP_HPP_
 #define THESHIP_HPP_
 
+#include "bftypes.h"
+#include "thingidx.hpp"
+
+class Specialist;
+
 class TheShip { // sizeof=140
 public:
     class TheShip * operator=(class TheShip *arg1);
@@ -42,22 +47,6 @@ public:
     ULONG rocketCounter; // offset=132
     ULONG rocketLandings; // offset=136
 };
-
-void TheShip::Update();
-long TheShip::RocketReadyInTMinus();
-void TheShip::RocketToOrbit();
-void TheShip::Reset();
-char unsigned TheShip::CallRocketDown( Player & );
-char unsigned TheShip::CallRocketDown( Building * );
-void TheShip::ClearCrew();
-void TheShip::MakeInitialCrew( char unsigned );
-void TheShip::GetMoreSpecialists( PlayerRace, int );
-void TheShip::MakeNewSpecialist( Specialist &, PlayerRace, SpecialistClass, char unsigned );
-int TheShip::SpecsInTeamBelongingToRace( PlayerRace );
-char unsigned TheShip::AddASpecialist( Specialist & );
-void TheShip::RemoveASpecialist( short );
-Specialist * * TheShip::CrewClassList( char unsigned, char unsigned & );
-TheShip & TheShip::operator =( TheShip const & );
 
 #endif // THESHIP_HPP_
 /******************************************************************************/

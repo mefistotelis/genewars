@@ -18,16 +18,6 @@
 /******************************************************************************/
 #include "setup.hpp"
 
-char unsigned Event::IsStaticallyDrawn()
-{
-// code at 0001:000617e8
-}
-
-char unsigned Event::IsDead()
-{
-// code at 0001:000617c4
-}
-
 char unsigned Ethereal::IsDead()
 {
 // code at 0001:000616e0
@@ -73,36 +63,6 @@ near Ethereal::Ethereal()
 // code at 0001:00061564
 }
 
-near Event::Event()
-{
-// code at 0001:000614f4
-}
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-char unsigned const __typesig[];
-
-char unsigned const __typesig[];
-
-char unsigned const __typesig[];
-
-char unsigned const __typesig[];
-
-char unsigned const __typesig[];
-
-char unsigned const __typesig[];
-
-char unsigned const __typesig[];
-
-char unsigned const __typesig[];
 
 Player & Player::.tdctor()
 {

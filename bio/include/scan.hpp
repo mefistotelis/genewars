@@ -254,5 +254,59 @@ class BuilderTreeScan : RangeScanner { // sizeof=49
     Plant *tgtPlant; // offset=41
 };
 
+class PolarSliceScan : RangeScan { // sizeof=48
+    class PolarSliceScan * PolarSliceScan(class PolarSliceScan *arg1);
+    void displayDebug(XY arg1, UBYTE arg2, ULONG *arg3);
+    void PerGrid();
+    void Do();
+    class PolarSliceScan * PolarSliceScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
+    void (**__vfptr)();
+    BBOOL satisfied;
+    UBYTE foundationSize;
+    ULONG tileRange;
+    ULONG maxRange;
+    ULONG squareMaxRange;
+    ULONG squareRange;
+    GridTile *g;
+    UBYTE slices;
+    BBOOL foundAThing; // offset=20
+};
+
+class PolarEverythingScan : RangeScan { // sizeof=47
+    class PolarEverythingScan * PolarEverythingScan(class PolarEverythingScan *arg1);
+    void displayDebug(XY arg1, UBYTE arg2, ULONG *arg3);
+    void PerGrid();
+    void Do();
+    BBOOL Scan(UBYTE arg1);
+    class PolarEverythingScan * PolarEverythingScan(XY arg1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5, BBOOL arg6);
+    void (**__vfptr)();
+    BBOOL fromCenter;
+    BBOOL satisfied;
+    UBYTE foundationSize;
+    UBYTE innerTileRange;
+    UBYTE tileRange;
+    ULONG maxRange;
+    ULONG squareMaxRange;
+    ULONG squareRange;
+    GridTile *g;
+    UBYTE slices;
+    BBOOL foundAThing; // offset=20
+};
+
+class TimeSliceScan : RangeScan { // sizeof=47
+    class TimeSliceScan * TimeSliceScan(class TimeSliceScan *arg1);
+    void PerGrid();
+    BBOOL Do();
+    class TimeSliceScan * TimeSliceScan(BaseScan arg1, XY arg2, ULONG arg3);
+    void (**__vfptr)();
+    ULONG maxRange;
+    ULONG squareMaxRange;
+    ULONG squareRange;
+    GridTile *g;
+    BaseScan bs;
+    BBOOL middle; // offset=20
+    UWORD tileNo; // offset=21
+};
+
 #endif // SCAN_HPP_
 /******************************************************************************/

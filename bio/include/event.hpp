@@ -19,16 +19,21 @@
 #ifndef BIO_EVENT_HPP_
 #define BIO_EVENT_HPP_
 
-typedef class Event Event;
+#include "bftypes.h"
+#include "thingidx.hpp"
+#include "thing.hpp"
+
+class BioGame;
+class Point;
 
 class Event : Thing { // sizeof=49
-    class Event * operator=(class Event *arg1);
-    class Event * Event(class Event *arg1);
-    class Event * Event();
+    Event * operator=(class Event *arg1);
+    //Event(class Event *arg1); -- generate default copy constructor
+    //Event(); -- generate default no-args constructor
     BBOOL CreateSphereRing(Point *arg1, BBOOL *arg2, UBYTE arg3);
     BBOOL operator==(Event *arg1);
-    SLONG WriteBuffer(Event **arg1, SLONG arg2, SLONG arg3, BioGame *arg4);
-    SLONG ReadBuffer(Event **arg1, SLONG arg2, SLONG arg3, BioGame *arg4);
+    SLONG WriteBuffer(Event **arg1, SLONG arg2, SLONG arg3, BioGame &game);
+    SLONG ReadBuffer(Event **arg1, SLONG arg2, SLONG arg3, BioGame &game);
     void UpdateAll();
     void InitArray();
     Event * Create(UBYTE arg1, XY arg2, UBYTE arg3, Thing *arg4);
@@ -37,8 +42,8 @@ class Event : Thing { // sizeof=49
     BBOOL IsStaticallyDrawn();
     UBYTE Update();
     void Resync();
-    void Write(SLONG *arg1);
-    void Read(SLONG *arg1);
+    void Write(SLONG &arg1);
+    void Read(SLONG &arg1);
     void (**__vfptr)();
     UBYTE type; // offset=39
     UBYTE state; // offset=40

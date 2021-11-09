@@ -36,16 +36,5 @@ class ResearchGrid { // sizeof=200
     UBYTE bestGenelabStage; // offset=199
 };
 
-typedef class ResearchGrid ResearchGrid;
-
-char unsigned ResearchGrid::AddToAGrid( CreatureSpecies, long );
-void ResearchGrid::CountAMonolithTouch( Creature * );
-char unsigned ResearchGrid::CanPlantThisSpecies( PlantSpecies );
-char unsigned ResearchGrid::IsIndexWithinCreaturesDiscovered( int );
-long ResearchGrid::ResearchCeiling();
-char unsigned ResearchGrid::IsAGridStudyAtMax( char unsigned );
-char unsigned ResearchGrid::RegisterCreature( CreatureSpecies );
-void ResearchGrid::CheatGetAllCreatures();
-
 #endif // BIO_RESEARCH_HPP_
 /******************************************************************************/

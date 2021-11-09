@@ -164,21 +164,6 @@ class IFCCompEditor : IFCBase { // sizeof=193
     UBYTE triggerNo; // offset=173
 };
 
-void IFCCompEditor::PlugIn();
-void IFCCompEditor::PullOut();
-void IFCCompEditor::Update();
-char unsigned IFCCompEditor::WantedSpecialists();
-void IFCCompEditor::Draw();
-void IFCCompEditor::DrawCreatureBar();
-void IFCCompEditor::DrawColumnGadget( short, short, long unsigned, char signed, long, long, char unsigned, char unsigned );
-void IFCCompEditor::DrawColumnGadget( short, short, long unsigned, char unsigned, long, long, char unsigned, char unsigned );
-void IFCCompEditor::UpdateColumnGadget( short, char signed &, long, long );
-void IFCCompEditor::UpdateColumnGadget( short, char unsigned &, long, long );
-void IFCCompEditor::PrintCompPlayersToFile();
-void IFCCompEditor::UpdateCreatureValues();
-void IFCCompEditor::UpdateCreatureBar();
-char unsigned IFCCompEditor::Write();
-char unsigned IFCCompEditor::Read();
 
 #endif // BIO_CEDITOR_HPP_
 /******************************************************************************/

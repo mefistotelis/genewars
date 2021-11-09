@@ -81,14 +81,6 @@ class IFCOptions : IFCBase { // sizeof=59
     IFCBase *previousIFC; // offset=9
 };
 
-char unsigned SoundManager::IsCDPlaying();
-char * Config::InsertInstallDir( char * );
-char unsigned Config::IsCurrentDriveCDROM();
-void IFCOptions::PlugIn();
-void IFCOptions::PullOut();
-void IFCOptions::Draw();
-void IFCOptions::Update();
-void IFCOptions::FindWhichSlotsAreUsed();
 
 #endif // BIO_OPTIONS_HPP_
 /******************************************************************************/

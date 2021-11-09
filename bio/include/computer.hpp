@@ -42,22 +42,12 @@ enum ScoreType { // type=int8_t
     SCORE_BUILD,
 };
 
-typedef enum ScoreType ScoreType;
-
-
-
-typedef uint8_t BBOOL;
 
 enum { // type=int8_t
     GLOB_SPECMODE = 0,
     GLOB_LIFEMODE,
 };
 
-typedef uint32_t ULONG;
-
-typedef uint16_t UWORD;
-
-typedef uint8_t UBYTE;
 
 class Specialist { // sizeof=36
     void ClearPlanetside();
@@ -496,78 +486,6 @@ class CloseTgt { // sizeof=4
     SWORD range; // offset=2
 };
 
-class PolarRangeScan : RangeScan { // sizeof=51
-    class PolarRangeScan * PolarRangeScan(class PolarRangeScan *arg1);
-    void displayDebug(XY arg1, ULONG *arg2);
-    void PerGrid();
-    void Do();
-    class PolarRangeScan * PolarRangeScan(XY arg1, ULONG arg2, UBYTE arg3);
-    void (**__vfptr)();
-    ULONG ringRange;
-    BBOOL satisfied;
-    UBYTE foundationSize;
-    ULONG tileRange;
-    ULONG maxRange;
-    ULONG squareMaxRange;
-    ULONG squareRange;
-    GridTile *g;
-    BBOOL foundAThing; // offset=20
-};
-
-class PolarSliceScan : RangeScan { // sizeof=48
-    class PolarSliceScan * PolarSliceScan(class PolarSliceScan *arg1);
-    void displayDebug(XY arg1, UBYTE arg2, ULONG *arg3);
-    void PerGrid();
-    void Do();
-    class PolarSliceScan * PolarSliceScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
-    void (**__vfptr)();
-    BBOOL satisfied;
-    UBYTE foundationSize;
-    ULONG tileRange;
-    ULONG maxRange;
-    ULONG squareMaxRange;
-    ULONG squareRange;
-    GridTile *g;
-    UBYTE slices;
-    BBOOL foundAThing; // offset=20
-};
-
-class PolarEverythingScan : RangeScan { // sizeof=47
-    class PolarEverythingScan * PolarEverythingScan(class PolarEverythingScan *arg1);
-    void displayDebug(XY arg1, UBYTE arg2, ULONG *arg3);
-    void PerGrid();
-    void Do();
-    BBOOL Scan(UBYTE arg1);
-    class PolarEverythingScan * PolarEverythingScan(XY arg1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5, BBOOL arg6);
-    void (**__vfptr)();
-    BBOOL fromCenter;
-    BBOOL satisfied;
-    UBYTE foundationSize;
-    UBYTE innerTileRange;
-    UBYTE tileRange;
-    ULONG maxRange;
-    ULONG squareMaxRange;
-    ULONG squareRange;
-    GridTile *g;
-    UBYTE slices;
-    BBOOL foundAThing; // offset=20
-};
-
-class TimeSliceScan : RangeScan { // sizeof=47
-    class TimeSliceScan * TimeSliceScan(class TimeSliceScan *arg1);
-    void PerGrid();
-    BBOOL Do();
-    class TimeSliceScan * TimeSliceScan(BaseScan arg1, XY arg2, ULONG arg3);
-    void (**__vfptr)();
-    ULONG maxRange;
-    ULONG squareMaxRange;
-    ULONG squareRange;
-    GridTile *g;
-    BaseScan bs;
-    BBOOL middle; // offset=20
-    UWORD tileNo; // offset=21
-};
-
 class FindHighestBuildingSite : RangeScanner { // sizeof=59
     class FindHighestBuildingSite * FindHighestBuildingSite(class FindHighestBuildingSite *arg1);
     BBOOL FoundASite();
@@ -734,25 +652,6 @@ class SoundConfig { // sizeof=10
     BBOOL musicOn; // offset=9
 };
 
-typedef class SoundConfig SoundConfig;
-
-class Config { // sizeof=184
-    void CDToSegment(ConfigInstall arg1);
-    BBOOL IsCurrentDriveInstallDrive();
-    BBOOL IsCurrentDriveCDROM();
-    void SetToInstallDrive();
-    void SetToCDROM();
-    char * InstalledFile(char *arg1);
-    char * InsertInstallDir(char *arg1);
-    BBOOL GetConfigs();
-    char cdROMDir[31];
-    BBOOL installedSegments[4];
-    char installDir[127];
-    unsigned int installDriveNum;
-    unsigned int cdDriveNum;
-    ConfigLanguage language; // offset=0
-    SoundConfig sound; // offset=1
-};
 
 class FindLowestBuildingSite : PolarEverythingScan { // sizeof=64
     class FindLowestBuildingSite * FindLowestBuildingSite(class FindLowestBuildingSite *arg1);
@@ -950,23 +849,6 @@ class Probe : SmartMovingThing { // sizeof=235
     XY path[99]; // offset=91
 };
 
-typedef class NearestBuildingSite NearestBuildingSite;
-
-typedef class BuildPriority BuildPriority;
-
-typedef class CreatureInfo CreatureInfo;
-
-typedef class ClosestDeadCreature ClosestDeadCreature;
-
-typedef class ClosestTree ClosestTree;
-
-typedef class BaseAwarenessScan BaseAwarenessScan;
-
-typedef class NearestLand NearestLand;
-
-typedef class BestForestSample BestForestSample;
-
-typedef struct MyGadget MyGadget;
 
 class IFCComputer : IFCBase { // sizeof=55
     class IFCComputer * IFCComputer(class IFCComputer *arg1);
@@ -999,320 +881,15 @@ class IFCComputer : IFCBase { // sizeof=55
     UBYTE gPointType; // offset=54
 };
 
-typedef class ChopTreeScan ChopTreeScan;
-
-typedef class FindHighestBuildingSite FindHighestBuildingSite;
-
-typedef class MineScan MineScan;
-
-typedef class TestSlice TestSlice;
-
-typedef class TestEverything TestEverything;
-
-typedef class NewBaseScan NewBaseScan;
-
-typedef class SatisfyBuildings SatisfyBuildings;
-
-typedef class PowerStationScan PowerStationScan;
-
-typedef class PowerScan PowerScan;
-
-typedef class NearestPoweredBuildingSite NearestPoweredBuildingSite;
-
-typedef class BestForestScan BestForestScan;
-
-typedef class ClosestTargets ClosestTargets;
 
 class BestScore { // sizeof=8
     SLONG score; // offset=0
     SLONG type; // offset=4
 };
 
-typedef class BestScore BestScore;
-
-typedef class CountTrees CountTrees;
-
-typedef class GuardPointImportance GuardPointImportance;
-
-void Packet::SetPacket( char unsigned, short );
-void Packet::SetPacket( char unsigned, short, short );
-void Packet::SetPacket( char unsigned, short, short, short, short );
-void Packet::SetPacket( char unsigned, short, short, short, short, short );
-char unsigned SmartMovingThing::IsAvoidActive();
-char unsigned Creature::__defarg();
-void Creature::SetMemory( XY );
-char unsigned Creature::IsHungry();
-char unsigned Creature::IsScrapping();
-void Creature::SetTurf( XY );
-char unsigned Building::IsUpgradeOK();
-char unsigned Building::IsBeingUpgraded();
-char unsigned Building::IsBeingWrecked();
-char unsigned Building::CanMakeSpeciesInGenelab( CreatureSpecies );
-char unsigned Building::IsMineMinedOut();
-char unsigned PlSpec::IsBusyDoingSomething();
-near CompDebug::CompDebug();
-near BuildPriority::BuildPriority();
-void CreatureInfo::Invalidate();
-near CompTarget::CompTarget();
-char unsigned CloseTgt::Valid();
-char signed GuardPoint::__defarg();
-char signed GuardPoint::__defarg();
-GPointFlags * GuardPoint::__defarg();
-char unsigned Computer::__defarg();
-char unsigned Computer::__defarg();
-char unsigned Computer::__defarg();
-char unsigned Computer::__defarg();
-char unsigned Computer::__defarg();
-char unsigned Computer::__defarg();
-char signed Computer::__defarg();
-char unsigned Computer::__defarg();
-char unsigned Computer::IsEnemy( Thing * );
-char unsigned Computer::CurrentBase();
-near PolarRangeScan::PolarRangeScan( XY &, long unsigned, char unsigned );
-near PolarSliceScan::PolarSliceScan( XY &, long unsigned, char unsigned, char unsigned );
-near PolarEverythingScan::PolarEverythingScan( XY &, long unsigned, long unsigned, char unsigned, char unsigned, char unsigned );
-near TimeSliceScan::TimeSliceScan( BaseScan &, XY, long unsigned );
-near FindHighestBuildingSite::FindHighestBuildingSite( XY, long unsigned, char unsigned );
-near TestSlice::TestSlice( XY, long unsigned, char unsigned, char unsigned );
-void TestSlice::PerGrid();
-near TestEverything::TestEverything( XY, long unsigned, long unsigned, char unsigned, char unsigned, char unsigned );
-void TestEverything::PerGrid();
-near ChopTreeScan::ChopTreeScan( XY, long unsigned );
-near BestForestScan::BestForestScan( XY, long unsigned, char unsigned, char unsigned, char unsigned );
-near MineralScan::MineralScan( XY, long unsigned );
-near MineScan::MineScan( XY, long unsigned, char unsigned );
-near PowerScan::PowerScan( XY, long unsigned, char unsigned );
-char unsigned NearestBuildingSite::__defarg();
-near NearestBuildingSite::NearestBuildingSite( XY, long unsigned, long unsigned, char unsigned, char unsigned );
-near OldPowerTally::OldPowerTally( XY, long unsigned, char unsigned );
-near NewPowerTally::NewPowerTally( XY, long unsigned );
-near SatisfyBuildings::SatisfyBuildings( XY, long unsigned, char unsigned, char unsigned, char unsigned );
-near PointSample::PointSample( XY, long unsigned, long unsigned );
-near PointSample::PointSample( XY, long unsigned, char unsigned );
-near BestForestSample::BestForestSample( XY, long unsigned, char unsigned, char unsigned, long unsigned );
-char unsigned Building::IsUpgradable();
-Creature * Building::GeneLabMadeCreature( char unsigned & );
-char unsigned Creature::IsSpecial();
-PSpecies const & Plant::Species();
-EtherealZone * GuardPoint::EZone();
-Computer * GuardPoint::Comp();
-void PolarRangeScan::Do();
-void PolarRangeScan::displayDebug( XY, long unsigned & );
-void PolarSliceScan::displayDebug( XY, char unsigned, long unsigned & );
-void PolarEverythingScan::displayDebug( XY, char unsigned, long unsigned & );
-char unsigned PolarEverythingScan::Scan( char unsigned );
-near BaseAwarenessScan::BaseAwarenessScan( BaseScan &, XY, long unsigned, char unsigned );
-char unsigned BaseAwarenessScan::PointInSector( XY, XY );
-void PolarSliceScan::Do();
-void PolarEverythingScan::Do();
-char unsigned TimeSliceScan::Do();
-void FindHighestBuildingSite::PerGrid();
-void FindLowestBuildingSite::PerGrid();
-void ChopTreeScan::PerGrid();
-void BaseAwarenessScan::PerGrid();
-void BaseAwareness::Reset();
-void BaseScan::Reset();
-void ForestScan::PerGrid();
-near ForestScan::ForestScan( XY, long unsigned, char unsigned, char unsigned );
-void BestForestScan::PerGrid();
-near NearestPoweredBuildingSite::NearestPoweredBuildingSite( XY, long unsigned, char unsigned, char unsigned );
-near NearestLand::NearestLand( XY, long unsigned );
-void HarvestScan::PerGrid();
-void MineralScan::PerGrid();
-void MineScan::PerGrid();
-void PowerScan::PerGrid();
-void NearestBuildingSite::PerGrid();
-void NearestPoweredBuildingSite::PerGrid();
-void NearestLand::PerGrid();
-void OldPowerTally::PerGrid();
-void NewPowerTally::PerGrid();
-near PowerStationScan::PowerStationScan( XY, long unsigned, char unsigned, char unsigned );
-void PowerStationScan::PerGrid();
-void SatisfyBuildings::Do();
-near SiteScore::SiteScore( XY, long unsigned );
-near NewBaseScan::NewBaseScan( XY, long unsigned, char unsigned, char unsigned );
-void SatisfyBuildings::PerGrid();
-void PointSample::Do();
-void SiteScore::PerGrid();
-void NewBaseScan::PerGrid();
-void PlantScan::PerGrid();
-near PlantScan::PlantScan( XY, long unsigned, char unsigned, char unsigned );
-near ClosestTree::ClosestTree( XY &, long unsigned );
-near ClosestDeadCreature::ClosestDeadCreature( XY, long unsigned );
-near CountTrees::CountTrees( XY, long unsigned );
-near GuardPointImportance::GuardPointImportance( XY, long unsigned );
-near ClosestTargets::ClosestTargets( XY, long unsigned, char unsigned, char unsigned );
-void BestForestSample::PerGrid();
-void ClosestTree::PerGrid();
-void ClosestDeadCreature::PerGrid();
-void ClosestEnemy::PerGrid();
-void CountTrees::PerGrid();
-void GuardPointImportance::PerGrid();
-void Computer::PA_BuilderBuild( PlSpec *, XY, char unsigned, char unsigned, char unsigned );
-void Computer::PA_FarmerPlant( PlSpec *, XY, char unsigned, char unsigned );
-void Computer::PA_FarmerCollect( PlSpec *, XY, char unsigned );
-void Computer::PA_CowboyKill( PlSpec *, MovingThing *, char unsigned );
-void Computer::PA_ShepherdDoStuff( PlSpec *, XY, HerdMode, char unsigned );
-void Computer::PA_ScientistStudy( PlSpec *, Thing *, char unsigned );
-void Computer::PA_Cheat( char unsigned );
-char unsigned Computer::PA_UpgradeBuilding( Building *, PlSpec * );
-char unsigned Computer::PA_FixBuilding( Building *, PlSpec * );
-void Computer::PA_WreckBuilding( Building *, PlSpec * );
-void Computer::PA_AddTeamMember( short );
-void Computer::PA_AbortAction( PlSpec *, char unsigned );
-void Computer::PA_Landing( long );
-void Computer::PA_LaunchSpecialist( PlSpec *, Building * );
-void Computer::PA_MoveTo( XY *, PlSpec *, char unsigned );
-void Computer::PA_MoveCreatureTo( XY *, short unsigned );
-void Computer::PA_AbortAll( PlSpec * );
-void Computer::PA_ActivateBuilding( Building * );
-void Computer::PA_DisactivateBuilding( Building * );
-void Computer::PA_CreateACreature( char unsigned, short, char unsigned );
-void Computer::StorePacket( PlSpec *, Packet * );
-void Computer::DoStoredPacket( PlSpec * );
-short unsigned Computer::PowerOutput( char unsigned );
-short unsigned Computer::PowerNeeded( char unsigned );
-char unsigned Computer::NumOfBuildings( char unsigned, char unsigned );
-long unsigned Computer::WorkNeeded( char unsigned );
-XY Computer::CenterOfBase( char unsigned, char unsigned );
-Building * Computer::GetBuilding( char unsigned, char unsigned );
-void Computer::CheckBuildings();
-void Computer::NewCurrentBase( char unsigned );
-void Computer::ConsiderBaseChange();
-char signed Computer::ClosestBase( XY );
-XY Computer::PointOnLine( XY, XY, short unsigned );
-long unsigned Computer::BaseScore( char unsigned );
-char unsigned Computer::NextBase( char unsigned );
-void ClosestTargets::PerGrid();
-char unsigned Probe::Update();
-void Computer::SlapDownBuilding( Building * );
-void Computer::EtherealsArriving();
-void Computer::EtherealsGone();
-void Computer::MakeTeam( long );
-char unsigned Computer::AddBestSpec( char unsigned );
-void Computer::MoveToNextWaypoint( PlSpec * );
-void Computer::RunAway( PlSpec *, Thing * );
-void Computer::GoAroundShield( PlSpec *, XY, Building * );
-Thing * Computer::CreatureToStudy();
-char unsigned Computer::CreatureWork( Creature *, XY );
-void Computer::UpdateSpecTypes();
-void Computer::UpdateSpecialists();
-char unsigned Computer::BestPlaceToHarvest( PlSpec *, XY & );
-void Computer::UpdateCreatures();
-void Computer::ShuffleCreatures();
-void Computer::RegisterFreeCreature( Creature &, Building & );
-void Computer::RegisterFreeCreature( Creature & );
-void Computer::RegisterBirth( Creature *, Creature *, Creature * );
-void Computer::RegisterDeath( Creature & );
-void Computer::RegisterMonolith( Effect & );
-void Computer::NewMonolith( Effect & );
-void Computer::CreateCreatures();
-char unsigned Computer::CreateBestCreature( char unsigned, Building * );
-long Computer::TimeUntilAttack();
-char unsigned Computer::ConsiderAttackConquest();
-void Computer::AttackHumanPlayer();
-void Computer::PlaceAttackPoint( char unsigned );
-void Computer::PlaceWorkPoint();
-void Computer::UpdateAttackPointLocations();
-void Computer::SetAtWarWith( char unsigned );
-char unsigned Computer::IsAtWarWith( char unsigned, char unsigned );
-void Computer::ClearAtWarWith( char unsigned );
-near Computer::Computer();
-near Personality::Personality();
-near GuardPoint::GuardPoint();
-near Trigger::Trigger();
-void Computer::DoSetupComputerPlayer();
-void Computer::DoInitialActions();
-void Computer::DoInitialCreatureActions();
-short Computer::NumOfCreatures( char unsigned, char unsigned );
-char unsigned IFCComputer::BuildingAllowed( char unsigned, char unsigned );
-void Computer::Update();
-void IFCComputer::PlugIn();
-void IFCComputer::PullOut();
-void IFCComputer::Update();
-void IFCComputer::Draw();
-char signed IFCComputer::FirstFreeGuardPoint( char unsigned );
-char unsigned BuildPriority::Build( PlSpec *, char unsigned, char unsigned );
-char unsigned BuildPriority::BuildHighestPri( PlSpec * );
-char unsigned BuildPriority::Emergency( PlSpec * );
-char unsigned BuildPriority::Basic( PlSpec * );
-char unsigned BuildPriority::BuildingPersonality( PlSpec *, char signed );
-BestBuilding BuildPriority::FindBestLoc( char unsigned, char unsigned );
-char signed Computer::AssignGuardPointToBase( char unsigned, XY &, char unsigned, char signed );
-void Computer::UpdateAllGuardPoints();
-void Computer::LaunchWave( char unsigned );
-char unsigned Computer::AssignCreatureToGuardPoint( short, char signed );
-void Computer::CheckEZones();
-char unsigned GuardPoint::Valid();
-void GuardPoint::Invalidate();
-void GuardPoint::Update();
-char unsigned GuardPoint::ScanForTargets( char signed );
-char unsigned GuardPoint::TargetsHere();
-char unsigned GuardPoint::BestTargetType( char unsigned, char signed );
-char unsigned GuardPoint::IsCreatureRightType( Creature & );
-void GuardPoint::DropDeadTargets();
-void GuardPoint::DropTargetsOutsideRange();
-void GuardPoint::DropCloakedTargets();
-char unsigned GuardPoint::IsTarget( short, TgtType );
-char unsigned GuardPoint::IsHere( short );
-long GuardPoint::ChooseTarget( TgtType * );
-char unsigned GuardPoint::HungryCreaturesHere( char unsigned );
-long GuardPoint::TreesHere();
-void GuardPoint::SetupPoint( XY &, char unsigned, char unsigned, char signed, GPointFlags * );
-char unsigned CompTarget::Valid();
-void CompTarget::Invalidate();
-void GuardPoint::ShutDownPoint();
-void GuardPoint::AddCreature( short );
-void GuardPoint::RemoveCreature( short );
-void GuardPoint::MovePoint( XY );
-short GuardPoint::FindImportance();
-char unsigned Trigger::Valid();
-void CompTarget::NewTarget( short, TgtType );
-void CompTarget::AssignCreatureToThis( short );
-void Computer::UpdateAllTriggers();
-char unsigned Trigger::Update( char unsigned );
-near GPointFlags::GPointFlags();
-char unsigned Computer::ReadyToMakeNewCreature();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
 extern char * stuffCreatures[];
 extern char * stuffBuildings[];
 extern char * gPTypes[];
-extern void (near * const __vftbl[])();
-extern char unsigned const __typesig[];
-extern char unsigned const __typesig[];
-char unsigned Computer::ReadyToBuildNewBuilding();
-void GPointFlags::operator =( GPointFlags * );
-long Computer::CreaturesDoingJob( char unsigned, char unsigned, char unsigned );
-extern char unsigned const __typesig[];
 
 #endif // BIO_COMPUTER_HPP_
 /******************************************************************************/

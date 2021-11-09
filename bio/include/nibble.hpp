@@ -20,18 +20,6 @@
 #define BIO_NIBBLE_HPP_
 
 
-typedef class Player Player;
-
-
-
-struct TbSprite { // sizeof=6
-    struct TbSprite * TbSprite(struct TbSprite *arg1);
-    SBYTE *Data; // offset=0
-    UBYTE SWidth; // offset=4
-    UBYTE SHeight; // offset=5
-};
-
-typedef struct TbSprite TbSprite;
 
 struct MyElement { // sizeof=10
     TbSprite *toSprite; // offset=0
@@ -80,12 +68,9 @@ struct SprData { // sizeof=26
     ULONG scaleHt; // offset=22
 };
 
-typedef struct SprData SprData;
 
 long unsigned NibbleCompressSpriteData( TbSprite *, long unsigned, char unsigned *, char unsigned *, char unsigned * * );
 MyAnimBank * LoadMyNibbleAnimBank( char * );
-char unsigned * SprData::ComputeClipping( long, long, TbSprite * );
-char unsigned * SprData::ComputeScaleClipping( long, long, TbSprite *, long unsigned );
 void DrawMyNibbleSprite( long, long, TbSprite *, char unsigned, char unsigned * );
 void DrawMyNibbleThreshold4Sprite( long, long, TbSprite *, char unsigned, char unsigned, char unsigned, char unsigned * );
 void DrawMyNibbleDitherRemapSprite( long, long, TbSprite *, char unsigned, char unsigned, char unsigned * );

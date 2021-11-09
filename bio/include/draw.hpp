@@ -37,18 +37,7 @@ class TextEntry { // sizeof=73
     CBYTE *text;
 };
 
-typedef struct mem_arena mem_arena;
 
-struct mem_arena { // sizeof=18
-    UBYTE *Pointer; // offset=0
-    ULONG Size; // offset=4
-    mem_arena *Child; // offset=8
-    mem_arena *Parent; // offset=12
-    UBYTE Used; // offset=16
-    UBYTE Section; // offset=17
-};
-
-char unsigned SoundManager::NumRequests();
 void draw_game();
 
 #endif // BIO_DRAW_HPP_

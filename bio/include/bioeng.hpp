@@ -76,7 +76,6 @@ struct EnginePoint { // sizeof=12
     UBYTE Orientation; // offset=11
 };
 
-typedef struct EnginePoint EnginePoint;
 
 void check_point_triangle( short *, short *, long, long, long, long, long, long, long, long );
 void mapxy_to_screenxy( long *, long *, short, short );

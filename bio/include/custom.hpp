@@ -19,7 +19,6 @@
 #ifndef BIO_CUSTOM_HPP_
 #define BIO_CUSTOM_HPP_
 
-typedef class Player Player;
 
 
 
@@ -36,9 +35,6 @@ class LevelHeader { // sizeof=187
     ULONG roomForMoreStuff[6]; // offset=159
 };
 
-typedef class LevelHeader LevelHeader;
-
-typedef struct SessionInfo SessionInfo;
 
 class IFCCustom : IFCBase { // sizeof=192
     class IFCCustom * IFCCustom(class IFCCustom *arg1);
@@ -72,14 +68,6 @@ class IFCCustom : IFCBase { // sizeof=192
     SessionInfo t_session[9]; // offset=225
 };
 
-void IFCBase::SetupPacket( Packet * );
-void IFCCustom::PlugIn();
-void IFCCustom::PullOut();
-void IFCCustom::Update();
-void IFCCustom::Draw();
-void IFCCustom::DrawAvailableSessions( SessionInfo * );
-void IFCCustom::DrawChatStrings();
-void IFCCustom::ScrollChatString( char unsigned );
 
 #endif // BIO_CUSTOM_HPP_
 /******************************************************************************/

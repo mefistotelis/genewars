@@ -73,11 +73,6 @@ void ResearchGrid::CountAMonolithTouch( Creature * )
 // code at 0001:00049314
 }
 
-void Event::Free()
-{
-// code at 0001:000490e0
-}
-
 near ShotHitScan::ShotHitScan( Effect &, long )
 {
 // code at 0001:0004902c
@@ -131,11 +126,6 @@ char unsigned FlickerStuff::Valid()
 void FlickerHandler::Free( char unsigned )
 {
 // code at 0001:000489a0
-}
-
-Thing * Event::__defarg()
-{
-// code at 0001:00040650
 }
 
 char unsigned MapDisplay::IsGlassBuildings()

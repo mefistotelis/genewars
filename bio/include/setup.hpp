@@ -39,60 +39,31 @@ struct AudioInitOptions { // sizeof=30
     UBYTE InitRedbookAudio; // offset=29
 };
 
-typedef struct AudioInitOptions AudioInitOptions;
+class Config { // sizeof=184
+    void CDToSegment(ConfigInstall arg1);
+    BBOOL IsCurrentDriveInstallDrive();
+    BBOOL IsCurrentDriveCDROM();
+    void SetToInstallDrive();
+    void SetToCDROM();
+    char * InstalledFile(char *arg1);
+    char * InsertInstallDir(char *arg1);
+    BBOOL GetConfigs();
+    char cdROMDir[31];
+    BBOOL installedSegments[4];
+    char installDir[127];
+    unsigned int installDriveNum;
+    unsigned int cdDriveNum;
+    ConfigLanguage language; // offset=0
+    SoundConfig sound; // offset=1
+};
 
 
-typedef class Player Player;
 
-
-
-void Creature::Init( ThingType, XY, char unsigned, short, long, Vector const & );
-char unsigned Creature::IsDead();
-char unsigned Creature::IsStasis();
-char unsigned Creature::IsDoneMovingToTgt();
-char unsigned Creature::IsStuck();
-void Creature::Undiscover();
-char unsigned Effect::IsDead();
-char unsigned Event::IsStaticallyDrawn();
-char unsigned Event::IsDead();
-char unsigned Drone::IsDead();
-short Drone::MaxMoveSpeed();
-char unsigned Drone::ShapeFacing();
-void Drone::StartAMove( XY );
-void Drone::Discover();
-char unsigned Ethereal::IsDead();
-char unsigned Ethereal::IsFlying();
-char unsigned Ethereal::IsVectorable();
-short Ethereal::MaxMoveSpeed();
-void Ethereal::StartAMove( XY );
-void Ethereal::Discover();
-char unsigned Effect::IsMovable();
-char unsigned Effect::IsASplasher();
 void start_game();
-near Ethereal::Ethereal();
-near Drone::Drone();
-near Event::Event();
-near Effect::Effect();
-near Creature::Creature();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern char unsigned const __typesig[];
-extern char unsigned const __typesig[];
-extern char unsigned const __typesig[];
-extern char unsigned const __typesig[];
-extern char unsigned const __typesig[];
-extern char unsigned const __typesig[];
-extern char unsigned const __typesig[];
-extern char unsigned const __typesig[];
 void setup_game();
 void reset_game();
 void setup_map();
 void setup_strings( char *, char * *, long );
-near BioGame::BioGame();
-extern char unsigned const __typesig[];
 
 #endif // BIO_SETUP_HPP_
 /******************************************************************************/

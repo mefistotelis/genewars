@@ -37,26 +37,6 @@ class TextEntry { // sizeof=73
     CBYTE *text;
 };
 
-struct TbIffPalette { // sizeof=4
-    SLONG Loaded; // offset=0
-    UBYTE Palette[255]; // offset=4
-};
-
-typedef struct TbIffPalette TbIffPalette;
-
-struct TbIff { // sizeof=18
-    UWORD Width; // offset=0
-    UWORD Height; // offset=2
-    ULONG FileSize; // offset=4
-    TbIffPalette *Palette; // offset=8
-    UWORD XOffset; // offset=12
-    UWORD YOffset; // offset=14
-    UBYTE XAspect; // offset=16
-    UBYTE YAspect; // offset=17
-};
-
-typedef struct TbIff TbIff;
-
 struct find_t { // sizeof=30
     char reserved[20]; // offset=0
     char attrib; // offset=21

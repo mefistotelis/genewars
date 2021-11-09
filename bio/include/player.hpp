@@ -27,8 +27,6 @@ enum PlayerRace { // type=int8_t
     MAX_PLAYER_RACE,
 };
 
-typedef enum PlayerRace PlayerRace;
-
 enum SpecialistClass { // type=int8_t
     CLASS_ARCHITECT = 0,
     CLASS_FARMER,
@@ -36,8 +34,6 @@ enum SpecialistClass { // type=int8_t
     CLASS_SHEPHERD,
     MAX_SPEC_CLASS,
 };
-
-typedef enum SpecialistClass SpecialistClass;
 
 class Specialist { // sizeof=36
 public:
@@ -62,10 +58,6 @@ public:
     ULONG landings; // offset=28
     ULONG flags; // offset=32
 };
-
-typedef class Specialist Specialist;
-
-typedef class Player Player;
 
 class Player { // sizeof=233
     class Player * operator=(class Player *arg1);
@@ -149,82 +141,6 @@ class Player { // sizeof=233
     SBYTE techLevel; // offset=231
     UBYTE solarSystem; // offset=232
 };
-
-
-void Creature::SetPlayerActive( CreatureUserAction );
-char unsigned Plant::IsDead();
-void Specialist::Invalidate();
-void Specialist::SetOnTeam();
-void Specialist::ClearOnTeam();
-void Specialist::SetPlanetside();
-void Specialist::ClearPlanetside();
-void PlSpec::InterruptMove();
-void PlSpec::SetupMoveToTgt( XY );
-void Player::DefaultTeam();
-void Player::ResetTeamLandings();
-char unsigned Player::AddTeamMember( short );
-void Player::RemoveTeamMember( short, char unsigned );
-near Player::Player( char unsigned );
-void Player::Init();
-void Player::OverlayInto( Player * );
-void Player::AddBad( long, XY );
-void Player::AddBad( long, Thing * );
-void Player::AddGood( long, Thing * );
-char unsigned Player::Resync();
-void Player::FreeAllAllocs();
-void Player::PaletteFromTerraform();
-void Player::EtherealPoints();
-void Player::DisplayEtherealPoints();
-char unsigned Player::PrepTeamForPlanetside( long );
-void Player::ClearTeamNotOnPlanet();
-void Player::LandTeamNotOnPlanet();
-void Player::YankTeamMemberOffPlanet( char unsigned );
-void Player::YankWholeTeamOffPlanet();
-void Player::Reset();
-char signed Player::next_tool( char signed, Specialist & );
-char unsigned Player::DataRequestFromHost( void *, long );
-void Player::pPA_MOVE_TO( Packet * );
-void Player::pPA_IFC_GO( Packet * );
-void Player::pPA_IFC_ABORT_SPECIAL( Packet * );
-void Player::pPA_IFC_MOVE_GO( Packet * );
-void Player::pPA_ADD_TEAM_MEMBER( Packet * );
-void Player::pPA_REMOVE_TEAM_MEMBER( Packet * );
-void Player::pPA_SET_DROP_ZONE( Packet * );
-void Player::pPA_LANDING( Packet * );
-void Player::pPA_ABORT_MOVE( Packet * );
-void Player::pPA_RANDOM_SEED( Packet * );
-void Player::pPA_CREATE_A_CREATURE( Packet * );
-void Player::pPA_CHEAT( Packet * );
-void Player::pPA_GROUP( Packet * );
-void Player::pPA_SET_SENTINEL_ZONE( Packet * );
-void Player::pPA_SET_SHEPHERD_THING( Packet * );
-void Player::pPA_UPGRADE_BUILDING( Packet * );
-void Player::pPA_ACTIVATE_BUILDING( Packet * );
-void Player::pPA_SET_SHIELD_MODE( Packet * );
-void Player::pPA_CREATURE_ACTION( Packet * );
-void Player::pPA_SESSIONINFOREQUEST( Packet * );
-void Player::pPA_SETUPSTUFF( Packet * );
-void Player::pPA_JOINSESSION( Packet * );
-near Plant::Plant();
-extern void (near * const __vftbl[])();
-void Player::pPA_LEAVE_STAT_SCREEN( Packet * );
-void Player::pPA_WIN_LEVEL( Packet * );
-
-char unsigned Player::Valid();
-PlSpec * Player::GetTeam( char unsigned );
-Thing * Player::__defarg();
-Thing * Player::__defarg();
-char unsigned Player::IsEnemy( Thing * );
-char unsigned Player::BaseColor();
-char signed Player::GetNum( PlSpec * );
-void Player::SetPlayerPointer();
-void Player::Invalidate();
-char unsigned Player::IsSamePlayer( Thing * );
-char unsigned Player::__defarg();
-Player & Player::.tdctor();
-long Player::__defarg();
-void Player::MakeValid();
-Player & Player::operator =( Player const & );
 
 #endif // BIO_PLAYER_HPP_
 /******************************************************************************/

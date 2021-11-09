@@ -174,34 +174,6 @@ class IFCStatScreen : IFCBase { // sizeof=19
     unsigned int *__vbptr;
 };
 
-void IFCTitle::PlugIn();
-void IFCTitle::PullOut();
-void IFCTitle::Update();
-void IFCTitle::Draw();
-void IFCStartNetwork::PlugIn();
-void IFCStartNetwork::PullOut();
-void IFCStartNetwork::Update();
-void IFCStartNetwork::Draw();
-void IFCGeneratePlanet::PlugIn();
-void IFCGeneratePlanet::PullOut();
-void IFCGeneratePlanet::Update();
-void IFCGeneratePlanet::Draw();
-void IFCJoiningPlayer::PlugIn();
-void IFCJoiningPlayer::PullOut();
-void IFCJoiningPlayer::Update();
-void IFCJoiningPlayer::Draw();
-void IFCWinLevel::PlugIn();
-void IFCWinLevel::PullOut();
-void IFCWinLevel::Update();
-void IFCWinLevel::Draw();
-void IFCLoseLevel::PlugIn();
-void IFCLoseLevel::PullOut();
-void IFCLoseLevel::Update();
-void IFCLoseLevel::Draw();
-void IFCStatScreen::PlugIn();
-void IFCStatScreen::PullOut();
-void IFCStatScreen::Update();
-void IFCStatScreen::Draw();
 
 #endif // BIO_TITLE_HPP_
 /******************************************************************************/

@@ -53,46 +53,6 @@ char signed FlickerHandler::Create()
 // code at 0001:00047a17
 }
 
-char unsigned Event::operator ==( Event * )
-{
-// code at 0001:0004882d
-}
-
-char unsigned Event::CreateSphereRing( Point *, char unsigned *, char unsigned )
-{
-// code at 0001:00047a78
-}
-
-Event * Event::Create( char unsigned, XY, char unsigned, Thing * )
-{
-// code at 0001:00047bce
-}
-
-void Event::InitArray()
-{
-// code at 0001:00047eb6
-}
-
-void Event::Resync()
-{
-// code at 0001:00047f02
-}
-
-void Event::Read( long & )
-{
-// code at 0001:00047f1c
-}
-
-void Event::Write( long & )
-{
-// code at 0001:00047f7b
-}
-
-long Event::ReadBuffer( Event * *, long, long, BioGame & )
-{
-// code at 0001:00047fbc
-}
-
 near PlSpec::PlSpec()
 {
 // code at 0001:00048968
@@ -111,21 +71,6 @@ void (near * const __vftbl[])();
 void (near * const __vftbl[])();
 
 void (near * const __vftbl[])();
-
-long Event::WriteBuffer( Event * *, long, long, BioGame & )
-{
-// code at 0001:0004803b
-}
-
-char unsigned Event::Update()
-{
-// code at 0001:000480ba
-}
-
-void Event::UpdateAll()
-{
-// code at 0001:000486a7
-}
 
 near GEngine::GEngine()
 {

@@ -40,10 +40,7 @@ class Packet { // sizeof=19
     UWORD rndCount; // offset=17
 };
 
-typedef class Packet Packet;
-
 void process_packets();
-void Packet::ExchangeDataBlast( void *, long unsigned, char unsigned );
 
 #endif // BIO_PACKETS_HPP_
 /******************************************************************************/

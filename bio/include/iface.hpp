@@ -25,16 +25,12 @@ enum TeamCircleMode { // type=int8_t
     TC_NORMAL,
 };
 
-typedef enum TeamCircleMode TeamCircleMode;
-
 enum PaletteSelectorMode { // type=int8_t
     PSM_BUILDINGS = 0,
     PSM_PLANTS,
     PSM_SHEPHERD,
     MAX_PSM,
 };
-
-typedef enum PaletteSelectorMode PaletteSelectorMode;
 
 class TurnPrintInfo { // sizeof=110
     BBOOL Print();
@@ -55,76 +51,6 @@ class TurnPrintInfo { // sizeof=110
     SLONG linesDrawn; // offset=86
 };
 
-typedef class TurnPrintInfo TurnPrintInfo;
-
-struct Normal { // sizeof=12
-    struct Normal * Normal(struct Normal *arg1);
-    SLONG NX; // offset=0
-    SLONG NY; // offset=4
-    SLONG NZ; // offset=8
-};
-
-typedef struct Normal Normal;
-
-typedef class ThingIDX ThingIDX;
-
-typedef class Player Player;
-
-class BuilderIFC { // sizeof=18
-    SBYTE go; // offset=0
-    SBYTE object; // offset=1
-    SWORD freq; // offset=2
-    SWORD freqCount; // offset=4
-    SWORD phase; // offset=6
-    SWORD foundationAlt; // offset=8
-    XY saveOriginalTgt; // offset=10
-    SLONG wreckSectorAt; // offset=14
-};
-
-typedef class BuilderIFC BuilderIFC;
-
-typedef class TheBase TheBase;
-
-class FarmerIFC { // sizeof=16
-    SBYTE go; // offset=0
-    PlantSpecies species; // offset=1
-    SWORD freq; // offset=2
-    SWORD freqCount; // offset=4
-    XY targetXY; // offset=6
-    SWORD range; // offset=10
-    SLONG zoneRange; // offset=12
-};
-
-typedef class FarmerIFC FarmerIFC;
-
-class ShepherdIFC { // sizeof=10
-    SBYTE go; // offset=0
-    XY targetXY; // offset=1
-    SLONG zoneRange; // offset=5
-    HerdMode mode; // offset=9
-};
-
-class CowboyIFC { // sizeof=15
-    SBYTE go; // offset=0
-    UBYTE gunType; // offset=1
-    SWORD hits; // offset=2
-    SWORD misses; // offset=4
-    SWORD shots; // offset=6
-    SWORD firingArc; // offset=8
-    SLONG gunRange; // offset=10
-    CreatureSpecies studySpecies; // offset=14
-};
-
-class PLSInterface { // sizeof=22
-    class PLSInterface * operator=(class PLSInterface *arg1);
-    SBYTE submode; // offset=0
-    ThingIDX thingTgt; // offset=1
-    ShepherdIFC shepherd; // offset=4
-    FarmerIFC farmer; // offset=5
-    CowboyIFC cowboy; // offset=6
-    BuilderIFC builder; // offset=7
-    SBYTE go; // offset=8
-};
 
 typedef class PLSInterface PLSInterface;
 
@@ -286,129 +212,7 @@ class IFCPlanetside : IFCBase { // sizeof=46
     LabPad labPad; // offset=214
 };
 
-void Packet::SetPacket( char unsigned, short, short, short );
-char unsigned Thing::__defarg();
-char unsigned Thing::__defarg();
-char unsigned Creature::IsFrozen();
-char unsigned Creature::CanGetOrders();
-void Creature::ClearPlayerActive();
-long Creature::ViewScale8();
-char unsigned PlSpec::IsFullyCloaked();
-char unsigned IsoMapBuffer::__defarg();
-void IsoMapBuffer::Draw( char unsigned );
-void MapDisplay::SetCanSelectThing();
-void MapDisplay::ClearCanSelectThing();
-char unsigned MapDisplay::IsRegisteredRightClick();
-void MapDisplay::SetRegisteredRightClick();
-void MapDisplay::ClearRegisteredRightClick();
-char unsigned MapDisplay::IsModified();
-void MapDisplay::ToggleGlassBuildings();
-void IFCBase::SetPacket( char unsigned );
-void InfoRequester::Invalidate();
-char unsigned InfoRequester::Valid();
-near PaletteSelector::PaletteSelector();
-void GroupSelect::Init();
-void GroupSelect::Close();
-char unsigned GroupSelect::IsAGroupCurrentlySelected();
-char unsigned GroupSelect::IsGroupSelecting();
-void GroupSelect::AddIdxToGroup( short );
-char unsigned GroupSelect::IsAnchorGroupSelecting();
-void GroupSelect::SetGroupSelecting();
-void GroupSelect::ClearGroupSelecting();
-void GroupSelect::SetAnchorGroupSelecting( short, short );
-void GroupSelect::ClearAnchorGroupSelecting();
-void GroupSelect::SetTarget( XY );
-near BasicPad::BasicPad();
-near WindowPad::WindowPad( PaletteSelector & );
-near BuildingPad::BuildingPad();
-near CreaturePad::CreaturePad( PaletteSelector & );
-near ClonePad::ClonePad();
-near EtherealScope::EtherealScope();
-void EtherealScope::Init();
-TheBase & Thing::Base();
-char unsigned Building::IsDamaged();
-EtherealZone & Effect::GetEZone();
-long PlSpec::ArchitectBuildCost( BuildingType );
-char unsigned TurnPrintInfo::Print();
-char signed GroupSelect::ActionOn( Thing *, char unsigned );
-char unsigned GroupSelect::Update( short & );
-void GroupSelect::Draw();
-void GroupSelect::RemoveIdxFromGroup( short );
-char unsigned GroupSelect::GroupSelectThings();
-char unsigned GroupSelect::SetGroupSwitchTo();
-void GroupSelect::DrawGroupSelected();
-void GroupSelect::AssignXYToTeam( XY, char unsigned, char unsigned );
-void GroupSelect::AssignXYToGroup( XY, short *, short, char unsigned, char unsigned );
-void GroupSelect::AssignTargetToGroup( Thing *, short *, short, char unsigned, char unsigned, char unsigned );
-void GroupSelect::SwitchOffGroup( short *, short, char unsigned, char unsigned );
-void EtherealScope::Draw();
-void TeamCircles::Init();
-void TeamCircles::Update();
-void PaletteSelector::SetSelectFilter( char unsigned );
-void PaletteSelector::RestoreSelectFilter();
-void TeamCircles::Draw();
-void TeamCircles::StartStatic( char unsigned, char unsigned );
-void TeamCircles::StopStatic( char unsigned );
-void TeamCircles::DrawTeamCircle( char unsigned );
-void TeamCircles::SelectCircle( char unsigned );
-void PaletteSelector::SlideOpen();
-void PaletteSelector::SlideClose();
-void PaletteSelector::Init();
-void PaletteSelector::Create( Thing * );
-void PaletteSelector::Close();
-void PaletteSelector::LockPalette();
-void PaletteSelector::UnlockPalette();
-char signed PaletteSelector::GetSelected();
-void PaletteSelector::CreateBuildingMenu();
-void PaletteSelector::CreatePlantMenu();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void PaletteSelector::CreateShepherdMenu();
-char unsigned PaletteSelector::Update( short );
-void PaletteSelector::Draw();
-near IFCPlanetside::IFCPlanetside( MyGadget * );
-void IFCPlanetside::CyanFlicker( char unsigned );
-void IFCPlanetside::TgtFlagEffect( XY, Thing * );
-void IFCPlanetside::DisableAllCircles();
-void IFCPlanetside::EnableAllCircles();
-void IFCPlanetside::PlugIn();
-void IFCPlanetside::PullOut();
-void IFCPlanetside::ClearInterfaceReferencesTo( Thing * );
-void IFCPlanetside::JumpToNextBuilding();
-void IFCPlanetside::Update();
-void IFCPlanetside::DrawTgtFlag();
-void IFCPlanetside::Draw();
-void IFCPlanetside::DrawBadBar( char unsigned );
-void IFCPlanetside::DrawGameMap();
-void IFCPlanetside::DrawBadOMeter();
-void IFCPlanetside::DrawGoopMeter();
-void IFCPlanetside::DrawAllBottomControls();
-void IFCPlanetside::ResetForNewGame();
-void IFCPlanetside::CircleHelp( MyGadget * );
-void IFCPlanetside::GeneralGadgetHelp( MyGadget * );
-void IFCPlanetside::BarHelp( MyGadget * );
-void IFCPlanetside::MapHelp( MyGadget * );
-void InfoRequester::DrawPic( long, long );
-near InfoRequester::InfoRequester();
-void InfoRequester::Create( char *, char *, char *, long, InfoRequesterStyle );
-char unsigned InfoRequester::Update();
-void InfoRequester::Draw();
 void DrawRangeVSprite( short, short, short, short, long, long, TbSprite *, TbSprite * );
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern int unsigned const __vbtbl[];
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
 void DrawRangeHSprite( short, short, short, short, long, long, TbSprite *, TbSprite * );
 void DrawRangeVBar( short, short, short, short, long, long, char unsigned, char unsigned );
 void DrawRangeHBar( short, short, short, short, long, long, char unsigned );

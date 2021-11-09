@@ -88,6 +88,7 @@ obj/plant.o \
 obj/building.o \
 obj/smvthing.o \
 obj/drone.o \
+obj/event.o \
 obj/effect.o \
 obj/creature.o \
 obj/io.o \

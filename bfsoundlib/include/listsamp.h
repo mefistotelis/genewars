@@ -25,6 +25,22 @@
 extern "C" {
 #endif
 
+struct __4qsnj8DIG_MODE { // sizeof=14
+    UWORD minimum_physical_sample_rate; // offset=0
+    UWORD nominal_physical_sample_rate; // offset=2
+    UWORD maximum_physical_sample_rate; // offset=4
+    UWORD minimum_DMA_half_buffer_size; // offset=6
+    UWORD maximum_DMA_half_buffer_size; // offset=8
+    ULONG flags; // offset=10
+};
+
+typedef struct __4qsnj8DIG_MODE DIG_MODE;
+
+struct __1th3moDIG_DDT { // sizeof=240
+    UBYTE format_supported[15]; // offset=0
+    DIG_MODE format_data[15]; // offset=16
+};
+
 typedef struct __1th3moDIG_DDT DIG_DDT;
 
 struct __3n9rjlDIG_DST { // sizeof=10
@@ -137,6 +153,21 @@ struct _SAMPLE { // sizeof=148
 };
 
 typedef SAMPLE *HSAMPLE;
+
+struct SampleInfo { // sizeof=25
+    HSAMPLE SampleHandle; // offset=0
+    SLONG SampleVolume; // offset=4
+    UWORD SamplePitch; // offset=8
+    UWORD SamplePan; // offset=10
+    UWORD FadeToVolume; // offset=12
+    ULONG SourceID; // offset=14
+    SWORD SampleNumber; // offset=18
+    UBYTE FadeState; // offset=20
+    UBYTE FadeStopFlag; // offset=21
+    UBYTE FadeStep; // offset=22
+    UBYTE UserFlag; // offset=23
+    UBYTE SampleType; // offset=24
+};
 
 void cb_sample_queue_callback( _SAMPLE * );
 int PlaySampleList();

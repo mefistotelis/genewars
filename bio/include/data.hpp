@@ -160,7 +160,6 @@ class GameControl { // sizeof=52
 
 typedef class GameControl GameControl;
 
-typedef class Config Config;
 
 class RunTimeGameFlags { // sizeof=2
     uint8_t DebugKeyboard; // offset=0
@@ -300,7 +299,6 @@ class BaseScan { // sizeof=17
     BBOOL finished; // offset=16
 };
 
-typedef class BaseScan BaseScan;
 
 class BaseAwareness { // sizeof=83
     void Reset();
@@ -1129,56 +1127,6 @@ class IFCCompEditor : IFCBase { // sizeof=193
 
 typedef class IFCCompEditor IFCCompEditor;
 
-near GEngine::GEngine();
-near IFCEditor::IFCEditor( MyGadget * );
-near IFCTitle::IFCTitle( MyGadget * );
-near IFCCustom::IFCCustom( MyGadget * );
-near CreatureInfo::CreatureInfo();
-near IFCComputer::IFCComputer( MyGadget * );
-near IFCCompEditor::IFCCompEditor( MyGadget * );
-near IFCOptions::IFCOptions( MyGadget * );
-near Computer::~Computer();
-near CreatureInfo::~CreatureInfo();
-near IFCStatScreen::IFCStatScreen();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-near IFCLoseLevel::IFCLoseLevel();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-near IFCWinLevel::IFCWinLevel();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-near IFCJoiningPlayer::IFCJoiningPlayer();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-near IFCGeneratePlanet::IFCGeneratePlanet();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-near IFCStartNetwork::IFCStartNetwork();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
 extern char unsigned * block_ptrs[];
 extern char unsigned * block_mem;
 extern char unsigned * aBlockMem;
@@ -1215,11 +1163,7 @@ extern MySprite * ani_spr[];
 extern MyAnimBank * plant_anb[];
 extern MySprite * plant_spr[];
 extern IFCBase * currentIFC;
-extern IFCBase * IFCBase::plugIn;
-extern IFCBase * IFCBase::pullOut;
-extern Packet * IFCBase::packet;
-extern char unsigned IFCBase::fullCopyToVRAM;
-extern void * Packet::dataBlast;
+
 extern long unsigned pointers_data;
 extern long unsigned planets_data;
 extern long unsigned sparkle_data;
@@ -1228,7 +1172,6 @@ extern long unsigned ifclvs_data;
 extern long unsigned globalOptions;
 extern long unsigned playerVictory[];
 extern short unsigned localRndSeed;
-extern short IFCBase::gadID;
 extern short boundMinX;
 extern short boundMinY;
 extern short boundMaxX;
@@ -1291,12 +1234,7 @@ extern HelpDraw helper;
 extern Recorder recorder;
 extern InfoRequester request;
 extern Computer computers[];
-extern MyMinSprite Creature::woodDiskMMs;
-extern MyMinSprite Creature::heartMMs;
-extern MyMinSprite Creature::shepherdedMMs;
-extern MyMinSprite Creature::packLeadersMMs;
-extern MyMinSprite Creature::packMMs;
-extern MyMinSprite Creature::hungryMMs;
+
 extern long unsigned buildingsAllowed;
 extern char unsigned shadeMethod;
 extern Planet planet;
@@ -1304,10 +1242,7 @@ extern MyGadget ifcPls_gads[];
 extern MyGadget ifcPanel_gads[];
 extern MyGadget ifcPalette_gads[];
 extern MyGadget ifcLab_gads[];
-extern MyMinSprite Creature::tiredMMs;
-extern MyMinSprite Creature::scaredMMs;
-extern MyMinSprite Creature::huntingMMs;
-extern MyMinSprite Effect::ezStarMMs;
+
 extern MyAnimBank * tubespec_anb;
 extern MyGadget ifcOptions_gads[];
 extern MyGadget ifcLvS_gads[];
@@ -1345,27 +1280,6 @@ extern IFCLevel ifcLevel;
 extern IFCEditor ifcEditor;
 extern IFCCompEditor ifcCompEditor;
 extern char unsigned colour_lookup[];
-extern void (near * const __vftbl[])();
-extern int unsigned const __vbtbl[];
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern int unsigned const __vbtbl[];
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern int unsigned const __vbtbl[];
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern int unsigned const __vbtbl[];
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern int unsigned const __vbtbl[];
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern int unsigned const __vbtbl[];
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern char unsigned const __typesig[];
-extern char unsigned const __typesig[];
 extern char unsigned const upgradeScores[][3];
 extern char unsigned const specTgtScores[];
 extern char unsigned const specThreatScores[];

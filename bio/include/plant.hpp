@@ -22,37 +22,9 @@
 #include "bftypes.h"
 #include "xy.hpp"
 #include "thing.hpp"
+#include "plantstat.hpp"
 
 class BioGame;
-
-enum PlantSpecies { // type=int8_t
-    PSP_BULB = 0,
-    PSP_ROOT,
-    PSP_WAXLEAF,
-    PSP_BLOOM,
-    PSP_BRALM,
-    PSP_PALM, // 5
-    PSP_SNOWDROP,
-    PSP_KELPIE,
-    PSP_SPIKEY,
-    PSP_FUNGUS,
-    PSP_SPIRAL, // 10
-    PSP_CONE,
-    MAX_PSPECIES,
-};
-
-struct PSpecies { // sizeof=32
-    char name[15]; // offset=0
-    SBYTE terrain[7]; // offset=16
-    UBYTE seedTime; // offset=24
-    UBYTE range; // offset=25
-    UBYTE maxNeighbours; // offset=26
-    UBYTE lifeSpan; // offset=27
-    UBYTE food; // offset=28
-    UBYTE wood; // offset=29
-    UBYTE seeds; // offset=30
-    UBYTE density; // offset=31
-};
 
 class Plant : StaticThing { // sizeof=49
 public:

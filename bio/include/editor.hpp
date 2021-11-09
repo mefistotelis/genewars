@@ -87,24 +87,6 @@ class ScreenLockHandler { // sizeof=2
     SBYTE nestScreenLockLevel;
 };
 
-class Config { // sizeof=184
-    void CDToSegment(ConfigInstall arg1);
-    BBOOL IsCurrentDriveInstallDrive();
-    BBOOL IsCurrentDriveCDROM();
-    void SetToInstallDrive();
-    void SetToCDROM();
-    char * InstalledFile(char *arg1);
-    char * InsertInstallDir(char *arg1);
-    BBOOL GetConfigs();
-    char cdROMDir[31];
-    BBOOL installedSegments[4];
-    char installDir[127];
-    unsigned int installDriveNum;
-    unsigned int cdDriveNum;
-    ConfigLanguage language; // offset=0
-    SoundConfig sound; // offset=1
-};
-
 class TextEntry { // sizeof=73
     class TextEntry * TextEntry(class TextEntry *arg1);
     BBOOL ValidChar(UBYTE arg1);

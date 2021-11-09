@@ -19,6 +19,9 @@
 #ifndef BFSOUNDLIB_VARIABLE_H_
 #define BFSOUNDLIB_VARIABLE_H_
 
+#include "bftypes.h"
+#include "listsamp.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif

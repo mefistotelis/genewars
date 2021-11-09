@@ -44,8 +44,6 @@ class EtherealZone { // sizeof=19
     SBYTE etherealsWatching; // offset=18
 };
 
-typedef class EtherealZone EtherealZone;
-
 class EtherealZoneHandler { // sizeof=194
     BBOOL IsZonesScoredOut();
     void LightAllActive();
@@ -56,8 +54,6 @@ class EtherealZoneHandler { // sizeof=194
     UBYTE numZones; // offset=192
     UBYTE zonesDone; // offset=193
 };
-
-typedef class EtherealZoneHandler EtherealZoneHandler;
 
 #endif // BIO_ETHEREALZ_HPP_
 /******************************************************************************/

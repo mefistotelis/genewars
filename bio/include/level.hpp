@@ -27,12 +27,6 @@ class PlanetBody { // sizeof=14
     SLONG speed; // offset=10
 };
 
-typedef class PlanetBody PlanetBody;
-
-typedef class Player Player;
-
-
-typedef struct MyGadget MyGadget;
 
 struct cPoint { // sizeof=12
     SLONG X; // offset=0
@@ -40,7 +34,6 @@ struct cPoint { // sizeof=12
     SLONG Z; // offset=8
 };
 
-typedef struct cPoint cPoint;
 
 struct SpaceBody { // sizeof=33
     UWORD centreRef; // offset=0
@@ -56,7 +49,6 @@ struct SpaceBody { // sizeof=33
     cPoint moveVector; // offset=21
 };
 
-typedef struct SpaceBody SpaceBody;
 
 class LevelHeader { // sizeof=187
     void TranslatePlanet();
@@ -71,7 +63,6 @@ class LevelHeader { // sizeof=187
     ULONG roomForMoreStuff[6]; // offset=159
 };
 
-typedef class LevelHeader LevelHeader;
 
 struct ScreenPoint { // sizeof=20
     SLONG SX; // offset=0
@@ -84,13 +75,11 @@ struct ScreenPoint { // sizeof=20
     UBYTE Extra2; // offset=19
 };
 
-typedef struct ScreenPoint ScreenPoint;
 
 struct Axes { // sizeof=36
     cPoint vector[2]; // offset=0
 };
 
-typedef struct Axes Axes;
 
 struct Viewer { // sizeof=173
     Axes axes[3]; // offset=0
@@ -100,7 +89,6 @@ struct Viewer { // sizeof=173
     UBYTE thrust; // offset=172
 };
 
-typedef struct Viewer Viewer;
 
 struct AutoPilot { // sizeof=33
     UBYTE flightstate; // offset=0
@@ -114,7 +102,6 @@ struct AutoPilot { // sizeof=33
     SLONG retz; // offset=29
 };
 
-typedef struct AutoPilot AutoPilot;
 
 class IFCLevel : IFCBase { // sizeof=203
     class IFCLevel * IFCLevel(class IFCLevel *arg1);
@@ -212,59 +199,6 @@ class IFCLevel : IFCBase { // sizeof=203
     Axes universeaxes; // offset=252
 };
 
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCLevel::DrawRefreshedBox( long, long, long, long, char unsigned );
-near IFCLevel::IFCLevel();
-void IFCLevel::PlugIn();
-void IFCLevel::PullOut();
-void IFCLevel::DrawHLine( long, long, long, char unsigned );
-void IFCLevel::DrawVLine( long, long, long, char unsigned );
-void IFCLevel::DrawCornerCircles();
-void IFCLevel::DrawLines();
-void IFCLevel::DrawSystem();
-void IFCLevel::DrawGizmoBox();
-void IFCLevel::DrawLockOn();
-void IFCLevel::DrawPlanet();
-void IFCLevel::DrawBriefing();
-void IFCLevel::Draw();
-void IFCLevel::Update();
-void IFCLevel::UpdateSystem();
-void IFCLevel::MoveViewer();
-void IFCLevel::DrawGalaxy();
-char unsigned IFCLevel::IsAtSystemView();
-void IFCLevel::SortStars();
-int IFCLevel::SortCheck( void const *, void const * );
-void IFCLevel::MakeOrbitTrack( short unsigned );
-char unsigned IFCLevel::FindPlanet( short unsigned, short unsigned );
-void IFCLevel::DrawCrossHair();
-void IFCLevel::init_start_points();
-void IFCLevel::rotate_universe_around_viewpos( cPoint *, cPoint * );
-void IFCLevel::calulate_2d_x_and_y_of_points( long unsigned, cPoint *, ScreenPoint * );
-void IFCLevel::draw_points( long unsigned, ScreenPoint * );
-void IFCLevel::calculate_clipping_window( long, long, long, long );
-void IFCLevel::keys();
-void IFCLevel::damping();
-void IFCLevel::speed_up( long * );
-void IFCLevel::slow_down( long * );
-void IFCLevel::move_view_position( cPoint *, cPoint *, cPoint *, long * );
-void IFCLevel::local_rotate_on_axis( cPoint *, cPoint *, long, long, char unsigned );
-void IFCLevel::global_x_rotate_points( cPoint *, cPoint *, long, long, long unsigned );
-void IFCLevel::global_y_rotate_points( cPoint *, cPoint *, long, long, long unsigned );
-void IFCLevel::global_z_rotate_points( cPoint *, cPoint *, long, long, long unsigned );
-void IFCLevel::normalise_axes( cPoint *, cPoint * );
-void IFCLevel::init_view_axes();
-void IFCLevel::calculate_view_to_target_vector_deviation( cPoint *, long, long, long );
-extern int unsigned const __vbtbl[];
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-near IFCBase::IFCBase();
-void IFCLevel::local_rotate_on_arbitrary_axis( cPoint *, cPoint *, long, long, long, long, long );
-char unsigned IFCLevel::auto_pilot_MK2();
-long IFCLevel::align_vertical( long unsigned );
-extern void (near * const __vftbl[])();
 
 #endif // BIO_LEVEL_HPP_
 /******************************************************************************/

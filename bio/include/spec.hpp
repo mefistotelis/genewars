@@ -64,15 +64,7 @@ enum { // type=int8_t
     CL_MAGENTA,
 };
 
-typedef void *NSERV_HANDLE;
-
 typedef void *CALLBACK;
-
-typedef UWORD *PUWORD;
-
-typedef uint8_t UBYTE;
-
-typedef UBYTE *PUBYTE;
 
 typedef uint32_t clock_t;
 
@@ -109,9 +101,6 @@ class Specialist { // sizeof=36
     ULONG flags; // offset=32
 };
 
-typedef class Specialist Specialist;
-
-typedef class Player Player;
 
 
 struct BuildingStage { // sizeof=1
@@ -264,141 +253,9 @@ class PlSpec : SmartMovingThing { // sizeof=200
 
 
 
-struct __24e741VDI_HDR { // sizeof=10
-    BYTE ID[7]; // offset=0
-    ULONG driver_version; // offset=8
-    REALFAR common_IO_configurations; // offset=12
-    UWORD num_IO_configurations; // offset=16
-    REALFAR environment_string; // offset=18
-    IO_PARMS IO; // offset=22
-    WORD service_rate; // offset=46
-    UWORD busy; // offset=48
-    UWORD driver_num; // offset=50
-    UWORD this_ISR; // offset=52
-    REALFAR prev_ISR; // offset=54
-    BYTE scratch[127]; // offset=58
-    BYTE dev_name[79]; // offset=186
-};
 
-typedef struct __24e741VDI_HDR VDI_HDR;
 
-struct __3f9o8oAIL_DRIVER { // sizeof=44
-    REALFAR seg; // offset=0
-    ULONG sel; // offset=4
-    void *buf; // offset=8
-    ULONG size; // offset=12
-    VDI_HDR *VHDR; // offset=16
-    LONG type; // offset=20
-    LONG initialized; // offset=24
-    LONG PM_ISR; // offset=28
-    HTIMER server; // offset=32
-    void (*destructor)(void *arg1); // offset=36
-    void *descriptor; // offset=40
-};
 
-typedef struct __3f9o8oAIL_DRIVER AIL_DRIVER;
-
-struct __4qsnj8DIG_MODE { // sizeof=14
-    UWORD minimum_physical_sample_rate; // offset=0
-    UWORD nominal_physical_sample_rate; // offset=2
-    UWORD maximum_physical_sample_rate; // offset=4
-    UWORD minimum_DMA_half_buffer_size; // offset=6
-    UWORD maximum_DMA_half_buffer_size; // offset=8
-    ULONG flags; // offset=10
-};
-
-typedef struct __4qsnj8DIG_MODE DIG_MODE;
-
-struct __1th3moDIG_DDT { // sizeof=240
-    UBYTE format_supported[15]; // offset=0
-    DIG_MODE format_data[15]; // offset=16
-};
-
-typedef struct __1th3moDIG_DDT DIG_DDT;
-
-struct __3n9rjlDIG_DST { // sizeof=10
-    REALFAR DMA_buffer_A; // offset=0
-    REALFAR DMA_buffer_B; // offset=4
-    WORD active_buffer; // offset=8
-};
-
-typedef struct __3n9rjlDIG_DST DIG_DST;
-
-typedef struct _SAMPLE SAMPLE;
-
-struct _DIG_DRIVER { // sizeof=140
-    AIL_DRIVER *drvr; // offset=0
-    DIG_DDT *DDT; // offset=4
-    DIG_DST *DST; // offset=8
-    HTIMER timer; // offset=12
-    LONG half_buffer_size; // offset=16
-    LONG DMA_rate; // offset=20
-    LONG hw_format; // offset=24
-    ULONG hw_mode_flags; // offset=28
-    REALFAR DMA_seg; // offset=32
-    ULONG DMA_sel; // offset=36
-    void *DMA_buf; // offset=40
-    void *DMA[1]; // offset=44
-    WORD *buffer_flag; // offset=52
-    LONG last_buffer; // offset=56
-    LONG channels_per_sample; // offset=60
-    LONG bytes_per_channel; // offset=64
-    LONG channels_per_buffer; // offset=68
-    LONG samples_per_buffer; // offset=72
-    LONG build_size; // offset=76
-    LONG *build_buffer; // offset=80
-    LONG playing; // offset=84
-    LONG quiet; // offset=88
-    SAMPLE *samples; // offset=92
-    LONG n_samples; // offset=96
-    LONG n_active_samples; // offset=100
-    LONG master_volume; // offset=104
-    LONG system_data[7]; // offset=108
-};
-
-typedef struct _DIG_DRIVER _DIG_DRIVER;
-
-struct _SAMPLE { // sizeof=148
-    _DIG_DRIVER *driver; // offset=0
-    ULONG status; // offset=4
-    void *start[1]; // offset=8
-    ULONG len[1]; // offset=16
-    ULONG pos[1]; // offset=24
-    ULONG done[1]; // offset=32
-    LONG current_buffer; // offset=40
-    LONG last_buffer; // offset=44
-    LONG loop_count; // offset=48
-    LONG format; // offset=52
-    ULONG flags; // offset=56
-    LONG playback_rate; // offset=60
-    LONG volume; // offset=64
-    LONG pan; // offset=68
-    CALLBACK SOB; // offset=72
-    LONG vol_scale[1][255]; // offset=73
-    CALLBACK EOB; // offset=76
-    CALLBACK EOS; // offset=80
-    LONG user_data[7]; // offset=84
-    LONG system_data[7]; // offset=116
-};
-
-typedef SAMPLE *HSAMPLE;
-
-struct SampleInfo { // sizeof=25
-    HSAMPLE SampleHandle; // offset=0
-    SLONG SampleVolume; // offset=4
-    UWORD SamplePitch; // offset=8
-    UWORD SamplePan; // offset=10
-    UWORD FadeToVolume; // offset=12
-    ULONG SourceID; // offset=14
-    SWORD SampleNumber; // offset=18
-    UBYTE FadeState; // offset=20
-    UBYTE FadeStopFlag; // offset=21
-    UBYTE FadeStep; // offset=22
-    UBYTE UserFlag; // offset=23
-    UBYTE SampleType; // offset=24
-};
-
-typedef struct SampleInfo SampleInfo;
 
 class SoundTag { // sizeof=6
     void SetNewSample();
@@ -428,54 +285,6 @@ class SoundConfig { // sizeof=10
     BBOOL musicOn; // offset=9
 };
 
-typedef class SoundConfig SoundConfig;
-
-class Config { // sizeof=184
-    void CDToSegment(ConfigInstall arg1);
-    BBOOL IsCurrentDriveInstallDrive();
-    BBOOL IsCurrentDriveCDROM();
-    void SetToInstallDrive();
-    void SetToCDROM();
-    char * InstalledFile(char *arg1);
-    char * InsertInstallDir(char *arg1);
-    BBOOL GetConfigs();
-    char cdROMDir[31];
-    BBOOL installedSegments[4];
-    char installDir[127];
-    unsigned int installDriveNum;
-    unsigned int cdDriveNum;
-    ConfigLanguage language; // offset=0
-    SoundConfig sound; // offset=1
-};
-
-
-struct FontKernData { // sizeof=225
-    UBYTE KernedCount; // offset=0
-    UBYTE CharactersKerned[223]; // offset=1
-    SBYTE Kern[255]; // offset=225
-};
-
-typedef struct FontKernData FontKernData;
-
-struct Colour { // sizeof=3
-    UBYTE Red; // offset=0
-    UBYTE Green; // offset=1
-    UBYTE Blue; // offset=2
-};
-
-typedef struct Colour Colour;
-
-struct FontInfo { // sizeof=28
-    TbSprite *SpaceSprite; // offset=0
-    FontKernData *TextKerningData; // offset=4
-    Colour *Palette; // offset=8
-    UBYTE *FFCTable; // offset=12
-    ULONG ControlFlags; // offset=16
-    ULONG PenColour; // offset=20
-    ULONG OutlineColour; // offset=24
-};
-
-typedef struct FontInfo FontInfo;
 
 class TurnPrintInfo { // sizeof=110
     BBOOL Print();
@@ -502,7 +311,7 @@ class LumberjackScan : RangeScanner { // sizeof=57
     class LumberjackScan * LumberjackScan(class LumberjackScan *arg1);
     void PerGrid();
     class LumberjackScan * LumberjackScan(PlSpec arg1);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     SLONG dirBonus;
     SLONG bestValue;
     PlSpec pls;
@@ -514,7 +323,7 @@ class HarvestClearScan : RangeScanner { // sizeof=55
     void Do();
     void PerGrid();
     class HarvestClearScan * HarvestClearScan(PlSpec arg1, BBOOL arg2, BBOOL arg3);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     BBOOL clearFlags;
     BBOOL collect;
     ResearchGrid rGrid;
@@ -526,7 +335,7 @@ class FarmerPlantingScan : WeightedRangeScanner { // sizeof=115
     class FarmerPlantingScan * FarmerPlantingScan(class FarmerPlantingScan *arg1);
     void PerGrid();
     class FarmerPlantingScan * FarmerPlantingScan(PlSpec arg1, BBOOL arg2);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     BBOOL rangeInvert;
     PSpecies pSpc;
     PlSpec pls;
@@ -536,7 +345,7 @@ class SurvivalScan : RangeScanner { // sizeof=53
     class SurvivalScan * SurvivalScan(class SurvivalScan *arg1);
     void PerGrid();
     class SurvivalScan * SurvivalScan(PlSpec arg1, ULONG arg2);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     ULONG bestRange;
     PlSpec pls;
     Creature *tgtCreature; // offset=41
@@ -546,7 +355,7 @@ class StudyCreatureScan : RangeScanner { // sizeof=53
     class StudyCreatureScan * StudyCreatureScan(class StudyCreatureScan *arg1);
     void PerGrid();
     class StudyCreatureScan * StudyCreatureScan(PlSpec arg1);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     ULONG bestRange;
     PlSpec scientist;
     Creature *tgtCreature; // offset=41
@@ -556,7 +365,7 @@ class HealCreatureScan : RangeScanner { // sizeof=53
     class HealCreatureScan * HealCreatureScan(class HealCreatureScan *arg1);
     void PerGrid();
     class HealCreatureScan * HealCreatureScan(PlSpec arg1);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     ULONG bestRange;
     PlSpec scientist;
     Creature *tgtCreature; // offset=41
@@ -571,127 +380,8 @@ class PlSpecLoader { // sizeof=80
     SBYTE counters[3][3];
 };
 
-typedef class HarvestClearScan HarvestClearScan;
 
-typedef class SurvivalScan SurvivalScan;
-
-typedef class StudyCreatureScan StudyCreatureScan;
-
-typedef class HealCreatureScan HealCreatureScan;
-
-typedef class LumberjackScan LumberjackScan;
-
-typedef class FarmerPlantingScan FarmerPlantingScan;
-
-near WeightedRangeScanner::WeightedRangeScanner( XY &, long unsigned );
-char unsigned SoundManager::__defarg();
-char unsigned SoundManager::__defarg();
-char unsigned SoundManager::__defarg();
-long unsigned SoundManager::__defarg();
-char unsigned SoundManager::IsNarratorSpeaking();
-char unsigned MovingThing::IsMoving();
-void SmartMovingThing::ClearIgnoreClutter();
-void SmartMovingThing::SetIgnoreClutter();
-char unsigned Creature::IsDraggingStuff();
-void Creature::ClearDraggingStuff();
-void Building::SetUpgradeOK();
-void Building::ClearUpgradeOK();
-void Building::SetBeingWrecked();
-void Building::ClearBeingWrecked();
-long PlSpec::ScientistStudyRange();
-long PlSpec::ScientistHealRange();
-long PlSpec::ArchitectPelletCost();
-void Effect::PackSpec( Specialist & );
-void TopoGrid::Invalidate();
-char unsigned TopoGrid::Valid();
-char unsigned TopoMorpher::TopoGridIDX( TopoGrid * );
-char unsigned TopoMorpher::IsTopoGridValid( char unsigned );
-void TopoMorpher::AbortTopoGrid( char unsigned );
 short WeightedAngle( char unsigned );
-long Creature::UseEnergy( long );
-near LumberjackScan::LumberjackScan( PlSpec & );
-void LumberjackScan::PerGrid();
-near HarvestClearScan::HarvestClearScan( PlSpec &, char unsigned, char unsigned );
-void HarvestClearScan::PerGrid();
-void HarvestClearScan::Do();
-near FarmerPlantingScan::FarmerPlantingScan( PlSpec &, char unsigned );
-void FarmerPlantingScan::PerGrid();
-near SurvivalScan::SurvivalScan( PlSpec &, long unsigned );
-void SurvivalScan::PerGrid();
-near StudyCreatureScan::StudyCreatureScan( PlSpec & );
-void StudyCreatureScan::PerGrid();
-near HealCreatureScan::HealCreatureScan( PlSpec & );
-void HealCreatureScan::PerGrid();
-MyAnimBank * PlSpecLoader::Load( PlayerRace, SpecialistClass );
-char unsigned PlSpecLoader::Load( PlSpec * );
-void PlSpecLoader::Free( PlayerRace, SpecialistClass, MyAnimBank * );
-void PlSpec::SetWaiting();
-void PlSpec::SetAltSpecialFlipToThing( Thing * );
-void PlSpec::SetupMoveToSpecialTgt( XY );
-void PlSpec::SetupMoveToThing( Thing * );
-void PlSpec::SetupMoveAwayFromThing( Thing * );
-void PlSpec::SetupMoveToInsideBuilding( Building *, XY );
-GunSpec & PlSpec::GetGunSpec( char unsigned );
-void PlSpecLoader::Free( PlSpec * );
-char * Specialist::Name( char * );
-void PlSpec::Speech( long unsigned, BufferSubmitMode );
-void PlSpec::Init( char unsigned, char unsigned );
-char unsigned PlSpec::Damage( long, Thing * );
-char unsigned PlSpec::IsFoundationSiteOK( BuilderIFC &, char unsigned & );
-char signed PlSpec::ActionOn( Thing *, char unsigned, char unsigned, char unsigned );
-void PlSpec::BeginSpecial();
-short PlSpec::MaxMoveSpeed();
-void PlSpec::StartAction( char unsigned, long unsigned, long unsigned );
-void PlSpec::Discover();
-void PlSpec::BeginMove( char signed );
-void PlSpec::GetAbducted( Ethereal * );
-void PlSpec::AbortSpecial( char unsigned );
-void PlSpec::StartAMove( XY );
-void PlSpec::SetTarget( char unsigned );
-void PlSpec::BuilderSetDemoCharges( char signed );
-void PlSpec::InitiateMove();
-char unsigned PlSpec::DoMove( char unsigned );
-void PlSpec::DoWaiting();
-void PlSpec::DoAbduct();
-void PlSpec::DoLiftoff();
-void PlSpec::DoBuilder();
-void PlSpec::ShootAtMovingThing( MovingThing *, long unsigned, char unsigned );
-void PlSpec::StartLumberjackChopping( Plant * );
-void PlSpec::CowboyRanging( MovingThing *, long unsigned );
-void PlSpec::DoCowboy();
-void PlSpec::DoScientist();
-void PlSpec::DoGeologist();
-XY PlSpec::GetXYToChopTreeDown( Plant * );
-void PlSpec::DoNewFarmer();
-void PlSpec::DoLumberjack();
-void PlSpec::DoFarmer();
-void PlSpec::ReleaseShepherdedCreatures();
-void PlSpec::DoNewShepherd();
-void PlSpec::DoShepherd();
-void PlSpec::Resync();
-void PlSpec::InitArray();
-void PlSpec::SetDrawFlags();
-void PlSpec::DrawOnMap( short, short );
-void PlSpec::Read( long & );
-void PlSpec::Write( long & );
-long PlSpec::ReadBuffer( PlSpec * *, long, long, BioGame & );
-long PlSpec::WriteBuffer( PlSpec * *, long, long, BioGame & );
-char unsigned PlSpec::CanAbortSpecialWithMove();
-char unsigned PlSpec::CanDoSpecialWithMove();
-void PlSpec::DoAnySpecialWhileMoving();
-void PlSpec::DoActionActiveDuringNewMove();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-extern void (near * const __vftbl[])();
-void PlSpec::RemoveFromGame();
-void PlSpec::RemoveRefsFromCreatures();
-char unsigned PlSpec::Update();
-void PlSpec::UpdateAll();
-char unsigned PlSpec::operator ==( PlSpec * );
 
 #endif // BIO_SPEC_HPP_
 /******************************************************************************/

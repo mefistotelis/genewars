@@ -1107,18 +1107,6 @@ enum { // type=int8_t
 
 
 
-enum TbErrorLogFlag { // type=int8_t
-    Lb_ERROR_LOG_APPEND = 0,
-    Lb_ERROR_LOG_NEW,
-};
-
-typedef enum TbErrorLogFlag TbErrorLogFlag;
-
-enum TbPaletteFadeFlag { // type=int8_t
-    Lb_PALETTE_FADE_OPEN = 0,
-    Lb_PALETTE_FADE_CLOSED,
-};
-
 enum { // type=int16_t
     INTR_OF = 0,
     INTR_DF,
@@ -1215,28 +1203,14 @@ class GunSpec { // sizeof=7
 
 
 
-struct __4qsnj8DIG_MODE { // sizeof=14
-    UWORD minimum_physical_sample_rate; // offset=0
-    UWORD nominal_physical_sample_rate; // offset=2
-    UWORD maximum_physical_sample_rate; // offset=4
-    UWORD minimum_DMA_half_buffer_size; // offset=6
-    UWORD maximum_DMA_half_buffer_size; // offset=8
-    ULONG flags; // offset=10
-};
 
-typedef struct __4qsnj8DIG_MODE DIG_MODE;
-
-struct __1th3moDIG_DDT { // sizeof=240
-    UBYTE format_supported[15]; // offset=0
-    DIG_MODE format_data[15]; // offset=16
-};
 
 
 class EtherealTargetScan : RangeScanner { // sizeof=118
     class EtherealTargetScan * EtherealTargetScan(class EtherealTargetScan *arg1);
     void PerGrid();
     class EtherealTargetScan * EtherealTargetScan(Ethereal arg1, ULONG arg2);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     ULONG bestRanges[8];
     Ethereal saucer;
     Thing *tgtThings[8]; // offset=41
@@ -1251,133 +1225,6 @@ struct PolyPoint { // sizeof=20
     SLONG S; // offset=16
 };
 
-typedef class EtherealTargetScan EtherealTargetScan;
-
-near RangeScan::RangeScan( XY &, long unsigned, char unsigned );
-near RangeScanner::RangeScanner( XY &, long unsigned );
-char unsigned SoundManager::__defarg();
-char unsigned SoundManager::__defarg();
-char unsigned SoundManager::__defarg();
-long unsigned SoundManager::__defarg();
-char unsigned SoundManager::__defarg();
-BufferSubmitMode SoundManager::__defarg();
-char unsigned SoundManager::__defarg();
-char unsigned SoundManager::__defarg();
-char unsigned SoundManager::__defarg();
-long unsigned SoundManager::__defarg();
-char unsigned SoundManager::__defarg();
-char unsigned Thing::__defarg();
-long unsigned Thing::__defarg();
-char unsigned Thing::__defarg();
-char unsigned Thing::Valid();
-void Thing::Invalidate();
-long unsigned Thing::TrueRangeTo( Thing * );
-long unsigned Thing::SquareRangeTo( Thing * );
-void MovingThing::ChangeMove( Vector const & );
-char unsigned SmartMovingThing::IsMovingToAlt();
-void SmartMovingThing::ClearAvoidActive();
-void SmartMovingThing::ClearAvoidLooping();
-void SmartMovingThing::SetRescanPath();
-void SmartMovingThing::SetMoveToTgt( XY );
-void SmartMovingThing::SetMoveToThing( Thing * );
-void SmartMovingThing::SetMoveToAlt( long );
-char unsigned Building::IsBuilt();
-char unsigned Building::IsDisabled();
-char unsigned Building::IsObservable();
-short unsigned Effect::__defarg();
-char unsigned Effect::__defarg();
-char signed Effect::__defarg();
-Thing * Effect::__defarg();
-void Ethereal::SetMoveToTgtWithAlt( XY, long );
-void Ethereal::SetMoveToThingWithAlt( Thing *, long );
-char unsigned EtherealZone::IsActive();
-char unsigned EtherealZone::IsExhausted();
-void MainInterfacePad::__vfthunk( Thing * );
-char unsigned MainInterfacePad::__vfthunk( short );
-void MainInterfacePad::__vfthunk( char signed );
-void MainInterfacePad::__vfthunk();
-void MainInterfacePad::__vfthunk( Thing * );
-char unsigned MainInterfacePad::__vfthunk( short );
-void MainInterfacePad::__vfthunk( char signed );
-void MainInterfacePad::__vfthunk();
-void MainInterfacePad::__vfthunk();
-void MainInterfacePad::__vfthunk( Thing * );
-char unsigned MainInterfacePad::__vfthunk( short );
-void MainInterfacePad::__vfthunk( char signed );
-void MainInterfacePad::__vfthunk();
-void MainInterfacePad::__vfthunk( Thing * );
-char unsigned MainInterfacePad::__vfthunk( short );
-void MainInterfacePad::__vfthunk( char signed );
-void MainInterfacePad::__vfthunk();
-void MainInterfacePad::__vfthunk();
-void MainInterfacePad::__vfthunk( Thing * );
-char unsigned MainInterfacePad::__vfthunk( short );
-void MainInterfacePad::__vfthunk( char signed );
-void MainInterfacePad::__vfthunk();
-void MainInterfacePad::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-void IFCBase::__vfthunk();
-char unsigned Thing::TToggle();
-Player & Thing::Player();
-char * Config::InstalledFile( char * );
-near EtherealTargetScan::EtherealTargetScan( Ethereal &, long unsigned );
-void EtherealTargetScan::PerGrid();
-void Ethereal::InitArray();
-void Ethereal::Resync();
-void Ethereal::Read( long & );
-void Ethereal::Write( long & );
-long Ethereal::ReadBuffer( Ethereal * *, long, long, BioGame & );
-long Ethereal::WriteBuffer( Ethereal * *, long, long, BioGame & );
-void Ethereal::DrawBeam( long, long, long );
-Ethereal * Ethereal::Create( EtherealType, XY, long, char unsigned );
-void Ethereal::Free();
-void Ethereal::DrawDeathRay( DeathRayType, long, long, long, long, long, long, long );
-void Ethereal::DrawOnMap( short, short );
-char unsigned Ethereal::Damage( long, Thing * );
-void Ethereal::AbsolveBad();
-EtherealPunishment Ethereal::SelectPunishment();
-void Ethereal::PunishPotshots();
-void Ethereal::PunishBuildings();
-void Ethereal::PunishAbduct();
-void Ethereal::UpdateSaucer();
-void Ethereal::UpdatePutt();
-void Ethereal::TurnToDesiredAngle();
-long Ethereal::SquareTrueRangeToWhereGoingTo();
-void Ethereal::VectorToWhereGoingTo( Vector & );
-char unsigned Ethereal::GetNextPuttTarget();
-void Ethereal::PuttAroundPoint( XY, long );
-extern void (near * const __vftbl[])();
-extern int unsigned const __vbtbl[];
-extern int unsigned const __vbtbl[];
-extern int unsigned const __vbtbl[];
-extern int unsigned const __vbtbl[];
-extern int unsigned const __vbtbl[];
-extern int unsigned const __vbtbl[];
-extern int unsigned const __vbtbl[];
-extern int unsigned const __vbtbl[];
-extern int unsigned const __vbtbl[];
-extern int unsigned const __vbtbl[];
-char unsigned Ethereal::Update();
-void Ethereal::UpdateAll();
-extern void (near * const __vftbl[])();
 
 #endif // BIO_ETHEREAL_HPP_
 /******************************************************************************/

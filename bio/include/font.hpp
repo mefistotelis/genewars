@@ -47,30 +47,17 @@ typedef class XY XY;
 
 typedef class Player Player;
 
-struct TbSprite { // sizeof=6
-    SBYTE *Data; // offset=0
-    UBYTE SWidth; // offset=4
-    UBYTE SHeight; // offset=5
-};
-
-typedef struct TbSprite TbSprite;
-
-
 struct FontKernData { // sizeof=225
     UBYTE KernedCount; // offset=0
     UBYTE CharactersKerned[223]; // offset=1
     SBYTE Kern[255]; // offset=225
 };
 
-typedef struct FontKernData FontKernData;
-
 struct Colour { // sizeof=3
     UBYTE Red; // offset=0
     UBYTE Green; // offset=1
     UBYTE Blue; // offset=2
 };
-
-typedef struct Colour Colour;
 
 struct FontInfo { // sizeof=28
     TbSprite *SpaceSprite; // offset=0
