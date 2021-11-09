@@ -19,45 +19,10 @@
 #ifndef BIO_PLAYER_HPP_
 #define BIO_PLAYER_HPP_
 
-enum PlayerRace { // type=int8_t
-    RACE_HUMAN = 0,
-    RACE_SAURIAN,
-    RACE_BOHEMIAN,
-    RACE_SCHNOZZOID,
-    MAX_PLAYER_RACE,
-};
+#include "bftypes.h"
+#include "xy.hpp"
 
-enum SpecialistClass { // type=int8_t
-    CLASS_ARCHITECT = 0,
-    CLASS_FARMER,
-    CLASS_SCIENTIST,
-    CLASS_SHEPHERD,
-    MAX_SPEC_CLASS,
-};
-
-class Specialist { // sizeof=36
-public:
-    void ClearPlanetside();
-    void SetPlanetside();
-    BBOOL IsPlanetside();
-    void ClearOnTeam();
-    void SetOnTeam();
-    BBOOL IsOnTeam();
-    char * Name(char *arg1);
-    void Invalidate();
-    BBOOL Valid();
-    char name[19]; // offset=0
-    UBYTE sex; // offset=20
-    PlayerRace race; // offset=21
-    SpecialistClass specClass; // offset=22
-    SBYTE ability; // offset=23
-    SBYTE resolve; // offset=24
-    SBYTE strength; // offset=25
-    SBYTE currentStrength; // offset=26
-    SBYTE currentResolve; // offset=27
-    ULONG landings; // offset=28
-    ULONG flags; // offset=32
-};
+class Packet;
 
 class Player { // sizeof=233
     class Player * operator=(class Player *arg1);

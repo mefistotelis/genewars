@@ -19,33 +19,6 @@
 #ifndef BIO_TITLE_HPP_
 #define BIO_TITLE_HPP_
 
-class Specialist { // sizeof=36
-    class Specialist * operator=(class Specialist *arg1);
-    void ClearPlanetside();
-    void SetPlanetside();
-    BBOOL IsPlanetside();
-    void ClearOnTeam();
-    void SetOnTeam();
-    BBOOL IsOnTeam();
-    char * Name(char *arg1);
-    void Invalidate();
-    BBOOL Valid();
-    char name[19]; // offset=0
-    UBYTE sex; // offset=20
-    PlayerRace race; // offset=21
-    SpecialistClass specClass; // offset=22
-    SBYTE ability; // offset=23
-    SBYTE resolve; // offset=24
-    SBYTE strength; // offset=25
-    SBYTE currentStrength; // offset=26
-    SBYTE currentResolve; // offset=27
-    ULONG landings; // offset=28
-    ULONG flags; // offset=32
-};
-
-typedef class Specialist Specialist;
-
-typedef class Player Player;
 
 
 struct __1td29bmSpr { // sizeof=12

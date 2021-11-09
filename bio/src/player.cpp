@@ -53,59 +53,9 @@ void PlSpec::SetupMoveToTgt( XY )
 // code at 0001:000529cc
 }
 
-void TheShip::Reset()
+void Player::Invalidate()
 {
-// code at 0001:0004f6d8
-}
-
-char unsigned TheShip::CallRocketDown( Player & )
-{
-// code at 0001:0004f719
-}
-
-char unsigned TheShip::CallRocketDown( Building * )
-{
-// code at 0001:0004f7f5
-}
-
-void TheShip::ClearCrew()
-{
-// code at 0001:0004f8d5
-}
-
-void TheShip::MakeInitialCrew( char unsigned )
-{
-// code at 0001:0004f918
-}
-
-void TheShip::GetMoreSpecialists( PlayerRace, int )
-{
-// code at 0001:0004f9e4
-}
-
-void TheShip::MakeNewSpecialist( Specialist &, PlayerRace, SpecialistClass, char unsigned )
-{
-// code at 0001:0004fc57
-}
-
-int TheShip::SpecsInTeamBelongingToRace( PlayerRace )
-{
-// code at 0001:00050255
-}
-
-char unsigned TheShip::AddASpecialist( Specialist & )
-{
-// code at 0001:000502c0
-}
-
-void TheShip::RemoveASpecialist( short )
-{
-// code at 0001:00050325
-}
-
-Specialist * * TheShip::CrewClassList( char unsigned, char unsigned & )
-{
-// code at 0001:000503a4
+// code at 0001:0006008c
 }
 
 void Player::DefaultTeam()

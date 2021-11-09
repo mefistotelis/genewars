@@ -1,8 +1,8 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file packets.cpp
- *     Implementation of related functions.
+/** @file playerstat.hpp
+ *     Player related defines and structures.
  * @par Purpose:
  *     Unknown.
  * @par Comment:
@@ -16,17 +16,18 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "packets.hpp"
+#ifndef BIO_PLAYERSTAT_HPP_
+#define BIO_PLAYERSTAT_HPP_
 
-void process_packets()
-{
-// code at 0001:0005f818
-}
+#include "bftypes.h"
 
-void Packet::ExchangeDataBlast( void *, long unsigned, char unsigned )
-{
-// code at 0001:0005fffa
-}
+enum PlayerRace { // type=int8_t
+    RACE_HUMAN = 0,
+    RACE_SAURIAN,
+    RACE_BOHEMIAN,
+    RACE_SCHNOZZOID,
+    MAX_PLAYER_RACE,
+};
 
-
+#endif // BIO_PLAYERSTAT_HPP_
 /******************************************************************************/

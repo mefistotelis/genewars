@@ -133,16 +133,6 @@ char unsigned MapDisplay::IsGlassBuildings()
 // code at 0001:00040614
 }
 
-void TheShip::RocketToOrbit()
-{
-// code at 0001:00049340
-}
-
-void TheShip::Update()
-{
-// code at 0001:000405e4
-}
-
 char unsigned ResearchGrid::AddToAGrid( CreatureSpecies, long )
 {
 // code at 0001:00040564

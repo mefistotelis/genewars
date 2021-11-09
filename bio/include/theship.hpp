@@ -21,25 +21,28 @@
 
 #include "bftypes.h"
 #include "thingidx.hpp"
+#include "spec.hpp"
+#include "playerstat.hpp"
 
-class Specialist;
+class Building;
+class Player;
 
 class TheShip { // sizeof=140
 public:
-    class TheShip * operator=(class TheShip *arg1);
+    TheShip & operator=(TheShip const &ship1);
     int SpecsInTeamBelongingToRace(PlayerRace arg1);
-    void GetMoreSpecialists(PlayerRace arg1);
-    void MakeNewSpecialist(Specialist *arg1, PlayerRace arg2, SpecialistClass arg3, UBYTE arg4);
+    void GetMoreSpecialists(PlayerRace arg1, int); // not sure if 2nd arg exists
+    void MakeNewSpecialist(Specialist &spcl, PlayerRace arg2, SpecialistClass arg3, UBYTE arg4);
     void MakeInitialCrew(UBYTE arg1);
     void ClearCrew();
     void RocketToOrbit();
     SLONG RocketReadyInTMinus();
     void Update();
     BBOOL CallRocketDown(Building *arg1);
-    BBOOL CallRocketDown(Player *arg1);
-    Specialist ** CrewClassList(UBYTE arg1, UBYTE *arg2);
+    BBOOL CallRocketDown(Player &arg1);
+    Specialist ** CrewClassList(UBYTE arg1, UBYTE &arg2);
     void RemoveASpecialist(SWORD arg1);
-    BBOOL AddASpecialist(Specialist *arg1);
+    BBOOL AddASpecialist(Specialist &arg1);
     void Reset();
     UBYTE numCrew; // offset=0
     Specialist crew[31]; // offset=1

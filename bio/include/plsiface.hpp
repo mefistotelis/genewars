@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file specifc.hpp
+/** @file plsiface.hpp
  *     Specialist interface.
  * @par Purpose:
  *     Unknown.
@@ -16,8 +16,8 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#ifndef BIO_SPECIFC_HPP_
-#define BIO_SPECIFC_HPP_
+#ifndef BIO_PLSIFACE_HPP_
+#define BIO_PLSIFACE_HPP_
 
 #include "bftypes.h"
 #include "xy.hpp"
@@ -74,5 +74,5 @@ class PLSInterface { // sizeof=22
     SBYTE go; // offset=8
 };
 
-#endif // BIO_SPECIFC_HPP_
+#endif // BIO_PLSIFACE_HPP_
 /******************************************************************************/

@@ -43,11 +43,6 @@ char unsigned PlSpec::IsBusyDoingSomething()
 // code at 0001:0003752c
 }
 
-long TheShip::RocketReadyInTMinus()
-{
-// code at 0001:000374e0
-}
-
 near CompDebug::CompDebug()
 {
 // code at 0001:000374ac

@@ -158,11 +158,6 @@ Player & Player::operator =( Player const & )
 // code at 0001:0004e1c8
 }
 
-TheShip & TheShip::operator =( TheShip const & )
-{
-// code at 0001:0004e13c
-}
-
 void IFCStatScreen::PullOut()
 {
 // code at 0001:0004dfeb

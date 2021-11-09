@@ -23,6 +23,24 @@
 #include "xy.hpp"
 #include "stuff.hpp"
 
+enum { // type=int8_t
+    PLANET_TYPE_JUNGLE = 0,
+    PLANET_TYPE_DESERT,
+    PLANET_TYPE_ARTIC,
+    PLANET_TYPE_BARREN,
+    PLANET_TYPE_WASTELAND,
+    PLANET_TYPE_TEMPERATE, // 5
+    PLANET_TYPE_SUN,
+    PLANET_TYPE_GAS_GIANT,
+    PLANET_TYPE_MOON_1,
+    PLANET_TYPE_MOON_2,
+    PLANET_TYPE_ASTEROID_1, // 10
+    PLANET_TYPE_ASTEROID_2,
+    PLANET_TYPE_ASTEROID_3,
+    PLANET_TYPE_ASTEROID_4,
+    PLANET_TYPE_POINT,
+};
+
 class Planet { // sizeof=127
     char * GetMissionBriefingString(char *arg1, UBYTE arg2);
     BBOOL AllComputersStarted();
