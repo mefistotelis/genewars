@@ -43,6 +43,7 @@ enum { // type=int8_t
 };
 
 class Planet { // sizeof=127
+public:
     char * GetMissionBriefingString(char *arg1, UBYTE arg2);
     BBOOL AllComputersStarted();
     void PlaceStuff(Stuff *arg1);

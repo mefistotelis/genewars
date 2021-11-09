@@ -25,13 +25,6 @@ enum TeamCircleMode { // type=int8_t
     TC_NORMAL,
 };
 
-enum PaletteSelectorMode { // type=int8_t
-    PSM_BUILDINGS = 0,
-    PSM_PLANTS,
-    PSM_SHEPHERD,
-    MAX_PSM,
-};
-
 class TurnPrintInfo { // sizeof=110
     BBOOL Print();
     char *drawCurrent;

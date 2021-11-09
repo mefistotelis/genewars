@@ -18,11 +18,6 @@
 /******************************************************************************/
 #include "iface.hpp"
 
-void Packet::SetPacket( char unsigned, short, short, short )
-{
-// code at 0001:000262ec
-}
-
 char unsigned PlSpec::IsFullyCloaked()
 {
 // code at 0001:00026090

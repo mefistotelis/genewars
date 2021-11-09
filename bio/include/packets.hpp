@@ -19,7 +19,11 @@
 #ifndef BIO_PACKETS_HPP_
 #define BIO_PACKETS_HPP_
 
+#include "bftypes.h"
+#include "paletsel.hpp"
+
 class Packet { // sizeof=19
+public:
     void SetPacketDataBlast(void *arg1);
     void SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3, SWORD arg4, SWORD arg5, SWORD arg6);
     void SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3, SWORD arg4, SWORD arg5);
@@ -27,7 +31,7 @@ class Packet { // sizeof=19
     void SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3);
     void SetPacket(UBYTE arg1, SWORD arg2);
     void SetPacket(UBYTE arg1);
-    void ExchangeDataBlast(void *arg1, ULONG arg2, UBYTE arg3, uint8_t arg4, PaletteSelectorMode arg5);
+    void ExchangeDataBlast(void *arg1, ULONG arg2, UBYTE arg3, uint8_t arg4, PaletteSelectorMode arg5); // last 2 args uncertain
     void *dataBlast;
     SWORD X; // offset=0
     SWORD Y; // offset=2

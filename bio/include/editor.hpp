@@ -41,15 +41,6 @@ enum ConfigLanguage { // type=int8_t
 
 typedef enum ConfigLanguage ConfigLanguage;
 
-enum ConfigInstall { // type=int8_t
-    CFI_INTRO = 0,
-    CFI_ANIMS,
-    CFI_SOUNDS,
-    CFI_LEVELS,
-    CFI_DATA,
-    MAX_CFI, // 5
-};
-
 typedef enum ConfigInstall ConfigInstall;
 
 typedef class Player Player;
@@ -262,69 +253,8 @@ struct __iobuf { // sizeof=26
 
 typedef struct __iobuf FILE;
 
-char unsigned Stuff::IsEZone();
-char unsigned Planet::__defarg();
-char unsigned Planet::__defarg();
-void HelpDraw::SetColors( char unsigned, char unsigned, char unsigned, char unsigned );
-char unsigned FlatMap::__defarg();
-char unsigned FlatMap::__defarg();
-char unsigned FlatMap::__defarg();
-void FlatMap::FreeMe();
-void FlatMap::Draw( char unsigned );
-void IFCBase::NewInterface( IFCBase & );
-char unsigned BioGame::__defarg();
-char unsigned BioGame::__defarg();
-char signed BioGame::__defarg();
-Player * BioGame::__defarg();
-long ScreenLockHandler::NestLock();
-long ScreenLockHandler::NestUnlock();
-long ScreenLockHandler::UnlockForSwap();
-long ScreenLockHandler::LockForSwap();
-void Config::SetToCDROM();
-void Config::SetToInstallDrive();
-void Config::CDToSegment( ConfigInstall );
-char unsigned TextEntry::IsActive();
-char unsigned TextEntry::PressedReturn();
-char unsigned TextEntry::PressedEscape();
-void IFCEditor::PlugIn();
-void IFCEditor::PullOut();
-void IFCEditor::Update();
-void IFCEditor::Draw();
-void IFCEditor::DrawDropSites();
-void IFCEditor::DrawLimits();
-void IFCEditor::DrawKeyboardHelp();
-void IFCEditor::ReadCompPlayer( char unsigned, char unsigned );
-void IFCEditor::RemoveStuff();
-void IFCEditor::FindClosestStuff();
-void IFCEditor::DrawStuff();
-void IFCEditor::DrawBuilding( XY, char unsigned, char unsigned );
-char unsigned IFCEditor::IsMouseOnMap();
-char unsigned IFCEditor::IsCircular( char unsigned );
-int IFCEditor::TotalNumberOfSpecs();
-VictoryCondition IFCEditor::FindVictoryCondition( char unsigned & );
-SpecialistClass IFCEditor::FindSpecialistClass( char unsigned & );
-int IFCEditor::FindSpecFunctionNumber( char unsigned & );
-void IFCEditor::VictoryHelp( MyGadget * );
-void IFCEditor::SpecialistTypeHelp( MyGadget * );
-void IFCEditor::SpecialistFuncHelp( MyGadget * );
-void IFCEditor::SaveLevel();
-char unsigned IFCEditor::SaveMap();
-char unsigned IFCEditor::LoadMap();
-void IFCEditor::LoadLevel();
-void IFCEditor::UpdateHeader( LevelHeader * );
-void IFCEditor::GoPlanet();
-void IFCEditor::UpdateLevel( LevelHeader * );
-void IFCEditor::TranslateAllHeaders();
-void IFCEditor::PrintHeadersToFile();
-void IFCEditor::UpdateAllLevels();
-char unsigned LevelHeader::SaveHeader( char unsigned, char unsigned );
 extern char * victCondTypes[];
 extern char * specFuncTxt[][7];
-void LevelHeader::TranslatePlanet();
-char unsigned LevelHeader::LoadHeader( char unsigned, char unsigned );
-char unsigned TextEntry::EnterText();
-void TextEntry::SetupText( char *, char unsigned, char unsigned );
-near TextEntry::TextEntry();
 
 #endif // BIO_EDITOR_HPP_
 /******************************************************************************/

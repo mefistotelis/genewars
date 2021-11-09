@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file packets.cpp
+/** @file paletsel.cpp
  *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
@@ -16,41 +16,7 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "packets.hpp"
+#include "paletsel.hpp"
 
-void process_packets()
-{
-// code at 0001:0005f818
-}
-
-void Packet::ExchangeDataBlast(void *arg1, ULONG arg2, UBYTE arg3, uint8_t arg4, PaletteSelectorMode arg5)
-{
-// code at 0001:0005fffa
-}
-
-void Packet::SetPacket(UBYTE arg1, SWORD arg2)
-{
-// code at 0001:00037a28
-}
-
-void Packet::SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3)
-{
-// code at 0001:000379ec
-}
-
-void Packet::SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3, SWORD arg4)
-{
-// code at 0001:000262ec
-}
-
-void Packet::SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3, SWORD arg4, SWORD arg5)
-{
-// code at 0001:0003799c
-}
-
-void Packet::SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3, SWORD arg4, SWORD arg5, SWORD arg6)
-{
-// code at 0001:00037940
-}
 
 /******************************************************************************/

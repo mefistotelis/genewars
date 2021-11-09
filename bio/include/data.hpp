@@ -727,43 +727,6 @@ class IFCCustom : IFCBase { // sizeof=192
 
 typedef class IFCCustom IFCCustom;
 
-class PaletteSelector { // sizeof=81
-    class PaletteSelector * PaletteSelector(class PaletteSelector *arg1);
-    void RestoreSelectFilter();
-    void SetSelectFilter(UBYTE arg1);
-    void ClearSelect();
-    BBOOL IsSelectActive();
-    void SlideClose();
-    void SlideOpen();
-    SBYTE GetSelected();
-    void UnlockPalette();
-    void LockPalette();
-    void Draw();
-    BBOOL Update(SWORD arg1);
-    void CreateShepherdMenu();
-    void CreatePlantMenu();
-    void CreateBuildingMenu();
-    void Close();
-    void Create(Thing *arg1);
-    void Init();
-    class PaletteSelector * PaletteSelector();
-    uint8_t open;
-    uint8_t closed;
-    uint8_t selectFilterStored;
-    SBYTE slideDelta;
-    SBYTE x;
-    UBYTE saveSelectFilter;
-    UBYTE listSize;
-    UBYTE error[31];
-    UBYTE mapTo[31];
-    SBYTE select[2];
-    UBYTE top[2];
-    BBOOL active;
-    PaletteSelectorMode mode;
-    Thing *activeThing;
-};
-
-typedef class PaletteSelector PaletteSelector;
 
 class IFCStartNetwork : IFCBase { // sizeof=19
     class IFCStartNetwork * IFCStartNetwork(class IFCStartNetwork *arg1);

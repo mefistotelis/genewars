@@ -32,6 +32,7 @@ class PlSpec;
 class Specialist;
 
 class Player { // sizeof=233
+public:
     Player & operator =(Player const &plyr1);
     //Player(class Player *arg1); -- generate default copy constructor
     void pPA_WIN_LEVEL(Packet *pkt);

@@ -18,26 +18,6 @@
 /******************************************************************************/
 #include "computer.hpp"
 
-void Packet::SetPacket( char unsigned, short )
-{
-// code at 0001:00037a28
-}
-
-void Packet::SetPacket( char unsigned, short, short )
-{
-// code at 0001:000379ec
-}
-
-void Packet::SetPacket( char unsigned, short, short, short, short )
-{
-// code at 0001:0003799c
-}
-
-void Packet::SetPacket( char unsigned, short, short, short, short, short )
-{
-// code at 0001:00037940
-}
-
 char unsigned PlSpec::IsBusyDoingSomething()
 {
 // code at 0001:0003752c

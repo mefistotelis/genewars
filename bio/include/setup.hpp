@@ -19,6 +19,15 @@
 #ifndef BIO_SETUP_HPP_
 #define BIO_SETUP_HPP_
 
+enum ConfigInstall { // type=int8_t
+    CFI_INTRO = 0,
+    CFI_ANIMS,
+    CFI_SOUNDS,
+    CFI_LEVELS,
+    CFI_DATA,
+    MAX_CFI, // 5
+};
+
 struct AudioInitOptions { // sizeof=30
     CBYTE *IniPath; // offset=0
     CBYTE *SoundDriverPath; // offset=4
@@ -56,8 +65,6 @@ class Config { // sizeof=184
     ConfigLanguage language; // offset=0
     SoundConfig sound; // offset=1
 };
-
-
 
 void start_game();
 void setup_game();

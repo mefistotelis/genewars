@@ -64,8 +64,8 @@ obj/misc.o \
 obj/nibble.o \
 obj/optimize.o \
 obj/options.o \
-obj/packets.o \
 obj/pads.o \
+obj/plspec.o \
 \
 obj/setup.o \
 obj/sound.o \
@@ -81,6 +81,7 @@ obj/gridtile.o \
 obj/planet.o \
 obj/thebase.o \
 obj/theship.o \
+obj/packets.o \
 obj/thingidx.o \
 obj/thing.o \
 obj/mvthing.o \
