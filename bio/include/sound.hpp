@@ -20,6 +20,7 @@
 #define BIO_SOUND_HPP_
 
 #include "listsamp.h"
+#include "bffile.h"
 
 enum BufferSubmitMode { // type=int8_t
     BSM_IMMEDIATE = 0,
@@ -49,17 +50,17 @@ class SoundRequest { // sizeof=23
     BBOOL makeSoft; // offset=22
 };
 
+class SpeechFileEntry { // sizeof=8
+    SLONG offset; // offset=0
+    SLONG size; // offset=4
+};
+
 class SpeechFileStatus { // sizeof=8
     BBOOL Valid();
     void Invalidate();
     TbFileHandle handle; // offset=0
     SLONG numSamples; // offset=4
 };
-
-
-typedef class SoundRequest SoundRequest;
-
-typedef class SoundTag SoundTag;
 
 class SampleBufferQueue { // sizeof=94
     void Reset();
@@ -71,12 +72,8 @@ class SampleBufferQueue { // sizeof=94
     SoundRequest req[3];
 };
 
-typedef class SampleBufferQueue SampleBufferQueue;
-
-typedef class SpeechFileStatus SpeechFileStatus;
-
 class SoundManager { // sizeof=159
-    class SoundManager * SoundManager(class SoundManager *arg1);
+    //SoundManager(SoundManager &arg1);
     BBOOL CanSamplePlay(ULONG arg1, SampleID arg2, UBYTE arg3);
     UBYTE ComputePan(XY arg1);
     UBYTE ComputeVolume(XY arg1, UBYTE arg2);
@@ -111,7 +108,7 @@ class SoundManager { // sizeof=159
     void ChangeAmbientVolume(UBYTE arg1);
     void SilenceAmbientSample();
     void ChangeAmbientSample(SampleID arg1);
-    class SoundManager * SoundManager(XY arg1);
+    SoundManager(XY arg1);
     SpeechFileStatus speech[17];
     UBYTE playingCDTrack;
     BBOOL narratorSpeaking;
@@ -127,50 +124,6 @@ class SoundManager { // sizeof=159
     SoundRequest requests[8];
     XY origin;
 };
-
-class SpeechFileEntry { // sizeof=8
-    SLONG offset; // offset=0
-    SLONG size; // offset=4
-};
-
-typedef class SpeechFileEntry SpeechFileEntry;
-
-char unsigned SoundTag::IsNewSample();
-void SoundTag::SetNewSample();
-void SoundRequest::Invalidate();
-char unsigned SoundRequest::Valid();
-void SpeechFileStatus::Invalidate();
-char unsigned SpeechFileStatus::Valid();
-char unsigned MapDisplay::IsExploredTerrainInView();
-char unsigned IFCBase::IsCurrent();
-void SoundManager::StopSpeech();
-void SoundManager::FreeRequest( SoundRequest * );
-near SoundManager::SoundManager( XY & );
-void SoundManager::PlayCDTrack( char unsigned );
-void SoundManager::StopCD();
-void SoundManager::StartSpeech( SoundRequest * );
-void SoundManager::CloseAllSpeech();
-void SoundManager::KillAllSounds();
-void SoundManager::StopSound( char unsigned, SampleID );
-SampleInfo * SoundManager::GetSampleInfo( long unsigned, SampleID );
-SoundRequest * SoundManager::GetSoundReq( long unsigned, SampleID );
-SoundRequest * SoundManager::GetSoundReq( Thing *, SoundRequest *, char unsigned );
-void SoundManager::RegisterFreedThing( Thing * );
-void SoundManager::ChangeAmbientSample( SampleID );
-void SoundManager::SilenceAmbientSample();
-void SoundManager::ChangeAmbientVolume( char unsigned );
-char unsigned SoundManager::ComputeVolume( XY, char unsigned );
-char unsigned SoundManager::ComputePan( XY );
-void SoundManager::ProcessSounds();
-void SoundManager::SubmitSoundRequest( SoundRequest & );
-char unsigned SoundManager::CanSamplePlay( long unsigned, SampleID, char unsigned );
-void SoundManager::Sound( Thing *, SampleID, char unsigned, char unsigned, char unsigned, long unsigned );
-void SoundManager::Sound( char unsigned, SampleID, char unsigned, char unsigned, char unsigned, long unsigned, char unsigned );
-void SoundManager::Sound( Thing *, char *, BufferSubmitMode, char unsigned, char unsigned, char unsigned, long unsigned );
-void SoundManager::Sound( char unsigned, char *, BufferSubmitMode, char unsigned, char unsigned, char unsigned, long unsigned, char unsigned );
-void SoundManager::SubmitBufferedSound( char *, SoundRequest & );
-char unsigned SampleBufferQueue::Add( char *, SoundRequest & );
-char * SampleBufferQueue::GetNext( SoundRequest & );
 
 #endif // BIO_SOUND_HPP_
 /******************************************************************************/

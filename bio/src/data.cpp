@@ -33,44 +33,11 @@ SoundRequest * SoundManager::GetSoundReq( Thing * )
 // code at 0001:00049ae8
 }
 
-char unsigned PlSpec::IsDead()
-{
-// code at 0001:000494a8
-}
-
-char unsigned PlSpec::IsScreenPointInside( short, short, short, short )
-{
-// code at 0001:00049444
-}
-
-char unsigned PlSpec::IsMovable()
-{
-// code at 0001:00049408
-}
-
 char signed FlickerHandler::Create()
 {
 // code at 0001:00047a17
 }
 
-near PlSpec::PlSpec()
-{
-// code at 0001:00048968
-}
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
 
 near GEngine::GEngine()
 {

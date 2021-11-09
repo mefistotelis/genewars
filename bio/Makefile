@@ -65,7 +65,7 @@ obj/nibble.o \
 obj/optimize.o \
 obj/options.o \
 obj/pads.o \
-obj/plspec.o \
+obj/paletsel.o \
 \
 obj/setup.o \
 obj/sound.o \
@@ -94,6 +94,7 @@ obj/effect.o \
 obj/creature.o \
 obj/research.o \
 obj/player.o \
+obj/plspec.o \
 obj/io.o \
 obj/game.o \
 obj/pchost.o \

@@ -689,18 +689,6 @@ enum { // type=int8_t
     EF_SHADOW_LARGE,
 };
 
-enum PlsError { // type=int8_t
-    PLSERR_NONE = 0,
-    PLSERR_STUCK,
-    PLSERR_TOOTIRED,
-    PLSERR_NOTARGETS,
-    PLSERR_FULL,
-    PLSERR_WATER, // 5
-    PLSERR_CLOSE,
-    PLSERR_TREES,
-    PLSERR_NOSUPPLY,
-};
-
 typedef enum PlsError PlsError;
 
 enum { // type=int8_t

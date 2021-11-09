@@ -18,46 +18,6 @@
 /******************************************************************************/
 #include "pads.hpp"
 
-char unsigned PlSpec::IsActionAbortable()
-{
-// code at 0001:0001d948
-}
-
-char unsigned PlSpec::CanGetOrder()
-{
-// code at 0001:0001d8d8
-}
-
-long PlSpec::ShepherdCatchRange()
-{
-// code at 0001:0001d894
-}
-
-long PlSpec::FarmerPlantingRange()
-{
-// code at 0001:0001d850
-}
-
-long PlSpec::FarmerHarvestRange()
-{
-// code at 0001:0001d80c
-}
-
-long PlSpec::LumberjackFellRange()
-{
-// code at 0001:0001d7c8
-}
-
-long PlSpec::FarmerPackCapacity()
-{
-// code at 0001:0001d7a4
-}
-
-char unsigned PlSpec::GetGun( char unsigned )
-{
-// code at 0001:0001d70c
-}
-
 char unsigned MapDisplay::__defarg()
 {
 // code at 0001:0001d6ec

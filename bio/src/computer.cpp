@@ -18,11 +18,6 @@
 /******************************************************************************/
 #include "computer.hpp"
 
-char unsigned PlSpec::IsBusyDoingSomething()
-{
-// code at 0001:0003752c
-}
-
 near CompDebug::CompDebug()
 {
 // code at 0001:000374ac

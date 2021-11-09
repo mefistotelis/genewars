@@ -23,6 +23,8 @@
 #include "xy.hpp"
 #include "thingidx.hpp"
 #include "plantstat.hpp"
+#include "creaturestat.hpp"
+#include "spec.hpp"
 
 class MyAnimBank;
 

@@ -19,25 +19,52 @@
 #ifndef BIO_PLSPEC_HPP_
 #define BIO_PLSPEC_HPP_
 
+#include "bftypes.h"
+#include "bfdata.h"
+#include "myspr.h"
+#include "xy.hpp"
+#include "plsiface.hpp"
+#include "buildingstat.hpp"
+#include "smvthing.hpp"
+#include "sound.hpp"
+
+class BioGame;
+class GunSpec;
+class Creature;
+class Specialist;
+class BuilderIFC;
+
+enum PlsError { // type=int8_t
+    PLSERR_NONE = 0,
+    PLSERR_STUCK,
+    PLSERR_TOOTIRED,
+    PLSERR_NOTARGETS,
+    PLSERR_FULL,
+    PLSERR_WATER, // 5
+    PLSERR_CLOSE,
+    PLSERR_TREES,
+    PLSERR_NOSUPPLY,
+};
+
 class PlSpec : SmartMovingThing { // sizeof=200
-    class PlSpec * operator=(class PlSpec *arg1);
-    class PlSpec * PlSpec(class PlSpec *arg1);
-    class PlSpec * PlSpec();
-    void SetAltSpecialFlipToThing(Thing *arg1);
+    PlSpec * operator =(PlSpec *arg1);
+    //PlSpec(PlSpec *arg1); -- generate default copy constructor
+    //PlSpec(); -- generate default no-args constructor
+    void SetAltSpecialFlipToThing(::Thing *tng1);
     void SetWaiting();
     void BuilderSetDemoCharges(SBYTE arg1);
     void StartLumberjackChopping(Plant *arg1);
-    GunSpec * GetGunSpec(UBYTE arg1);
+    GunSpec & GetGunSpec(UBYTE arg1);
     void SetupMoveToInsideBuilding(Building *arg1, XY arg2);
-    void SetupMoveAwayFromThing(Thing *arg1);
-    void SetupMoveToThing(Thing *arg1);
+    void SetupMoveAwayFromThing(::Thing *tng1);
+    void SetupMoveToThing(::Thing *tng1);
     void SetupMoveToSpecialTgt(XY arg1);
     void InitiateMove();
     void RemoveRefsFromCreatures();
     void DoActionActiveDuringNewMove();
     void DoAnySpecialWhileMoving();
-    void ShootAtMovingThing(MovingThing *arg1, ULONG arg2, UBYTE arg3);
-    void CowboyRanging(MovingThing *arg1, ULONG arg2);
+    void ShootAtMovingThing(::MovingThing *tng1, ULONG arg2, UBYTE arg3);
+    void CowboyRanging(::MovingThing *tng1, ULONG arg2);
     void ReleaseShepherdedCreatures();
     Creature * CowboyCreatureScan();
     PlSpec * CowboyPlsScan();
@@ -45,10 +72,10 @@ class PlSpec : SmartMovingThing { // sizeof=200
     UWORD SpecialMove(SBYTE arg1);
     void AssignMove(UBYTE arg1);
     SBYTE SpecialToolTest(UBYTE arg1, SBYTE arg2, SBYTE arg3);
-    BBOOL IsFoundationSiteOK(BuilderIFC *arg1, UBYTE *arg2);
-    BBOOL operator==(PlSpec *arg1);
-    SLONG WriteBuffer(PlSpec **arg1, SLONG arg2, SLONG arg3, BioGame *arg4);
-    SLONG ReadBuffer(PlSpec **arg1, SLONG arg2, SLONG arg3, BioGame *arg4);
+    BBOOL IsFoundationSiteOK(BuilderIFC &arg1, UBYTE &arg2);
+    BBOOL operator ==(PlSpec *arg1);
+    SLONG WriteBuffer(PlSpec **arg1, SLONG arg2, SLONG arg3, BioGame &game);
+    SLONG ReadBuffer(PlSpec **arg1, SLONG arg2, SLONG arg3, BioGame &game);
     void UpdateAll();
     void InitArray();
     SLONG ArchitectBuildCost(BuildingType arg1);
@@ -71,7 +98,7 @@ class PlSpec : SmartMovingThing { // sizeof=200
     void SetupMoveToTgt(XY arg1);
     void RemoveFromGame();
     void Speech(ULONG arg1, BufferSubmitMode arg2);
-    SBYTE ActionOn(Thing *arg1, BBOOL arg2, BBOOL arg3, BBOOL arg4);
+    SBYTE ActionOn(::Thing *tng1, BBOOL arg2, BBOOL arg3, BBOOL arg4);
     XY GetXYToChopTreeDown(Plant *arg1);
     BBOOL CanDoSpecialWithMove();
     BBOOL CanAbortSpecialWithMove();
@@ -111,11 +138,11 @@ class PlSpec : SmartMovingThing { // sizeof=200
     void DrawOnMap(SWORD arg1, SWORD arg2);
     SWORD MaxMoveSpeed();
     void Discover();
-    BBOOL Damage(SLONG arg1, Thing *arg2);
+    BBOOL Damage(SLONG arg1, ::Thing *tng2);
     UBYTE Update();
     void Resync();
-    void Write(SLONG *arg1);
-    void Read(SLONG *arg1);
+    void Write(SLONG &arg1);
+    void Read(SLONG &arg1);
     void (**__vfptr)();
     SBYTE mode; // offset=85
     SBYTE saveMode; // offset=86

@@ -18,11 +18,6 @@
 /******************************************************************************/
 #include "iface.hpp"
 
-char unsigned PlSpec::IsFullyCloaked()
-{
-// code at 0001:00026090
-}
-
 char unsigned IsoMapBuffer::__defarg()
 {
 // code at 0001:00026070
@@ -176,11 +171,6 @@ near EtherealScope::EtherealScope()
 void EtherealScope::Init()
 {
 // code at 0001:000256b8
-}
-
-long PlSpec::ArchitectBuildCost( BuildingType )
-{
-// code at 0001:00025470
 }
 
 char unsigned TurnPrintInfo::Print()
