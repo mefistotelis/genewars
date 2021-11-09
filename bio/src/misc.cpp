@@ -538,59 +538,124 @@ near RangeScanner::RangeScanner( XY &, long unsigned )
 // code at 0001:00004a74
 }
 
-char unsigned SoundManager::__defarg()
+near WeightedRangeScanner::WeightedRangeScanner( XY &, long unsigned )
 {
-// code at 0001:00004a54
+// code at 0001:00078154
 }
 
-char unsigned SoundManager::__defarg()
+void TopoGrid::Invalidate()
 {
-// code at 0001:00004a34
+// code at 0001:00077df8
 }
 
-char unsigned SoundManager::__defarg()
+char unsigned TopoGrid::Valid()
 {
-// code at 0001:00004a14
+// code at 0001:00077dbc
 }
 
-long unsigned SoundManager::__defarg()
+char unsigned TopoMorpher::TopoGridIDX( TopoGrid * )
 {
-// code at 0001:000049f0
+// code at 0001:00077d8c
 }
 
-char unsigned SoundManager::__defarg()
+char unsigned TopoMorpher::IsTopoGridValid( char unsigned )
 {
-// code at 0001:000049d0
+// code at 0001:00077d58
 }
 
-BufferSubmitMode SoundManager::__defarg()
+void TopoMorpher::AbortTopoGrid( char unsigned )
 {
-// code at 0001:000049b0
+// code at 0001:00077ce8
 }
 
-char unsigned SoundManager::__defarg()
+short WeightedAngle( char unsigned )
 {
-// code at 0001:00004990
+// code at 0001:00077c3c
 }
 
-char unsigned SoundManager::__defarg()
+near LumberjackScan::LumberjackScan( PlSpec & )
 {
-// code at 0001:00004970
+// code at 0001:00077b34
 }
 
-char unsigned SoundManager::__defarg()
+void LumberjackScan::PerGrid()
 {
-// code at 0001:00004950
+// code at 0001:00077aa8
 }
 
-long unsigned SoundManager::__defarg()
+near HarvestClearScan::HarvestClearScan( PlSpec &, char unsigned, char unsigned )
 {
-// code at 0001:0000492c
+// code at 0001:00077a20
 }
 
-char unsigned SoundManager::__defarg()
+void HarvestClearScan::PerGrid()
 {
-// code at 0001:0000490c
+// code at 0001:000778a0
+}
+
+void HarvestClearScan::Do()
+{
+// code at 0001:000777f8
+}
+
+near FarmerPlantingScan::FarmerPlantingScan( PlSpec &, char unsigned )
+{
+// code at 0001:00077624
+}
+
+void FarmerPlantingScan::PerGrid()
+{
+// code at 0001:000774e8
+}
+
+near SurvivalScan::SurvivalScan( PlSpec &, long unsigned )
+{
+// code at 0001:00077488
+}
+
+void SurvivalScan::PerGrid()
+{
+// code at 0001:000773cc
+}
+
+near StudyCreatureScan::StudyCreatureScan( PlSpec & )
+{
+// code at 0001:00077358
+}
+
+void StudyCreatureScan::PerGrid()
+{
+// code at 0001:00077298
+}
+
+near HealCreatureScan::HealCreatureScan( PlSpec & )
+{
+// code at 0001:00077224
+}
+
+void HealCreatureScan::PerGrid()
+{
+// code at 0001:00077158
+}
+
+MyAnimBank * PlSpecLoader::Load( PlayerRace, SpecialistClass )
+{
+// code at 0001:0007000c
+}
+
+char unsigned PlSpecLoader::Load( PlSpec * )
+{
+// code at 0001:00070089
+}
+
+void PlSpecLoader::Free( PlayerRace, SpecialistClass, MyAnimBank * )
+{
+// code at 0001:00070289
+}
+
+void PlSpecLoader::Free( PlSpec * )
+{
+// code at 0001:00070307
 }
 
 

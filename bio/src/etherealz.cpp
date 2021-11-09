@@ -38,27 +38,27 @@ void EtherealZone::Activate()
 // code at 0001:00093774
 }
 
-char unsigned EtherealZone::IsActive()
+BBOOL EtherealZone::IsActive()
 {
 // code at 0001:000043b4
 }
 
-char unsigned EtherealZone::IsExhausted()
+BBOOL EtherealZone::IsExhausted()
 {
 // code at 0001:0000437c
 }
 
-char unsigned EtherealZone::ScoreToPlayer( long, char unsigned, Thing * )
+BBOOL EtherealZone::ScoreToPlayer(SLONG arg1, UBYTE arg2, Thing *tng)
 {
 // code at 0001:00091525
 }
 
-void EtherealZone::ScoreCreatures( CreatureBaseSpecies )
+void EtherealZone::ScoreCreatures(CreatureBaseSpecies arg1)
 {
 // code at 0001:00091666
 }
 
-void EtherealZone::ScorePlants( PlantSpecies )
+void EtherealZone::ScorePlants(PlantSpecies arg1)
 {
 // code at 0001:000919c8
 }
@@ -73,7 +73,7 @@ void EtherealZone::Score()
 // code at 0001:00091f0f
 }
 
-void EtherealZone::Shade( char unsigned )
+void EtherealZone::Shade(BBOOL arg1)
 {
 // code at 0001:00091ffb
 }
@@ -88,12 +88,12 @@ void EtherealZone::FreeEffectMarker()
 // code at 0001:00092368
 }
 
-char unsigned EtherealZoneHandler::IsZonesScoredOut()
+BBOOL EtherealZoneHandler::IsZonesScoredOut()
 {
 // code at 0001:00093730
 }
 
-void EtherealZoneHandler::InitFromPlanet( Planet & )
+void EtherealZoneHandler::InitFromPlanet(Planet &planet)
 {
 // code at 0001:000923d5
 }

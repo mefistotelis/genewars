@@ -24,6 +24,8 @@
 #include "thingidx.hpp"
 #include "smvthing.hpp"
 
+class BioGame;
+
 enum DeathRayType { // type=int8_t
     DRT_WHITE66 = 0,
     DRT_WHITE33,
@@ -63,10 +65,10 @@ enum EtherealType { // type=int8_t
 };
 
 class Ethereal : SmartMovingThing { // sizeof=102
-    Ethereal * operator=(Ethereal *arg1);
+    Ethereal * operator =(Ethereal *arg1);
     //Ethereal(Ethereal *arg1);
     //Ethereal();
-    void SetMoveToThingWithAlt(Thing *arg1, SLONG arg2);
+    void SetMoveToThingWithAlt(::Thing *tng1, SLONG arg2);
     void SetMoveToTgtWithAlt(XY arg1, SLONG arg2);
     void AbsolveBad();
     void PunishAbduct();
@@ -85,7 +87,7 @@ class Ethereal : SmartMovingThing { // sizeof=102
     void InitArray();
     void Free();
     void DrawDeathRay(DeathRayType arg1, SLONG arg2, SLONG arg3, SLONG arg4, SLONG arg5, SLONG arg6, SLONG arg7, SLONG arg8);
-    void VectorToWhereGoingTo(Vector *arg1);
+    void VectorToWhereGoingTo(Vector &arg1);
     SLONG SquareTrueRangeToWhereGoingTo();
     void TurnToDesiredAngle();
     void Discover();
@@ -94,12 +96,12 @@ class Ethereal : SmartMovingThing { // sizeof=102
     BBOOL IsVectorable();
     BBOOL IsFlying();
     BBOOL IsDead();
-    BBOOL Damage(SLONG arg1, Thing *arg2);
+    BBOOL Damage(SLONG arg1, ::Thing *tng2);
     void DrawOnMap(SWORD arg1, SWORD arg2);
     UBYTE Update();
     void Resync();
-    void Write(SLONG *arg1);
-    void Read(SLONG *arg1);
+    void Write(SLONG &arg1);
+    void Read(SLONG &arg1);
     void (**__vfptr)();
     EtherealType type; // offset=85
     EtherealMode mode; // offset=86

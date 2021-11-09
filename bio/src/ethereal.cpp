@@ -43,7 +43,7 @@ short Ethereal::MaxMoveSpeed()
 // code at 0001:0006165c
 }
 
-void Ethereal::StartAMove( XY )
+void Ethereal::StartAMove(XY arg1)
 {
 // code at 0001:00061640
 }
@@ -53,12 +53,12 @@ void Ethereal::Discover()
 // code at 0001:00061624
 }
 
-void Ethereal::SetMoveToTgtWithAlt( XY, long )
+void Ethereal::SetMoveToTgtWithAlt(XY arg1, SLONG arg2)
 {
 // code at 0001:00004424
 }
 
-void Ethereal::SetMoveToThingWithAlt( Thing *, long )
+void Ethereal::SetMoveToThingWithAlt(::Thing *tng1, SLONG arg2)
 {
 // code at 0001:000043ec
 }
@@ -73,32 +73,32 @@ void Ethereal::Resync()
 // code at 0001:00000059
 }
 
-void Ethereal::Read( long & )
+void Ethereal::Read(SLONG &arg1)
 {
 // code at 0001:000000b5
 }
 
-void Ethereal::Write( long & )
+void Ethereal::Write(SLONG &arg1)
 {
 // code at 0001:00000114
 }
 
-long Ethereal::ReadBuffer( Ethereal * *, long, long, BioGame & )
+SLONG Ethereal::ReadBuffer(Ethereal **arg1, SLONG arg2, SLONG arg3, BioGame &game)
 {
 // code at 0001:00000155
 }
 
-long Ethereal::WriteBuffer( Ethereal * *, long, long, BioGame & )
+SLONG Ethereal::WriteBuffer(Ethereal **arg1, SLONG arg2, SLONG arg3, BioGame &game)
 {
 // code at 0001:000001d4
 }
 
-void Ethereal::DrawBeam( long, long, long )
+void Ethereal::DrawBeam(SLONG arg1, SLONG arg2, SLONG arg3)
 {
 // code at 0001:000031b0
 }
 
-Ethereal * Ethereal::Create( EtherealType, XY, long, char unsigned )
+Ethereal * Ethereal::Create(EtherealType arg1, XY arg2, SLONG arg3, UBYTE arg4)
 {
 // code at 0001:00000253
 }
@@ -108,17 +108,17 @@ void Ethereal::Free()
 // code at 0001:00000463
 }
 
-void Ethereal::DrawDeathRay( DeathRayType, long, long, long, long, long, long, long )
+void Ethereal::DrawDeathRay(DeathRayType arg1, SLONG arg2, SLONG arg3, SLONG arg4, SLONG arg5, SLONG arg6, SLONG arg7, SLONG arg8)
 {
 // code at 0001:00000515
 }
 
-void Ethereal::DrawOnMap( short, short )
+void Ethereal::DrawOnMap(SWORD arg1, SWORD arg2)
 {
 // code at 0001:0000099b
 }
 
-char unsigned Ethereal::Damage( long, Thing * )
+BBOOL Ethereal::Damage(SLONG arg1, ::Thing *tng2)
 {
 // code at 0001:00000b09
 }
@@ -163,27 +163,27 @@ void Ethereal::TurnToDesiredAngle()
 // code at 0001:00000b2c
 }
 
-long Ethereal::SquareTrueRangeToWhereGoingTo()
+SLONG Ethereal::SquareTrueRangeToWhereGoingTo()
 {
 // code at 0001:00000bc6
 }
 
-void Ethereal::VectorToWhereGoingTo( Vector & )
+void Ethereal::VectorToWhereGoingTo(Vector &arg1)
 {
 // code at 0001:00000c7e
 }
 
-char unsigned Ethereal::GetNextPuttTarget()
+BBOOL Ethereal::GetNextPuttTarget()
 {
 // code at 0001:00000d2d
 }
 
-void Ethereal::PuttAroundPoint( XY, long )
+void Ethereal::PuttAroundPoint(XY arg1, SLONG arg2)
 {
 // code at 0001:00000f89
 }
 
-char unsigned Ethereal::Update()
+UBYTE Ethereal::Update()
 {
 // code at 0001:00001061
 }

@@ -198,5 +198,85 @@ char * SampleBufferQueue::GetNext( SoundRequest & )
 // code at 0001:0003900d
 }
 
+char unsigned SoundManager::IsNarratorSpeaking()
+{
+// code at 0001:000780a4
+}
+
+/*char unsigned SoundManager::__defarg()
+{
+// code at 0001:00078134
+}
+
+/*char unsigned SoundManager::__defarg()
+{
+// code at 0001:00078114
+}*/
+
+/*char unsigned SoundManager::__defarg()
+{
+// code at 0001:000780f4
+}*/
+
+/*long unsigned SoundManager::__defarg()
+{
+// code at 0001:000780d0
+}*/
+
+/*char unsigned SoundManager::__defarg()
+{
+// code at 0001:00004a54
+}*/
+
+/*char unsigned SoundManager::__defarg()
+{
+// code at 0001:00004a34
+}*/
+
+/*char unsigned SoundManager::__defarg()
+{
+// code at 0001:00004a14
+}*/
+
+/*long unsigned SoundManager::__defarg()
+{
+// code at 0001:000049f0
+}*/
+
+/*char unsigned SoundManager::__defarg()
+{
+// code at 0001:000049d0
+}*/
+
+/*BufferSubmitMode SoundManager::__defarg()
+{
+// code at 0001:000049b0
+}*/
+
+/*char unsigned SoundManager::__defarg()
+{
+// code at 0001:00004990
+}*/
+
+/*char unsigned SoundManager::__defarg()
+{
+// code at 0001:00004970
+}*/
+
+/*char unsigned SoundManager::__defarg()
+{
+// code at 0001:00004950
+}*/
+
+/*long unsigned SoundManager::__defarg()
+{
+// code at 0001:0000492c
+}*/
+
+/*char unsigned SoundManager::__defarg()
+{
+// code at 0001:0000490c
+}*/
+
 
 /******************************************************************************/

@@ -19,11 +19,19 @@
 #ifndef BIO_ETHEREALZ_HPP_
 #define BIO_ETHEREALZ_HPP_
 
+#include "bftypes.h"
+#include "xy.hpp"
+#include "plantstat.hpp"
+#include "creaturestat.hpp"
+
+class Planet;
+class Thing;
+
 class EtherealZone { // sizeof=19
     void ScoreTemples();
     void ScorePlants(PlantSpecies arg1);
     void ScoreCreatures(CreatureBaseSpecies arg1);
-    BBOOL ScoreToPlayer(SLONG arg1, UBYTE arg2, Thing *arg3);
+    BBOOL ScoreToPlayer(SLONG arg1, UBYTE arg2, Thing *tng);
     void FreeEffectMarker();
     void Draw();
     void Shade(BBOOL arg1);
@@ -49,7 +57,7 @@ class EtherealZoneHandler { // sizeof=194
     void LightAllActive();
     void Draw();
     void Update();
-    void InitFromPlanet(Planet *arg1);
+    void InitFromPlanet(Planet &planet);
     EtherealZone eZones[63]; // offset=0
     UBYTE numZones; // offset=192
     UBYTE zonesDone; // offset=193

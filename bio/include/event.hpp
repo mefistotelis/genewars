@@ -44,7 +44,7 @@ class Event : Thing { // sizeof=49
     void Resync();
     void Write(SLONG &arg1);
     void Read(SLONG &arg1);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     UBYTE type; // offset=39
     UBYTE state; // offset=40
     SWORD timer; // offset=41

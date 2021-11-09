@@ -18,21 +18,6 @@
 /******************************************************************************/
 #include "clone.hpp"
 
-char unsigned Specialist::Valid()
-{
-// code at 0001:00016bd4
-}
-
-char unsigned Specialist::IsOnTeam()
-{
-// code at 0001:00016b98
-}
-
-char unsigned Specialist::IsPlanetside()
-{
-// code at 0001:00016b5c
-}
-
 char unsigned EventHelp::__defarg()
 {
 // code at 0001:00016b3c

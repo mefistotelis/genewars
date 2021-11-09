@@ -18,11 +18,6 @@
 /******************************************************************************/
 #include "packets.hpp"
 
-void process_packets()
-{
-// code at 0001:0005f818
-}
-
 void Packet::ExchangeDataBlast(void *arg1, ULONG arg2, UBYTE arg3, uint8_t arg4, PaletteSelectorMode arg5)
 {
 // code at 0001:0005fffa
@@ -51,6 +46,11 @@ void Packet::SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3, SWORD arg4, SWORD arg
 void Packet::SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3, SWORD arg4, SWORD arg5, SWORD arg6)
 {
 // code at 0001:00037940
+}
+
+void process_packets()
+{
+// code at 0001:0005f818
 }
 
 /******************************************************************************/
