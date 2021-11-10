@@ -19,20 +19,29 @@
 #ifndef BIO_MAPDISP_HPP_
 #define BIO_MAPDISP_HPP_
 
+#include "bftypes.h"
+#include "myspr.h"
+#include "pixbuf.h"
+#include "xy.hpp"
+#include "map.hpp"
+
+class Thing;
+class GridTile;
+
 class MapDisplay { // sizeof=217
-    void RegisterFoundationGrid(XY arg1, UBYTE arg2);
+    void RegisterFoundationGrid(XY cor1, UBYTE arg2);
     void SelectAmbientSound();
-    void SetRefreshColumn(UBYTE arg1);
+    void SetRefreshColumn(UBYTE arg1, MapRefreshColumn arg2); // last arg uncertain
     BBOOL RegisterPoint(XY arg1, SBYTE arg2);
     void DrawRefreshColumns();
-    void DrawSingleColumn(UBYTE arg1);
+    void DrawSingleColumn(UBYTE arg1, MapRefreshColumn arg2); // last arg uncertain
     void DrawRightColumn(UBYTE arg1);
     void DrawLeftColumn(UBYTE arg1);
     void DrawBottomRow(SWORD arg1);
     void DrawTopRow(SWORD arg1);
     void DrawMapSprites();
     void FragCopyBScreenToWScreen();
-    void draw_delta_column(SLONG arg1, SLONG arg2, SLONG arg3, SLONG *arg4, SLONG *arg5);
+    void draw_delta_column(SLONG arg1, SLONG arg2, SLONG arg3, SLONG &arg4, SLONG &arg5);
     void draw_column(SLONG arg1, SLONG arg2, SLONG arg3);
     BBOOL IsExploredTerrainInView();
     BBOOL IsGlassBuildings();
@@ -56,12 +65,12 @@ class MapDisplay { // sizeof=217
     void ClearFullScreen();
     void SetFullScreen();
     BBOOL IsOnScreen(SWORD arg1, SWORD arg2);
-    void DrawGlassTile(XY arg1, UBYTE arg2, BBOOL arg3);
+    void DrawGlassTile(XY cor1, UBYTE arg2, BBOOL arg3);
     void RefreshFoundationGrids();
     void SetPanelRefreshZones();
     void RefreshRadar();
-    void ProjectLine(XY arg1, XY arg2, ULONG arg3, MySprite *arg4, MyMinSprite *arg5);
-    void ProjectCircle(XY arg1, ULONG arg2, UBYTE arg3, MySprite *arg4, BBOOL arg5, MyMinSprite *arg6);
+    void ProjectLine(XY cor1, XY cor2, ULONG arg3, MySprite *arg4, MyMinSprite *arg5);
+    void ProjectCircle(XY cor1, ULONG cor2, UBYTE arg3, MySprite *arg4, BBOOL arg5, MyMinSprite *arg6);
     void StaticSetZones();
     XY GetDisplayCenter();
     void CenterOn(XY arg1);

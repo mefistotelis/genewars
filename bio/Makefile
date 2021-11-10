@@ -58,7 +58,6 @@ obj/font.o \
 obj/iface.o \
 obj/lab.o \
 obj/level.o \
-obj/mapdisp.o \
 obj/misc.o \
 obj/nibble.o \
 obj/optimize.o \
@@ -82,6 +81,7 @@ obj/theship.o \
 obj/packets.o \
 obj/paletsel.o \
 obj/map.o \
+obj/mapdisp.o \
 obj/thingidx.o \
 obj/thing.o \
 obj/mvthing.o \

@@ -19,13 +19,6 @@
 #ifndef BIO_CLONE_HPP_
 #define BIO_CLONE_HPP_
 
-class MapBucketThing { // sizeof=10
-    SWORD next; // offset=0
-    SWORD x; // offset=2
-    SWORD yDev; // offset=4
-    Thing *thing; // offset=6
-};
-
 typedef class MapBucketThing MapBucketThing;
 
 

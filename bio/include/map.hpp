@@ -25,6 +25,7 @@
 
 class GridTile;
 class Planet;
+class Thing;
 
 enum MapRefreshColumn { // type=int8_t
     RC_NODRAW = 0,
@@ -40,6 +41,13 @@ struct posasxy { // sizeof=2
 union MapPosXY { // sizeof=2
     posasxy xy; // offset=0
     UWORD Pos; // offset=1
+};
+
+class MapBucketThing { // sizeof=10
+    SWORD next; // offset=0
+    SWORD x; // offset=2
+    SWORD yDev; // offset=4
+    Thing *thing; // offset=6
 };
 
 class FlatMap { // sizeof=6

@@ -18,7 +18,9 @@
 /******************************************************************************/
 #include "mapdisp.hpp"
 
-char unsigned MapDisplay::CanSelectThing()
+#include "map.hpp"
+
+BBOOL MapDisplay::CanSelectThing()
 {
 // code at 0001:00056cd4
 }
@@ -33,7 +35,7 @@ void MapDisplay::ClearModified()
 // code at 0001:00056c8c
 }
 
-void MapDisplay::SetRefreshColumn( char unsigned, MapRefreshColumn )
+void MapDisplay::SetRefreshColumn(UBYTE arg1, MapRefreshColumn arg2)
 {
 // code at 0001:00056c30
 }
@@ -98,22 +100,22 @@ void MapDisplay::RefreshRadar()
 // code at 0001:00053c45
 }
 
-void MapDisplay::DrawTopRow( short )
+void MapDisplay::DrawTopRow(SWORD arg1)
 {
 // code at 0001:00053d5a
 }
 
-void MapDisplay::DrawBottomRow( short )
+void MapDisplay::DrawBottomRow(SWORD arg1)
 {
 // code at 0001:00053fbf
 }
 
-void MapDisplay::DrawLeftColumn( char unsigned )
+void MapDisplay::DrawLeftColumn(UBYTE arg1)
 {
 // code at 0001:00054353
 }
 
-void MapDisplay::DrawRightColumn( char unsigned )
+void MapDisplay::DrawRightColumn(UBYTE arg1)
 {
 // code at 0001:0005457c
 }
@@ -123,32 +125,32 @@ void MapDisplay::ForceRedraw()
 // code at 0001:00054774
 }
 
-char unsigned MapDisplay::ScrollHandler()
+BBOOL MapDisplay::ScrollHandler()
 {
 // code at 0001:00054825
 }
 
-char unsigned MapDisplay::RegisterPoint( XY, char signed )
+BBOOL MapDisplay::RegisterPoint(XY arg1, SBYTE arg2)
 {
 // code at 0001:00054c28
 }
 
-void MapDisplay::RegisterTopoPointChange( XY )
+void MapDisplay::RegisterTopoPointChange(XY cor1)
 {
 // code at 0001:00054d43
 }
 
-void MapDisplay::RegisterPointChange( XY )
+void MapDisplay::RegisterPointChange(XY cor1)
 {
 // code at 0001:00054f04
 }
 
-void MapDisplay::RegisterBlockChange( XY )
+void MapDisplay::RegisterBlockChange(XY cor1)
 {
 // code at 0001:00055146
 }
 
-void MapDisplay::RegisterFoundationGrid( XY, char unsigned )
+void MapDisplay::RegisterFoundationGrid(XY cor1, UBYTE arg2)
 {
 // code at 0001:000551da
 }
@@ -158,22 +160,22 @@ void MapDisplay::RefreshFoundationGrids()
 // code at 0001:0005534d
 }
 
-void MapDisplay::DrawGlassTile( XY, char unsigned, char unsigned )
+void MapDisplay::DrawGlassTile(XY cor1, UBYTE arg2, BBOOL arg3)
 {
 // code at 0001:00055405
 }
 
-void MapDisplay::ProjectLine( XY, XY, long unsigned, MySprite *, MyMinSprite * )
+void MapDisplay::ProjectLine(XY cor1, XY cor2, ULONG arg3, MySprite *arg4, MyMinSprite *arg5)
 {
 // code at 0001:00055552
 }
 
-void MapDisplay::ProjectCircle( XY, long unsigned, char unsigned, MySprite *, char unsigned, MyMinSprite * )
+void MapDisplay::ProjectCircle(XY cor1, ULONG cor2, UBYTE arg3, MySprite *arg4, BBOOL arg5, MyMinSprite *arg6)
 {
 // code at 0001:00055946
 }
 
-void MapDisplay::DrawSingleColumn( char unsigned, MapRefreshColumn )
+void MapDisplay::DrawSingleColumn(UBYTE arg1, MapRefreshColumn arg2)
 {
 // code at 0001:00055b49
 }
@@ -193,12 +195,12 @@ void MapDisplay::ResetForPullOut()
 // code at 0001:000561ec
 }
 
-void MapDisplay::draw_column( long, long, long )
+void MapDisplay::draw_column(SLONG arg1, SLONG arg2, SLONG arg3)
 {
 // code at 0001:0004ab0b
 }
 
-void MapDisplay::draw_delta_column( long, long, long, long &, long & )
+void MapDisplay::draw_delta_column(SLONG arg1, SLONG arg2, SLONG arg3, SLONG &arg4, SLONG &arg5)
 {
 // code at 0001:0004b3be
 }
@@ -258,12 +260,12 @@ void MapDisplay::RefreshFromBScreen()
 // code at 0001:00064c2d
 }
 
-char unsigned MapDisplay::IsOnScreen( short, short )
+BBOOL MapDisplay::IsOnScreen(SWORD arg1, SWORD arg2)
 {
 // code at 0001:0001d634
 }
 
-char unsigned MapDisplay::IsScrolling()
+BBOOL MapDisplay::IsScrolling()
 {
 // code at 0001:0001d5f4
 }
@@ -278,17 +280,17 @@ void MapDisplay::ClearDrawFoundations()
 // code at 0001:0001d59c
 }
 
-char unsigned MapDisplay::IsDrawFoundations()
+BBOOL MapDisplay::IsDrawFoundations()
 {
 // code at 0001:0001d560
 }
 
-char unsigned MapDisplay::IsGlassBuildings()
+BBOOL MapDisplay::IsGlassBuildings()
 {
 // code at 0001:00040614
 }
 
-char unsigned MapDisplay::IsExploredTerrainInView()
+BBOOL MapDisplay::IsExploredTerrainInView()
 {
 // code at 0001:0003923c
 }
