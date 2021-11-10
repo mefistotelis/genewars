@@ -34,15 +34,8 @@ enum LevelDrawPhase { // type=int8_t
 
 typedef enum LevelDrawPhase LevelDrawPhase;
 
-enum InfoRequesterStyle { // type=int8_t
-    IFRQ_NORMAL = 0,
-    IFRQ_BRIEFING,
-};
-
-typedef enum InfoRequesterStyle InfoRequesterStyle;
-
 class TextEntry { // sizeof=73
-    class TextEntry * TextEntry(class TextEntry *arg1);
+    //TextEntry(TextEntry *arg1);
     BBOOL ValidChar(UBYTE arg1);
     class TextEntry * TextEntry();
     BBOOL PressedEscape();
@@ -59,13 +52,11 @@ class TextEntry { // sizeof=73
     CBYTE *text;
 };
 
-typedef class TextEntry TextEntry;
-
 class CreatureInfo { // sizeof=2
     void * ~CreatureInfo();
-    class CreatureInfo * CreatureInfo(class CreatureInfo *arg1);
+    //CreatureInfo(CreatureInfo *arg1);
     void Invalidate();
-    class CreatureInfo * CreatureInfo();
+    //CreatureInfo();
     uint8_t baseNo; // offset=0
     SBYTE guardPoint; // offset=1
     uint8_t space; // offset=2
@@ -196,14 +187,6 @@ struct tm { // sizeof=36
 typedef struct tm tm;
 
 
-class MapBucketThing { // sizeof=10
-    SWORD next; // offset=0
-    SWORD x; // offset=2
-    SWORD yDev; // offset=4
-    Thing *thing; // offset=6
-};
-
-typedef class MapBucketThing MapBucketThing;
 
 
 class PlSpecLoader { // sizeof=80
@@ -254,27 +237,6 @@ class Recording { // sizeof=6
 typedef class Recording Recording;
 
 typedef class Recorder Recorder;
-
-class InfoRequester { // sizeof=142
-    class InfoRequester * InfoRequester(class InfoRequester *arg1);
-    void DrawPic(SLONG arg1, SLONG arg2);
-    BBOOL Valid();
-    void Invalidate();
-    void Draw();
-    BBOOL Update();
-    void Create(char *arg1, char *arg2, char *arg3, SLONG arg4);
-    class InfoRequester * InfoRequester();
-    uint8_t picActive;
-    UBYTE picReveal;
-    UBYTE picBuffer[63];
-    SLONG textWidth;
-    char text[255];
-    char title[63];
-    TurnPrintInfo textTpi;
-    TurnPrintInfo titleTpi;
-};
-
-typedef class InfoRequester InfoRequester;
 
 class PacketData { // sizeof=11
     SWORD X; // offset=0
@@ -1161,14 +1123,6 @@ extern char signed ptrX;
 extern char signed ptrY;
 extern char signed playerProcessed;
 extern char unsigned localPlayer;
-extern Thing * MainInterfacePad::activeThing;
-extern MainInterfacePad * MainInterfacePad::previousPad;
-extern char unsigned MainInterfacePad::go;
-extern MyMinSprite MainInterfacePad::pointerMMs;
-extern short MainInterfacePad::pointerDisplacement;
-extern MyMinSprite MainInterfacePad::userPointerMMs;
-extern MySprite * MainInterfacePad::userPointer;
-extern long unsigned * MainInterfacePad::padBmps[];
 extern char unsigned equipmentStore[][52];
 extern char unsigned editorMode;
 extern char unsigned mapGrid;

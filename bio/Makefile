@@ -54,8 +54,9 @@ obj/custom.o \
 obj/data.o \
 obj/draw.o \
 obj/editor.o \
-obj/font.o \
 obj/ifcplanet.o \
+obj/labpad.o \
+obj/font.o \
 obj/lab.o \
 obj/level.o \
 obj/misc.o \
@@ -80,6 +81,7 @@ obj/thebase.o \
 obj/theship.o \
 obj/packets.o \
 obj/paletsel.o \
+obj/mainpad.o \
 obj/map.o \
 obj/mapdisp.o \
 obj/iface.o \

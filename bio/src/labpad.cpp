@@ -1,8 +1,8 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file lab.hpp
- *     Header file for lab.cpp.
+/** @file labpad.cpp
+ *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
  * @par Comment:
@@ -16,9 +16,61 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#ifndef BIO_LAB_HPP_
-#define BIO_LAB_HPP_
+#include "labpad.hpp"
 
+/*LabPad::LabPad()
+{
+// code at 0001:00016c54
+}*/
 
-#endif // BIO_LAB_HPP_
+void LabPad::Init(Thing *tng1)
+{
+// code at 0001:00016d3d
+}
+
+void LabPad::Close()
+{
+// code at 0001:00016f1f
+}
+
+BBOOL LabPad::Update(SWORD arg1)
+{
+// code at 0001:00016f96
+}
+
+void LabPad::MapDraw()
+{
+// code at 0001:0001752d
+}
+
+void LabPad::KickOffNewSpeciesStuff()
+{
+// code at 0001:0001755f
+}
+
+void LabPad::DrawMainWindow()
+{
+// code at 0001:00017671
+}
+
+BBOOL LabPad::IsListScrolling()
+{
+// code at 0001:000181f4
+}
+
+void LabPad::DrawListCreature(CreatureSpecies arg1, SLONG arg2, SLONG arg3, UBYTE arg4)
+{
+// code at 0001:00017a18
+}
+
+void LabPad::DrawList()
+{
+// code at 0001:00017ab3
+}
+
+void LabPad::Draw(SBYTE arg1)
+{
+// code at 0001:00017f3d
+}
+
 /******************************************************************************/

@@ -131,53 +131,6 @@ class SoundConfig { // sizeof=10
 };
 
 
-class TurnPrintInfo { // sizeof=110
-    BBOOL Print();
-    char *drawCurrent;
-    char *current;
-    SLONG delayCount;
-    SLONG count;
-    SLONG length;
-    SLONG x; // offset=0
-    SLONG y; // offset=4
-    SLONG delay; // offset=8
-    SLONG step; // offset=12
-    char *str; // offset=16
-    char hilite[2][9]; // offset=20
-    char *drawStr; // offset=50
-    FontInfo dfi; // offset=54
-    ULONG drawing; // offset=82
-    SLONG linesDrawn; // offset=86
-};
-
-enum TeamCircleMode { // type=int8_t
-    TC_OPENING = 0,
-    TC_CLOSING,
-    TC_NORMAL,
-};
-
-class TurnPrintInfo { // sizeof=110
-    BBOOL Print();
-    char *drawCurrent;
-    char *current;
-    SLONG delayCount;
-    SLONG count;
-    SLONG length;
-    SLONG x; // offset=0
-    SLONG y; // offset=4
-    SLONG delay; // offset=8
-    SLONG step; // offset=12
-    char *str; // offset=16
-    char hilite[2][9]; // offset=20
-    char *drawStr; // offset=50
-    FontInfo dfi; // offset=54
-    ULONG drawing; // offset=82
-    SLONG linesDrawn; // offset=86
-};
-
-
-
-
 
 class HelpDraw { // sizeof=26
     void GenericHelpDraw(MyGadget *arg1, char *arg2);
@@ -198,35 +151,6 @@ class HelpDraw { // sizeof=26
     MyGadget *gad; // offset=22
 };
 
-
-class MapBucketThing { // sizeof=10
-    SWORD next; // offset=0
-    SWORD x; // offset=2
-    SWORD yDev; // offset=4
-    Thing *thing; // offset=6
-};
-
-
-
-
-class InfoRequester { // sizeof=142
-    class InfoRequester * InfoRequester(class InfoRequester *arg1);
-    void DrawPic(SLONG arg1, SLONG arg2);
-    BBOOL Valid();
-    void Invalidate();
-    void Draw();
-    BBOOL Update();
-    void Create(char *arg1, char *arg2, char *arg3, SLONG arg4);
-    class InfoRequester * InfoRequester();
-    uint8_t picActive;
-    UBYTE picReveal;
-    UBYTE picBuffer[63];
-    SLONG textWidth;
-    char text[255];
-    char title[63];
-    TurnPrintInfo textTpi;
-    TurnPrintInfo titleTpi;
-};
 
 class EtherealScope { // sizeof=11
     //EtherealScope(EtherealScope *arg1);

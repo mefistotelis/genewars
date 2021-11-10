@@ -21,6 +21,37 @@
 
 #include "iface.hpp"
 
+#include "bftypes.h"
+#include "myspr.h"
+#include "xy.hpp"
+
+class MyGadget;
+class Thing;
+
+enum TeamCircleMode { // type=int8_t
+    TC_OPENING = 0,
+    TC_CLOSING,
+    TC_NORMAL,
+};
+
+class TeamCircles { // sizeof=63
+    void StopStatic(UBYTE arg1);
+    void StartStatic(UBYTE arg1, BBOOL arg2);
+    void SelectCircle(UBYTE arg1);
+    void DrawTeamCircle(UBYTE arg1);
+    void Reset();
+    void Draw();
+    void Update();
+    void Init();
+    BBOOL red[4];
+    SBYTE circleFadeDelta;
+    TeamCircleMode modes[4]; // offset=0
+    SBYTE circleActive; // offset=5
+    SBYTE circleFadeLevel; // offset=6
+    MyMinSprite mMs[4]; // offset=7
+    MyMinSprite staticMms[4]; // offset=32
+};
+
 class IFCPlanetside : IFCBase { // sizeof=46
     //IFCPlanetside(IFCPlanetside *arg1);
     void DrawTgtFlag();

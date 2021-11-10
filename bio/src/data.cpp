@@ -415,21 +415,6 @@ char signed playerProcessed;
 
 char unsigned localPlayer;
 
-Thing * MainInterfacePad::activeThing;
-
-MainInterfacePad * MainInterfacePad::previousPad;
-
-char unsigned MainInterfacePad::go;
-
-MyMinSprite MainInterfacePad::pointerMMs;
-
-short MainInterfacePad::pointerDisplacement;
-
-MyMinSprite MainInterfacePad::userPointerMMs;
-
-MySprite * MainInterfacePad::userPointer;
-
-long unsigned * MainInterfacePad::padBmps[];
 
 char unsigned equipmentStore[][52];
 

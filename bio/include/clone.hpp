@@ -19,25 +19,37 @@
 #ifndef BIO_CLONE_HPP_
 #define BIO_CLONE_HPP_
 
-typedef class MapBucketThing MapBucketThing;
-
-
-class TeamCircles { // sizeof=63
-    void StopStatic(UBYTE arg1);
-    void StartStatic(UBYTE arg1, BBOOL arg2);
-    void SelectCircle(UBYTE arg1);
-    void DrawTeamCircle(UBYTE arg1);
-    void Reset();
-    void Draw();
-    void Update();
-    void Init();
-    BBOOL red[4];
-    SBYTE circleFadeDelta;
-    TeamCircleMode modes[4]; // offset=0
-    SBYTE circleActive; // offset=5
-    SBYTE circleFadeLevel; // offset=6
-    MyMinSprite mMs[4]; // offset=7
-    MyMinSprite staticMms[4]; // offset=32
+class ClonePad : MainInterfacePad { // sizeof=175
+    class ClonePad * ClonePad(class ClonePad *arg1);
+    void RemoveSpecialist(UBYTE arg1);
+    void AddSpecialist(UBYTE arg1, UBYTE arg2);
+    SBYTE FindBestSpecialist(UBYTE arg1, UBYTE arg2);
+    void TeamHelp(MyGadget *arg1);
+    void CrewHelp(MyGadget *arg1);
+    SBYTE FindTeamNum();
+    SBYTE FindCrewType(SBYTE *arg1);
+    void DrawAnim();
+    void DrawCrew();
+    void DrawTeam();
+    void Close();
+    void Draw(SBYTE arg1);
+    void DrawMainPanelEdge();
+    BBOOL Update(SWORD arg1);
+    void Init(Thing *arg1);
+    class ClonePad * ClonePad();
+    void (**__vfptr)();
+    unsigned int *__vbptr;
+    BBOOL launchButtonActive;
+    BBOOL closeButtonActive;
+    MyMinSprite mMs;
+    Building *clone; // offset=4
+    MyAnimBank *anb; // offset=8
+    MySprite *mSpr; // offset=12
+    TbSprite *spr; // offset=16
+    SBYTE pointerOverSpec; // offset=20
+    SBYTE specType; // offset=21
+    MyAnimBank *specAnb[3][3]; // offset=22
+    MySprite *specSpr[3][3]; // offset=86
 };
 
 #endif // BIO_CLONE_HPP_

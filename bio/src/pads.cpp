@@ -53,21 +53,6 @@ void GroupSelect::ResetGroup()
 // code at 0001:0001d2f0
 }
 
-void MainInterfacePad::ClearUserPointer()
-{
-// code at 0001:0001d2c8
-}
-
-void MainInterfacePad::NullUserPointer()
-{
-// code at 0001:0001d2a0
-}
-
-void MainInterfacePad::SetViewerClip()
-{
-// code at 0001:0001d26c
-}
-
 void BoundMmsToMySprite( MyMinSprite &, MySprite & )
 {
 // code at 0001:0001d1f8
@@ -76,101 +61,6 @@ void BoundMmsToMySprite( MyMinSprite &, MySprite & )
 void TeamCircles::Reset()
 {
 // code at 0001:0001ce98
-}
-
-void MainInterfacePad::Init( Thing * )
-{
-// code at 0001:000190dc
-}
-
-void MainInterfacePad::Close()
-{
-// code at 0001:00019170
-}
-
-char unsigned MainInterfacePad::Update( short )
-{
-// code at 0001:000191b1
-}
-
-void MainInterfacePad::SetPointerToFrame()
-{
-// code at 0001:0001922a
-}
-
-void MainInterfacePad::SetUserPointer( char signed )
-{
-// code at 0001:0001927e
-}
-
-void MainInterfacePad::SetNormalPad()
-{
-// code at 0001:0001932f
-}
-
-void MainInterfacePad::LoadBitmap( PadBmp )
-{
-// code at 0001:00019396
-}
-
-void MainInterfacePad::DrawMainPanelBmp( long unsigned * )
-{
-// code at 0001:00019473
-}
-
-void MainInterfacePad::DrawMainPanelEdge()
-{
-// code at 0001:000194fb
-}
-
-void MainInterfacePad::DrawStatic( long, long, long, long )
-{
-// code at 0001:00019546
-}
-
-void MainInterfacePad::DrawBuildingStats( Building * )
-{
-// code at 0001:000195ed
-}
-
-void MainInterfacePad::DrawBottomPanelText( char * )
-{
-// code at 0001:000198e6
-}
-
-void MainInterfacePad::DrawPointerOverThing()
-{
-// code at 0001:0001996b
-}
-
-void MainInterfacePad::FinishViewerClip()
-{
-// code at 0001:0001cca8
-}
-
-void MainInterfacePad::__vfthunk( Thing * )
-{
-// code at 0001:0001cc70
-}
-
-char unsigned MainInterfacePad::__vfthunk( short )
-{
-// code at 0001:0001cc34
-}
-
-void MainInterfacePad::__vfthunk( char signed )
-{
-// code at 0001:0001cbfc
-}
-
-void MainInterfacePad::__vfthunk()
-{
-// code at 0001:0001cbc8
-}
-
-void MainInterfacePad::MapDraw()
-{
-// code at 0001:000199fc
 }
 
 void BasicPad::Init( Thing * )
