@@ -20,6 +20,7 @@
 #define BIO_PRINTINFO_HPP_
 
 #include "bftypes.h"
+#include "myfont.h"
 
 enum InfoRequesterStyle { // type=int8_t
     IFRQ_NORMAL = 0,
@@ -52,7 +53,7 @@ class InfoRequester { // sizeof=142
     void Invalidate();
     void Draw();
     BBOOL Update();
-    void Create(char *arg1, char *arg2, char *arg3, SLONG arg4);
+    void Create(char *arg1, char *arg2, char *arg3, SLONG arg4, InfoRequesterStyle arg5); // last arg uncertain
     //InfoRequester();
     uint8_t picActive;
     UBYTE picReveal;

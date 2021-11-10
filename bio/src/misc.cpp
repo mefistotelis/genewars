@@ -648,11 +648,6 @@ void EtherealScope::Init()
 // code at 0001:000256b8
 }
 
-char unsigned TurnPrintInfo::Print()
-{
-// code at 0001:0001e160
-}
-
 char signed GroupSelect::ActionOn( Thing *, char unsigned )
 {
 // code at 0001:0001e39a
@@ -821,31 +816,6 @@ char unsigned PaletteSelector::Update( short )
 void PaletteSelector::Draw()
 {
 // code at 0001:000206eb
-}
-
-void InfoRequester::DrawPic( long, long )
-{
-// code at 0001:0002518c
-}
-
-near InfoRequester::InfoRequester()
-{
-// code at 0001:00024a06
-}
-
-void InfoRequester::Create( char *, char *, char *, long, InfoRequesterStyle )
-{
-// code at 0001:00024a3c
-}
-
-char unsigned InfoRequester::Update()
-{
-// code at 0001:00024c85
-}
-
-void InfoRequester::Draw()
-{
-// code at 0001:00024cf4
 }
 
 

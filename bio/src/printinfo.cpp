@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file font.cpp
+/** @file printinfo.cpp
  *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
@@ -16,62 +16,36 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "font.hpp"
+#include "printinfo.hpp"
 
-void SetTxtWindow( long, long, long, long )
+BBOOL TurnPrintInfo::Print()
 {
-// code at 0001:000619b0
+// code at 0001:0001e160
 }
 
-void SetGraphicsWindowToTextWindow()
+void InfoRequester::DrawPic(SLONG arg1, SLONG arg2)
 {
-// code at 0001:00061a87
+// code at 0001:0002518c
 }
 
-void GetTextWindow( TextWindowInfo * )
+/*InfoRequester::InfoRequester()
 {
-// code at 0001:00061abd
+// code at 0001:00024a06
+}*/
+
+void InfoRequester::Create(char *arg1, char *arg2, char *arg3, SLONG arg4, InfoRequesterStyle arg5)
+{
+// code at 0001:00024a3c
 }
 
-void SaveTextWindow()
+BBOOL InfoRequester::Update()
 {
-// code at 0001:00061b1e
+// code at 0001:00024c85
 }
 
-void RestoreTextWindow()
+void InfoRequester::Draw()
 {
-// code at 0001:00061b44
+// code at 0001:00024cf4
 }
-
-void FontInitialize( FontInfo *, TbSpriteData *, Colour *, FontKernData * )
-{
-// code at 0001:00061b6a
-}
-
-long FontStringWidth( FontInfo *, char * )
-{
-// code at 0001:00061bed
-}
-
-long FontWordWidth( FontInfo *, char * )
-{
-// code at 0001:00061daf
-}
-
-long DrawFontCentered( FontInfo *, long const, long const, char * )
-{
-// code at 0001:00061f34
-}
-
-long DrawFont( FontInfo *, long const, long const, char * )
-{
-// code at 0001:00061f77
-}
-
-void JustifyParseString( FontInfo *, char *, char * )
-{
-// code at 0001:00062786
-}
-
 
 /******************************************************************************/
