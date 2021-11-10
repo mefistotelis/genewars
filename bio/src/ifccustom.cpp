@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file custom.cpp
+/** @file ifccustom.cpp
  *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
@@ -16,12 +16,7 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "custom.hpp"
-
-void IFCBase::SetupPacket( Packet * )
-{
-// code at 0001:0004f6b4
-}
+#include "ifccustom.hpp"
 
 void IFCCustom::PlugIn()
 {
@@ -43,7 +38,7 @@ void IFCCustom::Draw()
 // code at 0001:0004f044
 }
 
-void IFCCustom::DrawAvailableSessions( SessionInfo * )
+void IFCCustom::DrawAvailableSessions(SessionInfo *arg1)
 {
 // code at 0001:0004f30b
 }
@@ -53,7 +48,7 @@ void IFCCustom::DrawChatStrings()
 // code at 0001:0004f5b7
 }
 
-void IFCCustom::ScrollChatString( char unsigned )
+void IFCCustom::ScrollChatString(UBYTE arg1)
 {
 // code at 0001:0004f649
 }

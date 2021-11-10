@@ -64,11 +64,6 @@ near CreatureInfo::CreatureInfo()
 // code at 0001:0005e7c8
 }
 
-near IFCComputer::IFCComputer( MyGadget * )
-{
-// code at 0001:0005e75c
-}
-
 near IFCCompEditor::IFCCompEditor( MyGadget * )
 {
 // code at 0001:0005e67c

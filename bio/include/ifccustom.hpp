@@ -1,8 +1,8 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file custom.hpp
- *     Header file for custom.cpp.
+/** @file ifccustom.hpp
+ *     Header file for ifccustom.cpp.
  * @par Purpose:
  *     Unknown.
  * @par Comment:
@@ -16,28 +16,21 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#ifndef BIO_CUSTOM_HPP_
-#define BIO_CUSTOM_HPP_
+#ifndef BIO_IFCCUSTOM_HPP_
+#define BIO_IFCCUSTOM_HPP_
 
+#include "bftypes.h"
+#include "myspr.h"
+#include "netserv.h"
+#include "iface.hpp"
+#include "level.hpp"
 
-
-
-class LevelHeader { // sizeof=187
-    void TranslatePlanet();
-    BBOOL LoadHeader(UBYTE arg1, UBYTE arg2);
-    BBOOL SaveHeader(UBYTE arg1, UBYTE arg2);
-    UBYTE compPlayers[2]; // offset=0
-    UBYTE valid; // offset=3
-    UBYTE date[11]; // offset=4
-    UBYTE time[11]; // offset=16
-    ULONG version; // offset=28
-    Planet planet; // offset=32
-    ULONG roomForMoreStuff[6]; // offset=159
-};
-
+class MyGadget;
+class MyAnimBank;
+class SessionInfo;
 
 class IFCCustom : IFCBase { // sizeof=192
-    class IFCCustom * IFCCustom(class IFCCustom *arg1);
+    //IFCCustom(class IFCCustom *arg1);
     void ScrollChatString(UBYTE arg1);
     void DrawChatStrings();
     void DrawAvailableSessions(SessionInfo *arg1);
@@ -45,9 +38,9 @@ class IFCCustom : IFCBase { // sizeof=192
     void Draw();
     void PullOut();
     void PlugIn();
-    class IFCCustom * IFCCustom(MyGadget *arg1);
-    void (**__vfptr)();
-    unsigned int *__vbptr;
+    IFCCustom(MyGadget *arg1);
+    //void (**__vfptr)();
+    //unsigned int *__vbptr;
     MyGadget *gad; // offset=4
     TbNetworkSessionList session_list; // offset=7
     MyAnimBank *anb; // offset=8
@@ -68,6 +61,5 @@ class IFCCustom : IFCBase { // sizeof=192
     SessionInfo t_session[9]; // offset=225
 };
 
-
-#endif // BIO_CUSTOM_HPP_
+#endif // BIO_IFCCUSTOM_HPP_
 /******************************************************************************/

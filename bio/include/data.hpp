@@ -19,19 +19,6 @@
 #ifndef BIO_DATA_HPP_
 #define BIO_DATA_HPP_
 
-enum LevelDrawPhase { // type=int8_t
-    LDP_FADEUP = 0,
-    LDP_LINES,
-    LDP_SYSTEM,
-    LDP_EXPANDBOX,
-    LDP_EXPANDBOXLINES,
-    LDP_TARGETACQUIRE, // 5
-    LDP_TARGETLOCK,
-    LDP_EXPANDPLANET,
-    LDP_ZOOMIN,
-    LDP_ORBIT,
-};
-
 typedef enum LevelDrawPhase LevelDrawPhase;
 
 class TextEntry { // sizeof=73
@@ -51,30 +38,6 @@ class TextEntry { // sizeof=73
     UBYTE ucase;
     CBYTE *text;
 };
-
-class CreatureInfo { // sizeof=2
-    void * ~CreatureInfo();
-    //CreatureInfo(CreatureInfo *arg1);
-    void Invalidate();
-    //CreatureInfo();
-    uint8_t baseNo; // offset=0
-    SBYTE guardPoint; // offset=1
-    uint8_t space; // offset=2
-    uint8_t movingToPoint; // offset=3
-    uint8_t job; // offset=4
-};
-
-typedef class CreatureInfo CreatureInfo;
-
-typedef class XY XY;
-
-typedef class ThingIDX ThingIDX;
-
-typedef class Player Player;
-
-
-
-
 
 
 class GameFlags { // sizeof=1
@@ -603,91 +566,8 @@ struct LanderStuff { // sizeof=5
 
 typedef struct LanderStuff LanderStuff;
 
-struct RocketShip { // sizeof=187
-    XY loc; // offset=0
-    XY vel; // offset=4
-    SWORD angle; // offset=8
-    SWORD angleVel; // offset=10
-    SWORD fuel; // offset=12
-    SWORD thrust; // offset=14
-    UBYTE state; // offset=16
-    UBYTE level; // offset=17
-    ULONG score; // offset=18
-    XY padLoc; // offset=22
-    UBYTE padLength; // offset=26
-    LanderStuff stuff[31]; // offset=27
-};
 
-typedef struct RocketShip RocketShip;
 
-class IFCTitle : IFCBase { // sizeof=232
-    class IFCTitle * IFCTitle(class IFCTitle *arg1);
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    class IFCTitle * IFCTitle(MyGadget *arg1);
-    void (**__vfptr)();
-    unsigned int *__vbptr;
-    MyGadget *gad; // offset=4
-    MyAnimBank *anb; // offset=8
-    MySprite *spr; // offset=12
-    TbSprite *sprites; // offset=16
-    SWORD creditPos; // offset=20
-    UBYTE *rocketData; // offset=22
-    RocketShip rocketShip; // offset=26
-};
-
-typedef class IFCTitle IFCTitle;
-
-class LevelHeader { // sizeof=187
-    void TranslatePlanet();
-    BBOOL LoadHeader(UBYTE arg1, UBYTE arg2);
-    BBOOL SaveHeader(UBYTE arg1, UBYTE arg2);
-    UBYTE compPlayers[2]; // offset=0
-    UBYTE valid; // offset=3
-    UBYTE date[11]; // offset=4
-    UBYTE time[11]; // offset=16
-    ULONG version; // offset=28
-    Planet planet; // offset=32
-    ULONG roomForMoreStuff[6]; // offset=159
-};
-
-typedef class LevelHeader LevelHeader;
-
-class IFCCustom : IFCBase { // sizeof=192
-    class IFCCustom * IFCCustom(class IFCCustom *arg1);
-    void ScrollChatString(UBYTE arg1);
-    void DrawChatStrings();
-    void DrawAvailableSessions(SessionInfo *arg1);
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    class IFCCustom * IFCCustom(MyGadget *arg1);
-    void (**__vfptr)();
-    unsigned int *__vbptr;
-    MyGadget *gad; // offset=4
-    TbNetworkSessionList session_list; // offset=7
-    MyAnimBank *anb; // offset=8
-    MySprite *spr; // offset=12
-    TbSprite *sprites; // offset=16
-    UBYTE level; // offset=20
-    UBYTE victory; // offset=21
-    UBYTE race; // offset=22
-    UBYTE etherealStrictness; // offset=23
-    UBYTE networkActive; // offset=24
-    UBYTE networkSlot; // offset=25
-    LevelHeader currentLevel; // offset=26
-    UBYTE session_index; // offset=171
-    BBOOL canEnterGame; // offset=172
-    TbNetworkService service; // offset=213
-    char chatString[3][63]; // offset=214
-    TbNetworkSession session; // offset=223
-    SessionInfo t_session[9]; // offset=225
-};
-
-typedef class IFCCustom IFCCustom;
 
 
 class IFCStartNetwork : IFCBase { // sizeof=19
@@ -770,38 +650,6 @@ class IFCStatScreen : IFCBase { // sizeof=19
 
 typedef class IFCStatScreen IFCStatScreen;
 
-class IFCComputer : IFCBase { // sizeof=55
-    class IFCComputer * IFCComputer(class IFCComputer *arg1);
-    class IFCComputer * IFCComputer(MyGadget *arg1);
-    BBOOL BuildingAllowed(UBYTE arg1, UBYTE arg2);
-    SBYTE FirstFreeGuardPoint(UBYTE arg1);
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    void (**__vfptr)();
-    IFCBase *saveIFC; // offset=11
-    MyGadget *gad; // offset=15
-    MyAnimBank *anb; // offset=19
-    MySprite *spr; // offset=23
-    TbSprite *sprites; // offset=27
-    XY mapMouseScroll; // offset=31
-    Stuff stuff; // offset=35
-    BBOOL drawPowerRange; // offset=43
-    BBOOL drawCenters; // offset=44
-    BBOOL drawBuildingDebug; // offset=45
-    BBOOL drawLocation; // offset=46
-    UBYTE slices; // offset=47
-    BBOOL draw; // offset=48
-    BBOOL fromCenter; // offset=49
-    BBOOL drawBuildInfo; // offset=50
-    BBOOL pressedKeyLastTurn; // offset=51
-    BBOOL creatureDebugStuff; // offset=52
-    UBYTE cPlayer; // offset=53
-    UBYTE gPointType; // offset=54
-};
-
-typedef class IFCComputer IFCComputer;
 
 class IFCOptions : IFCBase { // sizeof=59
     class IFCOptions * IFCOptions(class IFCOptions *arg1);
@@ -828,122 +676,8 @@ class IFCOptions : IFCBase { // sizeof=59
 
 typedef class IFCOptions IFCOptions;
 
-struct Info { // sizeof=56
-    SLONG WindowX1; // offset=0
-    SLONG WindowY1; // offset=4
-    SLONG WindowX2; // offset=8
-    SLONG WindowY2; // offset=12
-    SLONG ClipX1; // offset=16
-    SLONG ClipY1; // offset=20
-    SLONG ClipX2; // offset=24
-    SLONG ClipY2; // offset=28
-    SLONG ScreenClipX1; // offset=32
-    SLONG ScreenClipY1; // offset=36
-    SLONG ScreenClipX2; // offset=40
-    SLONG ScreenClipY2; // offset=44
-    SLONG WindowCentreX; // offset=48
-    SLONG WindowCentreY; // offset=52
-};
-
 typedef struct Info Info;
 
-class IFCLevel : IFCBase { // sizeof=203
-    class IFCLevel * IFCLevel(class IFCLevel *arg1);
-    void DrawBriefing();
-    void DrawPlanet();
-    void DrawLockOn();
-    void DrawGizmoBox();
-    void DrawSystem();
-    void DrawLines();
-    void DrawCornerCircles();
-    void DrawVLine(SLONG arg1, SLONG arg2, SLONG arg3, UBYTE arg4);
-    void DrawHLine(SLONG arg1, SLONG arg2, SLONG arg3, UBYTE arg4);
-    void DrawRefreshedBox(SLONG arg1, SLONG arg2, SLONG arg3, SLONG arg4, UBYTE arg5);
-    void calculate_view_to_target_vector_deviation(cPoint *arg1, SLONG arg2, SLONG arg3, SLONG arg4);
-    void local_rotate_on_arbitrary_axis(cPoint *arg1, cPoint *arg2, SLONG arg3, SLONG arg4, SLONG arg5, SLONG arg6, SLONG arg7);
-    UBYTE auto_pilot_MK2();
-    void UpdateSystem();
-    SLONG align_vertical(ULONG arg1);
-    void init_view_axes();
-    void normalise_axes(cPoint *arg1, cPoint *arg2);
-    void global_z_rotate_points(cPoint *arg1, cPoint *arg2, SLONG arg3, SLONG arg4, ULONG arg5);
-    void global_y_rotate_points(cPoint *arg1, cPoint *arg2, SLONG arg3, SLONG arg4, ULONG arg5);
-    void global_x_rotate_points(cPoint *arg1, cPoint *arg2, SLONG arg3, SLONG arg4, ULONG arg5);
-    void local_rotate_on_axis(cPoint *arg1, cPoint *arg2, SLONG arg3, SLONG arg4, UBYTE arg5);
-    void move_view_position(cPoint *arg1, cPoint *arg2, cPoint *arg3, SLONG *arg4);
-    void slow_down(SLONG *arg1);
-    void speed_up(SLONG *arg1);
-    void damping();
-    void keys();
-    void draw_points(ULONG arg1, ScreenPoint *arg2);
-    void calculate_clipping_window(SLONG arg1, SLONG arg2, SLONG arg3, SLONG arg4);
-    void calulate_2d_x_and_y_of_points(ULONG arg1, cPoint *arg2, ScreenPoint *arg3);
-    void rotate_universe_around_viewpos(cPoint *arg1, cPoint *arg2);
-    void init_start_points();
-    void DrawCrossHair();
-    UBYTE FindPlanet(UWORD arg1, UWORD arg2);
-    void MakeOrbitTrack(UWORD arg1);
-    int SortCheck(void *arg1, void *arg2);
-    void SortStars();
-    UBYTE IsAtSystemView();
-    void DrawGalaxy();
-    void MoveViewer();
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    class IFCLevel * IFCLevel();
-    void (**__vfptr)();
-    unsigned int *__vbptr;
-    BBOOL startLevel;
-    SLONG planetNameTraverse;
-    UBYTE systemGizmoFrames[5];
-    UBYTE numBoxGizmosOn;
-    UBYTE numSystemGizmosOn;
-    UBYTE autopilotStatus;
-    LevelDrawPhase phase;
-    TurnPrintInfo nameTpi;
-    TurnPrintInfo tpi;
-    MyAnimBank *anb; // offset=4
-    MyGadget *gad; // offset=8
-    MySprite *spr; // offset=12
-    TbSprite *sprites; // offset=16
-    IFCBase *previousIFC; // offset=20
-    UBYTE *planetBlocks; // offset=24
-    cPoint target; // offset=28
-    char *briefingBuffer; // offset=29
-    Info info; // offset=32
-    SpaceBody *spaceBodies; // offset=33
-    UWORD *drawOrder; // offset=36
-    cPoint targetpos; // offset=40
-    UWORD currentPlanet; // offset=41
-    UWORD pointsThisTurn; // offset=42
-    UWORD galaxyAngle; // offset=44
-    UBYTE viewerMode; // offset=46
-    XY crossHair; // offset=47
-    UBYTE cMode; // offset=51
-    cPoint targetvelocity; // offset=52
-    MyMinSprite bogusMMs[8]; // offset=53
-    cPoint *startpoints; // offset=64
-    cPoint *workingpoints; // offset=68
-    ScreenPoint *outputpoints; // offset=72
-    Viewer viewer[7]; // offset=76
-    AutoPilot autopilot; // offset=88
-    LevelHeader currentLevel; // offset=97
-    ULONG qstars; // offset=121
-    SLONG mag; // offset=125
-    SLONG scaledmag; // offset=129
-    SLONG xyaspectratio; // offset=133
-    SLONG vrx; // offset=137
-    SLONG vry; // offset=141
-    SLONG vrz; // offset=145
-    cPoint orbitOffset; // offset=149
-    Axes workingaxes[0]; // offset=180
-    Axes referenceaxes; // offset=216
-    Axes universeaxes; // offset=252
-};
-
-typedef class IFCLevel IFCLevel;
 
 class IFCEditor : IFCBase { // sizeof=18
     class IFCEditor * IFCEditor(class IFCEditor *arg1);

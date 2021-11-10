@@ -18,6 +18,16 @@
 /******************************************************************************/
 #include "iface.hpp"
 
+/*IFCBase::IFCBase()
+{
+// code at 0001:000156ac
+}*/
+
+void IFCBase::SetupPacket( Packet * )
+{
+// code at 0001:0004f6b4
+}
+
 void IFCBase::SetPacket( char unsigned )
 {
 // code at 0001:00025eb0
@@ -61,6 +71,26 @@ void IFCBase::SetPacketDataBlast( void * )
 /*void IFCBase::__vfthunk()
 {
 // code at 0001:0002532c
+}*/
+
+/*void IFCBase::__vfthunk()
+{
+// code at 0001:000157e4
+}*/
+
+/*void IFCBase::__vfthunk()
+{
+// code at 0001:000157b0
+}*/
+
+/*void IFCBase::__vfthunk()
+{
+// code at 0001:0001577c
+}*/
+
+/*void IFCBase::__vfthunk()
+{
+// code at 0001:00015748
 }*/
 
 /******************************************************************************/

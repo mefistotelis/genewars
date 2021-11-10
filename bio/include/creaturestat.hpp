@@ -132,5 +132,17 @@ struct ASpecies { // sizeof=45
     SLONG birthSpan; // offset=41
 };
 
+class CreatureInfo { // sizeof=2
+    //~CreatureInfo();
+    //CreatureInfo(CreatureInfo *arg1);
+    void Invalidate();
+    //CreatureInfo();
+    uint8_t baseNo; // offset=0
+    SBYTE guardPoint; // offset=1
+    uint8_t space; // offset=2
+    uint8_t movingToPoint; // offset=3
+    uint8_t job; // offset=4
+};
+
 #endif // BIO_CREATURESTAT_HPP_
 /******************************************************************************/

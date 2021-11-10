@@ -18,34 +18,14 @@
 /******************************************************************************/
 #include "level.hpp"
 
-void IFCBase::__vfthunk()
-{
-// code at 0001:000157e4
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:000157b0
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0001577c
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00015748
-}
-
-void IFCLevel::DrawRefreshedBox( long, long, long, long, char unsigned )
-{
-// code at 0001:000156dc
-}
-
-near IFCLevel::IFCLevel()
+/*IFCLevel::IFCLevel()
 {
 // code at 0001:0000f70a
+}*/
+
+void IFCLevel::DrawRefreshedBox(SLONG arg1, SLONG arg2, SLONG arg3, SLONG arg4, UBYTE arg5)
+{
+// code at 0001:000156dc
 }
 
 void IFCLevel::PlugIn()
@@ -58,12 +38,12 @@ void IFCLevel::PullOut()
 // code at 0001:0000fe63
 }
 
-void IFCLevel::DrawHLine( long, long, long, char unsigned )
+void IFCLevel::DrawHLine(SLONG arg1, SLONG arg2, SLONG arg3, UBYTE arg4)
 {
 // code at 0001:0000ff27
 }
 
-void IFCLevel::DrawVLine( long, long, long, char unsigned )
+void IFCLevel::DrawVLine(SLONG arg1, SLONG arg2, SLONG arg3, UBYTE arg4)
 {
 // code at 0001:0000ff85
 }
@@ -138,17 +118,17 @@ void IFCLevel::SortStars()
 // code at 0001:00012324
 }
 
-int IFCLevel::SortCheck( void const *, void const * )
+int IFCLevel::SortCheck(void const *arg1, void const *arg2)
 {
 // code at 0001:000123ba
 }
 
-void IFCLevel::MakeOrbitTrack( short unsigned )
+void IFCLevel::MakeOrbitTrack(UWORD arg1)
 {
 // code at 0001:00012439
 }
 
-char unsigned IFCLevel::FindPlanet( short unsigned, short unsigned )
+UBYTE IFCLevel::FindPlanet(UWORD arg1, UWORD arg2)
 {
 // code at 0001:00012643
 }
@@ -168,17 +148,17 @@ void IFCLevel::rotate_universe_around_viewpos( cPoint *, cPoint * )
 // code at 0001:00012d59
 }
 
-void IFCLevel::calulate_2d_x_and_y_of_points( long unsigned, cPoint *, ScreenPoint * )
+void IFCLevel::calulate_2d_x_and_y_of_points(ULONG arg1, cPoint *arg2, ScreenPoint *arg3)
 {
 // code at 0001:00012f47
 }
 
-void IFCLevel::draw_points( long unsigned, ScreenPoint * )
+void IFCLevel::draw_points(ULONG arg1, ScreenPoint *arg2)
 {
 // code at 0001:000130df
 }
 
-void IFCLevel::calculate_clipping_window( long, long, long, long )
+void IFCLevel::calculate_clipping_window(SLONG arg1, SLONG arg2, SLONG arg3, SLONG arg4)
 {
 // code at 0001:0001384a
 }
@@ -193,42 +173,42 @@ void IFCLevel::damping()
 // code at 0001:00013e24
 }
 
-void IFCLevel::speed_up( long * )
+void IFCLevel::speed_up(SLONG *arg1)
 {
 // code at 0001:00013f60
 }
 
-void IFCLevel::slow_down( long * )
+void IFCLevel::slow_down(SLONG *arg1)
 {
 // code at 0001:00013f8e
 }
 
-void IFCLevel::move_view_position( cPoint *, cPoint *, cPoint *, long * )
+void IFCLevel::move_view_position(cPoint *arg1, cPoint *arg2, cPoint *arg3, SLONG *arg4)
 {
 // code at 0001:00013fbc
 }
 
-void IFCLevel::local_rotate_on_axis( cPoint *, cPoint *, long, long, char unsigned )
+void IFCLevel::local_rotate_on_axis(cPoint *arg1, cPoint *arg2, SLONG arg3, SLONG arg4, UBYTE arg5)
 {
 // code at 0001:00014049
 }
 
-void IFCLevel::global_x_rotate_points( cPoint *, cPoint *, long, long, long unsigned )
+void IFCLevel::global_x_rotate_points(cPoint *arg1, cPoint *arg2, SLONG arg3, SLONG arg4, ULONG arg5)
 {
 // code at 0001:00014235
 }
 
-void IFCLevel::global_y_rotate_points( cPoint *, cPoint *, long, long, long unsigned )
+void IFCLevel::global_y_rotate_points(cPoint *arg1, cPoint *arg2, SLONG arg3, SLONG arg4, ULONG arg5)
 {
 // code at 0001:000142db
 }
 
-void IFCLevel::global_z_rotate_points( cPoint *, cPoint *, long, long, long unsigned )
+void IFCLevel::global_z_rotate_points(cPoint *arg1, cPoint *arg2, SLONG arg3, SLONG arg4, ULONG arg5)
 {
 // code at 0001:00014380
 }
 
-void IFCLevel::normalise_axes( cPoint *, cPoint * )
+void IFCLevel::normalise_axes(cPoint *arg1, cPoint *arg2)
 {
 // code at 0001:00014425
 }
@@ -238,38 +218,24 @@ void IFCLevel::init_view_axes()
 // code at 0001:00014660
 }
 
-void IFCLevel::calculate_view_to_target_vector_deviation( cPoint *, long, long, long )
+void IFCLevel::calculate_view_to_target_vector_deviation(cPoint *arg1, SLONG arg2, SLONG arg3, SLONG arg4)
 {
 // code at 0001:000146ef
 }
 
-int unsigned const __vbtbl[];
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-near IFCBase::IFCBase()
-{
-// code at 0001:000156ac
-}
-
-void IFCLevel::local_rotate_on_arbitrary_axis( cPoint *, cPoint *, long, long, long, long, long )
+void IFCLevel::local_rotate_on_arbitrary_axis(cPoint *arg1, cPoint *arg2, SLONG arg3, SLONG arg4, SLONG arg5, SLONG arg6, SLONG arg7)
 {
 // code at 0001:00014d5a
 }
 
-char unsigned IFCLevel::auto_pilot_MK2()
+UBYTE IFCLevel::auto_pilot_MK2()
 {
 // code at 0001:00014ed6
 }
 
-long IFCLevel::align_vertical( long unsigned )
+SLONG IFCLevel::align_vertical(ULONG arg1)
 {
 // code at 0001:000154e5
 }
-
-void (near * const __vftbl[])();
-
 
 /******************************************************************************/

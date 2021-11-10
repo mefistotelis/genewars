@@ -19,17 +19,6 @@
 #ifndef BIO_TABLES_HPP_
 #define BIO_TABLES_HPP_
 
-typedef class Player Player;
-
-
-
-
-typedef class GunSpec GunSpec;
-
-
-
-
-
 class EqRange { // sizeof=2
     UBYTE base; // offset=0
     UBYTE range; // offset=1

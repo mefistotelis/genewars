@@ -873,39 +873,9 @@ short Computer::NumOfCreatures( char unsigned, char unsigned )
 // code at 0001:0002d307
 }
 
-char unsigned IFCComputer::BuildingAllowed( char unsigned, char unsigned )
-{
-// code at 0001:00034678
-}
-
 void Computer::Update()
 {
 // code at 0001:0002d3af
-}
-
-void IFCComputer::PlugIn()
-{
-// code at 0001:0002d54a
-}
-
-void IFCComputer::PullOut()
-{
-// code at 0001:0002d613
-}
-
-void IFCComputer::Update()
-{
-// code at 0001:0002d687
-}
-
-void IFCComputer::Draw()
-{
-// code at 0001:0002e65f
-}
-
-char signed IFCComputer::FirstFreeGuardPoint( char unsigned )
-{
-// code at 0001:000303de
 }
 
 char unsigned BuildPriority::Build( PlSpec *, char unsigned, char unsigned )

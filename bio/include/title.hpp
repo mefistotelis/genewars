@@ -50,17 +50,15 @@ struct RocketShip { // sizeof=187
     LanderStuff stuff[31]; // offset=27
 };
 
-typedef struct RocketShip RocketShip;
-
 class IFCTitle : IFCBase { // sizeof=232
-    class IFCTitle * IFCTitle(class IFCTitle *arg1);
+    //IFCTitle(IFCTitle *arg1);
     void Update();
     void Draw();
     void PullOut();
     void PlugIn();
-    class IFCTitle * IFCTitle(MyGadget *arg1);
-    void (**__vfptr)();
-    unsigned int *__vbptr;
+    IFCTitle(MyGadget *arg1);
+    //void (**__vfptr)();
+    //unsigned int *__vbptr;
     MyGadget *gad; // offset=4
     MyAnimBank *anb; // offset=8
     MySprite *spr; // offset=12
@@ -89,7 +87,7 @@ class IFCGeneratePlanet : IFCBase { // sizeof=19
     void PullOut();
     void PlugIn();
     //void (**__vfptr)();
-    unsigned int *__vbptr;
+    //unsigned int *__vbptr;
 };
 
 struct TbTime { // sizeof=4
@@ -102,8 +100,8 @@ struct TbTime { // sizeof=4
 typedef struct TbTime TbTime;
 
 class IFCJoiningPlayer : IFCBase { // sizeof=27
-    class IFCJoiningPlayer * IFCJoiningPlayer(class IFCJoiningPlayer *arg1);
-    class IFCJoiningPlayer * IFCJoiningPlayer();
+    //IFCJoiningPlayer(IFCJoiningPlayer *arg1);
+    //IFCJoiningPlayer();
     void Update();
     void Draw();
     void PullOut();
@@ -126,8 +124,8 @@ class IFCWinLevel : IFCBase { // sizeof=19
 };
 
 class IFCLoseLevel : IFCBase { // sizeof=19
-    class IFCLoseLevel * IFCLoseLevel(class IFCLoseLevel *arg1);
-    class IFCLoseLevel * IFCLoseLevel();
+    //IFCLoseLevel(IFCLoseLevel *arg1);
+    //IFCLoseLevel();
     void Update();
     void Draw();
     void PullOut();
@@ -137,8 +135,8 @@ class IFCLoseLevel : IFCBase { // sizeof=19
 };
 
 class IFCStatScreen : IFCBase { // sizeof=19
-    class IFCStatScreen * IFCStatScreen(class IFCStatScreen *arg1);
-    class IFCStatScreen * IFCStatScreen();
+    //IFCStatScreen(IFCStatScreen *arg1);
+    //IFCStatScreen();
     void Update();
     void Draw();
     void PullOut();

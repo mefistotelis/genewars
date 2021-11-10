@@ -97,20 +97,6 @@ class TextEntry { // sizeof=73
 };
 
 
-class LevelHeader { // sizeof=187
-    void TranslatePlanet();
-    BBOOL LoadHeader(UBYTE arg1, UBYTE arg2);
-    BBOOL SaveHeader(UBYTE arg1, UBYTE arg2);
-    UBYTE compPlayers[2]; // offset=0
-    UBYTE valid; // offset=3
-    UBYTE date[11]; // offset=4
-    UBYTE time[11]; // offset=16
-    ULONG version; // offset=28
-    Planet planet; // offset=32
-    ULONG roomForMoreStuff[6]; // offset=159
-};
-
-typedef class LevelHeader LevelHeader;
 
 class IFCEditor : IFCBase { // sizeof=18
     class IFCEditor * IFCEditor(class IFCEditor *arg1);

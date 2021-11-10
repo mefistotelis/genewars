@@ -19,6 +19,28 @@
 #ifndef BIO_LEVEL_HPP_
 #define BIO_LEVEL_HPP_
 
+#include "bftypes.h"
+#include "myspr.h"
+#include "xy.hpp"
+#include "printinfo.hpp"
+#include "iface.hpp"
+#include "planet.hpp"
+
+class MyGadget;
+
+enum LevelDrawPhase { // type=int8_t
+    LDP_FADEUP = 0,
+    LDP_LINES,
+    LDP_SYSTEM,
+    LDP_EXPANDBOX,
+    LDP_EXPANDBOXLINES,
+    LDP_TARGETACQUIRE, // 5
+    LDP_TARGETLOCK,
+    LDP_EXPANDPLANET,
+    LDP_ZOOMIN,
+    LDP_ORBIT,
+};
+
 class PlanetBody { // sizeof=14
     UBYTE size; // offset=0
     UBYTE type; // offset=1
@@ -27,13 +49,28 @@ class PlanetBody { // sizeof=14
     SLONG speed; // offset=10
 };
 
-
 struct cPoint { // sizeof=12
     SLONG X; // offset=0
     SLONG Y; // offset=4
     SLONG Z; // offset=8
 };
 
+struct Info { // sizeof=56
+    SLONG WindowX1; // offset=0
+    SLONG WindowY1; // offset=4
+    SLONG WindowX2; // offset=8
+    SLONG WindowY2; // offset=12
+    SLONG ClipX1; // offset=16
+    SLONG ClipY1; // offset=20
+    SLONG ClipX2; // offset=24
+    SLONG ClipY2; // offset=28
+    SLONG ScreenClipX1; // offset=32
+    SLONG ScreenClipY1; // offset=36
+    SLONG ScreenClipX2; // offset=40
+    SLONG ScreenClipY2; // offset=44
+    SLONG WindowCentreX; // offset=48
+    SLONG WindowCentreY; // offset=52
+};
 
 struct SpaceBody { // sizeof=33
     UWORD centreRef; // offset=0
@@ -49,7 +86,6 @@ struct SpaceBody { // sizeof=33
     cPoint moveVector; // offset=21
 };
 
-
 class LevelHeader { // sizeof=187
     void TranslatePlanet();
     BBOOL LoadHeader(UBYTE arg1, UBYTE arg2);
@@ -63,7 +99,6 @@ class LevelHeader { // sizeof=187
     ULONG roomForMoreStuff[6]; // offset=159
 };
 
-
 struct ScreenPoint { // sizeof=20
     SLONG SX; // offset=0
     SLONG SY; // offset=4
@@ -75,11 +110,9 @@ struct ScreenPoint { // sizeof=20
     UBYTE Extra2; // offset=19
 };
 
-
 struct Axes { // sizeof=36
     cPoint vector[2]; // offset=0
 };
-
 
 struct Viewer { // sizeof=173
     Axes axes[3]; // offset=0
@@ -88,7 +121,6 @@ struct Viewer { // sizeof=173
     SLONG speed; // offset=168
     UBYTE thrust; // offset=172
 };
-
 
 struct AutoPilot { // sizeof=33
     UBYTE flightstate; // offset=0
@@ -139,7 +171,7 @@ class IFCLevel : IFCBase { // sizeof=203
     void DrawCrossHair();
     UBYTE FindPlanet(UWORD arg1, UWORD arg2);
     void MakeOrbitTrack(UWORD arg1);
-    int SortCheck(void *arg1, void *arg2);
+    int SortCheck(void const *arg1, void const *arg2);
     void SortStars();
     UBYTE IsAtSystemView();
     void DrawGalaxy();
@@ -148,9 +180,9 @@ class IFCLevel : IFCBase { // sizeof=203
     void Draw();
     void PullOut();
     void PlugIn();
-    class IFCLevel * IFCLevel();
-    void (**__vfptr)();
-    unsigned int *__vbptr;
+    //IFCLevel();
+    //void (**__vfptr)();
+    //unsigned int *__vbptr;
     BBOOL startLevel;
     SLONG planetNameTraverse;
     UBYTE systemGizmoFrames[5];

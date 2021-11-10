@@ -1159,17 +1159,6 @@ class SpeechFileStatus { // sizeof=8
 };
 
 
-class CreatureInfo { // sizeof=2
-    class CreatureInfo * CreatureInfo(class CreatureInfo *arg1);
-    void Invalidate();
-    class CreatureInfo * CreatureInfo();
-    uint8_t baseNo; // offset=0
-    SBYTE guardPoint; // offset=1
-    uint8_t space; // offset=2
-    uint8_t movingToPoint; // offset=3
-    uint8_t job; // offset=4
-};
-
 struct SinglePoint { // sizeof=7
     SWORD X; // offset=0
     SWORD Y; // offset=2

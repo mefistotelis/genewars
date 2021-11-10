@@ -19,11 +19,10 @@
 #ifndef BIO_IFCPLANET_HPP_
 #define BIO_IFCPLANET_HPP_
 
-#include "iface.hpp"
-
 #include "bftypes.h"
 #include "myspr.h"
 #include "xy.hpp"
+#include "iface.hpp"
 
 class MyGadget;
 class Thing;
