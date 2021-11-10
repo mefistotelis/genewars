@@ -18,45 +18,10 @@
 /******************************************************************************/
 #include "pads.hpp"
 
-void IFCBase::SetPacket( char unsigned, short, short, short )
+/*BasicPad::BasicPad()
 {
-// code at 0001:0001d48c
-}
-
-void IFCBase::SetPacket( char unsigned, short, short, short, short )
-{
-// code at 0001:0001d42c
-}
-
-void IFCBase::SetPacket( char unsigned, short, short, short, short, short )
-{
-// code at 0001:0001d3c0
-}
-
-void IFCBase::SetPacketDataBlast( void * )
-{
-// code at 0001:0001d39c
-}
-
-char unsigned PaletteSelector::IsSelectActive()
-{
-// code at 0001:0001d35c
-}
-
-void PaletteSelector::ClearSelect()
-{
-// code at 0001:0001d334
-}
-
-void BoundMmsToMySprite( MyMinSprite &, MySprite & )
-{
-// code at 0001:0001d1f8
-}
-
-void TeamCircles::Reset()
-{
-// code at 0001:0001ce98
-}
+// code at 0001:00025ab4
+}*/
 
 void BasicPad::Init( Thing * )
 {
@@ -77,6 +42,11 @@ void BasicPad::Draw( char signed )
 {
 // code at 0001:00019b5d
 }
+
+/*WindowPad::WindowPad( PaletteSelector & )
+{
+// code at 0001:000259bc
+}*/
 
 void WindowPad::Init( Thing * )
 {
@@ -122,6 +92,11 @@ void WindowPad::AbortAction()
 {
 // code at 0001:0001bcd9
 }
+
+/*BuildingPad::BuildingPad()
+{
+// code at 0001:000258e4
+}*/
 
 void BuildingPad::Init( Thing * )
 {
@@ -173,7 +148,11 @@ void CreaturePad::Draw( char signed )
 // code at 0001:0001c873
 }
 
-void (near * const __vftbl[])();
+CreaturePad::CreaturePad( PaletteSelector & )
+{
+// code at 0001:000257ec
+}
+
 
 
 /******************************************************************************/

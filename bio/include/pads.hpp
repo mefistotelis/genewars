@@ -23,7 +23,7 @@
 
 class BasicPad : MainInterfacePad { // sizeof=22
 public:
-    class BasicPad * BasicPad(class BasicPad *arg1);
+    //BasicPad(BasicPad *arg1);
     void MapDraw();
     void Draw(SBYTE arg1);
     BBOOL Update(SWORD arg1);
@@ -93,9 +93,6 @@ public:
     Thing *cuActionThing; // offset=8
     clock_t cuActionClock; // offset=12
 };
-
-
-
 
 #endif // BIO_PADS_HPP_
 /******************************************************************************/

@@ -82,6 +82,7 @@ obj/paletsel.o \
 obj/printinfo.o \
 obj/mainpad.o \
 obj/labpad.o \
+obj/clonepad.o \
 obj/grouppad.o \
 obj/map.o \
 obj/mapdisp.o \

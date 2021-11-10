@@ -23,6 +23,26 @@ void IFCBase::SetPacket( char unsigned )
 // code at 0001:00025eb0
 }
 
+void IFCBase::SetPacket( char unsigned, short, short, short )
+{
+// code at 0001:0001d48c
+}
+
+void IFCBase::SetPacket( char unsigned, short, short, short, short )
+{
+// code at 0001:0001d42c
+}
+
+void IFCBase::SetPacket( char unsigned, short, short, short, short, short )
+{
+// code at 0001:0001d3c0
+}
+
+void IFCBase::SetPacketDataBlast( void * )
+{
+// code at 0001:0001d39c
+}
+
 /*void IFCBase::__vfthunk()
 {
 // code at 0001:000253c8

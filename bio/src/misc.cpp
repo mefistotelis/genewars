@@ -558,31 +558,6 @@ near PaletteSelector::PaletteSelector()
 // code at 0001:00025e28
 }
 
-near BasicPad::BasicPad()
-{
-// code at 0001:00025ab4
-}
-
-near WindowPad::WindowPad( PaletteSelector & )
-{
-// code at 0001:000259bc
-}
-
-near BuildingPad::BuildingPad()
-{
-// code at 0001:000258e4
-}
-
-near CreaturePad::CreaturePad( PaletteSelector & )
-{
-// code at 0001:000257ec
-}
-
-near ClonePad::ClonePad()
-{
-// code at 0001:00025710
-}
-
 near EtherealScope::EtherealScope()
 {
 // code at 0001:000256dc
@@ -706,6 +681,26 @@ char unsigned PaletteSelector::Update( short )
 void PaletteSelector::Draw()
 {
 // code at 0001:000206eb
+}
+
+char unsigned PaletteSelector::IsSelectActive()
+{
+// code at 0001:0001d35c
+}
+
+void PaletteSelector::ClearSelect()
+{
+// code at 0001:0001d334
+}
+
+void BoundMmsToMySprite( MyMinSprite &, MySprite & )
+{
+// code at 0001:0001d1f8
+}
+
+void TeamCircles::Reset()
+{
+// code at 0001:0001ce98
 }
 
 
