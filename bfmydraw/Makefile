@@ -38,6 +38,7 @@ obj/drawrng.o \
 obj/mygad.o \
 obj/myspr.o \
 obj/mysprr.o \
+obj/myfont.o \
 obj/nldata.o \
 obj/pixbuf.o \
 obj/str.o \
