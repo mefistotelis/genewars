@@ -19,11 +19,17 @@
 #ifndef BIO_GROUPPAD_HPP_
 #define BIO_GROUPPAD_HPP_
 
+#include "bftypes.h"
+#include "myspr.h"
+#include "xy.hpp"
 #include "mainpad.hpp"
+#include <ctime>
+
+class Thing;
 
 class GroupSelect { // sizeof=110
 public:
-    SBYTE ActionOn(Thing *arg1, BBOOL arg2);
+    SBYTE ActionOn(Thing *tng1, BBOOL arg2);
     void DrawGroupSelected();
     BBOOL GroupSelectThings();
     void SetTarget(XY arg1);
@@ -33,7 +39,7 @@ public:
     void SetGroupSelecting();
     BBOOL IsAnchorGroupSelecting();
     void SwitchOffGroup(SWORD *arg1, SWORD arg2, UBYTE arg3, UBYTE arg4);
-    void AssignTargetToGroup(Thing *arg1, SWORD *arg2, SWORD arg3, UBYTE arg4, UBYTE arg5, UBYTE arg6);
+    void AssignTargetToGroup(Thing *tng1, SWORD *arg2, SWORD arg3, UBYTE arg4, UBYTE arg5, UBYTE arg6);
     void AssignXYToGroup(XY arg1, SWORD *arg2, SWORD arg3, UBYTE arg4, UBYTE arg5);
     void AssignXYToTeam(XY arg1, UBYTE arg2, UBYTE arg3);
     BBOOL SetGroupSwitchTo();
@@ -44,7 +50,7 @@ public:
     BBOOL IsAGroupCurrentlySelected();
     void ResetGroup();
     void Draw();
-    BBOOL Update(SWORD *arg1);
+    BBOOL Update(SWORD &arg1);
     void Close();
     void Init();
     UBYTE plsMask;
@@ -64,7 +70,7 @@ public:
     void MapDraw();
     void Draw(SBYTE arg1);
     BBOOL Update(SWORD arg1);
-    void Init(Thing *arg1);
+    void Init(Thing *tng1);
     //GroupPad();
     //void (**__vfptr)();
     //unsigned int *__vbptr;

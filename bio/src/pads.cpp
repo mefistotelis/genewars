@@ -48,11 +48,6 @@ void PaletteSelector::ClearSelect()
 // code at 0001:0001d334
 }
 
-void GroupSelect::ResetGroup()
-{
-// code at 0001:0001d2f0
-}
-
 void BoundMmsToMySprite( MyMinSprite &, MySprite & )
 {
 // code at 0001:0001d1f8
@@ -81,31 +76,6 @@ void BasicPad::MapDraw()
 void BasicPad::Draw( char signed )
 {
 // code at 0001:00019b5d
-}
-
-near GroupPad::GroupPad()
-{
-// code at 0001:00019b78
-}
-
-void GroupPad::Init( Thing * )
-{
-// code at 0001:00019c6e
-}
-
-char unsigned GroupPad::Update( short )
-{
-// code at 0001:00019d26
-}
-
-void GroupPad::MapDraw()
-{
-// code at 0001:0001a0c6
-}
-
-void GroupPad::Draw( char signed )
-{
-// code at 0001:0001a0e0
 }
 
 void WindowPad::Init( Thing * )

@@ -558,61 +558,6 @@ near PaletteSelector::PaletteSelector()
 // code at 0001:00025e28
 }
 
-void GroupSelect::Init()
-{
-// code at 0001:00025df8
-}
-
-void GroupSelect::Close()
-{
-// code at 0001:00025dd4
-}
-
-char unsigned GroupSelect::IsAGroupCurrentlySelected()
-{
-// code at 0001:00025d80
-}
-
-char unsigned GroupSelect::IsGroupSelecting()
-{
-// code at 0001:00025d44
-}
-
-void GroupSelect::AddIdxToGroup( short )
-{
-// code at 0001:00025cc8
-}
-
-char unsigned GroupSelect::IsAnchorGroupSelecting()
-{
-// code at 0001:00025c8c
-}
-
-void GroupSelect::SetGroupSelecting()
-{
-// code at 0001:00025c68
-}
-
-void GroupSelect::ClearGroupSelecting()
-{
-// code at 0001:00025c44
-}
-
-void GroupSelect::SetAnchorGroupSelecting( short, short )
-{
-// code at 0001:00025bf4
-}
-
-void GroupSelect::ClearAnchorGroupSelecting()
-{
-// code at 0001:00025bd0
-}
-
-void GroupSelect::SetTarget( XY )
-{
-// code at 0001:00025ba0
-}
-
 near BasicPad::BasicPad()
 {
 // code at 0001:00025ab4
@@ -646,61 +591,6 @@ near EtherealScope::EtherealScope()
 void EtherealScope::Init()
 {
 // code at 0001:000256b8
-}
-
-char signed GroupSelect::ActionOn( Thing *, char unsigned )
-{
-// code at 0001:0001e39a
-}
-
-char unsigned GroupSelect::Update( short & )
-{
-// code at 0001:0001e556
-}
-
-void GroupSelect::Draw()
-{
-// code at 0001:0001e6e5
-}
-
-void GroupSelect::RemoveIdxFromGroup( short )
-{
-// code at 0001:0001e891
-}
-
-char unsigned GroupSelect::GroupSelectThings()
-{
-// code at 0001:0001e931
-}
-
-char unsigned GroupSelect::SetGroupSwitchTo()
-{
-// code at 0001:0001ed6b
-}
-
-void GroupSelect::DrawGroupSelected()
-{
-// code at 0001:0001edd9
-}
-
-void GroupSelect::AssignXYToTeam( XY, char unsigned, char unsigned )
-{
-// code at 0001:0001efbc
-}
-
-void GroupSelect::AssignXYToGroup( XY, short *, short, char unsigned, char unsigned )
-{
-// code at 0001:0001f05b
-}
-
-void GroupSelect::AssignTargetToGroup( Thing *, short *, short, char unsigned, char unsigned, char unsigned )
-{
-// code at 0001:0001f0d3
-}
-
-void GroupSelect::SwitchOffGroup( short *, short, char unsigned, char unsigned )
-{
-// code at 0001:0001f1f4
 }
 
 void EtherealScope::Draw()

@@ -21,6 +21,7 @@
 
 #include "bftypes.h"
 #include "myspr.h"
+#include "printinfo.hpp"
 #include "mainpad.hpp"
 #include "creaturestat.hpp"
 
