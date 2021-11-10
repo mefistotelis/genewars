@@ -38,11 +38,6 @@ char unsigned IFCBase::PacketAction()
 // code at 0001:000169fc
 }
 
-void IFCPlanetside::SetOnOffSwitch( char unsigned )
-{
-// code at 0001:000169c4
-}
-
 void ClonePad::Init( Thing * )
 {
 // code at 0001:00015864

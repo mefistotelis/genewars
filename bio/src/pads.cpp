@@ -78,11 +78,6 @@ void TeamCircles::Reset()
 // code at 0001:0001ce98
 }
 
-void IFCPlanetside::SetBarsRefresh( char unsigned )
-{
-// code at 0001:0001ccec
-}
-
 void MainInterfacePad::Init( Thing * )
 {
 // code at 0001:000190dc

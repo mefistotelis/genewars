@@ -55,7 +55,7 @@ obj/data.o \
 obj/draw.o \
 obj/editor.o \
 obj/font.o \
-obj/iface.o \
+obj/ifcplanet.o \
 obj/lab.o \
 obj/level.o \
 obj/misc.o \
@@ -82,6 +82,7 @@ obj/packets.o \
 obj/paletsel.o \
 obj/map.o \
 obj/mapdisp.o \
+obj/iface.o \
 obj/thingidx.o \
 obj/thing.o \
 obj/mvthing.o \

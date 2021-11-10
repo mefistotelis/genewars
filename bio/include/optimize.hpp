@@ -150,7 +150,95 @@ class TurnPrintInfo { // sizeof=110
     SLONG linesDrawn; // offset=86
 };
 
-typedef class TurnPrintInfo TurnPrintInfo;
+enum TeamCircleMode { // type=int8_t
+    TC_OPENING = 0,
+    TC_CLOSING,
+    TC_NORMAL,
+};
+
+class TurnPrintInfo { // sizeof=110
+    BBOOL Print();
+    char *drawCurrent;
+    char *current;
+    SLONG delayCount;
+    SLONG count;
+    SLONG length;
+    SLONG x; // offset=0
+    SLONG y; // offset=4
+    SLONG delay; // offset=8
+    SLONG step; // offset=12
+    char *str; // offset=16
+    char hilite[2][9]; // offset=20
+    char *drawStr; // offset=50
+    FontInfo dfi; // offset=54
+    ULONG drawing; // offset=82
+    SLONG linesDrawn; // offset=86
+};
+
+
+
+
+
+class HelpDraw { // sizeof=26
+    void GenericHelpDraw(MyGadget *arg1, char *arg2);
+    void Draw(MyGadget *arg1, char *arg2);
+    void SetColors(UBYTE arg1, UBYTE arg2, UBYTE arg3, UBYTE arg4);
+    void DislodgeAndReset();
+    void Dislodge();
+    SWORD hx; // offset=0
+    SWORD hy; // offset=2
+    SWORD hWidth; // offset=4
+    SLONG turn; // offset=6
+    SLONG length; // offset=10
+    ULONG id; // offset=14
+    UBYTE pen; // offset=18
+    UBYTE outline; // offset=19
+    UBYTE fill; // offset=20
+    UBYTE boxOutline; // offset=21
+    MyGadget *gad; // offset=22
+};
+
+
+class MapBucketThing { // sizeof=10
+    SWORD next; // offset=0
+    SWORD x; // offset=2
+    SWORD yDev; // offset=4
+    Thing *thing; // offset=6
+};
+
+
+
+
+class InfoRequester { // sizeof=142
+    class InfoRequester * InfoRequester(class InfoRequester *arg1);
+    void DrawPic(SLONG arg1, SLONG arg2);
+    BBOOL Valid();
+    void Invalidate();
+    void Draw();
+    BBOOL Update();
+    void Create(char *arg1, char *arg2, char *arg3, SLONG arg4);
+    class InfoRequester * InfoRequester();
+    uint8_t picActive;
+    UBYTE picReveal;
+    UBYTE picBuffer[63];
+    SLONG textWidth;
+    char text[255];
+    char title[63];
+    TurnPrintInfo textTpi;
+    TurnPrintInfo titleTpi;
+};
+
+class EtherealScope { // sizeof=11
+    //EtherealScope(EtherealScope *arg1);
+    void Draw();
+    void Init();
+    //EtherealScope();
+    BBOOL blipHitSaucer;
+    UBYTE saucerFade;
+    SLONG blipRange;
+    MyMinSprite etherealMms;
+};
+
 
 class LumberjackScan : RangeScanner { // sizeof=57
     class LumberjackScan * LumberjackScan(class LumberjackScan *arg1);

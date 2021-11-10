@@ -584,13 +584,6 @@ enum { // type=int8_t
     GL_SPR_BOTTOMEDGE,
 };
 
-enum IFCPaletteSetMode { // type=int8_t
-    IFCP_NOAUTOSET = 0,
-    IFCP_INSTANT,
-    IFCP_FADE,
-};
-
-typedef enum IFCPaletteSetMode IFCPaletteSetMode;
 
 enum { // type=int8_t
     CHEAT_MORE_GOOP = 0,
