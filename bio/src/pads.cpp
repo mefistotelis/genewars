@@ -118,6 +118,11 @@ void BuildingPad::Draw( char signed )
 // code at 0001:0001c1b1
 }
 
+CreaturePad::CreaturePad(PaletteSelector &palsel)
+{
+// code at 0001:000257ec
+}
+
 void CreaturePad::Init( Thing * )
 {
 // code at 0001:0001c1f3
@@ -147,12 +152,5 @@ void CreaturePad::Draw( char signed )
 {
 // code at 0001:0001c873
 }
-
-CreaturePad::CreaturePad( PaletteSelector & )
-{
-// code at 0001:000257ec
-}
-
-
 
 /******************************************************************************/

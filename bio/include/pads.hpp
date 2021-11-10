@@ -20,6 +20,13 @@
 #define BIO_PADS_HPP_
 
 #include "mainpad.hpp"
+#include "paletsel.hpp"
+#include "creaturestat.hpp"
+#include <ctime>
+
+class PlSpec;
+class Building;
+class Creature;
 
 class BasicPad : MainInterfacePad { // sizeof=22
 public:
@@ -28,7 +35,7 @@ public:
     void Draw(SBYTE arg1);
     BBOOL Update(SWORD arg1);
     void Init(Thing *arg1);
-    class BasicPad * BasicPad();
+    //BasicPad();
     //void (**__vfptr)();
     //unsigned int *__vbptr;
 };
@@ -83,7 +90,7 @@ public:
     BBOOL Update(SWORD arg1);
     void Close();
     void Init(Thing *arg1);
-    CreaturePad(PaletteSelector arg1);
+    CreaturePad(PaletteSelector &palsel);
     //void (**__vfptr)();
     //unsigned int *__vbptr;
     CreatureUserAction cuAction;

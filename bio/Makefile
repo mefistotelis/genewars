@@ -61,7 +61,6 @@ obj/misc.o \
 obj/nibble.o \
 obj/optimize.o \
 obj/options.o \
-obj/pads.o \
 \
 obj/setup.o \
 obj/sound.o \
@@ -84,6 +83,7 @@ obj/mainpad.o \
 obj/labpad.o \
 obj/clonepad.o \
 obj/grouppad.o \
+obj/pads.o \
 obj/map.o \
 obj/mapdisp.o \
 obj/iface.o \
