@@ -63,6 +63,7 @@ obj/cvector.o \
 obj/nibble.o \
 obj/xy.o \
 obj/gridtile.o \
+obj/topo.o \
 obj/planet.o \
 obj/thebase.o \
 obj/theship.o \

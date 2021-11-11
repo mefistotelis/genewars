@@ -25,7 +25,15 @@
 #include "plspec.hpp"
 #include "plant.hpp"
 #include "drone.hpp"
-#include "plant.hpp"
+#include "topo.hpp"
+#include "ethereal.hpp"
+#include "planet.hpp"
+#include "effect.hpp"
+#include "etherzone.hpp"
+#include "building.hpp"
+#include "creature.hpp"
+#include "gridtile.hpp"
+#include "mapdisp.hpp"
 
 struct Reorient { // sizeof=8
     SLONG X; // offset=0
@@ -78,8 +86,6 @@ void check_point_triangle( short *, short *, long, long, long, long, long, long,
 void mapxy_to_screenxy( long *, long *, short, short );
 void base_mapxy_to_screenxy( long *, long *, short, short );
 void find_mapxy( short *, short *, long, long );
-void MapDisplay::draw_column( long, long, long );
-void MapDisplay::draw_delta_column( long, long, long, long &, long & );
 
 #endif // BIO_BIOENG_HPP_
 /******************************************************************************/

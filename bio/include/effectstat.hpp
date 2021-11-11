@@ -204,5 +204,11 @@ struct EffectStats { // sizeof=6
     BBOOL splash; // offset=5
 };
 
+class EventHelp { // sizeof=150
+    BBOOL IsForceDisplay();
+    void Log(EventHelpType arg1, BBOOL arg2);
+    BBOOL eventLog[149]; // offset=0
+};
+
 #endif // BIO_EFFECTSTAT_HPP_
 /******************************************************************************/

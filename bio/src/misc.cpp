@@ -143,31 +143,6 @@ char unsigned TopoGrid::Update()
 // code at 0001:00090fe9
 }
 
-near TopoMorpher::TopoMorpher()
-{
-// code at 0001:000912b0
-}
-
-TopoGrid * TopoMorpher::Create( XY, char unsigned, long, long )
-{
-// code at 0001:00091306
-}
-
-TopoGrid * TopoMorpher::Crater( XY, char unsigned )
-{
-// code at 0001:00091388
-}
-
-TopoGrid * TopoMorpher::Flat( XY, char unsigned, long, long )
-{
-// code at 0001:00091400
-}
-
-void TopoMorpher::Update()
-{
-// code at 0001:00091482
-}
-
 short FindShortDist( char unsigned, char unsigned, char unsigned )
 {
 // code at 0001:000929d9
@@ -251,21 +226,6 @@ void TopoGrid::Invalidate()
 char unsigned TopoGrid::Valid()
 {
 // code at 0001:00077dbc
-}
-
-char unsigned TopoMorpher::TopoGridIDX( TopoGrid * )
-{
-// code at 0001:00077d8c
-}
-
-char unsigned TopoMorpher::IsTopoGridValid( char unsigned )
-{
-// code at 0001:00077d58
-}
-
-void TopoMorpher::AbortTopoGrid( char unsigned )
-{
-// code at 0001:00077ce8
 }
 
 short WeightedAngle( char unsigned )

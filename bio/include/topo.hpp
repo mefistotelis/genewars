@@ -19,6 +19,9 @@
 #ifndef BIO_TOPO_HPP_
 #define BIO_TOPO_HPP_
 
+#include "bftypes.h"
+#include "xy.hpp"
+
 class TopoGrid { // sizeof=176
     void InterpolateAlts(ULONG arg1, ULONG arg2, ULONG arg3, ULONG arg4, ULONG arg5, ULONG arg6, ULONG arg7, ULONG arg8, SLONG arg9, BBOOL *arg10[8], SBYTE arg11);
     void SetTimer();
@@ -48,7 +51,7 @@ class TopoMorpher { // sizeof=49
     TopoGrid * Flat(XY arg1, UBYTE arg2, SLONG arg3, SLONG arg4);
     TopoGrid * Crater(XY arg1, UBYTE arg2);
     TopoGrid * Create(XY arg1, UBYTE arg2, SLONG arg3, SLONG arg4);
-    TopoMorpher * TopoMorpher();
+    //TopoMorpher();
     TopoGrid topos[24]; // offset=0
     UBYTE numTopos; // offset=48
 };

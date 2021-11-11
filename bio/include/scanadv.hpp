@@ -378,20 +378,6 @@ public:
     ULONG score; // offset=41
 };
 
-class NewBaseScan : public PointSample { // sizeof=40
-public:
-    //NewBaseScan(class NewBaseScan *arg1);
-    void PerGrid();
-    NewBaseScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
-    //void (**__vfptr)();
-    UBYTE player;
-    XY origin;
-    ULONG bestScore; // offset=27
-    XY bestLoc; // offset=31
-};
-
-typedef class SiteScore SiteScore;
-
 class PlantScan : public RangeScanner { // sizeof=108
 public:
     //PlantScan(class PlantScan *arg1);
@@ -458,6 +444,12 @@ public:
     GuardPointImportance(XY arg1, ULONG arg2);
     //void (**__vfptr)();
     SWORD importance; // offset=41
+};
+
+class CloseTgt { // sizeof=4
+    BBOOL Valid();
+    SWORD idx; // offset=0
+    SWORD range; // offset=2
 };
 
 class ClosestTargets : public PolarRangeScan { // sizeof=132

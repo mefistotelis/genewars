@@ -1065,16 +1065,6 @@ typedef struct OriBlock OriBlock;
 
 
 
-class EventHelp { // sizeof=150
-    BBOOL IsForceDisplay();
-    void Log(EventHelpType arg1, BBOOL arg2);
-    BBOOL eventLog[149]; // offset=0
-};
-
-typedef class EventHelp EventHelp;
-
-
-
 
 enum { // type=int8_t
     MAKE_NOTREADY = 0,
@@ -1248,18 +1238,13 @@ class BuildPriority { // sizeof=9
 };
 
 class BestBuilding { // sizeof=5
-    class BestBuilding * BestBuilding(class BestBuilding *arg1);
+    //BestBuilding(BestBuilding *arg1);
     XY loc; // offset=0
     UBYTE type; // offset=4
 };
 
 typedef class BestBuilding BestBuilding;
 
-class CloseTgt { // sizeof=4
-    BBOOL Valid();
-    SWORD idx; // offset=0
-    SWORD range; // offset=2
-};
 
 
 class PointSample { // sizeof=27
@@ -1277,6 +1262,18 @@ class PointSample { // sizeof=27
     XY center;
     UWORD sectorSize;
     BBOOL foundAThing; // offset=0
+};
+
+class NewBaseScan : public PointSample { // sizeof=40
+public:
+    //NewBaseScan(class NewBaseScan *arg1);
+    void PerGrid();
+    NewBaseScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
+    //void (**__vfptr)();
+    UBYTE player;
+    XY origin;
+    ULONG bestScore; // offset=27
+    XY bestLoc; // offset=31
 };
 
 class BestForestSample : public PointSample { // sizeof=38
