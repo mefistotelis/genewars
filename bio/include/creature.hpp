@@ -32,12 +32,14 @@ class AwarenessScan;
 class TheBase;
 
 class Gene { // sizeof=2
+public:
     BBOOL IsBasicInGene(CreatureBaseSpecies arg1);
     CreatureBaseSpecies dominant; // offset=0
     CreatureBaseSpecies recessive; // offset=1
 };
 
 class Creature : public SmartMovingThing { // sizeof=124
+public:
     Creature * operator =(Creature *crtr1);
     //Creature(Creature *arg1); -- generate default copy constructor
     //Creature(); -- generate default no-args constructor

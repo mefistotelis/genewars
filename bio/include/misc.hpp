@@ -623,8 +623,6 @@ enum { // type=int8_t
     EF_SHADOW_LARGE,
 };
 
-typedef enum PlsError PlsError;
-
 enum { // type=int8_t
     BLDOBJ_FORCECONE = 0,
     BLDOBJ_HBRIDGE,
@@ -1011,40 +1009,6 @@ enum { // type=int8_t
 
 
 
-enum { // type=int16_t
-    INTR_OF = 0,
-    INTR_DF,
-    INTR_IF,
-    INTR_TF,
-    INTR_PF,
-    INTR_CF, // 5
-    INTR_AF = 16,
-    INTR_ZF = 64,
-    INTR_SF = 128,
-};
-
-typedef uint32_t clock_t;
-
-typedef char *va_list[0];
-
-typedef int32_t fpos_t;
-
-typedef void (*onexit_t)();
-
-typedef char *__va_list[0];
-
-typedef int32_t off_t;
-
-typedef int dev_t;
-
-typedef unsigned int ino_t;
-
-typedef unsigned int size_t;
-
-typedef uint32_t time_t;
-
-typedef uint16_t wchar_t;
-
 enum TopoType { // type=int8_t
     TOPO_MOUNTAIN = 0,
     TOPO_CRATER,
@@ -1211,6 +1175,39 @@ class Point { // sizeof=12
 typedef class Point Point;
 
 
+class EqRange { // sizeof=2
+    UBYTE base; // offset=0
+    UBYTE range; // offset=1
+};
+
+typedef class EqRange EqRange;
+
+class SpecRaceData { // sizeof=16
+    SLONG speed; // offset=0
+    SLONG discoverRange; // offset=4
+    SLONG maxAbility; // offset=8
+    SLONG maxStrength; // offset=12
+};
+
+typedef class SpecRaceData SpecRaceData;
+
+struct Corners { // sizeof=4
+    SBYTE Cnw; // offset=0
+    SBYTE Cne; // offset=1
+    SBYTE Cse; // offset=2
+    SBYTE Csw; // offset=3
+};
+
+typedef struct Corners Corners;
+
+struct VMod { // sizeof=2
+    UBYTE Block; // offset=0
+    UBYTE Orient; // offset=1
+};
+
+typedef struct VMod VMod;
+
+
 
 
 
@@ -1245,61 +1242,6 @@ class BestBuilding { // sizeof=5
 
 typedef class BestBuilding BestBuilding;
 
-
-
-class PointSample { // sizeof=27
-    //PointSample(PointSample *arg1);
-    void PerGrid();
-    class PointSample * PointSample(XY arg1, ULONG arg2, UBYTE arg3);
-    class PointSample * PointSample(XY arg1, ULONG arg2, UWORD arg3);
-    class PointSample * PointSample(XY arg1, ULONG arg2, ULONG arg3);
-    void Do();
-    //void (**__vfptr)();
-    GridTile *g;
-    ULONG squareRange;
-    ULONG range;
-    XY tgt;
-    XY center;
-    UWORD sectorSize;
-    BBOOL foundAThing; // offset=0
-};
-
-class NewBaseScan : public PointSample { // sizeof=40
-public:
-    //NewBaseScan(class NewBaseScan *arg1);
-    void PerGrid();
-    NewBaseScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
-    //void (**__vfptr)();
-    UBYTE player;
-    XY origin;
-    ULONG bestScore; // offset=27
-    XY bestLoc; // offset=31
-};
-
-class BestForestSample : public PointSample { // sizeof=38
-public:
-    //BestForestSample(BestForestSample *arg1);
-    void PerGrid();
-    class BestForestSample * BestForestSample(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4, ULONG arg5);
-    //void (**__vfptr)();
-    SLONG bestValue;
-    UBYTE forestType;
-    UBYTE player;
-    XY bestPos; // offset=27
-    UBYTE bestPlant; // offset=31
-};
-
-class SoundConfig { // sizeof=10
-    void Set();
-    void Write(char *arg1);
-    void Read(char *arg1);
-    SLONG sfxVolume; // offset=0
-    SLONG musicVolume; // offset=4
-    BBOOL sfxOn; // offset=8
-    BBOOL musicOn; // offset=9
-};
-
-typedef class SoundConfig SoundConfig;
 
 
 

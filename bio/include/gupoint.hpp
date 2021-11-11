@@ -34,6 +34,7 @@ enum TgtType { // type=int8_t
 };
 
 class GPointFlags { // sizeof=1
+public:
     GPointFlags * operator =(GPointFlags *arg1);
     //GPointFlags(GPointFlags *arg1);
     GPointFlags & operator =(GPointFlags const &arg1);
@@ -47,6 +48,7 @@ class GPointFlags { // sizeof=1
 };
 
 class CompTarget { // sizeof=4
+public:
     //~CompTarget();
     //CompTarget(class CompTarget *arg1);
     void StopHuntingThis();
@@ -62,6 +64,7 @@ class CompTarget { // sizeof=4
 };
 
 class GuardPoint { // sizeof=38
+public:
     //~GuardPoint();
     GuardPoint * operator =(GuardPoint *arg1);
     //GuardPoint(GuardPoint *arg1);

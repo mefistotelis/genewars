@@ -31,13 +31,8 @@ enum ConfigLanguage { // type=int8_t
     CFL_ITALIAN, // 5
 };
 
-typedef enum ConfigLanguage ConfigLanguage;
-
-
-
-
-
 class ScreenLockHandler { // sizeof=2
+public:
     SLONG UnlockForSwap();
     SLONG LockForSwap();
     SLONG NestUnlock();
@@ -45,21 +40,6 @@ class ScreenLockHandler { // sizeof=2
     BBOOL screenLocked;
     SBYTE nestScreenLockLevel;
 };
-
-
-
-struct __iobuf { // sizeof=26
-    uint8_t *_ptr; // offset=0
-    int _cnt; // offset=4
-    uint8_t *_base; // offset=8
-    unsigned int _flag; // offset=12
-    int _handle; // offset=16
-    unsigned int _bufsize; // offset=20
-    uint8_t _ungotten; // offset=24
-    uint8_t _tmpfchar; // offset=25
-};
-
-typedef struct __iobuf FILE;
 
 extern char * victCondTypes[];
 extern char * specFuncTxt[][7];

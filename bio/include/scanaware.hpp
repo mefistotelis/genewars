@@ -29,6 +29,7 @@ class Player;
 class Computer;
 
 class BaseAwareness { // sizeof=83
+public:
     void Reset();
     ULONG finishedTurn; // offset=0
     UBYTE enemySpec; // offset=4

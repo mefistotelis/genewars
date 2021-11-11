@@ -40,6 +40,7 @@ enum TeamCircleMode { // type=int8_t
 };
 
 class TeamCircles { // sizeof=63
+public:
     void StopStatic(UBYTE arg1);
     void StartStatic(UBYTE arg1, BBOOL arg2);
     void SelectCircle(UBYTE arg1);

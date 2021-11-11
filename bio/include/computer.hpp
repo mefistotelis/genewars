@@ -34,6 +34,7 @@ class Creature;
 class Thing;
 
 class CompDebug { // sizeof=5
+public:
     //CompDebug(CompDebug *arg1);
     //CompDebug();
     ULONG scanRange; // offset=0
@@ -41,6 +42,7 @@ class CompDebug { // sizeof=5
 };
 
 class Computer { // sizeof=190
+public:
     //~Computer();
     Computer * operator =(Computer *arg1);
     //Computer(Computer *arg1); -- generate default copy constructor

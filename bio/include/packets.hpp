@@ -22,7 +22,7 @@
 #include "bftypes.h"
 #include "paletsel.hpp"
 
-class PacketData { // sizeof=11
+struct PacketData { // sizeof=11
     SWORD X; // offset=0
     SWORD Y; // offset=2
     SWORD Z; // offset=4

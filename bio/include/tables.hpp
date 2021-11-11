@@ -19,39 +19,6 @@
 #ifndef BIO_TABLES_HPP_
 #define BIO_TABLES_HPP_
 
-class EqRange { // sizeof=2
-    UBYTE base; // offset=0
-    UBYTE range; // offset=1
-};
-
-typedef class EqRange EqRange;
-
-class SpecRaceData { // sizeof=16
-    SLONG speed; // offset=0
-    SLONG discoverRange; // offset=4
-    SLONG maxAbility; // offset=8
-    SLONG maxStrength; // offset=12
-};
-
-typedef class SpecRaceData SpecRaceData;
-
-struct Corners { // sizeof=4
-    SBYTE Cnw; // offset=0
-    SBYTE Cne; // offset=1
-    SBYTE Cse; // offset=2
-    SBYTE Csw; // offset=3
-};
-
-typedef struct Corners Corners;
-
-struct VMod { // sizeof=2
-    UBYTE Block; // offset=0
-    UBYTE Orient; // offset=1
-};
-
-typedef struct VMod VMod;
-
-
 extern TbLoadFiles startup_files[];
 extern TbLoadFiles installedData[];
 extern char const * creatureAnbs[];

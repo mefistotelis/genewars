@@ -35,7 +35,7 @@ enum LevelDrawPhase { // type=int8_t
     LDP_ORBIT,
 };
 
-class PlanetBody { // sizeof=14
+struct PlanetBody { // sizeof=14
     UBYTE size; // offset=0
     UBYTE type; // offset=1
     SLONG angle; // offset=2
@@ -81,6 +81,7 @@ struct SpaceBody { // sizeof=33
 };
 
 class LevelHeader { // sizeof=187
+public:
     void TranslatePlanet();
     BBOOL LoadHeader(UBYTE arg1, UBYTE arg2);
     BBOOL SaveHeader(UBYTE arg1, UBYTE arg2);

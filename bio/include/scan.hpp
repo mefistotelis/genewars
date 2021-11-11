@@ -27,6 +27,7 @@ class Thing;
 class Plant;
 
 class ScanRecord { // sizeof=128
+public:
     //ScanRecord(ScanRecord *rscan1);
     int Hash(XY arg1);
     BBOOL IsRecorded(XY arg1);

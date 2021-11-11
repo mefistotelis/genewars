@@ -22,6 +22,7 @@
 #include "bftypes.h"
 
 class Trigger { // sizeof=7
+public:
     //Trigger(Trigger *arg1); -- generate default copy constructor
     void Invalidate();
     BBOOL Valid();
@@ -37,6 +38,7 @@ class Trigger { // sizeof=7
 };
 
 class Personality { // sizeof=142
+public:
     //Personality(Personality *arg1); -- generate default copy constructor
     //Personality(); -- generate default no-ops constructor
     char name[19]; // offset=0

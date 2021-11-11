@@ -28,6 +28,7 @@ enum InfoRequesterStyle { // type=int8_t
 };
 
 class TurnPrintInfo { // sizeof=110
+public:
     BBOOL Print();
     char *drawCurrent;
     char *current;
@@ -47,6 +48,7 @@ class TurnPrintInfo { // sizeof=110
 };
 
 class InfoRequester { // sizeof=142
+public:
     //InfoRequester(InfoRequester *arg1);
     void DrawPic(SLONG arg1, SLONG arg2);
     BBOOL Valid();

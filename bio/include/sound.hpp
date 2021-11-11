@@ -33,6 +33,7 @@ enum BufferSubmitMode { // type=int8_t
 };
 
 class SoundTag { // sizeof=6
+public:
     void SetNewSample();
     BBOOL IsNewSample();
     ULONG id; // offset=0
@@ -40,6 +41,7 @@ class SoundTag { // sizeof=6
 };
 
 class SoundRequest { // sizeof=23
+public:
     BBOOL Valid();
     void Invalidate();
     SampleInfo *sampleInfo; // offset=0
@@ -54,12 +56,13 @@ class SoundRequest { // sizeof=23
     BBOOL makeSoft; // offset=22
 };
 
-class SpeechFileEntry { // sizeof=8
+struct SpeechFileEntry { // sizeof=8
     SLONG offset; // offset=0
     SLONG size; // offset=4
 };
 
 class SpeechFileStatus { // sizeof=8
+public:
     BBOOL Valid();
     void Invalidate();
     TbFileHandle handle; // offset=0
@@ -67,6 +70,7 @@ class SpeechFileStatus { // sizeof=8
 };
 
 class SampleBufferQueue { // sizeof=94
+public:
     void Reset();
     char * GetNext(SoundRequest &arg1);
     BBOOL Add(char *arg1, SoundRequest &arg2);
@@ -77,6 +81,7 @@ class SampleBufferQueue { // sizeof=94
 };
 
 class SoundManager { // sizeof=159
+public:
     //SoundManager(SoundManager &arg1);
     BBOOL CanSamplePlay(ULONG arg1, SampleID arg2, UBYTE arg3);
     UBYTE ComputePan(XY arg1);

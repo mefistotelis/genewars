@@ -24,6 +24,7 @@
 class MyGadget;
 
 class HelpDraw { // sizeof=26
+public:
     void GenericHelpDraw(MyGadget *arg1, char *arg2);
     void Draw(MyGadget *arg1, char *arg2);
     void SetColors(UBYTE arg1, UBYTE arg2, UBYTE arg3, UBYTE arg4);
@@ -50,6 +51,7 @@ enum TextEntryStatus { // type=int8_t
 };
 
 class TextEntry { // sizeof=73
+public:
     //TextEntry(TextEntry *arg1);
     BBOOL ValidChar(UBYTE arg1);
     //TextEntry();

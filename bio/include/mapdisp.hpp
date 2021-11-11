@@ -29,6 +29,7 @@ class Thing;
 class GridTile;
 
 class MapDisplay { // sizeof=217
+public:
     void RegisterFoundationGrid(XY cor1, UBYTE arg2);
     void SelectAmbientSound();
     void SetRefreshColumn(UBYTE arg1, MapRefreshColumn arg2); // last arg uncertain

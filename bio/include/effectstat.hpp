@@ -205,6 +205,7 @@ struct EffectStats { // sizeof=6
 };
 
 class EventHelp { // sizeof=150
+public:
     BBOOL IsForceDisplay();
     void Log(EventHelpType arg1, BBOOL arg2);
     BBOOL eventLog[149]; // offset=0

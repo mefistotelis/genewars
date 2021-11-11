@@ -47,6 +47,7 @@ enum PlsError { // type=int8_t
 };
 
 class PlSpec : public SmartMovingThing { // sizeof=200
+public:
     PlSpec * operator =(PlSpec *arg1);
     //PlSpec(PlSpec *arg1); -- generate default copy constructor
     //PlSpec(); -- generate default no-args constructor

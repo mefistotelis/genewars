@@ -43,7 +43,7 @@ union MapPosXY { // sizeof=2
     UWORD Pos; // offset=1
 };
 
-class MapBucketThing { // sizeof=10
+struct MapBucketThing { // sizeof=10
     SWORD next; // offset=0
     SWORD x; // offset=2
     SWORD yDev; // offset=4
@@ -51,6 +51,7 @@ class MapBucketThing { // sizeof=10
 };
 
 class FlatMap { // sizeof=6
+public:
     void DrawOver(SWORD arg1, SWORD arg2, UBYTE arg3);
     void Map2Screen(XY *arg1);
     void Update(BBOOL arg1);
@@ -73,6 +74,7 @@ class FlatMap { // sizeof=6
 };
 
 class IsoMapBuffer { // sizeof=12
+public:
     void SetNewXlatedTop(UBYTE arg1, UBYTE arg2);
     void SetNewTop(UBYTE arg1, UBYTE arg2);
     void Draw(UBYTE arg1);

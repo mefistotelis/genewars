@@ -30,6 +30,7 @@ enum IFCPaletteSetMode { // type=int8_t
 };
 
 class IFCBase { // sizeof=11
+public:
     //IFCBase(IFCBase *arg1); -- generate default copy constructor
     //IFCBase(); -- generate default no-args constructor
     void ClearMousePointer();

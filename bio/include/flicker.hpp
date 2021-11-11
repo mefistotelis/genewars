@@ -21,6 +21,7 @@
 
 
 class FlickerStuff { // sizeof=193
+public:
     BBOOL Valid();
     void Invalidate();
     Point uppers[15]; // offset=0
@@ -32,6 +33,7 @@ class FlickerStuff { // sizeof=193
 };
 
 class FlickerHandler { // sizeof=8
+public:
     void Free(UBYTE arg1);
     SBYTE Create();
     FlickerStuff flickers[7]; // offset=0

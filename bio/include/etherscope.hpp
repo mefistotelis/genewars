@@ -23,6 +23,7 @@
 #include "myspr.h"
 
 class EtherealScope { // sizeof=11
+public:
     //EtherealScope(EtherealScope *arg1);
     void Draw();
     void Init();

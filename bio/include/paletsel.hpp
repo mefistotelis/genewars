@@ -31,6 +31,7 @@ enum PaletteSelectorMode { // type=int8_t
 };
 
 class PaletteSelector { // sizeof=81
+public:
     //PaletteSelector(PaletteSelector *arg1); -- generate default copy constructor
     void RestoreSelectFilter();
     void SetSelectFilter(UBYTE arg1);

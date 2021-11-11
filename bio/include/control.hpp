@@ -64,7 +64,7 @@ struct ControllerInfo { // sizeof=13
     uint8_t LeftPressed; // offset=43
 };
 
-class GameFlags { // sizeof=1
+struct GameFlags { // sizeof=1
     uint8_t LostLevel; // offset=0
     uint8_t WonLevel; // offset=1
     uint8_t Conquest; // offset=2

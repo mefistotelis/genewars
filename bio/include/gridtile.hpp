@@ -29,6 +29,7 @@ class Thing;
 class PlSpec;
 
 class GridTile { // sizeof=16
+public:
     GridTile & operator =(GridTile const &arg1);
     void InsureNoOverlaps(SLONG arg1);
     void FixErrorsAndShores(XY cor1, XY cor2, BBOOL arg3);

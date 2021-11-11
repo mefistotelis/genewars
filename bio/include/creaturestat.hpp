@@ -135,6 +135,7 @@ struct ASpecies { // sizeof=45
 };
 
 class CreatureInfo { // sizeof=2
+public:
     //~CreatureInfo();
     //CreatureInfo(CreatureInfo *arg1);
     void Invalidate();

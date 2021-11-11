@@ -26,6 +26,7 @@
 class Creature;
 
 class ResearchGrid { // sizeof=200
+public:
     void CheatGetAllCreatures();
     BBOOL RegisterCreature(CreatureSpecies arg1);
     BBOOL IsIndexWithinCreaturesDiscovered(int arg1);

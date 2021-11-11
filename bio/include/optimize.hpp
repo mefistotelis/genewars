@@ -88,6 +88,7 @@ struct BuildingStage { // sizeof=1
 typedef struct BuildingStage BuildingStage;
 
 class EventHelp { // sizeof=150
+public:
     BBOOL IsForceDisplay();
     void Log(EventHelpType arg1, BBOOL arg2);
     BBOOL eventLog[149]; // offset=0
@@ -95,7 +96,7 @@ class EventHelp { // sizeof=150
 
 typedef class EventHelp EventHelp;
 
-class GunSpec { // sizeof=7
+struct GunSpec { // sizeof=7
     SWORD shotSpeed; // offset=0
     SWORD shotLifeInTurns; // offset=2
     SWORD reloadTime; // offset=4

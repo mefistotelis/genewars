@@ -23,6 +23,7 @@
 #include "xy.hpp"
 
 class TopoGrid { // sizeof=176
+public:
     void InterpolateAlts(ULONG arg1, ULONG arg2, ULONG arg3, ULONG arg4, ULONG arg5, ULONG arg6, ULONG arg7, ULONG arg8, SLONG arg9, BBOOL *arg10[8], SBYTE arg11);
     void SetTimer();
     void Fractalize(UBYTE arg1, SLONG arg2);
@@ -43,6 +44,7 @@ class TopoGrid { // sizeof=176
 };
 
 class TopoMorpher { // sizeof=49
+public:
     //TopoMorpher(TopoMorpher *arg1);
     void AbortTopoGrid(UBYTE arg1);
     BBOOL IsTopoGridValid(UBYTE arg1);

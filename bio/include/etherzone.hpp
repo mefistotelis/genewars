@@ -28,6 +28,7 @@ class Planet;
 class Thing;
 
 class EtherealZone { // sizeof=19
+public:
     void ScoreTemples();
     void ScorePlants(PlantSpecies arg1);
     void ScoreCreatures(CreatureBaseSpecies arg1);
@@ -53,6 +54,7 @@ class EtherealZone { // sizeof=19
 };
 
 class EtherealZoneHandler { // sizeof=194
+public:
     BBOOL IsZonesScoredOut();
     void LightAllActive();
     void Draw();

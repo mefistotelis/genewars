@@ -28,6 +28,7 @@
 #include "spec.hpp"
 
 class BuilderIFC { // sizeof=18
+public:
     SBYTE go; // offset=0
     SBYTE object; // offset=1
     SWORD freq; // offset=2
@@ -39,6 +40,7 @@ class BuilderIFC { // sizeof=18
 };
 
 class FarmerIFC { // sizeof=16
+public:
     SBYTE go; // offset=0
     PlantSpecies species; // offset=1
     SWORD freq; // offset=2
@@ -49,6 +51,7 @@ class FarmerIFC { // sizeof=16
 };
 
 class ShepherdIFC { // sizeof=10
+public:
     SBYTE go; // offset=0
     XY targetXY; // offset=1
     SLONG zoneRange; // offset=5
@@ -56,6 +59,7 @@ class ShepherdIFC { // sizeof=10
 };
 
 class CowboyIFC { // sizeof=15
+public:
     SBYTE go; // offset=0
     UBYTE gunType; // offset=1
     SWORD hits; // offset=2
@@ -67,6 +71,7 @@ class CowboyIFC { // sizeof=15
 };
 
 class PLSInterface { // sizeof=22
+public:
     PLSInterface * operator =(PLSInterface *arg1);
     SBYTE submode; // offset=0
     ThingIDX thingTgt; // offset=1
@@ -78,6 +83,7 @@ class PLSInterface { // sizeof=22
 };
 
 class PlSpecLoader { // sizeof=80
+public:
     void Free(PlayerRace arg1, SpecialistClass arg2, MyAnimBank *arg3);
     void Free(PlSpec *arg1);
     MyAnimBank * Load(PlayerRace arg1, SpecialistClass arg2);
