@@ -18,6 +18,11 @@
 /******************************************************************************/
 #include "bioeng.hpp"
 
+BioGame::BioGame()
+{
+// code at 0001:000612e4
+}
+
 void check_point_triangle( short *, short *, long, long, long, long, long, long, long, long )
 {
 // code at 0001:00049ce4

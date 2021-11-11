@@ -21,6 +21,10 @@
 
 #include "listsamp.h"
 #include "bffile.h"
+#include "xy.hpp"
+#include "sndsample.hpp"
+
+class Thing;
 
 enum BufferSubmitMode { // type=int8_t
     BSM_IMMEDIATE = 0,
@@ -64,8 +68,8 @@ class SpeechFileStatus { // sizeof=8
 
 class SampleBufferQueue { // sizeof=94
     void Reset();
-    char * GetNext(SoundRequest *arg1);
-    BBOOL Add(char *arg1, SoundRequest *arg2);
+    char * GetNext(SoundRequest &arg1);
+    BBOOL Add(char *arg1, SoundRequest &arg2);
     UBYTE size;
     UBYTE first;
     char names[3][63];
@@ -77,10 +81,10 @@ class SoundManager { // sizeof=159
     BBOOL CanSamplePlay(ULONG arg1, SampleID arg2, UBYTE arg3);
     UBYTE ComputePan(XY arg1);
     UBYTE ComputeVolume(XY arg1, UBYTE arg2);
-    SoundRequest * GetSoundReq(Thing *arg1, SoundRequest *arg2, BBOOL arg3);
+    SoundRequest * GetSoundReq(Thing *tng1, SoundRequest *arg2, BBOOL arg3);
     SampleInfo * GetSampleInfo(ULONG arg1, SampleID arg2);
-    void SubmitBufferedSound(char *arg1, SoundRequest *arg2);
-    void SubmitSoundRequest(SoundRequest *arg1);
+    void SubmitBufferedSound(char *arg1, SoundRequest &arg2);
+    void SubmitSoundRequest(SoundRequest &arg1);
     void FreeRequest(SoundRequest *arg1);
     void StopSpeech();
     void StartSpeech(SoundRequest *arg1);
@@ -91,24 +95,24 @@ class SoundManager { // sizeof=159
     BBOOL IsCDPlaying();
     BBOOL IsNarratorSpeaking();
     UBYTE NumRequests();
-    SoundRequest * GetSoundReq(Thing *arg1);
-    SoundRequest * GetNextSoundReq(Thing *arg1, SoundRequest *arg2);
+    SoundRequest * GetSoundReq(Thing *tng1);
+    SoundRequest * GetNextSoundReq(Thing *tng1, SoundRequest *arg2);
     SoundRequest * GetSoundReq(ULONG arg1, SampleID arg2);
     void KillAllSounds();
     void CloseAllSpeech();
     void StopCD();
     void PlayCDTrack(UBYTE arg1);
     void StopSound(UBYTE arg1, SampleID arg2);
-    void RegisterFreedThing(Thing *arg1);
+    void RegisterFreedThing(Thing *tng1);
     void ProcessSounds();
     void Sound(UBYTE arg1, char *arg2, BufferSubmitMode arg3, UBYTE arg4, UBYTE arg5, UBYTE arg6, ULONG arg7, UBYTE arg8);
-    void Sound(Thing *arg1, char *arg2, BufferSubmitMode arg3, UBYTE arg4, UBYTE arg5, UBYTE arg6, ULONG arg7);
+    void Sound(Thing *tng1, char *arg2, BufferSubmitMode arg3, UBYTE arg4, UBYTE arg5, UBYTE arg6, ULONG arg7);
     void Sound(UBYTE arg1, SampleID arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5, ULONG arg6, UBYTE arg7);
-    void Sound(Thing *arg1, SampleID arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5, ULONG arg6);
+    void Sound(Thing *tng1, SampleID arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5, ULONG arg6);
     void ChangeAmbientVolume(UBYTE arg1);
     void SilenceAmbientSample();
     void ChangeAmbientSample(SampleID arg1);
-    SoundManager(XY arg1);
+    SoundManager(XY &arg1);
     SpeechFileStatus speech[17];
     UBYTE playingCDTrack;
     BBOOL narratorSpeaking;

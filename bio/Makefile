@@ -57,7 +57,6 @@ obj/optimize.o \
 obj/options.o \
 \
 obj/setup.o \
-obj/sound.o \
 obj/tables.o \
 
 
@@ -114,6 +113,7 @@ obj/plspec.o \
 obj/gupoint.o \
 obj/computer.o \
 obj/io.o \
+obj/sound.o \
 obj/engine.o \
 obj/control.o \
 obj/game.o \

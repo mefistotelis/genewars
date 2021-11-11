@@ -44,11 +44,6 @@ near GEngine::GEngine()
 // code at 0001:0005ea30
 }
 
-near IFCCustom::IFCCustom( MyGadget * )
-{
-// code at 0001:0005e7f4
-}
-
 near CreatureInfo::CreatureInfo()
 {
 // code at 0001:0005e7c8

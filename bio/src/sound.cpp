@@ -18,6 +18,11 @@
 /******************************************************************************/
 #include "sound.hpp"
 
+SoundManager::SoundManager(XY &arg1)
+{
+// code at 0001:00037a58
+}
+
 char unsigned SoundTag::IsNewSample()
 {
 // code at 0001:00039344
@@ -58,11 +63,6 @@ void SoundManager::FreeRequest( SoundRequest * )
 // code at 0001:000390e8
 }
 
-near SoundManager::SoundManager( XY & )
-{
-// code at 0001:00037a58
-}
-
 void SoundManager::PlayCDTrack( char unsigned )
 {
 // code at 0001:00037aae
@@ -88,22 +88,22 @@ void SoundManager::KillAllSounds()
 // code at 0001:00037fdf
 }
 
-void SoundManager::StopSound( char unsigned, SampleID )
+void SoundManager::StopSound(UBYTE arg1, SampleID arg2)
 {
 // code at 0001:00038043
 }
 
-SampleInfo * SoundManager::GetSampleInfo( long unsigned, SampleID )
+SampleInfo * SoundManager::GetSampleInfo(ULONG arg1, SampleID arg2)
 {
 // code at 0001:000380a3
 }
 
-SoundRequest * SoundManager::GetSoundReq( long unsigned, SampleID )
+SoundRequest * SoundManager::GetSoundReq(ULONG arg1, SampleID arg2)
 {
 // code at 0001:0003810a
 }
 
-SoundRequest * SoundManager::GetSoundReq( Thing *, SoundRequest *, char unsigned )
+SoundRequest * SoundManager::GetSoundReq(Thing *arg1, SoundRequest *arg2, BBOOL arg3)
 {
 // code at 0001:00038173
 }
@@ -123,17 +123,17 @@ void SoundManager::SilenceAmbientSample()
 // code at 0001:000382a9
 }
 
-void SoundManager::ChangeAmbientVolume( char unsigned )
+void SoundManager::ChangeAmbientVolume(UBYTE arg1)
 {
 // code at 0001:000382fd
 }
 
-char unsigned SoundManager::ComputeVolume( XY, char unsigned )
+UBYTE SoundManager::ComputeVolume(XY arg1, UBYTE arg2)
 {
 // code at 0001:00038355
 }
 
-char unsigned SoundManager::ComputePan( XY )
+UBYTE SoundManager::ComputePan(XY arg1)
 {
 // code at 0001:000383fa
 }
@@ -143,47 +143,47 @@ void SoundManager::ProcessSounds()
 // code at 0001:000384da
 }
 
-void SoundManager::SubmitSoundRequest( SoundRequest & )
+void SoundManager::SubmitSoundRequest(SoundRequest &arg1)
 {
 // code at 0001:000388fa
 }
 
-char unsigned SoundManager::CanSamplePlay( long unsigned, SampleID, char unsigned )
+BBOOL SoundManager::CanSamplePlay(ULONG arg1, SampleID arg2, UBYTE arg3)
 {
 // code at 0001:00038b71
 }
 
-void SoundManager::Sound( Thing *, SampleID, char unsigned, char unsigned, char unsigned, long unsigned )
+void SoundManager::Sound(Thing *tng1, SampleID arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5, ULONG arg6)
 {
 // code at 0001:00038c07
 }
 
-void SoundManager::Sound( char unsigned, SampleID, char unsigned, char unsigned, char unsigned, long unsigned, char unsigned )
+void SoundManager::Sound(UBYTE arg1, SampleID arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5, ULONG arg6, UBYTE arg7)
 {
 // code at 0001:00038c9e
 }
 
-void SoundManager::Sound( Thing *, char *, BufferSubmitMode, char unsigned, char unsigned, char unsigned, long unsigned )
+void SoundManager::Sound(Thing *tng1, char *arg2, BufferSubmitMode arg3, UBYTE arg4, UBYTE arg5, UBYTE arg6, ULONG arg7)
 {
 // code at 0001:00038d34
 }
 
-void SoundManager::Sound( char unsigned, char *, BufferSubmitMode, char unsigned, char unsigned, char unsigned, long unsigned, char unsigned )
+void SoundManager::Sound(UBYTE arg1, char *arg2, BufferSubmitMode arg3, UBYTE arg4, UBYTE arg5, UBYTE arg6, ULONG arg7, UBYTE arg8)
 {
 // code at 0001:00038e28
 }
 
-void SoundManager::SubmitBufferedSound( char *, SoundRequest & )
+void SoundManager::SubmitBufferedSound(char *arg1, SoundRequest &arg2)
 {
 // code at 0001:00038f20
 }
 
-char unsigned SampleBufferQueue::Add( char *, SoundRequest & )
+char unsigned SampleBufferQueue::Add(char *arg1, SoundRequest &arg2)
 {
 // code at 0001:00038f74
 }
 
-char * SampleBufferQueue::GetNext( SoundRequest & )
+char * SampleBufferQueue::GetNext(SoundRequest &arg1)
 {
 // code at 0001:0003900d
 }

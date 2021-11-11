@@ -18,6 +18,11 @@
 /******************************************************************************/
 #include "ifccustom.hpp"
 
+IFCCustom::IFCCustom(MyGadget *arg1)
+{
+// code at 0001:0005e7f4
+}
+
 void IFCCustom::PlugIn()
 {
 // code at 0001:0004e5d0

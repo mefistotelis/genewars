@@ -44,12 +44,6 @@ void setup_strings( char *, char * *, long )
 // code at 0001:00061250
 }
 
-near BioGame::BioGame()
-{
-// code at 0001:000612e4
-}
-
-char unsigned const __typesig[];
 
 
 /******************************************************************************/
