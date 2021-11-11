@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file etherealzn.cpp
+/** @file etherzone.cpp
  *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
@@ -16,7 +16,7 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "etherealzn.hpp"
+#include "etherzone.hpp"
 
 void EtherealZone::Invalidate()
 {

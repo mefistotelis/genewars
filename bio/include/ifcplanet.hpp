@@ -22,6 +22,12 @@
 #include "bftypes.h"
 #include "myspr.h"
 #include "xy.hpp"
+#include "paletsel.hpp"
+#include "pads.hpp"
+#include "grouppad.hpp"
+#include "clonepad.hpp"
+#include "labpad.hpp"
+#include "etherscope.hpp"
 #include "iface.hpp"
 
 class MyGadget;

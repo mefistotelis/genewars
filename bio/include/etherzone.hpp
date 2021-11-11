@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file etherealzn.hpp
+/** @file etherzone.hpp
  *     EtherealZone class.
  * @par Purpose:
  *     Unknown.
@@ -16,8 +16,8 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#ifndef BIO_ETHEREALZN_HPP_
-#define BIO_ETHEREALZN_HPP_
+#ifndef BIO_ETHERZONE_HPP_
+#define BIO_ETHERZONE_HPP_
 
 #include "bftypes.h"
 #include "xy.hpp"
@@ -63,5 +63,5 @@ class EtherealZoneHandler { // sizeof=194
     UBYTE zonesDone; // offset=193
 };
 
-#endif // BIO_ETHEREALZN_HPP_
+#endif // BIO_ETHERZONE_HPP_
 /******************************************************************************/

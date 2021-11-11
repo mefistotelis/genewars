@@ -1,8 +1,8 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file probetng.hpp
- *     MovingThing class.
+/** @file etherscope.hpp
+ *     Header file for etherscope.cpp.
  * @par Purpose:
  *     Unknown.
  * @par Comment:
@@ -16,30 +16,22 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#ifndef PROBETNG_HPP_
-#define PROBETNG_HPP_
+#ifndef BIO_ETHERSCOPE_HPP_
+#define BIO_ETHERSCOPE_HPP_
 
 #include "bftypes.h"
-#include "xy.hpp"
-#include "thing.hpp"
-#include "smvthing.hpp"
+#include "myspr.h"
 
-class Computer;
-
-class Probe : public SmartMovingThing { // sizeof=235
-public:
-    Probe * operator =(Probe *arg1);
-    //Probe(class Probe *arg1);
-    UBYTE Update();
-    void Resync();
-    BBOOL IsDead();
-    //Probe();
-    //void (**__vfptr)();
-    Computer *computer; // offset=85
-    UBYTE idx; // offset=89
-    UBYTE points; // offset=90
-    XY path[99]; // offset=91
+class EtherealScope { // sizeof=11
+    //EtherealScope(EtherealScope *arg1);
+    void Draw();
+    void Init();
+    //EtherealScope();
+    BBOOL blipHitSaucer;
+    UBYTE saucerFade;
+    SLONG blipRange;
+    MyMinSprite etherealMms;
 };
 
-#endif // PROBETNG_HPP_
+#endif // BIO_ETHERSCOPE_HPP_
 /******************************************************************************/

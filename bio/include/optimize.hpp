@@ -123,17 +123,6 @@ class HelpDraw { // sizeof=26
 };
 
 
-class EtherealScope { // sizeof=11
-    //EtherealScope(EtherealScope *arg1);
-    void Draw();
-    void Init();
-    //EtherealScope();
-    BBOOL blipHitSaucer;
-    UBYTE saucerFade;
-    SLONG blipRange;
-    MyMinSprite etherealMms;
-};
-
 
 class LumberjackScan : public RangeScanner { // sizeof=57
 public:

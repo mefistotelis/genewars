@@ -52,7 +52,6 @@ obj/control.o \
 obj/data.o \
 obj/draw.o \
 obj/editor.o \
-obj/ifcplanet.o \
 obj/lab.o \
 obj/misc.o \
 obj/optimize.o \
@@ -92,6 +91,7 @@ obj/ifccomped.o \
 obj/ifclevel.o \
 obj/ifcoptions.o \
 obj/ifctitle.o \
+obj/ifcplanet.o \
 obj/scan.o \
 obj/scanadv.o \
 obj/scanaware.o \
@@ -106,7 +106,8 @@ obj/drone.o \
 obj/event.o \
 obj/effect.o \
 obj/ethereal.o \
-obj/etherealzn.o \
+obj/etherzone.o \
+obj/etherscope.o \
 obj/creature.o \
 obj/research.o \
 obj/player.o \

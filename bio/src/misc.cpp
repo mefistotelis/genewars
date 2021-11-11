@@ -433,21 +433,6 @@ near PaletteSelector::PaletteSelector()
 // code at 0001:00025e28
 }
 
-near EtherealScope::EtherealScope()
-{
-// code at 0001:000256dc
-}
-
-void EtherealScope::Init()
-{
-// code at 0001:000256b8
-}
-
-void EtherealScope::Draw()
-{
-// code at 0001:0001f248
-}
-
 void TeamCircles::Init()
 {
 // code at 0001:0001f563
