@@ -45,11 +45,9 @@ BIN  = bin/genewars$(EXEEXT)
 LIBS = bflibrary bfmydraw bfnet2 bfsound smack
 
 OBJS_TODO = \
-obj/bioeng.o \
 obj/ceditor.o \
 obj/clone.o \
 obj/data.o \
-obj/draw.o \
 obj/editor.o \
 obj/lab.o \
 obj/misc.o \
@@ -113,9 +111,11 @@ obj/plspec.o \
 obj/gupoint.o \
 obj/computer.o \
 obj/io.o \
+obj/draw.o \
 obj/sound.o \
 obj/engine.o \
 obj/control.o \
+obj/bioeng.o \
 obj/game.o \
 obj/pchost.o \
 obj/pcmain.o \

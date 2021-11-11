@@ -39,6 +39,14 @@ struct PolyPoint { // sizeof=20
     SLONG S; // offset=16
 };
 
+struct EnginePoint { // sizeof=12
+    SLONG Y; // offset=0
+    SLONG Shade; // offset=4
+    UWORD padw; // offset=8
+    UBYTE Block; // offset=10
+    UBYTE Orientation; // offset=11
+};
+
 
 #endif // BIO_ENGINE_HPP_
 /******************************************************************************/

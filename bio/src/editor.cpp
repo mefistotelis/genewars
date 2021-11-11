@@ -38,26 +38,6 @@ void HelpDraw::SetColors( char unsigned, char unsigned, char unsigned, char unsi
 // code at 0001:0000bb3c
 }
 
-char unsigned BioGame::__defarg()
-{
-// code at 0001:0000ba34
-}
-
-char unsigned BioGame::__defarg()
-{
-// code at 0001:0000ba14
-}
-
-char signed BioGame::__defarg()
-{
-// code at 0001:0000b9f4
-}
-
-Player * BioGame::__defarg()
-{
-// code at 0001:0000b9d0
-}
-
 long ScreenLockHandler::NestLock()
 {
 // code at 0001:0000b948

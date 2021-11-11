@@ -23,16 +23,6 @@ void Point::Set( long, long, long )
 // code at 0001:00049cac
 }
 
-char unsigned SoundManager::__defarg()
-{
-// code at 0001:00049b24
-}
-
-SoundRequest * SoundManager::GetSoundReq( Thing * )
-{
-// code at 0001:00049ae8
-}
-
 char signed FlickerHandler::Create()
 {
 // code at 0001:00047a17

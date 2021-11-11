@@ -18,11 +18,6 @@
 /******************************************************************************/
 #include "options.hpp"
 
-char unsigned SoundManager::IsCDPlaying()
-{
-// code at 0001:0001909c
-}
-
 char * Config::InsertInstallDir( char * )
 {
 // code at 0001:0001906c

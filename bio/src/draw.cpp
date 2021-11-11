@@ -18,11 +18,6 @@
 /******************************************************************************/
 #include "draw.hpp"
 
-char unsigned SoundManager::NumRequests()
-{
-// code at 0001:0005f3f0
-}
-
 void draw_game()
 {
 // code at 0001:0005ea70

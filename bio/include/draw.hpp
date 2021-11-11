@@ -21,6 +21,8 @@
 
 #include "myspr.h"
 
+class MyGadget;
+
 class HelpDraw { // sizeof=26
     void GenericHelpDraw(MyGadget *arg1, char *arg2);
     void Draw(MyGadget *arg1, char *arg2);

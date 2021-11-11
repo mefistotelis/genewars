@@ -28,6 +28,11 @@ char unsigned EventHelp::IsForceDisplay()
 // code at 0001:00093704
 }
 
+char unsigned EventHelp::__defarg()
+{
+// code at 0001:00016b3c
+}
+
 void SoundConfig::Read( char * )
 {
 // code at 0001:00089bae
@@ -46,61 +51,6 @@ void SoundConfig::Set()
 char unsigned Config::GetConfigs()
 {
 // code at 0001:00089cbf
-}
-
-char unsigned BioGame::Write( char *, char unsigned )
-{
-// code at 0001:0008a05c
-}
-
-char unsigned BioGame::ReadName( char *, char * )
-{
-// code at 0001:0008a455
-}
-
-char unsigned BioGame::Read( char *, char unsigned, char signed, Player * )
-{
-// code at 0001:0008a4bb
-}
-
-void BioGame::FreeAllAllocs()
-{
-// code at 0001:0008ae4c
-}
-
-void BioGame::RemoveTargetReferencesTo( Thing * )
-{
-// code at 0001:0008af42
-}
-
-void BioGame::RegisterMapChangeWithThings()
-{
-// code at 0001:0008b2ac
-}
-
-void BioGame::ClearExplorationMapAndReshadeThings()
-{
-// code at 0001:0008b36e
-}
-
-void BioGame::CompareAllGames()
-{
-// code at 0001:0008b5af
-}
-
-void BioGame::Compare( BioGame & )
-{
-// code at 0001:0008b6df
-}
-
-void BioGame::ResetGameAndControl()
-{
-// code at 0001:0008b9b4
-}
-
-void BioGame::CheckForVictory()
-{
-// code at 0001:0008ba4a
 }
 
 void Recording::Encode()

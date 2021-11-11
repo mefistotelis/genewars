@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file probetng.cpp
+/** @file probe.cpp
  *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
@@ -16,7 +16,7 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "probetng.hpp"
+#include "probe.hpp"
 
 UBYTE Probe::Update()
 {

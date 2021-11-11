@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file probetng.hpp
+/** @file probe.hpp
  *     MovingThing class.
  * @par Purpose:
  *     Unknown.
@@ -16,8 +16,8 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#ifndef PROBETNG_HPP_
-#define PROBETNG_HPP_
+#ifndef PROBE_HPP_
+#define PROBE_HPP_
 
 #include "bftypes.h"
 #include "xy.hpp"
@@ -41,5 +41,5 @@ public:
     XY path[99]; // offset=91
 };
 
-#endif // PROBETNG_HPP_
+#endif // PROBE_HPP_
 /******************************************************************************/

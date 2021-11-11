@@ -19,6 +19,14 @@
 #ifndef BIO_BIOENG_HPP_
 #define BIO_BIOENG_HPP_
 
+#include "bftypes.h"
+#include "event.hpp"
+#include "player.hpp"
+#include "plspec.hpp"
+#include "plant.hpp"
+#include "drone.hpp"
+#include "plant.hpp"
+
 struct Reorient { // sizeof=8
     SLONG X; // offset=0
     SLONG Y; // offset=4
@@ -26,11 +34,11 @@ struct Reorient { // sizeof=8
 
 class BioGame { // sizeof=118
 public:
-    class BioGame * operator =(class BioGame *arg1);
+    BioGame * operator =(BioGame *arg1);
     //BioGame(class BioGame *arg1); -- generate default copy constructor
     BBOOL ReadName(char *arg1, char *arg2);
     void CheckForVictory();
-    void Compare(BioGame *arg1);
+    void Compare(BioGame &game1);
     void CompareAllGames();
     void ClearExplorationMapAndReshadeThings();
     void RegisterMapChangeWithThings();
@@ -39,7 +47,7 @@ public:
     void ResetGameAndControl();
     BBOOL Read(char *arg1, UBYTE arg2, SBYTE arg3, Player *arg4);
     BBOOL Write(char *arg1, UBYTE arg2);
-    class BioGame * BioGame();
+    //BioGame();
     ULONG checksum; // offset=0
     char saveName[15]; // offset=4
     Event events[31]; // offset=6
@@ -65,17 +73,6 @@ public:
     Creature creatures[43]; // offset=206
     GridTile grid[127][127]; // offset=207
 };
-
-
-
-struct EnginePoint { // sizeof=12
-    SLONG Y; // offset=0
-    SLONG Shade; // offset=4
-    UWORD padw; // offset=8
-    UBYTE Block; // offset=10
-    UBYTE Orientation; // offset=11
-};
-
 
 void check_point_triangle( short *, short *, long, long, long, long, long, long, long, long );
 void mapxy_to_screenxy( long *, long *, short, short );

@@ -23,7 +23,7 @@ SoundManager::SoundManager(XY &arg1)
 // code at 0001:00037a58
 }
 
-char unsigned SoundTag::IsNewSample()
+BBOOL SoundTag::IsNewSample()
 {
 // code at 0001:00039344
 }
@@ -38,7 +38,7 @@ void SoundRequest::Invalidate()
 // code at 0001:000392fc
 }
 
-char unsigned SoundRequest::Valid()
+BBOOL SoundRequest::Valid()
 {
 // code at 0001:000392c4
 }
@@ -48,7 +48,7 @@ void SpeechFileStatus::Invalidate()
 // code at 0001:000392a0
 }
 
-char unsigned SpeechFileStatus::Valid()
+BBOOL SpeechFileStatus::Valid()
 {
 // code at 0001:00039268
 }
@@ -63,7 +63,7 @@ void SoundManager::FreeRequest( SoundRequest * )
 // code at 0001:000390e8
 }
 
-void SoundManager::PlayCDTrack( char unsigned )
+void SoundManager::PlayCDTrack(UBYTE arg1)
 {
 // code at 0001:00037aae
 }
@@ -188,10 +188,30 @@ char * SampleBufferQueue::GetNext(SoundRequest &arg1)
 // code at 0001:0003900d
 }
 
-char unsigned SoundManager::IsNarratorSpeaking()
+BBOOL SoundManager::IsNarratorSpeaking()
 {
 // code at 0001:000780a4
 }
+
+SoundRequest * SoundManager::GetSoundReq(Thing *tng1)
+{
+// code at 0001:00049ae8
+}
+
+BBOOL SoundManager::IsCDPlaying()
+{
+// code at 0001:0001909c
+}
+
+UBYTE SoundManager::NumRequests()
+{
+// code at 0001:0005f3f0
+}
+
+/*char unsigned SoundManager::__defarg()
+{
+// code at 0001:00049b24
+}*/
 
 /*char unsigned SoundManager::__defarg()
 {
