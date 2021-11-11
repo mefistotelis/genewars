@@ -26,7 +26,6 @@
 #include "level.hpp"
 
 class MyGadget;
-class MyAnimBank;
 class SessionInfo;
 
 class IFCCustom : IFCBase { // sizeof=192

@@ -48,7 +48,6 @@ OBJS_TODO = \
 obj/bioeng.o \
 obj/ceditor.o \
 obj/clone.o \
-obj/computer.o \
 obj/control.o \
 obj/data.o \
 obj/draw.o \
@@ -56,10 +55,10 @@ obj/editor.o \
 obj/ifcplanet.o \
 obj/lab.o \
 obj/misc.o \
-obj/nibble.o \
 obj/optimize.o \
 obj/options.o \
 \
+obj/computer.o \
 obj/setup.o \
 obj/sound.o \
 obj/spec.o \
@@ -69,6 +68,7 @@ obj/title.o \
 
 OBJS = \
 obj/cvector.o \
+obj/nibble.o \
 obj/xy.o \
 obj/gridtile.o \
 obj/planet.o \
@@ -84,9 +84,12 @@ obj/grouppad.o \
 obj/pads.o \
 obj/map.o \
 obj/mapdisp.o \
+obj/comppersonal.o \
 obj/iface.o \
 obj/ifccustom.o \
 obj/ifccomputer.o \
+obj/ifceditor.o \
+obj/scan.o \
 obj/thingidx.o \
 obj/thing.o \
 obj/mvthing.o \

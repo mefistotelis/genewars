@@ -18,39 +18,25 @@
 /******************************************************************************/
 #include "scan.hpp"
 
-near PassableTerrainScan::PassableTerrainScan( SmartMovingThing &, long unsigned )
+RangeScan::RangeScan(XY &arg1, ULONG arg2, BBOOL arg3)
 {
-// code at 0001:00088da8
+// code at 0001:00004ad8
 }
 
-near ScanRecord::ScanRecord()
+void BaseScan::Reset()
 {
-// code at 0001:00088d70
+// code at 0001:00027a86
 }
 
-int ScanRecord::Hash( XY )
-{
-// code at 0001:00088d34
-}
-
-void PassableTerrainScan::PerGrid()
-{
-// code at 0001:00085790
-}
-
-void ScanRecord::Add( XY )
-{
-// code at 0001:000857e9
-}
-
-char unsigned ScanRecord::IsRecorded( XY )
-{
-// code at 0001:0008584c
-}
-
-void RangeScan::Init( XY &, long unsigned, char unsigned )
+void RangeScan::Init(XY &arg1, ULONG arg2, BBOOL arg3)
 {
 // code at 0001:0005d721
+}
+
+RangeScanner::RangeScanner(XY &arg1, ULONG arg2)
+    : RangeScan(arg1, arg2, true) // verify params
+{
+// code at 0001:00004a74
 }
 
 void RangeScanner::Do()
@@ -58,175 +44,74 @@ void RangeScanner::Do()
 // code at 0001:0005d926
 }
 
+PolarRangeScan::PolarRangeScan(XY &arg1, ULONG arg2, UBYTE arg3)
+    : RangeScan(arg1, arg2, 0) // verify params
+{
+// code at 0001:000371ac
+}
+
+void PolarRangeScan::Do()
+{
+// code at 0001:00026334
+}
+
+void PolarRangeScan::displayDebug(XY arg1, ULONG &arg2)
+{
+// code at 0001:0002678c
+}
+
+WeightedRangeScanner::WeightedRangeScanner(XY &arg1, ULONG arg2)
+    : RangeScanner(arg1, arg2) // verify params
+{
+// code at 0001:00078154
+}
+
+WeightedRangeScanner::WeightedRangeScanner(XY &arg1, ULONG arg2, XY *arg3, SLONG arg4)
+    : RangeScanner(arg1, arg2) // verify params
+{
+// code at 0001:00084770
+}
+
 void WeightedRangeScanner::Do()
 {
 // code at 0001:0005d9f1
 }
 
-void WeightedTgtRangeScanner::Do()
+PolarSliceScan::PolarSliceScan(XY &arg1, ULONG arg2, UBYTE arg3, UBYTE arg4)
+    : RangeScan(arg1, arg2, 0) // verify params
 {
-// code at 0001:0005dbb7
+// code at 0001:00037124
 }
 
-near ShotHitScan::ShotHitScan( Effect &, long )
+void PolarSliceScan::displayDebug(XY arg1, UBYTE arg2, ULONG &arg3)
 {
-// code at 0001:0004902c
+// code at 0001:000267ef
 }
 
-void ShotHitScan::PerGrid()
+void PolarSliceScan::Do()
 {
-// code at 0001:00048ee0
+// code at 0001:00026923
 }
 
-near FireScan::FireScan( Effect & )
+PolarEverythingScan::PolarEverythingScan(XY &arg1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5, BBOOL arg6)
+    : RangeScan(arg1, arg2, 0) // verify params
 {
-// code at 0001:00048e90
+// code at 0001:00037088
 }
 
-void FireScan::PerGrid()
+void PolarEverythingScan::displayDebug(XY arg1, UBYTE arg2, ULONG &arg3)
 {
-// code at 0001:00048cf8
+// code at 0001:00026889
 }
 
-near MonolithHitScan::MonolithHitScan( Effect & )
+BBOOL PolarEverythingScan::Scan(UBYTE arg1)
 {
-// code at 0001:00048c94
+// code at 0001:00036664
 }
 
-void MonolithHitScan::PerGrid()
+void PolarEverythingScan::Do()
 {
-// code at 0001:00048c08
+// code at 0001:00026dc0
 }
-
-near StasisBoltScan::StasisBoltScan( Effect &, long )
-{
-// code at 0001:00048b78
-}
-
-void StasisBoltScan::PerGrid()
-{
-// code at 0001:00048a20
-}
-
-void FlickerStuff::Invalidate()
-{
-// code at 0001:000489fc
-}
-
-char unsigned FlickerStuff::Valid()
-{
-// code at 0001:000489d0
-}
-
-void FlickerHandler::Free( char unsigned )
-{
-// code at 0001:000489a0
-}
-
-near TurretScan::TurretScan( Building & )
-{
-// code at 0001:00040370
-}
-
-void TurretScan::PerGrid()
-{
-// code at 0001:000402f8
-}
-
-near SawmillScan::SawmillScan( Building & )
-{
-// code at 0001:00040278
-}
-
-void SawmillScan::PerGrid()
-{
-// code at 0001:00040214
-}
-
-near FarmScan::FarmScan( Building & )
-{
-// code at 0001:00040194
-}
-
-void FarmScan::PerGrid()
-{
-// code at 0001:000400dc
-}
-
-near ShieldScan::ShieldScan( Building & )
-{
-// code at 0001:00040064
-}
-
-void ShieldScan::BounceThingOffShield( MovingThing *, char unsigned )
-{
-// code at 0001:0003944c
-}
-
-void ShieldScan::PerGrid()
-{
-// code at 0001:0003959f
-}
-
-WeightedRangeScanner::WeightedRangeScanner( XY &, long unsigned, XY *, long )
-{
-// code at 0001:00084770
-}
-
-WeightedTgtRangeScanner::WeightedTgtRangeScanner( XY &, long unsigned )
-{
-// code at 0001:00084708
-}
-
-WeightedTgtRangeScanner::WeightedTgtRangeScanner( XY &, long unsigned, XY *, long )
-{
-// code at 0001:00084698
-}
-
-AwarenessScan::AwarenessScan( Creature & )
-{
-// code at 0001:00083c1c
-}
-
-void AwarenessScan::PerGrid()
-{
-// code at 0001:00083440
-}
-
-void AwarenessScan::Do()
-{
-// code at 0001:00083208
-}
-
-ChopperScan::ChopperScan( Creature & )
-{
-// code at 0001:000831b8
-}
-
-void ChopperScan::PerGrid()
-{
-// code at 0001:000830f0
-}
-
-near CollectorScan::CollectorScan( Creature &, char unsigned, char unsigned )
-{
-// code at 0001:00082f1c
-}
-
-void CollectorScan::PerGrid()
-{
-// code at 0001:00082cd0
-}
-
-near BuilderTreeScan::BuilderTreeScan( Creature & )
-{
-// code at 0001:00082c6c
-}
-
-void BuilderTreeScan::PerGrid()
-{
-// code at 0001:00082c08
-}
-
 
 /******************************************************************************/

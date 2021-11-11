@@ -44,11 +44,6 @@ near GEngine::GEngine()
 // code at 0001:0005ea30
 }
 
-near IFCEditor::IFCEditor( MyGadget * )
-{
-// code at 0001:0005e94c
-}
-
 near IFCTitle::IFCTitle( MyGadget * )
 {
 // code at 0001:0005e8ac
@@ -64,19 +59,9 @@ near CreatureInfo::CreatureInfo()
 // code at 0001:0005e7c8
 }
 
-near IFCCompEditor::IFCCompEditor( MyGadget * )
-{
-// code at 0001:0005e67c
-}
-
 near IFCOptions::IFCOptions( MyGadget * )
 {
 // code at 0001:0005e5bc
-}
-
-near Computer::~Computer()
-{
-// code at 0001:0005e598
 }
 
 near CreatureInfo::~CreatureInfo()

@@ -18,6 +18,41 @@
 /******************************************************************************/
 #include "nibble.hpp"
 
+union __14uhrtLFX { // sizeof=4
+    UWORD f; // offset=0
+    ULONG l; // offset=1
+    UWORD i; // offset=2
+};
+
+typedef union __14uhrtLFX LFX;
+
+struct SprData { // sizeof=26
+    UBYTE * ComputeScaleClipping(SLONG arg1, SLONG arg2, TbSprite *arg3, ULONG arg4);
+    UBYTE * ComputeClipping(SLONG arg1, SLONG arg2, TbSprite *arg3);
+    UBYTE top; // offset=0
+    UBYTE btm; // offset=1
+    UBYTE left; // offset=2
+    UBYTE right; // offset=3
+    UBYTE sprWd; // offset=4
+    UBYTE sprHt; // offset=5
+    SLONG nextRowDelta; // offset=6
+    LFX scaleX; // offset=10
+    LFX scaleY; // offset=14
+    ULONG scaleWd; // offset=18
+    ULONG scaleHt; // offset=22
+};
+
+
+UBYTE * SprData::ComputeClipping(SLONG arg1, SLONG arg2, TbSprite *arg3)
+{
+// code at 0001:00065941
+}
+
+UBYTE * SprData::ComputeScaleClipping(SLONG arg1, SLONG arg2, TbSprite *arg3, ULONG arg4)
+{
+// code at 0001:00065d28
+}
+
 long unsigned NibbleCompressSpriteData( TbSprite *, long unsigned, char unsigned *, char unsigned *, char unsigned * * )
 {
 // code at 0001:0006f2e8
@@ -26,16 +61,6 @@ long unsigned NibbleCompressSpriteData( TbSprite *, long unsigned, char unsigned
 MyAnimBank * LoadMyNibbleAnimBank( char * )
 {
 // code at 0001:00065700
-}
-
-char unsigned * SprData::ComputeClipping( long, long, TbSprite * )
-{
-// code at 0001:00065941
-}
-
-char unsigned * SprData::ComputeScaleClipping( long, long, TbSprite *, long unsigned )
-{
-// code at 0001:00065d28
 }
 
 void DrawMyNibbleSprite( long, long, TbSprite *, char unsigned, char unsigned * )

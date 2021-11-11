@@ -19,34 +19,7 @@
 #ifndef BIO_CONTROL_HPP_
 #define BIO_CONTROL_HPP_
 
-class TextEntry { // sizeof=73
-    class TextEntry * TextEntry(class TextEntry *arg1);
-    BBOOL ValidChar(UBYTE arg1);
-    class TextEntry * TextEntry();
-    BBOOL PressedEscape();
-    BBOOL PressedReturn();
-    BBOOL IsEnteringText();
-    BBOOL IsActive();
-    UBYTE EnterText();
-    void SetupText(CBYTE *arg1, UBYTE arg2, UBYTE arg3);
-    CBYTE oldText[64];
-    BBOOL alNum;
-    TextEntryStatus status;
-    UBYTE maxlen;
-    UBYTE ucase;
-    CBYTE *text;
-};
-
-struct find_t { // sizeof=30
-    char reserved[20]; // offset=0
-    char attrib; // offset=21
-    uint16_t wr_time; // offset=22
-    uint16_t wr_date; // offset=24
-    uint32_t size; // offset=26
-    char name[255]; // offset=30
-};
-
-typedef struct find_t find_t;
+#include "bftypes.h"
 
 void control_game();
 void setup_controller();

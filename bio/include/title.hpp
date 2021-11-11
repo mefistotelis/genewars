@@ -19,6 +19,7 @@
 #ifndef BIO_TITLE_HPP_
 #define BIO_TITLE_HPP_
 
+#include "myspr.h"
 
 
 struct __1td29bmSpr { // sizeof=12

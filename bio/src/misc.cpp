@@ -413,21 +413,6 @@ void SetPointerAndHotpoint( TbSprite *, long unsigned, long unsigned )
 // code at 0001:000936ac
 }
 
-near RangeScan::RangeScan( XY &, long unsigned, char unsigned )
-{
-// code at 0001:00004ad8
-}
-
-near RangeScanner::RangeScanner( XY &, long unsigned )
-{
-// code at 0001:00004a74
-}
-
-near WeightedRangeScanner::WeightedRangeScanner( XY &, long unsigned )
-{
-// code at 0001:00078154
-}
-
 void TopoGrid::Invalidate()
 {
 // code at 0001:00077df8
@@ -702,6 +687,749 @@ void TeamCircles::Reset()
 {
 // code at 0001:0001ce98
 }
+
+near CompDebug::CompDebug()
+{
+// code at 0001:000374ac
+}
+
+near BuildPriority::BuildPriority()
+{
+// code at 0001:00037480
+}
+
+void CreatureInfo::Invalidate()
+{
+// code at 0001:00037458
+}
+
+near CompTarget::CompTarget()
+{
+// code at 0001:0003742c
+}
+
+char unsigned CloseTgt::Valid()
+{
+// code at 0001:000373f4
+}
+
+char signed GuardPoint::__defarg()
+{
+// code at 0001:000373d4
+}
+
+char signed GuardPoint::__defarg()
+{
+// code at 0001:000373b4
+}
+
+GPointFlags * GuardPoint::__defarg()
+{
+// code at 0001:00037390
+}
+
+char unsigned BuildPriority::Build( PlSpec *, char unsigned, char unsigned )
+{
+// code at 0001:000343f8
+}
+
+char unsigned BuildPriority::BuildHighestPri( PlSpec * )
+{
+// code at 0001:00030496
+}
+
+char unsigned BuildPriority::Emergency( PlSpec * )
+{
+// code at 0001:0003057a
+}
+
+char unsigned BuildPriority::Basic( PlSpec * )
+{
+// code at 0001:000307fc
+}
+
+char unsigned BuildPriority::BuildingPersonality( PlSpec *, char signed )
+{
+// code at 0001:00030df6
+}
+
+BestBuilding BuildPriority::FindBestLoc( char unsigned, char unsigned )
+{
+// code at 0001:00030e23
+}
+
+char unsigned GuardPoint::Valid()
+{
+// code at 0001:000321f9
+}
+
+void GuardPoint::Invalidate()
+{
+// code at 0001:00032231
+}
+
+void GuardPoint::Update()
+{
+// code at 0001:00032262
+}
+
+char unsigned GuardPoint::ScanForTargets( char signed )
+{
+// code at 0001:00032d01
+}
+
+char unsigned GuardPoint::TargetsHere()
+{
+// code at 0001:000343a0
+}
+
+char unsigned GuardPoint::BestTargetType( char unsigned, char signed )
+{
+// code at 0001:00032fa6
+}
+
+char unsigned GuardPoint::IsCreatureRightType( Creature & )
+{
+// code at 0001:00033226
+}
+
+void GuardPoint::DropDeadTargets()
+{
+// code at 0001:00033440
+}
+
+void GuardPoint::DropTargetsOutsideRange()
+{
+// code at 0001:000334c9
+}
+
+void GuardPoint::DropCloakedTargets()
+{
+// code at 0001:0003354d
+}
+
+char unsigned GuardPoint::IsTarget( short, TgtType )
+{
+// code at 0001:00034334
+}
+
+char unsigned GuardPoint::IsHere( short )
+{
+// code at 0001:000342d4
+}
+
+long GuardPoint::ChooseTarget( TgtType * )
+{
+// code at 0001:00033616
+}
+
+char unsigned GuardPoint::HungryCreaturesHere( char unsigned )
+{
+// code at 0001:000336bf
+}
+
+long GuardPoint::TreesHere()
+{
+// code at 0001:00033766
+}
+
+void GuardPoint::SetupPoint( XY &, char unsigned, char unsigned, char signed, GPointFlags * )
+{
+// code at 0001:000337a3
+}
+
+char unsigned CompTarget::Valid()
+{
+// code at 0001:0003429c
+}
+
+void CompTarget::Invalidate()
+{
+// code at 0001:00034270
+}
+
+void GuardPoint::ShutDownPoint()
+{
+// code at 0001:0003391f
+}
+
+void GuardPoint::AddCreature( short )
+{
+// code at 0001:00033977
+}
+
+void GuardPoint::RemoveCreature( short )
+{
+// code at 0001:00033a4c
+}
+
+void GuardPoint::MovePoint( XY )
+{
+// code at 0001:00033aa4
+}
+
+short GuardPoint::FindImportance()
+{
+// code at 0001:00033b76
+}
+
+void CompTarget::NewTarget( short, TgtType )
+{
+// code at 0001:00033bb3
+}
+
+void CompTarget::AssignCreatureToThis( short )
+{
+// code at 0001:00033be8
+}
+
+near GPointFlags::GPointFlags()
+{
+// code at 0001:00033fd8
+}
+
+near TimeSliceScan::TimeSliceScan( BaseScan &, XY, long unsigned )
+{
+// code at 0001:00036fec
+}
+
+near FindHighestBuildingSite::FindHighestBuildingSite( XY, long unsigned, char unsigned )
+{
+// code at 0001:00036f98
+}
+
+near TestSlice::TestSlice( XY, long unsigned, char unsigned, char unsigned )
+{
+// code at 0001:00036f40
+}
+
+void TestSlice::PerGrid()
+{
+// code at 0001:00036f24
+}
+
+near TestEverything::TestEverything( XY, long unsigned, long unsigned, char unsigned, char unsigned, char unsigned )
+{
+// code at 0001:00036ecc
+}
+
+void TestEverything::PerGrid()
+{
+// code at 0001:00036eb0
+}
+
+near ChopTreeScan::ChopTreeScan( XY, long unsigned )
+{
+// code at 0001:00036e70
+}
+
+near BestForestScan::BestForestScan( XY, long unsigned, char unsigned, char unsigned, char unsigned )
+{
+// code at 0001:00036e00
+}
+
+near MineralScan::MineralScan( XY, long unsigned )
+{
+// code at 0001:00036db4
+}
+
+near MineScan::MineScan( XY, long unsigned, char unsigned )
+{
+// code at 0001:00036d60
+}
+
+near PowerScan::PowerScan( XY, long unsigned, char unsigned )
+{
+// code at 0001:00036d08
+}
+
+char unsigned NearestBuildingSite::__defarg()
+{
+// code at 0001:00036ce8
+}
+
+near NearestBuildingSite::NearestBuildingSite( XY, long unsigned, long unsigned, char unsigned, char unsigned )
+{
+// code at 0001:00036c7c
+}
+
+near OldPowerTally::OldPowerTally( XY, long unsigned, char unsigned )
+{
+// code at 0001:00036c1c
+}
+
+near NewPowerTally::NewPowerTally( XY, long unsigned )
+{
+// code at 0001:00036bc8
+}
+
+near SatisfyBuildings::SatisfyBuildings( XY, long unsigned, char unsigned, char unsigned, char unsigned )
+{
+// code at 0001:00036b4c
+}
+
+near PointSample::PointSample( XY, long unsigned, long unsigned )
+{
+// code at 0001:00036ab4
+}
+
+near PointSample::PointSample( XY, long unsigned, char unsigned )
+{
+// code at 0001:000369fc
+}
+
+near BestForestSample::BestForestSample( XY, long unsigned, char unsigned, char unsigned, long unsigned )
+{
+// code at 0001:00036998
+}
+
+EtherealZone * GuardPoint::EZone()
+{
+// code at 0001:000366ec
+}
+
+Computer * GuardPoint::Comp()
+{
+// code at 0001:000366b8
+}
+
+near BaseAwarenessScan::BaseAwarenessScan( BaseScan &, XY, long unsigned, char unsigned )
+{
+// code at 0001:000365b4
+}
+
+char unsigned BaseAwarenessScan::PointInSector( XY, XY )
+{
+// code at 0001:00036574
+}
+
+char unsigned TimeSliceScan::Do()
+{
+// code at 0001:0002729e
+}
+
+void FindHighestBuildingSite::PerGrid()
+{
+// code at 0001:000273ff
+}
+
+void FindLowestBuildingSite::PerGrid()
+{
+// code at 0001:000274aa
+}
+
+void ChopTreeScan::PerGrid()
+{
+// code at 0001:00027570
+}
+
+void BaseAwarenessScan::PerGrid()
+{
+// code at 0001:000275a8
+}
+
+void BaseAwareness::Reset()
+{
+// code at 0001:00027995
+}
+
+void ForestScan::PerGrid()
+{
+// code at 0001:00027ab5
+}
+
+near ForestScan::ForestScan( XY, long unsigned, char unsigned, char unsigned )
+{
+// code at 0001:00027b98
+}
+
+void BestForestScan::PerGrid()
+{
+// code at 0001:00027c5f
+}
+
+near NearestPoweredBuildingSite::NearestPoweredBuildingSite( XY, long unsigned, char unsigned, char unsigned )
+{
+// code at 0001:00036504
+}
+
+near NearestLand::NearestLand( XY, long unsigned )
+{
+// code at 0001:000364c0
+}
+
+void HarvestScan::PerGrid()
+{
+// code at 0001:00027d1c
+}
+
+void MineralScan::PerGrid()
+{
+// code at 0001:00027dae
+}
+
+void MineScan::PerGrid()
+{
+// code at 0001:00027dd9
+}
+
+void PowerScan::PerGrid()
+{
+// code at 0001:00027e58
+}
+
+void NearestBuildingSite::PerGrid()
+{
+// code at 0001:00027fa8
+}
+
+void NearestPoweredBuildingSite::PerGrid()
+{
+// code at 0001:0002804d
+}
+
+void NearestLand::PerGrid()
+{
+// code at 0001:00028107
+}
+
+void OldPowerTally::PerGrid()
+{
+// code at 0001:0002814d
+}
+
+void NewPowerTally::PerGrid()
+{
+// code at 0001:000281cc
+}
+
+near PowerStationScan::PowerStationScan( XY, long unsigned, char unsigned, char unsigned )
+{
+// code at 0001:00028204
+}
+
+void PowerStationScan::PerGrid()
+{
+// code at 0001:0002827e
+}
+
+void SatisfyBuildings::Do()
+{
+// code at 0001:0002835e
+}
+
+near SiteScore::SiteScore( XY, long unsigned )
+{
+// code at 0001:00036474
+}
+
+near NewBaseScan::NewBaseScan( XY, long unsigned, char unsigned, char unsigned )
+{
+// code at 0001:00036410
+}
+
+void SatisfyBuildings::PerGrid()
+{
+// code at 0001:000283d1
+}
+
+void PointSample::Do()
+{
+// code at 0001:00028485
+}
+
+void SiteScore::PerGrid()
+{
+// code at 0001:000285b4
+}
+
+void NewBaseScan::PerGrid()
+{
+// code at 0001:00028625
+}
+
+void PlantScan::PerGrid()
+{
+// code at 0001:00028892
+}
+
+near PlantScan::PlantScan( XY, long unsigned, char unsigned, char unsigned )
+{
+// code at 0001:000289b3
+}
+
+near ClosestTree::ClosestTree( XY &, long unsigned )
+{
+// code at 0001:000363b8
+}
+
+near ClosestDeadCreature::ClosestDeadCreature( XY, long unsigned )
+{
+// code at 0001:00036360
+}
+
+near CountTrees::CountTrees( XY, long unsigned )
+{
+// code at 0001:00036314
+}
+
+near GuardPointImportance::GuardPointImportance( XY, long unsigned )
+{
+// code at 0001:000362c8
+}
+
+near ClosestTargets::ClosestTargets( XY, long unsigned, char unsigned, char unsigned )
+{
+// code at 0001:000361dc
+}
+
+void BestForestSample::PerGrid()
+{
+// code at 0001:00028a6c
+}
+
+void ClosestTree::PerGrid()
+{
+// code at 0001:00028af0
+}
+
+void ClosestDeadCreature::PerGrid()
+{
+// code at 0001:00028b8c
+}
+
+void ClosestEnemy::PerGrid()
+{
+// code at 0001:00028c90
+}
+
+void CountTrees::PerGrid()
+{
+// code at 0001:00028e7a
+}
+
+void GuardPointImportance::PerGrid()
+{
+// code at 0001:00028f01
+}
+
+void ClosestTargets::PerGrid()
+{
+// code at 0001:00028fd9
+}
+
+char unsigned Probe::Update()
+{
+// code at 0001:000292d3
+}
+
+near GuardPoint::GuardPoint()
+{
+// code at 0001:0002ce3b
+}
+
+
+char * stuffCreatures[];
+
+char * stuffBuildings[];
+
+char * gPTypes[];
+
+void GPointFlags::operator =( GPointFlags * )
+{
+// code at 0001:0003401f
+}
+
+near PassableTerrainScan::PassableTerrainScan( SmartMovingThing &, long unsigned )
+{
+// code at 0001:00088da8
+}
+
+near ScanRecord::ScanRecord()
+{
+// code at 0001:00088d70
+}
+
+int ScanRecord::Hash( XY )
+{
+// code at 0001:00088d34
+}
+
+void PassableTerrainScan::PerGrid()
+{
+// code at 0001:00085790
+}
+
+void ScanRecord::Add( XY )
+{
+// code at 0001:000857e9
+}
+
+char unsigned ScanRecord::IsRecorded( XY )
+{
+// code at 0001:0008584c
+}
+
+void WeightedTgtRangeScanner::Do()
+{
+// code at 0001:0005dbb7
+}
+
+near ShotHitScan::ShotHitScan( Effect &, long )
+{
+// code at 0001:0004902c
+}
+
+void ShotHitScan::PerGrid()
+{
+// code at 0001:00048ee0
+}
+
+near FireScan::FireScan( Effect & )
+{
+// code at 0001:00048e90
+}
+
+void FireScan::PerGrid()
+{
+// code at 0001:00048cf8
+}
+
+near MonolithHitScan::MonolithHitScan( Effect & )
+{
+// code at 0001:00048c94
+}
+
+void MonolithHitScan::PerGrid()
+{
+// code at 0001:00048c08
+}
+
+near StasisBoltScan::StasisBoltScan( Effect &, long )
+{
+// code at 0001:00048b78
+}
+
+void StasisBoltScan::PerGrid()
+{
+// code at 0001:00048a20
+}
+
+void FlickerStuff::Invalidate()
+{
+// code at 0001:000489fc
+}
+
+char unsigned FlickerStuff::Valid()
+{
+// code at 0001:000489d0
+}
+
+void FlickerHandler::Free( char unsigned )
+{
+// code at 0001:000489a0
+}
+
+near TurretScan::TurretScan( Building & )
+{
+// code at 0001:00040370
+}
+
+void TurretScan::PerGrid()
+{
+// code at 0001:000402f8
+}
+
+near SawmillScan::SawmillScan( Building & )
+{
+// code at 0001:00040278
+}
+
+void SawmillScan::PerGrid()
+{
+// code at 0001:00040214
+}
+
+near FarmScan::FarmScan( Building & )
+{
+// code at 0001:00040194
+}
+
+void FarmScan::PerGrid()
+{
+// code at 0001:000400dc
+}
+
+near ShieldScan::ShieldScan( Building & )
+{
+// code at 0001:00040064
+}
+
+void ShieldScan::BounceThingOffShield( MovingThing *, char unsigned )
+{
+// code at 0001:0003944c
+}
+
+void ShieldScan::PerGrid()
+{
+// code at 0001:0003959f
+}
+
+WeightedTgtRangeScanner::WeightedTgtRangeScanner( XY &, long unsigned )
+{
+// code at 0001:00084708
+}
+
+WeightedTgtRangeScanner::WeightedTgtRangeScanner( XY &, long unsigned, XY *, long )
+{
+// code at 0001:00084698
+}
+
+AwarenessScan::AwarenessScan( Creature & )
+{
+// code at 0001:00083c1c
+}
+
+void AwarenessScan::PerGrid()
+{
+// code at 0001:00083440
+}
+
+void AwarenessScan::Do()
+{
+// code at 0001:00083208
+}
+
+ChopperScan::ChopperScan( Creature & )
+{
+// code at 0001:000831b8
+}
+
+void ChopperScan::PerGrid()
+{
+// code at 0001:000830f0
+}
+
+near CollectorScan::CollectorScan( Creature &, char unsigned, char unsigned )
+{
+// code at 0001:00082f1c
+}
+
+void CollectorScan::PerGrid()
+{
+// code at 0001:00082cd0
+}
+
+near BuilderTreeScan::BuilderTreeScan( Creature & )
+{
+// code at 0001:00082c6c
+}
+
+void BuilderTreeScan::PerGrid()
+{
+// code at 0001:00082c08
+}
+
 
 
 /******************************************************************************/

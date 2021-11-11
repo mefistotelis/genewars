@@ -1,8 +1,8 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file ceditor.hpp
- *     Header file for ceditor.cpp.
+/** @file comppersonal.cpp
+ *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
  * @par Comment:
@@ -16,30 +16,27 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#ifndef BIO_CEDITOR_HPP_
-#define BIO_CEDITOR_HPP_
+#include "comppersonal.hpp"
 
-class HelpDraw { // sizeof=26
-    void GenericHelpDraw(MyGadget *arg1, char *arg2);
-    void Draw(MyGadget *arg1, char *arg2);
-    void SetColors(UBYTE arg1, UBYTE arg2, UBYTE arg3, UBYTE arg4);
-    void DislodgeAndReset();
-    void Dislodge();
-    SWORD hx; // offset=0
-    SWORD hy; // offset=2
-    SWORD hWidth; // offset=4
-    SLONG turn; // offset=6
-    SLONG length; // offset=10
-    ULONG id; // offset=14
-    UBYTE pen; // offset=18
-    UBYTE outline; // offset=19
-    UBYTE fill; // offset=20
-    UBYTE boxOutline; // offset=21
-    MyGadget *gad; // offset=22
-};
+/*Trigger::Trigger()
+{
+// code at 0001:0002cea1
+}*/
 
+char unsigned Trigger::Valid()
+{
+// code at 0001:00034234
+}
 
+char unsigned Trigger::Update( char unsigned )
+{
+// code at 0001:00033d80
+}
+
+/*Personality::Personality()
+{
+// code at 0001:0002cdd4
+}*/
 
 
-#endif // BIO_CEDITOR_HPP_
 /******************************************************************************/

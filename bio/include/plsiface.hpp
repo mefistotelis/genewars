@@ -20,13 +20,12 @@
 #define BIO_PLSIFACE_HPP_
 
 #include "bftypes.h"
+#include "myspr.h"
 #include "xy.hpp"
 #include "thingidx.hpp"
 #include "plantstat.hpp"
 #include "creaturestat.hpp"
 #include "spec.hpp"
-
-class MyAnimBank;
 
 class BuilderIFC { // sizeof=18
     SBYTE go; // offset=0

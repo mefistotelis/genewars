@@ -19,6 +19,7 @@
 #ifndef BIO_OPTIONS_HPP_
 #define BIO_OPTIONS_HPP_
 
+#include "myspr.h"
 
 class HelpDraw { // sizeof=26
     void GenericHelpDraw(MyGadget *arg1, char *arg2);
@@ -39,24 +40,6 @@ class HelpDraw { // sizeof=26
     MyGadget *gad; // offset=22
 };
 
-
-class TextEntry { // sizeof=73
-    class TextEntry * TextEntry(class TextEntry *arg1);
-    BBOOL ValidChar(UBYTE arg1);
-    class TextEntry * TextEntry();
-    BBOOL PressedEscape();
-    BBOOL PressedReturn();
-    BBOOL IsEnteringText();
-    BBOOL IsActive();
-    UBYTE EnterText();
-    void SetupText(CBYTE *arg1, UBYTE arg2, UBYTE arg3);
-    CBYTE oldText[64];
-    BBOOL alNum;
-    TextEntryStatus status;
-    UBYTE maxlen;
-    UBYTE ucase;
-    CBYTE *text;
-};
 
 class IFCOptions : IFCBase { // sizeof=59
     class IFCOptions * IFCOptions(class IFCOptions *arg1);

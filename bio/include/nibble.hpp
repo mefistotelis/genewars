@@ -19,55 +19,9 @@
 #ifndef BIO_NIBBLE_HPP_
 #define BIO_NIBBLE_HPP_
 
-
-
-struct MyElement { // sizeof=10
-    TbSprite *toSprite; // offset=0
-    SWORD x; // offset=4
-    SWORD y; // offset=6
-    UBYTE flags; // offset=8
-    UBYTE color; // offset=9
-};
-
-typedef struct MyElement MyElement;
-
-struct MyFrame { // sizeof=14
-    MyElement *firstElement; // offset=0
-    SWORD sWidth; // offset=4
-    SWORD sHeight; // offset=6
-    UWORD fx; // offset=8
-    UBYTE delay; // offset=10
-    UBYTE numElements; // offset=11
-    UWORD flags; // offset=12
-};
-
-typedef struct MyFrame MyFrame;
-
-
-union __14uhrtLFX { // sizeof=4
-    UWORD f; // offset=0
-    ULONG l; // offset=1
-    UWORD i; // offset=2
-};
-
-typedef union __14uhrtLFX LFX;
-
-struct SprData { // sizeof=26
-    UBYTE * ComputeScaleClipping(SLONG arg1, SLONG arg2, TbSprite *arg3, ULONG arg4);
-    UBYTE * ComputeClipping(SLONG arg1, SLONG arg2, TbSprite *arg3);
-    UBYTE top; // offset=0
-    UBYTE btm; // offset=1
-    UBYTE left; // offset=2
-    UBYTE right; // offset=3
-    UBYTE sprWd; // offset=4
-    UBYTE sprHt; // offset=5
-    SLONG nextRowDelta; // offset=6
-    LFX scaleX; // offset=10
-    LFX scaleY; // offset=14
-    ULONG scaleWd; // offset=18
-    ULONG scaleHt; // offset=22
-};
-
+#include "bftypes.h"
+#include "bfsprite.h"
+#include "myspr.h"
 
 long unsigned NibbleCompressSpriteData( TbSprite *, long unsigned, char unsigned *, char unsigned *, char unsigned * * );
 MyAnimBank * LoadMyNibbleAnimBank( char * );

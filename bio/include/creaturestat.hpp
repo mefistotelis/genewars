@@ -19,6 +19,8 @@
 #ifndef BIO_CREATURESTAT_HPP_
 #define BIO_CREATURESTAT_HPP_
 
+#include "bftypes.h"
+
 enum CreatureUserAction { // type=int8_t
     CRU_NOTHING = 0,
     CRU_ATTACK,

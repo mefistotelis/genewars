@@ -21,25 +21,6 @@
 
 typedef enum LevelDrawPhase LevelDrawPhase;
 
-class TextEntry { // sizeof=73
-    //TextEntry(TextEntry *arg1);
-    BBOOL ValidChar(UBYTE arg1);
-    class TextEntry * TextEntry();
-    BBOOL PressedEscape();
-    BBOOL PressedReturn();
-    BBOOL IsEnteringText();
-    BBOOL IsActive();
-    UBYTE EnterText();
-    void SetupText(CBYTE *arg1, UBYTE arg2, UBYTE arg3);
-    CBYTE oldText[64];
-    BBOOL alNum;
-    TextEntryStatus status;
-    UBYTE maxlen;
-    UBYTE ucase;
-    CBYTE *text;
-};
-
-
 class GameFlags { // sizeof=1
     uint8_t LostLevel; // offset=0
     uint8_t WonLevel; // offset=1
@@ -135,19 +116,6 @@ typedef class RunTimeGameFlags RunTimeGameFlags;
 
 typedef class ScreenLockHandler ScreenLockHandler;
 
-struct tm { // sizeof=36
-    int tm_sec; // offset=0
-    int tm_min; // offset=4
-    int tm_hour; // offset=8
-    int tm_mday; // offset=12
-    int tm_mon; // offset=16
-    int tm_year; // offset=20
-    int tm_wday; // offset=24
-    int tm_yday; // offset=28
-    int tm_isdst; // offset=32
-};
-
-typedef struct tm tm;
 
 
 
@@ -212,17 +180,6 @@ class PacketData { // sizeof=11
 
 typedef class PacketData PacketData;
 
-class BaseScan { // sizeof=17
-    void Reset();
-    XY xy; // offset=0
-    XY center; // offset=4
-    UBYTE tilesPrTurn; // offset=8
-    UBYTE baseNo; // offset=9
-    ULONG rng; // offset=10
-    BBOOL started; // offset=14
-    BBOOL middle; // offset=15
-    BBOOL finished; // offset=16
-};
 
 
 class BaseAwareness { // sizeof=83
@@ -284,8 +241,9 @@ class CompTarget { // sizeof=4
 typedef class CompTarget CompTarget;
 
 class GuardPoint { // sizeof=38
-    class GuardPoint * operator=(class GuardPoint *arg1);
-    class GuardPoint * GuardPoint(class GuardPoint *arg1);
+    //~GuardPoint();
+    GuardPoint * operator =(GuardPoint *arg1);
+    //GuardPoint(GuardPoint *arg1);
     Computer * Comp();
     EtherealZone * EZone();
     SWORD FindImportance();
@@ -309,7 +267,7 @@ class GuardPoint { // sizeof=38
     void Update();
     void Invalidate();
     BBOOL Valid();
-    class GuardPoint * GuardPoint();
+    //GuardPoint();
     XY loc; // offset=0
     SWORD creaturesHere; // offset=4
     SWORD importance; // offset=6
@@ -324,18 +282,6 @@ class GuardPoint { // sizeof=38
     SBYTE zoneNumber; // offset=16
 };
 
-typedef class Computer Computer;
-
-typedef class GuardPoint GuardPoint;
-
-class CompDebug { // sizeof=5
-    class CompDebug * CompDebug(class CompDebug *arg1);
-    class CompDebug * CompDebug();
-    ULONG scanRange; // offset=0
-    UBYTE location; // offset=4
-};
-
-typedef class CompDebug CompDebug;
 
 class Trigger { // sizeof=7
     class Trigger * Trigger(class Trigger *arg1);
@@ -354,54 +300,6 @@ class Trigger { // sizeof=7
 
 typedef class Trigger Trigger;
 
-class Personality { // sizeof=142
-    class Personality * Personality(class Personality *arg1);
-    class Personality * Personality();
-    char name[19]; // offset=0
-    UBYTE advancedOptions; // offset=20
-    UBYTE pwrWanted; // offset=21
-    UBYTE idealNoBases; // offset=22
-    SBYTE upgrade; // offset=23
-    UBYTE aggressive; // offset=24
-    UBYTE defensive; // offset=25
-    ULONG freeSpace[1]; // offset=26
-    UBYTE locationAwareness; // offset=34
-    UBYTE distanceFromEnemyBases; // offset=35
-    UBYTE distanceBetweenBases; // offset=36
-    ULONG timeInBase; // offset=37
-    UBYTE changingBase; // offset=41
-    UWORD baseChangeThreshold; // offset=42
-    UBYTE minResolve; // offset=44
-    UBYTE criticalStrength; // offset=45
-    UBYTE maxProbeSteps; // offset=46
-    UBYTE buildStyle; // offset=47
-    UBYTE favBuildingToAttack; // offset=48
-    UBYTE favSpecToAttack; // offset=49
-    UBYTE delayBetweenAttacks; // offset=50
-    UBYTE padding; // offset=51
-    UBYTE defence; // offset=52
-    UBYTE criticalNumTrees; // offset=53
-    SBYTE techLevel; // offset=54
-    SBYTE preferredCreatures[4]; // offset=55
-    SLONG minGoopForCreatures; // offset=60
-    UWORD maxAgeForBaseScan; // offset=64
-    SBYTE creaturePercentage; // offset=66
-    UBYTE creatureRatios[2]; // offset=67
-    UBYTE creaturePerception; // offset=70
-    UBYTE newBaseScoreRange; // offset=71
-    UBYTE newBaseLookPoints; // offset=72
-    UBYTE attackVolume; // offset=73
-    UBYTE wantedSpecTypes[3]; // offset=74
-    UBYTE attackAfterTurn; // offset=78
-    UBYTE creaturesPerGuardPoint; // offset=79
-    UWORD delayBetweenCreatures; // offset=80
-    UWORD maxCreatures; // offset=82
-    SBYTE goForScore; // offset=84
-    UBYTE delayBetweenBuildings; // offset=85
-    Trigger triggers[7]; // offset=86
-};
-
-typedef class Personality Personality;
 
 class Computer { // sizeof=190
     void * ~Computer();
@@ -548,8 +446,8 @@ class Computer { // sizeof=190
 };
 
 struct GEngine { // sizeof=20
-    struct GEngine * GEngine(struct GEngine *arg1);
-    struct GEngine * GEngine();
+    //GEngine(GEngine *arg1);
+    //GEngine();
     SLONG XStep; // offset=0
     SLONG YStep; // offset=4
     SLONG BaseX; // offset=8
@@ -678,111 +576,6 @@ typedef class IFCOptions IFCOptions;
 
 typedef struct Info Info;
 
-
-class IFCEditor : IFCBase { // sizeof=18
-    class IFCEditor * IFCEditor(class IFCEditor *arg1);
-    void GoPlanet();
-    BBOOL IsCircular(UBYTE arg1);
-    BBOOL IsMouseOnMap();
-    void TranslateAllHeaders();
-    void UpdateAllLevels();
-    void PrintHeadersToFile();
-    void UpdateLevel(LevelHeader *arg1);
-    void UpdateHeader(LevelHeader *arg1);
-    BBOOL LoadMap();
-    BBOOL SaveMap();
-    void LoadLevel();
-    void SaveLevel();
-    void SpecialistFuncHelp(MyGadget *arg1);
-    void SpecialistTypeHelp(MyGadget *arg1);
-    void VictoryHelp(MyGadget *arg1);
-    int FindSpecFunctionNumber(BBOOL *arg1);
-    SpecialistClass FindSpecialistClass(BBOOL *arg1);
-    VictoryCondition FindVictoryCondition(BBOOL *arg1);
-    int TotalNumberOfSpecs();
-    void FindClosestStuff();
-    void RemoveStuff();
-    void ReadCompPlayer(UBYTE arg1, UBYTE arg2);
-    void DrawKeyboardHelp();
-    void DrawLimits();
-    void DrawBuilding(XY arg1, UBYTE arg2, UBYTE arg3);
-    void DrawStuff();
-    void DrawDropSites();
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    class IFCEditor * IFCEditor(MyGadget *arg1);
-    void (**__vfptr)();
-    unsigned int *__vbptr;
-    MyGadget *gad; // offset=4
-    MyAnimBank *anb; // offset=8
-    MySprite *spr; // offset=12
-    TbSprite *sprites; // offset=16
-    char levelName[15]; // offset=20
-    UBYTE levelNumber; // offset=36
-    UBYTE closestStuff; // offset=37
-    UBYTE mapType; // offset=38
-    UBYTE compPlayers[2]; // offset=39
-    UBYTE compValid; // offset=42
-    FlatMap map; // offset=43
-    CreatureSpecies currentSpecies; // offset=49
-    UBYTE generated; // offset=50
-    UBYTE currentlyDragging; // offset=51
-    BBOOL draggedLastTurn; // offset=52
-    BBOOL drawZoneInfo; // offset=53
-    UBYTE editStuffMode; // offset=54
-    BBOOL circularWarning; // offset=55
-    SBYTE stuffBeingEdited; // offset=56
-    UBYTE ePlayer; // offset=57
-    UBYTE gPointType; // offset=58
-    LevelHeader header; // offset=59
-    Stuff newStuff; // offset=246
-    UBYTE enteringName; // offset=254
-};
-
-class IFCCompEditor : IFCBase { // sizeof=193
-    class IFCCompEditor * IFCCompEditor(class IFCCompEditor *arg1);
-    void PrintCompPlayersToFile();
-    void UpdateColumnGadget(SWORD arg1, UBYTE *arg2, SLONG arg3, SLONG arg4);
-    void UpdateColumnGadget(SWORD arg1, SBYTE *arg2, SLONG arg3, SLONG arg4);
-    void UpdateColumnGadget(SWORD arg1, UWORD *arg2, SLONG arg3, SLONG arg4);
-    void UpdateColumnGadget(SWORD arg1, SWORD *arg2, SLONG arg3, SLONG arg4);
-    void UpdateColumnGadget(SWORD arg1, ULONG *arg2, ULONG arg3, ULONG arg4);
-    void UpdateColumnGadget(SWORD arg1, SLONG *arg2, SLONG arg3, SLONG arg4);
-    void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, UBYTE arg4, SLONG arg5, SLONG arg6, UBYTE arg7, BBOOL arg8);
-    void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, SBYTE arg4, SLONG arg5, SLONG arg6, UBYTE arg7, BBOOL arg8);
-    void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, UWORD arg4, SLONG arg5, SLONG arg6, UBYTE arg7, BBOOL arg8);
-    void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, SWORD arg4, SLONG arg5, SLONG arg6, UBYTE arg7, BBOOL arg8);
-    void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, ULONG arg4, ULONG arg5, ULONG arg6, UBYTE arg7, BBOOL arg8);
-    void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, SLONG arg4, SLONG arg5, SLONG arg6, UBYTE arg7, BBOOL arg8);
-    void UpdateCreatureBar();
-    void UpdateCreatureValues();
-    void DrawCreatureBar();
-    BBOOL Write();
-    BBOOL Read();
-    void Update();
-    UBYTE WantedSpecialists();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    class IFCCompEditor * IFCCompEditor(MyGadget *arg1);
-    void (**__vfptr)();
-    unsigned int *__vbptr;
-    IFCBase *saveIFC; // offset=4
-    MyGadget *gad; // offset=8
-    MyAnimBank *anb; // offset=12
-    MySprite *spr; // offset=16
-    TbSprite *sprites; // offset=20
-    UBYTE playerNumber; // offset=24
-    Personality cPersonality; // offset=25
-    UWORD leftNotch; // offset=167
-    UWORD rightNotch; // offset=169
-    UWORD testing; // offset=171
-    UBYTE triggerNo; // offset=173
-};
-
-typedef class IFCCompEditor IFCCompEditor;
 
 extern char unsigned * block_ptrs[];
 extern char unsigned * block_mem;

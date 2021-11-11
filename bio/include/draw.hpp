@@ -19,10 +19,17 @@
 #ifndef BIO_DRAW_HPP_
 #define BIO_DRAW_HPP_
 
+enum TextEntryStatus { // type=int8_t
+    TXT_NOT_ACTIVE = 0,
+    TXT_ENTERING,
+    TXT_RETURN,
+    TXT_ESCAPE,
+};
+
 class TextEntry { // sizeof=73
-    class TextEntry * TextEntry(class TextEntry *arg1);
+    //TextEntry(TextEntry *arg1);
     BBOOL ValidChar(UBYTE arg1);
-    class TextEntry * TextEntry();
+    //TextEntry();
     BBOOL PressedEscape();
     BBOOL PressedReturn();
     BBOOL IsEnteringText();

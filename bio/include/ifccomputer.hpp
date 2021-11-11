@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file computer.hpp
+/** @file ifccomputer.hpp
  *     Header file for computer.cpp.
  * @par Purpose:
  *     Unknown.
@@ -16,8 +16,8 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#ifndef BIO_COMPUTER_HPP_
-#define BIO_COMPUTER_HPP_
+#ifndef BIO_IFCCOMPUTER_HPP_
+#define BIO_IFCCOMPUTER_HPP_
 
 #include "bftypes.h"
 #include "myspr.h"
@@ -58,5 +58,5 @@ class IFCComputer : IFCBase { // sizeof=55
     UBYTE gPointType; // offset=54
 };
 
-#endif // BIO_COMPUTER_HPP_
+#endif // BIO_IFCCOMPUTER_HPP_
 /******************************************************************************/
