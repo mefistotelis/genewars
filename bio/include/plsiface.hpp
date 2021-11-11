@@ -67,7 +67,7 @@ class CowboyIFC { // sizeof=15
 };
 
 class PLSInterface { // sizeof=22
-    //class PLSInterface * operator=(class PLSInterface *arg1);
+    PLSInterface * operator =(PLSInterface *arg1);
     SBYTE submode; // offset=0
     ThingIDX thingTgt; // offset=1
     ShepherdIFC shepherd; // offset=4

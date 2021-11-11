@@ -1251,14 +1251,6 @@ enum { // type=int8_t
     COMP_ACTION_WRECK,
 };
 
-enum TgtType { // type=int8_t
-    CL_TGT_CR = 0,
-    CL_TGT_BLD,
-    CL_TGT_PLS,
-    CL_TGT_MAX,
-};
-
-typedef enum TgtType TgtType;
 
 enum ScoreType { // type=int8_t
     SCORE_ATTACK = 0,
@@ -1297,76 +1289,10 @@ typedef class Point Point;
 
 
 
-class PacketData { // sizeof=11
-    SWORD X; // offset=0
-    SWORD Y; // offset=2
-    SWORD Z; // offset=4
-    SWORD A; // offset=6
-    SWORD B; // offset=8
-    UBYTE Action; // offset=10
-};
-
 typedef class PacketData PacketData;
 
 
-class BaseAwareness { // sizeof=83
-    void Reset();
-    ULONG finishedTurn; // offset=0
-    UBYTE enemySpec; // offset=4
-    UWORD enemyBuildings; // offset=5
-    UWORD enemyCreatures; // offset=7
-    UWORD friendlyCreatures; // offset=9
-    ULONG enemyAttack; // offset=11
-    ULONG enemyDefence; // offset=15
-    ULONG myAttack; // offset=19
-    ULONG myDefence; // offset=23
-    ULONG myWork; // offset=27
-    ULONG myBuild; // offset=31
-    ULONG buildingThreat; // offset=35
-    UWORD specThreat; // offset=39
-    ULONG treesInForest; // offset=41
-    UWORD forestDir[7]; // offset=45
-    ULONG meat; // offset=61
-    ULONG bones; // offset=65
-    ULONG vegi; // offset=69
-    ULONG foodInBase; // offset=73
-    ULONG baseScore; // offset=77
-    SWORD danger; // offset=81
-};
 
-typedef class BaseAwareness BaseAwareness;
-
-class GPointFlags { // sizeof=1
-    class GPointFlags * operator=(class GPointFlags *arg1);
-    class GPointFlags * GPointFlags(class GPointFlags *arg1);
-    void operator=(GPointFlags *arg1);
-    class GPointFlags * GPointFlags();
-    uint8_t specOnHisWay; // offset=0
-    uint8_t noSuitableCreatures; // offset=1
-    uint8_t pointClosed; // offset=2
-    uint8_t defendGetsPriority; // offset=3
-    uint8_t triggerOnEnemies; // offset=4
-    uint8_t canWalkTo; // offset=5
-};
-
-typedef class GPointFlags GPointFlags;
-
-class CompTarget { // sizeof=4
-    void * ~CompTarget();
-    class CompTarget * CompTarget(class CompTarget *arg1);
-    void StopHuntingThis();
-    void AssignCreatureToThis(SWORD arg1);
-    void NewTarget(SWORD arg1);
-    void Update();
-    void Invalidate();
-    BBOOL Valid();
-    class CompTarget * CompTarget();
-    SWORD crNo; // offset=0
-    UBYTE creaturesOnThis; // offset=2
-    TgtType targetType; // offset=3
-};
-
-typedef class CompTarget CompTarget;
 
 
 
@@ -1593,20 +1519,6 @@ public:
     UBYTE error_type; // offset=59
 };
 
-class BaseAwarenessScan : public TimeSliceScan { // sizeof=64
-public:
-    //BaseAwarenessScan(BaseAwarenessScan *arg1);
-    UBYTE PointInSector(XY arg1, XY arg2);
-    void PerGrid();
-    BaseAwarenessScan(BaseScan arg1, XY arg2, ULONG arg3, UBYTE arg4);
-    //void (**__vfptr)();
-    UBYTE baseNo; // offset=47
-    BaseAwareness *aware; // offset=48
-    Player *player; // offset=52
-    Computer *comp; // offset=56
-    XY center; // offset=60
-};
-
 class ForestScan : public RangeScanner { // sizeof=109
 public:
     //ForestScan(ForestScan *arg1);
@@ -1764,8 +1676,6 @@ public:
     SWORD importance; // offset=41
 };
 
-typedef class CloseTgt CloseTgt;
-
 class ClosestTargets : public PolarRangeScan { // sizeof=132
 public:
     //ClosestTargets(ClosestTargets *arg1);
@@ -1794,6 +1704,7 @@ public:
     XY path[99]; // offset=91
 };
 
+typedef class CloseTgt CloseTgt;
 
 class BestScore { // sizeof=8
     SLONG score; // offset=0

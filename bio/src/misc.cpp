@@ -603,21 +603,6 @@ char unsigned CloseTgt::Valid()
 // code at 0001:000373f4
 }
 
-char signed GuardPoint::__defarg()
-{
-// code at 0001:000373d4
-}
-
-char signed GuardPoint::__defarg()
-{
-// code at 0001:000373b4
-}
-
-GPointFlags * GuardPoint::__defarg()
-{
-// code at 0001:00037390
-}
-
 char unsigned BuildPriority::Build( PlSpec *, char unsigned, char unsigned )
 {
 // code at 0001:000343f8
@@ -648,86 +633,6 @@ BestBuilding BuildPriority::FindBestLoc( char unsigned, char unsigned )
 // code at 0001:00030e23
 }
 
-char unsigned GuardPoint::Valid()
-{
-// code at 0001:000321f9
-}
-
-void GuardPoint::Invalidate()
-{
-// code at 0001:00032231
-}
-
-void GuardPoint::Update()
-{
-// code at 0001:00032262
-}
-
-char unsigned GuardPoint::ScanForTargets( char signed )
-{
-// code at 0001:00032d01
-}
-
-char unsigned GuardPoint::TargetsHere()
-{
-// code at 0001:000343a0
-}
-
-char unsigned GuardPoint::BestTargetType( char unsigned, char signed )
-{
-// code at 0001:00032fa6
-}
-
-char unsigned GuardPoint::IsCreatureRightType( Creature & )
-{
-// code at 0001:00033226
-}
-
-void GuardPoint::DropDeadTargets()
-{
-// code at 0001:00033440
-}
-
-void GuardPoint::DropTargetsOutsideRange()
-{
-// code at 0001:000334c9
-}
-
-void GuardPoint::DropCloakedTargets()
-{
-// code at 0001:0003354d
-}
-
-char unsigned GuardPoint::IsTarget( short, TgtType )
-{
-// code at 0001:00034334
-}
-
-char unsigned GuardPoint::IsHere( short )
-{
-// code at 0001:000342d4
-}
-
-long GuardPoint::ChooseTarget( TgtType * )
-{
-// code at 0001:00033616
-}
-
-char unsigned GuardPoint::HungryCreaturesHere( char unsigned )
-{
-// code at 0001:000336bf
-}
-
-long GuardPoint::TreesHere()
-{
-// code at 0001:00033766
-}
-
-void GuardPoint::SetupPoint( XY &, char unsigned, char unsigned, char signed, GPointFlags * )
-{
-// code at 0001:000337a3
-}
-
 char unsigned CompTarget::Valid()
 {
 // code at 0001:0003429c
@@ -736,31 +641,6 @@ char unsigned CompTarget::Valid()
 void CompTarget::Invalidate()
 {
 // code at 0001:00034270
-}
-
-void GuardPoint::ShutDownPoint()
-{
-// code at 0001:0003391f
-}
-
-void GuardPoint::AddCreature( short )
-{
-// code at 0001:00033977
-}
-
-void GuardPoint::RemoveCreature( short )
-{
-// code at 0001:00033a4c
-}
-
-void GuardPoint::MovePoint( XY )
-{
-// code at 0001:00033aa4
-}
-
-short GuardPoint::FindImportance()
-{
-// code at 0001:00033b76
 }
 
 void CompTarget::NewTarget( short, TgtType )
@@ -776,11 +656,6 @@ void CompTarget::AssignCreatureToThis( short )
 near GPointFlags::GPointFlags()
 {
 // code at 0001:00033fd8
-}
-
-near TimeSliceScan::TimeSliceScan( BaseScan &, XY, long unsigned )
-{
-// code at 0001:00036fec
 }
 
 near FindHighestBuildingSite::FindHighestBuildingSite( XY, long unsigned, char unsigned )
@@ -873,31 +748,6 @@ near BestForestSample::BestForestSample( XY, long unsigned, char unsigned, char 
 // code at 0001:00036998
 }
 
-EtherealZone * GuardPoint::EZone()
-{
-// code at 0001:000366ec
-}
-
-Computer * GuardPoint::Comp()
-{
-// code at 0001:000366b8
-}
-
-near BaseAwarenessScan::BaseAwarenessScan( BaseScan &, XY, long unsigned, char unsigned )
-{
-// code at 0001:000365b4
-}
-
-char unsigned BaseAwarenessScan::PointInSector( XY, XY )
-{
-// code at 0001:00036574
-}
-
-char unsigned TimeSliceScan::Do()
-{
-// code at 0001:0002729e
-}
-
 void FindHighestBuildingSite::PerGrid()
 {
 // code at 0001:000273ff
@@ -911,16 +761,6 @@ void FindLowestBuildingSite::PerGrid()
 void ChopTreeScan::PerGrid()
 {
 // code at 0001:00027570
-}
-
-void BaseAwarenessScan::PerGrid()
-{
-// code at 0001:000275a8
-}
-
-void BaseAwareness::Reset()
-{
-// code at 0001:00027995
 }
 
 void ForestScan::PerGrid()
@@ -1113,11 +953,6 @@ char unsigned Probe::Update()
 // code at 0001:000292d3
 }
 
-near GuardPoint::GuardPoint()
-{
-// code at 0001:0002ce3b
-}
-
 
 char * stuffCreatures[];
 
@@ -1125,7 +960,7 @@ char * stuffBuildings[];
 
 char * gPTypes[];
 
-void GPointFlags::operator =( GPointFlags * )
+void GPointFlags::operator =(GPointFlags *arg1)
 {
 // code at 0001:0003401f
 }

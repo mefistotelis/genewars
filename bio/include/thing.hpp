@@ -103,7 +103,7 @@ public:
 
 class StaticThing : public Thing { // sizeof=43
 public:
-    class StaticThing * operator=(class StaticThing *tng1);
+    class StaticThing * operator =(class StaticThing *tng1);
     //StaticThing(StaticThing *tng1); -- generate default copy constructor
     //StaticThing(); -- generate default no-args constructor
     BBOOL IsStaticallyDrawn();

@@ -28,7 +28,7 @@ class BioGame;
 
 class Plant : public StaticThing { // sizeof=49
 public:
-    Plant * operator=(Plant * plnt1);
+    Plant * operator =(Plant * plnt1);
     //Plant(Plant *arg1); -- generate default copy constructor
     //Plant(); -- generate default no-args constructor
     BBOOL operator ==(Plant * plnt1);

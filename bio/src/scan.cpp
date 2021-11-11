@@ -151,4 +151,15 @@ void PolarEverythingScan::Do()
 // code at 0001:00026dc0
 }
 
+TimeSliceScan::TimeSliceScan(BaseScan &arg1, XY arg2, ULONG arg3)
+    : RangeScan(arg2, arg3, 0) // verify params
+{
+// code at 0001:00036fec
+}
+
+BBOOL TimeSliceScan::Do()
+{
+// code at 0001:0002729e
+}
+
 /******************************************************************************/

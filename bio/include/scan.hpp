@@ -166,7 +166,7 @@ public:
     //TimeSliceScan(TimeSliceScan *arg1);
     void PerGrid();
     BBOOL Do();
-    TimeSliceScan(BaseScan arg1, XY arg2, ULONG arg3);
+    TimeSliceScan(BaseScan &arg1, XY arg2, ULONG arg3);
     //void (**__vfptr)();
     ULONG maxRange;
     ULONG squareMaxRange;

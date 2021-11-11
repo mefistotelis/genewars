@@ -29,7 +29,7 @@ class Player;
 
 class TheShip { // sizeof=140
 public:
-    TheShip & operator=(TheShip const &ship1);
+    TheShip & operator =(TheShip const &ship1);
     int SpecsInTeamBelongingToRace(PlayerRace arg1);
     void GetMoreSpecialists(PlayerRace arg1, int); // not sure if 2nd arg exists
     void MakeNewSpecialist(Specialist &spcl, PlayerRace arg2, SpecialistClass arg3, UBYTE arg4);

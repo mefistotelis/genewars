@@ -23,7 +23,7 @@
 // code at 0001:000614f4
 }*/
 
-BBOOL Event::operator ==( Event * )
+BBOOL Event::operator ==(Event *arg1)
 {
 // code at 0001:0004882d
 }

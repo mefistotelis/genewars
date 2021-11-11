@@ -21,8 +21,12 @@
 
 #include "bftypes.h"
 #include "xy.hpp"
+#include "packets.hpp"
 #include "creaturestat.hpp"
 #include "comppersonal.hpp"
+#include "scanaware.hpp"
+#include "scan.hpp"
+#include "gupoint.hpp"
 
 class PlSpec;
 class Effect;

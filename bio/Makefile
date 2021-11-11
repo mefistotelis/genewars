@@ -58,7 +58,6 @@ obj/misc.o \
 obj/optimize.o \
 obj/options.o \
 \
-obj/computer.o \
 obj/setup.o \
 obj/sound.o \
 obj/spec.o \
@@ -95,6 +94,7 @@ obj/ifcoptions.o \
 obj/ifctitle.o \
 obj/scan.o \
 obj/scanadv.o \
+obj/scanaware.o \
 obj/thingidx.o \
 obj/thing.o \
 obj/mvthing.o \
@@ -110,6 +110,8 @@ obj/creature.o \
 obj/research.o \
 obj/player.o \
 obj/plspec.o \
+obj/gupoint.o \
+obj/computer.o \
 obj/io.o \
 obj/game.o \
 obj/pchost.o \

@@ -24,7 +24,7 @@
 
 class MovingThing : public Thing { // sizeof=69
 public:
-    MovingThing * operator=(MovingThing *arg1);
+    MovingThing * operator =(MovingThing *arg1);
     //MovingThing(MovingThing *arg1); -- generate default copy constructor
     MovingThing();
     void SetSpeedHandler(Normal &arg1, SWORD arg2);

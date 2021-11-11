@@ -22,6 +22,15 @@
 #include "bftypes.h"
 #include "paletsel.hpp"
 
+class PacketData { // sizeof=11
+    SWORD X; // offset=0
+    SWORD Y; // offset=2
+    SWORD Z; // offset=4
+    SWORD A; // offset=6
+    SWORD B; // offset=8
+    UBYTE Action; // offset=10
+};
+
 class Packet { // sizeof=19
 public:
     void SetPacketDataBlast(void *arg1);

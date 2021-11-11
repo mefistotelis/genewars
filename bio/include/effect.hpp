@@ -32,7 +32,7 @@ class EtherealZone;
 
 class Effect : public MovingThing { // sizeof=81
 public:
-    Effect * operator=(Effect *eff1);
+    Effect * operator =(Effect *eff1);
     //Effect(Effect *eff1); -- generate default copy constructor
     //Effect(); -- generate default no-args constructor
     void DrawZoneMarker(SLONG arg1, SLONG arg2, SLONG arg3, SLONG arg4);
