@@ -122,22 +122,6 @@ void ShieldScan::PerGrid()
 // code at 0001:0003959f
 }
 
-AwarenessScan::AwarenessScan(Creature &arg1)
-    : RangeScanner(arg1.loc, 0) // verify params
-{
-// code at 0001:00083c1c
-}
-
-void AwarenessScan::PerGrid()
-{
-// code at 0001:00083440
-}
-
-void AwarenessScan::Do()
-{
-// code at 0001:00083208
-}
-
 CollectorScan::CollectorScan(Creature &arg1, BBOOL arg2, BBOOL arg3)
     : WeightedTgtRangeScanner(arg1.loc, 0) // verify params
 {

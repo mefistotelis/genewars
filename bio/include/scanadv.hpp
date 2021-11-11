@@ -127,43 +127,6 @@ public:
     Building shield;
 };
 
-class AwarenessScan : public RangeScanner { // sizeof=228
-public:
-    //AwarenessScan(AwarenessScan *arg1);
-    void Do();
-    void PerGrid();
-    AwarenessScan(Creature &arg1);
-    //void (**__vfptr)();
-    ASpecies speci;
-    Creature c;
-    int mates[15]; // offset=45
-    int threats[15]; // offset=46
-    int terrain[15]; // offset=109
-    int enemies[15]; // offset=110
-    SWORD foundEnemies; // offset=173
-    int friends[15]; // offset=174
-    SWORD foundThreats; // offset=175
-    SWORD foundFriends; // offset=177
-    SWORD foundFood; // offset=179
-    SWORD foundMates; // offset=181
-    UBYTE bestEnemies; // offset=183
-    UBYTE bestFriends; // offset=184
-    UBYTE bestFood; // offset=185
-    UBYTE bestMates; // offset=186
-    UBYTE bestTerrain; // offset=187
-    UBYTE bestThreats; // offset=188
-    UBYTE foodRankings[2]; // offset=189
-    Thing *bestThing; // offset=192
-    Creature *bestMate; // offset=196
-    Thing *bestEnemy; // offset=200
-    Thing *bestThreat; // offset=204
-    SLONG bestRanking; // offset=208
-    SLONG bestMateRanking; // offset=212
-    SLONG bestEnemyRanking; // offset=216
-    SLONG bestThreatRanking; // offset=220
-    int food[15]; // offset=237
-};
-
 class CollectorScan : public WeightedTgtRangeScanner { // sizeof=246
 public:
     //CollectorScan(CollectorScan *arg1);
@@ -195,6 +158,145 @@ public:
     //void (**__vfptr)();
     int bestRanges[15];
     Plant *closestPerSector[15];
+};
+
+class FindHighestBuildingSite : public RangeScanner { // sizeof=59
+public:
+    //FindHighestBuildingSite(FindHighestBuildingSite *arg1);
+    BBOOL FoundASite();
+    void PerGrid();
+    FindHighestBuildingSite(XY arg1, ULONG arg2, UBYTE arg3);
+    //void (**__vfptr)();
+    UBYTE foundationSize;
+    SLONG highestPoint;
+    XY bestPos; // offset=41
+    UWORD errors[3]; // offset=45
+    UBYTE error_type; // offset=53
+};
+
+class TestSlice : public PolarSliceScan { // sizeof=65
+public:
+    //TestSlice(TestSlice *arg1);
+    void PerGrid();
+    TestSlice(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
+    //void (**__vfptr)();
+    SLONG lowestPoint;
+    XY bestPos; // offset=48
+    UWORD errors[3]; // offset=52
+    UBYTE error_type; // offset=60
+};
+
+class TestEverything : public PolarEverythingScan { // sizeof=60
+public:
+    //TestEverything(TestEverything *arg1);
+    void PerGrid();
+    TestEverything(XY arg1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5, BBOOL arg6);
+    //void (**__vfptr)();
+    XY bestPos; // offset=47
+    UWORD errors[3]; // offset=51
+    UBYTE error_type; // offset=59
+};
+
+class ChopTreeScan : public RangeScanner { // sizeof=41
+public:
+    //ChopTreeScan(ChopTreeScan *arg1);
+    //void PerGrid();
+    ChopTreeScan(XY arg1, ULONG arg2);
+    void (**__vfptr)();
+};
+
+class BestForestScan : public PolarRangeScan { // sizeof=62
+public:
+    //BestForestScan(BestForestScan *arg1);
+    void PerGrid();
+    BestForestScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5);
+    //void (**__vfptr)();
+    SLONG bestValue;
+    UBYTE forestType;
+    UBYTE player;
+    UBYTE foundationSize;
+    XY bestPos; // offset=51
+};
+
+class MineralScan : public RangeScanner { // sizeof=45
+public:
+    //MineralScan(MineralScan *arg1);
+    void PerGrid();
+    MineralScan(XY arg1, ULONG arg2);
+    //void (**__vfptr)();
+    ULONG minerals; // offset=41
+};
+
+class MineScan : public RangeScanner { // sizeof=50
+public:
+    //MineScan(MineScan *arg1);
+    void PerGrid();
+    MineScan(XY arg1, ULONG arg2, UBYTE arg3);
+    //void (**__vfptr)();
+    UBYTE mineFoundationSize;
+    ULONG mostMinerals;
+    XY bestPos; // offset=41
+};
+
+class PowerScan : public PolarRangeScan { // sizeof=59
+public:
+    //PowerScan(PowerScan *arg1);
+    void PerGrid();
+    PowerScan(XY arg1, ULONG arg2, UBYTE arg3);
+    //void (**__vfptr)();
+    UBYTE player;
+    UBYTE foundationSize;
+    UBYTE mostPower;
+    XY bestPos; // offset=51
+    UBYTE bestType; // offset=55
+};
+
+class NearestBuildingSite : public PolarEverythingScan { // sizeof=53
+public:
+    //NearestBuildingSite(class NearestBuildingSite *arg1);
+    void PerGrid();
+    NearestBuildingSite(XY arg1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5);
+    //void (**__vfptr)();
+    UBYTE foundationSize;
+    XY bestPos; // offset=47
+    UBYTE type; // offset=51
+};
+
+class OldPowerTally : public PolarRangeScan { // sizeof=57
+public:
+    //OldPowerTally(OldPowerTally *arg1);
+    OldPowerTally(XY arg1, ULONG arg2, UBYTE arg3);
+    void PerGrid();
+    //void (**__vfptr)();
+    UBYTE player;
+    UBYTE satisfiedBuildings; // offset=51
+    ULONG landTiles; // offset=52
+};
+
+class NewPowerTally : public RangeScanner { // sizeof=49
+public:
+    //NewPowerTally(NewPowerTally *arg1);
+    NewPowerTally(XY arg1, ULONG arg2);
+    void PerGrid();
+    //void (**__vfptr)();
+    ULONG landTiles; // offset=41
+    ULONG tiles; // offset=45
+};
+
+class SatisfyBuildings : public PolarRangeScan { // sizeof=64
+public:
+    //SatisfyBuildings(SatisfyBuildings *arg1);
+    SatisfyBuildings(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5);
+    void PerGrid();
+    void Do();
+    //void (**__vfptr)();
+    UBYTE player;
+    ULONG maxLandTiles;
+    UBYTE buildingsSatisfied;
+    UBYTE buildingsToSatisfy;
+    UBYTE foundationSize;
+    XY bestPos; // offset=51
+    UBYTE stage; // offset=55
 };
 
 #endif // SCANADV_HPP_

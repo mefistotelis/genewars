@@ -23,16 +23,6 @@ char * Config::InstalledFile( char * )
 // code at 0001:000036ac
 }
 
-near EtherealTargetScan::EtherealTargetScan( Ethereal &, long unsigned )
-{
-// code at 0001:00003560
-}
-
-void EtherealTargetScan::PerGrid()
-{
-// code at 0001:00003438
-}
-
 char unsigned EventHelp::IsForceDisplay()
 {
 // code at 0001:00093704

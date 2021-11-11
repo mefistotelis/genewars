@@ -1,8 +1,8 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file scanaware.cpp
- *     Implementation of related functions.
+/** @file scanether.hpp
+ *     *Scan classes.
  * @par Purpose:
  *     Unknown.
  * @par Comment:
@@ -16,43 +16,26 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "scanaware.hpp"
+#ifndef SCANETHER_HPP_
+#define SCANETHER_HPP_
 
-BaseAwarenessScan::BaseAwarenessScan(BaseScan &arg1, XY arg2, ULONG arg3, UBYTE arg4)
-    : TimeSliceScan(arg1, arg2, arg3) // verify params
-{
-// code at 0001:000365b4
-}
+#include "bftypes.h"
+#include "xy.hpp"
+#include "ethereal.hpp"
+#include "scan.hpp"
 
-UBYTE BaseAwarenessScan::PointInSector(XY arg1, XY arg2)
-{
-// code at 0001:00036574
-}
+class EtherealTargetScan : public RangeScanner { // sizeof=118
+public:
+    //EtherealTargetScan(EtherealTargetScan *arg1);
+    void PerGrid();
+    EtherealTargetScan(Ethereal &arg1, ULONG arg2);
+    //void (**__vfptr)();
+    ULONG bestRanges[8];
+    Ethereal saucer;
+    Thing *tgtThings[8]; // offset=41
+    UBYTE numTargets; // offset=77
+};
 
-void BaseAwarenessScan::PerGrid()
-{
-// code at 0001:000275a8
-}
 
-void BaseAwareness::Reset()
-{
-// code at 0001:00027995
-}
-
-AwarenessScan::AwarenessScan(Creature &arg1)
-    : RangeScanner(arg1.loc, 0) // verify params
-{
-// code at 0001:00083c1c
-}
-
-void AwarenessScan::PerGrid()
-{
-// code at 0001:00083440
-}
-
-void AwarenessScan::Do()
-{
-// code at 0001:00083208
-}
-
+#endif // SCANETHER_HPP_
 /******************************************************************************/

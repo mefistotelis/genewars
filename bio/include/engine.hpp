@@ -1,8 +1,8 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file scanaware.cpp
- *     Implementation of related functions.
+/** @file engine.hpp
+ *     Header file for engine.cpp.
  * @par Purpose:
  *     Unknown.
  * @par Comment:
@@ -16,43 +16,29 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "scanaware.hpp"
+#ifndef BIO_ENGINE_HPP_
+#define BIO_ENGINE_HPP_
 
-BaseAwarenessScan::BaseAwarenessScan(BaseScan &arg1, XY arg2, ULONG arg3, UBYTE arg4)
-    : TimeSliceScan(arg1, arg2, arg3) // verify params
-{
-// code at 0001:000365b4
-}
+#include "bftypes.h"
 
-UBYTE BaseAwarenessScan::PointInSector(XY arg1, XY arg2)
-{
-// code at 0001:00036574
-}
+struct GEngine { // sizeof=20
+    //GEngine(GEngine *arg1);
+    //GEngine();
+    SLONG XStep; // offset=0
+    SLONG YStep; // offset=4
+    SLONG BaseX; // offset=8
+    SLONG BaseY; // offset=12
+    SLONG AltScaler; // offset=16
+};
 
-void BaseAwarenessScan::PerGrid()
-{
-// code at 0001:000275a8
-}
+struct PolyPoint { // sizeof=20
+    SLONG X; // offset=0
+    SLONG Y; // offset=4
+    SLONG U; // offset=8
+    SLONG V; // offset=12
+    SLONG S; // offset=16
+};
 
-void BaseAwareness::Reset()
-{
-// code at 0001:00027995
-}
 
-AwarenessScan::AwarenessScan(Creature &arg1)
-    : RangeScanner(arg1.loc, 0) // verify params
-{
-// code at 0001:00083c1c
-}
-
-void AwarenessScan::PerGrid()
-{
-// code at 0001:00083440
-}
-
-void AwarenessScan::Do()
-{
-// code at 0001:00083208
-}
-
+#endif // BIO_ENGINE_HPP_
 /******************************************************************************/

@@ -1173,56 +1173,10 @@ class Recorder { // sizeof=17
 
 typedef struct MyGadget MyGadget;
 
-class HelpDraw { // sizeof=26
-    void GenericHelpDraw(MyGadget *arg1, char *arg2);
-    void Draw(MyGadget *arg1, char *arg2);
-    void SetColors(UBYTE arg1, UBYTE arg2, UBYTE arg3, UBYTE arg4);
-    void DislodgeAndReset();
-    void Dislodge();
-    SWORD hx; // offset=0
-    SWORD hy; // offset=2
-    SWORD hWidth; // offset=4
-    SLONG turn; // offset=6
-    SLONG length; // offset=10
-    ULONG id; // offset=14
-    UBYTE pen; // offset=18
-    UBYTE outline; // offset=19
-    UBYTE fill; // offset=20
-    UBYTE boxOutline; // offset=21
-    MyGadget *gad; // offset=22
-};
-
-class GunSpec { // sizeof=7
-    SWORD shotSpeed; // offset=0
-    SWORD shotLifeInTurns; // offset=2
-    SWORD reloadTime; // offset=4
-    UBYTE shotEffect; // offset=6
-};
 
 
 
 
-
-
-class EtherealTargetScan : public RangeScanner { // sizeof=118
-public:
-    class EtherealTargetScan * EtherealTargetScan(class EtherealTargetScan *arg1);
-    void PerGrid();
-    class EtherealTargetScan * EtherealTargetScan(Ethereal arg1, ULONG arg2);
-    //void (**__vfptr)();
-    ULONG bestRanges[8];
-    Ethereal saucer;
-    Thing *tgtThings[8]; // offset=41
-    UBYTE numTargets; // offset=77
-};
-
-struct PolyPoint { // sizeof=20
-    SLONG X; // offset=0
-    SLONG Y; // offset=4
-    SLONG U; // offset=8
-    SLONG V; // offset=12
-    SLONG S; // offset=16
-};
 
 
 enum { // type=int8_t
@@ -1270,7 +1224,6 @@ typedef class Point Point;
 
 
 
-typedef class PacketData PacketData;
 
 
 
@@ -1308,144 +1261,6 @@ class CloseTgt { // sizeof=4
     SWORD range; // offset=2
 };
 
-class FindHighestBuildingSite : public RangeScanner { // sizeof=59
-public:
-    class FindHighestBuildingSite * FindHighestBuildingSite(class FindHighestBuildingSite *arg1);
-    BBOOL FoundASite();
-    void PerGrid();
-    class FindHighestBuildingSite * FindHighestBuildingSite(XY arg1, ULONG arg2, UBYTE arg3);
-    void (**__vfptr)();
-    UBYTE foundationSize;
-    SLONG highestPoint;
-    XY bestPos; // offset=41
-    UWORD errors[3]; // offset=45
-    UBYTE error_type; // offset=53
-};
-
-class TestSlice : public PolarSliceScan { // sizeof=65
-public:
-    class TestSlice * TestSlice(class TestSlice *arg1);
-    void PerGrid();
-    class TestSlice * TestSlice(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
-    //void (**__vfptr)();
-    SLONG lowestPoint;
-    XY bestPos; // offset=48
-    UWORD errors[3]; // offset=52
-    UBYTE error_type; // offset=60
-};
-
-class TestEverything : public PolarEverythingScan { // sizeof=60
-public:
-    //TestEverything(TestEverything *arg1);
-    void PerGrid();
-    class TestEverything * TestEverything(XY arg1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5, BBOOL arg6);
-    //void (**__vfptr)();
-    XY bestPos; // offset=47
-    UWORD errors[3]; // offset=51
-    UBYTE error_type; // offset=59
-};
-
-class ChopTreeScan : public RangeScanner { // sizeof=41
-public:
-    class ChopTreeScan * ChopTreeScan(class ChopTreeScan *arg1);
-    //void PerGrid();
-    class ChopTreeScan * ChopTreeScan(XY arg1, ULONG arg2);
-    void (**__vfptr)();
-};
-
-class BestForestScan : public PolarRangeScan { // sizeof=62
-public:
-    //BestForestScan(BestForestScan *arg1);
-    void PerGrid();
-    BestForestScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5);
-    //void (**__vfptr)();
-    SLONG bestValue;
-    UBYTE forestType;
-    UBYTE player;
-    UBYTE foundationSize;
-    XY bestPos; // offset=51
-};
-
-class MineralScan : public RangeScanner { // sizeof=45
-public:
-    //MineralScan(MineralScan *arg1);
-    void PerGrid();
-    MineralScan(XY arg1, ULONG arg2);
-    //void (**__vfptr)();
-    ULONG minerals; // offset=41
-};
-
-class MineScan : public RangeScanner { // sizeof=50
-public:
-    //MineScan(MineScan *arg1);
-    void PerGrid();
-    class MineScan * MineScan(XY arg1, ULONG arg2, UBYTE arg3);
-    //void (**__vfptr)();
-    UBYTE mineFoundationSize;
-    ULONG mostMinerals;
-    XY bestPos; // offset=41
-};
-
-class PowerScan : public PolarRangeScan { // sizeof=59
-public:
-    //PowerScan(PowerScan *arg1);
-    void PerGrid();
-    class PowerScan * PowerScan(XY arg1, ULONG arg2, UBYTE arg3);
-    //void (**__vfptr)();
-    UBYTE player;
-    UBYTE foundationSize;
-    UBYTE mostPower;
-    XY bestPos; // offset=51
-    UBYTE bestType; // offset=55
-};
-
-class NearestBuildingSite : public PolarEverythingScan { // sizeof=53
-public:
-    class NearestBuildingSite * NearestBuildingSite(class NearestBuildingSite *arg1);
-    void PerGrid();
-    class NearestBuildingSite * NearestBuildingSite(XY arg1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5);
-    //void (**__vfptr)();
-    UBYTE foundationSize;
-    XY bestPos; // offset=47
-    UBYTE type; // offset=51
-};
-
-class OldPowerTally : public PolarRangeScan { // sizeof=57
-public:
-    //OldPowerTally(OldPowerTally *arg1);
-    OldPowerTally(XY arg1, ULONG arg2, UBYTE arg3);
-    void PerGrid();
-    //void (**__vfptr)();
-    UBYTE player;
-    UBYTE satisfiedBuildings; // offset=51
-    ULONG landTiles; // offset=52
-};
-
-class NewPowerTally : public RangeScanner { // sizeof=49
-public:
-    //NewPowerTally(NewPowerTally *arg1);
-    class NewPowerTally * NewPowerTally(XY arg1, ULONG arg2);
-    void PerGrid();
-    //void (**__vfptr)();
-    ULONG landTiles; // offset=41
-    ULONG tiles; // offset=45
-};
-
-class SatisfyBuildings : public PolarRangeScan { // sizeof=64
-public:
-    //SatisfyBuildings(SatisfyBuildings *arg1);
-    class SatisfyBuildings * SatisfyBuildings(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5);
-    void PerGrid();
-    void Do();
-    //void (**__vfptr)();
-    UBYTE player;
-    ULONG maxLandTiles;
-    UBYTE buildingsSatisfied;
-    UBYTE buildingsToSatisfy;
-    UBYTE foundationSize;
-    XY bestPos; // offset=51
-    UBYTE stage; // offset=55
-};
 
 class PointSample { // sizeof=27
     //PointSample(PointSample *arg1);
@@ -1671,8 +1486,6 @@ public:
     UBYTE player; // offset=130
     BBOOL defend; // offset=131
 };
-
-typedef class CloseTgt CloseTgt;
 
 class BestScore { // sizeof=8
     SLONG score; // offset=0

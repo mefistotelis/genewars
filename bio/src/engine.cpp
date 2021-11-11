@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file scanaware.cpp
+/** @file engine.cpp
  *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
@@ -16,43 +16,8 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "scanaware.hpp"
+#include "engine.hpp"
 
-BaseAwarenessScan::BaseAwarenessScan(BaseScan &arg1, XY arg2, ULONG arg3, UBYTE arg4)
-    : TimeSliceScan(arg1, arg2, arg3) // verify params
-{
-// code at 0001:000365b4
-}
 
-UBYTE BaseAwarenessScan::PointInSector(XY arg1, XY arg2)
-{
-// code at 0001:00036574
-}
-
-void BaseAwarenessScan::PerGrid()
-{
-// code at 0001:000275a8
-}
-
-void BaseAwareness::Reset()
-{
-// code at 0001:00027995
-}
-
-AwarenessScan::AwarenessScan(Creature &arg1)
-    : RangeScanner(arg1.loc, 0) // verify params
-{
-// code at 0001:00083c1c
-}
-
-void AwarenessScan::PerGrid()
-{
-// code at 0001:00083440
-}
-
-void AwarenessScan::Do()
-{
-// code at 0001:00083208
-}
 
 /******************************************************************************/

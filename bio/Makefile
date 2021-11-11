@@ -48,7 +48,6 @@ OBJS_TODO = \
 obj/bioeng.o \
 obj/ceditor.o \
 obj/clone.o \
-obj/control.o \
 obj/data.o \
 obj/draw.o \
 obj/editor.o \
@@ -59,9 +58,7 @@ obj/options.o \
 \
 obj/setup.o \
 obj/sound.o \
-obj/spec.o \
 obj/tables.o \
-obj/title.o \
 
 
 OBJS = \
@@ -80,6 +77,7 @@ obj/labpad.o \
 obj/clonepad.o \
 obj/grouppad.o \
 obj/pads.o \
+obj/spec.o \
 obj/map.o \
 obj/mapdisp.o \
 obj/comppersonal.o \
@@ -95,6 +93,7 @@ obj/ifcplanet.o \
 obj/scan.o \
 obj/scanadv.o \
 obj/scanaware.o \
+obj/scanether.o \
 obj/probetng.o \
 obj/thingidx.o \
 obj/thing.o \
@@ -115,6 +114,8 @@ obj/plspec.o \
 obj/gupoint.o \
 obj/computer.o \
 obj/io.o \
+obj/engine.o \
+obj/control.o \
 obj/game.o \
 obj/pchost.o \
 obj/pcmain.o \

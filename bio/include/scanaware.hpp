@@ -22,6 +22,7 @@
 #include "bftypes.h"
 #include "xy.hpp"
 #include "scan.hpp"
+#include "creature.hpp"
 
 class BaseAwareness;
 class Player;
@@ -64,6 +65,43 @@ public:
     Player *player; // offset=52
     Computer *comp; // offset=56
     XY center; // offset=60
+};
+
+class AwarenessScan : public RangeScanner { // sizeof=228
+public:
+    //AwarenessScan(AwarenessScan *arg1);
+    void Do();
+    void PerGrid();
+    AwarenessScan(Creature &arg1);
+    //void (**__vfptr)();
+    ASpecies speci;
+    Creature c;
+    int mates[15]; // offset=45
+    int threats[15]; // offset=46
+    int terrain[15]; // offset=109
+    int enemies[15]; // offset=110
+    SWORD foundEnemies; // offset=173
+    int friends[15]; // offset=174
+    SWORD foundThreats; // offset=175
+    SWORD foundFriends; // offset=177
+    SWORD foundFood; // offset=179
+    SWORD foundMates; // offset=181
+    UBYTE bestEnemies; // offset=183
+    UBYTE bestFriends; // offset=184
+    UBYTE bestFood; // offset=185
+    UBYTE bestMates; // offset=186
+    UBYTE bestTerrain; // offset=187
+    UBYTE bestThreats; // offset=188
+    UBYTE foodRankings[2]; // offset=189
+    Thing *bestThing; // offset=192
+    Creature *bestMate; // offset=196
+    Thing *bestEnemy; // offset=200
+    Thing *bestThreat; // offset=204
+    SLONG bestRanking; // offset=208
+    SLONG bestMateRanking; // offset=212
+    SLONG bestEnemyRanking; // offset=216
+    SLONG bestThreatRanking; // offset=220
+    int food[15]; // offset=237
 };
 
 #endif // SCANAWARE_HPP_
