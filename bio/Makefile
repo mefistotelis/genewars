@@ -95,6 +95,7 @@ obj/ifctitle.o \
 obj/scan.o \
 obj/scanadv.o \
 obj/scanaware.o \
+obj/probetng.o \
 obj/thingidx.o \
 obj/thing.o \
 obj/mvthing.o \

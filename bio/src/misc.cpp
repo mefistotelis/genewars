@@ -948,11 +948,6 @@ void ClosestTargets::PerGrid()
 // code at 0001:00028fd9
 }
 
-char unsigned Probe::Update()
-{
-// code at 0001:000292d3
-}
-
 
 char * stuffCreatures[];
 

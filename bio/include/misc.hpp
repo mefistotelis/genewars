@@ -1074,17 +1074,6 @@ class EventHelp { // sizeof=150
 typedef class EventHelp EventHelp;
 
 
-class SoundConfig { // sizeof=10
-    void Set();
-    void Write(char *arg1);
-    void Read(char *arg1);
-    SLONG sfxVolume; // offset=0
-    SLONG musicVolume; // offset=4
-    BBOOL sfxOn; // offset=8
-    BBOOL musicOn; // offset=9
-};
-
-typedef class SoundConfig SoundConfig;
 
 
 enum { // type=int8_t
@@ -1143,14 +1132,6 @@ class GunSpec { // sizeof=7
     SWORD reloadTime; // offset=4
     UBYTE shotEffect; // offset=6
 };
-
-class SpeechFileStatus { // sizeof=8
-    BBOOL Valid();
-    void Invalidate();
-    TbFileHandle handle; // offset=0
-    SLONG numSamples; // offset=4
-};
-
 
 struct SinglePoint { // sizeof=7
     SWORD X; // offset=0
@@ -1387,10 +1368,10 @@ public:
 
 class MineralScan : public RangeScanner { // sizeof=45
 public:
-    class MineralScan * MineralScan(class MineralScan *arg1);
-    //void PerGrid();
-    class MineralScan * MineralScan(XY arg1, ULONG arg2);
-    void (**__vfptr)();
+    //MineralScan(MineralScan *arg1);
+    void PerGrid();
+    MineralScan(XY arg1, ULONG arg2);
+    //void (**__vfptr)();
     ULONG minerals; // offset=41
 };
 
@@ -1423,7 +1404,7 @@ public:
     class NearestBuildingSite * NearestBuildingSite(class NearestBuildingSite *arg1);
     void PerGrid();
     class NearestBuildingSite * NearestBuildingSite(XY arg1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     UBYTE foundationSize;
     XY bestPos; // offset=47
     UBYTE type; // offset=51
@@ -1432,9 +1413,9 @@ public:
 class OldPowerTally : public PolarRangeScan { // sizeof=57
 public:
     //OldPowerTally(OldPowerTally *arg1);
-    class OldPowerTally * OldPowerTally(XY arg1, ULONG arg2, UBYTE arg3);
+    OldPowerTally(XY arg1, ULONG arg2, UBYTE arg3);
     void PerGrid();
-    void (**__vfptr)();
+    //void (**__vfptr)();
     UBYTE player;
     UBYTE satisfiedBuildings; // offset=51
     ULONG landTiles; // offset=52
@@ -1445,7 +1426,7 @@ public:
     //NewPowerTally(NewPowerTally *arg1);
     class NewPowerTally * NewPowerTally(XY arg1, ULONG arg2);
     void PerGrid();
-    void (**__vfptr)();
+    //void (**__vfptr)();
     ULONG landTiles; // offset=41
     ULONG tiles; // offset=45
 };
@@ -1456,7 +1437,7 @@ public:
     class SatisfyBuildings * SatisfyBuildings(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5);
     void PerGrid();
     void Do();
-    void (**__vfptr)();
+    //void (**__vfptr)();
     UBYTE player;
     ULONG maxLandTiles;
     UBYTE buildingsSatisfied;
@@ -1473,7 +1454,7 @@ class PointSample { // sizeof=27
     class PointSample * PointSample(XY arg1, ULONG arg2, UWORD arg3);
     class PointSample * PointSample(XY arg1, ULONG arg2, ULONG arg3);
     void Do();
-    void (**__vfptr)();
+    //void (**__vfptr)();
     GridTile *g;
     ULONG squareRange;
     ULONG range;
@@ -1488,7 +1469,7 @@ public:
     //BestForestSample(BestForestSample *arg1);
     void PerGrid();
     class BestForestSample * BestForestSample(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4, ULONG arg5);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     SLONG bestValue;
     UBYTE forestType;
     UBYTE player;
@@ -1506,13 +1487,15 @@ class SoundConfig { // sizeof=10
     BBOOL musicOn; // offset=9
 };
 
+typedef class SoundConfig SoundConfig;
+
 
 class FindLowestBuildingSite : public PolarEverythingScan { // sizeof=64
 public:
     //FindLowestBuildingSite(FindLowestBuildingSite *arg1);
     void PerGrid();
     FindLowestBuildingSite(XY arg1, ULONG arg2, UBYTE arg3);
-    void (**__vfptr)();
+    //void (**__vfptr)();
     SLONG lowestPoint;
     XY bestPos; // offset=47
     UWORD errors[3]; // offset=51
@@ -1687,21 +1670,6 @@ public:
     XY loc; // offset=126
     UBYTE player; // offset=130
     BBOOL defend; // offset=131
-};
-
-class Probe : public SmartMovingThing { // sizeof=235
-public:
-    class Probe * operator =(class Probe *arg1);
-    //Probe(class Probe *arg1);
-    UBYTE Update();
-    void Resync();
-    BBOOL IsDead();
-    //Probe();
-    //void (**__vfptr)();
-    Computer *computer; // offset=85
-    UBYTE idx; // offset=89
-    UBYTE points; // offset=90
-    XY path[99]; // offset=91
 };
 
 typedef class CloseTgt CloseTgt;

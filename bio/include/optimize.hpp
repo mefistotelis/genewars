@@ -102,35 +102,6 @@ class GunSpec { // sizeof=7
     UBYTE shotEffect; // offset=6
 };
 
-class SoundTag { // sizeof=6
-    void SetNewSample();
-    BBOOL IsNewSample();
-    ULONG id; // offset=0
-    SampleID sampleNum; // offset=4
-};
-
-typedef class SoundTag SoundTag;
-
-class SpeechFileStatus { // sizeof=8
-    BBOOL Valid();
-    void Invalidate();
-    TbFileHandle handle; // offset=0
-    SLONG numSamples; // offset=4
-};
-
-typedef class SpeechFileStatus SpeechFileStatus;
-
-class SoundConfig { // sizeof=10
-    void Set();
-    void Write(char *arg1);
-    void Read(char *arg1);
-    SLONG sfxVolume; // offset=0
-    SLONG musicVolume; // offset=4
-    BBOOL sfxOn; // offset=8
-    BBOOL musicOn; // offset=9
-};
-
-
 
 class HelpDraw { // sizeof=26
     void GenericHelpDraw(MyGadget *arg1, char *arg2);
