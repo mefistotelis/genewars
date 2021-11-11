@@ -89,6 +89,10 @@ obj/iface.o \
 obj/ifccustom.o \
 obj/ifccomputer.o \
 obj/ifceditor.o \
+obj/ifccomped.o \
+obj/ifclevel.o \
+obj/ifcoptions.o \
+obj/ifctitle.o \
 obj/scan.o \
 obj/scanadv.o \
 obj/thingidx.o \
@@ -96,7 +100,6 @@ obj/thing.o \
 obj/mvthing.o \
 obj/plant.o \
 obj/building.o \
-obj/level.o \
 obj/smvthing.o \
 obj/drone.o \
 obj/event.o \

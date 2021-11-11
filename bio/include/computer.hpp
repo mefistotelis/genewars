@@ -37,6 +37,7 @@ class CompDebug { // sizeof=5
 };
 
 class Computer { // sizeof=190
+    //~Computer();
     Computer * operator =(Computer *arg1);
     //Computer(Computer *arg1); -- generate default copy constructor
     void ClearAtWarWith(UBYTE arg1);

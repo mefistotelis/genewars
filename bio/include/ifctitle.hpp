@@ -1,8 +1,8 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file title.hpp
- *     Header file for title.cpp.
+/** @file ifctitle.hpp
+ *     Header file for ifctitle.cpp.
  * @par Purpose:
  *     Unknown.
  * @par Comment:
@@ -16,25 +16,20 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#ifndef BIO_TITLE_HPP_
-#define BIO_TITLE_HPP_
+#ifndef BIO_IFCTITLE_HPP_
+#define BIO_IFCTITLE_HPP_
 
+#include "bftypes.h"
 #include "myspr.h"
+#include "xy.hpp"
+#include "iface.hpp"
 
-
-struct __1td29bmSpr { // sizeof=12
-    MySprite *off; // offset=0
-    MySprite *on; // offset=4
-    MyMinSprite *mMs; // offset=8
-};
-
+class MyGadget;
 
 struct LanderStuff { // sizeof=5
     XY loc; // offset=0
     UBYTE type; // offset=4
 };
-
-typedef struct LanderStuff LanderStuff;
 
 struct RocketShip { // sizeof=187
     XY loc; // offset=0
@@ -70,53 +65,6 @@ public:
     RocketShip rocketShip; // offset=26
 };
 
-class IFCStartNetwork : public IFCBase { // sizeof=19
-public:
-    class IFCStartNetwork * IFCStartNetwork(class IFCStartNetwork *arg1);
-    class IFCStartNetwork * IFCStartNetwork();
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    //void (**__vfptr)();
-    unsigned int *__vbptr;
-};
-
-class IFCGeneratePlanet : public IFCBase { // sizeof=19
-public:
-    class IFCGeneratePlanet * IFCGeneratePlanet(class IFCGeneratePlanet *arg1);
-    class IFCGeneratePlanet * IFCGeneratePlanet();
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    //void (**__vfptr)();
-    //unsigned int *__vbptr;
-};
-
-struct TbTime { // sizeof=4
-    UBYTE Hour; // offset=0
-    UBYTE Minute; // offset=1
-    UBYTE Second; // offset=2
-    UBYTE HSecond; // offset=3
-};
-
-typedef struct TbTime TbTime;
-
-class IFCJoiningPlayer : public IFCBase { // sizeof=27
-public:
-    //IFCJoiningPlayer(IFCJoiningPlayer *arg1);
-    //IFCJoiningPlayer();
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    //void (**__vfptr)();
-    unsigned int *__vbptr;
-    IFCBase *previousIFC;
-    ULONG joiningPlayers; // offset=4
-};
-
 class IFCWinLevel : public IFCBase { // sizeof=19
 public:
     //IFCWinLevel(IFCWinLevel *arg1);
@@ -126,7 +74,7 @@ public:
     void PullOut();
     void PlugIn();
     //void (**__vfptr)();
-    unsigned int *__vbptr;
+    //unsigned int *__vbptr;
 };
 
 class IFCLoseLevel : public IFCBase { // sizeof=19
@@ -138,7 +86,7 @@ public:
     void PullOut();
     void PlugIn();
     //void (**__vfptr)();
-    unsigned int *__vbptr;
+    //unsigned int *__vbptr;
 };
 
 class IFCStatScreen : public IFCBase { // sizeof=19
@@ -150,9 +98,46 @@ public:
     void PullOut();
     void PlugIn();
     //void (**__vfptr)();
-    unsigned int *__vbptr;
+    //unsigned int *__vbptr;
 };
 
+class IFCStartNetwork : public IFCBase { // sizeof=19
+public:
+    //IFCStartNetwork(IFCStartNetwork *arg1);
+    //IFCStartNetwork();
+    void Update();
+    void Draw();
+    void PullOut();
+    void PlugIn();
+    //void (**__vfptr)();
+    //unsigned int *__vbptr;
+};
 
-#endif // BIO_TITLE_HPP_
+class IFCJoiningPlayer : public IFCBase { // sizeof=27
+public:
+    //IFCJoiningPlayer(IFCJoiningPlayer *arg1);
+    //IFCJoiningPlayer();
+    void Update();
+    void Draw();
+    void PullOut();
+    void PlugIn();
+    //void (**__vfptr)();
+    //unsigned int *__vbptr;
+    IFCBase *previousIFC;
+    ULONG joiningPlayers; // offset=4
+};
+
+class IFCGeneratePlanet : public IFCBase { // sizeof=19
+public:
+    //IFCGeneratePlanet(IFCGeneratePlanet *arg1);
+    //IFCGeneratePlanet();
+    void Update();
+    void Draw();
+    void PullOut();
+    void PlugIn();
+    //void (**__vfptr)();
+    //unsigned int *__vbptr;
+};
+
+#endif // BIO_IFCTITLE_HPP_
 /******************************************************************************/

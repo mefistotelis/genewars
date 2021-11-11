@@ -1,8 +1,8 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file options.cpp
- *     Implementation of related functions.
+/** @file options.hpp
+ *     Header file for options.cpp.
  * @par Purpose:
  *     Unknown.
  * @par Comment:
@@ -16,21 +16,39 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "options.hpp"
+#ifndef BIO_OPTIONS_HPP_
+#define BIO_OPTIONS_HPP_
 
-char unsigned SoundManager::IsCDPlaying()
-{
-// code at 0001:0001909c
-}
+#include "bftypes.h"
+#include "myspr.h"
+#include "iface.hpp"
 
-char * Config::InsertInstallDir( char * )
-{
-// code at 0001:0001906c
-}
+class MyGadget;
 
-char unsigned Config::IsCurrentDriveCDROM()
-{
-// code at 0001:0001902c
-}
+class IFCOptions : public IFCBase { // sizeof=59
+public:
+    //IFCOptions(IFCOptions *arg1);
+    void FindWhichSlotsAreUsed();
+    void Update();
+    void Draw();
+    void PullOut();
+    void PlugIn();
+    IFCOptions(MyGadget *arg1);
+    //void (**__vfptr)();
+    //unsigned int *__vbptr;
+    BBOOL savePausedState;
+    SBYTE saveTextEntrySlot;
+    MyMinSprite mMs;
+    char slotNames[7][31];
+    BBOOL slotUsed[7];
+    TbSprite *sprites;
+    MySprite *spr;
+    MyGadget *gad;
+    SBYTE selectedSlot; // offset=4
+    MyAnimBank *anb; // offset=5
+    IFCBase *previousIFC; // offset=9
+};
 
+
+#endif // BIO_OPTIONS_HPP_
 /******************************************************************************/

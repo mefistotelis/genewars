@@ -22,17 +22,20 @@
 #include "bftypes.h"
 #include "myspr.h"
 #include "iface.hpp"
+#include "comppersonal.hpp"
+
+class MyGadget;
 
 class IFCCompEditor : public IFCBase { // sizeof=193
 public:
     //IFCCompEditor(IFCCompEditor *arg1);
     void PrintCompPlayersToFile();
-    void UpdateColumnGadget(SWORD arg1, UBYTE *arg2, SLONG arg3, SLONG arg4);
-    void UpdateColumnGadget(SWORD arg1, SBYTE *arg2, SLONG arg3, SLONG arg4);
-    void UpdateColumnGadget(SWORD arg1, UWORD *arg2, SLONG arg3, SLONG arg4);
-    void UpdateColumnGadget(SWORD arg1, SWORD *arg2, SLONG arg3, SLONG arg4);
-    void UpdateColumnGadget(SWORD arg1, ULONG *arg2, ULONG arg3, ULONG arg4);
-    void UpdateColumnGadget(SWORD arg1, SLONG *arg2, SLONG arg3, SLONG arg4);
+    void UpdateColumnGadget(SWORD arg1, UBYTE &arg2, SLONG arg3, SLONG arg4);
+    void UpdateColumnGadget(SWORD arg1, SBYTE &arg2, SLONG arg3, SLONG arg4);
+    void UpdateColumnGadget(SWORD arg1, UWORD &arg2, SLONG arg3, SLONG arg4);
+    void UpdateColumnGadget(SWORD arg1, SWORD &arg2, SLONG arg3, SLONG arg4);
+    void UpdateColumnGadget(SWORD arg1, ULONG &arg2, ULONG arg3, ULONG arg4);
+    void UpdateColumnGadget(SWORD arg1, SLONG &arg2, SLONG arg3, SLONG arg4);
     void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, UBYTE arg4, SLONG arg5, SLONG arg6, UBYTE arg7, BBOOL arg8);
     void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, SBYTE arg4, SLONG arg5, SLONG arg6, UBYTE arg7, BBOOL arg8);
     void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, UWORD arg4, SLONG arg5, SLONG arg6, UBYTE arg7, BBOOL arg8);

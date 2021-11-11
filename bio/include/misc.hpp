@@ -1369,28 +1369,6 @@ class CompTarget { // sizeof=4
 typedef class CompTarget CompTarget;
 
 
-typedef class Computer Computer;
-
-
-typedef class CompDebug CompDebug;
-
-class Trigger { // sizeof=7
-    void * ~Trigger();
-    class Trigger * Trigger(class Trigger *arg1);
-    void Invalidate();
-    BBOOL Valid();
-    BBOOL Update(UBYTE arg1);
-    class Trigger * Trigger();
-    UBYTE type; // offset=0
-    UBYTE turn; // offset=1
-    UBYTE thisPlayer; // offset=2
-    UBYTE otherPlayer; // offset=3
-    UWORD amount; // offset=4
-    UBYTE species; // offset=5
-    BBOOL doneThis; // offset=6
-};
-
-typedef class Trigger Trigger;
 
 
 class BuildPriority { // sizeof=9

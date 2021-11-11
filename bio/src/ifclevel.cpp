@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file level.cpp
+/** @file ifclevel.cpp
  *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
@@ -16,7 +16,7 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "level.hpp"
+#include "ifclevel.hpp"
 
 /*IFCLevel::IFCLevel()
 {

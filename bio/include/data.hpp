@@ -283,167 +283,6 @@ class GuardPoint { // sizeof=38
 };
 
 
-class Trigger { // sizeof=7
-    class Trigger * Trigger(class Trigger *arg1);
-    void Invalidate();
-    BBOOL Valid();
-    BBOOL Update(UBYTE arg1);
-    class Trigger * Trigger();
-    UBYTE type; // offset=0
-    UBYTE turn; // offset=1
-    UBYTE thisPlayer; // offset=2
-    UBYTE otherPlayer; // offset=3
-    UWORD amount; // offset=4
-    UBYTE species; // offset=5
-    BBOOL doneThis; // offset=6
-};
-
-typedef class Trigger Trigger;
-
-
-class Computer { // sizeof=190
-    void * ~Computer();
-    class Computer * operator=(class Computer *arg1);
-    class Computer * Computer(class Computer *arg1);
-    void ClearAtWarWith(UBYTE arg1);
-    BBOOL IsAtWarWith(UBYTE arg1, UBYTE arg2);
-    void SetAtWarWith(UBYTE arg1);
-    void UpdateAllTriggers();
-    SWORD NumOfCreatures(UBYTE arg1, UBYTE arg2);
-    void LaunchWave(UBYTE arg1);
-    SLONG TimeUntilAttack();
-    void UpdateAttackPointLocations();
-    void PlaceWorkPoint();
-    void PlaceAttackPoint(UBYTE arg1);
-    void AttackHumanPlayer();
-    void CheckEZones();
-    BBOOL AssignCreatureToGuardPoint(SWORD arg1, SBYTE arg2);
-    void UpdateAllGuardPoints();
-    SBYTE AssignGuardPointToBase(UBYTE arg1, XY arg2, UBYTE arg3, SBYTE arg4);
-    BBOOL ReadyToBuildNewBuilding();
-    BBOOL ReadyToMakeNewCreature();
-    SLONG CreaturesDoingJob(UBYTE arg1, UBYTE arg2, BBOOL arg3);
-    BBOOL ConsiderAttackConquest();
-    ULONG CreatureScore(UBYTE arg1, UBYTE arg2);
-    BBOOL CreateBestCreature(UBYTE arg1, Building *arg2);
-    void CreateCreatures();
-    void NewMonolith(Effect *arg1);
-    void RegisterMonolith(Effect *arg1);
-    void RegisterDeath(Creature *arg1);
-    void RegisterBirth(Creature *arg1, Creature *arg2, Creature *arg3);
-    void RegisterFreeCreature(Creature *arg1);
-    void RegisterFreeCreature(Creature *arg1, Building *arg2);
-    void ShuffleCreatures();
-    BBOOL CreatureWork(Creature *arg1, XY arg2);
-    void UpdateCreatures();
-    PlSpec * BestShootingTarget(XY *arg1, ULONG arg2);
-    PlSpec * SpecNeedingHealing();
-    Thing * CreatureToStudy();
-    BBOOL BestPlaceToHarvest(PlSpec *arg1, XY arg2);
-    void UpdateSpecialists();
-    void UpdateSpecTypes();
-    void GoAroundShield(PlSpec *arg1, XY arg2, Building *arg3);
-    void RunAway(PlSpec *arg1, Thing *arg2);
-    void MoveToNextWaypoint(PlSpec *arg1);
-    BBOOL AddBestSpec(UBYTE arg1);
-    void MakeTeam(SLONG arg1);
-    UBYTE NextBase(UBYTE arg1);
-    ULONG BaseScore(UBYTE arg1);
-    XY PointOnLine(XY arg1, XY arg2, UWORD arg3);
-    XY PointBetween(XY arg1, XY arg2, ULONG arg3);
-    ULONG WalkingDistance(XY arg1, XY arg2);
-    void ConsiderBaseChange();
-    void NewCurrentBase(UBYTE arg1);
-    UBYTE CurrentBase();
-    void EtherealsGone();
-    void EtherealsArriving();
-    SBYTE ClosestBase(XY arg1);
-    BBOOL TooCloseToOtherBases(XY arg1);
-    void CheckBuildings();
-    Building * GetBuilding(UBYTE arg1, UBYTE arg2);
-    XY CenterOfBase(UBYTE arg1, UBYTE arg2);
-    ULONG WorkNeeded(UBYTE arg1);
-    UBYTE NumOfBuildings(UBYTE arg1, UBYTE arg2);
-    UWORD PowerNeeded(UBYTE arg1);
-    UWORD PowerOutput(UBYTE arg1);
-    void SlapDownBuilding(Building *arg1);
-    BBOOL IsEnemy(Thing *arg1);
-    void DoStoredPacket(PlSpec *arg1);
-    void StorePacket(PlSpec *arg1, Packet *arg2);
-    void PA_CreateACreature(UBYTE arg1, SWORD arg2, UBYTE arg3);
-    void PA_DisactivateBuilding(Building *arg1);
-    void PA_ActivateBuilding(Building *arg1);
-    void PA_Null(PlSpec *arg1, BBOOL arg2);
-    void PA_AbortAll(PlSpec *arg1);
-    void PA_MoveCreatureTo(XY *arg1, UWORD arg2);
-    void PA_MoveTo(XY *arg1, PlSpec *arg2, BBOOL arg3);
-    void PA_LaunchSpecialist(PlSpec *arg1, Building *arg2);
-    void PA_Landing(SLONG arg1);
-    void PA_AbortAction(PlSpec *arg1, BBOOL arg2);
-    void PA_RemoveTeamMember(SWORD arg1);
-    void PA_AddTeamMember(SWORD arg1);
-    void PA_WreckBuilding(Building *arg1, PlSpec *arg2);
-    BBOOL PA_FixBuilding(Building *arg1, PlSpec *arg2);
-    BBOOL PA_UpgradeBuilding(Building *arg1, PlSpec *arg2);
-    void PA_Cheat(UBYTE arg1);
-    void PA_ScientistStudy(PlSpec *arg1, Thing *arg2, BBOOL arg3);
-    void PA_ShepherdDoStuff(PlSpec *arg1, XY arg2, HerdMode arg3, BBOOL arg4);
-    void PA_CowboyKill(PlSpec *arg1, MovingThing *arg2, BBOOL arg3);
-    void PA_FarmerCollect(PlSpec *arg1, XY arg2, BBOOL arg3);
-    void PA_FarmerPlant(PlSpec *arg1, XY arg2, UBYTE arg3, BBOOL arg4);
-    void PA_BuilderBuild(PlSpec *arg1, XY arg2, UBYTE arg3, UBYTE arg4, BBOOL arg5);
-    void DoInitialCreatureActions();
-    void DoInitialActions();
-    void DoSetupComputerPlayer();
-    class Computer * Computer();
-    void Update();
-    SLONG checksum; // offset=0
-    UBYTE idx; // offset=4
-    UBYTE testing; // offset=5
-    ULONG computerTurn; // offset=6
-    UBYTE playersNumBuildings[3]; // offset=7
-    ULONG lastCheated; // offset=10
-    CompDebug compDebug; // offset=11
-    SLONG doNotUpgrade[13]; // offset=14
-    Personality personality; // offset=16
-    UBYTE buildingBeingUpgraded; // offset=70
-    UBYTE buildingInProgress[13]; // offset=71
-    UBYTE buildingInBase[63]; // offset=85
-    UBYTE specNumOfWaypoints[4]; // offset=115
-    SBYTE specHealth[4]; // offset=120
-    UBYTE specFleeing; // offset=125
-    BBOOL etherealsOnPlanet; // offset=126
-    UWORD startOnTurn; // offset=127
-    UWORD waitBeforeAttacking; // offset=129
-    UBYTE currentCreatureBase; // offset=131
-    BaseScan bScan; // offset=132
-    GuardPoint gPoints[15]; // offset=135
-    BaseAwareness baseAwareness[5]; // offset=149
-    UBYTE mainBase; // offset=150
-    ULONG lastBaseChange; // offset=151
-    UBYTE numberOfBases; // offset=152
-    UBYTE enemies; // offset=155
-    PacketData specPackets[4]; // offset=156
-    UBYTE specTypesInTeam[3]; // offset=158
-    ULONG lastBuildingBuilt; // offset=162
-    ULONG lastCreatureMade; // offset=166
-    XY newBaseLocation; // offset=170
-    uint8_t haveDoneInitialCreatureActions; // offset=174
-    UBYTE atWarWith; // offset=175
-    SBYTE eZonesDone; // offset=176
-    UBYTE wantedNoSpecs; // offset=177
-    SBYTE workPointNo; // offset=178
-    ULONG lastAttackLaunched; // offset=179
-    uint8_t haveDoneInitialActions; // offset=180
-    uint8_t haveSetupComputerPlayer; // offset=181
-    ULONG extraSpace; // offset=183
-    UBYTE extraSpaceII[1]; // offset=187
-    UBYTE currentBase; // offset=189
-    XY specWaypoints[4][7]; // offset=211
-    UBYTE mainPowerstation[5]; // offset=231
-    UBYTE backupPowerstation[5]; // offset=237
-    UBYTE builderInBase[19]; // offset=243
-};
 
 struct GEngine { // sizeof=20
     //GEngine(GEngine *arg1);
@@ -469,40 +308,40 @@ typedef struct LanderStuff LanderStuff;
 
 
 class IFCStartNetwork : public IFCBase { // sizeof=19
-    class IFCStartNetwork * IFCStartNetwork(class IFCStartNetwork *arg1);
-    class IFCStartNetwork * IFCStartNetwork();
+    //IFCStartNetwork(IFCStartNetwork *arg1);
+    //IFCStartNetwork();
     void Update();
     void Draw();
     void PullOut();
     void PlugIn();
-    void (**__vfptr)();
-    unsigned int *__vbptr;
+    //void (**__vfptr)();
+    //unsigned int *__vbptr;
 };
 
 typedef class IFCStartNetwork IFCStartNetwork;
 
 class IFCGeneratePlanet : public IFCBase { // sizeof=19
-    class IFCGeneratePlanet * IFCGeneratePlanet(class IFCGeneratePlanet *arg1);
-    class IFCGeneratePlanet * IFCGeneratePlanet();
+    //IFCGeneratePlanet(IFCGeneratePlanet *arg1);
+    //IFCGeneratePlanet();
     void Update();
     void Draw();
     void PullOut();
     void PlugIn();
-    void (**__vfptr)();
-    unsigned int *__vbptr;
+    //void (**__vfptr)();
+    //unsigned int *__vbptr;
 };
 
 typedef class IFCGeneratePlanet IFCGeneratePlanet;
 
 class IFCJoiningPlayer : public IFCBase { // sizeof=27
-    class IFCJoiningPlayer * IFCJoiningPlayer(class IFCJoiningPlayer *arg1);
-    class IFCJoiningPlayer * IFCJoiningPlayer();
+    //IFCJoiningPlayer(IFCJoiningPlayer *arg1);
+    //IFCJoiningPlayer();
     void Update();
     void Draw();
     void PullOut();
     void PlugIn();
-    void (**__vfptr)();
-    unsigned int *__vbptr;
+    //void (**__vfptr)();
+    //unsigned int *__vbptr;
     IFCBase *previousIFC;
     ULONG joiningPlayers; // offset=4
 };
@@ -510,71 +349,45 @@ class IFCJoiningPlayer : public IFCBase { // sizeof=27
 typedef class IFCJoiningPlayer IFCJoiningPlayer;
 
 class IFCWinLevel : public IFCBase { // sizeof=19
-    class IFCWinLevel * IFCWinLevel(class IFCWinLevel *arg1);
-    class IFCWinLevel * IFCWinLevel();
+    //IFCWinLevel(IFCWinLevel *arg1);
+    //IFCWinLevel();
     void Update();
     void Draw();
     void PullOut();
     void PlugIn();
-    void (**__vfptr)();
-    unsigned int *__vbptr;
+    //void (**__vfptr)();
+    //unsigned int *__vbptr;
 };
 
 typedef class IFCWinLevel IFCWinLevel;
 
 class IFCLoseLevel : public IFCBase { // sizeof=19
-    class IFCLoseLevel * IFCLoseLevel(class IFCLoseLevel *arg1);
-    class IFCLoseLevel * IFCLoseLevel();
+    //IFCLoseLevel(IFCLoseLevel *arg1);
+    //IFCLoseLevel();
     void Update();
     void Draw();
     void PullOut();
     void PlugIn();
-    void (**__vfptr)();
-    unsigned int *__vbptr;
+    //void (**__vfptr)();
+    //unsigned int *__vbptr;
 };
 
 typedef class IFCLoseLevel IFCLoseLevel;
 
 class IFCStatScreen : public IFCBase { // sizeof=19
-    class IFCStatScreen * IFCStatScreen(class IFCStatScreen *arg1);
-    class IFCStatScreen * IFCStatScreen();
+    //IFCStatScreen(IFCStatScreen *arg1);
+    //IFCStatScreen();
     void Update();
     void Draw();
     void PullOut();
     void PlugIn();
-    void (**__vfptr)();
-    unsigned int *__vbptr;
+    //void (**__vfptr)();
+    //unsigned int *__vbptr;
 };
 
 typedef class IFCStatScreen IFCStatScreen;
 
 
-class IFCOptions : public IFCBase { // sizeof=59
-    class IFCOptions * IFCOptions(class IFCOptions *arg1);
-    void FindWhichSlotsAreUsed();
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    class IFCOptions * IFCOptions(MyGadget *arg1);
-    void (**__vfptr)();
-    unsigned int *__vbptr;
-    BBOOL savePausedState;
-    SBYTE saveTextEntrySlot;
-    MyMinSprite mMs;
-    char slotNames[7][31];
-    BBOOL slotUsed[7];
-    TbSprite *sprites;
-    MySprite *spr;
-    MyGadget *gad;
-    SBYTE selectedSlot; // offset=4
-    MyAnimBank *anb; // offset=5
-    IFCBase *previousIFC; // offset=9
-};
-
-typedef class IFCOptions IFCOptions;
-
-typedef struct Info Info;
 
 
 extern char unsigned * block_ptrs[];

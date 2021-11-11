@@ -23,20 +23,5 @@ char unsigned EventHelp::__defarg()
 // code at 0001:00016b3c
 }
 
-void IFCBase::SetPacket( char unsigned, short )
-{
-// code at 0001:00016a68
-}
-
-void IFCBase::SetPacket( char unsigned, short, short )
-{
-// code at 0001:00016a24
-}
-
-char unsigned IFCBase::PacketAction()
-{
-// code at 0001:000169fc
-}
-
 
 /******************************************************************************/

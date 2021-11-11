@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file options.cpp
+/** @file ifcoptions.cpp
  *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
@@ -16,21 +16,32 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "options.hpp"
+#include "ifcoptions.hpp"
 
-char unsigned SoundManager::IsCDPlaying()
+void IFCOptions::PlugIn()
 {
-// code at 0001:0001909c
+// code at 0001:00018358
 }
 
-char * Config::InsertInstallDir( char * )
+void IFCOptions::PullOut()
 {
-// code at 0001:0001906c
+// code at 0001:000184f4
 }
 
-char unsigned Config::IsCurrentDriveCDROM()
+void IFCOptions::Draw()
 {
-// code at 0001:0001902c
+// code at 0001:000185d1
 }
+
+void IFCOptions::Update()
+{
+// code at 0001:00018a29
+}
+
+void IFCOptions::FindWhichSlotsAreUsed()
+{
+// code at 0001:00018fb2
+}
+
 
 /******************************************************************************/

@@ -38,11 +38,6 @@ void HelpDraw::SetColors( char unsigned, char unsigned, char unsigned, char unsi
 // code at 0001:0000bb3c
 }
 
-void IFCBase::NewInterface( IFCBase & )
-{
-// code at 0001:0000ba54
-}
-
 char unsigned BioGame::__defarg()
 {
 // code at 0001:0000ba34

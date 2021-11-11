@@ -44,11 +44,6 @@ near GEngine::GEngine()
 // code at 0001:0005ea30
 }
 
-near IFCTitle::IFCTitle( MyGadget * )
-{
-// code at 0001:0005e8ac
-}
-
 near IFCCustom::IFCCustom( MyGadget * )
 {
 // code at 0001:0005e7f4
@@ -59,185 +54,17 @@ near CreatureInfo::CreatureInfo()
 // code at 0001:0005e7c8
 }
 
-near IFCOptions::IFCOptions( MyGadget * )
-{
-// code at 0001:0005e5bc
-}
-
 near CreatureInfo::~CreatureInfo()
 {
 // code at 0001:0005e574
 }
 
-near IFCStatScreen::IFCStatScreen()
+IFCOptions::IFCOptions( MyGadget * )
 {
-// code at 0001:0005e500
+// code at 0001:0005e5bc
 }
 
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005e4d4
-}
 
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005e4a8
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005e47c
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005e450
-}
-
-near IFCLoseLevel::IFCLoseLevel()
-{
-// code at 0001:0005e3dc
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005e3b0
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005e384
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005e358
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005e32c
-}
-
-near IFCWinLevel::IFCWinLevel()
-{
-// code at 0001:0005e2b8
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005e28c
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005e260
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005e234
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005e208
-}
-
-near IFCJoiningPlayer::IFCJoiningPlayer()
-{
-// code at 0001:0005e194
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005e168
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005e13c
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005e110
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005e0e4
-}
-
-near IFCGeneratePlanet::IFCGeneratePlanet()
-{
-// code at 0001:0005e070
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005e044
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005e018
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005dfec
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005dfc0
-}
-
-near IFCStartNetwork::IFCStartNetwork()
-{
-// code at 0001:0005df4c
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005df20
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005def4
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005dec8
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:0005de9c
-}
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
 
 char unsigned * block_ptrs[];
 
@@ -311,14 +138,6 @@ MySprite * plant_spr[];
 
 IFCBase * currentIFC;
 
-IFCBase * IFCBase::plugIn;
-
-IFCBase * IFCBase::pullOut;
-
-Packet * IFCBase::packet;
-
-char unsigned IFCBase::fullCopyToVRAM;
-
 void * Packet::dataBlast;
 
 long unsigned pointers_data;
@@ -336,8 +155,6 @@ long unsigned globalOptions;
 long unsigned playerVictory[];
 
 short unsigned localRndSeed;
-
-short IFCBase::gadID;
 
 short boundMinX;
 
@@ -537,48 +354,6 @@ IFCEditor ifcEditor;
 IFCCompEditor ifcCompEditor;
 
 char unsigned colour_lookup[];
-
-void (near * const __vftbl[])();
-
-int unsigned const __vbtbl[];
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-int unsigned const __vbtbl[];
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-int unsigned const __vbtbl[];
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-int unsigned const __vbtbl[];
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-int unsigned const __vbtbl[];
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-int unsigned const __vbtbl[];
-
-void (near * const __vftbl[])();
-
-void (near * const __vftbl[])();
-
-char unsigned const __typesig[];
-
-char unsigned const __typesig[];
 
 char unsigned const upgradeScores[][3];
 

@@ -18,106 +18,6 @@
 /******************************************************************************/
 #include "misc.hpp"
 
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003e4c
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003e18
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003de4
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003db0
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003d7c
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003d48
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003d14
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003ce0
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003cac
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003c78
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003c44
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003c10
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003bdc
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003ba8
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003b74
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003b40
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003b0c
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003ad8
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003aa4
-}
-
-void IFCBase::__vfthunk()
-{
-// code at 0001:00003a70
-}
-
 char * Config::InstalledFile( char * )
 {
 // code at 0001:000036ac
@@ -136,16 +36,6 @@ void EtherealTargetScan::PerGrid()
 char unsigned EventHelp::IsForceDisplay()
 {
 // code at 0001:00093704
-}
-
-void IFCBase::SetupColorLookups()
-{
-// code at 0001:00089a9c
-}
-
-void IFCBase::ClearMousePointer()
-{
-// code at 0001:00089b8a
 }
 
 void SoundConfig::Read( char * )

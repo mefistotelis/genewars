@@ -72,24 +72,6 @@ class ScreenLockHandler { // sizeof=2
 
 
 
-class Trigger { // sizeof=7
-    class Trigger * Trigger(class Trigger *arg1);
-    void Invalidate();
-    BBOOL Valid();
-    BBOOL Update(UBYTE arg1);
-    class Trigger * Trigger();
-    UBYTE type; // offset=0
-    UBYTE turn; // offset=1
-    UBYTE thisPlayer; // offset=2
-    UBYTE otherPlayer; // offset=3
-    UWORD amount; // offset=4
-    UBYTE species; // offset=5
-    BBOOL doneThis; // offset=6
-};
-
-typedef class Trigger Trigger;
-
-
 struct __iobuf { // sizeof=26
     uint8_t *_ptr; // offset=0
     int _cnt; // offset=4

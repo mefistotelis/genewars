@@ -48,11 +48,6 @@ char unsigned SpeechFileStatus::Valid()
 // code at 0001:00039268
 }
 
-char unsigned IFCBase::IsCurrent()
-{
-// code at 0001:00039204
-}
-
 void SoundManager::StopSpeech()
 {
 // code at 0001:00039138

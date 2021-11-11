@@ -53,22 +53,22 @@ void IFCCompEditor::DrawCreatureBar()
 // code at 0001:0000edad
 }
 
-void IFCCompEditor::DrawColumnGadget( short, short, long unsigned, char signed, long, long, char unsigned, char unsigned )
+void IFCCompEditor::DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, SBYTE arg4, SLONG arg5, SLONG arg6, UBYTE arg7, BBOOL arg8)
 {
 // code at 0001:0000f568
 }
 
-void IFCCompEditor::DrawColumnGadget( short, short, long unsigned, char unsigned, long, long, char unsigned, char unsigned )
+void IFCCompEditor::DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, UBYTE arg4, SLONG arg5, SLONG arg6, UBYTE arg7, BBOOL arg8)
 {
 // code at 0001:0000f4d4
 }
 
-void IFCCompEditor::UpdateColumnGadget( short, char signed &, long, long )
+void IFCCompEditor::UpdateColumnGadget(SWORD arg1, SBYTE &arg2, SLONG arg3, SLONG arg4)
 {
 // code at 0001:0000f48c
 }
 
-void IFCCompEditor::UpdateColumnGadget( short, char unsigned &, long, long )
+void IFCCompEditor::UpdateColumnGadget(SWORD arg1, UBYTE &arg2, SLONG arg3, SLONG arg4)
 {
 // code at 0001:0000f444
 }
@@ -88,12 +88,12 @@ void IFCCompEditor::UpdateCreatureBar()
 // code at 0001:0000ef67
 }
 
-char unsigned IFCCompEditor::Write()
+BBOOL IFCCompEditor::Write()
 {
 // code at 0001:0000efda
 }
 
-char unsigned IFCCompEditor::Read()
+BBOOL IFCCompEditor::Read()
 {
 // code at 0001:0000f067
 }

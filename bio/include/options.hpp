@@ -41,30 +41,5 @@ class HelpDraw { // sizeof=26
 };
 
 
-class IFCOptions : public IFCBase { // sizeof=59
-public:
-    //IFCOptions(IFCOptions *arg1);
-    void FindWhichSlotsAreUsed();
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    class IFCOptions * IFCOptions(MyGadget *arg1);
-    //void (**__vfptr)();
-    //unsigned int *__vbptr;
-    BBOOL savePausedState;
-    SBYTE saveTextEntrySlot;
-    MyMinSprite mMs;
-    char slotNames[7][31];
-    BBOOL slotUsed[7];
-    TbSprite *sprites;
-    MySprite *spr;
-    MyGadget *gad;
-    SBYTE selectedSlot; // offset=4
-    MyAnimBank *anb; // offset=5
-    IFCBase *previousIFC; // offset=9
-};
-
-
 #endif // BIO_OPTIONS_HPP_
 /******************************************************************************/

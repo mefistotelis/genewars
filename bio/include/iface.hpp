@@ -35,7 +35,7 @@ class IFCBase { // sizeof=11
     void ClearMousePointer();
     void SetupColorLookups();
     BBOOL IsCurrent();
-    void NewInterface(IFCBase *arg1);
+    void NewInterface(IFCBase &arg1);
     void SetupPacket(Packet *arg1);
     Packet * GetPacket();
     UBYTE PacketAction();
@@ -51,11 +51,11 @@ class IFCBase { // sizeof=11
     void PullOut();
     void PlugIn();
     //void (**__vfptr)();
-    Packet *packet;
-    SWORD gadID;
-    BBOOL fullCopyToVRAM;
-    IFCBase *pullOut;
-    IFCBase *plugIn;
+    static Packet *packet;
+    static SWORD gadID;
+    static BBOOL fullCopyToVRAM;
+    static IFCBase *pullOut;
+    static IFCBase *plugIn;
     IFCPaletteSetMode paletteSetMode; // offset=0
     BBOOL paletteSet; // offset=1
     UBYTE *palette; // offset=2
