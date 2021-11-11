@@ -21,21 +21,28 @@
 
 #include "bftypes.h"
 #include "xy.hpp"
+#include "smvthing.hpp"
+#include "scan.hpp"
+#include "effect.hpp"
+#include "building.hpp"
+#include "creature.hpp"
 
-class PassableTerrainScan : PolarRangeScan { // sizeof=60
+class PassableTerrainScan : public PolarRangeScan { // sizeof=60
+public:
     //PassableTerrainScan(PassableTerrainScan *rscan1);
     void PerGrid();
-    PassableTerrainScan(SmartMovingThing arg1, ULONG arg2);
+    PassableTerrainScan(SmartMovingThing &arg1, ULONG arg2);
     //void (**__vfptr)();
     SmartMovingThing thing;
     BBOOL foundAPlace; // offset=51
     XY goToXY; // offset=52
 };
 
-class ShotHitScan : RangeScanner { // sizeof=62
+class ShotHitScan : public RangeScanner { // sizeof=62
+public:
     //ShotHitScan(ShotHitScan *arg1);
     void PerGrid();
-    ShotHitScan(Effect arg1, SLONG arg2);
+    ShotHitScan(Effect &arg1, SLONG arg2);
     //void (**__vfptr)();
     ULONG bestRange;
     ULONG sqShotRadius;
@@ -45,79 +52,87 @@ class ShotHitScan : RangeScanner { // sizeof=62
     BBOOL ricochet; // offset=45
 };
 
-class FireScan : RangeScanner { // sizeof=45
-    class FireScan * FireScan(class FireScan *arg1);
+class FireScan : public RangeScanner { // sizeof=45
+public:
+    //FireScan(FireScan *arg1);
     void PerGrid();
-    class FireScan * FireScan(Effect arg1);
-    void (**__vfptr)();
+    FireScan(Effect &arg1);
+    //void (**__vfptr)();
     Effect fire;
 };
 
-class MonolithHitScan : RangeScanner { // sizeof=53
+class MonolithHitScan : public RangeScanner { // sizeof=53
+public:
     //MonolithHitScan(MonolithHitScan *arg1);
     void PerGrid();
-    class MonolithHitScan * MonolithHitScan(Effect arg1);
+    MonolithHitScan(Effect &arg1);
     //void (**__vfptr)();
     ULONG bestRange;
     Effect mono;
     Thing *hitThing; // offset=41
 };
 
-class StasisBoltScan : RangeScanner { // sizeof=50
+class StasisBoltScan : public RangeScanner { // sizeof=50
+public:
     //StasisBoltScan(class StasisBoltScan *arg1);
     void PerGrid();
-    StasisBoltScan(Effect arg1, SLONG arg2);
+    StasisBoltScan(Effect &arg1, SLONG arg2);
     //void (**__vfptr)();
     ULONG sqShotRadius;
     Effect shot;
     BBOOL hitThing; // offset=41
 };
 
-class TurretScan : RangeScanner { // sizeof=53
-    class TurretScan * TurretScan(class TurretScan *arg1);
+class TurretScan : public RangeScanner { // sizeof=53
+public:
+    //TurretScan(TurretScan *arg1);
     void PerGrid();
-    class TurretScan * TurretScan(Building arg1);
+    TurretScan(Building &arg1);
     //void (**__vfptr)();
     SLONG closestRange;
     Building turret;
     Thing *tgtThing; // offset=41
 };
 
-class SawmillScan : RangeScanner { // sizeof=53
+class SawmillScan : public RangeScanner { // sizeof=53
+public:
     //SawmillScan(SawmillScan *arg1);
     void PerGrid();
-    SawmillScan(Building arg1);
+    SawmillScan(Building &arg1);
     //void (**__vfptr)();
     SLONG bestValue;
     Building sawmill;
     Plant *tgtPlant; // offset=41
 };
 
-class FarmScan : RangeScanner { // sizeof=53
+class FarmScan : public RangeScanner { // sizeof=53
+public:
     //FarmScan(FarmScan *arg1);
     void PerGrid();
-    FarmScan(Building arg1);
+    FarmScan(Building &arg1);
     //void (**__vfptr)();
     SLONG bestValue;
     Building farm;
     Thing *tgt; // offset=41
 };
 
-class ShieldScan : RangeScanner { // sizeof=49
+class ShieldScan : public RangeScanner { // sizeof=49
+public:
     //ShieldScan(class ShieldScan *arg1);
     void BounceThingOffShield(MovingThing *arg1, BBOOL arg2);
     void PerGrid();
-    ShieldScan(Building arg1);
+    ShieldScan(Building &arg1);
     //void (**__vfptr)();
     ULONG squareShieldRange;
     Building shield;
 };
 
-class AwarenessScan : RangeScanner { // sizeof=228
+class AwarenessScan : public RangeScanner { // sizeof=228
+public:
     //AwarenessScan(AwarenessScan *arg1);
     void Do();
     void PerGrid();
-    AwarenessScan(Creature arg1);
+    AwarenessScan(Creature &arg1);
     //void (**__vfptr)();
     ASpecies speci;
     Creature c;
@@ -149,10 +164,11 @@ class AwarenessScan : RangeScanner { // sizeof=228
     int food[15]; // offset=237
 };
 
-class CollectorScan : WeightedTgtRangeScanner { // sizeof=246
+class CollectorScan : public WeightedTgtRangeScanner { // sizeof=246
+public:
     //CollectorScan(CollectorScan *arg1);
     void PerGrid();
-    CollectorScan(Creature arg1, BBOOL arg2, BBOOL arg3);
+    CollectorScan(Creature &arg1, BBOOL arg2, BBOOL arg3);
     //void (**__vfptr)();
     UBYTE bonesBonus;
     UBYTE plantBonus;
@@ -161,34 +177,25 @@ class CollectorScan : WeightedTgtRangeScanner { // sizeof=246
     Creature c;
 };
 
-class BuilderTreeScan : RangeScanner { // sizeof=49
+class BuilderTreeScan : public RangeScanner { // sizeof=49
+public:
     //BuilderTreeScan(BuilderTreeScan *arg1);
     void PerGrid();
-    BuilderTreeScan(Creature arg1);
+    BuilderTreeScan(Creature &arg1);
     //void (**__vfptr)();
     ULONG bestRange;
     Plant *tgtPlant; // offset=41
 };
 
-class ChopperScan : WeightedTgtRangeScanner { // sizeof=110
+class ChopperScan : public WeightedTgtRangeScanner { // sizeof=110
+public:
     //ChopperScan(ChopperScan *arg1);
     void PerGrid();
-    ChopperScan(Creature arg1);
+    ChopperScan(Creature &arg1);
     //void (**__vfptr)();
     int bestRanges[15];
     Plant *closestPerSector[15];
 };
-
-class ScanRecord { // sizeof=128
-    //ScanRecord(ScanRecord *rscan1);
-    int Hash(XY arg1);
-    BBOOL IsRecorded(XY arg1);
-    void Add(XY arg1);
-    //ScanRecord();
-    BBOOL used[127];
-    XY xy[127];
-};
-
 
 #endif // SCANADV_HPP_
 /******************************************************************************/

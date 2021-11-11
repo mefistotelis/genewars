@@ -27,7 +27,8 @@
 
 class MyGadget;
 
-class IFCComputer : IFCBase { // sizeof=55
+class IFCComputer : public IFCBase { // sizeof=55
+public:
     //IFCComputer(IFCComputer *arg1);
     IFCComputer(MyGadget *arg1);
     BBOOL BuildingAllowed(UBYTE arg1, UBYTE arg2);

@@ -51,7 +51,8 @@ class TeamCircles { // sizeof=63
     MyMinSprite staticMms[4]; // offset=32
 };
 
-class IFCPlanetside : IFCBase { // sizeof=46
+class IFCPlanetside : public IFCBase { // sizeof=46
+public:
     //IFCPlanetside(IFCPlanetside *arg1);
     void DrawTgtFlag();
     void DrawBadBar(UBYTE arg1);

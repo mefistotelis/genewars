@@ -1223,7 +1223,8 @@ class GunSpec { // sizeof=7
 
 
 
-class EtherealTargetScan : RangeScanner { // sizeof=118
+class EtherealTargetScan : public RangeScanner { // sizeof=118
+public:
     class EtherealTargetScan * EtherealTargetScan(class EtherealTargetScan *arg1);
     void PerGrid();
     class EtherealTargetScan * EtherealTargetScan(Ethereal arg1, ULONG arg2);
@@ -1422,7 +1423,8 @@ class CloseTgt { // sizeof=4
     SWORD range; // offset=2
 };
 
-class FindHighestBuildingSite : RangeScanner { // sizeof=59
+class FindHighestBuildingSite : public RangeScanner { // sizeof=59
+public:
     class FindHighestBuildingSite * FindHighestBuildingSite(class FindHighestBuildingSite *arg1);
     BBOOL FoundASite();
     void PerGrid();
@@ -1435,7 +1437,8 @@ class FindHighestBuildingSite : RangeScanner { // sizeof=59
     UBYTE error_type; // offset=53
 };
 
-class TestSlice : PolarSliceScan { // sizeof=65
+class TestSlice : public PolarSliceScan { // sizeof=65
+public:
     class TestSlice * TestSlice(class TestSlice *arg1);
     void PerGrid();
     class TestSlice * TestSlice(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
@@ -1446,7 +1449,8 @@ class TestSlice : PolarSliceScan { // sizeof=65
     UBYTE error_type; // offset=60
 };
 
-class TestEverything : PolarEverythingScan { // sizeof=60
+class TestEverything : public PolarEverythingScan { // sizeof=60
+public:
     //TestEverything(TestEverything *arg1);
     void PerGrid();
     class TestEverything * TestEverything(XY arg1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5, BBOOL arg6);
@@ -1456,14 +1460,16 @@ class TestEverything : PolarEverythingScan { // sizeof=60
     UBYTE error_type; // offset=59
 };
 
-class ChopTreeScan : RangeScanner { // sizeof=41
+class ChopTreeScan : public RangeScanner { // sizeof=41
+public:
     class ChopTreeScan * ChopTreeScan(class ChopTreeScan *arg1);
     //void PerGrid();
     class ChopTreeScan * ChopTreeScan(XY arg1, ULONG arg2);
     void (**__vfptr)();
 };
 
-class BestForestScan : PolarRangeScan { // sizeof=62
+class BestForestScan : public PolarRangeScan { // sizeof=62
+public:
     //BestForestScan(BestForestScan *arg1);
     void PerGrid();
     BestForestScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5);
@@ -1475,7 +1481,8 @@ class BestForestScan : PolarRangeScan { // sizeof=62
     XY bestPos; // offset=51
 };
 
-class MineralScan : RangeScanner { // sizeof=45
+class MineralScan : public RangeScanner { // sizeof=45
+public:
     class MineralScan * MineralScan(class MineralScan *arg1);
     //void PerGrid();
     class MineralScan * MineralScan(XY arg1, ULONG arg2);
@@ -1483,7 +1490,8 @@ class MineralScan : RangeScanner { // sizeof=45
     ULONG minerals; // offset=41
 };
 
-class MineScan : RangeScanner { // sizeof=50
+class MineScan : public RangeScanner { // sizeof=50
+public:
     //MineScan(MineScan *arg1);
     void PerGrid();
     class MineScan * MineScan(XY arg1, ULONG arg2, UBYTE arg3);
@@ -1493,7 +1501,8 @@ class MineScan : RangeScanner { // sizeof=50
     XY bestPos; // offset=41
 };
 
-class PowerScan : PolarRangeScan { // sizeof=59
+class PowerScan : public PolarRangeScan { // sizeof=59
+public:
     //PowerScan(PowerScan *arg1);
     void PerGrid();
     class PowerScan * PowerScan(XY arg1, ULONG arg2, UBYTE arg3);
@@ -1505,7 +1514,8 @@ class PowerScan : PolarRangeScan { // sizeof=59
     UBYTE bestType; // offset=55
 };
 
-class NearestBuildingSite : PolarEverythingScan { // sizeof=53
+class NearestBuildingSite : public PolarEverythingScan { // sizeof=53
+public:
     class NearestBuildingSite * NearestBuildingSite(class NearestBuildingSite *arg1);
     void PerGrid();
     class NearestBuildingSite * NearestBuildingSite(XY arg1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5);
@@ -1515,7 +1525,8 @@ class NearestBuildingSite : PolarEverythingScan { // sizeof=53
     UBYTE type; // offset=51
 };
 
-class OldPowerTally : PolarRangeScan { // sizeof=57
+class OldPowerTally : public PolarRangeScan { // sizeof=57
+public:
     //OldPowerTally(OldPowerTally *arg1);
     class OldPowerTally * OldPowerTally(XY arg1, ULONG arg2, UBYTE arg3);
     void PerGrid();
@@ -1525,7 +1536,8 @@ class OldPowerTally : PolarRangeScan { // sizeof=57
     ULONG landTiles; // offset=52
 };
 
-class NewPowerTally : RangeScanner { // sizeof=49
+class NewPowerTally : public RangeScanner { // sizeof=49
+public:
     //NewPowerTally(NewPowerTally *arg1);
     class NewPowerTally * NewPowerTally(XY arg1, ULONG arg2);
     void PerGrid();
@@ -1534,7 +1546,8 @@ class NewPowerTally : RangeScanner { // sizeof=49
     ULONG tiles; // offset=45
 };
 
-class SatisfyBuildings : PolarRangeScan { // sizeof=64
+class SatisfyBuildings : public PolarRangeScan { // sizeof=64
+public:
     //SatisfyBuildings(SatisfyBuildings *arg1);
     class SatisfyBuildings * SatisfyBuildings(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5);
     void PerGrid();
@@ -1566,7 +1579,8 @@ class PointSample { // sizeof=27
     BBOOL foundAThing; // offset=0
 };
 
-class BestForestSample : PointSample { // sizeof=38
+class BestForestSample : public PointSample { // sizeof=38
+public:
     //BestForestSample(BestForestSample *arg1);
     void PerGrid();
     class BestForestSample * BestForestSample(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4, ULONG arg5);
@@ -1589,7 +1603,8 @@ class SoundConfig { // sizeof=10
 };
 
 
-class FindLowestBuildingSite : PolarEverythingScan { // sizeof=64
+class FindLowestBuildingSite : public PolarEverythingScan { // sizeof=64
+public:
     //FindLowestBuildingSite(FindLowestBuildingSite *arg1);
     void PerGrid();
     FindLowestBuildingSite(XY arg1, ULONG arg2, UBYTE arg3);
@@ -1600,7 +1615,8 @@ class FindLowestBuildingSite : PolarEverythingScan { // sizeof=64
     UBYTE error_type; // offset=59
 };
 
-class BaseAwarenessScan : TimeSliceScan { // sizeof=64
+class BaseAwarenessScan : public TimeSliceScan { // sizeof=64
+public:
     //BaseAwarenessScan(BaseAwarenessScan *arg1);
     UBYTE PointInSector(XY arg1, XY arg2);
     void PerGrid();
@@ -1613,7 +1629,8 @@ class BaseAwarenessScan : TimeSliceScan { // sizeof=64
     XY center; // offset=60
 };
 
-class ForestScan : RangeScanner { // sizeof=109
+class ForestScan : public RangeScanner { // sizeof=109
+public:
     //ForestScan(ForestScan *arg1);
     void PerGrid();
     ForestScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
@@ -1629,7 +1646,8 @@ class ForestScan : RangeScanner { // sizeof=109
 
 typedef class ForestScan ForestScan;
 
-class HarvestScan : PolarRangeScan { // sizeof=58
+class HarvestScan : public PolarRangeScan { // sizeof=58
+public:
     //HarvestScan(HarvestScan *arg1);
     void PerGrid();
     HarvestScan(XY arg1, ULONG arg2);
@@ -1641,7 +1659,8 @@ class HarvestScan : PolarRangeScan { // sizeof=58
 
 typedef class MineralScan MineralScan;
 
-class NearestPoweredBuildingSite : PolarRangeScan { // sizeof=60
+class NearestPoweredBuildingSite : public PolarRangeScan { // sizeof=60
+public:
     //NearestPoweredBuildingSite(NearestPoweredBuildingSite *arg1);
     void PerGrid();
     NearestPoweredBuildingSite(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
@@ -1651,7 +1670,8 @@ class NearestPoweredBuildingSite : PolarRangeScan { // sizeof=60
     TheBase *b; // offset=55
 };
 
-class NearestLand : PolarRangeScan { // sizeof=55
+class NearestLand : public PolarRangeScan { // sizeof=55
+public:
     class NearestLand * NearestLand(class NearestLand *arg1);
     void PerGrid();
     class NearestLand * NearestLand(XY arg1, ULONG arg2);
@@ -1659,7 +1679,8 @@ class NearestLand : PolarRangeScan { // sizeof=55
     XY bestPos; // offset=51
 };
 
-class PowerStationScan : PolarRangeScan { // sizeof=64
+class PowerStationScan : public PolarRangeScan { // sizeof=64
+public:
     //PowerStationScan(PowerStationScan *arg1);
     void PerGrid();
     PowerStationScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
@@ -1674,7 +1695,8 @@ typedef class NewPowerTally NewPowerTally;
 
 typedef class OldPowerTally OldPowerTally;
 
-class SiteScore : RangeScanner { // sizeof=45
+class SiteScore : public RangeScanner { // sizeof=45
+public:
     class SiteScore * SiteScore(class SiteScore *arg1);
     void PerGrid();
     class SiteScore * SiteScore(XY arg1, ULONG arg2);
@@ -1682,7 +1704,8 @@ class SiteScore : RangeScanner { // sizeof=45
     ULONG score; // offset=41
 };
 
-class NewBaseScan : PointSample { // sizeof=40
+class NewBaseScan : public PointSample { // sizeof=40
+public:
     //NewBaseScan(class NewBaseScan *arg1);
     void PerGrid();
     NewBaseScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
@@ -1695,7 +1718,8 @@ class NewBaseScan : PointSample { // sizeof=40
 
 typedef class SiteScore SiteScore;
 
-class PlantScan : RangeScanner { // sizeof=108
+class PlantScan : public RangeScanner { // sizeof=108
+public:
     //PlantScan(class PlantScan *arg1);
     void PerGrid();
     PlantScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
@@ -1710,7 +1734,8 @@ class PlantScan : RangeScanner { // sizeof=108
 
 typedef class PlantScan PlantScan;
 
-class ClosestTree : PolarRangeScan { // sizeof=63
+class ClosestTree : public PolarRangeScan { // sizeof=63
+public:
     //ClosestTree(class ClosestTree *arg1);
     void PerGrid();
     ClosestTree(XY arg1, ULONG arg2);
@@ -1720,7 +1745,8 @@ class ClosestTree : PolarRangeScan { // sizeof=63
     XY loc; // offset=59
 };
 
-class ClosestDeadCreature : PolarRangeScan { // sizeof=63
+class ClosestDeadCreature : public PolarRangeScan { // sizeof=63
+public:
     //ClosestDeadCreature(class ClosestDeadCreature *arg1);
     void PerGrid();
     ClosestDeadCreature(XY arg1, ULONG arg2);
@@ -1730,7 +1756,8 @@ class ClosestDeadCreature : PolarRangeScan { // sizeof=63
     XY loc; // offset=59
 };
 
-class ClosestEnemy : PolarRangeScan { // sizeof=64
+class ClosestEnemy : public PolarRangeScan { // sizeof=64
+public:
     class ClosestEnemy * ClosestEnemy(class ClosestEnemy *arg1);
     void PerGrid();
     class ClosestEnemy * ClosestEnemy(XY arg1, ULONG arg2, UBYTE arg3);
@@ -1741,7 +1768,8 @@ class ClosestEnemy : PolarRangeScan { // sizeof=64
     UBYTE player; // offset=63
 };
 
-class CountTrees : RangeScanner { // sizeof=45
+class CountTrees : public RangeScanner { // sizeof=45
+public:
     class CountTrees * CountTrees(class CountTrees *arg1);
     void PerGrid();
     class CountTrees * CountTrees(XY arg1, ULONG arg2);
@@ -1749,7 +1777,8 @@ class CountTrees : RangeScanner { // sizeof=45
     SLONG trees; // offset=41
 };
 
-class GuardPointImportance : RangeScanner { // sizeof=43
+class GuardPointImportance : public RangeScanner { // sizeof=43
+public:
     class GuardPointImportance * GuardPointImportance(class GuardPointImportance *arg1);
     void PerGrid();
     class GuardPointImportance * GuardPointImportance(XY arg1, ULONG arg2);
@@ -1759,7 +1788,8 @@ class GuardPointImportance : RangeScanner { // sizeof=43
 
 typedef class CloseTgt CloseTgt;
 
-class ClosestTargets : PolarRangeScan { // sizeof=132
+class ClosestTargets : public PolarRangeScan { // sizeof=132
+public:
     //ClosestTargets(ClosestTargets *arg1);
     void PerGrid();
     ClosestTargets(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
@@ -1771,7 +1801,8 @@ class ClosestTargets : PolarRangeScan { // sizeof=132
     BBOOL defend; // offset=131
 };
 
-class Probe : SmartMovingThing { // sizeof=235
+class Probe : public SmartMovingThing { // sizeof=235
+public:
     class Probe * operator =(class Probe *arg1);
     //Probe(class Probe *arg1);
     UBYTE Update();

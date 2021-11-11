@@ -22,7 +22,7 @@
 #include "bftypes.h"
 #include "thing.hpp"
 
-class MovingThing : Thing { // sizeof=69
+class MovingThing : public Thing { // sizeof=69
 public:
     MovingThing * operator=(MovingThing *arg1);
     //MovingThing(MovingThing *arg1); -- generate default copy constructor

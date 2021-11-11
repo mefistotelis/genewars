@@ -64,7 +64,7 @@ public:
     XY target; // offset=0
 };
 
-class GroupPad : MainInterfacePad { // sizeof=35
+class GroupPad : public MainInterfacePad { // sizeof=35
 public:
     //GroupPad(GroupPad *arg1);
     void MapDraw();

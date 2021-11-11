@@ -37,7 +37,7 @@ enum DroneType { // type=int8_t
     DRT_FARM,
 };
 
-class Drone : SmartMovingThing { // sizeof=97
+class Drone : public SmartMovingThing { // sizeof=97
 public:
     Drone * operator=(Drone *drn1);
     //Drone(Drone *arg1); -- generate default copy constructor

@@ -28,7 +28,7 @@ class PlSpec;
 class Building;
 class Creature;
 
-class BasicPad : MainInterfacePad { // sizeof=22
+class BasicPad : public MainInterfacePad { // sizeof=22
 public:
     //BasicPad(BasicPad *arg1);
     void MapDraw();
@@ -40,7 +40,7 @@ public:
     //unsigned int *__vbptr;
 };
 
-class BuildingPad : MainInterfacePad { // sizeof=26
+class BuildingPad : public MainInterfacePad { // sizeof=26
 public:
     //BuildingPad(BuildingPad *arg1);
     void ProjectPowerStationCircles();
@@ -54,7 +54,7 @@ public:
     Building *b; // offset=4
 };
 
-class WindowPad : MainInterfacePad { // sizeof=49
+class WindowPad : public MainInterfacePad { // sizeof=49
 public:
     //WindowPad(WindowPad *arg1);
     void SetXActionSelectPointer();
@@ -81,7 +81,7 @@ public:
     clock_t actionClock; // offset=16
 };
 
-class CreaturePad : MainInterfacePad { // sizeof=44
+class CreaturePad : public MainInterfacePad { // sizeof=44
 public:
     //CreaturePad(CreaturePad *arg1);
     void DrawAllPackMembers(UBYTE arg1);

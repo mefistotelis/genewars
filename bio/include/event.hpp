@@ -26,7 +26,8 @@
 class BioGame;
 class Point;
 
-class Event : Thing { // sizeof=49
+class Event : public Thing { // sizeof=49
+public:
     Event * operator =(class Event *arg1);
     //Event(class Event *arg1); -- generate default copy constructor
     //Event(); -- generate default no-args constructor

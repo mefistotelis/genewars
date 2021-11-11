@@ -468,7 +468,7 @@ typedef struct LanderStuff LanderStuff;
 
 
 
-class IFCStartNetwork : IFCBase { // sizeof=19
+class IFCStartNetwork : public IFCBase { // sizeof=19
     class IFCStartNetwork * IFCStartNetwork(class IFCStartNetwork *arg1);
     class IFCStartNetwork * IFCStartNetwork();
     void Update();
@@ -481,7 +481,7 @@ class IFCStartNetwork : IFCBase { // sizeof=19
 
 typedef class IFCStartNetwork IFCStartNetwork;
 
-class IFCGeneratePlanet : IFCBase { // sizeof=19
+class IFCGeneratePlanet : public IFCBase { // sizeof=19
     class IFCGeneratePlanet * IFCGeneratePlanet(class IFCGeneratePlanet *arg1);
     class IFCGeneratePlanet * IFCGeneratePlanet();
     void Update();
@@ -494,7 +494,7 @@ class IFCGeneratePlanet : IFCBase { // sizeof=19
 
 typedef class IFCGeneratePlanet IFCGeneratePlanet;
 
-class IFCJoiningPlayer : IFCBase { // sizeof=27
+class IFCJoiningPlayer : public IFCBase { // sizeof=27
     class IFCJoiningPlayer * IFCJoiningPlayer(class IFCJoiningPlayer *arg1);
     class IFCJoiningPlayer * IFCJoiningPlayer();
     void Update();
@@ -509,7 +509,7 @@ class IFCJoiningPlayer : IFCBase { // sizeof=27
 
 typedef class IFCJoiningPlayer IFCJoiningPlayer;
 
-class IFCWinLevel : IFCBase { // sizeof=19
+class IFCWinLevel : public IFCBase { // sizeof=19
     class IFCWinLevel * IFCWinLevel(class IFCWinLevel *arg1);
     class IFCWinLevel * IFCWinLevel();
     void Update();
@@ -522,7 +522,7 @@ class IFCWinLevel : IFCBase { // sizeof=19
 
 typedef class IFCWinLevel IFCWinLevel;
 
-class IFCLoseLevel : IFCBase { // sizeof=19
+class IFCLoseLevel : public IFCBase { // sizeof=19
     class IFCLoseLevel * IFCLoseLevel(class IFCLoseLevel *arg1);
     class IFCLoseLevel * IFCLoseLevel();
     void Update();
@@ -535,7 +535,7 @@ class IFCLoseLevel : IFCBase { // sizeof=19
 
 typedef class IFCLoseLevel IFCLoseLevel;
 
-class IFCStatScreen : IFCBase { // sizeof=19
+class IFCStatScreen : public IFCBase { // sizeof=19
     class IFCStatScreen * IFCStatScreen(class IFCStatScreen *arg1);
     class IFCStatScreen * IFCStatScreen();
     void Update();
@@ -549,7 +549,7 @@ class IFCStatScreen : IFCBase { // sizeof=19
 typedef class IFCStatScreen IFCStatScreen;
 
 
-class IFCOptions : IFCBase { // sizeof=59
+class IFCOptions : public IFCBase { // sizeof=59
     class IFCOptions * IFCOptions(class IFCOptions *arg1);
     void FindWhichSlotsAreUsed();
     void Update();

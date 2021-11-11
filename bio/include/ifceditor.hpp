@@ -37,7 +37,8 @@ enum VictoryCondition { // type=int8_t
     VICTORY_MAX,
 };
 
-class IFCEditor : IFCBase { // sizeof=18
+class IFCEditor : public IFCBase { // sizeof=18
+public:
     //IFCEditor(IFCEditor *arg1);
     void GoPlanet();
     BBOOL IsCircular(UBYTE arg1);

@@ -64,7 +64,8 @@ enum EtherealType { // type=int8_t
     ET_PUTT,
 };
 
-class Ethereal : SmartMovingThing { // sizeof=102
+class Ethereal : public SmartMovingThing { // sizeof=102
+public:
     Ethereal * operator =(Ethereal *arg1);
     //Ethereal(Ethereal *arg1); -- generate default copy constructor
     //Ethereal(); -- generate default no-args constructor

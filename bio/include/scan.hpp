@@ -26,6 +26,16 @@ class GridTile;
 class Thing;
 class Plant;
 
+class ScanRecord { // sizeof=128
+    //ScanRecord(ScanRecord *rscan1);
+    int Hash(XY arg1);
+    BBOOL IsRecorded(XY arg1);
+    void Add(XY arg1);
+    //ScanRecord();
+    BBOOL used[127];
+    XY xy[127];
+};
+
 class BaseScan { // sizeof=17
 public:
     void Reset();
@@ -54,7 +64,7 @@ public:
     SWORD xD;
 };
 
-class RangeScanner : RangeScan { // sizeof=41
+class RangeScanner : public RangeScan { // sizeof=41
 public:
     //RangeScanner(RangeScanner *rscnr1);
     void PerGrid();
@@ -68,7 +78,7 @@ public:
     BBOOL foundAThing; // offset=20
 };
 
-class PolarRangeScan : RangeScan { // sizeof=51
+class PolarRangeScan : public RangeScan { // sizeof=51
 public:
     //PolarRangeScan(PolarRangeScan *rscan1);
     void displayDebug(XY arg1, ULONG &arg2);
@@ -87,7 +97,7 @@ public:
     BBOOL foundAThing; // offset=20
 };
 
-class WeightedRangeScanner : RangeScanner { // sizeof=106
+class WeightedRangeScanner : public RangeScanner { // sizeof=106
 public:
     //WeightedRangeScanner(WeightedRangeScanner *arg1);
     void Do();
@@ -98,19 +108,19 @@ public:
     UBYTE bestDir; // offset=41
 };
 
-class WeightedTgtRangeScanner : WeightedRangeScanner { // sizeof=238
+class WeightedTgtRangeScanner : public WeightedRangeScanner { // sizeof=238
 public:
     //WeightedTgtRangeScanner(WeightedTgtRangeScanner *arg1);
     void Do();
-    WeightedTgtRangeScanner(XY arg1, ULONG arg2, XY *arg3, SLONG arg4);
-    WeightedTgtRangeScanner(XY arg1, ULONG arg2);
+    WeightedTgtRangeScanner(XY &arg1, ULONG arg2, XY *arg3, SLONG arg4);
+    WeightedTgtRangeScanner(XY &arg1, ULONG arg2);
     //void (**__vfptr)();
     Thing *bestThings[15];
     int bestPerSector[15];
     Thing *tgtThing; // offset=106
 };
 
-class PolarSliceScan : RangeScan { // sizeof=48
+class PolarSliceScan : public RangeScan { // sizeof=48
 public:
     //PolarSliceScan(PolarSliceScan *arg1);
     void displayDebug(XY arg1, UBYTE arg2, ULONG &arg3);
@@ -129,7 +139,7 @@ public:
     BBOOL foundAThing; // offset=20
 };
 
-class PolarEverythingScan : RangeScan { // sizeof=47
+class PolarEverythingScan : public RangeScan { // sizeof=47
 public:
     //PolarEverythingScan(PolarEverythingScan *arg1);
     void displayDebug(XY arg1, UBYTE arg2, ULONG &arg3);
@@ -151,7 +161,7 @@ public:
     BBOOL foundAThing; // offset=20
 };
 
-class TimeSliceScan : RangeScan { // sizeof=47
+class TimeSliceScan : public RangeScan { // sizeof=47
 public:
     //TimeSliceScan(TimeSliceScan *arg1);
     void PerGrid();

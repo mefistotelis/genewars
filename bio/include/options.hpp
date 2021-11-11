@@ -41,16 +41,17 @@ class HelpDraw { // sizeof=26
 };
 
 
-class IFCOptions : IFCBase { // sizeof=59
-    class IFCOptions * IFCOptions(class IFCOptions *arg1);
+class IFCOptions : public IFCBase { // sizeof=59
+public:
+    //IFCOptions(IFCOptions *arg1);
     void FindWhichSlotsAreUsed();
     void Update();
     void Draw();
     void PullOut();
     void PlugIn();
     class IFCOptions * IFCOptions(MyGadget *arg1);
-    void (**__vfptr)();
-    unsigned int *__vbptr;
+    //void (**__vfptr)();
+    //unsigned int *__vbptr;
     BBOOL savePausedState;
     SBYTE saveTextEntrySlot;
     MyMinSprite mMs;

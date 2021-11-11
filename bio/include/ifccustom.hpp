@@ -28,7 +28,8 @@
 class MyGadget;
 class SessionInfo;
 
-class IFCCustom : IFCBase { // sizeof=192
+class IFCCustom : public IFCBase { // sizeof=192
+public:
     //IFCCustom(class IFCCustom *arg1);
     void ScrollChatString(UBYTE arg1);
     void DrawChatStrings();

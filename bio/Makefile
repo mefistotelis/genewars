@@ -90,6 +90,7 @@ obj/ifccustom.o \
 obj/ifccomputer.o \
 obj/ifceditor.o \
 obj/scan.o \
+obj/scanadv.o \
 obj/thingidx.o \
 obj/thing.o \
 obj/mvthing.o \

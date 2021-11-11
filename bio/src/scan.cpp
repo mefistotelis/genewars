@@ -18,6 +18,26 @@
 /******************************************************************************/
 #include "scan.hpp"
 
+/*ScanRecord::ScanRecord()
+{
+// code at 0001:00088d70
+}*/
+
+int ScanRecord::Hash(XY arg1)
+{
+// code at 0001:00088d34
+}
+
+void ScanRecord::Add(XY arg1)
+{
+// code at 0001:000857e9
+}
+
+BBOOL ScanRecord::IsRecorded(XY arg1)
+{
+// code at 0001:0008584c
+}
+
 RangeScan::RangeScan(XY &arg1, ULONG arg2, BBOOL arg3)
 {
 // code at 0001:00004ad8
@@ -75,6 +95,23 @@ WeightedRangeScanner::WeightedRangeScanner(XY &arg1, ULONG arg2, XY *arg3, SLONG
 void WeightedRangeScanner::Do()
 {
 // code at 0001:0005d9f1
+}
+
+WeightedTgtRangeScanner::WeightedTgtRangeScanner(XY &arg1, ULONG arg2)
+    : WeightedRangeScanner(arg1, arg2) // verify params
+{
+// code at 0001:00084708
+}
+
+WeightedTgtRangeScanner::WeightedTgtRangeScanner(XY &arg1, ULONG arg2, XY *arg3, SLONG arg4)
+    : WeightedRangeScanner(arg1, arg2, arg3, arg4) // verify params
+{
+// code at 0001:00084698
+}
+
+void WeightedTgtRangeScanner::Do()
+{
+// code at 0001:0005dbb7
 }
 
 PolarSliceScan::PolarSliceScan(XY &arg1, ULONG arg2, UBYTE arg3, UBYTE arg4)

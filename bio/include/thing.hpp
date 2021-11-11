@@ -33,7 +33,7 @@ class Player;
 
 class Thing { // sizeof=39
 public:
-    Thing * operator=(Thing *arg1);
+    Thing * operator =(Thing *arg1);
     //Thing(Thing *arg1); -- generate default copy constructor
     //Thing(); -- generate default no-arg constructor
     Vector PredictTargetShot(Thing *arg1, SLONG arg2, SLONG arg3, ULONG arg4);
@@ -101,7 +101,8 @@ public:
     MySprite *spr; // offset=31
 };
 
-class StaticThing : Thing { // sizeof=43
+class StaticThing : public Thing { // sizeof=43
+public:
     class StaticThing * operator=(class StaticThing *tng1);
     //StaticThing(StaticThing *tng1); -- generate default copy constructor
     //StaticThing(); -- generate default no-args constructor

@@ -23,7 +23,8 @@
 #include "myspr.h"
 #include "iface.hpp"
 
-class IFCCompEditor : IFCBase { // sizeof=193
+class IFCCompEditor : public IFCBase { // sizeof=193
+public:
     //IFCCompEditor(IFCCompEditor *arg1);
     void PrintCompPlayersToFile();
     void UpdateColumnGadget(SWORD arg1, UBYTE *arg2, SLONG arg3, SLONG arg4);

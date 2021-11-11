@@ -51,7 +51,8 @@ struct RocketShip { // sizeof=187
     LanderStuff stuff[31]; // offset=27
 };
 
-class IFCTitle : IFCBase { // sizeof=232
+class IFCTitle : public IFCBase { // sizeof=232
+public:
     //IFCTitle(IFCTitle *arg1);
     void Update();
     void Draw();
@@ -69,7 +70,8 @@ class IFCTitle : IFCBase { // sizeof=232
     RocketShip rocketShip; // offset=26
 };
 
-class IFCStartNetwork : IFCBase { // sizeof=19
+class IFCStartNetwork : public IFCBase { // sizeof=19
+public:
     class IFCStartNetwork * IFCStartNetwork(class IFCStartNetwork *arg1);
     class IFCStartNetwork * IFCStartNetwork();
     void Update();
@@ -80,7 +82,8 @@ class IFCStartNetwork : IFCBase { // sizeof=19
     unsigned int *__vbptr;
 };
 
-class IFCGeneratePlanet : IFCBase { // sizeof=19
+class IFCGeneratePlanet : public IFCBase { // sizeof=19
+public:
     class IFCGeneratePlanet * IFCGeneratePlanet(class IFCGeneratePlanet *arg1);
     class IFCGeneratePlanet * IFCGeneratePlanet();
     void Update();
@@ -100,7 +103,8 @@ struct TbTime { // sizeof=4
 
 typedef struct TbTime TbTime;
 
-class IFCJoiningPlayer : IFCBase { // sizeof=27
+class IFCJoiningPlayer : public IFCBase { // sizeof=27
+public:
     //IFCJoiningPlayer(IFCJoiningPlayer *arg1);
     //IFCJoiningPlayer();
     void Update();
@@ -113,9 +117,10 @@ class IFCJoiningPlayer : IFCBase { // sizeof=27
     ULONG joiningPlayers; // offset=4
 };
 
-class IFCWinLevel : IFCBase { // sizeof=19
-    class IFCWinLevel * IFCWinLevel(class IFCWinLevel *arg1);
-    class IFCWinLevel * IFCWinLevel();
+class IFCWinLevel : public IFCBase { // sizeof=19
+public:
+    //IFCWinLevel(IFCWinLevel *arg1);
+    //IFCWinLevel();
     void Update();
     void Draw();
     void PullOut();
@@ -124,7 +129,8 @@ class IFCWinLevel : IFCBase { // sizeof=19
     unsigned int *__vbptr;
 };
 
-class IFCLoseLevel : IFCBase { // sizeof=19
+class IFCLoseLevel : public IFCBase { // sizeof=19
+public:
     //IFCLoseLevel(IFCLoseLevel *arg1);
     //IFCLoseLevel();
     void Update();
@@ -135,7 +141,8 @@ class IFCLoseLevel : IFCBase { // sizeof=19
     unsigned int *__vbptr;
 };
 
-class IFCStatScreen : IFCBase { // sizeof=19
+class IFCStatScreen : public IFCBase { // sizeof=19
+public:
     //IFCStatScreen(IFCStatScreen *arg1);
     //IFCStatScreen();
     void Update();

@@ -26,7 +26,7 @@
 class Building;
 class MyGadget;
 
-class ClonePad : MainInterfacePad { // sizeof=175
+class ClonePad : public MainInterfacePad { // sizeof=175
     //ClonePad(ClonePad *arg1);
     void RemoveSpecialist(UBYTE arg1);
     void AddSpecialist(UBYTE arg1, UBYTE arg2);

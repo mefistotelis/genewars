@@ -28,7 +28,7 @@
 
 class BioGame;
 
-class Building : StaticThing { // sizeof=67
+class Building : public StaticThing { // sizeof=67
     Building * operator =(Building *bldg1);
     //Building(class Building *arg1);
     //Building();

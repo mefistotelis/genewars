@@ -26,7 +26,7 @@
 
 class BioGame;
 
-class Plant : StaticThing { // sizeof=49
+class Plant : public StaticThing { // sizeof=49
 public:
     Plant * operator=(Plant * plnt1);
     //Plant(Plant *arg1); -- generate default copy constructor

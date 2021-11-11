@@ -37,7 +37,7 @@ class Gene { // sizeof=2
     CreatureBaseSpecies recessive; // offset=1
 };
 
-class Creature : SmartMovingThing { // sizeof=124
+class Creature : public SmartMovingThing { // sizeof=124
     Creature * operator =(Creature *crtr1);
     //Creature(Creature *arg1); -- generate default copy constructor
     //Creature(); -- generate default no-args constructor

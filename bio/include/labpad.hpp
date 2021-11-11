@@ -25,7 +25,8 @@
 #include "mainpad.hpp"
 #include "creaturestat.hpp"
 
-class LabPad : MainInterfacePad { // sizeof=124
+class LabPad : public MainInterfacePad { // sizeof=124
+public:
     //LabPad(LabPad *arg1); -- generate default copy constructor
     BBOOL IsListScrolling();
     void KickOffNewSpeciesStuff();
