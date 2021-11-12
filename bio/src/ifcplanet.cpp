@@ -18,6 +18,46 @@
 /******************************************************************************/
 #include "ifcplanet.hpp"
 
+void TeamCircles::Init()
+{
+// code at 0001:0001f563
+}
+
+void TeamCircles::Update()
+{
+// code at 0001:0001f5c4
+}
+
+void TeamCircles::Draw()
+{
+// code at 0001:0001f612
+}
+
+void TeamCircles::StartStatic(UBYTE arg1, BBOOL arg2)
+{
+// code at 0001:0001f66c
+}
+
+void TeamCircles::StopStatic(UBYTE arg1)
+{
+// code at 0001:0001f7bc
+}
+
+void TeamCircles::DrawTeamCircle(UBYTE arg1)
+{
+// code at 0001:0001f7fd
+}
+
+void TeamCircles::SelectCircle(UBYTE arg1)
+{
+// code at 0001:0001fae8
+}
+
+void TeamCircles::Reset()
+{
+// code at 0001:0001ce98
+}
+
 IFCPlanetside::IFCPlanetside(MyGadget *gads)
     : winPad(actionPalette), creaturePad(actionPalette) // constructor params uncertain
 {

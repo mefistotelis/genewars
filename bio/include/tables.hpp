@@ -19,6 +19,11 @@
 #ifndef BIO_TABLES_HPP_
 #define BIO_TABLES_HPP_
 
+#include "bfdata.h"
+#include "myspr.h"
+#include "xy.hpp"
+#include "event.hpp"
+
 extern TbLoadFiles startup_files[];
 extern TbLoadFiles installedData[];
 extern char const * creatureAnbs[];

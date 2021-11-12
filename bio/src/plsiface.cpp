@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file printinfo.cpp
+/** @file plsiface.cpp
  *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
@@ -16,46 +16,26 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "printinfo.hpp"
+#include "plsiface.hpp"
 
-BBOOL TurnPrintInfo::Print()
+MyAnimBank * PlSpecLoader::Load(PlayerRace arg1, SpecialistClass arg2)
 {
-// code at 0001:0001e160
+// code at 0001:0007000c
 }
 
-/*InfoRequester::InfoRequester()
+char unsigned PlSpecLoader::Load(PlSpec *arg1)
 {
-// code at 0001:00024a06
-}*/
-
-void InfoRequester::DrawPic(SLONG arg1, SLONG arg2)
-{
-// code at 0001:0002518c
+// code at 0001:00070089
 }
 
-void InfoRequester::Create(char *arg1, char *arg2, char *arg3, SLONG arg4, InfoRequesterStyle arg5)
+void PlSpecLoader::Free( PlayerRace, SpecialistClass, MyAnimBank * )
 {
-// code at 0001:00024a3c
+// code at 0001:00070289
 }
 
-BBOOL InfoRequester::Update()
+void PlSpecLoader::Free(PlSpec *arg1)
 {
-// code at 0001:00024c85
-}
-
-void InfoRequester::Draw()
-{
-// code at 0001:00024cf4
-}
-
-void InfoRequester::Invalidate()
-{
-// code at 0001:00025e8c
-}
-
-char unsigned InfoRequester::Valid()
-{
-// code at 0001:00025e54
+// code at 0001:00070307
 }
 
 /******************************************************************************/

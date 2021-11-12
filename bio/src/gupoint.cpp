@@ -18,6 +18,41 @@
 /******************************************************************************/
 #include "gupoint.hpp"
 
+/*CompTarget::CompTarget()
+{
+// code at 0001:0003742c
+}*/
+
+char unsigned CompTarget::Valid()
+{
+// code at 0001:0003429c
+}
+
+void CompTarget::Invalidate()
+{
+// code at 0001:00034270
+}
+
+void CompTarget::NewTarget(SWORD arg1, TgtType arg2)
+{
+// code at 0001:00033bb3
+}
+
+void CompTarget::AssignCreatureToThis(SWORD arg1)
+{
+// code at 0001:00033be8
+}
+
+/*GPointFlags::GPointFlags()
+{
+// code at 0001:00033fd8
+}*/
+
+GPointFlags & GPointFlags::operator =(GPointFlags const &arg1)
+{
+// code at 0001:0003401f
+}
+
 /*GuardPoint::GuardPoint()
 {
 // code at 0001:0002ce3b

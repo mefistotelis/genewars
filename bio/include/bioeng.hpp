@@ -21,6 +21,7 @@
 
 #include "bftypes.h"
 #include "event.hpp"
+#include "eventstat.hpp"
 #include "player.hpp"
 #include "plspec.hpp"
 #include "plant.hpp"

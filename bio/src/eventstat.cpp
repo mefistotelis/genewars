@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file printinfo.cpp
+/** @file eventstat.cpp
  *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
@@ -16,46 +16,22 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "printinfo.hpp"
+#include "eventstat.hpp"
 
-BBOOL TurnPrintInfo::Print()
+char unsigned EventHelp::IsForceDisplay()
 {
-// code at 0001:0001e160
+// code at 0001:00093704
 }
 
-/*InfoRequester::InfoRequester()
+/*char unsigned EventHelp::__defarg()
 {
-// code at 0001:00024a06
+// code at 0001:00016b3c
 }*/
 
-void InfoRequester::DrawPic(SLONG arg1, SLONG arg2)
+void EventHelp::Log( EventHelpType, char unsigned )
 {
-// code at 0001:0002518c
+// code at 0001:0008e50e
 }
 
-void InfoRequester::Create(char *arg1, char *arg2, char *arg3, SLONG arg4, InfoRequesterStyle arg5)
-{
-// code at 0001:00024a3c
-}
-
-BBOOL InfoRequester::Update()
-{
-// code at 0001:00024c85
-}
-
-void InfoRequester::Draw()
-{
-// code at 0001:00024cf4
-}
-
-void InfoRequester::Invalidate()
-{
-// code at 0001:00025e8c
-}
-
-char unsigned InfoRequester::Valid()
-{
-// code at 0001:00025e54
-}
 
 /******************************************************************************/

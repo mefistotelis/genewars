@@ -19,6 +19,15 @@
 #ifndef BIO_FLICKER_HPP_
 #define BIO_FLICKER_HPP_
 
+#include "bftypes.h"
+
+class Point { // sizeof=12
+public:
+    void Set(SLONG arg1, SLONG arg2, SLONG arg3);
+    SLONG X; // offset=0
+    SLONG Y; // offset=4
+    SLONG Z; // offset=8
+};
 
 class FlickerStuff { // sizeof=193
 public:

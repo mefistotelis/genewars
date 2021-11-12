@@ -45,7 +45,6 @@ BIN  = bin/genewars$(EXEEXT)
 LIBS = bflibrary bfmydraw bfnet2 bfsound smack
 
 OBJS_TODO = \
-obj/misc.o \
 obj/tables.o \
 
 OBJS = \
@@ -53,6 +52,8 @@ obj/cvector.o \
 obj/nibble.o \
 obj/xy.o \
 obj/gridtile.o \
+obj/flicker.o \
+obj/stuff.o \
 obj/topo.o \
 obj/planet.o \
 obj/thebase.o \
@@ -95,7 +96,9 @@ obj/building.o \
 obj/smvthing.o \
 obj/drone.o \
 obj/event.o \
+obj/eventstat.o \
 obj/effect.o \
+obj/effectstat.o \
 obj/ethereal.o \
 obj/etherzone.o \
 obj/etherscope.o \
@@ -105,6 +108,7 @@ obj/player.o \
 obj/plspec.o \
 obj/gupoint.o \
 obj/computer.o \
+obj/misc.o \
 obj/data.o \
 obj/io.o \
 obj/draw.o \

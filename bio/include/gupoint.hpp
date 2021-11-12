@@ -53,7 +53,7 @@ public:
     //CompTarget(class CompTarget *arg1);
     void StopHuntingThis();
     void AssignCreatureToThis(SWORD arg1);
-    void NewTarget(SWORD arg1);
+    void NewTarget(SWORD arg1, TgtType arg2); // last arg uncertain
     void Update();
     void Invalidate();
     BBOOL Valid();

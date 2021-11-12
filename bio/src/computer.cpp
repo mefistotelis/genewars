@@ -18,6 +18,11 @@
 /******************************************************************************/
 #include "computer.hpp"
 
+/*CompDebug::CompDebug()
+{
+// code at 0001:000374ac
+}*/
+
 /*Computer::Computer()
 {
 // code at 0001:0002cc6b

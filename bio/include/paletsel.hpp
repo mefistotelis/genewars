@@ -48,7 +48,7 @@ public:
     void CreatePlantMenu();
     void CreateBuildingMenu();
     void Close();
-    void Create(Thing *tng1);
+    void Create(Thing *tng);
     void Init();
     //PaletteSelector(); -- generate default no-args constructor
     uint8_t open;

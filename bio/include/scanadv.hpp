@@ -188,9 +188,9 @@ public:
 class ChopTreeScan : public RangeScanner { // sizeof=41
 public:
     //ChopTreeScan(ChopTreeScan *arg1);
-    //void PerGrid();
+    void PerGrid();
     ChopTreeScan(XY arg1, ULONG arg2);
-    void (**__vfptr)();
+    //void (**__vfptr)();
 };
 
 class BestForestScan : public PolarRangeScan { // sizeof=62
@@ -346,13 +346,11 @@ public:
     UBYTE bestType; // offset=45
 };
 
-typedef class PlantScan PlantScan;
-
 class ClosestTree : public PolarRangeScan { // sizeof=63
 public:
     //ClosestTree(class ClosestTree *arg1);
     void PerGrid();
-    ClosestTree(XY arg1, ULONG arg2);
+    ClosestTree(XY &arg1, ULONG arg2);
     //void (**__vfptr)();
     Thing *closestPlant; // offset=51
     ULONG closestDistance; // offset=55
@@ -423,7 +421,7 @@ class LumberjackScan : public RangeScanner { // sizeof=57
 public:
     //LumberjackScan(LumberjackScan *arg1);
     void PerGrid();
-    //LumberjackScan(PlSpec arg1);
+    LumberjackScan(PlSpec &arg1);
     //void (**__vfptr)();
     SLONG dirBonus;
     SLONG bestValue;
@@ -436,7 +434,7 @@ public:
     //HarvestClearScan(HarvestClearScan *arg1);
     void Do();
     void PerGrid();
-    //HarvestClearScan(PlSpec arg1, BBOOL arg2, BBOOL arg3);
+    HarvestClearScan(PlSpec &arg1, BBOOL arg2, BBOOL arg3);
     //void (**__vfptr)();
     BBOOL clearFlags;
     BBOOL collect;
@@ -449,7 +447,7 @@ class FarmerPlantingScan : public WeightedRangeScanner { // sizeof=115
 public:
     //FarmerPlantingScan(FarmerPlantingScan *arg1);
     void PerGrid();
-    //FarmerPlantingScan(PlSpec arg1, BBOOL arg2);
+    FarmerPlantingScan(PlSpec &arg1, BBOOL arg2);
     //void (**__vfptr)();
     BBOOL rangeInvert;
     PSpecies pSpc;
@@ -460,7 +458,7 @@ class SurvivalScan : public RangeScanner { // sizeof=53
 public:
     //SurvivalScan(SurvivalScan *arg1);
     void PerGrid();
-    //SurvivalScan(PlSpec arg1, ULONG arg2);
+    SurvivalScan(PlSpec &arg1, ULONG arg2);
     //void (**__vfptr)();
     ULONG bestRange;
     PlSpec pls;
@@ -471,7 +469,7 @@ class StudyCreatureScan : public RangeScanner { // sizeof=53
 public:
     //StudyCreatureScan(StudyCreatureScan *arg1);
     void PerGrid();
-    //StudyCreatureScan(PlSpec arg1);
+    StudyCreatureScan(PlSpec &arg1);
     //void (**__vfptr)();
     ULONG bestRange;
     PlSpec scientist;
@@ -482,7 +480,7 @@ class HealCreatureScan : public RangeScanner { // sizeof=53
 public:
     //HealCreatureScan(HealCreatureScan *arg1);
     void PerGrid();
-    //HealCreatureScan(PlSpec arg1);
+    HealCreatureScan(PlSpec &arg1);
     //void (**__vfptr)();
     ULONG bestRange;
     PlSpec scientist;

@@ -19,6 +19,17 @@
 #ifndef BIO_MISC_HPP_
 #define BIO_MISC_HPP_
 
+#include "bftypes.h"
+#include "myspr.h"
+#include "xy.hpp"
+#include "flicker.hpp"
+
+class PlSpec;
+class Computer;
+class MyFrame;
+class Thing;
+class MyGadget;
+
 enum { // type=int8_t
     VIEWER_MODE_NORMAL = 0,
     VIEWER_MODE_HYPERSPACE,
@@ -895,7 +906,7 @@ enum { // type=int8_t
 
 
 
-class GunSpec { // sizeof=7
+struct GunSpec { // sizeof=7
     SWORD shotSpeed; // offset=0
     SWORD shotLifeInTurns; // offset=2
     SWORD reloadTime; // offset=4
@@ -941,14 +952,6 @@ enum { // type=int8_t
 
 
 
-
-class Point { // sizeof=12
-public:
-    void Set(SLONG arg1, SLONG arg2, SLONG arg3);
-    SLONG X; // offset=0
-    SLONG Y; // offset=4
-    SLONG Z; // offset=8
-};
 
 struct EqRange { // sizeof=2
     UBYTE base; // offset=0
@@ -1024,25 +1027,24 @@ enum { // type=int8_t
 
 
 
-struct GunSpec { // sizeof=7
-    SWORD shotSpeed; // offset=0
-    SWORD shotLifeInTurns; // offset=2
-    SWORD reloadTime; // offset=4
-    UBYTE shotEffect; // offset=6
+
+
+
+
+
+
+
+
+
+
+
+
+class BestBuilding { // sizeof=5
+public:
+    //BestBuilding(BestBuilding *arg1);
+    XY loc; // offset=0
+    UBYTE type; // offset=4
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 class BuildPriority { // sizeof=9
 public:
@@ -1061,14 +1063,6 @@ public:
     BBOOL newBaseThisTurn; // offset=8
 };
 
-class BestBuilding { // sizeof=5
-public:
-    //BestBuilding(BestBuilding *arg1);
-    XY loc; // offset=0
-    UBYTE type; // offset=4
-};
-
-typedef class BestBuilding BestBuilding;
 
 
 
@@ -1081,13 +1075,13 @@ struct BestScore { // sizeof=8
     SLONG type; // offset=4
 };
 
-extern char * stuffCreatures[];
-extern char * stuffBuildings[];
-extern char * gPTypes[];
+extern const char * stuffCreatures[];
+extern const char * stuffBuildings[];
+extern const char * gPTypes[];
 
 
-extern char * victCondTypes[];
-extern char * specFuncTxt[][7];
+extern const char * victCondTypes[];
+extern const char * specFuncTxt[][7];
 
 
 void BoundMmsToMySprite( MyMinSprite &, MySprite & );

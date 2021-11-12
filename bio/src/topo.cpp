@@ -18,6 +18,51 @@
 /******************************************************************************/
 #include "topo.hpp"
 
+void TopoGrid::Invalidate()
+{
+// code at 0001:00077df8
+}
+
+char unsigned TopoGrid::Valid()
+{
+// code at 0001:00077dbc
+}
+
+void TopoGrid::InterpolateAlts(ULONG arg1, ULONG arg2, ULONG arg3, ULONG arg4, ULONG arg5, ULONG arg6, ULONG arg7, ULONG arg8, SLONG arg9, BBOOL *func10[9], SBYTE arg11)
+{
+// code at 0001:0008e595
+}
+
+void TopoGrid::Fractalize(UBYTE arg1, SLONG arg2)
+{
+// code at 0001:0008ed2c
+}
+
+void TopoGrid::SetTimer()
+{
+// code at 0001:0008fa30
+}
+
+void TopoGrid::Create(XY arg1, UBYTE arg2, SLONG arg3, SLONG arg4)
+{
+// code at 0001:0008fb1a
+}
+
+void TopoGrid::Flat(XY arg1, UBYTE arg2, SLONG arg3, SLONG arg4)
+{
+// code at 0001:0008fc45
+}
+
+void TopoGrid::Crater(XY arg1, UBYTE arg2)
+{
+// code at 0001:0008fd64
+}
+
+char unsigned TopoGrid::Update()
+{
+// code at 0001:00090fe9
+}
+
 /*TopoMorpher::TopoMorpher()
 {
 // code at 0001:000912b0

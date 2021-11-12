@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file printinfo.cpp
+/** @file flicker.cpp
  *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
@@ -16,46 +16,31 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "printinfo.hpp"
+#include "flicker.hpp"
 
-BBOOL TurnPrintInfo::Print()
+void Point::Set(SLONG arg1, SLONG arg2, SLONG arg3)
 {
-// code at 0001:0001e160
+// code at 0001:00049cac
 }
 
-/*InfoRequester::InfoRequester()
+void FlickerStuff::Invalidate()
 {
-// code at 0001:00024a06
-}*/
-
-void InfoRequester::DrawPic(SLONG arg1, SLONG arg2)
-{
-// code at 0001:0002518c
+// code at 0001:000489fc
 }
 
-void InfoRequester::Create(char *arg1, char *arg2, char *arg3, SLONG arg4, InfoRequesterStyle arg5)
+char unsigned FlickerStuff::Valid()
 {
-// code at 0001:00024a3c
+// code at 0001:000489d0
 }
 
-BBOOL InfoRequester::Update()
+SBYTE FlickerHandler::Create()
 {
-// code at 0001:00024c85
+// code at 0001:00047a17
 }
 
-void InfoRequester::Draw()
+void FlickerHandler::Free(UBYTE arg1)
 {
-// code at 0001:00024cf4
-}
-
-void InfoRequester::Invalidate()
-{
-// code at 0001:00025e8c
-}
-
-char unsigned InfoRequester::Valid()
-{
-// code at 0001:00025e54
+// code at 0001:000489a0
 }
 
 /******************************************************************************/

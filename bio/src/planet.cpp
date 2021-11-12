@@ -83,6 +83,16 @@ char * Planet::GetMissionBriefingString(char *arg1, UBYTE arg2)
 // code at 0001:00059914
 }*/
 
+/*char unsigned Planet::__defarg()
+{
+// code at 0001:0000bba0
+}*/
+
+/*char unsigned Planet::__defarg()
+{
+// code at 0001:0000bb80
+}*/
+
 void GenerateBlockTable()
 {
 // code at 0001:000578f1
