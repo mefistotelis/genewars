@@ -28,6 +28,43 @@
 class MyGadget;
 class SessionInfo;
 
+enum { // type=int8_t
+    CUSTOM_NETWORK = 0,
+    CUSTOM_SLOT_1,
+    CUSTOM_SLOT_2,
+    CUSTOM_SLOT_3,
+    CUSTOM_SLOT_4,
+    CUSTOM_SLOT_5, // 5
+    CUSTOM_SLOT_6,
+    CUSTOM_SLOT_7,
+    CUSTOM_SLOT_8,
+    CUSTOM_SLOT_9,
+    CUSTOM_PREV_LEVEL, // 10
+    CUSTOM_NEXT_LEVEL,
+    CUSTOM_PREV_VICTORY,
+    CUSTOM_NEXT_VICTORY,
+    CUSTOM_ETHEREAL_1,
+    CUSTOM_ETHEREAL_2, // 15
+    CUSTOM_ETHEREAL_3,
+    CUSTOM_ETHEREAL_4,
+    CUSTOM_RACE_1,
+    CUSTOM_RACE_2,
+    CUSTOM_RACE_3, // 20
+    CUSTOM_RACE_4,
+    CUSTOM_GO,
+    CUSTOM_CREATE,
+    CUSTOM_JOIN,
+    CUSTOM_LEAVE, // 25
+    CUSTOM_CANCEL,
+};
+
+enum { // type=int8_t
+    CUSTOM_VICTORY_TOTHEDEATH = 0,
+    CUSTOM_VICTORY_RATING,
+    CUSTOM_VICTORY_GOOP,
+    CUSTOM_ENDVICTORY,
+};
+
 class IFCCustom : public IFCBase { // sizeof=192
 public:
     //IFCCustom(class IFCCustom *arg1);

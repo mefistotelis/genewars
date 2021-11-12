@@ -234,52 +234,6 @@ enum { // type=int8_t
 };
 
 enum { // type=int8_t
-    CUSTOM_VICTORY_TOTHEDEATH = 0,
-    CUSTOM_VICTORY_RATING,
-    CUSTOM_VICTORY_GOOP,
-    CUSTOM_ENDVICTORY,
-};
-
-enum { // type=int8_t
-    CUSTOM_NETWORK = 0,
-    CUSTOM_SLOT_1,
-    CUSTOM_SLOT_2,
-    CUSTOM_SLOT_3,
-    CUSTOM_SLOT_4,
-    CUSTOM_SLOT_5, // 5
-    CUSTOM_SLOT_6,
-    CUSTOM_SLOT_7,
-    CUSTOM_SLOT_8,
-    CUSTOM_SLOT_9,
-    CUSTOM_PREV_LEVEL, // 10
-    CUSTOM_NEXT_LEVEL,
-    CUSTOM_PREV_VICTORY,
-    CUSTOM_NEXT_VICTORY,
-    CUSTOM_ETHEREAL_1,
-    CUSTOM_ETHEREAL_2, // 15
-    CUSTOM_ETHEREAL_3,
-    CUSTOM_ETHEREAL_4,
-    CUSTOM_RACE_1,
-    CUSTOM_RACE_2,
-    CUSTOM_RACE_3, // 20
-    CUSTOM_RACE_4,
-    CUSTOM_GO,
-    CUSTOM_CREATE,
-    CUSTOM_JOIN,
-    CUSTOM_LEAVE, // 25
-    CUSTOM_CANCEL,
-};
-
-enum { // type=int8_t
-    STUFF_LEFT_FAN = 1,
-    STUFF_RIGHT_FAN,
-    STUFF_UP_FAN,
-    STUFF_BONUS_FUEL,
-    STUFF_BONUS_POINTS, // 5
-    STUFF_ASTEROID,
-};
-
-enum { // type=int8_t
     LANDER_INVALID = 0,
     LANDER_ACTIVE,
     LANDER_LANDED,
@@ -288,127 +242,9 @@ enum { // type=int8_t
 };
 
 enum { // type=int8_t
-    TITLE_SINGLE_PLAYER = 0,
-    TITLE_MULTI_PLAYER,
-    TITLE_QUIT,
-    TITLE_OPTIONS,
-};
-
-enum { // type=int8_t
     E_STUFF_MODE_NORMAL = 0,
     E_STUFF_MODE_EDIT,
     E_STUFF_MODE_NEW,
-};
-
-enum { // type=int8_t
-    EDIT_NAME = 0,
-    EDIT_CLASS_DOWN,
-    EDIT_CLASS_UP,
-    EDIT_SIZE_DOWN,
-    EDIT_SIZE_UP,
-    EDIT_ORBIT_DOWN, // 5
-    EDIT_ORBIT_UP,
-    EDIT_GRAVITY_DOWN,
-    EDIT_GRAVITY_UP,
-    EDIT_SOLAR_DOWN,
-    EDIT_SOLAR_UP, // 10
-    EDIT_TEMP_DOWN,
-    EDIT_TEMP_UP,
-    EDIT_SEA_LEVEL_DOWN,
-    EDIT_SEA_LEVEL_UP,
-    EDIT_FLAGS_1, // 15
-    EDIT_FLAGS_2,
-    EDIT_FLAGS_3,
-    EDIT_FLAGS_4,
-    EDIT_FLAGS_5,
-    EDIT_FLAGS_6, // 20
-    EDIT_FLAGS_7,
-    EDIT_FLAGS_8,
-    EDIT_PAYMENT_DOWN,
-    EDIT_PAYMENT_UP,
-    EDIT_SEED_DOWN, // 25
-    EDIT_SEED_UP,
-    EDIT_START_ALT_DOWN,
-    EDIT_START_ALT_UP,
-    EDIT_FRAC_DEV_DOWN,
-    EDIT_FRAC_DEV_UP, // 30
-    EDIT_WEATHER_DOWN,
-    EDIT_WEATHER_UP,
-    EDIT_TECTONICS_DOWN,
-    EDIT_TECTONICS_UP,
-    EDIT_GAS_1_DOWN, // 35
-    EDIT_GAS_1_UP,
-    EDIT_GAS_2_DOWN,
-    EDIT_GAS_2_UP,
-    EDIT_GAS_3_DOWN,
-    EDIT_GAS_3_UP, // 40
-    EDIT_GAS_4_DOWN,
-    EDIT_GAS_4_UP,
-    EDIT_GAS_5_DOWN,
-    EDIT_GAS_5_UP,
-    EDIT_GAS_6_DOWN, // 45
-    EDIT_GAS_6_UP,
-    EDIT_LEVEL_DOWN,
-    EDIT_LEVEL_UP,
-    EDIT_LEVEL_SAVE,
-    EDIT_LEVEL_LOAD, // 50
-    EDIT_LEVEL_GO,
-    EDIT_VICTORY_GOOP_DOWN,
-    EDIT_VICTORY_GOOP_UP,
-    EDIT_VICTORY_BUILDINGS_DOWN,
-    EDIT_VICTORY_BUILDINGS_UP, // 55
-    EDIT_VICTORY_BIOMASS_DOWN,
-    EDIT_VICTORY_BIOMASS_UP,
-    EDIT_PREV_CREATURE,
-    EDIT_NEXT_CREATURE,
-    EDIT_PREV_COMPUTER_ONE, // 60
-    EDIT_NEXT_COMPUTER_ONE,
-    EDIT_PREV_COMPUTER_TWO,
-    EDIT_NEXT_COMPUTER_TWO,
-    EDIT_PREV_COMPUTER_THREE,
-    EDIT_NEXT_COMPUTER_THREE, // 65
-    EDIT_BAD_DOWN,
-    EDIT_BAD_UP,
-    EDIT_VISIT_UP,
-    EDIT_VISIT_DOWN,
-    EDIT_LENGTH_UP, // 70
-    EDIT_LENGTH_DOWN,
-    EDIT_CREATURES_UP,
-    EDIT_CREATURES_DOWN,
-    EDIT_STRICTNESS_UP,
-    EDIT_STRICTNESS_DOWN, // 75
-    EDIT_STUFF_TYPE_UP,
-    EDIT_STUFF_TYPE_DOWN,
-    EDIT_STUFF_SPECIES_UP,
-    EDIT_STUFF_SPECIES_DOWN,
-    EDIT_STUFF_SIZE_UP, // 80
-    EDIT_STUFF_SIZE_DOWN,
-    EDIT_STUFF_SCORE_UP,
-    EDIT_STUFF_SCORE_DOWN,
-    EDIT_STUFF_EDIT,
-    EDIT_STUFF_NEW, // 85
-    EDIT_STUFF_PLS,
-    EDIT_COMP_START_1_DOWN,
-    EDIT_COMP_START_2_DOWN,
-    EDIT_COMP_START_3_DOWN,
-    EDIT_COMP_START_1_UP, // 90
-    EDIT_COMP_START_2_UP,
-    EDIT_COMP_START_3_UP,
-    EDIT_ARCHITECT_UP,
-    EDIT_FARMER_UP,
-    EDIT_SCIENTIST_UP, // 95
-    EDIT_SHEPHERD_UP,
-    EDIT_ARCHITECT_DOWN,
-    EDIT_FARMER_DOWN,
-    EDIT_SCIENTIST_DOWN,
-    EDIT_SHEPHERD_DOWN, // 100
-    EDIT_SPECIALIST_FUNCTIONS_ALLOWED,
-    EDIT_SPECIALIST_TYPES_ALLOWED,
-    EDIT_RESCUED_ON_TURN_UP,
-    EDIT_RESCUED_ON_TURN_DOWN,
-    EDIT_VICTORY_FLAGS, // 105
-    EDIT_CREATURE_PLAYER_UP,
-    EDIT_CREATURE_PLAYER_DOWN,
 };
 
 enum { // type=int8_t
@@ -1057,28 +893,7 @@ enum { // type=int8_t
     OPTIONS_RESUME,
 };
 
-typedef void *CALLBACK;
 
-typedef uint32_t BOOL;
-
-typedef uint32_t clock_t;
-
-typedef void (*onexit_t)();
-
-typedef unsigned int ino_t;
-
-typedef unsigned int size_t;
-
-typedef uint32_t time_t;
-
-typedef uint16_t wchar_t;
-
-
-class EventHelp { // sizeof=150
-    BBOOL IsForceDisplay();
-    void Log(EventHelpType arg1, BBOOL arg2);
-    BBOOL eventLog[149]; // offset=0
-};
 
 class GunSpec { // sizeof=7
     SWORD shotSpeed; // offset=0
@@ -1095,37 +910,6 @@ struct SinglePoint { // sizeof=7
 };
 
 typedef struct SinglePoint SinglePoint;
-
-class Recording { // sizeof=6
-    void Decode();
-    void Encode();
-    XY mouse; // offset=0
-    uint8_t keyDown; // offset=4
-    UBYTE key; // offset=5
-    uint8_t alt; // offset=6
-    uint8_t ctrl; // offset=7
-    uint8_t shift; // offset=8
-    uint8_t mRight; // offset=9
-    uint8_t mLeft; // offset=10
-};
-
-typedef class Recording Recording;
-
-class Recorder { // sizeof=17
-    void Playback();
-    void Store();
-    void ReadBuffer();
-    void Flush();
-    void Close();
-    BBOOL Init(char *arg1, BBOOL arg2);
-    Recording *records; // offset=0
-    ULONG activeRecord; // offset=4
-    TbFileHandle fileHandle; // offset=8
-    BBOOL playback; // offset=12
-    SLONG bufferSize; // offset=13
-};
-
-typedef struct MyGadget MyGadget;
 
 
 
@@ -1156,16 +940,10 @@ enum { // type=int8_t
 
 
 
-struct BuildingStage { // sizeof=1
-    uint8_t player; // offset=0
-    uint8_t stage; // offset=1
-};
-
-typedef struct BuildingStage BuildingStage;
-
 
 
 class Point { // sizeof=12
+public:
     void Set(SLONG arg1, SLONG arg2, SLONG arg3);
     SLONG X; // offset=0
     SLONG Y; // offset=4
@@ -1175,21 +953,17 @@ class Point { // sizeof=12
 typedef class Point Point;
 
 
-class EqRange { // sizeof=2
+struct EqRange { // sizeof=2
     UBYTE base; // offset=0
     UBYTE range; // offset=1
 };
 
-typedef class EqRange EqRange;
-
-class SpecRaceData { // sizeof=16
+struct SpecRaceData { // sizeof=16
     SLONG speed; // offset=0
     SLONG discoverRange; // offset=4
     SLONG maxAbility; // offset=8
     SLONG maxStrength; // offset=12
 };
-
-typedef class SpecRaceData SpecRaceData;
 
 struct Corners { // sizeof=4
     SBYTE Cnw; // offset=0
@@ -1211,6 +985,67 @@ typedef struct VMod VMod;
 
 
 
+enum { // type=int8_t
+    SCIE_SPR_STUDY = 13,
+    SCIE_SPR_HEAL,
+    SCIE_SPR_SHOOT, // 15
+};
+
+enum { // type=int8_t
+    SHEP_SPR_HERD = 13,
+    SHEP_SPR_SHOOT,
+    SHEP_SPR_SHOOTSTASIS = 22,
+};
+
+enum { // type=int8_t
+    FARM_SPR_HARVEST = 13,
+    FARM_SPR_PLANT,
+    FARM_SPR_CHOP, // 15
+};
+
+enum { // type=int8_t
+    ARCH_SPR_FOUNDATION = 13,
+    ARCH_SPR_PELLET,
+    ARCH_SPR_BUILD, // 15
+    ARCH_SPR_DRONE,
+    ARCH_SPR_BOOM,
+};
+
+enum { // type=int8_t
+    FNDERR_TOOCLOSE = 1,
+    FNDERR_WATER,
+    FNDERR_TREES,
+    FNDERR_TIRED,
+};
+
+
+enum { // type=int8_t
+    CL_BLACK = 0,
+    CL_WHITE,
+    CL_RED,
+    CL_GREEN,
+    CL_BLUE,
+    CL_YELLOW, // 5
+    CL_CYAN,
+    CL_MAGENTA,
+};
+
+
+
+
+struct GunSpec { // sizeof=7
+    SWORD shotSpeed; // offset=0
+    SWORD shotLifeInTurns; // offset=2
+    SWORD reloadTime; // offset=4
+    UBYTE shotEffect; // offset=6
+};
+
+
+
+
+
+
+
 
 
 
@@ -1219,14 +1054,14 @@ typedef struct VMod VMod;
 
 
 class BuildPriority { // sizeof=9
-    class BuildPriority * BuildPriority(class BuildPriority *arg1);
+    //BuildPriority(class BuildPriority *arg1);
     BestBuilding FindBestLoc(UBYTE arg1, UBYTE arg2);
     UBYTE Build(PlSpec *arg1, UBYTE arg2, UBYTE arg3);
     UBYTE BuildingPersonality(PlSpec *arg1, SBYTE arg2);
     UBYTE Basic(PlSpec *arg1);
     UBYTE Emergency(PlSpec *arg1);
     UBYTE BuildHighestPri(PlSpec *arg1);
-    class BuildPriority * BuildPriority();
+    //BuildPriority();
     Computer *computer; // offset=0
     UBYTE type; // offset=4
     UBYTE idx; // offset=5

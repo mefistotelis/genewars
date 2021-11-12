@@ -47,7 +47,6 @@ LIBS = bflibrary bfmydraw bfnet2 bfsound smack
 OBJS_TODO = \
 obj/data.o \
 obj/misc.o \
-obj/optimize.o \
 obj/tables.o \
 
 OBJS = \
@@ -60,6 +59,7 @@ obj/planet.o \
 obj/thebase.o \
 obj/theship.o \
 obj/packets.o \
+obj/record.o \
 obj/paletsel.o \
 obj/printinfo.o \
 obj/mainpad.o \
@@ -109,6 +109,7 @@ obj/computer.o \
 obj/io.o \
 obj/draw.o \
 obj/screenlock.o \
+obj/optimize.o \
 obj/sound.o \
 obj/setup.o \
 obj/engine.o \

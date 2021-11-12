@@ -1,8 +1,8 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file optimize.hpp
- *     Header file for optimize.cpp.
+/** @file creaturestat.cpp
+ *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
  * @par Comment:
@@ -16,21 +16,22 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#ifndef BIO_OPTIMIZE_HPP_
-#define BIO_OPTIMIZE_HPP_
+#include "creaturestat.hpp"
 
-#include "bftypes.h"
-#include "xy.hpp"
+/*CreatureInfo::CreatureInfo()
+{
+// code at 0001:0005e7c8
+}*/
 
-void BlastScreens();
-void ZeroVRAM();
-void FragCopyBScreenToWScreen( XY, XY );
-void FragCopyWScreenToVRAM( XY, XY );
-void CopyRegion( short, short, short, short, short, short );
-void RefreshFromBScreenNormal();
-void RefreshToVRAM();
-void copy_svga_box( short unsigned, short unsigned, short unsigned, short unsigned );
-void SwapScreensBio();
+/*CreatureInfo::~CreatureInfo()
+{
+// code at 0001:0005e574
+}*/
 
-#endif // BIO_OPTIMIZE_HPP_
+void CreatureInfo::Invalidate()
+{
+// code at 0001:00037458
+}
+
+
 /******************************************************************************/

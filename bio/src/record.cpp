@@ -1,8 +1,8 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file optimize.hpp
- *     Header file for optimize.cpp.
+/** @file record.cpp
+ *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
  * @par Comment:
@@ -16,21 +16,48 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#ifndef BIO_OPTIMIZE_HPP_
-#define BIO_OPTIMIZE_HPP_
+#include "record.hpp"
 
-#include "bftypes.h"
-#include "xy.hpp"
+void Recording::Encode()
+{
+// code at 0001:0008dc53
+}
 
-void BlastScreens();
-void ZeroVRAM();
-void FragCopyBScreenToWScreen( XY, XY );
-void FragCopyWScreenToVRAM( XY, XY );
-void CopyRegion( short, short, short, short, short, short );
-void RefreshFromBScreenNormal();
-void RefreshToVRAM();
-void copy_svga_box( short unsigned, short unsigned, short unsigned, short unsigned );
-void SwapScreensBio();
+void Recording::Decode()
+{
+// code at 0001:0008de17
+}
 
-#endif // BIO_OPTIMIZE_HPP_
+BBOOL Recorder::Init(char *arg1, BBOOL arg2)
+{
+// code at 0001:0008df26
+}
+
+void Recorder::Close()
+{
+// code at 0001:0008e065
+}
+
+void Recorder::Flush()
+{
+// code at 0001:0008e0a5
+}
+
+void Recorder::ReadBuffer()
+{
+// code at 0001:0008e0f7
+}
+
+void Recorder::Store()
+{
+// code at 0001:0008e138
+}
+
+void Recorder::Playback()
+{
+// code at 0001:0008e17e
+}
+
+
+
 /******************************************************************************/

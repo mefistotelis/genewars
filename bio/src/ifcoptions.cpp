@@ -18,6 +18,11 @@
 /******************************************************************************/
 #include "ifcoptions.hpp"
 
+IFCOptions::IFCOptions(MyGadget *gad)
+{
+// code at 0001:0005e5bc
+}
+
 void IFCOptions::PlugIn()
 {
 // code at 0001:00018358

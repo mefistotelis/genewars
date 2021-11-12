@@ -26,6 +26,13 @@
 
 class MyGadget;
 
+enum { // type=int8_t
+    TITLE_SINGLE_PLAYER = 0,
+    TITLE_MULTI_PLAYER,
+    TITLE_QUIT,
+    TITLE_OPTIONS,
+};
+
 struct LanderStuff { // sizeof=5
     XY loc; // offset=0
     UBYTE type; // offset=4

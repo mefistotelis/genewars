@@ -19,6 +19,18 @@
 #ifndef BIO_STUFF_HPP_
 #define BIO_STUFF_HPP_
 
+#include "bftypes.h"
+#include "xy.hpp"
+
+enum { // type=int8_t
+    STUFF_LEFT_FAN = 1,
+    STUFF_RIGHT_FAN,
+    STUFF_UP_FAN,
+    STUFF_BONUS_FUEL,
+    STUFF_BONUS_POINTS, // 5
+    STUFF_ASTEROID,
+};
+
 struct BuildingStage { // sizeof=1
     uint8_t player; // offset=0
     uint8_t stage; // offset=1

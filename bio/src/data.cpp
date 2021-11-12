@@ -18,39 +18,6 @@
 /******************************************************************************/
 #include "data.hpp"
 
-void Point::Set( long, long, long )
-{
-// code at 0001:00049cac
-}
-
-char signed FlickerHandler::Create()
-{
-// code at 0001:00047a17
-}
-
-
-near GEngine::GEngine()
-{
-// code at 0001:0005ea30
-}
-
-near CreatureInfo::CreatureInfo()
-{
-// code at 0001:0005e7c8
-}
-
-near CreatureInfo::~CreatureInfo()
-{
-// code at 0001:0005e574
-}
-
-IFCOptions::IFCOptions( MyGadget * )
-{
-// code at 0001:0005e5bc
-}
-
-
-
 char unsigned * block_ptrs[];
 
 char unsigned * block_mem;

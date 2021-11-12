@@ -28,46 +28,6 @@ char unsigned EventHelp::__defarg()
 // code at 0001:00016b3c
 }
 
-void Recording::Encode()
-{
-// code at 0001:0008dc53
-}
-
-void Recording::Decode()
-{
-// code at 0001:0008de17
-}
-
-char unsigned Recorder::Init( char *, char unsigned )
-{
-// code at 0001:0008df26
-}
-
-void Recorder::Close()
-{
-// code at 0001:0008e065
-}
-
-void Recorder::Flush()
-{
-// code at 0001:0008e0a5
-}
-
-void Recorder::ReadBuffer()
-{
-// code at 0001:0008e0f7
-}
-
-void Recorder::Store()
-{
-// code at 0001:0008e138
-}
-
-void Recorder::Playback()
-{
-// code at 0001:0008e17e
-}
-
 void HelpDraw::Draw( MyGadget *, char * )
 {
 // code at 0001:0008e1f8
@@ -448,11 +408,6 @@ near BuildPriority::BuildPriority()
 // code at 0001:00037480
 }
 
-void CreatureInfo::Invalidate()
-{
-// code at 0001:00037458
-}
-
 near CompTarget::CompTarget()
 {
 // code at 0001:0003742c
@@ -732,6 +687,18 @@ void ClosestTargets::PerGrid()
 {
 // code at 0001:00028fd9
 }
+
+
+void Point::Set( long, long, long )
+{
+// code at 0001:00049cac
+}
+
+char signed FlickerHandler::Create()
+{
+// code at 0001:00047a17
+}
+
 
 
 char * stuffCreatures[];
