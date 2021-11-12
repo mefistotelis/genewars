@@ -23,7 +23,6 @@ void start_game()
 // code at 0001:00060954
 }
 
-
 void setup_game()
 {
 // code at 0001:00060db5
@@ -44,6 +43,54 @@ void setup_strings( char *, char * *, long )
 // code at 0001:00061250
 }
 
+char * Config::InsertInstallDir(char *arg1)
+{
+// code at 0001:0001906c
+}
 
+BBOOL Config::IsCurrentDriveCDROM()
+{
+// code at 0001:0001902c
+}
+
+void Config::SetToCDROM()
+{
+// code at 0001:0000b7b4
+}
+
+void Config::SetToInstallDrive()
+{
+// code at 0001:0000b78c
+}
+
+void Config::CDToSegment( ConfigInstall )
+{
+// code at 0001:0000b74c
+}
+
+char * Config::InstalledFile(char *arg1)
+{
+// code at 0001:000036ac
+}
+
+BBOOL Config::GetConfigs()
+{
+// code at 0001:00089cbf
+}
+
+void SoundConfig::Read(char *arg1)
+{
+// code at 0001:00089bae
+}
+
+void SoundConfig::Write(char *arg1)
+{
+// code at 0001:00089bfa
+}
+
+void SoundConfig::Set()
+{
+// code at 0001:00089c5e
+}
 
 /******************************************************************************/

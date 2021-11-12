@@ -19,6 +19,8 @@
 #ifndef BIO_SETUP_HPP_
 #define BIO_SETUP_HPP_
 
+#include "bftypes.h"
+
 enum ConfigInstall { // type=int8_t
     CFI_INTRO = 0,
     CFI_ANIMS,
@@ -26,6 +28,15 @@ enum ConfigInstall { // type=int8_t
     CFI_LEVELS,
     CFI_DATA,
     MAX_CFI, // 5
+};
+
+enum ConfigLanguage { // type=int8_t
+    CFL_ENGLISH = 0,
+    CFL_FRENCH,
+    CFL_GERMAN,
+    CFL_SPANISH,
+    CFL_SWEDISH,
+    CFL_ITALIAN, // 5
 };
 
 struct AudioInitOptions { // sizeof=30
@@ -48,6 +59,17 @@ struct AudioInitOptions { // sizeof=30
     UBYTE InitRedbookAudio; // offset=29
 };
 
+class SoundConfig { // sizeof=10
+public:
+    void Set();
+    void Write(char *arg1);
+    void Read(char *arg1);
+    SLONG sfxVolume; // offset=0
+    SLONG musicVolume; // offset=4
+    BBOOL sfxOn; // offset=8
+    BBOOL musicOn; // offset=9
+};
+
 class Config { // sizeof=184
 public:
     void CDToSegment(ConfigInstall arg1);
@@ -65,17 +87,6 @@ public:
     unsigned int cdDriveNum;
     ConfigLanguage language; // offset=0
     SoundConfig sound; // offset=1
-};
-
-class SoundConfig { // sizeof=10
-public:
-    void Set();
-    void Write(char *arg1);
-    void Read(char *arg1);
-    SLONG sfxVolume; // offset=0
-    SLONG musicVolume; // offset=4
-    BBOOL sfxOn; // offset=8
-    BBOOL musicOn; // offset=9
 };
 
 void start_game();

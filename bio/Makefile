@@ -45,18 +45,10 @@ BIN  = bin/genewars$(EXEEXT)
 LIBS = bflibrary bfmydraw bfnet2 bfsound smack
 
 OBJS_TODO = \
-obj/ceditor.o \
-obj/clone.o \
 obj/data.o \
-obj/editor.o \
-obj/lab.o \
 obj/misc.o \
 obj/optimize.o \
-obj/options.o \
-\
-obj/setup.o \
 obj/tables.o \
-
 
 OBJS = \
 obj/cvector.o \
@@ -78,6 +70,7 @@ obj/pads.o \
 obj/spec.o \
 obj/map.o \
 obj/mapdisp.o \
+obj/level.o \
 obj/comppersonal.o \
 obj/iface.o \
 obj/ifccustom.o \
@@ -92,7 +85,9 @@ obj/scan.o \
 obj/scanadv.o \
 obj/scanaware.o \
 obj/scanether.o \
-obj/probetng.o \
+obj/scanbldsite.o \
+obj/pointscan.o \
+obj/probe.o \
 obj/thingidx.o \
 obj/thing.o \
 obj/mvthing.o \
@@ -113,7 +108,9 @@ obj/gupoint.o \
 obj/computer.o \
 obj/io.o \
 obj/draw.o \
+obj/screenlock.o \
 obj/sound.o \
+obj/setup.o \
 obj/engine.o \
 obj/control.o \
 obj/bioeng.o \

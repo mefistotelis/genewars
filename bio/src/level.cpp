@@ -1,8 +1,8 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file editor.hpp
- *     Header file for editor.cpp.
+/** @file level.cpp
+ *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
  * @par Comment:
@@ -16,33 +16,21 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#ifndef BIO_EDITOR_HPP_
-#define BIO_EDITOR_HPP_
+#include "level.hpp"
 
-#include "myspr.h"
+char unsigned LevelHeader::SaveHeader( char unsigned, char unsigned )
+{
+// code at 0001:0000b19d
+}
 
+void LevelHeader::TranslatePlanet()
+{
+// code at 0001:0000b23b
+}
 
-enum ConfigLanguage { // type=int8_t
-    CFL_ENGLISH = 0,
-    CFL_FRENCH,
-    CFL_GERMAN,
-    CFL_SPANISH,
-    CFL_SWEDISH,
-    CFL_ITALIAN, // 5
-};
+char unsigned LevelHeader::LoadHeader( char unsigned, char unsigned )
+{
+// code at 0001:0000b255
+}
 
-class ScreenLockHandler { // sizeof=2
-public:
-    SLONG UnlockForSwap();
-    SLONG LockForSwap();
-    SLONG NestUnlock();
-    SLONG NestLock();
-    BBOOL screenLocked;
-    SBYTE nestScreenLockLevel;
-};
-
-extern char * victCondTypes[];
-extern char * specFuncTxt[][7];
-
-#endif // BIO_EDITOR_HPP_
 /******************************************************************************/

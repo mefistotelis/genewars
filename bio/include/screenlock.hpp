@@ -1,8 +1,8 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file options.cpp
- *     Implementation of related functions.
+/** @file screenlock.hpp
+ *     Header file for screenlock.cpp.
  * @par Purpose:
  *     Unknown.
  * @par Comment:
@@ -16,16 +16,20 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "options.hpp"
+#ifndef BIO_SCREENLOCK_HPP_
+#define BIO_SCREENLOCK_HPP_
 
-char * Config::InsertInstallDir( char * )
-{
-// code at 0001:0001906c
-}
+#include "bftypes.h"
 
-char unsigned Config::IsCurrentDriveCDROM()
-{
-// code at 0001:0001902c
-}
+class ScreenLockHandler { // sizeof=2
+public:
+    SLONG UnlockForSwap();
+    SLONG LockForSwap();
+    SLONG NestUnlock();
+    SLONG NestLock();
+    BBOOL screenLocked;
+    SBYTE nestScreenLockLevel;
+};
 
+#endif // BIO_SCREENLOCK_HPP_
 /******************************************************************************/

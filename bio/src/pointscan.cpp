@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file comppersonal.cpp
+/** @file pointscan.cpp
  *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
@@ -16,27 +16,43 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "comppersonal.hpp"
+#include "pointscan.hpp"
 
-/*Trigger::Trigger()
+PointSample::PointSample(XY arg1, ULONG arg2, ULONG arg3)
 {
-// code at 0001:0002cea1
-}*/
-
-BBOOL Trigger::Valid()
-{
-// code at 0001:00034234
+// code at 0001:00036ab4
 }
 
-BBOOL Trigger::Update(UBYTE arg1)
+PointSample::PointSample(XY arg1, ULONG arg2, UBYTE arg3)
 {
-// code at 0001:00033d80
+// code at 0001:000369fc
 }
 
-/*Personality::Personality()
+void PointSample::Do()
 {
-// code at 0001:0002cdd4
-}*/
+// code at 0001:00028485
+}
 
+NewBaseScan::NewBaseScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4)
+    : PointSample(arg1, arg2, arg3) // verify params
+{
+// code at 0001:00036410
+}
+
+void NewBaseScan::PerGrid()
+{
+// code at 0001:00028625
+}
+
+BestForestSample::BestForestSample(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4, ULONG arg5)
+    : PointSample(arg1, arg2, arg3) // verify params
+{
+// code at 0001:00036998
+}
+
+void BestForestSample::PerGrid()
+{
+// code at 0001:00028a6c
+}
 
 /******************************************************************************/

@@ -1258,6 +1258,10 @@ extern char * stuffBuildings[];
 extern char * gPTypes[];
 
 
+extern char * victCondTypes[];
+extern char * specFuncTxt[][7];
+
+
 void BoundMmsToMySprite( MyMinSprite &, MySprite & );
 
 

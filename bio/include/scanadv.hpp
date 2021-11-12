@@ -26,6 +26,8 @@
 #include "effect.hpp"
 #include "building.hpp"
 #include "creature.hpp"
+#include "plspec.hpp"
+#include "research.hpp"
 
 class PassableTerrainScan : public PolarRangeScan { // sizeof=60
 public:
@@ -160,20 +162,6 @@ public:
     Plant *closestPerSector[15];
 };
 
-class FindHighestBuildingSite : public RangeScanner { // sizeof=59
-public:
-    //FindHighestBuildingSite(FindHighestBuildingSite *arg1);
-    BBOOL FoundASite();
-    void PerGrid();
-    FindHighestBuildingSite(XY arg1, ULONG arg2, UBYTE arg3);
-    //void (**__vfptr)();
-    UBYTE foundationSize;
-    SLONG highestPoint;
-    XY bestPos; // offset=41
-    UWORD errors[3]; // offset=45
-    UBYTE error_type; // offset=53
-};
-
 class TestSlice : public PolarSliceScan { // sizeof=65
 public:
     //TestSlice(TestSlice *arg1);
@@ -251,17 +239,6 @@ public:
     UBYTE bestType; // offset=55
 };
 
-class NearestBuildingSite : public PolarEverythingScan { // sizeof=53
-public:
-    //NearestBuildingSite(class NearestBuildingSite *arg1);
-    void PerGrid();
-    NearestBuildingSite(XY arg1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5);
-    //void (**__vfptr)();
-    UBYTE foundationSize;
-    XY bestPos; // offset=47
-    UBYTE type; // offset=51
-};
-
 class OldPowerTally : public PolarRangeScan { // sizeof=57
 public:
     //OldPowerTally(OldPowerTally *arg1);
@@ -299,18 +276,6 @@ public:
     UBYTE stage; // offset=55
 };
 
-class FindLowestBuildingSite : public PolarEverythingScan { // sizeof=64
-public:
-    //FindLowestBuildingSite(FindLowestBuildingSite *arg1);
-    void PerGrid();
-    FindLowestBuildingSite(XY arg1, ULONG arg2, UBYTE arg3);
-    //void (**__vfptr)();
-    SLONG lowestPoint;
-    XY bestPos; // offset=47
-    UWORD errors[3]; // offset=51
-    UBYTE error_type; // offset=59
-};
-
 class ForestScan : public RangeScanner { // sizeof=109
 public:
     //ForestScan(ForestScan *arg1);
@@ -335,17 +300,6 @@ public:
     SWORD maxHealth;
     UBYTE numOfTrees;
     XY bestPos; // offset=51
-};
-
-class NearestPoweredBuildingSite : public PolarRangeScan { // sizeof=60
-public:
-    //NearestPoweredBuildingSite(NearestPoweredBuildingSite *arg1);
-    void PerGrid();
-    NearestPoweredBuildingSite(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
-    //void (**__vfptr)();
-    UBYTE foundationSize;
-    XY bestPos; // offset=51
-    TheBase *b; // offset=55
 };
 
 class NearestLand : public PolarRangeScan { // sizeof=55
@@ -463,6 +417,76 @@ public:
     XY loc; // offset=126
     UBYTE player; // offset=130
     BBOOL defend; // offset=131
+};
+
+class LumberjackScan : public RangeScanner { // sizeof=57
+public:
+    //LumberjackScan(LumberjackScan *arg1);
+    void PerGrid();
+    //LumberjackScan(PlSpec arg1);
+    //void (**__vfptr)();
+    SLONG dirBonus;
+    SLONG bestValue;
+    PlSpec pls;
+    Plant *tgtPlant; // offset=41
+};
+
+class HarvestClearScan : public RangeScanner { // sizeof=55
+public:
+    //HarvestClearScan(HarvestClearScan *arg1);
+    void Do();
+    void PerGrid();
+    //HarvestClearScan(PlSpec arg1, BBOOL arg2, BBOOL arg3);
+    //void (**__vfptr)();
+    BBOOL clearFlags;
+    BBOOL collect;
+    ResearchGrid rGrid;
+    PlSpec pls;
+    ULONG seedsGot; // offset=41
+};
+
+class FarmerPlantingScan : public WeightedRangeScanner { // sizeof=115
+public:
+    //FarmerPlantingScan(FarmerPlantingScan *arg1);
+    void PerGrid();
+    //FarmerPlantingScan(PlSpec arg1, BBOOL arg2);
+    //void (**__vfptr)();
+    BBOOL rangeInvert;
+    PSpecies pSpc;
+    PlSpec pls;
+};
+
+class SurvivalScan : public RangeScanner { // sizeof=53
+public:
+    //SurvivalScan(SurvivalScan *arg1);
+    void PerGrid();
+    //SurvivalScan(PlSpec arg1, ULONG arg2);
+    //void (**__vfptr)();
+    ULONG bestRange;
+    PlSpec pls;
+    Creature *tgtCreature; // offset=41
+};
+
+class StudyCreatureScan : public RangeScanner { // sizeof=53
+public:
+    //StudyCreatureScan(StudyCreatureScan *arg1);
+    void PerGrid();
+    //StudyCreatureScan(PlSpec arg1);
+    //void (**__vfptr)();
+    ULONG bestRange;
+    PlSpec scientist;
+    Creature *tgtCreature; // offset=41
+};
+
+class HealCreatureScan : public RangeScanner { // sizeof=53
+public:
+    //HealCreatureScan(HealCreatureScan *arg1);
+    void PerGrid();
+    //HealCreatureScan(PlSpec arg1);
+    //void (**__vfptr)();
+    ULONG bestRange;
+    PlSpec scientist;
+    Creature *tgtCreature; // offset=41
 };
 
 #endif // SCANADV_HPP_

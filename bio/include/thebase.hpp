@@ -27,6 +27,7 @@ class Building;
 class BuilderIFC;
 
 class PowerGraph { // sizeof=45
+public:
     UBYTE PowerToColor(SWORD arg1);
     void Draw(SLONG arg1, SLONG arg2);
     void Update(SWORD arg1, SWORD arg2, SWORD arg3);

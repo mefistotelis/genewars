@@ -18,11 +18,6 @@
 /******************************************************************************/
 #include "misc.hpp"
 
-char * Config::InstalledFile( char * )
-{
-// code at 0001:000036ac
-}
-
 char unsigned EventHelp::IsForceDisplay()
 {
 // code at 0001:00093704
@@ -31,26 +26,6 @@ char unsigned EventHelp::IsForceDisplay()
 char unsigned EventHelp::__defarg()
 {
 // code at 0001:00016b3c
-}
-
-void SoundConfig::Read( char * )
-{
-// code at 0001:00089bae
-}
-
-void SoundConfig::Write( char * )
-{
-// code at 0001:00089bfa
-}
-
-void SoundConfig::Set()
-{
-// code at 0001:00089c5e
-}
-
-char unsigned Config::GetConfigs()
-{
-// code at 0001:00089cbf
 }
 
 void Recording::Encode()
@@ -543,11 +518,6 @@ near GPointFlags::GPointFlags()
 // code at 0001:00033fd8
 }
 
-near FindHighestBuildingSite::FindHighestBuildingSite( XY, long unsigned, char unsigned )
-{
-// code at 0001:00036f98
-}
-
 near TestSlice::TestSlice( XY, long unsigned, char unsigned, char unsigned )
 {
 // code at 0001:00036f40
@@ -593,16 +563,6 @@ near PowerScan::PowerScan( XY, long unsigned, char unsigned )
 // code at 0001:00036d08
 }
 
-char unsigned NearestBuildingSite::__defarg()
-{
-// code at 0001:00036ce8
-}
-
-near NearestBuildingSite::NearestBuildingSite( XY, long unsigned, long unsigned, char unsigned, char unsigned )
-{
-// code at 0001:00036c7c
-}
-
 near OldPowerTally::OldPowerTally( XY, long unsigned, char unsigned )
 {
 // code at 0001:00036c1c
@@ -616,31 +576,6 @@ near NewPowerTally::NewPowerTally( XY, long unsigned )
 near SatisfyBuildings::SatisfyBuildings( XY, long unsigned, char unsigned, char unsigned, char unsigned )
 {
 // code at 0001:00036b4c
-}
-
-near PointSample::PointSample( XY, long unsigned, long unsigned )
-{
-// code at 0001:00036ab4
-}
-
-near PointSample::PointSample( XY, long unsigned, char unsigned )
-{
-// code at 0001:000369fc
-}
-
-near BestForestSample::BestForestSample( XY, long unsigned, char unsigned, char unsigned, long unsigned )
-{
-// code at 0001:00036998
-}
-
-void FindHighestBuildingSite::PerGrid()
-{
-// code at 0001:000273ff
-}
-
-void FindLowestBuildingSite::PerGrid()
-{
-// code at 0001:000274aa
 }
 
 void ChopTreeScan::PerGrid()
@@ -661,11 +596,6 @@ near ForestScan::ForestScan( XY, long unsigned, char unsigned, char unsigned )
 void BestForestScan::PerGrid()
 {
 // code at 0001:00027c5f
-}
-
-near NearestPoweredBuildingSite::NearestPoweredBuildingSite( XY, long unsigned, char unsigned, char unsigned )
-{
-// code at 0001:00036504
 }
 
 near NearestLand::NearestLand( XY, long unsigned )
@@ -691,16 +621,6 @@ void MineScan::PerGrid()
 void PowerScan::PerGrid()
 {
 // code at 0001:00027e58
-}
-
-void NearestBuildingSite::PerGrid()
-{
-// code at 0001:00027fa8
-}
-
-void NearestPoweredBuildingSite::PerGrid()
-{
-// code at 0001:0002804d
 }
 
 void NearestLand::PerGrid()
@@ -738,29 +658,14 @@ near SiteScore::SiteScore( XY, long unsigned )
 // code at 0001:00036474
 }
 
-near NewBaseScan::NewBaseScan( XY, long unsigned, char unsigned, char unsigned )
-{
-// code at 0001:00036410
-}
-
 void SatisfyBuildings::PerGrid()
 {
 // code at 0001:000283d1
 }
 
-void PointSample::Do()
-{
-// code at 0001:00028485
-}
-
 void SiteScore::PerGrid()
 {
 // code at 0001:000285b4
-}
-
-void NewBaseScan::PerGrid()
-{
-// code at 0001:00028625
 }
 
 void PlantScan::PerGrid()
@@ -796,11 +701,6 @@ near GuardPointImportance::GuardPointImportance( XY, long unsigned )
 near ClosestTargets::ClosestTargets( XY, long unsigned, char unsigned, char unsigned )
 {
 // code at 0001:000361dc
-}
-
-void BestForestSample::PerGrid()
-{
-// code at 0001:00028a6c
 }
 
 void ClosestTree::PerGrid()
@@ -858,6 +758,62 @@ char unsigned FlickerStuff::Valid()
 void FlickerHandler::Free( char unsigned )
 {
 // code at 0001:000489a0
+}
+
+
+
+char unsigned Stuff::IsEZone()
+{
+// code at 0001:0000bbc0
+}
+
+char unsigned Planet::__defarg()
+{
+// code at 0001:0000bba0
+}
+
+char unsigned Planet::__defarg()
+{
+// code at 0001:0000bb80
+}
+
+void HelpDraw::SetColors( char unsigned, char unsigned, char unsigned, char unsigned )
+{
+// code at 0001:0000bb3c
+}
+
+char unsigned TextEntry::IsActive()
+{
+// code at 0001:0000b710
+}
+
+char unsigned TextEntry::PressedReturn()
+{
+// code at 0001:0000b6d0
+}
+
+char unsigned TextEntry::PressedEscape()
+{
+// code at 0001:0000b690
+}
+
+char * victCondTypes[];
+
+char * specFuncTxt[][7];
+
+char unsigned TextEntry::EnterText()
+{
+// code at 0001:0000b2f6
+}
+
+void TextEntry::SetupText( char *, char unsigned, char unsigned )
+{
+// code at 0001:0000b52e
+}
+
+near TextEntry::TextEntry()
+{
+// code at 0001:0000b5ca
 }
 
 

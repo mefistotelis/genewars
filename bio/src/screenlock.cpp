@@ -1,7 +1,7 @@
 /******************************************************************************/
 // Free implementation of Bullfrog's GeneWars strategy game.
 /******************************************************************************/
-/** @file comppersonal.cpp
+/** @file screenlock.cpp
  *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
@@ -16,27 +16,26 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "comppersonal.hpp"
+#include "screenlock.hpp"
 
-/*Trigger::Trigger()
+SLONG ScreenLockHandler::NestLock()
 {
-// code at 0001:0002cea1
-}*/
-
-BBOOL Trigger::Valid()
-{
-// code at 0001:00034234
+// code at 0001:0000b948
 }
 
-BBOOL Trigger::Update(UBYTE arg1)
+SLONG ScreenLockHandler::NestUnlock()
 {
-// code at 0001:00033d80
+// code at 0001:0000b8e4
 }
 
-/*Personality::Personality()
+SLONG ScreenLockHandler::UnlockForSwap()
 {
-// code at 0001:0002cdd4
-}*/
+// code at 0001:0000b880
+}
 
+SLONG ScreenLockHandler::LockForSwap()
+{
+// code at 0001:0000b7dc
+}
 
 /******************************************************************************/

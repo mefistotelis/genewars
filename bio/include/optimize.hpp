@@ -64,21 +64,6 @@ enum { // type=int8_t
     CL_MAGENTA,
 };
 
-typedef void *CALLBACK;
-
-typedef uint32_t clock_t;
-
-typedef void (*onexit_t)();
-
-typedef unsigned int ino_t;
-
-typedef unsigned int size_t;
-
-typedef uint32_t time_t;
-
-typedef uint16_t wchar_t;
-
-
 
 struct BuildingStage { // sizeof=1
     uint8_t player; // offset=0
@@ -104,78 +89,6 @@ struct GunSpec { // sizeof=7
 };
 
 
-
-
-
-class LumberjackScan : public RangeScanner { // sizeof=57
-public:
-    class LumberjackScan * LumberjackScan(class LumberjackScan *arg1);
-    void PerGrid();
-    class LumberjackScan * LumberjackScan(PlSpec arg1);
-    //void (**__vfptr)();
-    SLONG dirBonus;
-    SLONG bestValue;
-    PlSpec pls;
-    Plant *tgtPlant; // offset=41
-};
-
-class HarvestClearScan : public RangeScanner { // sizeof=55
-public:
-    class HarvestClearScan * HarvestClearScan(class HarvestClearScan *arg1);
-    void Do();
-    void PerGrid();
-    class HarvestClearScan * HarvestClearScan(PlSpec arg1, BBOOL arg2, BBOOL arg3);
-    //void (**__vfptr)();
-    BBOOL clearFlags;
-    BBOOL collect;
-    ResearchGrid rGrid;
-    PlSpec pls;
-    ULONG seedsGot; // offset=41
-};
-
-class FarmerPlantingScan : public WeightedRangeScanner { // sizeof=115
-public:
-    class FarmerPlantingScan * FarmerPlantingScan(class FarmerPlantingScan *arg1);
-    void PerGrid();
-    class FarmerPlantingScan * FarmerPlantingScan(PlSpec arg1, BBOOL arg2);
-    //void (**__vfptr)();
-    BBOOL rangeInvert;
-    PSpecies pSpc;
-    PlSpec pls;
-};
-
-class SurvivalScan : public RangeScanner { // sizeof=53
-public:
-    class SurvivalScan * SurvivalScan(class SurvivalScan *arg1);
-    void PerGrid();
-    class SurvivalScan * SurvivalScan(PlSpec arg1, ULONG arg2);
-    //void (**__vfptr)();
-    ULONG bestRange;
-    PlSpec pls;
-    Creature *tgtCreature; // offset=41
-};
-
-class StudyCreatureScan : public RangeScanner { // sizeof=53
-public:
-    class StudyCreatureScan * StudyCreatureScan(class StudyCreatureScan *arg1);
-    void PerGrid();
-    class StudyCreatureScan * StudyCreatureScan(PlSpec arg1);
-    //void (**__vfptr)();
-    ULONG bestRange;
-    PlSpec scientist;
-    Creature *tgtCreature; // offset=41
-};
-
-class HealCreatureScan : public RangeScanner { // sizeof=53
-public:
-    class HealCreatureScan * HealCreatureScan(class HealCreatureScan *arg1);
-    void PerGrid();
-    class HealCreatureScan * HealCreatureScan(PlSpec arg1);
-    //void (**__vfptr)();
-    ULONG bestRange;
-    PlSpec scientist;
-    Creature *tgtCreature; // offset=41
-};
 
 
 
