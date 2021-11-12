@@ -87,7 +87,7 @@ public:
     void Draw();
     void PullOut();
     void PlugIn();
-    IFCPlanetside(MyGadget *arg1);
+    IFCPlanetside(MyGadget *gads);
     //void (**__vfptr)();
     //unsigned int *__vbptr;
     uint8_t helpState;

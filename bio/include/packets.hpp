@@ -41,7 +41,7 @@ public:
     void SetPacket(UBYTE arg1, SWORD arg2);
     void SetPacket(UBYTE arg1);
     void ExchangeDataBlast(void *arg1, ULONG arg2, UBYTE arg3, uint8_t arg4, PaletteSelectorMode arg5); // last 2 args uncertain
-    void *dataBlast;
+    static void *dataBlast;
     SWORD X; // offset=0
     SWORD Y; // offset=2
     SWORD Z; // offset=4

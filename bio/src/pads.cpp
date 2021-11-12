@@ -43,10 +43,10 @@ void BasicPad::Draw( char signed )
 // code at 0001:00019b5d
 }
 
-/*WindowPad::WindowPad( PaletteSelector & )
+WindowPad::WindowPad(PaletteSelector &palsel)
 {
 // code at 0001:000259bc
-}*/
+}
 
 void WindowPad::Init( Thing * )
 {

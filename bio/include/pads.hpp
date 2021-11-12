@@ -68,7 +68,7 @@ public:
     BBOOL Update(SWORD arg1);
     void Close();
     void Init(Thing *arg1);
-    WindowPad(PaletteSelector arg1);
+    WindowPad(PaletteSelector &palsel);
     //void (**__vfptr)();
     //unsigned int *__vbptr;
     BBOOL canDoAction;

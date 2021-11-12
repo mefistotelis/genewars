@@ -950,9 +950,6 @@ public:
     SLONG Z; // offset=8
 };
 
-typedef class Point Point;
-
-
 struct EqRange { // sizeof=2
     UBYTE base; // offset=0
     UBYTE range; // offset=1
@@ -972,16 +969,10 @@ struct Corners { // sizeof=4
     SBYTE Csw; // offset=3
 };
 
-typedef struct Corners Corners;
-
 struct VMod { // sizeof=2
     UBYTE Block; // offset=0
     UBYTE Orient; // offset=1
 };
-
-typedef struct VMod VMod;
-
-
 
 
 
@@ -1054,6 +1045,7 @@ struct GunSpec { // sizeof=7
 
 
 class BuildPriority { // sizeof=9
+public:
     //BuildPriority(class BuildPriority *arg1);
     BestBuilding FindBestLoc(UBYTE arg1, UBYTE arg2);
     UBYTE Build(PlSpec *arg1, UBYTE arg2, UBYTE arg3);
@@ -1070,6 +1062,7 @@ class BuildPriority { // sizeof=9
 };
 
 class BestBuilding { // sizeof=5
+public:
     //BestBuilding(BestBuilding *arg1);
     XY loc; // offset=0
     UBYTE type; // offset=4
@@ -1083,7 +1076,7 @@ typedef class BestBuilding BestBuilding;
 
 
 
-class BestScore { // sizeof=8
+struct BestScore { // sizeof=8
     SLONG score; // offset=0
     SLONG type; // offset=4
 };

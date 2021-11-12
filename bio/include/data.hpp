@@ -19,6 +19,32 @@
 #ifndef BIO_DATA_HPP_
 #define BIO_DATA_HPP_
 
+#include "bftypes.h"
+#include "bfsprite.h"
+#include "myspr.h"
+#include "mygad.h"
+#include "myfont.h"
+#include "ifccomped.hpp"
+#include "ifccomputer.hpp"
+#include "ifccustom.hpp"
+#include "ifceditor.hpp"
+#include "ifclevel.hpp"
+#include "ifcoptions.hpp"
+#include "ifcplanet.hpp"
+#include "ifctitle.hpp"
+#include "player.hpp"
+#include "control.hpp"
+#include "setup.hpp"
+#include "bioeng.hpp"
+#include "building.hpp"
+#include "screenlock.hpp"
+#include "draw.hpp"
+#include "record.hpp"
+#include "computer.hpp"
+#include "draw.hpp"
+#include "engine.hpp"
+#include "packets.hpp"
+
 extern char unsigned * block_ptrs[];
 extern char unsigned * block_mem;
 extern char unsigned * aBlockMem;

@@ -18,10 +18,11 @@
 /******************************************************************************/
 #include "ifcplanet.hpp"
 
-/*IFCPlanetside::IFCPlanetside( MyGadget * )
+IFCPlanetside::IFCPlanetside(MyGadget *gads)
+    : winPad(actionPalette), creaturePad(actionPalette) // constructor params uncertain
 {
 // code at 0001:00020daa
-}*/
+}
 
 void IFCPlanetside::SetOnOffSwitch(BBOOL arg1)
 {
