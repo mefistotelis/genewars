@@ -44,9 +44,6 @@ ZIP = zip
 BIN  = bin/genewars$(EXEEXT)
 LIBS = bflibrary bfmydraw bfnet2 bfsound smack
 
-OBJS_TODO = \
-obj/tables.o \
-
 OBJS = \
 obj/cvector.o \
 obj/nibble.o \
@@ -110,6 +107,7 @@ obj/gupoint.o \
 obj/computer.o \
 obj/misc.o \
 obj/data.o \
+obj/tables.o \
 obj/io.o \
 obj/draw.o \
 obj/screenlock.o \

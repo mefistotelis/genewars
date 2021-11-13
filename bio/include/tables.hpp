@@ -23,29 +23,35 @@
 #include "myspr.h"
 #include "xy.hpp"
 #include "event.hpp"
+#include "eventstat.hpp"
+#include "misc.hpp"
+#include "creature.hpp"
+#include "creaturestat.hpp"
+#include "plantstat.hpp"
+#include "buildingstat.hpp"
 
 extern TbLoadFiles startup_files[];
 extern TbLoadFiles installedData[];
-extern char const * creatureAnbs[];
-extern char unsigned const project_date[];
-extern char unsigned const project_time[];
-extern char unsigned const project_name[];
-extern char const * project_builder;
+extern const char * creatureAnbs[];
+extern const char project_date[];
+extern const char project_time[];
+extern const char project_name[];
+extern const char * project_builder;
 extern char signed const terrainPointVals[][8];
 extern short const terrainFriction[];
 extern short const terrainBounce[];
-extern XY const dxy[];
-extern XY const hdxy[];
-extern XY const hdxy2[];
-extern XY const flatDxy[];
-extern XY const cMassXY[];
-extern char unsigned const flipDir[];
-extern char unsigned const teColor[];
-extern EqRange const eq_range[];
-extern char unsigned const eq_catBase[];
-extern char unsigned const specActionBases[];
-extern short unsigned const specActionPointers[];
-extern short unsigned const creatureActionPointers[];
+extern const XY dxy[];
+extern const XY hdxy[];
+extern const XY hdxy2[];
+extern const XY flatDxy[];
+extern const XY cMassXY[];
+extern const unsigned char flipDir[];
+extern const unsigned char teColor[];
+extern const EqRange eq_range[];
+extern const unsigned char eq_catBase[];
+extern const unsigned char specActionBases[];
+extern const unsigned short specActionPointers[];
+extern const unsigned short creatureActionPointers[];
 extern ASpecies aSpecies[];
 extern Gene genes[];
 extern CreatureSpecies const speciesLookup[][5];
@@ -63,26 +69,26 @@ extern short unsigned noPlayerIcon[];
 extern char unsigned playerDitherTables[][2];
 extern PSpecies const pSpecies[];
 extern BuildingType const buildingDisplayList[];
-extern char unsigned const buildingPower[];
+extern const unsigned char buildingPower[];
 extern short const buildingBMax[][3];
-extern char unsigned const buildingDestroyedIndices[];
-extern char unsigned const turretHeight[];
-extern char unsigned const buildingTech[][3];
+extern const unsigned char buildingDestroyedIndices[];
+extern const unsigned char turretHeight[];
+extern const unsigned char buildingTech[][3];
 extern EventHelpType const buildingHelp[][3];
-extern char unsigned const foundationSizes[];
-extern char unsigned const foundationArea[];
+extern const unsigned char foundationSizes[];
+extern const unsigned char foundationArea[];
 extern char signed const foundationTravel[][8];
 extern short const foundationRadii[];
 extern long const buildingGoopCost[];
 extern short const lzBlockTypes[];
-extern char unsigned const lzBlockOrientations[];
+extern const unsigned char lzBlockOrientations[];
 extern char unsigned dropLabHD[];
-extern char unsigned const buildingNeeds[];
-extern char unsigned const solarPower[];
-extern char unsigned const mineralsPerTileType[];
-extern short unsigned const idealAtmosphere[][3];
-extern short unsigned const idealDensities[];
-extern char unsigned const plantProduction[];
+extern const unsigned char buildingNeeds[];
+extern const unsigned char solarPower[];
+extern const unsigned char mineralsPerTileType[];
+extern const unsigned short idealAtmosphere[][3];
+extern const unsigned short idealDensities[];
+extern const unsigned char plantProduction[];
 extern EffectStats const effectStats[];
 extern long unsigned const project_version;
 extern XY const landingPadDevFromBuilding;
