@@ -26,19 +26,20 @@
 
 class Computer;
 
-class Probe : public SmartMovingThing { // sizeof=235
-public:
-    Probe * operator =(Probe *arg1);
-    //Probe(class Probe *arg1);
-    UBYTE Update();
-    void Resync();
-    BBOOL IsDead();
-    //Probe();
-    //void (**__vfptr)();
+class Probe : public SmartMovingThing { // sizeof=491
     Computer *computer; // offset=85
     UBYTE idx; // offset=89
     UBYTE points; // offset=90
-    XY path[99]; // offset=91
+    XY path[100]; // offset=91
+//internal:
+    //void (**__vfptr)(); // offset=35
+public:
+    //Probe(); -- generate default no-args constructor
+    BBOOL IsDead();
+    void Resync();
+    UBYTE Update();
+    //Probe(Probe const &arg1); -- generate default copy constructor
+    Probe & operator =(Probe const &arg1);
 };
 
 #endif // PROBE_HPP_

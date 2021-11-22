@@ -63,7 +63,7 @@ public:
     SLONG ReadBuffer(Effect **eff1, SLONG arg2, SLONG arg3, BioGame &game);
     SLONG WriteBuffer(Effect **eff1, SLONG arg2, SLONG arg3, BioGame &game);
     void KillSoundOffTag(XY cor1, SampleID arg2, BBOOL arg3);
-    BBOOL operator==(Effect *arg1);
+    BBOOL operator ==(Effect *arg1);
 private:
     UBYTE CreateNewEffectFromOld(EffectStats const &effsta);
     UBYTE MakeFire(GridTile *gtile1, SLONG arg2);

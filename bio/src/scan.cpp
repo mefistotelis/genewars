@@ -23,22 +23,22 @@
 // code at 0001:00088d70
 }*/
 
-int ScanRecord::Hash(XY arg1)
+int ScanRecord::Hash(XY cor1)
 {
 // code at 0001:00088d34
 }
 
-void ScanRecord::Add(XY arg1)
+void ScanRecord::Add(XY cor1)
 {
 // code at 0001:000857e9
 }
 
-BBOOL ScanRecord::IsRecorded(XY arg1)
+BBOOL ScanRecord::IsRecorded(XY cor1)
 {
 // code at 0001:0008584c
 }
 
-RangeScan::RangeScan(XY &arg1, ULONG arg2, BBOOL arg3)
+RangeScan::RangeScan(XY cor1, ULONG arg2, BBOOL arg3)
 {
 // code at 0001:00004ad8
 }
@@ -48,13 +48,13 @@ void BaseScan::Reset()
 // code at 0001:00027a86
 }
 
-void RangeScan::Init(XY &arg1, ULONG arg2, BBOOL arg3)
+void RangeScan::Init(XY cor1, ULONG arg2, BBOOL arg3)
 {
 // code at 0001:0005d721
 }
 
-RangeScanner::RangeScanner(XY &arg1, ULONG arg2)
-    : RangeScan(arg1, arg2, true) // verify params
+RangeScanner::RangeScanner(XY cor1, ULONG arg2)
+    : RangeScan(cor1, arg2, true) // verify params
 {
 // code at 0001:00004a74
 }
@@ -64,8 +64,8 @@ void RangeScanner::Do()
 // code at 0001:0005d926
 }
 
-PolarRangeScan::PolarRangeScan(XY &arg1, ULONG arg2, UBYTE arg3)
-    : RangeScan(arg1, arg2, 0) // verify params
+PolarRangeScan::PolarRangeScan(XY cor1, ULONG arg2, UBYTE arg3)
+    : RangeScan(cor1, arg2, 0) // verify params
 {
 // code at 0001:000371ac
 }
@@ -75,19 +75,19 @@ void PolarRangeScan::Do()
 // code at 0001:00026334
 }
 
-void PolarRangeScan::displayDebug(XY arg1, ULONG &arg2)
+void PolarRangeScan::displayDebug(XY cor1, ULONG &arg2)
 {
 // code at 0001:0002678c
 }
 
-WeightedRangeScanner::WeightedRangeScanner(XY &arg1, ULONG arg2)
-    : RangeScanner(arg1, arg2) // verify params
+WeightedRangeScanner::WeightedRangeScanner(XY cor1, ULONG arg2)
+    : RangeScanner(cor1, arg2) // verify params
 {
 // code at 0001:00078154
 }
 
-WeightedRangeScanner::WeightedRangeScanner(XY &arg1, ULONG arg2, XY *arg3, SLONG arg4)
-    : RangeScanner(arg1, arg2) // verify params
+WeightedRangeScanner::WeightedRangeScanner(XY cor1, ULONG arg2, XY *arg3, SLONG arg4)
+    : RangeScanner(cor1, arg2) // verify params
 {
 // code at 0001:00084770
 }
@@ -97,14 +97,14 @@ void WeightedRangeScanner::Do()
 // code at 0001:0005d9f1
 }
 
-WeightedTgtRangeScanner::WeightedTgtRangeScanner(XY &arg1, ULONG arg2)
-    : WeightedRangeScanner(arg1, arg2) // verify params
+WeightedTgtRangeScanner::WeightedTgtRangeScanner(XY cor1, ULONG arg2)
+    : WeightedRangeScanner(cor1, arg2) // verify params
 {
 // code at 0001:00084708
 }
 
-WeightedTgtRangeScanner::WeightedTgtRangeScanner(XY &arg1, ULONG arg2, XY *arg3, SLONG arg4)
-    : WeightedRangeScanner(arg1, arg2, arg3, arg4) // verify params
+WeightedTgtRangeScanner::WeightedTgtRangeScanner(XY cor1, ULONG arg2, XY *arg3, SLONG arg4)
+    : WeightedRangeScanner(cor1, arg2, arg3, arg4) // verify params
 {
 // code at 0001:00084698
 }
@@ -114,13 +114,13 @@ void WeightedTgtRangeScanner::Do()
 // code at 0001:0005dbb7
 }
 
-PolarSliceScan::PolarSliceScan(XY &arg1, ULONG arg2, UBYTE arg3, UBYTE arg4)
-    : RangeScan(arg1, arg2, 0) // verify params
+PolarSliceScan::PolarSliceScan(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4)
+    : RangeScan(cor1, arg2, 0) // verify params
 {
 // code at 0001:00037124
 }
 
-void PolarSliceScan::displayDebug(XY arg1, UBYTE arg2, ULONG &arg3)
+void PolarSliceScan::displayDebug(XY cor1, UBYTE arg2, ULONG &arg3)
 {
 // code at 0001:000267ef
 }
@@ -130,13 +130,13 @@ void PolarSliceScan::Do()
 // code at 0001:00026923
 }
 
-PolarEverythingScan::PolarEverythingScan(XY &arg1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5, BBOOL arg6)
-    : RangeScan(arg1, arg2, 0) // verify params
+PolarEverythingScan::PolarEverythingScan(XY cor1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5, BBOOL arg6)
+    : RangeScan(cor1, arg2, 0) // verify params
 {
 // code at 0001:00037088
 }
 
-void PolarEverythingScan::displayDebug(XY arg1, UBYTE arg2, ULONG &arg3)
+void PolarEverythingScan::displayDebug(XY cor1, UBYTE arg2, ULONG &arg3)
 {
 // code at 0001:00026889
 }
@@ -151,8 +151,8 @@ void PolarEverythingScan::Do()
 // code at 0001:00026dc0
 }
 
-TimeSliceScan::TimeSliceScan(BaseScan &arg1, XY arg2, ULONG arg3)
-    : RangeScan(arg2, arg3, 0) // verify params
+TimeSliceScan::TimeSliceScan(BaseScan &arg1, XY cor2, ULONG arg3)
+    : RangeScan(cor2, arg3, 0) // verify params
 {
 // code at 0001:00036fec
 }

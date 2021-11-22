@@ -18,8 +18,8 @@
 /******************************************************************************/
 #include "scanadv.hpp"
 
-PassableTerrainScan::PassableTerrainScan(SmartMovingThing &arg1, ULONG arg2)
-    : PolarRangeScan(arg1.loc, arg2, 0) // verify params
+PassableTerrainScan::PassableTerrainScan(SmartMovingThing &tng1, ULONG arg2)
+    : PolarRangeScan(tng1.loc, arg2, 0) // verify params
 {
 // code at 0001:00088da8
 }
@@ -226,8 +226,8 @@ void HealCreatureScan::PerGrid()
 // code at 0001:00077158
 }
 
-TestSlice::TestSlice(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4)
-    : PolarSliceScan(arg1, arg2, arg3, arg4) // verify params
+TestSlice::TestSlice(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4)
+    : PolarSliceScan(cor1, arg2, arg3, arg4) // verify params
 {
 // code at 0001:00036f40
 }
@@ -237,8 +237,8 @@ void TestSlice::PerGrid()
 // code at 0001:00036f24
 }
 
-TestEverything::TestEverything(XY arg1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5, BBOOL arg6)
-    : PolarEverythingScan(arg1, arg2, arg3, arg4, arg5, arg6) // verify params
+TestEverything::TestEverything(XY cor1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5, BBOOL arg6)
+    : PolarEverythingScan(cor1, arg2, arg3, arg4, arg5, arg6) // verify params
 {
 // code at 0001:00036ecc
 }
@@ -248,8 +248,8 @@ void TestEverything::PerGrid()
 // code at 0001:00036eb0
 }
 
-ChopTreeScan::ChopTreeScan(XY arg1, ULONG arg2)
-    : RangeScanner(arg1, arg2) // verify params
+ChopTreeScan::ChopTreeScan(XY cor1, ULONG arg2)
+    : RangeScanner(cor1, arg2) // verify params
 {
 // code at 0001:00036e70
 }
@@ -259,8 +259,8 @@ void ChopTreeScan::PerGrid()
 // code at 0001:00027570
 }
 
-ForestScan::ForestScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4)
-    : RangeScanner(arg1, arg2) // verify params
+ForestScan::ForestScan(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4)
+    : RangeScanner(cor1, arg2) // verify params
 {
 // code at 0001:00027b98
 }
@@ -270,8 +270,8 @@ void ForestScan::PerGrid()
 // code at 0001:00027ab5
 }
 
-BestForestScan::BestForestScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5)
-    : PolarRangeScan(arg1, arg2, arg3) // verify params
+BestForestScan::BestForestScan(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5)
+    : PolarRangeScan(cor1, arg2, arg3) // verify params
 {
 // code at 0001:00036e00
 }
@@ -281,20 +281,20 @@ void BestForestScan::PerGrid()
 // code at 0001:00027c5f
 }
 
-MineralScan::MineralScan(XY arg1, ULONG arg2)
-    : RangeScanner(arg1, arg2) // verify params
+MineralScan::MineralScan(XY cor1, ULONG arg2)
+    : RangeScanner(cor1, arg2) // verify params
 {
 // code at 0001:00036db4
 }
 
-MineScan::MineScan(XY arg1, ULONG arg2, UBYTE arg3)
-    : RangeScanner(arg1, arg2) // verify params
+MineScan::MineScan(XY cor1, ULONG arg2, UBYTE arg3)
+    : RangeScanner(cor1, arg2) // verify params
 {
 // code at 0001:00036d60
 }
 
-PowerScan::PowerScan(XY arg1, ULONG arg2, UBYTE arg3)
-    : PolarRangeScan(arg1, arg2, arg3) // verify params
+PowerScan::PowerScan(XY cor1, ULONG arg2, UBYTE arg3)
+    : PolarRangeScan(cor1, arg2, arg3) // verify params
 {
 // code at 0001:00036d08
 }
@@ -304,8 +304,8 @@ void PowerScan::PerGrid()
 // code at 0001:00027e58
 }
 
-OldPowerTally::OldPowerTally(XY arg1, ULONG arg2, UBYTE arg3)
-    : PolarRangeScan(arg1, arg2, arg3) // verify params
+OldPowerTally::OldPowerTally(XY cor1, ULONG arg2, UBYTE arg3)
+    : PolarRangeScan(cor1, arg2, arg3) // verify params
 {
 // code at 0001:00036c1c
 }
@@ -315,8 +315,8 @@ void OldPowerTally::PerGrid()
 // code at 0001:0002814d
 }
 
-NewPowerTally::NewPowerTally(XY arg1, ULONG arg2)
-    : RangeScanner(arg1, arg2) // verify params
+NewPowerTally::NewPowerTally(XY cor1, ULONG arg2)
+    : RangeScanner(cor1, arg2) // verify params
 {
 // code at 0001:00036bc8
 }
@@ -331,8 +331,8 @@ void HarvestScan::PerGrid()
 // code at 0001:00027d1c
 }
 
-NearestLand::NearestLand(XY arg1, ULONG arg2)
-    : PolarRangeScan(arg1, arg2, 0) // verify params
+NearestLand::NearestLand(XY cor1, ULONG arg2)
+    : PolarRangeScan(cor1, arg2, 0) // verify params
 {
 // code at 0001:000364c0
 }
@@ -342,8 +342,8 @@ void NearestLand::PerGrid()
 // code at 0001:00028107
 }
 
-PowerStationScan::PowerStationScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4)
-    : PolarRangeScan(arg1, arg2, arg3) // verify params
+PowerStationScan::PowerStationScan(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4)
+    : PolarRangeScan(cor1, arg2, arg3) // verify params
 {
 // code at 0001:00028204
 }
@@ -353,8 +353,8 @@ void PowerStationScan::PerGrid()
 // code at 0001:0002827e
 }
 
-SiteScore::SiteScore(XY arg1, ULONG arg2)
-    : RangeScanner(arg1, arg2) // verify params
+SiteScore::SiteScore(XY cor1, ULONG arg2)
+    : RangeScanner(cor1, arg2) // verify params
 {
 // code at 0001:00036474
 }
@@ -364,8 +364,8 @@ void SiteScore::PerGrid()
 // code at 0001:000285b4
 }
 
-PlantScan::PlantScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4)
-    : RangeScanner(arg1, arg2) // verify params
+PlantScan::PlantScan(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4)
+    : RangeScanner(cor1, arg2) // verify params
 {
 // code at 0001:000289b3
 }
@@ -375,8 +375,8 @@ void PlantScan::PerGrid()
 // code at 0001:00028892
 }
 
-ClosestTree::ClosestTree(XY &arg1, ULONG arg2)
-    : PolarRangeScan(arg1, arg2, 0) // verify params
+ClosestTree::ClosestTree(XY cor1, ULONG arg2)
+    : PolarRangeScan(cor1, arg2, 0) // verify params
 {
 // code at 0001:000363b8
 }
@@ -386,8 +386,8 @@ void ClosestTree::PerGrid()
 // code at 0001:00028af0
 }
 
-ClosestDeadCreature::ClosestDeadCreature(XY arg1, ULONG arg2)
-    : PolarRangeScan(arg1, arg2, 0) // verify params
+ClosestDeadCreature::ClosestDeadCreature(XY cor1, ULONG arg2)
+    : PolarRangeScan(cor1, arg2, 0) // verify params
 {
 // code at 0001:00036360
 }
@@ -402,8 +402,8 @@ void ClosestEnemy::PerGrid()
 // code at 0001:00028c90
 }
 
-CountTrees::CountTrees(XY arg1, ULONG arg2)
-    : RangeScanner(arg1, arg2) // verify params
+CountTrees::CountTrees(XY cor1, ULONG arg2)
+    : RangeScanner(cor1, arg2) // verify params
 {
 // code at 0001:00036314
 }
@@ -413,8 +413,8 @@ void CountTrees::PerGrid()
 // code at 0001:00028e7a
 }
 
-GuardPointImportance::GuardPointImportance(XY arg1, ULONG arg2)
-    : RangeScanner(arg1, arg2) // verify params
+GuardPointImportance::GuardPointImportance(XY cor1, ULONG arg2)
+    : RangeScanner(cor1, arg2) // verify params
 {
 // code at 0001:000362c8
 }
@@ -424,8 +424,8 @@ void GuardPointImportance::PerGrid()
 // code at 0001:00028f01
 }
 
-ClosestTargets::ClosestTargets(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4)
-    : PolarRangeScan(arg1, arg2, arg3) // verify params
+ClosestTargets::ClosestTargets(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4)
+    : PolarRangeScan(cor1, arg2, arg3) // verify params
 {
 // code at 0001:000361dc
 }
@@ -445,8 +445,8 @@ void MineScan::PerGrid()
 // code at 0001:00027dd9
 }
 
-SatisfyBuildings::SatisfyBuildings(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5)
-    : PolarRangeScan(arg1, arg2, arg3) // verify params
+SatisfyBuildings::SatisfyBuildings(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5)
+    : PolarRangeScan(cor1, arg2, arg3) // verify params
 {
 // code at 0001:00036b4c
 }

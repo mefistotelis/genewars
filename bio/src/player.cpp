@@ -23,10 +23,10 @@
 // code at 0001:00050843
 }*/
 
-/*Player & Player::.tdctor()
+Player::~Player() // .tdctor
 {
 // code at 0001:00061450
-}*/
+}
 
 void Player::Invalidate()
 {

@@ -29,76 +29,82 @@ class Building;
 class Creature;
 
 class BasicPad : public MainInterfacePad { // sizeof=22
-public:
-    //BasicPad(BasicPad *arg1);
-    void MapDraw();
-    void Draw(SBYTE arg1);
-    BBOOL Update(SWORD arg1);
-    void Init(Thing *arg1);
-    //BasicPad();
-    //void (**__vfptr)();
+//internal:
     //unsigned int *__vbptr;
+    //void (**__vfptr)(); // offset=4
+public:
+    //BasicPad(); -- generate default no-args constructor
+    void Init(Thing *tng1);
+    BBOOL Update(SWORD arg1);
+    void Draw(SBYTE arg1);
+    void MapDraw();
+    //BasicPad(BasicPad &arg1); -- generate default copy constructor
 };
 
 class BuildingPad : public MainInterfacePad { // sizeof=26
-public:
-    //BuildingPad(BuildingPad *arg1);
-    void ProjectPowerStationCircles();
-    void Draw(SBYTE arg1);
-    void MapDraw();
-    BBOOL Update(SWORD arg1);
-    void Init(Thing *arg1);
-    //BuildingPad();
-    //void (**__vfptr)();
-    //unsigned int *__vbptr;
     Building *b; // offset=4
+//internal:
+    //unsigned int *__vbptr;
+    //void (**__vfptr)(); // offset=8
+public:
+    //BuildingPad(); -- generate default no-args constructor
+    void Init(Thing *tng1);
+    BBOOL Update(SWORD arg1);
+    void MapDraw();
+    void Draw(SBYTE arg1);
+    void ProjectPowerStationCircles();
+    //BuildingPad(BuildingPad &arg1); -- generate default copy constructor
 };
 
 class WindowPad : public MainInterfacePad { // sizeof=49
-public:
-    //WindowPad(WindowPad *arg1);
-    void SetXActionSelectPointer();
-    void SetActionSelectPointer();
-    void DrawPolyFoundation(XY arg1, UBYTE arg2, UBYTE arg3);
-    void DrawArchitectFoundation();
-    void AbortAction();
-    void StartAction();
-    void Draw(SBYTE arg1);
-    void MapDraw();
-    BBOOL Update(SWORD arg1);
-    void Close();
-    void Init(Thing *arg1);
-    WindowPad(PaletteSelector &palsel);
-    //void (**__vfptr)();
-    //unsigned int *__vbptr;
-    BBOOL canDoAction;
-    SBYTE action;
-    MyMinSprite mMs;
-    PaletteSelector aPalette;
     PlSpec *pls; // offset=4
     XY tgt; // offset=8
     Thing *actionThing; // offset=12
     clock_t actionClock; // offset=16
+    PaletteSelector aPalette;
+    MyMinSprite mMs; // offset=24
+    SBYTE action; // offset=29
+    BBOOL canDoAction; // offset=30
+//internal:
+    //unsigned int *__vbptr;
+    //void (**__vfptr)(); // offset=31
+public:
+    WindowPad(PaletteSelector &palsel);
+    void Init(Thing *tng1);
+    void Close();
+    BBOOL Update(SWORD arg1);
+    void MapDraw();
+    void Draw(SBYTE arg1);
+    void StartAction();
+    void AbortAction();
+    void DrawArchitectFoundation();
+    void DrawPolyFoundation(XY arg1, UBYTE arg2, UBYTE arg3);
+private:
+    void SetActionSelectPointer();
+    void SetXActionSelectPointer();
+//public:
+    //WindowPad(WindowPad &arg1); -- generate default copy constructor
 };
 
 class CreaturePad : public MainInterfacePad { // sizeof=44
-public:
-    //CreaturePad(CreaturePad *arg1);
-    void DrawAllPackMembers(UBYTE arg1);
-    void Draw(SBYTE arg1);
-    void MapDraw();
-    BBOOL Update(SWORD arg1);
-    void Close();
-    void Init(Thing *arg1);
-    CreaturePad(PaletteSelector &palsel);
-    //void (**__vfptr)();
-    //unsigned int *__vbptr;
-    CreatureUserAction cuAction;
-    MyMinSprite packMMs;
-    PaletteSelector aPalette;
     Creature *c; // offset=4
     Thing *cuActionThing; // offset=8
     clock_t cuActionClock; // offset=12
+    PaletteSelector aPalette;
+    MyMinSprite packMMs; // offset=20
+    CreatureUserAction cuAction; // offset=25
+//internal:
+    //unsigned int *__vbptr;
+    //void (**__vfptr)(); // offset=26
+public:
+    CreaturePad(PaletteSelector &palsel);
+    void Init(Thing *tng1);
+    void Close();
+    BBOOL Update(SWORD arg1);
+    void MapDraw();
+    void Draw(SBYTE arg1);
+    void DrawAllPackMembers(UBYTE arg1);
+    //CreaturePad(CreaturePad &arg1); -- generate default copy constructor
 };
 
 #endif // BIO_PADS_HPP_

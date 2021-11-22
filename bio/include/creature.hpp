@@ -164,7 +164,7 @@ public:
     SLONG ReadBuffer(Creature **arg1, SLONG arg2, SLONG arg3, BioGame &arg4);
     SLONG WriteBuffer(Creature **arg1, SLONG arg2, SLONG arg3, BioGame &arg4);
     void VoidPlTarget(Thing *arg1, BBOOL arg2);
-    BBOOL operator==(Creature *arg1);
+    BBOOL operator ==(Creature *arg1);
 private:
     BBOOL IsInRangeOfShepherd(HerdMode arg1, HerdMode arg2, PlSpec **arg3);
     BBOOL ChooseVegiOrBones(GridTile *gtile1);

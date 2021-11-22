@@ -72,24 +72,28 @@ public:
 
 class PLSInterface { // sizeof=22
 public:
-    PLSInterface * operator =(PLSInterface *arg1);
     SBYTE submode; // offset=0
     ThingIDX thingTgt; // offset=1
+    SBYTE go; // offset=4
+  union {
+    BuilderIFC builder; // offset=4
+    CowboyIFC cowboy; // offset=4
+    FarmerIFC farmer; // offset=4
     ShepherdIFC shepherd; // offset=4
-    FarmerIFC farmer; // offset=5
-    CowboyIFC cowboy; // offset=6
-    BuilderIFC builder; // offset=7
-    SBYTE go; // offset=8
+  };
+public:
+    PLSInterface & operator =(PLSInterface &pls1);
 };
 
 class PlSpecLoader { // sizeof=80
 public:
-    void Free(PlayerRace arg1, SpecialistClass arg2, MyAnimBank *arg3);
-    void Free(PlSpec *arg1);
-    MyAnimBank * Load(PlayerRace arg1, SpecialistClass arg2);
+    SBYTE counters[4][4];
+    MyAnimBank *anbs[4][4]; // offset=16
+public:
     BBOOL Load(PlSpec *arg1);
-    MyAnimBank *anbs[3][3];
-    SBYTE counters[3][3];
+    MyAnimBank * Load(PlayerRace arg1, SpecialistClass arg2);
+    void Free(PlSpec *arg1);
+    void Free(PlayerRace arg1, SpecialistClass arg2, MyAnimBank *arg3);
 };
 
 #endif // BIO_PLSIFACE_HPP_

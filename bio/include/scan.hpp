@@ -26,20 +26,22 @@ class GridTile;
 class Thing;
 class Plant;
 
-class ScanRecord { // sizeof=128
+class ScanRecord { // sizeof=640
 public:
-    //ScanRecord(ScanRecord *rscan1);
-    int Hash(XY arg1);
-    BBOOL IsRecorded(XY arg1);
+    XY xy[128];
+    BBOOL used[128]; // offset=512
+public:
+    //ScanRecord(); -- generate default no-args constructor
     void Add(XY arg1);
-    //ScanRecord();
-    BBOOL used[127];
-    XY xy[127];
+    BBOOL IsRecorded(XY arg1);
+private:
+    int Hash(XY arg1);
+//public:
+    //ScanRecord(ScanRecord const &rscan1); -- generate default copy constructor
 };
 
 class BaseScan { // sizeof=17
 public:
-    void Reset();
     XY xy; // offset=0
     XY center; // offset=4
     UBYTE tilesPrTurn; // offset=8
@@ -48,134 +50,158 @@ public:
     BBOOL started; // offset=14
     BBOOL middle; // offset=15
     BBOOL finished; // offset=16
+public:
+    void Reset();
 };
 
 class RangeScan { // sizeof=20
-public:
-    //RangeScan(RangeScan *rscan1);
-    void Init(XY &arg1, ULONG arg2, BBOOL arg3);
-    RangeScan(XY &arg1, ULONG arg2, BBOOL arg3);
-    XY tgt;
-    SWORD yHi;
-    SWORD yLo;
-    SWORD xHi;
-    SWORD xLo;
-    XY xy;
-    SWORD yD;
+protected:
     SWORD xD;
+    SWORD yD; // offset=2
+    XY xy; // offset=4
+    SWORD xLo; // offset=8
+    SWORD xHi; // offset=10
+    SWORD yLo; // offset=12
+    SWORD yHi; // offset=14
+    XY tgt; // offset=16
+public:
+    RangeScan(XY cor1, ULONG arg2, BBOOL arg3);
+    void Init(XY cor1, ULONG arg2, BBOOL arg3);
+    //RangeScan(RangeScan const &rscan1); -- generate default copy constructor
 };
 
 class RangeScanner : public RangeScan { // sizeof=41
-public:
-    //RangeScanner(RangeScanner *rscnr1);
-    void PerGrid();
-    void Do();
-    RangeScanner(XY &arg1, ULONG arg2);
-    //void (**__vfptr)();
-    ULONG maxRange;
-    ULONG squareMaxRange;
-    ULONG squareRange;
-    GridTile *g;
     BBOOL foundAThing; // offset=20
+protected:
+    GridTile *g; // offset=21
+    ULONG squareRange; // offset=25
+    ULONG squareMaxRange; // offset=29
+    ULONG maxRange; // offset=33
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    RangeScanner(XY cor1, ULONG arg2);
+    void Do();
+    void PerGrid();
+    //RangeScanner(RangeScanner const &rscan1); -- generate default copy constructor
 };
 
 class PolarRangeScan : public RangeScan { // sizeof=51
-public:
-    //PolarRangeScan(PolarRangeScan *rscan1);
-    void displayDebug(XY arg1, ULONG &arg2);
-    void PerGrid();
-    void Do();
-    PolarRangeScan(XY &arg1, ULONG arg2, UBYTE arg3);
-    //void (**__vfptr)();
-    ULONG ringRange;
-    BBOOL satisfied;
-    UBYTE foundationSize;
-    ULONG tileRange;
-    ULONG maxRange;
-    ULONG squareMaxRange;
-    ULONG squareRange;
-    GridTile *g;
     BBOOL foundAThing; // offset=20
+protected:
+    GridTile *g; // offset=21
+    ULONG squareRange; // offset=25
+    ULONG squareMaxRange; // offset=29
+    ULONG maxRange; // offset=33
+    ULONG tileRange; // offset=37
+    UBYTE foundationSize; // offset=41
+    BBOOL satisfied; // offset=42
+    ULONG ringRange; // offset=43
+//internal:
+    //void (**__vfptr)(); // offset=47
+public:
+    PolarRangeScan(XY cor1, ULONG arg2, UBYTE arg3);
+    void Do();
+    void PerGrid();
+protected:
+    void displayDebug(XY arg1, ULONG &arg2);
+//public:
+    //PolarRangeScan(PolarRangeScan const &rscan1); -- generate default copy constructor
 };
 
 class WeightedRangeScanner : public RangeScanner { // sizeof=106
-public:
-    //WeightedRangeScanner(WeightedRangeScanner *arg1);
-    void Do();
-    WeightedRangeScanner(XY &arg1, ULONG arg2, XY *arg3, SLONG arg4);
-    WeightedRangeScanner(XY &arg1, ULONG arg2);
-    //void (**__vfptr)();
-    SLONG dirWeights[15];
     UBYTE bestDir; // offset=41
+protected:
+    SLONG dirWeights[16]; // offset=42
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    WeightedRangeScanner(XY cor1, ULONG arg2);
+    WeightedRangeScanner(XY cor1, ULONG arg2, XY *arg3, SLONG arg4);
+    void Do();
+    //WeightedRangeScanner(WeightedRangeScanner const &rscan1); -- generate default copy constructor
 };
 
 class WeightedTgtRangeScanner : public WeightedRangeScanner { // sizeof=238
-public:
-    //WeightedTgtRangeScanner(WeightedTgtRangeScanner *arg1);
-    void Do();
-    WeightedTgtRangeScanner(XY &arg1, ULONG arg2, XY *arg3, SLONG arg4);
-    WeightedTgtRangeScanner(XY &arg1, ULONG arg2);
-    //void (**__vfptr)();
-    Thing *bestThings[15];
-    int bestPerSector[15];
     Thing *tgtThing; // offset=106
+protected:
+    int bestPerSector[16]; // offset=110
+    Thing *bestThings[16]; // offset=174
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    WeightedTgtRangeScanner(XY cor1, ULONG arg2);
+    WeightedTgtRangeScanner(XY cor1, ULONG arg2, XY *arg3, SLONG arg4);
+    void Do();
+    //WeightedTgtRangeScanner(WeightedTgtRangeScanner const &rscan1); -- generate default copy constructor
 };
 
 class PolarSliceScan : public RangeScan { // sizeof=48
-public:
-    //PolarSliceScan(PolarSliceScan *arg1);
-    void displayDebug(XY arg1, UBYTE arg2, ULONG &arg3);
-    void PerGrid();
-    void Do();
-    PolarSliceScan(XY &arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
-    //void (**__vfptr)();
-    BBOOL satisfied;
-    UBYTE foundationSize;
-    ULONG tileRange;
-    ULONG maxRange;
-    ULONG squareMaxRange;
-    ULONG squareRange;
-    GridTile *g;
-    UBYTE slices;
     BBOOL foundAThing; // offset=20
+protected:
+    UBYTE slices; // offset=21
+    GridTile *g; // offset=22
+    ULONG squareRange; // offset=26
+    ULONG squareMaxRange; // offset=30
+    ULONG maxRange; // offset=34
+    ULONG tileRange; // offset=38
+    UBYTE foundationSize; // offset=42
+    BBOOL satisfied; // offset=43
+//internal:
+    //void (**__vfptr)(); // offset=44
+public:
+    PolarSliceScan(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4);
+    void Do();
+    void PerGrid();
+protected:
+    void displayDebug(XY arg1, UBYTE arg2, ULONG &arg3);
+//public:
+    //PolarSliceScan(PolarSliceScan const &rscan1); -- generate default copy constructor
 };
 
 class PolarEverythingScan : public RangeScan { // sizeof=47
-public:
-    //PolarEverythingScan(PolarEverythingScan *arg1);
-    void displayDebug(XY arg1, UBYTE arg2, ULONG &arg3);
-    void PerGrid();
-    void Do();
-    BBOOL Scan(UBYTE arg1);
-    PolarEverythingScan(XY &arg1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5, BBOOL arg6);
-    //void (**__vfptr)();
-    BBOOL fromCenter;
-    BBOOL satisfied;
-    UBYTE foundationSize;
-    UBYTE innerTileRange;
-    UBYTE tileRange;
-    ULONG maxRange;
-    ULONG squareMaxRange;
-    ULONG squareRange;
-    GridTile *g;
-    UBYTE slices;
     BBOOL foundAThing; // offset=20
+protected:
+    UBYTE slices; // offset=21
+    GridTile *g; // offset=22
+    ULONG squareRange; // offset=26
+    ULONG squareMaxRange; // offset=30
+    ULONG maxRange; // offset=34
+    UBYTE tileRange; // offset=38
+    UBYTE innerTileRange; // offset=39
+    UBYTE foundationSize; // offset=40
+    BBOOL satisfied; // offset=41
+    BBOOL fromCenter; // offset=42
+//internal:
+    //void (**__vfptr)(); // offset=43
+public:
+    PolarEverythingScan(XY cor1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5, BBOOL arg6);
+    BBOOL Scan(UBYTE arg1);
+    void Do();
+    void PerGrid();
+protected:
+    void displayDebug(XY arg1, UBYTE arg2, ULONG &arg3);
+//public:
+    //PolarEverythingScan(PolarEverythingScan const &rscan1); -- generate default copy constructor
 };
 
 class TimeSliceScan : public RangeScan { // sizeof=47
-public:
-    //TimeSliceScan(TimeSliceScan *arg1);
-    void PerGrid();
-    BBOOL Do();
-    TimeSliceScan(BaseScan &arg1, XY arg2, ULONG arg3);
-    //void (**__vfptr)();
-    ULONG maxRange;
-    ULONG squareMaxRange;
-    ULONG squareRange;
-    GridTile *g;
-    BaseScan bs;
     BBOOL middle; // offset=20
     UWORD tileNo; // offset=21
+public:
+    BaseScan bs;
+protected:
+    GridTile *g; // offset=27
+    ULONG squareRange; // offset=31
+    ULONG squareMaxRange; // offset=35
+    ULONG maxRange; // offset=39
+//internal:
+    //void (**__vfptr)(); // offset=43
+public:
+    TimeSliceScan(BaseScan &arg1, XY arg2, ULONG arg3);
+    BBOOL Do();
+    void PerGrid();
+    //TimeSliceScan(TimeSliceScan const &rscan1); -- generate default copy constructor
 };
 
 #endif // SCAN_HPP_

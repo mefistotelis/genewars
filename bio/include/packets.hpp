@@ -32,16 +32,6 @@ struct PacketData { // sizeof=11
 };
 
 class Packet { // sizeof=19
-public:
-    void SetPacketDataBlast(void *arg1);
-    void SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3, SWORD arg4, SWORD arg5, SWORD arg6);
-    void SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3, SWORD arg4, SWORD arg5);
-    void SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3, SWORD arg4);
-    void SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3);
-    void SetPacket(UBYTE arg1, SWORD arg2);
-    void SetPacket(UBYTE arg1);
-    void ExchangeDataBlast(void *arg1, ULONG arg2, UBYTE arg3, uint8_t arg4, PaletteSelectorMode arg5); // last 2 args uncertain
-    static void *dataBlast;
     SWORD X; // offset=0
     SWORD Y; // offset=2
     SWORD Z; // offset=4
@@ -51,6 +41,16 @@ public:
     UWORD seed; // offset=11
     ULONG turn; // offset=13
     UWORD rndCount; // offset=17
+public:
+    static void *dataBlast;
+    void ExchangeDataBlast(void *arg1, ULONG arg2, UBYTE arg3, uint8_t arg4, PaletteSelectorMode arg5); // last 2 args uncertain
+    void SetPacket(UBYTE arg1);
+    void SetPacket(UBYTE arg1, SWORD arg2);
+    void SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3);
+    void SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3, SWORD arg4);
+    void SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3, SWORD arg4, SWORD arg5);
+    void SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3, SWORD arg4, SWORD arg5, SWORD arg6);
+    void SetPacketDataBlast(void *arg1);
 };
 
 void process_packets();

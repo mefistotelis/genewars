@@ -38,8 +38,8 @@ enum PlantSpecies { // type=int8_t
 };
 
 struct PSpecies { // sizeof=32
-    char name[15]; // offset=0
-    SBYTE terrain[7]; // offset=16
+    char name[16]; // offset=0
+    SBYTE terrain[8]; // offset=16
     UBYTE seedTime; // offset=24
     UBYTE range; // offset=25
     UBYTE maxNeighbours; // offset=26

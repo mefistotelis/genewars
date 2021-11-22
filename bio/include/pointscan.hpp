@@ -25,46 +25,50 @@
 class GridTile;
 
 class PointSample { // sizeof=27
-public:
-    //PointSample(PointSample *arg1);
-    void PerGrid();
-    PointSample(XY arg1, ULONG arg2, UBYTE arg3);
-    PointSample(XY arg1, ULONG arg2, UWORD arg3);
-    PointSample(XY arg1, ULONG arg2, ULONG arg3);
-    void Do();
-    //void (**__vfptr)();
-    GridTile *g;
-    ULONG squareRange;
-    ULONG range;
-    XY tgt;
-    XY center;
-    UWORD sectorSize;
     BBOOL foundAThing; // offset=0
+protected:
+    UWORD sectorSize; // offset=1
+    XY center; // offset=3
+    XY tgt; // offset=7
+    ULONG range; // offset=11
+    ULONG squareRange; // offset=15
+    GridTile *g; // offset=19
+//internal:
+    //void (**__vfptr)(); // offset=23
+public:
+    void Do();
+    PointSample(XY arg1, ULONG arg2, ULONG arg3);
+    PointSample(XY arg1, ULONG arg2, UWORD arg3);
+    PointSample(XY arg1, ULONG arg2, UBYTE arg3);
+    void PerGrid();
+    PointSample(PointSample const &samp1);
 };
 
 class NewBaseScan : public PointSample { // sizeof=40
-public:
-    //NewBaseScan(class NewBaseScan *arg1);
-    void PerGrid();
-    NewBaseScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
-    //void (**__vfptr)();
-    UBYTE player;
-    XY origin;
     ULONG bestScore; // offset=27
     XY bestLoc; // offset=31
+    XY origin; // offset=35
+    UBYTE player; // offset=39
+//internal:
+    //void (**__vfptr)(); // offset=23
+public:
+    NewBaseScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
+    void PerGrid();
+    //NewBaseScan(NewBaseScan const &arg1); -- generate default copy constructor
 };
 
 class BestForestSample : public PointSample { // sizeof=38
-public:
-    //BestForestSample(BestForestSample *arg1);
-    void PerGrid();
-    BestForestSample(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4, ULONG arg5);
-    //void (**__vfptr)();
-    SLONG bestValue;
-    UBYTE forestType;
-    UBYTE player;
     XY bestPos; // offset=27
     UBYTE bestPlant; // offset=31
+    UBYTE player; // offset=32
+    UBYTE forestType; // offset=33
+    SLONG bestValue; // offset=34
+//internal:
+    //void (**__vfptr)(); // offset=23
+public:
+    BestForestSample(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4, ULONG arg5);
+    void PerGrid();
+    //BestForestSample(BestForestSample const &arg1); -- generate default copy constructor
 };
 
 #endif // BIO_POINTSCAN_HPP_

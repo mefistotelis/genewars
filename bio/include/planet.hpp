@@ -42,21 +42,8 @@ enum { // type=int8_t
     PLANET_TYPE_POINT,
 };
 
-class Planet { // sizeof=127
-public:
-    char * GetMissionBriefingString(char *arg1, UBYTE arg2);
-    BBOOL AllComputersStarted();
-    void PlaceStuff(Stuff *arg1);
-    void PlaceStuff(XY arg1, UBYTE arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5);
-    void ShuffleLZs();
-    void SlapBuildingDown(XY arg1, UBYTE arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5);
-    void MakeBuilding(Stuff &stuff);
-    void MakeHerd(Stuff &stuff);
-    void MakeForest(XY arg1, UBYTE arg2, UBYTE arg3);
-    void MakeStuff();
-    void ClearStuff();
-    void Generate();
-    char name[17]; // offset=0
+class Planet { // sizeof=639
+    char name[18]; // offset=0
     UBYTE levelNumber; // offset=18
     UBYTE planetClass; // offset=19
     UBYTE orbit; // offset=20
@@ -76,20 +63,33 @@ public:
     UWORD etherealBadLimit; // offset=48
     UWORD etherealVisit; // offset=50
     UWORD etherealBonusMono; // offset=52
-    XY dropSites[7]; // offset=54
-    XY boundaries[1]; // offset=86
-    Stuff stuff[63]; // offset=87
-    UWORD victoryGoop; // offset=94
-    UWORD victoryEnemyBuildings; // offset=96
-    SLONG victoryEPoints; // offset=98
-    UBYTE etherealStrictness; // offset=102
-    XY terraformXY; // offset=103
-    UWORD computerStartOnTurn[2]; // offset=107
-    UBYTE specsWantedInTeam[3]; // offset=113
-    UBYTE specialistsAllowed; // offset=117
-    UBYTE specActionsAllowed[3]; // offset=118
-    ULONG rescuedOnTurn; // offset=122
-    UBYTE victoryFlags; // offset=126
+    XY dropSites[8]; // offset=54
+    Stuff stuff[64]; // offset=86
+    XY boundaries[2]; // offset=598
+    UWORD victoryGoop; // offset=606
+    UWORD victoryEnemyBuildings; // offset=608
+    SLONG victoryEPoints; // offset=610
+    UBYTE etherealStrictness; // offset=614
+    XY terraformXY; // offset=615
+    UWORD computerStartOnTurn[3]; // offset=619
+    UBYTE specsWantedInTeam[4]; // offset=625
+    UBYTE specialistsAllowed; // offset=629
+    UBYTE specActionsAllowed[4]; // offset=630
+    ULONG rescuedOnTurn; // offset=634
+    UBYTE victoryFlags; // offset=638
+public:
+    void Generate();
+    void ClearStuff();
+    void MakeStuff();
+    void MakeForest(XY arg1, UBYTE arg2, UBYTE arg3);
+    void MakeHerd(Stuff &arg1);
+    void MakeBuilding(Stuff &arg1);
+    void SlapBuildingDown(XY arg1, UBYTE arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5);
+    void ShuffleLZs();
+    void PlaceStuff(XY arg1, UBYTE arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5);
+    void PlaceStuff(Stuff *arg1);
+    BBOOL AllComputersStarted();
+    char * GetMissionBriefingString(char *arg1, UBYTE arg2);
 };
 
 void GenerateBlockTable();

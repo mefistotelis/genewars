@@ -29,7 +29,6 @@ enum InfoRequesterStyle { // type=int8_t
 
 class TurnPrintInfo { // sizeof=110
 public:
-    BBOOL Print();
     SLONG x; // offset=0
     SLONG y; // offset=4
     SLONG delay; // offset=8
@@ -40,33 +39,36 @@ public:
     FontInfo dfi; // offset=54
     ULONG drawing; // offset=82
     SLONG linesDrawn; // offset=86
-    char *drawCurrent;
-    char *current;
-    SLONG delayCount;
-    SLONG count;
-    SLONG length;
-};
-
-class InfoRequester { // sizeof=142
+    SLONG length; // offset=90
+    SLONG count; // offset=94
+    SLONG delayCount; // offset=98
+    char *current; // offset=102
+    char *drawCurrent; // offset=106
 public:
-    //InfoRequester(InfoRequester *arg1);
-    void DrawPic(SLONG arg1, SLONG arg2);
-    BBOOL Valid();
-    void Invalidate();
-    void Draw();
-    BBOOL Update();
-    void Create(char *arg1, char *arg2, char *arg3, SLONG arg4, InfoRequesterStyle arg5); // last arg uncertain
-    //InfoRequester();
-    uint8_t picActive;
-    UBYTE picReveal;
-    UBYTE picBuffer[63];
-    SLONG textWidth;
-    char text[255];
-    char title[63];
-    TurnPrintInfo textTpi;
-    TurnPrintInfo titleTpi;
+    BBOOL Print();
 };
 
+class InfoRequester { // sizeof=8334
+    TurnPrintInfo titleTpi;
+    TurnPrintInfo textTpi;
+    char title[64]; // offset=8
+    char text[512]; // offset=72
+    SLONG textWidth; // offset=584
+    UBYTE picBuffer[7744]; // offset=588
+    UBYTE picReveal; // offset=8332
+    uint8_t picActive:1; // offset=8333 bit=0
+public:
+    //InfoRequester(); -- generate default no-args constructor
+    void Create(char *arg1, char *arg2, char *arg3, SLONG arg4, InfoRequesterStyle arg5); // last arg uncertain
+    BBOOL Update();
+    void Draw();
+    void Invalidate();
+    BBOOL Valid();
+private:
+    void DrawPic(SLONG arg1, SLONG arg2);
+//public:
+    //InfoRequester(InfoRequester const &arg1); -- generate default copy constructor
+};
 
 #endif // BIO_PRINTINFO_HPP_
 /******************************************************************************/

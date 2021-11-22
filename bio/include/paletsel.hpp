@@ -31,40 +31,40 @@ enum PaletteSelectorMode { // type=int8_t
 };
 
 class PaletteSelector { // sizeof=81
-public:
-    //PaletteSelector(PaletteSelector *arg1); -- generate default copy constructor
-    void RestoreSelectFilter();
-    void SetSelectFilter(UBYTE arg1);
-    void ClearSelect();
-    BBOOL IsSelectActive();
-    void SlideClose();
-    void SlideOpen();
-    SBYTE GetSelected();
-    void UnlockPalette();
-    void LockPalette();
-    void Draw();
-    BBOOL Update(SWORD arg1);
-    void CreateShepherdMenu();
-    void CreatePlantMenu();
-    void CreateBuildingMenu();
-    void Close();
-    void Create(Thing *tng);
-    void Init();
-    //PaletteSelector(); -- generate default no-args constructor
-    uint8_t open;
-    uint8_t closed;
-    uint8_t selectFilterStored;
-    SBYTE slideDelta;
-    SBYTE x;
-    UBYTE saveSelectFilter;
-    UBYTE listSize;
-    UBYTE error[31];
-    UBYTE mapTo[31];
-    SBYTE select[2];
-    UBYTE top[2];
-    BBOOL active;
-    PaletteSelectorMode mode;
     Thing *activeThing;
+    PaletteSelectorMode mode; // offset=4
+    BBOOL active; // offset=5
+    UBYTE top[3]; // offset=6
+    SBYTE select[3]; // offset=9
+    UBYTE mapTo[32]; // offset=12
+    UBYTE error[32]; // offset=44
+    UBYTE listSize; // offset=76
+    UBYTE saveSelectFilter; // offset=77
+    SBYTE x; // offset=78
+    SBYTE slideDelta; // offset=79
+    uint8_t selectFilterStored:1; // offset=80 bit=0
+    uint8_t closed:1; // offset=80 bit=1
+    uint8_t open:1; // offset=80 bit=2
+public:
+    //PaletteSelector(); -- generate default no-args constructor
+    void Init();
+    void Create(Thing *tng1);
+    void Close();
+    void CreateBuildingMenu();
+    void CreatePlantMenu();
+    void CreateShepherdMenu();
+    BBOOL Update(SWORD arg1);
+    void Draw();
+    void LockPalette();
+    void UnlockPalette();
+    SBYTE GetSelected();
+    void SlideOpen();
+    void SlideClose();
+    BBOOL IsSelectActive();
+    void ClearSelect();
+    void SetSelectFilter(UBYTE arg1);
+    void RestoreSelectFilter();
+    //PaletteSelector(PaletteSelector &arg1); -- generate default copy constructor
 };
 
 

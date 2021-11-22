@@ -24,30 +24,32 @@
 #include "xy.hpp"
 
 class Recording { // sizeof=6
-    void Decode();
-    void Encode();
     XY mouse; // offset=0
-    uint8_t keyDown; // offset=4
+    uint8_t mLeft:1; // offset=4 bit=0
+    uint8_t mRight:1; // offset=4 bit=1
+    uint8_t shift:1; // offset=4 bit=2
+    uint8_t ctrl:1; // offset=4 bit=3
+    uint8_t alt:1; // offset=4 bit=4
+    uint8_t keyDown:1; // offset=4 bit=5
     UBYTE key; // offset=5
-    uint8_t alt; // offset=6
-    uint8_t ctrl; // offset=7
-    uint8_t shift; // offset=8
-    uint8_t mRight; // offset=9
-    uint8_t mLeft; // offset=10
+public:
+    void Encode();
+    void Decode();
 };
 
 class Recorder { // sizeof=17
-    void Playback();
-    void Store();
-    void ReadBuffer();
-    void Flush();
-    void Close();
-    BBOOL Init(char *arg1, BBOOL arg2);
     Recording *records; // offset=0
     ULONG activeRecord; // offset=4
     TbFileHandle fileHandle; // offset=8
     BBOOL playback; // offset=12
     SLONG bufferSize; // offset=13
+public:
+    BBOOL Init(char *arg1, BBOOL arg2);
+    void Close();
+    void Flush();
+    void ReadBuffer();
+    void Store();
+    void Playback();
 };
 
 #endif // BIO_RECORD_HPP_

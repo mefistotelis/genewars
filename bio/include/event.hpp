@@ -47,7 +47,7 @@ public:
     void UpdateAll();
     SLONG ReadBuffer(Event **arg1, SLONG arg2, SLONG arg3, BioGame &game);
     SLONG WriteBuffer(Event **arg1, SLONG arg2, SLONG arg3, BioGame &game);
-    BBOOL operator==(Event *arg1);
+    BBOOL operator ==(Event *arg1);
 private:
     BBOOL CreateSphereRing(Point *arg1, BBOOL *arg2, UBYTE arg3);
 public:

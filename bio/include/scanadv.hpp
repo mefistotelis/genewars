@@ -31,460 +31,543 @@
 
 class PassableTerrainScan : public PolarRangeScan { // sizeof=60
 public:
-    //PassableTerrainScan(PassableTerrainScan *rscan1);
-    void PerGrid();
-    PassableTerrainScan(SmartMovingThing &arg1, ULONG arg2);
-    //void (**__vfptr)();
-    SmartMovingThing thing;
     BBOOL foundAPlace; // offset=51
     XY goToXY; // offset=52
+    SmartMovingThing thing;
+//internal:
+    //void (**__vfptr)(); // offset=47
+public:
+    PassableTerrainScan(SmartMovingThing &tng1, ULONG arg2);
+    void PerGrid();
+    //PassableTerrainScan(PassableTerrainScan const &rscan1); -- generate default copy constructor
 };
 
 class ShotHitScan : public RangeScanner { // sizeof=62
 public:
-    //ShotHitScan(ShotHitScan *arg1);
-    void PerGrid();
-    ShotHitScan(Effect &arg1, SLONG arg2);
-    //void (**__vfptr)();
-    ULONG bestRange;
-    ULONG sqShotRadius;
-    Thing *creator;
-    Effect shot;
     Thing *hitThing; // offset=41
     BBOOL ricochet; // offset=45
+    Effect shot;
+    Thing *creator; // offset=50
+    ULONG sqShotRadius; // offset=54
+    ULONG bestRange; // offset=58
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    ShotHitScan(Effect &eff1, SLONG arg2);
+    void PerGrid();
+    //ShotHitScan(ShotHitScan const &rscan1); -- generate default copy constructor
 };
 
 class FireScan : public RangeScanner { // sizeof=45
 public:
-    //FireScan(FireScan *arg1);
-    void PerGrid();
-    FireScan(Effect &arg1);
-    //void (**__vfptr)();
     Effect fire;
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    FireScan(Effect &eff1);
+    void PerGrid();
+    //FireScan(FireScan const &arg1);
 };
 
 class MonolithHitScan : public RangeScanner { // sizeof=53
 public:
-    //MonolithHitScan(MonolithHitScan *arg1);
-    void PerGrid();
-    MonolithHitScan(Effect &arg1);
-    //void (**__vfptr)();
-    ULONG bestRange;
-    Effect mono;
     Thing *hitThing; // offset=41
+    Effect mono;
+    ULONG bestRange; // offset=49
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    MonolithHitScan(Effect &eff1);
+    void PerGrid();
+    //MonolithHitScan(MonolithHitScan const &rscan1); -- generate default copy constructor
 };
 
 class StasisBoltScan : public RangeScanner { // sizeof=50
 public:
-    //StasisBoltScan(class StasisBoltScan *arg1);
-    void PerGrid();
-    StasisBoltScan(Effect &arg1, SLONG arg2);
-    //void (**__vfptr)();
-    ULONG sqShotRadius;
-    Effect shot;
     BBOOL hitThing; // offset=41
+    Effect shot;
+    ULONG sqShotRadius; // offset=46
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    StasisBoltScan(Effect &eff1, SLONG arg2);
+    void PerGrid();
+    //StasisBoltScan(StasisBoltScan const &rscan1); -- generate default copy constructor
 };
 
 class TurretScan : public RangeScanner { // sizeof=53
 public:
-    //TurretScan(TurretScan *arg1);
-    void PerGrid();
-    TurretScan(Building &arg1);
-    //void (**__vfptr)();
-    SLONG closestRange;
-    Building turret;
     Thing *tgtThing; // offset=41
+    Building turret;
+    SLONG closestRange; // offset=49
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    TurretScan(Building &bldng);
+    void PerGrid();
+    //TurretScan(TurretScan const &rscan1); -- generate default copy constructor
 };
 
 class SawmillScan : public RangeScanner { // sizeof=53
 public:
-    //SawmillScan(SawmillScan *arg1);
-    void PerGrid();
-    SawmillScan(Building &arg1);
-    //void (**__vfptr)();
-    SLONG bestValue;
-    Building sawmill;
     Plant *tgtPlant; // offset=41
+    Building sawmill;
+    SLONG bestValue; // offset=49
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    SawmillScan(Building &bldng);
+    void PerGrid();
+    //SawmillScan(SawmillScan const &rscan1); -- generate default copy constructor
 };
 
 class FarmScan : public RangeScanner { // sizeof=53
 public:
-    //FarmScan(FarmScan *arg1);
-    void PerGrid();
-    FarmScan(Building &arg1);
-    //void (**__vfptr)();
-    SLONG bestValue;
-    Building farm;
     Thing *tgt; // offset=41
+    Building farm;
+    SLONG bestValue; // offset=49
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    FarmScan(Building &bldng);
+    void PerGrid();
+    //FarmScan(FarmScan const &rscan1); -- generate default copy constructor
 };
 
 class ShieldScan : public RangeScanner { // sizeof=49
 public:
-    //ShieldScan(class ShieldScan *arg1);
-    void BounceThingOffShield(MovingThing *arg1, BBOOL arg2);
-    void PerGrid();
-    ShieldScan(Building &arg1);
-    //void (**__vfptr)();
-    ULONG squareShieldRange;
     Building shield;
+    ULONG squareShieldRange; // offset=45
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    ShieldScan(Building &bldng);
+    void PerGrid();
+private:
+    void BounceThingOffShield(MovingThing *tng1, BBOOL arg2);
+//public:
+    //ShieldScan(ShieldScan const &rscan1); -- generate default copy constructor
 };
 
 class CollectorScan : public WeightedTgtRangeScanner { // sizeof=246
 public:
-    //CollectorScan(CollectorScan *arg1);
-    void PerGrid();
-    CollectorScan(Creature &arg1, BBOOL arg2, BBOOL arg3);
-    //void (**__vfptr)();
-    UBYTE bonesBonus;
-    UBYTE plantBonus;
-    BBOOL lookForBones;
-    BBOOL lookForPlants;
     Creature c;
+    BBOOL lookForPlants; // offset=242
+    BBOOL lookForBones; // offset=243
+    UBYTE plantBonus; // offset=244
+    UBYTE bonesBonus; // offset=245
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    CollectorScan(Creature &creatr, BBOOL arg2, BBOOL arg3);
+    void PerGrid();
+    //CollectorScan(CollectorScan const &rscan1); -- generate default copy constructor
 };
 
 class BuilderTreeScan : public RangeScanner { // sizeof=49
 public:
-    //BuilderTreeScan(BuilderTreeScan *arg1);
-    void PerGrid();
-    BuilderTreeScan(Creature &arg1);
-    //void (**__vfptr)();
-    ULONG bestRange;
     Plant *tgtPlant; // offset=41
+    ULONG bestRange; // offset=45
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    BuilderTreeScan(Creature &creatr);
+    void PerGrid();
+    //BuilderTreeScan(BuilderTreeScan const &rscan1); -- generate default copy constructor
 };
 
-class ChopperScan : public WeightedTgtRangeScanner { // sizeof=110
+class ChopperScan : public WeightedTgtRangeScanner { // sizeof=366
 public:
-    //ChopperScan(ChopperScan *arg1);
+    Plant *closestPerSector[16]; // offset=238
+    int bestRanges[16]; // offset=302
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    ChopperScan(Creature &creatr);
     void PerGrid();
-    ChopperScan(Creature &arg1);
-    //void (**__vfptr)();
-    int bestRanges[15];
-    Plant *closestPerSector[15];
+    //ChopperScan(ChopperScan const &rscan1); -- generate default copy constructor
 };
 
 class TestSlice : public PolarSliceScan { // sizeof=65
 public:
-    //TestSlice(TestSlice *arg1);
-    void PerGrid();
-    TestSlice(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
-    //void (**__vfptr)();
-    SLONG lowestPoint;
     XY bestPos; // offset=48
-    UWORD errors[3]; // offset=52
+    UWORD errors[4]; // offset=52
     UBYTE error_type; // offset=60
+    SLONG lowestPoint; // offset=61
+//internal:
+    //void (**__vfptr)(); // offset=44
+public:
+    TestSlice(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4);
+    void PerGrid();
+    //TestSlice(TestSlice const &rscan1); -- generate default copy constructor
 };
 
 class TestEverything : public PolarEverythingScan { // sizeof=60
 public:
-    //TestEverything(TestEverything *arg1);
-    void PerGrid();
-    TestEverything(XY arg1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5, BBOOL arg6);
-    //void (**__vfptr)();
     XY bestPos; // offset=47
-    UWORD errors[3]; // offset=51
+    UWORD errors[4]; // offset=51
     UBYTE error_type; // offset=59
+//internal:
+    //void (**__vfptr)(); // offset=43
+public:
+    TestEverything(XY cor1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5, BBOOL arg6);
+    void PerGrid();
+    //TestEverything(TestEverything const &rscan1); -- generate default copy constructor
 };
 
 class ChopTreeScan : public RangeScanner { // sizeof=41
+//internal:
+    //void (**__vfptr)(); // offset=37
 public:
-    //ChopTreeScan(ChopTreeScan *arg1);
+    ChopTreeScan(XY cor1, ULONG arg2);
     void PerGrid();
-    ChopTreeScan(XY arg1, ULONG arg2);
-    //void (**__vfptr)();
+    //ChopTreeScan(ChopTreeScan const &rscan1); -- generate default copy constructor
 };
 
 class BestForestScan : public PolarRangeScan { // sizeof=62
 public:
-    //BestForestScan(BestForestScan *arg1);
-    void PerGrid();
-    BestForestScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5);
-    //void (**__vfptr)();
-    SLONG bestValue;
-    UBYTE forestType;
-    UBYTE player;
-    UBYTE foundationSize;
     XY bestPos; // offset=51
+    UBYTE foundationSize; // offset=55
+    UBYTE player; // offset=56
+    UBYTE forestType; // offset=57
+    SLONG bestValue; // offset=58
+//internal:
+    //void (**__vfptr)(); // offset=47
+public:
+    BestForestScan(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5);
+    void PerGrid();
+    //BestForestScan(BestForestScan const &rscan1); -- generate default copy constructor
 };
 
 class MineralScan : public RangeScanner { // sizeof=45
 public:
-    //MineralScan(MineralScan *arg1);
-    void PerGrid();
-    MineralScan(XY arg1, ULONG arg2);
-    //void (**__vfptr)();
     ULONG minerals; // offset=41
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    MineralScan(XY cor1, ULONG arg2);
+    void PerGrid();
+    //MineralScan(MineralScan const &rscan1); -- generate default copy constructor
 };
 
 class MineScan : public RangeScanner { // sizeof=50
 public:
-    //MineScan(MineScan *arg1);
-    void PerGrid();
-    MineScan(XY arg1, ULONG arg2, UBYTE arg3);
-    //void (**__vfptr)();
-    UBYTE mineFoundationSize;
-    ULONG mostMinerals;
     XY bestPos; // offset=41
+    ULONG mostMinerals; // offset=45
+    UBYTE mineFoundationSize; // offset=49
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    MineScan(XY cor1, ULONG arg2, UBYTE arg3);
+    void PerGrid();
+    //MineScan(MineScan const &rscan1); -- generate default copy constructor
 };
 
 class PowerScan : public PolarRangeScan { // sizeof=59
 public:
-    //PowerScan(PowerScan *arg1);
-    void PerGrid();
-    PowerScan(XY arg1, ULONG arg2, UBYTE arg3);
-    //void (**__vfptr)();
-    UBYTE player;
-    UBYTE foundationSize;
-    UBYTE mostPower;
     XY bestPos; // offset=51
     UBYTE bestType; // offset=55
+    UBYTE mostPower; // offset=56
+    UBYTE foundationSize; // offset=57
+    UBYTE player; // offset=58
+//internal:
+    //void (**__vfptr)(); // offset=47
+public:
+    PowerScan(XY cor1, ULONG arg2, UBYTE arg3);
+    void PerGrid();
+    //PowerScan(PowerScan const &rscan1); -- generate default copy constructor
 };
 
 class OldPowerTally : public PolarRangeScan { // sizeof=57
 public:
-    //OldPowerTally(OldPowerTally *arg1);
-    OldPowerTally(XY arg1, ULONG arg2, UBYTE arg3);
-    void PerGrid();
-    //void (**__vfptr)();
-    UBYTE player;
     UBYTE satisfiedBuildings; // offset=51
     ULONG landTiles; // offset=52
+    UBYTE player; // offset=56
+//internal:
+    //void (**__vfptr)(); // offset=47
+public:
+    void PerGrid();
+    OldPowerTally(XY cor1, ULONG arg2, UBYTE arg3);
+    //OldPowerTally(OldPowerTally const &rscan1); -- generate default copy constructor
 };
 
 class NewPowerTally : public RangeScanner { // sizeof=49
 public:
-    //NewPowerTally(NewPowerTally *arg1);
-    NewPowerTally(XY arg1, ULONG arg2);
-    void PerGrid();
-    //void (**__vfptr)();
     ULONG landTiles; // offset=41
     ULONG tiles; // offset=45
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    void PerGrid();
+    NewPowerTally(XY cor1, ULONG arg2);
+    //NewPowerTally(NewPowerTally const &rscan1); -- generate default copy constructor
 };
 
 class SatisfyBuildings : public PolarRangeScan { // sizeof=64
 public:
-    //SatisfyBuildings(SatisfyBuildings *arg1);
-    SatisfyBuildings(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5);
-    void PerGrid();
-    void Do();
-    //void (**__vfptr)();
-    UBYTE player;
-    ULONG maxLandTiles;
-    UBYTE buildingsSatisfied;
-    UBYTE buildingsToSatisfy;
-    UBYTE foundationSize;
     XY bestPos; // offset=51
     UBYTE stage; // offset=55
+    UBYTE foundationSize; // offset=56
+    UBYTE buildingsToSatisfy; // offset=57
+    UBYTE buildingsSatisfied; // offset=58
+    ULONG maxLandTiles; // offset=59
+    UBYTE player; // offset=63
+//internal:
+    //void (**__vfptr)(); // offset=47
+public:
+    void Do();
+    void PerGrid();
+    SatisfyBuildings(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5);
+    //SatisfyBuildings(SatisfyBuildings const &rscan1); -- generate default copy constructor
 };
 
 class ForestScan : public RangeScanner { // sizeof=109
 public:
-    //ForestScan(ForestScan *arg1);
-    void PerGrid();
-    ForestScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
-    //void (**__vfptr)();
-    SBYTE plantGrowth[11];
-    SLONG forestValue[11];
-    UBYTE player;
-    UBYTE forestType;
-    UBYTE foundationSize;
     SLONG bestValue; // offset=41
     UBYTE bestType; // offset=45
+    UBYTE foundationSize; // offset=46
+    UBYTE forestType; // offset=47
+    UBYTE player; // offset=48
+    SLONG forestValue[12]; // offset=49
+    SBYTE plantGrowth[12]; // offset=97
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    ForestScan(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4);
+    void PerGrid();
+    //ForestScan(ForestScan const &rscan1); -- generate default copy constructor
 };
 
 class HarvestScan : public PolarRangeScan { // sizeof=58
 public:
-    //HarvestScan(HarvestScan *arg1);
-    void PerGrid();
-    HarvestScan(XY arg1, ULONG arg2);
-    //void (**__vfptr)();
-    SWORD maxHealth;
-    UBYTE numOfTrees;
     XY bestPos; // offset=51
+    UBYTE numOfTrees; // offset=55
+    SWORD maxHealth; // offset=56
+//internal:
+    //void (**__vfptr)(); // offset=47
+public:
+    HarvestScan(XY cor1, ULONG arg2);
+    void PerGrid();
+    //HarvestScan(HarvestScan const &rscan1); -- generate default copy constructor
 };
 
 class NearestLand : public PolarRangeScan { // sizeof=55
 public:
-    //NearestLand(NearestLand *arg1);
-    void PerGrid();
-    NearestLand(XY arg1, ULONG arg2);
-    //void (**__vfptr)();
     XY bestPos; // offset=51
+//internal:
+    //void (**__vfptr)(); // offset=47
+public:
+    NearestLand(XY cor1, ULONG arg2);
+    void PerGrid();
+    //NearestLand(NearestLand const &rscan1); -- generate default copy constructor
 };
 
 class PowerStationScan : public PolarRangeScan { // sizeof=64
 public:
-    //PowerStationScan(PowerStationScan *arg1);
-    void PerGrid();
-    PowerStationScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
-    //void (**__vfptr)();
-    UBYTE idx;
-    ULONG threshold;
-    ULONG maxLandTiles;
     XY bestPos; // offset=51
+    ULONG maxLandTiles; // offset=55
+    ULONG threshold; // offset=59
+    UBYTE idx; // offset=63
+//internal:
+    //void (**__vfptr)(); // offset=47
+public:
+    PowerStationScan(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4);
+    void PerGrid();
+    //PowerStationScan(PowerStationScan const &rscan1); -- generate default copy constructor
 };
 
 class SiteScore : public RangeScanner { // sizeof=45
 public:
-    //SiteScore(SiteScore *arg1);
-    void PerGrid();
-    SiteScore(XY arg1, ULONG arg2);
-    //void (**__vfptr)();
     ULONG score; // offset=41
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    SiteScore(XY cor1, ULONG arg2);
+    void PerGrid();
+    //SiteScore(SiteScore const &rscan1); -- generate default copy constructor
 };
 
 class PlantScan : public RangeScanner { // sizeof=108
 public:
-    //PlantScan(class PlantScan *arg1);
-    void PerGrid();
-    PlantScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
-    //void (**__vfptr)();
-    SBYTE plantGrowth[11];
-    SLONG forestValue[11];
-    UBYTE player;
-    UBYTE forestType;
     SLONG bestValue; // offset=41
     UBYTE bestType; // offset=45
+    UBYTE forestType; // offset=46
+    UBYTE player; // offset=47
+    SLONG forestValue[12]; // offset=48
+    SBYTE plantGrowth[12]; // offset=96
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    PlantScan(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4);
+    void PerGrid();
+    //PlantScan(PlantScan const &rscan1); -- generate default copy constructor
 };
 
 class ClosestTree : public PolarRangeScan { // sizeof=63
 public:
-    //ClosestTree(class ClosestTree *arg1);
-    void PerGrid();
-    ClosestTree(XY &arg1, ULONG arg2);
-    //void (**__vfptr)();
     Thing *closestPlant; // offset=51
     ULONG closestDistance; // offset=55
     XY loc; // offset=59
+//internal:
+    //void (**__vfptr)(); // offset=47
+public:
+    ClosestTree(XY cor1, ULONG arg2);
+    void PerGrid();
+    //ClosestTree(ClosestTree const &rscan1); -- generate default copy constructor
 };
 
 class ClosestDeadCreature : public PolarRangeScan { // sizeof=63
 public:
-    //ClosestDeadCreature(class ClosestDeadCreature *arg1);
-    void PerGrid();
-    ClosestDeadCreature(XY arg1, ULONG arg2);
-    //void (**__vfptr)();
     Thing *closestDeadCreature; // offset=51
     ULONG closestDistance; // offset=55
     XY loc; // offset=59
+//internal:
+    //void (**__vfptr)(); // offset=47
+public:
+    ClosestDeadCreature(XY cor1, ULONG arg2);
+    void PerGrid();
+    //ClosestDeadCreature(ClosestDeadCreature const &rscan1); -- generate default copy constructor
 };
 
 class ClosestEnemy : public PolarRangeScan { // sizeof=64
 public:
-    //ClosestEnemy(ClosestEnemy *arg1);
-    void PerGrid();
-    ClosestEnemy(XY arg1, ULONG arg2, UBYTE arg3);
-    //void (**__vfptr)();
     Thing *closestEnemy; // offset=51
     ULONG closestDistance; // offset=55
     XY loc; // offset=59
     UBYTE player; // offset=63
+//internal:
+    //void (**__vfptr)(); // offset=47
+public:
+    ClosestEnemy(XY cor1, ULONG arg2, UBYTE arg3);
+    void PerGrid();
+    //ClosestEnemy(ClosestEnemy const &rscan1); -- generate default copy constructor
 };
 
 class CountTrees : public RangeScanner { // sizeof=45
 public:
-    //CountTrees(CountTrees *arg1);
-    void PerGrid();
-    CountTrees(XY arg1, ULONG arg2);
-    //void (**__vfptr)();
     SLONG trees; // offset=41
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    CountTrees(XY cor1, ULONG arg2);
+    void PerGrid();
+    //CountTrees(CountTrees const &rscan1); -- generate default copy constructor
 };
 
 class GuardPointImportance : public RangeScanner { // sizeof=43
 public:
-    //GuardPointImportance(GuardPointImportance *arg1);
-    void PerGrid();
-    GuardPointImportance(XY arg1, ULONG arg2);
-    //void (**__vfptr)();
     SWORD importance; // offset=41
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    GuardPointImportance(XY cor1, ULONG arg2);
+    void PerGrid();
+    //GuardPointImportance(GuardPointImportance const &rscan1); -- generate default copy constructor
 };
 
 class CloseTgt { // sizeof=4
-    BBOOL Valid();
+public:
     SWORD idx; // offset=0
     SWORD range; // offset=2
+public:
+    BBOOL Valid();
 };
 
 class ClosestTargets : public PolarRangeScan { // sizeof=132
 public:
-    //ClosestTargets(ClosestTargets *arg1);
-    void PerGrid();
-    ClosestTargets(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
-    //void (**__vfptr)();
-    CloseTgt clTgts[2][5]; // offset=51
-    SBYTE currentTgt[2]; // offset=123
+    CloseTgt clTgts[3][6]; // offset=51
+    SBYTE currentTgt[3]; // offset=123
     XY loc; // offset=126
     UBYTE player; // offset=130
     BBOOL defend; // offset=131
+//internal:
+    //void (**__vfptr)(); // offset=47
+public:
+    ClosestTargets(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4);
+    void PerGrid();
+    //ClosestTargets(ClosestTargets const &rscan1); -- generate default copy constructor
 };
 
 class LumberjackScan : public RangeScanner { // sizeof=57
 public:
-    //LumberjackScan(LumberjackScan *arg1);
-    void PerGrid();
-    LumberjackScan(PlSpec &arg1);
-    //void (**__vfptr)();
-    SLONG dirBonus;
-    SLONG bestValue;
-    PlSpec pls;
     Plant *tgtPlant; // offset=41
+    PlSpec pls;
+    SLONG bestValue; // offset=49
+    SLONG dirBonus; // offset=53
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    LumberjackScan(PlSpec &arg1);
+    void PerGrid();
+    //LumberjackScan(LumberjackScan const &rscan1); -- generate default copy constructor
 };
 
 class HarvestClearScan : public RangeScanner { // sizeof=55
 public:
-    //HarvestClearScan(HarvestClearScan *arg1);
-    void Do();
-    void PerGrid();
-    HarvestClearScan(PlSpec &arg1, BBOOL arg2, BBOOL arg3);
-    //void (**__vfptr)();
-    BBOOL clearFlags;
-    BBOOL collect;
-    ResearchGrid rGrid;
-    PlSpec pls;
     ULONG seedsGot; // offset=41
+    PlSpec pls;
+    ResearchGrid rGrid;
+    BBOOL collect; // offset=53
+    BBOOL clearFlags; // offset=54
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    HarvestClearScan(PlSpec &arg1, BBOOL arg2, BBOOL arg3);
+    void PerGrid();
+    void Do();
+    //HarvestClearScan(HarvestClearScan const &rscan1); -- generate default copy constructor
 };
 
 class FarmerPlantingScan : public WeightedRangeScanner { // sizeof=115
 public:
-    //FarmerPlantingScan(FarmerPlantingScan *arg1);
-    void PerGrid();
-    FarmerPlantingScan(PlSpec &arg1, BBOOL arg2);
-    //void (**__vfptr)();
-    BBOOL rangeInvert;
-    PSpecies pSpc;
     PlSpec pls;
+    PSpecies pSpc;
+    BBOOL rangeInvert; // offset=114
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    FarmerPlantingScan(PlSpec &arg1, BBOOL arg2);
+    void PerGrid();
+    //FarmerPlantingScan(FarmerPlantingScan const &rscan1); -- generate default copy constructor
 };
 
 class SurvivalScan : public RangeScanner { // sizeof=53
 public:
-    //SurvivalScan(SurvivalScan *arg1);
-    void PerGrid();
-    SurvivalScan(PlSpec &arg1, ULONG arg2);
-    //void (**__vfptr)();
-    ULONG bestRange;
-    PlSpec pls;
     Creature *tgtCreature; // offset=41
+    PlSpec pls;
+    ULONG bestRange; // offset=49
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    SurvivalScan(PlSpec &arg1, ULONG arg2);
+    void PerGrid();
+    //SurvivalScan(SurvivalScan const &rscan1); -- generate default copy constructor
 };
 
 class StudyCreatureScan : public RangeScanner { // sizeof=53
 public:
-    //StudyCreatureScan(StudyCreatureScan *arg1);
-    void PerGrid();
-    StudyCreatureScan(PlSpec &arg1);
-    //void (**__vfptr)();
-    ULONG bestRange;
-    PlSpec scientist;
     Creature *tgtCreature; // offset=41
+    PlSpec scientist;
+    ULONG bestRange; // offset=49
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    StudyCreatureScan(PlSpec &arg1);
+    void PerGrid();
+    //StudyCreatureScan(StudyCreatureScan const &rscan1); -- generate default copy constructor
 };
 
 class HealCreatureScan : public RangeScanner { // sizeof=53
 public:
-    //HealCreatureScan(HealCreatureScan *arg1);
-    void PerGrid();
-    HealCreatureScan(PlSpec &arg1);
-    //void (**__vfptr)();
-    ULONG bestRange;
-    PlSpec scientist;
     Creature *tgtCreature; // offset=41
+    PlSpec scientist;
+    ULONG bestRange; // offset=49
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    HealCreatureScan(PlSpec &arg1);
+    void PerGrid();
+    //HealCreatureScan(HealCreatureScan const &rscan1); -- generate default copy constructor
 };
 
 #endif // SCANADV_HPP_
