@@ -127,7 +127,7 @@ struct ASpecies { // sizeof=45
     SLONG restFrequency; // offset=22
     UBYTE birthsPerLife; // offset=26
     SWORD mass; // offset=27
-    UBYTE food[2]; // offset=29
+    UBYTE food[3]; // offset=29
     SLONG costInGoop; // offset=32
     UBYTE wuss; // offset=36
     SLONG halfLife; // offset=37
@@ -135,16 +135,15 @@ struct ASpecies { // sizeof=45
 };
 
 class CreatureInfo { // sizeof=2
-public:
-    //~CreatureInfo();
-    //CreatureInfo(CreatureInfo *arg1);
-    void Invalidate();
-    //CreatureInfo();
-    uint8_t baseNo; // offset=0
+    uint8_t job:2; // offset=0 bit=0
+    uint8_t movingToPoint:1; // offset=0 bit=2
+    uint8_t space:2; // offset=0 bit=3
+    uint8_t baseNo:3; // offset=0 bit=5
     SBYTE guardPoint; // offset=1
-    uint8_t space; // offset=2
-    uint8_t movingToPoint; // offset=3
-    uint8_t job; // offset=4
+public:
+    //CreatureInfo(); -- generate default no-args constructor
+    void Invalidate();
+    //CreatureInfo(CreatureInfo &arg1); -- generate default copy constructor
 };
 
 #endif // BIO_CREATURESTAT_HPP_

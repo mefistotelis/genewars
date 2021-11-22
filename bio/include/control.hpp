@@ -21,74 +21,74 @@
 
 #include "bftypes.h"
 
-struct ControllerInfo { // sizeof=13
+class ControllerInfo { // sizeof=13
     SWORD PointerX; // offset=0
     SWORD PointerY; // offset=2
     SWORD PointerXClicked; // offset=4
     SWORD PointerYClicked; // offset=6
-    uint8_t RightReleased; // offset=8
-    uint8_t ButtonTwoPressed; // offset=9
-    uint8_t ButtonFourHeld; // offset=10
-    uint8_t ButtonUpReleased; // offset=11
-    uint8_t ButtonDownHeld; // offset=12
-    uint8_t ButtonDownReleased; // offset=13
-    uint8_t ButtonDownPressed; // offset=14
-    uint8_t ButtonUpHeld; // offset=15
-    uint8_t ButtonUpPressed; // offset=16
-    uint8_t ButtonRightHeld; // offset=17
-    uint8_t ButtonRightReleased; // offset=18
-    uint8_t ButtonRightPressed; // offset=19
-    uint8_t ButtonLeftHeld; // offset=20
-    uint8_t ButtonLeftReleased; // offset=21
-    uint8_t ButtonLeftPressed; // offset=22
-    uint8_t ButtonFourReleased; // offset=23
-    uint8_t ButtonFourPressed; // offset=24
-    uint8_t ButtonThreeHeld; // offset=25
-    uint8_t ButtonThreeReleased; // offset=26
-    uint8_t ButtonThreePressed; // offset=27
-    uint8_t ButtonTwoHeld; // offset=28
-    uint8_t ButtonTwoReleased; // offset=29
-    uint8_t ButtonOneHeld; // offset=30
-    uint8_t ButtonOneReleased; // offset=31
-    uint8_t ButtonOnePressed; // offset=32
-    uint8_t RightClicked; // offset=33
-    uint8_t MiddleClicked; // offset=34
-    uint8_t LeftClicked; // offset=35
-    uint8_t RightHeld; // offset=36
-    uint8_t RightPressed; // offset=37
-    uint8_t MiddleHeld; // offset=38
-    uint8_t MiddleReleased; // offset=39
-    uint8_t MiddlePressed; // offset=40
-    uint8_t LeftHeld; // offset=41
-    uint8_t LeftReleased; // offset=42
-    uint8_t LeftPressed; // offset=43
+    uint8_t LeftPressed:1; // offset=8 bit=0
+    uint8_t LeftReleased:1; // offset=8 bit=1
+    uint8_t LeftHeld:1; // offset=8 bit=2
+    uint8_t MiddlePressed:1; // offset=8 bit=3
+    uint8_t MiddleReleased:1; // offset=8 bit=4
+    uint8_t MiddleHeld:1; // offset=8 bit=5
+    uint8_t RightPressed:1; // offset=8 bit=6
+    uint8_t RightReleased:1; // offset=8 bit=7
+    uint8_t RightHeld:1; // offset=9 bit=0
+    uint8_t LeftClicked:1; // offset=9 bit=1
+    uint8_t MiddleClicked:1; // offset=9 bit=2
+    uint8_t RightClicked:1; // offset=9 bit=3
+    uint8_t ButtonOnePressed:1; // offset=9 bit=4
+    uint8_t ButtonOneReleased:1; // offset=9 bit=5
+    uint8_t ButtonOneHeld:1; // offset=9 bit=6
+    uint8_t ButtonTwoPressed:1; // offset=9 bit=7
+    uint8_t ButtonTwoReleased:1; // offset=10 bit=0
+    uint8_t ButtonTwoHeld:1; // offset=10 bit=1
+    uint8_t ButtonThreePressed:1; // offset=10 bit=2
+    uint8_t ButtonThreeReleased:1; // offset=10 bit=3
+    uint8_t ButtonThreeHeld:1; // offset=10 bit=4
+    uint8_t ButtonFourPressed:1; // offset=10 bit=5
+    uint8_t ButtonFourReleased:1; // offset=10 bit=6
+    uint8_t ButtonFourHeld:1; // offset=10 bit=7
+    uint8_t ButtonLeftPressed:1; // offset=11 bit=0
+    uint8_t ButtonLeftReleased:1; // offset=11 bit=1
+    uint8_t ButtonLeftHeld:1; // offset=11 bit=2
+    uint8_t ButtonRightPressed:1; // offset=11 bit=3
+    uint8_t ButtonRightReleased:1; // offset=11 bit=4
+    uint8_t ButtonRightHeld:1; // offset=11 bit=5
+    uint8_t ButtonUpPressed:1; // offset=11 bit=6
+    uint8_t ButtonUpReleased:1; // offset=11 bit=7
+    uint8_t ButtonUpHeld:1; // offset=12 bit=0
+    uint8_t ButtonDownPressed:1; // offset=12 bit=1
+    uint8_t ButtonDownReleased:1; // offset=12 bit=2
+    uint8_t ButtonDownHeld:1; // offset=12 bit=3
 };
 
 struct GameFlags { // sizeof=1
-    uint8_t LostLevel; // offset=0
-    uint8_t WonLevel; // offset=1
-    uint8_t Conquest; // offset=2
-    uint8_t MusicOn; // offset=3
-    uint8_t SoundOn; // offset=4
-    uint8_t GameStart; // offset=5
-    uint8_t WorldGenerated; // offset=6
-    uint8_t QuitGame; // offset=7
+    uint8_t QuitGame:1; // offset=0 bit=0
+    uint8_t WorldGenerated:1; // offset=0 bit=1
+    uint8_t GameStart:1; // offset=0 bit=2
+    uint8_t SoundOn:1; // offset=0 bit=3
+    uint8_t MusicOn:1; // offset=0 bit=4
+    uint8_t Conquest:1; // offset=0 bit=5
+    uint8_t WonLevel:1; // offset=0 bit=6
+    uint8_t LostLevel:1; // offset=0 bit=7
 };
 
 struct RunTimeGameFlags { // sizeof=2
-    uint8_t DebugKeyboard; // offset=0
-    uint8_t GameScreenOpen; // offset=1
-    uint8_t ScreenShots; // offset=2
-    uint8_t NewVersion; // offset=3
-    uint8_t HiSoundsActive; // offset=4
-    uint8_t TesterAutosave; // offset=5
-    uint8_t RecorderActive; // offset=6
-    uint8_t AlreadyOutOfSync; // offset=7
-    uint8_t OutOfSync; // offset=8
-    uint8_t Debug; // offset=9
-    uint8_t Tester; // offset=10
-    uint8_t Paused; // offset=11
-    uint8_t Network; // offset=12
+    uint8_t Network:1; // offset=0 bit=0
+    uint8_t Paused:1; // offset=0 bit=1
+    uint8_t Tester:1; // offset=0 bit=2
+    uint8_t Debug:1; // offset=0 bit=3
+    uint8_t OutOfSync:1; // offset=0 bit=4
+    uint8_t AlreadyOutOfSync:1; // offset=0 bit=5
+    uint8_t RecorderActive:1; // offset=0 bit=6
+    uint8_t DebugKeyboard:1; // offset=0 bit=7
+    uint8_t TesterAutosave:1; // offset=1 bit=0
+    uint8_t HiSoundsActive:1; // offset=1 bit=1
+    uint8_t NewVersion:1; // offset=1 bit=2
+    uint8_t ScreenShots:1; // offset=1 bit=3
+    uint8_t GameScreenOpen:1; // offset=1 bit=4
 };
 
 struct GameControl { // sizeof=52
@@ -102,7 +102,7 @@ struct GameControl { // sizeof=52
     UBYTE PlayerNo; // offset=29
     UBYTE PlayersReady; // offset=30
     UBYTE pad; // offset=31
-    char SessionName[19]; // offset=32
+    char SessionName[20]; // offset=32
 };
 
 void control_game();

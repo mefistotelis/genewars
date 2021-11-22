@@ -77,11 +77,9 @@ class Computer { // sizeof=1726
     ULONG lastBuildingBuilt; // offset=1698
     ULONG lastCreatureMade; // offset=1702
     XY newBaseLocation; // offset=1706
-  union {
-    uint8_t haveSetupComputerPlayer; // offset=1710
-    uint8_t haveDoneInitialActions; // offset=1710
-    uint8_t haveDoneInitialCreatureActions; // offset=1710
-  };
+    uint8_t haveSetupComputerPlayer:1; // offset=1710 bit=0
+    uint8_t haveDoneInitialActions:1; // offset=1710 bit=1
+    uint8_t haveDoneInitialCreatureActions:1; // offset=1710 bit=2
     UBYTE atWarWith; // offset=1711
     SBYTE eZonesDone; // offset=1712
     UBYTE wantedNoSpecs; // offset=1713
@@ -99,9 +97,9 @@ public:
     void PA_BuilderBuild(PlSpec *arg1, XY arg2, UBYTE arg3, UBYTE arg4, BBOOL arg5);
     void PA_FarmerPlant(PlSpec *arg1, XY arg2, UBYTE arg3, BBOOL arg4);
     void PA_FarmerCollect(PlSpec *arg1, XY arg2, BBOOL arg3);
-    void PA_CowboyKill(PlSpec *arg1, MovingThing *tng2, BBOOL arg3);
+    void PA_CowboyKill(PlSpec *arg1, MovingThing *arg2, BBOOL arg3);
     void PA_ShepherdDoStuff(PlSpec *arg1, XY arg2, HerdMode arg3, BBOOL arg4);
-    void PA_ScientistStudy(PlSpec *arg1, Thing *tng2, BBOOL arg3);
+    void PA_ScientistStudy(PlSpec *arg1, Thing *arg2, BBOOL arg3);
     void PA_Cheat(UBYTE arg1);
     BBOOL PA_UpgradeBuilding(Building *arg1, PlSpec *arg2);
     BBOOL PA_FixBuilding(Building *arg1, PlSpec *arg2);
@@ -120,7 +118,7 @@ public:
     void PA_CreateACreature(UBYTE arg1, SWORD arg2, UBYTE arg3);
     void StorePacket(PlSpec *arg1, Packet *arg2);
     void DoStoredPacket(PlSpec *arg1);
-    BBOOL IsEnemy(Thing *tng1);
+    BBOOL IsEnemy(Thing *arg1);
     void SlapDownBuilding(Building *arg1);
     UWORD PowerOutput(UBYTE arg1);
     UWORD PowerNeeded(UBYTE arg1);
@@ -144,7 +142,7 @@ public:
     void MakeTeam(SLONG arg1);
     BBOOL AddBestSpec(UBYTE arg1);
     void MoveToNextWaypoint(PlSpec *arg1);
-    void RunAway(PlSpec *arg1, Thing *tng2);
+    void RunAway(PlSpec *arg1, Thing *arg2);
     void GoAroundShield(PlSpec *arg1, XY arg2, Building *arg3);
     void UpdateSpecTypes();
     void UpdateSpecialists();
@@ -168,7 +166,7 @@ public:
     SLONG CreaturesDoingJob(UBYTE arg1, UBYTE arg2, BBOOL arg3);
     BBOOL ReadyToMakeNewCreature();
     BBOOL ReadyToBuildNewBuilding();
-    SBYTE AssignGuardPointToBase(UBYTE arg1, XY &cor2, UBYTE arg3, SBYTE arg4);
+    SBYTE AssignGuardPointToBase(UBYTE arg1, XY &arg2, UBYTE arg3, SBYTE arg4);
     void UpdateAllGuardPoints();
     BBOOL AssignCreatureToGuardPoint(SWORD arg1, SBYTE arg2);
     void CheckEZones();
@@ -183,8 +181,8 @@ public:
     void SetAtWarWith(UBYTE arg1);
     BBOOL IsAtWarWith(UBYTE arg1, UBYTE arg2);
     void ClearAtWarWith(UBYTE arg1);
-    //Computer(Computer &arg1); -- generate default copy constructor
-    Computer & operator =(Computer &arg1);
+    //Computer(Computer &comp1); -- generate default copy constructor
+    Computer & operator =(Computer &comp1);
 };
 
 #endif // BIO_COMPUTER_HPP_
