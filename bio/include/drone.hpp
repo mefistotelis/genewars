@@ -38,36 +38,39 @@ enum DroneType { // type=int8_t
 };
 
 class Drone : public SmartMovingThing { // sizeof=97
-public:
-    Drone * operator =(Drone *drn1);
-    //Drone(Drone *arg1); -- generate default copy constructor
-    //Drone(); -- generate default no-args constructor
-    void DropWhateverYouWereDragging();
-    void SetDraggingTarget();
-    void UntagTarget();
-    void GoBoom();
-    SLONG WriteBuffer(Drone **drn1, SLONG arg2, SLONG arg3, BioGame &game);
-    SLONG ReadBuffer(Drone **drn1, SLONG arg2, SLONG arg3, BioGame &game);
-    void UpdateAll();
-    Drone * Create(Building *arg1, ::Thing *arg2, DroneType arg3);
-    void InitArray();
-    void Free();
-    void Discover();
-    void StartAMove(XY arg1);
-    UBYTE ShapeFacing();
-    SWORD MaxMoveSpeed();
-    BBOOL IsDead();
-    BBOOL Damage(SLONG arg1, ::Thing *arg2);
-    UBYTE Update();
-    void Resync();
-    void Write(SLONG &arg1);
-    void Read(SLONG &arg1);
-    //void (**__vfptr)();
     DroneType type; // offset=85
     DroneMode mode; // offset=86
     ThingIDX originBuilding; // offset=87
     ThingIDX target; // offset=90
     XY loggedTgtXY; // offset=93
+//internal:
+    //void (**__vfptr)(); // offset=35
+public:
+    void Read(SLONG &arg1);
+    void Write(SLONG &arg1);
+    void Resync();
+    UBYTE Update();
+    BBOOL Damage(SLONG arg1, Thing *arg2);
+    BBOOL IsDead();
+    SWORD MaxMoveSpeed();
+    UBYTE ShapeFacing();
+    void StartAMove(XY arg1);
+    void Discover();
+    void Free();
+    void InitArray();
+    Drone * Create(Building *arg1, Thing *arg2, DroneType arg3);
+    void UpdateAll();
+    SLONG ReadBuffer(Drone **drn1, SLONG arg2, SLONG arg3, BioGame &game);
+    SLONG WriteBuffer(Drone **drn1, SLONG arg2, SLONG arg3, BioGame &game);
+private:
+    void GoBoom();
+    void UntagTarget();
+    void SetDraggingTarget();
+    void DropWhateverYouWereDragging();
+public:
+    //Drone(); -- generate default no-args constructor
+    //Drone(Drone &drn1); -- generate default copy constructor
+    Drone & operator =(Drone &drn1);
 };
 
 unsigned char AtMmsEnd(MyMinSprite &spr1, MySprite &spr2);

@@ -23,29 +23,32 @@
 
 class Point { // sizeof=12
 public:
-    void Set(SLONG arg1, SLONG arg2, SLONG arg3);
     SLONG X; // offset=0
     SLONG Y; // offset=4
     SLONG Z; // offset=8
+public:
+    void Set(SLONG nX, SLONG nY, SLONG nZ);
 };
 
-class FlickerStuff { // sizeof=193
+class FlickerStuff { // sizeof=449
 public:
-    BBOOL Valid();
+    Point uppers[16]; // offset=0
+    Point lowers[16]; // offset=192
+    BBOOL uAbove[16]; // offset=384
+    BBOOL lAbove[16]; // offset=400
+    SWORD effects[16]; // offset=416
+    BBOOL valid; // offset=448
+public:
     void Invalidate();
-    Point uppers[15]; // offset=0
-    BBOOL uAbove[15]; // offset=128
-    BBOOL lAbove[15]; // offset=144
-    SWORD effects[15]; // offset=160
-    BBOOL valid; // offset=192
-    Point lowers[15]; // offset=193
+    BBOOL Valid();
 };
 
-class FlickerHandler { // sizeof=8
+class FlickerHandler { // sizeof=3592
 public:
-    void Free(UBYTE arg1);
+    FlickerStuff flickers[8]; // offset=0
+public:
     SBYTE Create();
-    FlickerStuff flickers[7]; // offset=0
+    void Free(UBYTE arg1);
 };
 
 #endif // BIO_FLICKER_HPP_

@@ -28,22 +28,6 @@ class Planet;
 class Thing;
 
 class EtherealZone { // sizeof=19
-public:
-    void ScoreTemples();
-    void ScorePlants(PlantSpecies arg1);
-    void ScoreCreatures(CreatureBaseSpecies arg1);
-    BBOOL ScoreToPlayer(SLONG arg1, UBYTE arg2, Thing *tng);
-    void FreeEffectMarker();
-    void Draw();
-    void Shade(BBOOL arg1);
-    void Score();
-    void Activate();
-    BBOOL IsExhausted();
-    void Exhaust();
-    void Deactivate();
-    BBOOL IsActive();
-    void Invalidate();
-    BBOOL Valid();
     XY loc; // offset=0
     UBYTE type; // offset=4
     SBYTE linkTo; // offset=5
@@ -51,18 +35,35 @@ public:
     SLONG totalPoints; // offset=10
     SLONG pointsRemaining; // offset=14
     SBYTE etherealsWatching; // offset=18
+public:
+    BBOOL Valid();
+    void Invalidate();
+    BBOOL IsActive();
+    void Deactivate();
+    void Exhaust();
+    BBOOL IsExhausted();
+    void Activate();
+    void Score();
+    void Shade(BBOOL arg1);
+    void Draw();
+    void FreeEffectMarker();
+private:
+    BBOOL ScoreToPlayer(SLONG arg1, UBYTE arg2, Thing *tng3);
+    void ScoreCreatures(CreatureBaseSpecies arg1);
+    void ScorePlants(PlantSpecies arg1);
+    void ScoreTemples();
 };
 
-class EtherealZoneHandler { // sizeof=194
+class EtherealZoneHandler { // sizeof=1218
+    EtherealZone eZones[64]; // offset=0
+    UBYTE numZones; // offset=1216
+    UBYTE zonesDone; // offset=1217
 public:
-    BBOOL IsZonesScoredOut();
-    void LightAllActive();
-    void Draw();
-    void Update();
     void InitFromPlanet(Planet &planet);
-    EtherealZone eZones[63]; // offset=0
-    UBYTE numZones; // offset=192
-    UBYTE zonesDone; // offset=193
+    void Update();
+    void Draw();
+    void LightAllActive();
+    BBOOL IsZonesScoredOut();
 };
 
 #endif // BIO_ETHERZONE_HPP_

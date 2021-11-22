@@ -111,10 +111,10 @@ enum EventType { // type=int8_t
 };
 
 class EventHelp { // sizeof=150
+    BBOOL eventLog[150]; // offset=0
 public:
-    BBOOL IsForceDisplay();
     void Log(EventHelpType arg1, BBOOL arg2);
-    BBOOL eventLog[149]; // offset=0
+    BBOOL IsForceDisplay();
 };
 
 #endif // BIO_EVENTSTAT_HPP_

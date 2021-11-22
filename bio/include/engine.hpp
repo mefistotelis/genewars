@@ -22,13 +22,13 @@
 #include "bftypes.h"
 
 struct GEngine { // sizeof=20
-    //GEngine(GEngine *arg1);
-    //GEngine();
     SLONG XStep; // offset=0
     SLONG YStep; // offset=4
     SLONG BaseX; // offset=8
     SLONG BaseY; // offset=12
     SLONG AltScaler; // offset=16
+    //GEngine(); -- generate default no-args constructor
+    //GEngine(GEngine &engin1); -- generate default copy constructor
 };
 
 struct PolyPoint { // sizeof=20

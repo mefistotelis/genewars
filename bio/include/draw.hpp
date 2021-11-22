@@ -24,12 +24,6 @@
 class MyGadget;
 
 class HelpDraw { // sizeof=26
-public:
-    void GenericHelpDraw(MyGadget *arg1, char *arg2);
-    void Draw(MyGadget *arg1, char *arg2);
-    void SetColors(UBYTE arg1, UBYTE arg2, UBYTE arg3, UBYTE arg4);
-    void DislodgeAndReset();
-    void Dislodge();
     SWORD hx; // offset=0
     SWORD hy; // offset=2
     SWORD hWidth; // offset=4
@@ -41,6 +35,12 @@ public:
     UBYTE fill; // offset=20
     UBYTE boxOutline; // offset=21
     MyGadget *gad; // offset=22
+public:
+    void Dislodge();
+    void DislodgeAndReset();
+    void SetColors(UBYTE arg1, UBYTE arg2, UBYTE arg3, UBYTE arg4);
+    void Draw(MyGadget *arg1, char *arg2);
+    void GenericHelpDraw(MyGadget *arg1, char *arg2);
 };
 
 enum TextEntryStatus { // type=int8_t
@@ -51,22 +51,24 @@ enum TextEntryStatus { // type=int8_t
 };
 
 class TextEntry { // sizeof=73
-public:
-    //TextEntry(TextEntry *arg1);
-    BBOOL ValidChar(UBYTE arg1);
-    //TextEntry();
-    BBOOL PressedEscape();
-    BBOOL PressedReturn();
-    BBOOL IsEnteringText();
-    BBOOL IsActive();
-    UBYTE EnterText();
-    void SetupText(CBYTE *arg1, UBYTE arg2, UBYTE arg3);
-    CBYTE oldText[64];
-    BBOOL alNum;
-    TextEntryStatus status;
-    UBYTE maxlen;
-    UBYTE ucase;
     CBYTE *text;
+    UBYTE ucase; // offset=4
+    UBYTE maxlen; // offset=5
+    TextEntryStatus status; // offset=6
+    BBOOL alNum; // offset=7
+    CBYTE oldText[65]; // offset=8
+public:
+    void SetupText(CBYTE *arg1, UBYTE arg2, UBYTE arg3);
+    UBYTE EnterText();
+    BBOOL IsActive();
+    BBOOL IsEnteringText();
+    BBOOL PressedReturn();
+    BBOOL PressedEscape();
+    //TextEntry(); -- generate default no-args constructor
+private:
+    BBOOL ValidChar(UBYTE arg1);
+//public:
+    //TextEntry(TextEntry &arg1); -- generate default copy constructor
 };
 
 

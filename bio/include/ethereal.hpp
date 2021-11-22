@@ -65,45 +65,6 @@ enum EtherealType { // type=int8_t
 };
 
 class Ethereal : public SmartMovingThing { // sizeof=102
-public:
-    Ethereal * operator =(Ethereal *arg1);
-    //Ethereal(Ethereal *arg1); -- generate default copy constructor
-    //Ethereal(); -- generate default no-args constructor
-    void SetMoveToThingWithAlt(::Thing *tng1, SLONG arg2);
-    void SetMoveToTgtWithAlt(XY arg1, SLONG arg2);
-    void AbsolveBad();
-    void PunishAbduct();
-    void PunishBuildings();
-    void PunishPotshots();
-    EtherealPunishment SelectPunishment();
-    void DrawBeam(SLONG arg1, SLONG arg2, SLONG arg3);
-    void PuttAroundPoint(XY arg1, SLONG arg2);
-    BBOOL GetNextPuttTarget();
-    void UpdatePutt();
-    void UpdateSaucer();
-    SLONG WriteBuffer(Ethereal **arg1, SLONG arg2, SLONG arg3, BioGame &game);
-    SLONG ReadBuffer(Ethereal **arg1, SLONG arg2, SLONG arg3, BioGame &game);
-    void UpdateAll();
-    Ethereal * Create(EtherealType arg1, XY arg2, SLONG arg3, UBYTE arg4);
-    void InitArray();
-    void Free();
-    void DrawDeathRay(DeathRayType arg1, SLONG arg2, SLONG arg3, SLONG arg4, SLONG arg5, SLONG arg6, SLONG arg7, SLONG arg8);
-    void VectorToWhereGoingTo(Vector &arg1);
-    SLONG SquareTrueRangeToWhereGoingTo();
-    void TurnToDesiredAngle();
-    void Discover();
-    void StartAMove(XY arg1);
-    SWORD MaxMoveSpeed();
-    BBOOL IsVectorable();
-    BBOOL IsFlying();
-    BBOOL IsDead();
-    BBOOL Damage(SLONG arg1, ::Thing *tng2);
-    void DrawOnMap(SWORD arg1, SWORD arg2);
-    UBYTE Update();
-    void Resync();
-    void Write(SLONG &arg1);
-    void Read(SLONG &arg1);
-    void (**__vfptr)();
     EtherealType type; // offset=85
     EtherealMode mode; // offset=86
     SBYTE phase; // offset=87
@@ -112,6 +73,48 @@ public:
     XY targetXY; // offset=92
     SLONG targetAltitude; // offset=96
     SWORD pixCount; // offset=100
+//internal:
+    //void (**__vfptr)(); // offset=35
+public:
+    void Read(SLONG &arg1);
+    void Write(SLONG &arg1);
+    void Resync();
+    UBYTE Update();
+    void DrawOnMap(SWORD arg1, SWORD arg2);
+    BBOOL Damage(SLONG arg1, Thing *arg2);
+    BBOOL IsDead();
+    BBOOL IsFlying();
+    BBOOL IsVectorable();
+    SWORD MaxMoveSpeed();
+    void StartAMove(XY arg1);
+    void Discover();
+    void TurnToDesiredAngle();
+    SLONG SquareTrueRangeToWhereGoingTo();
+    void VectorToWhereGoingTo(Vector &arg1);
+    void DrawDeathRay(DeathRayType arg1, SLONG arg2, SLONG arg3, SLONG arg4, SLONG arg5, SLONG arg6, SLONG arg7, SLONG arg8);
+    void Free();
+    void InitArray();
+    Ethereal * Create(EtherealType arg1, XY arg2, SLONG arg3, UBYTE arg4);
+    void UpdateAll();
+    SLONG ReadBuffer(Ethereal **arg1, SLONG arg2, SLONG arg3, BioGame &game);
+    SLONG WriteBuffer(Ethereal **arg1, SLONG arg2, SLONG arg3, BioGame &game);
+private:
+    void UpdateSaucer();
+    void UpdatePutt();
+    BBOOL GetNextPuttTarget();
+    void PuttAroundPoint(XY arg1, SLONG arg2);
+    void DrawBeam(SLONG arg1, SLONG arg2, SLONG arg3);
+    EtherealPunishment SelectPunishment();
+    void PunishPotshots();
+    void PunishBuildings();
+    void PunishAbduct();
+    void AbsolveBad();
+    void SetMoveToTgtWithAlt(XY arg1, SLONG arg2);
+    void SetMoveToThingWithAlt(Thing *arg1, SLONG arg2);
+public:
+    //Ethereal(); -- generate default no-args constructor
+    //Ethereal(class Ethereal &arg1); -- generate default copy constructor
+    Ethereal & operator =(Ethereal &arg1);
 };
 
 

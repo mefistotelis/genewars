@@ -27,30 +27,33 @@ class BioGame;
 class Point;
 
 class Event : public Thing { // sizeof=49
-public:
-    Event * operator =(class Event *arg1);
-    //Event(class Event *arg1); -- generate default copy constructor
-    //Event(); -- generate default no-args constructor
-    BBOOL CreateSphereRing(Point *arg1, BBOOL *arg2, UBYTE arg3);
-    BBOOL operator ==(Event *arg1);
-    SLONG WriteBuffer(Event **arg1, SLONG arg2, SLONG arg3, BioGame &game);
-    SLONG ReadBuffer(Event **arg1, SLONG arg2, SLONG arg3, BioGame &game);
-    void UpdateAll();
-    void InitArray();
-    Event * Create(UBYTE arg1, XY arg2, UBYTE arg3, Thing *arg4);
-    void Free();
-    BBOOL IsDead();
-    BBOOL IsStaticallyDrawn();
-    UBYTE Update();
-    void Resync();
-    void Write(SLONG &arg1);
-    void Read(SLONG &arg1);
-    //void (**__vfptr)();
     UBYTE type; // offset=39
     UBYTE state; // offset=40
     SWORD timer; // offset=41
     ThingIDX eff; // offset=43
     ThingIDX building; // offset=46
+//internal:
+    //void (**__vfptr)(); // offset=35
+public:
+    void Read(SLONG &arg1);
+    void Write(SLONG &arg1);
+    void Resync();
+    UBYTE Update();
+    BBOOL IsStaticallyDrawn();
+    BBOOL IsDead();
+    void Free();
+    Event * Create(UBYTE arg1, XY cor2, UBYTE arg3, Thing *arg4);
+    void InitArray();
+    void UpdateAll();
+    SLONG ReadBuffer(Event **arg1, SLONG arg2, SLONG arg3, BioGame &game);
+    SLONG WriteBuffer(Event **arg1, SLONG arg2, SLONG arg3, BioGame &game);
+    BBOOL operator==(Event *arg1);
+private:
+    BBOOL CreateSphereRing(Point *arg1, BBOOL *arg2, UBYTE arg3);
+public:
+    //Event(); -- generate default no-args constructor
+    //Event(Event &arg1); -- generate default copy constructor
+    Event & operator =(Event &arg1);
 };
 
 #endif // BIO_EVENT_HPP_

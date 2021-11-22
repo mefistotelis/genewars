@@ -23,15 +23,15 @@
 #include "myspr.h"
 
 class EtherealScope { // sizeof=11
-public:
-    //EtherealScope(EtherealScope *arg1);
-    void Draw();
-    void Init();
-    //EtherealScope();
-    BBOOL blipHitSaucer;
-    UBYTE saucerFade;
-    SLONG blipRange;
     MyMinSprite etherealMms;
+    SLONG blipRange; // offset=5
+    UBYTE saucerFade; // offset=9
+    BBOOL blipHitSaucer; // offset=10
+public:
+    //EtherealScope(); -- generate default no-args constructor
+    void Init();
+    void Draw();
+    //EtherealScope(EtherealScope &arg1); -- generate default copy constructor
 };
 
 #endif // BIO_ETHERSCOPE_HPP_
