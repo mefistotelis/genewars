@@ -21,6 +21,7 @@
 
 #include "bftypes.h"
 #include "bftime.h"
+#include "dir.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -44,16 +45,13 @@ typedef enum TbFileSeekMode TbFileSeekMode;
 
 typedef int32_t TbFileHandle;
 
-struct find_t { // sizeof=43
-    char reserved[20]; // offset=0
-    char attrib; // offset=21
-    uint16_t wr_time; // offset=22
-    uint16_t wr_date; // offset=24
-    uint32_t size; // offset=26
-    char name[12]; // offset=30
-};
-
-typedef struct find_t TbFILE_FIND;
+#if defined(_wfinddata_t) // GCC Windows API
+typedef _wfinddata_t TbFILE_FIND;
+#elif defined(DOSFINDTYPE) // Watcom C API
+typedef DOSFINDTYPE TbFILE_FIND;
+#else
+#error Data type for findfirst()/findnext() not recognized
+#endif
 
 struct TbFileFind { // sizeof=227
     CBYTE Filename[143]; // offset=0

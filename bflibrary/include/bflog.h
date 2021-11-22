@@ -44,19 +44,6 @@ struct TbLog { // sizeof=194
 
 typedef struct TbLog TbLog;
 
-struct __iobuf { // sizeof=26
-    uint8_t *_ptr; // offset=0
-    int _cnt; // offset=4
-    uint8_t *_base; // offset=8
-    unsigned int _flag; // offset=12
-    int _handle; // offset=16
-    unsigned int _bufsize; // offset=20
-    uint8_t _ungotten; // offset=24
-    uint8_t _tmpfchar; // offset=25
-};
-
-typedef struct __iobuf FILE;
-
 struct TbDate { // sizeof=5
     UBYTE Day; // offset=0
     UBYTE Month; // offset=1

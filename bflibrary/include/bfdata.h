@@ -26,7 +26,7 @@ extern "C" {
 #endif
 
 struct TbLoadFiles { // sizeof=44
-    CBYTE FName[27]; // offset=0
+    CBYTE FName[28]; // offset=0
     void **Start; // offset=28
     void **SEnd; // offset=32
     ULONG SLength; // offset=36
