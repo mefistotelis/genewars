@@ -27,37 +27,38 @@ class Building;
 class MyGadget;
 
 class ClonePad : public MainInterfacePad { // sizeof=175
-public:
-    //ClonePad(ClonePad *arg1);
-    void RemoveSpecialist(UBYTE arg1);
-    void AddSpecialist(UBYTE arg1, UBYTE arg2);
-    SBYTE FindBestSpecialist(UBYTE arg1, UBYTE arg2);
-    void TeamHelp(MyGadget *gadg);
-    void CrewHelp(MyGadget *gadg);
-    SBYTE FindTeamNum();
-    SBYTE FindCrewType(SBYTE &arg1);
-    void DrawAnim();
-    void DrawCrew();
-    void DrawTeam();
-    void Close();
-    void Draw(SBYTE arg1);
-    void DrawMainPanelEdge();
-    BBOOL Update(SWORD arg1);
-    void Init(Thing *tng1);
-    //ClonePad();
-    //void (**__vfptr)();
-    //unsigned int *__vbptr;
-    BBOOL launchButtonActive;
-    BBOOL closeButtonActive;
-    MyMinSprite mMs;
     Building *clone; // offset=4
     MyAnimBank *anb; // offset=8
     MySprite *mSpr; // offset=12
     TbSprite *spr; // offset=16
     SBYTE pointerOverSpec; // offset=20
     SBYTE specType; // offset=21
-    MyAnimBank *specAnb[3][3]; // offset=22
-    MySprite *specSpr[3][3]; // offset=86
+    MyAnimBank *specAnb[4][4]; // offset=22
+    MySprite *specSpr[4][4]; // offset=86
+    MyMinSprite mMs; // offset=150
+    BBOOL closeButtonActive; // offset=155
+    BBOOL launchButtonActive; // offset=156
+//internal:
+    //unsigned int *__vbptr;
+    //void (**__vfptr)(); // offset=157
+public:
+    //ClonePad(); -- generate default no-args constructor
+    void Init(Thing *arg1);
+    BBOOL Update(SWORD arg1);
+    void DrawMainPanelEdge();
+    void Draw(SBYTE arg1);
+    void Close();
+    void DrawTeam();
+    void DrawCrew();
+    void DrawAnim();
+    SBYTE FindCrewType(SBYTE &arg1);
+    SBYTE FindTeamNum();
+    void CrewHelp(MyGadget *arg1);
+    void TeamHelp(MyGadget *arg1);
+    SBYTE FindBestSpecialist(UBYTE arg1, UBYTE arg2);
+    void AddSpecialist(UBYTE arg1, UBYTE arg2);
+    void RemoveSpecialist(UBYTE arg1);
+    //ClonePad(ClonePad &pad1); -- generate default clone constructor
 };
 
 #endif // BIO_CLONEPAD_HPP_

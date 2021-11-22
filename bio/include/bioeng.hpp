@@ -41,46 +41,46 @@ struct Reorient { // sizeof=8
     SLONG Y; // offset=4
 };
 
-class BioGame { // sizeof=118
-public:
-    BioGame * operator =(BioGame *arg1);
-    //BioGame(class BioGame *arg1); -- generate default copy constructor
-    BBOOL ReadName(char *arg1, char *arg2);
-    void CheckForVictory();
-    void Compare(BioGame &game1);
-    void CompareAllGames();
-    void ClearExplorationMapAndReshadeThings();
-    void RegisterMapChangeWithThings();
-    void RemoveTargetReferencesTo(Thing *arg1);
-    void FreeAllAllocs();
-    void ResetGameAndControl();
-    BBOOL Read(char *arg1, UBYTE arg2, SBYTE arg3, Player *arg4);
-    BBOOL Write(char *arg1, UBYTE arg2);
-    //BioGame();
+class BioGame { // sizeof=380790
     ULONG checksum; // offset=0
-    char saveName[15]; // offset=4
-    Event events[31]; // offset=6
-    Player players[3]; // offset=20
-    PlSpec team[3][4]; // offset=30
-    Plant plants[255]; // offset=31
-    Drone drones[31]; // offset=38
-    EventHelp evHelp; // offset=42
-    TopoMorpher topoMorpher; // offset=55
-    Ethereal ethereals[7]; // offset=70
-    EtherealZoneHandler ezHandler; // offset=104
-    Planet planet; // offset=184
-    Effect effects[199]; // offset=190
-    Building buildings[3][63]; // offset=191
-    SWORD numCreatures; // offset=192
-    SWORD numPlants; // offset=194
-    SWORD numEffects; // offset=196
-    SWORD numEvents; // offset=198
-    UBYTE numDrones; // offset=200
-    UBYTE numEthereals; // offset=201
-    SWORD plantToUpdate; // offset=202
-    UWORD etherealVisit; // offset=204
-    Creature creatures[43]; // offset=206
-    GridTile grid[127][127]; // offset=207
+    char saveName[16]; // offset=4
+    Player players[4]; // offset=20
+    Planet planet; // offset=7096
+    TopoMorpher topoMorpher; // offset=7735
+    EtherealZoneHandler ezHandler; // offset=12136
+    EventHelp evHelp; // offset=13354
+    SWORD numCreatures; // offset=13504
+    SWORD numPlants; // offset=13506
+    SWORD numEffects; // offset=13508
+    SWORD numEvents; // offset=13510
+    UBYTE numDrones; // offset=13512
+    UBYTE numEthereals; // offset=13513
+    SWORD plantToUpdate; // offset=13514
+    UWORD etherealVisit; // offset=13516
+    GridTile grid[128][128]; // offset=13518
+    Creature creatures[300]; // offset=275662
+    Plant plants[512]; // offset=312862
+    PlSpec team[4][5]; // offset=337950
+    Building buildings[4][64]; // offset=341950
+    Effect effects[200]; // offset=359102
+    Event events[32]; // offset=375302
+    Drone drones[32]; // offset=376870
+    Ethereal ethereals[8]; // offset=379974
+public:
+    //BioGame(); -- generate default no-args constructor
+    BBOOL Write(char *arg1, UBYTE arg2);
+    BBOOL Read(char *arg1, UBYTE arg2, SBYTE arg3, Player *arg4);
+    void ResetGameAndControl();
+    void FreeAllAllocs();
+    void RemoveTargetReferencesTo(Thing *arg1);
+    void RegisterMapChangeWithThings();
+    void ClearExplorationMapAndReshadeThings();
+    void CompareAllGames();
+    void Compare(BioGame &game1);
+    void CheckForVictory();
+    BBOOL ReadName(char *arg1, char *arg2);
+    //BioGame(BioGame &game1); -- generate default copy constructor
+    BioGame & operator =(BioGame &game1);
 };
 
 void check_point_triangle( short *, short *, long, long, long, long, long, long, long, long );

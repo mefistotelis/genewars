@@ -29,89 +29,98 @@
 class BioGame;
 
 class Building : public StaticThing { // sizeof=67
-public:
-    Building * operator =(Building *bldg1);
-    //Building(class Building *arg1);
-    //Building();
-    BBOOL operator ==(Building *bldg1);
-    char * GetName();
-    Creature * GeneLabMadeCreature(BBOOL &arg1);
-    BBOOL IsMineMinedOut();
-    BBOOL CanMakeSpeciesInGenelab(CreatureSpecies arg1);
-    BBOOL IsGenelabBusy();
-    BBOOL IsGenelabReady();
-    ULONG TurretRange();
-    ULONG ShieldRange();
-    ULONG ObservatoryRange();
-    ULONG PowerStationRange();
-    ULONG MaxMineMinerals();
-    ULONG MaxSawmillWood();
-    ULONG MaxGoopStorage();
-    BBOOL IsAGoopStorage();
-    BBOOL IsObservable();
-    BBOOL IsAPowerGenerator();
-    BBOOL IsUpgradable();
-    void UserUpgrade();
-    void ClearBeingWrecked();
-    void SetBeingWrecked();
-    void ClearUpgradeOK();
-    void SetUpgradeOK();
-    void ClearDisabled();
-    void SetDisabled();
-    void ClearBusted();
-    void SetBusted();
-    BBOOL IsBeingWrecked();
-    BBOOL IsWrecking();
-    BBOOL IsBeingUpgraded();
-    BBOOL IsUpgradeOK();
-    BBOOL IsFunctional();
-    BBOOL IsDisabled();
-    BBOOL IsBusted();
-    BBOOL IsDamaged();
-    BBOOL IsPowered();
-    BBOOL IsBuilt();
-    BBOOL Build(UWORD arg1, BBOOL arg2);
-    void DisableBuilding();
-    void StartWreck(PlSpec *arg1);
-    void StopAnyContinuousSound();
-    void FinishBuilding();
-    void Free();
-    void Init(UBYTE arg1, BuildingType arg2, XY cor3);
-    void Draw(SWORD arg1, SWORD arg2);
-    SLONG WriteBuffer(Building **bldng, SLONG arg2, SLONG arg3, BioGame &game);
-    SLONG ReadBuffer(Building **bldng, SLONG arg2, SLONG arg3, BioGame &game);
-    void InitArray();
-    void UpdateAll();
-    BBOOL IsDead();
-    BBOOL Damage(SLONG arg1, ::Thing *arg2);
-    UBYTE Update();
-    void Resync();
-    void Write(SLONG &arg1);
-    void Read(SLONG &arg1);
-    //void (**__vfptr)();
     SWORD build; // offset=43
     BuildingType type; // offset=45
     UBYTE stage; // offset=46
     UBYTE buildToStage; // offset=47
     UBYTE damageWobble; // offset=48
     UWORD flags; // offset=49
+  union {
+    UBYTE reload; // offset=51
     UBYTE speciMake; // offset=51
+  };
+  union {
+    SWORD angle; // offset=52
+    SWORD origGeneComplete; // offset=52
     BBOOL padFlashState; // offset=52
-    SWORD origGeneComplete; // offset=53
+  };
+  union {
+    XY target; // offset=54
+    ULONG wood; // offset=54
+    SLONG geneComplete; // offset=54
+    SLONG wreckScale; // offset=54
     BBOOL padBurned; // offset=54
-    SLONG wreckScale; // offset=55
-    SLONG geneComplete; // offset=56
-    ULONG wood; // offset=57
+  };
     SWORD creatureMade; // offset=58
-    XY target; // offset=59
+  union {
+    UBYTE mode; // offset=60
+    UBYTE userTypeStorage; // offset=60
     UBYTE creatureType; // offset=60
+  };
     SWORD power; // offset=61
-    UBYTE userTypeStorage; // offset=62
     UBYTE addPower; // offset=63
     ThingIDX thingTgt; // offset=64
-    UBYTE mode; // offset=65
-    SWORD angle; // offset=66
-    UBYTE reload; // offset=67
+//internal:
+    //void (**__vfptr)(); // offset=35
+public:
+    void Read(SLONG &arg1);
+    void Write(SLONG &arg1);
+    void Resync();
+    UBYTE Update();
+    BBOOL Damage(SLONG arg1, Thing *arg2);
+    BBOOL IsDead();
+    void UpdateAll();
+    void InitArray();
+    SLONG ReadBuffer(Building **bldng1, SLONG arg2, SLONG arg3, BioGame &game4);
+    SLONG WriteBuffer(Building **bldng1, SLONG arg2, SLONG arg3, BioGame &game4);
+    void Draw(SWORD arg1, SWORD arg2);
+    void Init(UBYTE arg1, BuildingType arg2, XY arg3);
+    void Free();
+    void FinishBuilding();
+    void StopAnyContinuousSound();
+    void StartWreck(PlSpec *arg1);
+    void DisableBuilding();
+    BBOOL Build(UWORD arg1, BBOOL arg2);
+    BBOOL IsBuilt();
+    BBOOL IsPowered();
+    BBOOL IsDamaged();
+    BBOOL IsBusted();
+    BBOOL IsDisabled();
+    BBOOL IsFunctional();
+    BBOOL IsUpgradeOK();
+    BBOOL IsBeingUpgraded();
+    BBOOL IsWrecking();
+    BBOOL IsBeingWrecked();
+    void SetBusted();
+    void ClearBusted();
+    void SetDisabled();
+    void ClearDisabled();
+    void SetUpgradeOK();
+    void ClearUpgradeOK();
+    void SetBeingWrecked();
+    void ClearBeingWrecked();
+    void UserUpgrade();
+    BBOOL IsUpgradable();
+    BBOOL IsAPowerGenerator();
+    BBOOL IsObservable();
+    BBOOL IsAGoopStorage();
+    ULONG MaxGoopStorage();
+    ULONG MaxSawmillWood();
+    ULONG MaxMineMinerals();
+    ULONG PowerStationRange();
+    ULONG ObservatoryRange();
+    ULONG ShieldRange();
+    ULONG TurretRange();
+    BBOOL IsGenelabReady();
+    BBOOL IsGenelabBusy();
+    BBOOL CanMakeSpeciesInGenelab(CreatureSpecies arg1);
+    BBOOL IsMineMinedOut();
+    Creature * GeneLabMadeCreature(BBOOL &arg1);
+    char * GetName();
+    BBOOL operator ==(Building *bldng1);
+    //Building(); -- generate default no-args constructor
+    //Building(Building &bldng1); -- generate default copy constructor
+    Building & operator =(Building &bldng1);
 };
 
 #endif // BIO_BUILDING_HPP_

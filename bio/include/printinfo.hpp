@@ -30,21 +30,21 @@ enum InfoRequesterStyle { // type=int8_t
 class TurnPrintInfo { // sizeof=110
 public:
     BBOOL Print();
-    char *drawCurrent;
-    char *current;
-    SLONG delayCount;
-    SLONG count;
-    SLONG length;
     SLONG x; // offset=0
     SLONG y; // offset=4
     SLONG delay; // offset=8
     SLONG step; // offset=12
     char *str; // offset=16
-    char hilite[2][9]; // offset=20
+    char hilite[3][10]; // offset=20
     char *drawStr; // offset=50
     FontInfo dfi; // offset=54
     ULONG drawing; // offset=82
     SLONG linesDrawn; // offset=86
+    char *drawCurrent;
+    char *current;
+    SLONG delayCount;
+    SLONG count;
+    SLONG length;
 };
 
 class InfoRequester { // sizeof=142

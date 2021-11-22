@@ -22,33 +22,34 @@
 #include "bftypes.h"
 
 class Trigger { // sizeof=7
-public:
-    //Trigger(Trigger *arg1); -- generate default copy constructor
-    void Invalidate();
-    BBOOL Valid();
-    BBOOL Update(UBYTE arg1);
-    //Trigger(); -- generate default no-ops constructor
     UBYTE type; // offset=0
+  union {
+    UBYTE species; // offset=1
     UBYTE turn; // offset=1
+  };
     UBYTE thisPlayer; // offset=2
     UBYTE otherPlayer; // offset=3
     UWORD amount; // offset=4
-    UBYTE species; // offset=5
     BBOOL doneThis; // offset=6
+public:
+    //Trigger(); -- generate default no-ops constructor
+    BBOOL Update(UBYTE arg1);
+    BBOOL Valid();
+    void Invalidate();
+    //Trigger(Trigger &trgr1); -- generate default copy constructor
+    //~Trigger();
 };
 
 class Personality { // sizeof=142
 public:
-    //Personality(Personality *arg1); -- generate default copy constructor
-    //Personality(); -- generate default no-ops constructor
-    char name[19]; // offset=0
+    char name[20]; // offset=0
     UBYTE advancedOptions; // offset=20
     UBYTE pwrWanted; // offset=21
     UBYTE idealNoBases; // offset=22
     SBYTE upgrade; // offset=23
     UBYTE aggressive; // offset=24
     UBYTE defensive; // offset=25
-    ULONG freeSpace[1]; // offset=26
+    ULONG freeSpace[2]; // offset=26
     UBYTE locationAwareness; // offset=34
     UBYTE distanceFromEnemyBases; // offset=35
     UBYTE distanceBetweenBases; // offset=36
@@ -66,23 +67,26 @@ public:
     UBYTE defence; // offset=52
     UBYTE criticalNumTrees; // offset=53
     SBYTE techLevel; // offset=54
-    SBYTE preferredCreatures[4]; // offset=55
+    SBYTE preferredCreatures[5]; // offset=55
     SLONG minGoopForCreatures; // offset=60
     UWORD maxAgeForBaseScan; // offset=64
     SBYTE creaturePercentage; // offset=66
-    UBYTE creatureRatios[2]; // offset=67
+    UBYTE creatureRatios[3]; // offset=67
     UBYTE creaturePerception; // offset=70
     UBYTE newBaseScoreRange; // offset=71
     UBYTE newBaseLookPoints; // offset=72
     UBYTE attackVolume; // offset=73
-    UBYTE wantedSpecTypes[3]; // offset=74
+    UBYTE wantedSpecTypes[4]; // offset=74
     UBYTE attackAfterTurn; // offset=78
     UBYTE creaturesPerGuardPoint; // offset=79
     UWORD delayBetweenCreatures; // offset=80
     UWORD maxCreatures; // offset=82
     SBYTE goForScore; // offset=84
     UBYTE delayBetweenBuildings; // offset=85
-    Trigger triggers[7]; // offset=86
+    Trigger triggers[8]; // offset=86
+//public:
+    //Personality(); -- generate default no-args constructor
+    //Personality(Personality &arg1); -- generate default copy constructor
 };
 
 

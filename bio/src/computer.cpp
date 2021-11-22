@@ -418,7 +418,7 @@ SLONG Computer::CreaturesDoingJob(UBYTE arg1, UBYTE arg2, BBOOL arg3)
 // code at 0001:000340ac
 }
 
-SBYTE Computer::AssignGuardPointToBase(UBYTE arg1, XY &arg2, UBYTE arg3, SBYTE arg4)
+SBYTE Computer::AssignGuardPointToBase(UBYTE arg1, XY &cor2, UBYTE arg3, SBYTE arg4)
 {
 // code at 0001:00031b58
 }
