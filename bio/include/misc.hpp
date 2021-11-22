@@ -863,12 +863,10 @@ enum TopoType { // type=int8_t
 
 typedef enum TopoType TopoType;
 
-typedef class Player Player;
-
 struct OriBlock { // sizeof=9
     UBYTE Count; // offset=0
-    UBYTE Block[3]; // offset=1
-    UBYTE Orient[3]; // offset=5
+    UBYTE Block[4]; // offset=1
+    UBYTE Orient[4]; // offset=5
 };
 
 typedef struct OriBlock OriBlock;
@@ -1026,47 +1024,32 @@ enum { // type=int8_t
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 class BestBuilding { // sizeof=5
 public:
-    //BestBuilding(BestBuilding *arg1);
     XY loc; // offset=0
     UBYTE type; // offset=4
+public:
+    //BestBuilding(BestBuilding &arg1); -- generate default copy constructor
 };
 
 class BuildPriority { // sizeof=9
-public:
-    //BuildPriority(class BuildPriority *arg1);
-    BestBuilding FindBestLoc(UBYTE arg1, UBYTE arg2);
-    UBYTE Build(PlSpec *arg1, UBYTE arg2, UBYTE arg3);
-    UBYTE BuildingPersonality(PlSpec *arg1, SBYTE arg2);
-    UBYTE Basic(PlSpec *arg1);
-    UBYTE Emergency(PlSpec *arg1);
-    UBYTE BuildHighestPri(PlSpec *arg1);
-    //BuildPriority();
     Computer *computer; // offset=0
     UBYTE type; // offset=4
     UBYTE idx; // offset=5
     UWORD powerNeeded; // offset=6
     BBOOL newBaseThisTurn; // offset=8
+public:
+    //BuildPriority(); -- generate default no-args constructor
+    UBYTE BuildHighestPri(PlSpec *arg1);
+    UBYTE Emergency(PlSpec *arg1);
+    UBYTE Basic(PlSpec *arg1);
+    UBYTE BuildingPersonality(PlSpec *arg1, SBYTE arg2);
+    UBYTE Build(PlSpec *arg1, UBYTE arg2, UBYTE arg3);
+private:
+    BestBuilding FindBestLoc(UBYTE arg1, UBYTE arg2);
+public:
+    //BuildPriority(BuildPriority &arg1); -- generate default copy constructor
 };
-
-
-
-
-
 
 
 

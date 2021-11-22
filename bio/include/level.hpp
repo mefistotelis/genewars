@@ -80,18 +80,18 @@ struct SpaceBody { // sizeof=33
     cPoint moveVector; // offset=21
 };
 
-class LevelHeader { // sizeof=187
-public:
-    void TranslatePlanet();
-    BBOOL LoadHeader(UBYTE arg1, UBYTE arg2);
-    BBOOL SaveHeader(UBYTE arg1, UBYTE arg2);
-    UBYTE compPlayers[2]; // offset=0
+class LevelHeader { // sizeof=699
+    UBYTE compPlayers[3]; // offset=0
     UBYTE valid; // offset=3
-    UBYTE date[11]; // offset=4
-    UBYTE time[11]; // offset=16
+    UBYTE date[12]; // offset=4
+    UBYTE time[12]; // offset=16
     ULONG version; // offset=28
     Planet planet; // offset=32
-    ULONG roomForMoreStuff[6]; // offset=159
+    ULONG roomForMoreStuff[7]; // offset=671
+public:
+    BBOOL SaveHeader(UBYTE arg1, UBYTE arg2);
+    BBOOL LoadHeader(UBYTE arg1, UBYTE arg2);
+    void TranslatePlanet();
 };
 
 struct ScreenPoint { // sizeof=20
@@ -106,11 +106,11 @@ struct ScreenPoint { // sizeof=20
 };
 
 struct Axes { // sizeof=36
-    cPoint vector[2]; // offset=0
+    cPoint vector[3]; // offset=0
 };
 
 struct Viewer { // sizeof=173
-    Axes axes[3]; // offset=0
+    Axes axes[4]; // offset=0
     cPoint velocity; // offset=144
     cPoint position; // offset=156
     SLONG speed; // offset=168

@@ -26,36 +26,39 @@
 #include "creaturestat.hpp"
 
 class LabPad : public MainInterfacePad { // sizeof=124
-public:
-    //LabPad(LabPad *arg1); -- generate default copy constructor
-    BBOOL IsListScrolling();
-    void KickOffNewSpeciesStuff();
-    void DrawMainWindow();
-    void DrawList();
-    void DrawListCreature(CreatureSpecies arg1, SLONG arg2, SLONG arg3, UBYTE arg4);
-    void Draw(SBYTE arg1);
-    void MapDraw();
-    BBOOL Update(SWORD arg1);
-    void Close();
-    void Init(Thing *tng1);
-    //LabPad(); -- generate default no-args constructor
-    //void (**__vfptr)();
-    //unsigned int *__vbptr;
-    uint8_t rightActive;
-    uint8_t leftActive;
-    SLONG sinTheta;
-    SBYTE scrollPhase;
-    SBYTE scrollDir;
-    SBYTE listPosition;
-    MyMinSprite mainMMs;
-    char mainStr[63];
-    TurnPrintInfo tpi;
-    TurnPrintInfo nameTpi;
     Building *lab; // offset=4
     UBYTE makeStatus; // offset=8
     MyAnimBank *anb; // offset=9
     MySprite *mSpr; // offset=13
     TbSprite *spr; // offset=17
+    TurnPrintInfo nameTpi;
+    TurnPrintInfo tpi;
+    char mainStr[64]; // offset=29
+    MyMinSprite mainMMs; // offset=93
+    SBYTE listPosition; // offset=98
+    SBYTE scrollDir; // offset=99
+    SBYTE scrollPhase; // offset=100
+    SLONG sinTheta; // offset=101
+    uint8_t leftActive:1; // offset=105 bit=0
+    uint8_t rightActive:1; // offset=105 bit=1
+//internal:
+    //unsigned int *__vbptr;
+    //void (**__vfptr)(); // offset=106
+public:
+    //LabPad(); -- generate default no-args constructor
+    void Init(Thing *arg1);
+    void Close();
+    BBOOL Update(SWORD arg1);
+    void MapDraw();
+    void Draw(SBYTE arg1);
+private:
+    void DrawListCreature(CreatureSpecies arg1, SLONG arg2, SLONG arg3, UBYTE arg4);
+    void DrawList();
+    void DrawMainWindow();
+    void KickOffNewSpeciesStuff();
+    BBOOL IsListScrolling();
+public:
+    //LabPad(LabPad &arg1); -- generate default copy constructor
 };
 
 #endif // BIO_LABPAD_HPP_

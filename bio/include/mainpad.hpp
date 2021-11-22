@@ -34,44 +34,46 @@ enum PadBmp { // type=int8_t
 };
 
 class MainInterfacePad { // sizeof=10
-public:
-    //MainInterfacePad(MainInterfacePad *arg1); -- generate default copy constructor
-    void StopStaticNoise();
-    void StartStaticNoise();
-    void DrawStatic(SLONG arg1, SLONG arg2, SLONG arg3, SLONG arg4);
-    void FinishViewerClip();
-    void SetViewerClip();
-    void SetPointerToFrame();
-    void NullUserPointer();
-    void ClearUserPointer();
-    void SetUserPointer(SBYTE arg1);
-    void SetNormalPad();
-    void DrawBottomPanelText(char *arg1);
-    void DrawMainPanelBmp(ULONG *arg1);
-    void DrawBuildingStats(Building *arg1);
-    void LoadBitmap(PadBmp arg1);
-    void DrawPointerOverThing();
-    void Close();
-    void MapDraw();
-    void DrawMainPanelEdge();
-    void Draw(SBYTE arg1);
-    BBOOL Update(SWORD arg1);
-    void Init(Thing *tng1);
-    //MainInterfacePad(); -- generate default no-args constructor
-    //void (**__vfptr)();
-    static ULONG *padBmps[2];
-    static MySprite *userPointer;
-    static MyMinSprite userPointerMMs;
-    static SWORD pointerDisplacement;
-    static MyMinSprite pointerMMs;
-    static BBOOL go;
-    static MainInterfacePad *previousPad;
-    static Thing *activeThing;
     ULONG **panelBmp; // offset=0
     PadBmp padBmpType; // offset=4
-    uint8_t onOffLocked; // offset=5
-    uint8_t flickOffOnly; // offset=6
-    uint8_t normalPad; // offset=7
+    uint8_t normalPad:1; // offset=5 bit=0
+    uint8_t flickOffOnly:1; // offset=5 bit=1
+    uint8_t onOffLocked:1; // offset=5 bit=2
+public:
+    static Thing *activeThing;
+    static MainInterfacePad *previousPad;
+    static BBOOL go;
+    static MyMinSprite pointerMMs;
+    static SWORD pointerDisplacement;
+    static MyMinSprite userPointerMMs;
+    static MySprite *userPointer;
+    static ULONG *padBmps[3];
+//internal:
+    //void (**__vfptr)(); // offset=6
+public:
+    //MainInterfacePad(); -- generate default no-args constructor
+    void Init(Thing *tng1);
+    BBOOL Update(SWORD arg1);
+    void Draw(SBYTE arg1);
+    void DrawMainPanelEdge();
+    void MapDraw();
+    void Close();
+    void DrawPointerOverThing();
+    void LoadBitmap(PadBmp arg1);
+    void DrawBuildingStats(Building *arg1);
+    void DrawMainPanelBmp(ULONG *arg1);
+    void DrawBottomPanelText(char *arg1);
+    void SetNormalPad();
+    void SetUserPointer(SBYTE arg1);
+    void ClearUserPointer();
+    void NullUserPointer();
+    void SetPointerToFrame();
+    void SetViewerClip();
+    void FinishViewerClip();
+    void DrawStatic(SLONG arg1, SLONG arg2, SLONG arg3, SLONG arg4);
+    void StartStaticNoise();
+    void StopStaticNoise();
+    //MainInterfacePad(MainInterfacePad &arg1); -- generate default copy constructor
 };
 
 #endif // BIO_MAINPAD_HPP_
