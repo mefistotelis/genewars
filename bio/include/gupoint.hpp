@@ -34,64 +34,36 @@ enum TgtType { // type=int8_t
 };
 
 class GPointFlags { // sizeof=1
+    uint8_t canWalkTo:1; // offset=0 bit=0
+    uint8_t triggerOnEnemies:1; // offset=0 bit=1
+    uint8_t defendGetsPriority:1; // offset=0 bit=2
+    uint8_t pointClosed:1; // offset=0 bit=3
+    uint8_t noSuitableCreatures:1; // offset=0 bit=4
+    uint8_t specOnHisWay:1; // offset=0 bit=5
 public:
-    GPointFlags * operator =(GPointFlags *arg1);
-    //GPointFlags(GPointFlags *arg1);
-    GPointFlags & operator =(GPointFlags const &arg1);
     //GPointFlags();
-    uint8_t specOnHisWay; // offset=0
-    uint8_t noSuitableCreatures; // offset=1
-    uint8_t pointClosed; // offset=2
-    uint8_t defendGetsPriority; // offset=3
-    uint8_t triggerOnEnemies; // offset=4
-    uint8_t canWalkTo; // offset=5
+    GPointFlags * operator =(GPointFlags *arg1); // return type uncertain
+    //GPointFlags(GPointFlags &arg1);
+    GPointFlags & operator =(GPointFlags const &arg1);
 };
 
 class CompTarget { // sizeof=4
-public:
-    //~CompTarget();
-    //CompTarget(class CompTarget *arg1);
-    void StopHuntingThis();
-    void AssignCreatureToThis(SWORD arg1);
-    void NewTarget(SWORD arg1, TgtType arg2); // last arg uncertain
-    void Update();
-    void Invalidate();
-    BBOOL Valid();
-    //CompTarget();
     SWORD crNo; // offset=0
     UBYTE creaturesOnThis; // offset=2
     TgtType targetType; // offset=3
+public:
+    //CompTarget(); -- generate default no-args constructor
+    BBOOL Valid();
+    void Invalidate();
+    void Update();
+    void NewTarget(SWORD arg1, TgtType arg2); // last arg uncertain
+    void AssignCreatureToThis(SWORD arg1);
+    void StopHuntingThis();
+    //CompTarget(CompTarget &arg1); -- generate default copy constructor
+    //~CompTarget();
 };
 
 class GuardPoint { // sizeof=38
-public:
-    //~GuardPoint();
-    GuardPoint * operator =(GuardPoint *arg1);
-    //GuardPoint(GuardPoint *arg1);
-    Computer * Comp();
-    EtherealZone * EZone();
-    SWORD FindImportance();
-    void MovePoint(XY arg1);
-    void RemoveCreature(SWORD arg1);
-    void AddCreature(SWORD arg1);
-    void ShutDownPoint();
-    void SetupPoint(XY &arg1, UBYTE arg2, UBYTE arg3, SBYTE arg4, GPointFlags *arg5);
-    SLONG TreesHere();
-    UBYTE HungryCreaturesHere(UBYTE arg1);
-    BBOOL IsHere(SWORD arg1);
-    BBOOL IsCreatureRightType(Creature &crtr);
-    BBOOL IsTarget(SWORD arg1, TgtType tgt); // last arg unconfirmed (has default val?)
-    UBYTE BestTargetType(UBYTE arg1, SBYTE arg2);
-    SLONG ChooseTarget(TgtType *tgt);
-    void DropCloakedTargets();
-    void DropDeadTargets();
-    void DropTargetsOutsideRange();
-    UBYTE ScanForTargets(SBYTE arg1);
-    UBYTE TargetsHere();
-    void Update();
-    void Invalidate();
-    BBOOL Valid();
-    //GuardPoint();
     XY loc; // offset=0
     SWORD creaturesHere; // offset=4
     SWORD importance; // offset=6
@@ -99,11 +71,41 @@ public:
     UBYTE type; // offset=9
     UBYTE base; // offset=10
     UBYTE pointNo; // offset=11
+  union {
+    SBYTE zoneNumber; // offset=12
+    SBYTE linkToPoint; // offset=12
     UBYTE effectNumber; // offset=12
+  };
     GPointFlags flags; // offset=13
-    CompTarget targets[5]; // offset=14
-    SBYTE linkToPoint; // offset=15
-    SBYTE zoneNumber; // offset=16
+    CompTarget targets[6]; // offset=14
+public:
+    //GuardPoint(); -- generate default no-args constructor
+    BBOOL Valid();
+    void Invalidate();
+    void Update();
+    UBYTE TargetsHere();
+    UBYTE ScanForTargets(SBYTE arg1);
+    void DropTargetsOutsideRange();
+    void DropDeadTargets();
+    void DropCloakedTargets();
+    SLONG ChooseTarget(TgtType *arg1);
+    UBYTE BestTargetType(UBYTE arg1, SBYTE arg2);
+    BBOOL IsTarget(SWORD arg1, TgtType tgt); // last arg unconfirmed (has default val?)
+    BBOOL IsCreatureRightType(Creature &crtr1);
+    BBOOL IsHere(SWORD arg1);
+    UBYTE HungryCreaturesHere(UBYTE arg1);
+    SLONG TreesHere();
+    void SetupPoint(XY &arg1, UBYTE arg2, UBYTE arg3, SBYTE arg4, GPointFlags *arg5);
+    void ShutDownPoint();
+    void AddCreature(SWORD arg1);
+    void RemoveCreature(SWORD arg1);
+    void MovePoint(XY arg1);
+    SWORD FindImportance();
+    EtherealZone * EZone();
+    Computer * Comp();
+    //GuardPoint(GuardPoint &arg1); -- generate default copy constructor
+    GuardPoint & operator =(GuardPoint &arg1);
+    //~GuardPoint();
 };
 
 #endif // BIO_GUPOINT_HPP_

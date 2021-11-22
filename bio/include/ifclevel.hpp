@@ -29,103 +29,105 @@
 
 class MyGadget;
 
-class IFCLevel : public IFCBase { // sizeof=203
-public:
-    //IFCLevel(IFCLevel *arg1);
-    void DrawBriefing();
-    void DrawPlanet();
-    void DrawLockOn();
-    void DrawGizmoBox();
-    void DrawSystem();
-    void DrawLines();
-    void DrawCornerCircles();
-    void DrawVLine(SLONG arg1, SLONG arg2, SLONG arg3, UBYTE arg4);
-    void DrawHLine(SLONG arg1, SLONG arg2, SLONG arg3, UBYTE arg4);
-    void DrawRefreshedBox(SLONG arg1, SLONG arg2, SLONG arg3, SLONG arg4, UBYTE arg5);
-    void calculate_view_to_target_vector_deviation(cPoint *arg1, SLONG arg2, SLONG arg3, SLONG arg4);
-    void local_rotate_on_arbitrary_axis(cPoint *arg1, cPoint *arg2, SLONG arg3, SLONG arg4, SLONG arg5, SLONG arg6, SLONG arg7);
-    UBYTE auto_pilot_MK2();
-    void UpdateSystem();
-    SLONG align_vertical(ULONG arg1);
-    void init_view_axes();
-    void normalise_axes(cPoint *arg1, cPoint *arg2);
-    void global_z_rotate_points(cPoint *arg1, cPoint *arg2, SLONG arg3, SLONG arg4, ULONG arg5);
-    void global_y_rotate_points(cPoint *arg1, cPoint *arg2, SLONG arg3, SLONG arg4, ULONG arg5);
-    void global_x_rotate_points(cPoint *arg1, cPoint *arg2, SLONG arg3, SLONG arg4, ULONG arg5);
-    void local_rotate_on_axis(cPoint *arg1, cPoint *arg2, SLONG arg3, SLONG arg4, UBYTE arg5);
-    void move_view_position(cPoint *arg1, cPoint *arg2, cPoint *arg3, SLONG *arg4);
-    void slow_down(SLONG *arg1);
-    void speed_up(SLONG *arg1);
-    void damping();
-    void keys();
-    void draw_points(ULONG arg1, ScreenPoint *arg2);
-    void calculate_clipping_window(SLONG arg1, SLONG arg2, SLONG arg3, SLONG arg4);
-    void calulate_2d_x_and_y_of_points(ULONG arg1, cPoint *arg2, ScreenPoint *arg3);
-    void rotate_universe_around_viewpos(cPoint *arg1, cPoint *arg2);
-    void init_start_points();
-    void DrawCrossHair();
-    UBYTE FindPlanet(UWORD arg1, UWORD arg2);
-    void MakeOrbitTrack(UWORD arg1);
-    int SortCheck(void const *arg1, void const *arg2);
-    void SortStars();
-    UBYTE IsAtSystemView();
-    void DrawGalaxy();
-    void MoveViewer();
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    //IFCLevel();
-    //void (**__vfptr)();
-    //unsigned int *__vbptr;
-    BBOOL startLevel;
-    SLONG planetNameTraverse;
-    UBYTE systemGizmoFrames[5];
-    UBYTE numBoxGizmosOn;
-    UBYTE numSystemGizmosOn;
-    UBYTE autopilotStatus;
-    LevelDrawPhase phase;
-    TurnPrintInfo nameTpi;
-    TurnPrintInfo tpi;
+class IFCLevel : public IFCBase { // sizeof=2507
     MyAnimBank *anb; // offset=4
     MyGadget *gad; // offset=8
     MySprite *spr; // offset=12
     TbSprite *sprites; // offset=16
     IFCBase *previousIFC; // offset=20
     UBYTE *planetBlocks; // offset=24
-    cPoint target; // offset=28
-    char *briefingBuffer; // offset=29
-    Info info; // offset=32
-    SpaceBody *spaceBodies; // offset=33
+    char *briefingBuffer; // offset=28
+    SpaceBody *spaceBodies; // offset=32
     UWORD *drawOrder; // offset=36
-    cPoint targetpos; // offset=40
-    UWORD currentPlanet; // offset=41
+    UWORD currentPlanet; // offset=40
     UWORD pointsThisTurn; // offset=42
     UWORD galaxyAngle; // offset=44
     UBYTE viewerMode; // offset=46
     XY crossHair; // offset=47
     UBYTE cMode; // offset=51
-    cPoint targetvelocity; // offset=52
-    MyMinSprite bogusMMs[8]; // offset=53
-    cPoint *startpoints; // offset=64
-    cPoint *workingpoints; // offset=68
-    ScreenPoint *outputpoints; // offset=72
-    Viewer viewer[7]; // offset=76
-    AutoPilot autopilot; // offset=88
+    MyMinSprite bogusMMs[9]; // offset=52
     LevelHeader currentLevel; // offset=97
-    ULONG qstars; // offset=121
-    SLONG mag; // offset=125
-    SLONG scaledmag; // offset=129
-    SLONG xyaspectratio; // offset=133
-    SLONG vrx; // offset=137
-    SLONG vry; // offset=141
-    SLONG vrz; // offset=145
-    cPoint orbitOffset; // offset=149
-    Axes workingaxes[0]; // offset=180
-    Axes referenceaxes; // offset=216
-    Axes universeaxes; // offset=252
+    cPoint target; // offset=796
+    cPoint targetpos; // offset=808
+    cPoint targetvelocity; // offset=820
+    cPoint *startpoints; // offset=832
+    cPoint *workingpoints; // offset=836
+    ScreenPoint *outputpoints; // offset=840
+    Viewer viewer[8]; // offset=844
+    Axes workingaxes[1]; // offset=2228
+    Axes referenceaxes; // offset=2264
+    Axes universeaxes; // offset=2300
+    Info info; // offset=2336
+    AutoPilot autopilot; // offset=2392
+    ULONG qstars; // offset=2425
+    SLONG mag; // offset=2429
+    SLONG scaledmag; // offset=2433
+    SLONG xyaspectratio; // offset=2437
+    SLONG vrx; // offset=2441
+    SLONG vry; // offset=2445
+    SLONG vrz; // offset=2449
+    cPoint orbitOffset; // offset=2453
+    TurnPrintInfo tpi;
+    TurnPrintInfo nameTpi;
+    LevelDrawPhase phase; // offset=2473
+    UBYTE autopilotStatus; // offset=2474
+    UBYTE numSystemGizmosOn; // offset=2475
+    UBYTE numBoxGizmosOn; // offset=2476
+    UBYTE systemGizmoFrames[6]; // offset=2477
+    SLONG planetNameTraverse; // offset=2483
+    BBOOL startLevel; // offset=2487
+//internal:
+    //unsigned int *__vbptr;
+    //void (**__vfptr)(); // offset=2488
+public:
+    //IFCLevel(); -- generate default no-args constructor
+    void PlugIn();
+    void PullOut();
+    void Draw();
+    void Update();
+    void MoveViewer();
+    void DrawGalaxy();
+    UBYTE IsAtSystemView();
+    void SortStars();
+    int SortCheck(const void *arg1, const void *arg2);
+    void MakeOrbitTrack(UWORD arg1);
+    UBYTE FindPlanet(UWORD arg1, UWORD arg2);
+    void DrawCrossHair();
+private:
+    void init_start_points();
+    void rotate_universe_around_viewpos(cPoint *arg1, cPoint *arg2);
+    void calulate_2d_x_and_y_of_points(ULONG arg1, cPoint *arg2, ScreenPoint *arg3);
+    void calculate_clipping_window(SLONG arg1, SLONG arg2, SLONG arg3, SLONG arg4);
+    void draw_points(ULONG arg1, ScreenPoint *arg2);
+    void keys();
+    void damping();
+    void speed_up(SLONG *arg1);
+    void slow_down(SLONG *arg1);
+    void move_view_position(cPoint *arg1, cPoint *arg2, cPoint *arg3, SLONG *arg4);
+    void local_rotate_on_axis(cPoint *arg1, cPoint *arg2, SLONG arg3, SLONG arg4, UBYTE arg5);
+    void global_x_rotate_points(cPoint *arg1, cPoint *arg2, SLONG arg3, SLONG arg4, ULONG arg5);
+    void global_y_rotate_points(cPoint *arg1, cPoint *arg2, SLONG arg3, SLONG arg4, ULONG arg5);
+    void global_z_rotate_points(cPoint *arg1, cPoint *arg2, SLONG arg3, SLONG arg4, ULONG arg5);
+    void normalise_axes(cPoint *arg1, cPoint *arg2);
+    void init_view_axes();
+    SLONG align_vertical(ULONG arg1);
+    void UpdateSystem();
+    UBYTE auto_pilot_MK2();
+    void local_rotate_on_arbitrary_axis(cPoint *arg1, cPoint *arg2, SLONG arg3, SLONG arg4, SLONG arg5, SLONG arg6, SLONG arg7);
+    void calculate_view_to_target_vector_deviation(cPoint *arg1, SLONG arg2, SLONG arg3, SLONG arg4);
+    void DrawRefreshedBox(SLONG arg1, SLONG arg2, SLONG arg3, SLONG arg4, UBYTE arg5);
+    void DrawHLine(SLONG arg1, SLONG arg2, SLONG arg3, UBYTE arg4);
+    void DrawVLine(SLONG arg1, SLONG arg2, SLONG arg3, UBYTE arg4);
+    void DrawCornerCircles();
+    void DrawLines();
+    void DrawSystem();
+    void DrawGizmoBox();
+    void DrawLockOn();
+    void DrawPlanet();
+    void DrawBriefing();
+//public:
+    //IFCLevel(IFCLevel &arg1); -- generate default copy constructor
 };
-
 
 #endif // BIO_IFCLEVEL_HPP_
 /******************************************************************************/

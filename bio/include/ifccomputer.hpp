@@ -28,16 +28,6 @@
 class MyGadget;
 
 class IFCComputer : public IFCBase { // sizeof=55
-public:
-    //IFCComputer(IFCComputer *arg1);
-    IFCComputer(MyGadget *arg1);
-    BBOOL BuildingAllowed(UBYTE arg1, UBYTE arg2);
-    SBYTE FirstFreeGuardPoint(UBYTE arg1);
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    //void (**__vfptr)();
     IFCBase *saveIFC; // offset=11
     MyGadget *gad; // offset=15
     MyAnimBank *anb; // offset=19
@@ -57,6 +47,17 @@ public:
     BBOOL creatureDebugStuff; // offset=52
     UBYTE cPlayer; // offset=53
     UBYTE gPointType; // offset=54
+//internal:
+    //void (**__vfptr)(); // offset=7
+public:
+    void PlugIn();
+    void PullOut();
+    void Draw();
+    void Update();
+    SBYTE FirstFreeGuardPoint(UBYTE arg1);
+    BBOOL BuildingAllowed(UBYTE arg1, UBYTE arg2);
+    IFCComputer(MyGadget *arg1);
+    //IFCComputer(IFCComputer &arg1); -- generate default copy constructor
 };
 
 #endif // BIO_IFCCOMPUTER_HPP_

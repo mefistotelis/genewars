@@ -40,63 +40,25 @@ enum TeamCircleMode { // type=int8_t
 };
 
 class TeamCircles { // sizeof=63
-public:
-    void StopStatic(UBYTE arg1);
-    void StartStatic(UBYTE arg1, BBOOL arg2);
-    void SelectCircle(UBYTE arg1);
-    void DrawTeamCircle(UBYTE arg1);
-    void Reset();
-    void Draw();
-    void Update();
-    void Init();
-    BBOOL red[4];
-    SBYTE circleFadeDelta;
-    TeamCircleMode modes[4]; // offset=0
+    TeamCircleMode modes[5]; // offset=0
     SBYTE circleActive; // offset=5
     SBYTE circleFadeLevel; // offset=6
-    MyMinSprite mMs[4]; // offset=7
-    MyMinSprite staticMms[4]; // offset=32
-};
-
-class IFCPlanetside : public IFCBase { // sizeof=46
+    MyMinSprite mMs[5]; // offset=7
+    MyMinSprite staticMms[5]; // offset=32
+    SBYTE circleFadeDelta; // offset=57
+    BBOOL red[5]; // offset=58
 public:
-    //IFCPlanetside(IFCPlanetside *arg1);
-    void DrawTgtFlag();
-    void DrawBadBar(UBYTE arg1);
-    void BarHelp(MyGadget *arg1);
-    void MapHelp(MyGadget *arg1);
-    void GeneralGadgetHelp(MyGadget *arg1);
-    void CircleHelp(MyGadget *arg1);
-    void TgtFlagEffect(XY arg1, Thing *tng2);
-    void JumpToNextBuilding();
-    void ClearInterfaceReferencesTo(Thing *tng1);
-    void CyanFlicker(UBYTE arg1);
-    void EnableAllCircles();
-    void DisableAllCircles();
-    void DrawAllBottomControls();
-    void DrawGameMap();
-    void DrawGoopMeter();
-    void DrawBadOMeter();
-    void ResetForNewGame();
-    BBOOL IsOnOffSwitchOn();
-    void SetOnOffSwitch(BBOOL arg1);
-    void SetBarsRefresh(UBYTE arg1);
-    void CloseActivePad();
-    BBOOL IsThingSelectedInPad(Thing *tng1);
+    void Init();
     void Update();
     void Draw();
-    void PullOut();
-    void PlugIn();
-    IFCPlanetside(MyGadget *gads);
-    //void (**__vfptr)();
-    //unsigned int *__vbptr;
-    uint8_t helpState;
-    uint8_t onOffSwitchState;
-    UBYTE masterSoundVolume;
-    XY tgtFlagXY;
-    MyMinSprite tgtFlagMMs;
-    XY mapMouseScroll;
-    Building *jumpBuilding;
+    void Reset();
+    void DrawTeamCircle(UBYTE arg1);
+    void SelectCircle(UBYTE arg1);
+    void StartStatic(UBYTE arg1, BBOOL arg2);
+    void StopStatic(UBYTE arg1);
+};
+
+class IFCPlanetside : public IFCBase { // sizeof=1326
     MyGadget *gad; // offset=4
     MyAnimBank *anb; // offset=8
     MySprite *mSpr; // offset=12
@@ -105,18 +67,59 @@ public:
     MySprite *pIconsMSpr; // offset=24
     TbSprite *pIconsSpr; // offset=28
     TeamCircles circles; // offset=32
-    BuildingPad buildingPad; // offset=82
     PaletteSelector actionPalette; // offset=95
-    WindowPad winPad; // offset=108
-    GroupPad groupPad; // offset=120
-    GroupSelect group; // offset=155
-    CreaturePad creaturePad; // offset=157
     EtherealScope eScope; // offset=176
-    uint8_t noSwitch; // offset=187
+    uint8_t noSwitch:1; // offset=187 bit=0
+    uint8_t onOffSwitchState:1; // offset=187 bit=1
+    uint8_t helpState:1; // offset=187 bit=2
     MainInterfacePad *mainPad; // offset=188
     BasicPad basicPad; // offset=192
-    ClonePad clonePad; // offset=201
     LabPad labPad; // offset=214
+    BuildingPad buildingPad; // offset=338
+    WindowPad winPad; // offset=364
+    CreaturePad creaturePad; // offset=413
+    ClonePad clonePad; // offset=457
+    GroupPad groupPad; // offset=632
+    GroupSelect group; // offset=667
+    Building *jumpBuilding; // offset=1289
+    XY mapMouseScroll; // offset=1293
+    MyMinSprite tgtFlagMMs; // offset=1297
+    XY tgtFlagXY; // offset=1302
+    UBYTE masterSoundVolume; // offset=1306
+//internal:
+    //unsigned int *__vbptr;
+    //void (**__vfptr)(); // offset=1307
+public:
+    IFCPlanetside(MyGadget *arg1);
+    void PlugIn();
+    void PullOut();
+    void Draw();
+    void Update();
+    BBOOL IsThingSelectedInPad(Thing *arg1);
+    void CloseActivePad();
+    void SetBarsRefresh(UBYTE arg1);
+    void SetOnOffSwitch(BBOOL arg1);
+    BBOOL IsOnOffSwitchOn();
+    void ResetForNewGame();
+    void DrawBadOMeter();
+    void DrawGoopMeter();
+    void DrawGameMap();
+    void DrawAllBottomControls();
+    void DisableAllCircles();
+    void EnableAllCircles();
+    void CyanFlicker(UBYTE arg1);
+    void ClearInterfaceReferencesTo(Thing *arg1);
+    void JumpToNextBuilding();
+    void TgtFlagEffect(XY arg1, Thing *arg2);
+    void CircleHelp(MyGadget *arg1);
+    void GeneralGadgetHelp(MyGadget *arg1);
+    void MapHelp(MyGadget *arg1);
+    void BarHelp(MyGadget *arg1);
+private:
+    void DrawBadBar(UBYTE arg1);
+    void DrawTgtFlag();
+//public:
+    //IFCPlanetside(IFCPlanetside &arg1); -- generate default copy constructor
 };
 
 #endif // BIO_IFCPLANET_HPP_

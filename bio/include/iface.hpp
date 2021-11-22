@@ -30,37 +30,41 @@ enum IFCPaletteSetMode { // type=int8_t
 };
 
 class IFCBase { // sizeof=11
-public:
-    //IFCBase(IFCBase *arg1); -- generate default copy constructor
-    //IFCBase(); -- generate default no-args constructor
-    void ClearMousePointer();
-    void SetupColorLookups();
-    BBOOL IsCurrent();
-    void NewInterface(IFCBase &arg1);
-    void SetupPacket(Packet *arg1);
-    Packet * GetPacket();
-    UBYTE PacketAction();
-    void SetPacketDataBlast(void *arg1);
-    void SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3, SWORD arg4, SWORD arg5, SWORD arg6);
-    void SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3, SWORD arg4, SWORD arg5);
-    void SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3, SWORD arg4);
-    void SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3);
-    void SetPacket(UBYTE arg1, SWORD arg2);
-    void SetPacket(UBYTE arg1);
-    void Draw();
-    void Update();
-    void PullOut();
-    void PlugIn();
-    //void (**__vfptr)();
-    static Packet *packet;
-    static SWORD gadID;
-    static BBOOL fullCopyToVRAM;
-    static IFCBase *pullOut;
-    static IFCBase *plugIn;
     IFCPaletteSetMode paletteSetMode; // offset=0
     BBOOL paletteSet; // offset=1
     UBYTE *palette; // offset=2
-    uint8_t canPause; // offset=6
+    uint8_t canPause:1; // offset=6 bit=0
+public:
+    static IFCBase *plugIn;
+    static IFCBase *pullOut;
+    static BBOOL fullCopyToVRAM;
+protected:
+    static SWORD gadID;
+private:
+    static Packet *packet;
+//internal:
+    //void (**__vfptr)(); // offset=7
+public:
+    void PlugIn();
+    void PullOut();
+    void Update();
+    void Draw();
+    void SetPacket(UBYTE arg1);
+    void SetPacket(UBYTE arg1, SWORD arg2);
+    void SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3);
+    void SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3, SWORD arg4);
+    void SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3, SWORD arg4, SWORD arg5);
+    void SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3, SWORD arg4, SWORD arg5, SWORD arg6);
+    void SetPacketDataBlast(void *arg1);
+    UBYTE PacketAction();
+    Packet * GetPacket();
+    void SetupPacket(Packet *arg1);
+    void NewInterface(IFCBase &arg1);
+    BBOOL IsCurrent();
+    void SetupColorLookups();
+    void ClearMousePointer();
+    //IFCBase(); -- generate default no-args constructor
+    //IFCBase(IFCBase &arg1); -- generate default copy constructor
 };
 
 #endif // BIO_IFACE_HPP_

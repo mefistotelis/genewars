@@ -27,57 +27,59 @@
 
 class Thing;
 
-class GroupSelect { // sizeof=110
-public:
-    SBYTE ActionOn(Thing *tng1, BBOOL arg2);
-    void DrawGroupSelected();
-    BBOOL GroupSelectThings();
-    void SetTarget(XY arg1);
-    void ClearAnchorGroupSelecting();
-    void SetAnchorGroupSelecting(SWORD arg1, SWORD arg2);
-    void ClearGroupSelecting();
-    void SetGroupSelecting();
-    BBOOL IsAnchorGroupSelecting();
-    void SwitchOffGroup(SWORD *arg1, SWORD arg2, UBYTE arg3, UBYTE arg4);
-    void AssignTargetToGroup(Thing *tng1, SWORD *arg2, SWORD arg3, UBYTE arg4, UBYTE arg5, UBYTE arg6);
-    void AssignXYToGroup(XY arg1, SWORD *arg2, SWORD arg3, UBYTE arg4, UBYTE arg5);
-    void AssignXYToTeam(XY arg1, UBYTE arg2, UBYTE arg3);
-    BBOOL SetGroupSwitchTo();
-    void RemoveIdxFromGroup(SWORD arg1);
-    void AddIdxToGroup(SWORD arg1);
-    BBOOL IsTargetSet();
-    BBOOL IsGroupSelecting();
-    BBOOL IsAGroupCurrentlySelected();
-    void ResetGroup();
-    void Draw();
-    BBOOL Update(SWORD &arg1);
-    void Close();
-    void Init();
-    UBYTE plsMask;
-    MyMinSprite mMs;
-    UBYTE flags;
-    UBYTE numPls;
-    UWORD numGroupSelected;
-    XY corner2;
-    XY corner1;
-    SWORD groupSelectedThings[43];
+class GroupSelect { // sizeof=622
     XY target; // offset=0
+    SWORD groupSelectedThings[300]; // offset=4
+    XY corner1; // offset=604
+    XY corner2; // offset=608
+    UWORD numGroupSelected; // offset=612
+    UBYTE numPls; // offset=614
+    UBYTE flags; // offset=615
+    MyMinSprite mMs; // offset=616
+    UBYTE plsMask; // offset=621
+public:
+    void Init();
+    void Close();
+    BBOOL Update(SWORD &arg1);
+    void Draw();
+    void ResetGroup();
+    BBOOL IsAGroupCurrentlySelected();
+    BBOOL IsGroupSelecting();
+    BBOOL IsTargetSet();
+    void AddIdxToGroup(SWORD arg1);
+    void RemoveIdxFromGroup(SWORD arg1);
+    BBOOL SetGroupSwitchTo();
+    void AssignXYToTeam(XY arg1, UBYTE arg2, UBYTE arg3);
+    void AssignXYToGroup(XY arg1, SWORD *arg2, SWORD arg3, UBYTE arg4, UBYTE arg5);
+    void AssignTargetToGroup(Thing *tng1, SWORD *arg2, SWORD arg3, UBYTE arg4, UBYTE arg5, UBYTE arg6);
+    void SwitchOffGroup(SWORD *arg1, SWORD arg2, UBYTE arg3, UBYTE arg4);
+private:
+    BBOOL IsAnchorGroupSelecting();
+    void SetGroupSelecting();
+    void ClearGroupSelecting();
+    void SetAnchorGroupSelecting(SWORD arg1, SWORD arg2);
+    void ClearAnchorGroupSelecting();
+    void SetTarget(XY arg1);
+    BBOOL GroupSelectThings();
+    void DrawGroupSelected();
+    SBYTE ActionOn(Thing *tng1, BBOOL arg2);
 };
 
 class GroupPad : public MainInterfacePad { // sizeof=35
-public:
-    //GroupPad(GroupPad *arg1);
-    void MapDraw();
-    void Draw(SBYTE arg1);
-    BBOOL Update(SWORD arg1);
-    void Init(Thing *tng1);
-    //GroupPad();
-    //void (**__vfptr)();
-    //unsigned int *__vbptr;
-    SBYTE action;
-    GroupSelect group;
     Thing *actionThing; // offset=4
     clock_t actionClock; // offset=8
+    GroupSelect group;
+    SBYTE action; // offset=16
+//internal:
+    //unsigned int *__vbptr;
+    //void (**__vfptr)(); // offset=17
+public:
+    //GroupPad(); -- generate default no-args constructor
+    void Init(Thing *tng1);
+    BBOOL Update(SWORD arg1);
+    void Draw(SBYTE arg1);
+    void MapDraw();
+    //GroupPad(GroupPad &arg1); -- generate default copy constructor
 };
 
 #endif // BIO_GROUPPAD_HPP_

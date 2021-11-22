@@ -148,52 +148,16 @@ enum VictoryCondition { // type=int8_t
     VICTORY_MAX,
 };
 
-class IFCEditor : public IFCBase { // sizeof=18
-public:
-    //IFCEditor(IFCEditor *arg1);
-    void GoPlanet();
-    BBOOL IsCircular(UBYTE arg1);
-    BBOOL IsMouseOnMap();
-    void TranslateAllHeaders();
-    void UpdateAllLevels();
-    void PrintHeadersToFile();
-    void UpdateLevel(LevelHeader *arg1);
-    void UpdateHeader(LevelHeader *arg1);
-    BBOOL LoadMap();
-    BBOOL SaveMap();
-    void LoadLevel();
-    void SaveLevel();
-    void SpecialistFuncHelp(MyGadget *arg1);
-    void SpecialistTypeHelp(MyGadget *arg1);
-    void VictoryHelp(MyGadget *arg1);
-    int FindSpecFunctionNumber(BBOOL &arg1);
-    SpecialistClass FindSpecialistClass(BBOOL &arg1);
-    VictoryCondition FindVictoryCondition(BBOOL &arg1);
-    int TotalNumberOfSpecs();
-    void FindClosestStuff();
-    void RemoveStuff();
-    void ReadCompPlayer(UBYTE arg1, UBYTE arg2);
-    void DrawKeyboardHelp();
-    void DrawLimits();
-    void DrawBuilding(XY arg1, UBYTE arg2, UBYTE arg3);
-    void DrawStuff();
-    void DrawDropSites();
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    IFCEditor(MyGadget *arg1);
-    //void (**__vfptr)();
-    //unsigned int *__vbptr;
+class IFCEditor : public IFCBase { // sizeof=786
     MyGadget *gad; // offset=4
     MyAnimBank *anb; // offset=8
     MySprite *spr; // offset=12
     TbSprite *sprites; // offset=16
-    char levelName[15]; // offset=20
+    char levelName[16]; // offset=20
     UBYTE levelNumber; // offset=36
     UBYTE closestStuff; // offset=37
     UBYTE mapType; // offset=38
-    UBYTE compPlayers[2]; // offset=39
+    UBYTE compPlayers[3]; // offset=39
     UBYTE compValid; // offset=42
     FlatMap map; // offset=43
     CreatureSpecies currentSpecies; // offset=49
@@ -207,8 +171,45 @@ public:
     UBYTE ePlayer; // offset=57
     UBYTE gPointType; // offset=58
     LevelHeader header; // offset=59
-    Stuff newStuff; // offset=246
-    UBYTE enteringName; // offset=254
+    Stuff newStuff; // offset=758
+    UBYTE enteringName; // offset=766
+//internal:
+    //unsigned int *__vbptr;
+    //void (**__vfptr)(); // offset=767
+public:
+    IFCEditor(MyGadget *arg1);
+    void PlugIn();
+    void PullOut();
+    void Draw();
+    void Update();
+    void DrawDropSites();
+    void DrawStuff();
+    void DrawBuilding(XY arg1, UBYTE arg2, UBYTE arg3);
+    void DrawLimits();
+    void DrawKeyboardHelp();
+    void ReadCompPlayer(UBYTE arg1, UBYTE arg2);
+    void RemoveStuff();
+    void FindClosestStuff();
+    int TotalNumberOfSpecs();
+    VictoryCondition FindVictoryCondition(BBOOL &arg1);
+    SpecialistClass FindSpecialistClass(BBOOL &arg1);
+    int FindSpecFunctionNumber(BBOOL &arg1);
+    void VictoryHelp(MyGadget *arg1);
+    void SpecialistTypeHelp(MyGadget *arg1);
+    void SpecialistFuncHelp(MyGadget *arg1);
+    void SaveLevel();
+    void LoadLevel();
+    BBOOL SaveMap();
+    BBOOL LoadMap();
+    void UpdateHeader(LevelHeader *arg1);
+    void UpdateLevel(LevelHeader *arg1);
+    void PrintHeadersToFile();
+    void UpdateAllLevels();
+    void TranslateAllHeaders();
+    BBOOL IsMouseOnMap();
+    BBOOL IsCircular(UBYTE arg1);
+    void GoPlanet();
+    //IFCEditor(IFCEditor &arg1); -- generate default copy constructor
 };
 
 #endif // BIO_IFCEDITOR_HPP_

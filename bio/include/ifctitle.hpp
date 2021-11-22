@@ -50,19 +50,10 @@ struct RocketShip { // sizeof=187
     ULONG score; // offset=18
     XY padLoc; // offset=22
     UBYTE padLength; // offset=26
-    LanderStuff stuff[31]; // offset=27
+    LanderStuff stuff[32]; // offset=27
 };
 
 class IFCTitle : public IFCBase { // sizeof=232
-public:
-    //IFCTitle(IFCTitle *arg1);
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    IFCTitle(MyGadget *arg1);
-    //void (**__vfptr)();
-    //unsigned int *__vbptr;
     MyGadget *gad; // offset=4
     MyAnimBank *anb; // offset=8
     MySprite *spr; // offset=12
@@ -70,80 +61,96 @@ public:
     SWORD creditPos; // offset=20
     UBYTE *rocketData; // offset=22
     RocketShip rocketShip; // offset=26
+//internal:
+    //unsigned int *__vbptr;
+    //void (**__vfptr)(); // offset=213
+public:
+    IFCTitle(MyGadget *arg1);
+    void PlugIn();
+    void PullOut();
+    void Draw();
+    void Update();
+    //IFCTitle(IFCTitle &arg1); -- generate default copy constructor
 };
 
 class IFCWinLevel : public IFCBase { // sizeof=19
-public:
-    //IFCWinLevel(IFCWinLevel *arg1);
-    //IFCWinLevel();
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    //void (**__vfptr)();
+//internal:
     //unsigned int *__vbptr;
+    //void (**__vfptr)(); // offset=4
+public:
+    void PlugIn();
+    void PullOut();
+    void Draw();
+    void Update();
+    //IFCWinLevel(); -- generate default no-args constructor
+    //IFCWinLevel(IFCWinLevel &arg1); -- generate default copy constructor
 };
 
 class IFCLoseLevel : public IFCBase { // sizeof=19
+//internal:
+    unsigned int *__vbptr;
+    void (**__vfptr)(); // offset=4
 public:
-    //IFCLoseLevel(IFCLoseLevel *arg1);
-    //IFCLoseLevel();
-    void Update();
-    void Draw();
-    void PullOut();
     void PlugIn();
-    //void (**__vfptr)();
-    //unsigned int *__vbptr;
+    void PullOut();
+    void Draw();
+    void Update();
+    //IFCLoseLevel(); -- generate default no-args constructor
+    //IFCLoseLevel(IFCLoseLevel &arg1); -- generate default copy constructor
 };
 
 class IFCStatScreen : public IFCBase { // sizeof=19
-public:
-    //IFCStatScreen(IFCStatScreen *arg1);
-    //IFCStatScreen();
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    //void (**__vfptr)();
+//internal:
     //unsigned int *__vbptr;
+    //void (**__vfptr)(); // offset=4
+public:
+    void PlugIn();
+    void PullOut();
+    void Draw();
+    void Update();
+    //IFCStatScreen(); -- generate default no-args constructor
+    //IFCStatScreen(IFCStatScreen &arg1); -- generate default copy constructor
 };
 
 class IFCStartNetwork : public IFCBase { // sizeof=19
-public:
-    //IFCStartNetwork(IFCStartNetwork *arg1);
-    //IFCStartNetwork();
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    //void (**__vfptr)();
+//internal:
     //unsigned int *__vbptr;
+    //void (**__vfptr)(); // offset=4
+public:
+    void PlugIn();
+    void PullOut();
+    void Draw();
+    void Update();
+    //IFCStartNetwork(); -- generate default no-args constructor
+    //IFCStartNetwork(IFCStartNetwork &arg1); -- generate default copy constructor
 };
 
 class IFCJoiningPlayer : public IFCBase { // sizeof=27
-public:
-    //IFCJoiningPlayer(IFCJoiningPlayer *arg1);
-    //IFCJoiningPlayer();
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    //void (**__vfptr)();
-    //unsigned int *__vbptr;
-    IFCBase *previousIFC;
     ULONG joiningPlayers; // offset=4
+    IFCBase *previousIFC; // offset=8
+//internal:
+    //unsigned int *__vbptr;
+    //void (**__vfptr)(); // offset=12
+public:
+    void PlugIn();
+    void PullOut();
+    void Draw();
+    void Update();
+    //IFCJoiningPlayer(); -- generate default no-args constructor
+    //IFCJoiningPlayer(IFCJoiningPlayer &arg1); -- generate default copy constructor
 };
 
 class IFCGeneratePlanet : public IFCBase { // sizeof=19
-public:
-    //IFCGeneratePlanet(IFCGeneratePlanet *arg1);
-    //IFCGeneratePlanet();
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    //void (**__vfptr)();
+//internal:
     //unsigned int *__vbptr;
+    //void (**__vfptr)(); // offset=4
+public:
+    void PlugIn();
+    void PullOut();
+    void Draw();
+    void Update();
+    //IFCGeneratePlanet(); -- generate default no-args constructor
+    //IFCGeneratePlanet(IFCGeneratePlanet &arg1); -- generate default copy constructor
 };
 
 #endif // BIO_IFCTITLE_HPP_

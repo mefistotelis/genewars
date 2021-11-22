@@ -65,21 +65,8 @@ enum { // type=int8_t
     CUSTOM_ENDVICTORY,
 };
 
-class IFCCustom : public IFCBase { // sizeof=192
-public:
-    //IFCCustom(class IFCCustom *arg1);
-    void ScrollChatString(UBYTE arg1);
-    void DrawChatStrings();
-    void DrawAvailableSessions(SessionInfo *arg1);
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    IFCCustom(MyGadget *arg1);
-    //void (**__vfptr)();
-    //unsigned int *__vbptr;
+class IFCCustom : public IFCBase { // sizeof=3520
     MyGadget *gad; // offset=4
-    TbNetworkSessionList session_list; // offset=7
     MyAnimBank *anb; // offset=8
     MySprite *spr; // offset=12
     TbSprite *sprites; // offset=16
@@ -90,12 +77,26 @@ public:
     UBYTE networkActive; // offset=24
     UBYTE networkSlot; // offset=25
     LevelHeader currentLevel; // offset=26
-    UBYTE session_index; // offset=171
-    BBOOL canEnterGame; // offset=172
-    TbNetworkService service; // offset=213
-    char chatString[3][63]; // offset=214
-    TbNetworkSession session; // offset=223
-    SessionInfo t_session[9]; // offset=225
+    char chatString[4][64]; // offset=725
+    TbNetworkService service; // offset=981
+    TbNetworkSession session; // offset=991
+    TbNetworkSessionList session_list; // offset=1031
+    SessionInfo t_session[10]; // offset=1249
+    UBYTE session_index; // offset=3499
+    BBOOL canEnterGame; // offset=3500
+//internal:
+    //unsigned int *__vbptr;
+    //void (**__vfptr)(); // offset=3501
+public:
+    IFCCustom(MyGadget *arg1);
+    void PlugIn();
+    void PullOut();
+    void Draw();
+    void Update();
+    void DrawAvailableSessions(SessionInfo *arg1);
+    void DrawChatStrings();
+    void ScrollChatString(UBYTE arg1);
+    //IFCCustom(IFCCustom &arg1); -- generate default copy constructor
 };
 
 #endif // BIO_IFCCUSTOM_HPP_

@@ -27,34 +27,6 @@
 class MyGadget;
 
 class IFCCompEditor : public IFCBase { // sizeof=193
-public:
-    //IFCCompEditor(IFCCompEditor *arg1);
-    void PrintCompPlayersToFile();
-    void UpdateColumnGadget(SWORD arg1, UBYTE &arg2, SLONG arg3, SLONG arg4);
-    void UpdateColumnGadget(SWORD arg1, SBYTE &arg2, SLONG arg3, SLONG arg4);
-    void UpdateColumnGadget(SWORD arg1, UWORD &arg2, SLONG arg3, SLONG arg4);
-    void UpdateColumnGadget(SWORD arg1, SWORD &arg2, SLONG arg3, SLONG arg4);
-    void UpdateColumnGadget(SWORD arg1, ULONG &arg2, ULONG arg3, ULONG arg4);
-    void UpdateColumnGadget(SWORD arg1, SLONG &arg2, SLONG arg3, SLONG arg4);
-    void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, UBYTE arg4, SLONG arg5, SLONG arg6, UBYTE arg7, BBOOL arg8);
-    void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, SBYTE arg4, SLONG arg5, SLONG arg6, UBYTE arg7, BBOOL arg8);
-    void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, UWORD arg4, SLONG arg5, SLONG arg6, UBYTE arg7, BBOOL arg8);
-    void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, SWORD arg4, SLONG arg5, SLONG arg6, UBYTE arg7, BBOOL arg8);
-    void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, ULONG arg4, ULONG arg5, ULONG arg6, UBYTE arg7, BBOOL arg8);
-    void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, SLONG arg4, SLONG arg5, SLONG arg6, UBYTE arg7, BBOOL arg8);
-    void UpdateCreatureBar();
-    void UpdateCreatureValues();
-    void DrawCreatureBar();
-    BBOOL Write();
-    BBOOL Read();
-    void Update();
-    UBYTE WantedSpecialists();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    IFCCompEditor(MyGadget *arg1);
-    //void (**__vfptr)();
-    //unsigned int *__vbptr;
     IFCBase *saveIFC; // offset=4
     MyGadget *gad; // offset=8
     MyAnimBank *anb; // offset=12
@@ -66,6 +38,35 @@ public:
     UWORD rightNotch; // offset=169
     UWORD testing; // offset=171
     UBYTE triggerNo; // offset=173
+//internal:
+    //unsigned int *__vbptr;
+    //void (**__vfptr)(); // offset=174
+public:
+    IFCCompEditor(MyGadget *arg1);
+    void PlugIn();
+    void PullOut();
+    void Draw();
+    UBYTE WantedSpecialists();
+    void Update();
+    BBOOL Read();
+    BBOOL Write();
+    void DrawCreatureBar();
+    void UpdateCreatureValues();
+    void UpdateCreatureBar();
+    void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, SLONG arg4, SLONG arg5, SLONG arg6, UBYTE arg7, BBOOL arg8);
+    void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, ULONG arg4, ULONG arg5, ULONG arg6, UBYTE arg7, BBOOL arg8);
+    void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, SWORD arg4, SLONG arg5, SLONG arg6, UBYTE arg7, BBOOL arg8);
+    void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, UWORD arg4, SLONG arg5, SLONG arg6, UBYTE arg7, BBOOL arg8);
+    void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, SBYTE arg4, SLONG arg5, SLONG arg6, UBYTE arg7, BBOOL arg8);
+    void DrawColumnGadget(SWORD arg1, SWORD arg2, ULONG arg3, UBYTE arg4, SLONG arg5, SLONG arg6, UBYTE arg7, BBOOL arg8);
+    void UpdateColumnGadget(SWORD arg1, SLONG &arg2, SLONG arg3, SLONG arg4);
+    void UpdateColumnGadget(SWORD arg1, ULONG &arg2, ULONG arg3, ULONG arg4);
+    void UpdateColumnGadget(SWORD arg1, SWORD &arg2, SLONG arg3, SLONG arg4);
+    void UpdateColumnGadget(SWORD arg1, UWORD &arg2, SLONG arg3, SLONG arg4);
+    void UpdateColumnGadget(SWORD arg1, SBYTE &arg2, SLONG arg3, SLONG arg4);
+    void UpdateColumnGadget(SWORD arg1, UBYTE &arg2, SLONG arg3, SLONG arg4);
+    void PrintCompPlayersToFile();
+    //IFCCompEditor(IFCCompEditor &arg1); -- generate default copy constructor
 };
 
 #endif // BIO_IFCCOMPED_HPP_

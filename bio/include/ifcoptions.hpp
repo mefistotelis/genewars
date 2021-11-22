@@ -25,30 +25,32 @@
 
 class MyGadget;
 
-class IFCOptions : public IFCBase { // sizeof=59
-public:
-    //IFCOptions(IFCOptions *arg1);
-    void FindWhichSlotsAreUsed();
-    void Update();
-    void Draw();
-    void PullOut();
-    void PlugIn();
-    IFCOptions(MyGadget *arg1);
-    //void (**__vfptr)();
-    //unsigned int *__vbptr;
-    BBOOL savePausedState;
-    SBYTE saveTextEntrySlot;
-    MyMinSprite mMs;
-    char slotNames[7][31];
-    BBOOL slotUsed[7];
-    TbSprite *sprites;
-    MySprite *spr;
-    MyGadget *gad;
+class IFCOptions : public IFCBase { // sizeof=315
     SBYTE selectedSlot; // offset=4
     MyAnimBank *anb; // offset=5
     IFCBase *previousIFC; // offset=9
+    MyGadget *gad; // offset=13
+    MySprite *spr; // offset=17
+    TbSprite *sprites; // offset=21
+    BBOOL slotUsed[8]; // offset=25
+    char slotNames[8][32]; // offset=33
+    MyMinSprite mMs; // offset=289
+    SBYTE saveTextEntrySlot; // offset=294
+    BBOOL savePausedState; // offset=295
+//internal:
+    //unsigned int *__vbptr;
+    //void (**__vfptr)(); // offset=296
+public:
+    IFCOptions(MyGadget *arg1);
+    void PlugIn();
+    void PullOut();
+    void Draw();
+    void Update();
+private:
+    void FindWhichSlotsAreUsed();
+//public:
+    //IFCOptions(IFCOptions &arg1); -- generate default copy constructor
 };
-
 
 #endif // BIO_OPTIONS_HPP_
 /******************************************************************************/
