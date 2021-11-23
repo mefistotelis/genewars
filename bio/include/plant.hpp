@@ -35,13 +35,13 @@ class Plant : public StaticThing { // sizeof=49
 //internal:
     //void (**__vfptr)(); // offset=35
 public:
-    void Read(SLONG &arg1);
-    void Write(SLONG &arg1);
-    void Resync();
+    virtual void Read(SLONG &arg1);
+    virtual void Write(SLONG &arg1);
+    virtual void Resync();
     BBOOL Damage(SWORD arg1, Thing *tng2);
-    UBYTE Update();
+    virtual UBYTE Update();
     void SetBeingEaten();
-    BBOOL IsDead();
+    virtual BBOOL IsDead();
     BBOOL IsFallen();
     BBOOL IsBeingEaten();
     void ClearBeingEaten();
@@ -49,7 +49,7 @@ public:
     PSpecies const & Species();
     void Die();
     void ChopDown();
-    void Draw(SWORD arg1, SWORD arg2);
+    virtual void Draw(SWORD arg1, SWORD arg2);
     void InitArray();
     Plant * Create(UBYTE arg1, UBYTE arg2, XY arg3);
     void UpdateAll();

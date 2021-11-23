@@ -97,9 +97,9 @@ public:
     void PA_BuilderBuild(PlSpec *arg1, XY arg2, UBYTE arg3, UBYTE arg4, BBOOL arg5);
     void PA_FarmerPlant(PlSpec *arg1, XY arg2, UBYTE arg3, BBOOL arg4);
     void PA_FarmerCollect(PlSpec *arg1, XY arg2, BBOOL arg3);
-    void PA_CowboyKill(PlSpec *arg1, MovingThing *arg2, BBOOL arg3);
+    void PA_CowboyKill(PlSpec *arg1, MovingThing *tng2, BBOOL arg3);
     void PA_ShepherdDoStuff(PlSpec *arg1, XY arg2, HerdMode arg3, BBOOL arg4);
-    void PA_ScientistStudy(PlSpec *arg1, Thing *arg2, BBOOL arg3);
+    void PA_ScientistStudy(PlSpec *arg1, Thing *tng2, BBOOL arg3);
     void PA_Cheat(UBYTE arg1);
     BBOOL PA_UpgradeBuilding(Building *arg1, PlSpec *arg2);
     BBOOL PA_FixBuilding(Building *arg1, PlSpec *arg2);
@@ -118,7 +118,7 @@ public:
     void PA_CreateACreature(UBYTE arg1, SWORD arg2, UBYTE arg3);
     void StorePacket(PlSpec *arg1, Packet *arg2);
     void DoStoredPacket(PlSpec *arg1);
-    BBOOL IsEnemy(Thing *arg1);
+    BBOOL IsEnemy(Thing *tng1);
     void SlapDownBuilding(Building *arg1);
     UWORD PowerOutput(UBYTE arg1);
     UWORD PowerNeeded(UBYTE arg1);
@@ -142,7 +142,7 @@ public:
     void MakeTeam(SLONG arg1);
     BBOOL AddBestSpec(UBYTE arg1);
     void MoveToNextWaypoint(PlSpec *arg1);
-    void RunAway(PlSpec *arg1, Thing *arg2);
+    void RunAway(PlSpec *arg1, Thing *tng2);
     void GoAroundShield(PlSpec *arg1, XY arg2, Building *arg3);
     void UpdateSpecTypes();
     void UpdateSpecialists();

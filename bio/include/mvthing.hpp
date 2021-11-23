@@ -59,7 +59,7 @@ public:
     BBOOL IsMoving(SWORD arg1);
     XY UnwindLastMove(SLONG &arg1);
     XY ProjectNextMove(SLONG &arg1);
-    BBOOL IsFacingWithinArc(Thing *arg1, SWORD arg2);
+    BBOOL IsFacingWithinArc(Thing *tng1, SWORD arg2);
     SBYTE HugTo(XY arg1, UBYTE arg2, UBYTE arg3, BBOOL arg4, Building *arg5);
     SBYTE HugToIgnoringBuildings(XY arg1, UBYTE arg2, UBYTE arg3, BBOOL arg4);
     void VectorAwayFrom(Thing &arg1, SLONG arg2, BBOOL arg3);

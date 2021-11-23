@@ -66,7 +66,7 @@ public:
     //void (**__vfptr)(); // offset=43
 public:
     BaseAwarenessScan(BaseScan &arg1, XY cor2, ULONG arg3, UBYTE arg4);
-    void PerGrid();
+    virtual void PerGrid();
     UBYTE PointInSector(XY cor1, XY cor2);
     //BaseAwarenessScan(BaseAwarenessScan const &rscan1); -- generate default copy constructor
 };
@@ -107,7 +107,7 @@ private:
     //void (**__vfptr)(); // offset=37
 public:
     AwarenessScan(Creature &arg1);
-    void PerGrid();
+    virtual void PerGrid();
     void Do();
     //AwarenessScan(AwarenessScan const &rscan1); -- generate default copy constructor
 };

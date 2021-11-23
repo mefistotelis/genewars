@@ -73,19 +73,19 @@ class PlSpec : public SmartMovingThing { // sizeof=200
 //internal:
     //void (**__vfptr)(); // offset=35
 public:
-    void Read(SLONG &arg1);
-    void Write(SLONG &arg1);
-    void Resync();
-    UBYTE Update();
-    BBOOL Damage(SLONG arg1, Thing *tng2);
-    void Discover();
-    SWORD MaxMoveSpeed();
-    void DrawOnMap(SWORD arg1, SWORD arg2);
-    void StartAMove(XY arg1);
-    BBOOL IsDead();
+    virtual void Read(SLONG &arg1);
+    virtual void Write(SLONG &arg1);
+    virtual void Resync();
+    virtual UBYTE Update();
+    virtual BBOOL Damage(SLONG arg1, Thing *tng2);
+    virtual void Discover();
+    virtual SWORD MaxMoveSpeed();
+    virtual void DrawOnMap(SWORD arg1, SWORD arg2);
+    virtual void StartAMove(XY arg1);
+    virtual BBOOL IsDead();
     BBOOL IsBusyDoingSomething();
-    BBOOL IsScreenPointInside(SWORD arg1, SWORD arg2, SWORD arg3, SWORD arg4);
-    BBOOL IsMovable();
+    virtual BBOOL IsScreenPointInside(SWORD arg1, SWORD arg2, SWORD arg3, SWORD arg4);
+    virtual BBOOL IsMovable();
     void Init(UBYTE arg1, UBYTE arg2);
     BBOOL Dead();
     void Resync(UBYTE arg1);

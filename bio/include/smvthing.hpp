@@ -69,7 +69,7 @@ public:
     void SetMoveToTgt(XY arg1);
     BBOOL SetMoveToTgtTest(XY arg1);
     void SetMoveToTgtWithDir(XY arg1);
-    void SetMoveToThing(Thing *arg1);
+    void SetMoveToThing(Thing *tng1);
     void SetMoveToBuilding(Building *arg1);
     void SetMoveToInsideBuilding(Building *arg1, XY arg2);
     void SetMoveToAlt(SLONG arg1);

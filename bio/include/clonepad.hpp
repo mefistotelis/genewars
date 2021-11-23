@@ -43,7 +43,7 @@ class ClonePad : public MainInterfacePad { // sizeof=175
     //void (**__vfptr)(); // offset=157
 public:
     //ClonePad(); -- generate default no-args constructor
-    virtual void Init(Thing *arg1);
+    virtual void Init(Thing *tng1);
     virtual BBOOL Update(SWORD arg1);
     void DrawMainPanelEdge();
     virtual void Draw(SBYTE arg1);

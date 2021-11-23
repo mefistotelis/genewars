@@ -35,14 +35,14 @@ class Event : public Thing { // sizeof=49
 //internal:
     //void (**__vfptr)(); // offset=35
 public:
-    void Read(SLONG &arg1);
-    void Write(SLONG &arg1);
-    void Resync();
-    UBYTE Update();
+    virtual void Read(SLONG &arg1);
+    virtual void Write(SLONG &arg1);
+    virtual void Resync();
+    virtual UBYTE Update();
     BBOOL IsStaticallyDrawn();
-    BBOOL IsDead();
+    virtual BBOOL IsDead();
     void Free();
-    Event * Create(UBYTE arg1, XY cor2, UBYTE arg3, Thing *arg4);
+    Event * Create(UBYTE arg1, XY cor2, UBYTE arg3, Thing *tng4);
     void InitArray();
     void UpdateAll();
     SLONG ReadBuffer(Event **arg1, SLONG arg2, SLONG arg3, BioGame &game);

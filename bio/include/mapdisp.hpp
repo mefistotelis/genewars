@@ -57,7 +57,7 @@ public:
     void Init();
     void Free();
     void Draw();
-    MapBucketThing * PutThingInBucket(Thing *arg1);
+    MapBucketThing * PutThingInBucket(Thing *tng1);
     void ResetForPullOut();
     void ForceRedraw();
     BBOOL ScrollHandler();

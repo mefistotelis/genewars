@@ -50,7 +50,7 @@ public:
     void Write(SLONG &arg1);
     void Resync();
     UBYTE Update();
-    BBOOL Damage(SLONG arg1, Thing *arg2);
+    BBOOL Damage(SLONG arg1, Thing *tng2);
     BBOOL IsDead();
     SWORD MaxMoveSpeed();
     UBYTE ShapeFacing();
@@ -58,7 +58,7 @@ public:
     void Discover();
     void Free();
     void InitArray();
-    Drone * Create(Building *arg1, Thing *arg2, DroneType arg3);
+    Drone * Create(Building *arg1, Thing *tng2, DroneType arg3);
     void UpdateAll();
     SLONG ReadBuffer(Drone **drn1, SLONG arg2, SLONG arg3, BioGame &game);
     SLONG WriteBuffer(Drone **drn1, SLONG arg2, SLONG arg3, BioGame &game);

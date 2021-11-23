@@ -38,7 +38,7 @@ public:
     //void (**__vfptr)(); // offset=47
 public:
     PassableTerrainScan(SmartMovingThing &tng1, ULONG arg2);
-    void PerGrid();
+    virtual void PerGrid();
     //PassableTerrainScan(PassableTerrainScan const &rscan1); -- generate default copy constructor
 };
 
@@ -54,7 +54,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     ShotHitScan(Effect &eff1, SLONG arg2);
-    void PerGrid();
+    virtual void PerGrid();
     //ShotHitScan(ShotHitScan const &rscan1); -- generate default copy constructor
 };
 
@@ -65,7 +65,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     FireScan(Effect &eff1);
-    void PerGrid();
+    virtual void PerGrid();
     //FireScan(FireScan const &arg1);
 };
 
@@ -78,7 +78,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     MonolithHitScan(Effect &eff1);
-    void PerGrid();
+    virtual void PerGrid();
     //MonolithHitScan(MonolithHitScan const &rscan1); -- generate default copy constructor
 };
 
@@ -91,7 +91,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     StasisBoltScan(Effect &eff1, SLONG arg2);
-    void PerGrid();
+    virtual void PerGrid();
     //StasisBoltScan(StasisBoltScan const &rscan1); -- generate default copy constructor
 };
 
@@ -104,7 +104,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     TurretScan(Building &bldng);
-    void PerGrid();
+    virtual void PerGrid();
     //TurretScan(TurretScan const &rscan1); -- generate default copy constructor
 };
 
@@ -117,7 +117,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     SawmillScan(Building &bldng);
-    void PerGrid();
+    virtual void PerGrid();
     //SawmillScan(SawmillScan const &rscan1); -- generate default copy constructor
 };
 
@@ -130,7 +130,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     FarmScan(Building &bldng);
-    void PerGrid();
+    virtual void PerGrid();
     //FarmScan(FarmScan const &rscan1); -- generate default copy constructor
 };
 
@@ -142,7 +142,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     ShieldScan(Building &bldng);
-    void PerGrid();
+    virtual void PerGrid();
 private:
     void BounceThingOffShield(MovingThing *tng1, BBOOL arg2);
 //public:
@@ -160,7 +160,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     CollectorScan(Creature &creatr, BBOOL arg2, BBOOL arg3);
-    void PerGrid();
+    virtual void PerGrid();
     //CollectorScan(CollectorScan const &rscan1); -- generate default copy constructor
 };
 
@@ -172,7 +172,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     BuilderTreeScan(Creature &creatr);
-    void PerGrid();
+    virtual void PerGrid();
     //BuilderTreeScan(BuilderTreeScan const &rscan1); -- generate default copy constructor
 };
 
@@ -184,7 +184,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     ChopperScan(Creature &creatr);
-    void PerGrid();
+    virtual void PerGrid();
     //ChopperScan(ChopperScan const &rscan1); -- generate default copy constructor
 };
 
@@ -198,7 +198,7 @@ public:
     //void (**__vfptr)(); // offset=44
 public:
     TestSlice(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4);
-    void PerGrid();
+    virtual void PerGrid();
     //TestSlice(TestSlice const &rscan1); -- generate default copy constructor
 };
 
@@ -211,7 +211,7 @@ public:
     //void (**__vfptr)(); // offset=43
 public:
     TestEverything(XY cor1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5, BBOOL arg6);
-    void PerGrid();
+    virtual void PerGrid();
     //TestEverything(TestEverything const &rscan1); -- generate default copy constructor
 };
 
@@ -220,7 +220,7 @@ class ChopTreeScan : public RangeScanner { // sizeof=41
     //void (**__vfptr)(); // offset=37
 public:
     ChopTreeScan(XY cor1, ULONG arg2);
-    void PerGrid();
+    virtual void PerGrid();
     //ChopTreeScan(ChopTreeScan const &rscan1); -- generate default copy constructor
 };
 
@@ -235,7 +235,7 @@ public:
     //void (**__vfptr)(); // offset=47
 public:
     BestForestScan(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5);
-    void PerGrid();
+    virtual void PerGrid();
     //BestForestScan(BestForestScan const &rscan1); -- generate default copy constructor
 };
 
@@ -246,7 +246,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     MineralScan(XY cor1, ULONG arg2);
-    void PerGrid();
+    virtual void PerGrid();
     //MineralScan(MineralScan const &rscan1); -- generate default copy constructor
 };
 
@@ -259,7 +259,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     MineScan(XY cor1, ULONG arg2, UBYTE arg3);
-    void PerGrid();
+    virtual void PerGrid();
     //MineScan(MineScan const &rscan1); -- generate default copy constructor
 };
 
@@ -274,7 +274,7 @@ public:
     //void (**__vfptr)(); // offset=47
 public:
     PowerScan(XY cor1, ULONG arg2, UBYTE arg3);
-    void PerGrid();
+    virtual void PerGrid();
     //PowerScan(PowerScan const &rscan1); -- generate default copy constructor
 };
 
@@ -286,7 +286,7 @@ public:
 //internal:
     //void (**__vfptr)(); // offset=47
 public:
-    void PerGrid();
+    virtual void PerGrid();
     OldPowerTally(XY cor1, ULONG arg2, UBYTE arg3);
     //OldPowerTally(OldPowerTally const &rscan1); -- generate default copy constructor
 };
@@ -298,7 +298,7 @@ public:
 //internal:
     //void (**__vfptr)(); // offset=37
 public:
-    void PerGrid();
+    virtual void PerGrid();
     NewPowerTally(XY cor1, ULONG arg2);
     //NewPowerTally(NewPowerTally const &rscan1); -- generate default copy constructor
 };
@@ -316,7 +316,7 @@ public:
     //void (**__vfptr)(); // offset=47
 public:
     void Do();
-    void PerGrid();
+    virtual void PerGrid();
     SatisfyBuildings(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5);
     //SatisfyBuildings(SatisfyBuildings const &rscan1); -- generate default copy constructor
 };
@@ -334,7 +334,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     ForestScan(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4);
-    void PerGrid();
+    virtual void PerGrid();
     //ForestScan(ForestScan const &rscan1); -- generate default copy constructor
 };
 
@@ -347,7 +347,7 @@ public:
     //void (**__vfptr)(); // offset=47
 public:
     HarvestScan(XY cor1, ULONG arg2);
-    void PerGrid();
+    virtual void PerGrid();
     //HarvestScan(HarvestScan const &rscan1); -- generate default copy constructor
 };
 
@@ -358,7 +358,7 @@ public:
     //void (**__vfptr)(); // offset=47
 public:
     NearestLand(XY cor1, ULONG arg2);
-    void PerGrid();
+    virtual void PerGrid();
     //NearestLand(NearestLand const &rscan1); -- generate default copy constructor
 };
 
@@ -372,7 +372,7 @@ public:
     //void (**__vfptr)(); // offset=47
 public:
     PowerStationScan(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4);
-    void PerGrid();
+    virtual void PerGrid();
     //PowerStationScan(PowerStationScan const &rscan1); -- generate default copy constructor
 };
 
@@ -383,7 +383,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     SiteScore(XY cor1, ULONG arg2);
-    void PerGrid();
+    virtual void PerGrid();
     //SiteScore(SiteScore const &rscan1); -- generate default copy constructor
 };
 
@@ -399,7 +399,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     PlantScan(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4);
-    void PerGrid();
+    virtual void PerGrid();
     //PlantScan(PlantScan const &rscan1); -- generate default copy constructor
 };
 
@@ -412,7 +412,7 @@ public:
     //void (**__vfptr)(); // offset=47
 public:
     ClosestTree(XY cor1, ULONG arg2);
-    void PerGrid();
+    virtual void PerGrid();
     //ClosestTree(ClosestTree const &rscan1); -- generate default copy constructor
 };
 
@@ -425,7 +425,7 @@ public:
     //void (**__vfptr)(); // offset=47
 public:
     ClosestDeadCreature(XY cor1, ULONG arg2);
-    void PerGrid();
+    virtual void PerGrid();
     //ClosestDeadCreature(ClosestDeadCreature const &rscan1); -- generate default copy constructor
 };
 
@@ -439,7 +439,7 @@ public:
     //void (**__vfptr)(); // offset=47
 public:
     ClosestEnemy(XY cor1, ULONG arg2, UBYTE arg3);
-    void PerGrid();
+    virtual void PerGrid();
     //ClosestEnemy(ClosestEnemy const &rscan1); -- generate default copy constructor
 };
 
@@ -450,7 +450,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     CountTrees(XY cor1, ULONG arg2);
-    void PerGrid();
+    virtual void PerGrid();
     //CountTrees(CountTrees const &rscan1); -- generate default copy constructor
 };
 
@@ -461,7 +461,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     GuardPointImportance(XY cor1, ULONG arg2);
-    void PerGrid();
+    virtual void PerGrid();
     //GuardPointImportance(GuardPointImportance const &rscan1); -- generate default copy constructor
 };
 
@@ -484,7 +484,7 @@ public:
     //void (**__vfptr)(); // offset=47
 public:
     ClosestTargets(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4);
-    void PerGrid();
+    virtual void PerGrid();
     //ClosestTargets(ClosestTargets const &rscan1); -- generate default copy constructor
 };
 
@@ -498,7 +498,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     LumberjackScan(PlSpec &arg1);
-    void PerGrid();
+    virtual void PerGrid();
     //LumberjackScan(LumberjackScan const &rscan1); -- generate default copy constructor
 };
 
@@ -513,7 +513,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     HarvestClearScan(PlSpec &arg1, BBOOL arg2, BBOOL arg3);
-    void PerGrid();
+    virtual void PerGrid();
     void Do();
     //HarvestClearScan(HarvestClearScan const &rscan1); -- generate default copy constructor
 };
@@ -527,7 +527,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     FarmerPlantingScan(PlSpec &arg1, BBOOL arg2);
-    void PerGrid();
+    virtual void PerGrid();
     //FarmerPlantingScan(FarmerPlantingScan const &rscan1); -- generate default copy constructor
 };
 
@@ -540,7 +540,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     SurvivalScan(PlSpec &arg1, ULONG arg2);
-    void PerGrid();
+    virtual void PerGrid();
     //SurvivalScan(SurvivalScan const &rscan1); -- generate default copy constructor
 };
 
@@ -553,7 +553,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     StudyCreatureScan(PlSpec &arg1);
-    void PerGrid();
+    virtual void PerGrid();
     //StudyCreatureScan(StudyCreatureScan const &rscan1); -- generate default copy constructor
 };
 
@@ -566,7 +566,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     HealCreatureScan(PlSpec &arg1);
-    void PerGrid();
+    virtual void PerGrid();
     //HealCreatureScan(HealCreatureScan const &rscan1); -- generate default copy constructor
 };
 

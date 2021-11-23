@@ -81,7 +81,7 @@ public:
     void Resync();
     UBYTE Update();
     void DrawOnMap(SWORD arg1, SWORD arg2);
-    BBOOL Damage(SLONG arg1, Thing *arg2);
+    BBOOL Damage(SLONG arg1, Thing *tng2);
     BBOOL IsDead();
     BBOOL IsFlying();
     BBOOL IsVectorable();
@@ -110,7 +110,7 @@ private:
     void PunishAbduct();
     void AbsolveBad();
     void SetMoveToTgtWithAlt(XY arg1, SLONG arg2);
-    void SetMoveToThingWithAlt(Thing *arg1, SLONG arg2);
+    void SetMoveToThingWithAlt(Thing *tng1, SLONG arg2);
 public:
     //Ethereal(); -- generate default no-args constructor
     //Ethereal(class Ethereal &arg1); -- generate default copy constructor

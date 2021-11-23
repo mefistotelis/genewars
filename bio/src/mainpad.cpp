@@ -71,6 +71,11 @@ void MainInterfacePad::SetNormalPad()
 void MainInterfacePad::LoadBitmap(PadBmp arg1)
 {
 // code at 0001:00019396
+    static char *panelNames[] = {
+        "data/mainpanl.dat",
+        "data/genepanl.dat",
+        "data/lpanel.dat",
+    };
 }
 
 void MainInterfacePad::DrawMainPanelBmp(ULONG *arg1)

@@ -41,15 +41,15 @@ class Effect : public MovingThing { // sizeof=81
 //internal:
     //void (**__vfptr)(); // offset=35
 public:
-    void Read(SLONG &arg1);
-    void Write(SLONG &arg1);
-    void Resync();
-    UBYTE Update();
-    BBOOL IsDead();
-    void DrawOnMap(SWORD arg1, SWORD arg2);
-    BBOOL IsASplasher();
-    BBOOL IsMovable();
-    BBOOL IsScreenPointInside(SWORD arg1, SWORD arg2, SWORD arg3, SWORD arg4);
+    virtual void Read(SLONG &arg1);
+    virtual void Write(SLONG &arg1);
+    virtual void Resync();
+    virtual UBYTE Update();
+    virtual BBOOL IsDead();
+    virtual void DrawOnMap(SWORD arg1, SWORD arg2);
+    virtual BBOOL IsASplasher();
+    virtual BBOOL IsMovable();
+    virtual BBOOL IsScreenPointInside(SWORD arg1, SWORD arg2, SWORD arg3, SWORD arg4);
     BBOOL IsChunkyDeath();
     void Free();
     BBOOL IsPackSpecValid();

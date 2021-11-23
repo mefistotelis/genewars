@@ -40,7 +40,7 @@ public:
     PointSample(XY arg1, ULONG arg2, ULONG arg3);
     PointSample(XY arg1, ULONG arg2, UWORD arg3);
     PointSample(XY arg1, ULONG arg2, UBYTE arg3);
-    void PerGrid();
+    virtual void PerGrid() = 0;
     PointSample(PointSample const &samp1);
 };
 
@@ -53,7 +53,7 @@ class NewBaseScan : public PointSample { // sizeof=40
     //void (**__vfptr)(); // offset=23
 public:
     NewBaseScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4);
-    void PerGrid();
+    virtual void PerGrid();
     //NewBaseScan(NewBaseScan const &arg1); -- generate default copy constructor
 };
 
@@ -67,7 +67,7 @@ class BestForestSample : public PointSample { // sizeof=38
     //void (**__vfptr)(); // offset=23
 public:
     BestForestSample(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4, ULONG arg5);
-    void PerGrid();
+    virtual void PerGrid();
     //BestForestSample(BestForestSample const &arg1); -- generate default copy constructor
 };
 

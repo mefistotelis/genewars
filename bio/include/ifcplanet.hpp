@@ -95,7 +95,7 @@ public:
     virtual void PullOut();
     virtual void Draw();
     virtual void Update();
-    BBOOL IsThingSelectedInPad(Thing *arg1);
+    BBOOL IsThingSelectedInPad(Thing *tng1);
     void CloseActivePad();
     void SetBarsRefresh(UBYTE arg1);
     void SetOnOffSwitch(BBOOL arg1);
@@ -108,9 +108,9 @@ public:
     void DisableAllCircles();
     void EnableAllCircles();
     void CyanFlicker(UBYTE arg1);
-    void ClearInterfaceReferencesTo(Thing *arg1);
+    void ClearInterfaceReferencesTo(Thing *tng1);
     void JumpToNextBuilding();
-    void TgtFlagEffect(XY arg1, Thing *arg2);
+    void TgtFlagEffect(XY arg1, Thing *tng2);
     void CircleHelp(MyGadget *arg1);
     void GeneralGadgetHelp(MyGadget *arg1);
     void MapHelp(MyGadget *arg1);

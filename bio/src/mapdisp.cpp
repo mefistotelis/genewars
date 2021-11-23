@@ -19,6 +19,7 @@
 #include "mapdisp.hpp"
 
 #include "map.hpp"
+#include "sndsample.hpp"
 
 BBOOL MapDisplay::CanSelectThing()
 {
@@ -78,6 +79,10 @@ XY MapDisplay::GetDisplayCenter()
 void MapDisplay::SelectAmbientSound()
 {
 // code at 0001:00052fe5
+    const SampleID terrain2sound[] = {
+        S_B1OUTERSPACE, S_INVALID, S_B1OUTERSPACE, S_INVALID, S_B1LINES, S_INVALID, S_B1FADEUP, S_INVALID,
+        S_B1FADEUP, S_INVALID, S_B1LINES, S_INVALID, S_B1SMALLSYSTEMSCALEUP, S_INVALID, S_B1SMALLSYSTEMSCALEUP, S_INVALID,
+    };
 }
 
 MapBucketThing * MapDisplay::PutThingInBucket( Thing * )

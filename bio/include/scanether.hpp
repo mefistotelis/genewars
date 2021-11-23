@@ -34,7 +34,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     EtherealTargetScan(Ethereal &arg1, ULONG arg2);
-    void PerGrid();
+    virtual void PerGrid();
     //EtherealTargetScan(EtherealTargetScan const &rscan1); -- generate default copy constructor
 };
 

@@ -63,17 +63,17 @@ class Building : public StaticThing { // sizeof=67
 //internal:
     //void (**__vfptr)(); // offset=35
 public:
-    void Read(SLONG &arg1);
-    void Write(SLONG &arg1);
-    void Resync();
-    UBYTE Update();
-    BBOOL Damage(SLONG arg1, Thing *arg2);
-    BBOOL IsDead();
+    virtual void Read(SLONG &arg1);
+    virtual void Write(SLONG &arg1);
+    virtual void Resync();
+    virtual UBYTE Update();
+    virtual BBOOL Damage(SLONG arg1, Thing *tng2);
+    virtual BBOOL IsDead();
     void UpdateAll();
     void InitArray();
     SLONG ReadBuffer(Building **bldng1, SLONG arg2, SLONG arg3, BioGame &game4);
     SLONG WriteBuffer(Building **bldng1, SLONG arg2, SLONG arg3, BioGame &game4);
-    void Draw(SWORD arg1, SWORD arg2);
+    virtual void Draw(SWORD arg1, SWORD arg2);
     void Init(UBYTE arg1, BuildingType arg2, XY arg3);
     void Free();
     void FinishBuilding();

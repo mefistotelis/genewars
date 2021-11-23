@@ -82,7 +82,7 @@ protected:
 public:
     RangeScanner(XY cor1, ULONG arg2);
     void Do();
-    void PerGrid();
+    virtual void PerGrid() = 0;
     //RangeScanner(RangeScanner const &rscan1); -- generate default copy constructor
 };
 
@@ -102,7 +102,7 @@ protected:
 public:
     PolarRangeScan(XY cor1, ULONG arg2, UBYTE arg3);
     void Do();
-    void PerGrid();
+    virtual void PerGrid() = 0;
 protected:
     void displayDebug(XY arg1, ULONG &arg2);
 //public:
@@ -152,7 +152,7 @@ protected:
 public:
     PolarSliceScan(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4);
     void Do();
-    void PerGrid();
+    virtual void PerGrid() = 0;
 protected:
     void displayDebug(XY arg1, UBYTE arg2, ULONG &arg3);
 //public:
@@ -178,7 +178,7 @@ public:
     PolarEverythingScan(XY cor1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5, BBOOL arg6);
     BBOOL Scan(UBYTE arg1);
     void Do();
-    void PerGrid();
+    virtual void PerGrid() = 0;
 protected:
     void displayDebug(XY arg1, UBYTE arg2, ULONG &arg3);
 //public:
@@ -200,7 +200,7 @@ protected:
 public:
     TimeSliceScan(BaseScan &arg1, XY arg2, ULONG arg3);
     BBOOL Do();
-    void PerGrid();
+    virtual void PerGrid() = 0;
     //TimeSliceScan(TimeSliceScan const &rscan1); -- generate default copy constructor
 };
 

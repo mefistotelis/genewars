@@ -35,7 +35,7 @@ public:
     //void (**__vfptr)(); // offset=37
 public:
     FindHighestBuildingSite(XY cor1, ULONG arg2, UBYTE arg3);
-    void PerGrid();
+    virtual void PerGrid();
     BBOOL FoundASite();
     //FindHighestBuildingSite(FindHighestBuildingSite const &rscan1); -- generate default copy constructor
 };
@@ -49,7 +49,7 @@ public:
     //void (**__vfptr)(); // offset=43
 public:
     NearestBuildingSite(XY cor1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5);
-    void PerGrid();
+    virtual void PerGrid();
     //NearestBuildingSite(NearestBuildingSite const &rscan1); -- generate default copy constructor
 };
 
@@ -63,7 +63,7 @@ public:
     //void (**__vfptr)(); // offset=43
 public:
     FindLowestBuildingSite(XY cor1, ULONG arg2, UBYTE arg3);
-    void PerGrid();
+    virtual void PerGrid();
     //FindLowestBuildingSite(FindLowestBuildingSite const &rscan1); -- generate default copy constructor
 };
 
@@ -76,7 +76,7 @@ public:
     //void (**__vfptr)(); // offset=47
 public:
     NearestPoweredBuildingSite(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4);
-    void PerGrid();
+    virtual void PerGrid();
     //NearestPoweredBuildingSite(NearestPoweredBuildingSite const &rscan1); -- generate default copy constructor
 };
 

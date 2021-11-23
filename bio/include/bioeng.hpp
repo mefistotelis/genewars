@@ -72,7 +72,7 @@ public:
     BBOOL Read(char *arg1, UBYTE arg2, SBYTE arg3, Player *arg4);
     void ResetGameAndControl();
     void FreeAllAllocs();
-    void RemoveTargetReferencesTo(Thing *arg1);
+    void RemoveTargetReferencesTo(Thing *tng1);
     void RegisterMapChangeWithThings();
     void ClearExplorationMapAndReshadeThings();
     void CompareAllGames();
