@@ -58,7 +58,7 @@ void TopoGrid::Crater(XY arg1, UBYTE arg2)
 // code at 0001:0008fd64
 }
 
-char unsigned TopoGrid::Update()
+BBOOL TopoGrid::Update()
 {
 // code at 0001:00090fe9
 }

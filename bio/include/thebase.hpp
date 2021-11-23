@@ -26,43 +26,18 @@
 class Building;
 class BuilderIFC;
 
-class PowerGraph { // sizeof=45
+class PowerGraph { // sizeof=301
+    SWORD history[50];
+    SWORD hi[50]; // offset=100
+    SWORD lo[50]; // offset=200
+    UBYTE index; // offset=300
 public:
-    UBYTE PowerToColor(SWORD arg1);
-    void Draw(SLONG arg1, SLONG arg2);
     void Update(SWORD arg1, SWORD arg2, SWORD arg3);
-    UBYTE index;
-    SWORD lo[49];
-    SWORD hi[49];
-    SWORD history[49];
+    void Draw(SLONG arg1, SLONG arg2);
+    UBYTE PowerToColor(SWORD arg1);
 };
 
-class TheBase { // sizeof=121
-public:
-    //TheBase(TheBase *arg1);
-    void ComputeCenter();
-    Building * NearestAnyBuilding(XY cor1, ULONG arg2, UWORD arg3, SBYTE arg4);
-    void UseGoop(SLONG arg1);
-    SLONG Goop();
-    BBOOL AddGoop(ULONG arg1);
-    Building * GetSiteBuilding(UBYTE arg1);
-    BBOOL IsUpgradable(BuildingType arg1, UBYTE arg2);
-    BBOOL IsBuildable(BuildingType arg1);
-    BBOOL IsEtherealApproach();
-    BBOOL IsLowPower();
-    BBOOL IsUnderAttack();
-    BBOOL InPowerStationRange(XY cor1);
-    BBOOL IsAnyBuildingNeedingWork(BBOOL arg1);
-    void StoreGoopInBuildings();
-    void ComputeGoopCapacity();
-    void StartFoundation(BuilderIFC &bldr, XY cor2);
-    Building * JumpToNextPowerStation(Building *arg1);
-    Building * NearestBuildingNeedingWork(XY cor1, BBOOL arg2);
-    Building * NearestBuilding(XY cor1, ULONG arg2, UWORD arg3);
-    void RemoveBuilding(UBYTE arg1);
-    Building * AddNewBuilding(BuildingType arg1, XY cor2);
-    void Reset();
-    //TheBase();
+class TheBase { // sizeof=377
     UBYTE player; // offset=0
     SBYTE numBuildings; // offset=1
     SLONG startingGoop; // offset=2
@@ -73,14 +48,41 @@ public:
     SLONG powerAverage; // offset=16
     SLONG etherealDetectionTime; // offset=20
     PowerGraph powerGraph; // offset=24
-    ULONG goopCapacity; // offset=69
-    UWORD status[7]; // offset=73
-    UWORD trees; // offset=89
-    XY center; // offset=91
-    UBYTE builtStuff[13]; // offset=95
-    UWORD buildingTypesBuilt; // offset=109
-    UWORD pad[2]; // offset=111
-    SLONG numCreatures; // offset=117
+    ULONG goopCapacity; // offset=325
+    UWORD status[8]; // offset=329
+    UWORD trees; // offset=345
+    XY center; // offset=347
+    UBYTE builtStuff[14]; // offset=351
+    UWORD buildingTypesBuilt; // offset=365
+    UWORD pad[3]; // offset=367
+    SLONG numCreatures; // offset=373
+public:
+    //TheBase(); -- generate default no-args constructor
+    void Reset();
+    Building * AddNewBuilding(BuildingType arg1, XY cor2);
+    void RemoveBuilding(UBYTE arg1);
+    Building * NearestBuilding(XY cor1, ULONG arg2, UWORD arg3);
+    Building * NearestBuildingNeedingWork(XY cor1, BBOOL arg2);
+    Building * JumpToNextPowerStation(Building *arg1);
+    void StartFoundation(BuilderIFC &arg1, XY cor2);
+    void ComputeGoopCapacity();
+    void StoreGoopInBuildings();
+    BBOOL IsAnyBuildingNeedingWork(BBOOL arg1);
+    BBOOL InPowerStationRange(XY cor1);
+    BBOOL IsUnderAttack();
+    BBOOL IsLowPower();
+    BBOOL IsEtherealApproach();
+    BBOOL IsBuildable(BuildingType arg1);
+    BBOOL IsUpgradable(BuildingType arg1, UBYTE arg2);
+    Building * GetSiteBuilding(UBYTE arg1);
+    BBOOL AddGoop(ULONG arg1);
+    SLONG Goop();
+    void UseGoop(SLONG arg1);
+    Building * NearestAnyBuilding(XY cor1, ULONG arg2, UWORD arg3, SBYTE arg4);
+private:
+    void ComputeCenter();
+//public:
+    //TheBase(TheBase const &arg1); -- generate default copy constructor
 };
 
 #endif // THEBASE_HPP_

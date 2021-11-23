@@ -43,7 +43,7 @@ ThingIDX & ThingIDX::operator =(ThingIDX const &arg1)
 // code at 0001:00048888
 }
 
-char unsigned ThingIDX::Valid()
+BBOOL ThingIDX::Valid()
 {
 // code at 0001:00004b38
 }
@@ -53,7 +53,7 @@ void ThingIDX::Invalidate()
 // code at 0001:00004b14
 }
 
-short ThingIDX::operator =(Thing *arg1)
+SWORD ThingIDX::operator =(Thing *arg1)
 {
 // code at 0001:00003860
 }
@@ -73,7 +73,7 @@ Ethereal * ThingIDX::IsEthereal()
 // code at 0001:00003790
 }
 
-BBOOL ThingIDX::operator ==(Thing *arg1)
+BBOOL ThingIDX::operator ==(Thing const *arg1)
 {
 // code at 0001:00077bec
 }

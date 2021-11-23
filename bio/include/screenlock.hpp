@@ -23,12 +23,13 @@
 
 class ScreenLockHandler { // sizeof=2
 public:
-    SLONG UnlockForSwap();
-    SLONG LockForSwap();
-    SLONG NestUnlock();
-    SLONG NestLock();
-    BBOOL screenLocked;
     SBYTE nestScreenLockLevel;
+    BBOOL screenLocked; // offset=1
+public:
+    SLONG NestLock();
+    SLONG NestUnlock();
+    SLONG LockForSwap();
+    SLONG UnlockForSwap();
 };
 
 #endif // BIO_SCREENLOCK_HPP_

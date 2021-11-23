@@ -32,16 +32,7 @@ enum SpecialistClass { // type=int8_t
 
 class Specialist { // sizeof=36
 public:
-    void ClearPlanetside();
-    void SetPlanetside();
-    BBOOL IsPlanetside();
-    void ClearOnTeam();
-    void SetOnTeam();
-    BBOOL IsOnTeam();
-    char * Name(char *arg1);
-    void Invalidate();
-    BBOOL Valid();
-    char name[19]; // offset=0
+    char name[20]; // offset=0
     UBYTE sex; // offset=20
     PlayerRace race; // offset=21
     SpecialistClass specClass; // offset=22
@@ -52,6 +43,16 @@ public:
     SBYTE currentResolve; // offset=27
     ULONG landings; // offset=28
     ULONG flags; // offset=32
+public:
+    BBOOL Valid();
+    void Invalidate();
+    char * Name(char *arg1);
+    BBOOL IsOnTeam();
+    void SetOnTeam();
+    void ClearOnTeam();
+    BBOOL IsPlanetside();
+    void SetPlanetside();
+    void ClearPlanetside();
 };
 
 #endif // BIO_SPEC_HPP_

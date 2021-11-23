@@ -26,14 +26,16 @@
 
 class EtherealTargetScan : public RangeScanner { // sizeof=118
 public:
-    //EtherealTargetScan(EtherealTargetScan *arg1);
-    void PerGrid();
-    EtherealTargetScan(Ethereal &arg1, ULONG arg2);
-    //void (**__vfptr)();
-    ULONG bestRanges[8];
-    Ethereal saucer;
-    Thing *tgtThings[8]; // offset=41
+    Thing *tgtThings[9]; // offset=41
     UBYTE numTargets; // offset=77
+    Ethereal saucer;
+    ULONG bestRanges[9]; // offset=82
+//internal:
+    //void (**__vfptr)(); // offset=37
+public:
+    EtherealTargetScan(Ethereal &arg1, ULONG arg2);
+    void PerGrid();
+    //EtherealTargetScan(EtherealTargetScan const &rscan1); -- generate default copy constructor
 };
 
 

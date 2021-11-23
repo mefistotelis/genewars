@@ -34,16 +34,15 @@ enum BufferSubmitMode { // type=int8_t
 
 class SoundTag { // sizeof=6
 public:
-    void SetNewSample();
-    BBOOL IsNewSample();
     ULONG id; // offset=0
     SampleID sampleNum; // offset=4
+public:
+    BBOOL IsNewSample();
+    void SetNewSample();
 };
 
 class SoundRequest { // sizeof=23
 public:
-    BBOOL Valid();
-    void Invalidate();
     SampleInfo *sampleInfo; // offset=0
     Thing *thing; // offset=4
     ULONG id; // offset=8
@@ -54,6 +53,9 @@ public:
     UBYTE type; // offset=20
     UBYTE pan; // offset=21
     BBOOL makeSoft; // offset=22
+public:
+    void Invalidate();
+    BBOOL Valid();
 };
 
 struct SpeechFileEntry { // sizeof=8
@@ -63,75 +65,80 @@ struct SpeechFileEntry { // sizeof=8
 
 class SpeechFileStatus { // sizeof=8
 public:
-    BBOOL Valid();
-    void Invalidate();
     TbFileHandle handle; // offset=0
     SLONG numSamples; // offset=4
+public:
+    void Invalidate();
+    BBOOL Valid();
 };
 
-class SampleBufferQueue { // sizeof=94
+class SampleBufferQueue { // sizeof=350
 public:
-    void Reset();
-    char * GetNext(SoundRequest &arg1);
+    SoundRequest req[4];
+    char names[4][64]; // offset=92
+    UBYTE first; // offset=348
+    UBYTE size; // offset=349
+public:
     BBOOL Add(char *arg1, SoundRequest &arg2);
-    UBYTE size;
-    UBYTE first;
-    char names[3][63];
-    SoundRequest req[3];
+    char * GetNext(SoundRequest &arg1);
+    void Reset();
 };
 
-class SoundManager { // sizeof=159
+class SoundManager { // sizeof=72607
 public:
-    //SoundManager(SoundManager &arg1);
-    BBOOL CanSamplePlay(ULONG arg1, SampleID arg2, UBYTE arg3);
-    UBYTE ComputePan(XY arg1);
-    UBYTE ComputeVolume(XY arg1, UBYTE arg2);
-    SoundRequest * GetSoundReq(Thing *tng1, SoundRequest *arg2, BBOOL arg3);
-    SampleInfo * GetSampleInfo(ULONG arg1, SampleID arg2);
-    void SubmitBufferedSound(char *arg1, SoundRequest &arg2);
-    void SubmitSoundRequest(SoundRequest &arg1);
-    void FreeRequest(SoundRequest *arg1);
-    void StopSpeech();
-    void StartSpeech(SoundRequest *arg1);
-    void FadeOutAmbient(SoundRequest *arg1);
-    void StopOldAndEstablishAmbient();
-    void EstablishAmbient();
-    UBYTE GetCDTrackPlaying();
-    BBOOL IsCDPlaying();
-    BBOOL IsNarratorSpeaking();
-    UBYTE NumRequests();
-    SoundRequest * GetSoundReq(Thing *tng1);
-    SoundRequest * GetNextSoundReq(Thing *tng1, SoundRequest *arg2);
-    SoundRequest * GetSoundReq(ULONG arg1, SampleID arg2);
-    void KillAllSounds();
-    void CloseAllSpeech();
-    void StopCD();
-    void PlayCDTrack(UBYTE arg1);
-    void StopSound(UBYTE arg1, SampleID arg2);
-    void RegisterFreedThing(Thing *tng1);
-    void ProcessSounds();
-    void Sound(UBYTE arg1, char *arg2, BufferSubmitMode arg3, UBYTE arg4, UBYTE arg5, UBYTE arg6, ULONG arg7, UBYTE arg8);
-    void Sound(Thing *tng1, char *arg2, BufferSubmitMode arg3, UBYTE arg4, UBYTE arg5, UBYTE arg6, ULONG arg7);
-    void Sound(UBYTE arg1, SampleID arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5, ULONG arg6, UBYTE arg7);
-    void Sound(Thing *tng1, SampleID arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5, ULONG arg6);
-    void ChangeAmbientVolume(UBYTE arg1);
-    void SilenceAmbientSample();
-    void ChangeAmbientSample(SampleID arg1);
-    SoundManager(XY &arg1);
-    SpeechFileStatus speech[17];
-    UBYTE playingCDTrack;
-    BBOOL narratorSpeaking;
-    SBYTE samplesPlaying[93];
-    SampleBufferQueue bufferQueue;
-    char sampleToLoadInBuffer[63];
-    UBYTE sampleBuffer[255];
-    SoundRequest *bufferReq;
-    UBYTE numRequests;
-    UBYTE ambientSampleVolume;
-    SampleID ambientSampleNum;
-    SoundTag bumpTags[8];
-    SoundRequest requests[8];
     XY origin;
+    SoundRequest requests[9]; // offset=4
+    SoundTag bumpTags[9]; // offset=211
+    SampleID ambientSampleNum; // offset=265
+    UBYTE ambientSampleVolume; // offset=267
+    UBYTE numRequests; // offset=268
+    SoundRequest *bufferReq; // offset=269
+    UBYTE sampleBuffer[71680]; // offset=273
+    char sampleToLoadInBuffer[64]; // offset=71953
+    SampleBufferQueue bufferQueue; // offset=72017
+    SBYTE samplesPlaying[94]; // offset=72367
+    BBOOL narratorSpeaking; // offset=72461
+    UBYTE playingCDTrack; // offset=72462
+    SpeechFileStatus speech[18]; // offset=72463
+public:
+    SoundManager(XY cor1);
+    void ChangeAmbientSample(SampleID arg1);
+    void SilenceAmbientSample();
+    void ChangeAmbientVolume(UBYTE arg1);
+    void Sound(Thing *arg1, SampleID arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5, ULONG arg6);
+    void Sound(UBYTE arg1, SampleID arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5, ULONG arg6, UBYTE arg7);
+    void Sound(Thing *arg1, char *arg2, BufferSubmitMode arg3, UBYTE arg4, UBYTE arg5, UBYTE arg6, ULONG arg7);
+    void Sound(UBYTE arg1, char *arg2, BufferSubmitMode arg3, UBYTE arg4, UBYTE arg5, UBYTE arg6, ULONG arg7, UBYTE arg8);
+    void ProcessSounds();
+    void RegisterFreedThing(Thing *arg1);
+    void StopSound(UBYTE arg1, SampleID arg2);
+    void PlayCDTrack(UBYTE arg1);
+    void StopCD();
+    void CloseAllSpeech();
+    void KillAllSounds();
+    SoundRequest * GetSoundReq(ULONG arg1, SampleID arg2);
+    SoundRequest * GetNextSoundReq(Thing *arg1, SoundRequest *arg2);
+    SoundRequest * GetSoundReq(Thing *arg1);
+    UBYTE NumRequests();
+    BBOOL IsNarratorSpeaking();
+    BBOOL IsCDPlaying();
+    UBYTE GetCDTrackPlaying();
+private:
+    void EstablishAmbient();
+    void StopOldAndEstablishAmbient();
+    void FadeOutAmbient(SoundRequest *arg1);
+    void StartSpeech(SoundRequest *arg1);
+    void StopSpeech();
+    void FreeRequest(SoundRequest *arg1);
+    void SubmitSoundRequest(SoundRequest &arg1);
+    void SubmitBufferedSound(char *arg1, SoundRequest &arg2);
+    SampleInfo * GetSampleInfo(ULONG arg1, SampleID arg2);
+    SoundRequest * GetSoundReq(Thing *arg1, SoundRequest *arg2, BBOOL arg3);
+    UBYTE ComputeVolume(XY cor1, UBYTE arg2);
+    UBYTE ComputePan(XY cor1);
+    BBOOL CanSamplePlay(ULONG arg1, SampleID arg2, UBYTE arg3);
+//public:
+    //SoundManager(SoundManager const &arg1);
 };
 
 #endif // BIO_SOUND_HPP_

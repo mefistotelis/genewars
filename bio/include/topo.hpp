@@ -24,38 +24,39 @@
 
 class TopoGrid { // sizeof=176
 public:
-    void InterpolateAlts(ULONG arg1, ULONG arg2, ULONG arg3, ULONG arg4, ULONG arg5, ULONG arg6, ULONG arg7, ULONG arg8, SLONG arg9, BBOOL *func10[9], SBYTE arg11);
-    void SetTimer();
-    void Fractalize(UBYTE arg1, SLONG arg2);
-    BBOOL EffectChanges();
-    BBOOL Update();
-    void Flat(XY arg1, UBYTE arg2, SLONG arg3, SLONG arg4);
-    void Crater(XY arg1, UBYTE arg2);
-    void Create(XY arg1, UBYTE arg2, SLONG arg3, SLONG arg4);
-    BBOOL Valid();
-    void Invalidate();
     XY topLeft; // offset=0
     XY bottomRight; // offset=4
     UBYTE width; // offset=8
     UBYTE height; // offset=9
     SWORD deviation; // offset=10
     SWORD timer; // offset=12
-    SWORD alts[8][8]; // offset=14
+    SWORD alts[9][9]; // offset=14
+public:
+    void Invalidate();
+    BBOOL Valid();
+    void Create(XY arg1, UBYTE arg2, SLONG arg3, SLONG arg4);
+    void Crater(XY arg1, UBYTE arg2);
+    void Flat(XY arg1, UBYTE arg2, SLONG arg3, SLONG arg4);
+    BBOOL Update();
+    BBOOL EffectChanges();
+    void Fractalize(UBYTE arg1, SLONG arg2);
+    void SetTimer();
+    void InterpolateAlts(ULONG arg1, ULONG arg2, ULONG arg3, ULONG arg4, ULONG arg5, ULONG arg6, ULONG arg7, ULONG arg8, SLONG arg9, BBOOL *func10[9], SBYTE arg11);
 };
 
-class TopoMorpher { // sizeof=49
+class TopoMorpher { // sizeof=4401
+    TopoGrid topos[25]; // offset=0
+    UBYTE numTopos; // offset=4400
 public:
-    //TopoMorpher(TopoMorpher *arg1);
-    void AbortTopoGrid(UBYTE arg1);
-    BBOOL IsTopoGridValid(UBYTE arg1);
-    UBYTE TopoGridIDX(TopoGrid *arg1);
-    void Update();
-    TopoGrid * Flat(XY arg1, UBYTE arg2, SLONG arg3, SLONG arg4);
-    TopoGrid * Crater(XY arg1, UBYTE arg2);
+    //TopoMorpher(); -- generate default no-args constructor
     TopoGrid * Create(XY arg1, UBYTE arg2, SLONG arg3, SLONG arg4);
-    //TopoMorpher();
-    TopoGrid topos[24]; // offset=0
-    UBYTE numTopos; // offset=48
+    TopoGrid * Crater(XY arg1, UBYTE arg2);
+    TopoGrid * Flat(XY arg1, UBYTE arg2, SLONG arg3, SLONG arg4);
+    void Update();
+    UBYTE TopoGridIDX(TopoGrid *arg1);
+    BBOOL IsTopoGridValid(UBYTE arg1);
+    void AbortTopoGrid(UBYTE arg1);
+    //TopoMorpher(TopoMorpher const &tmorph1); -- generate default copy constructor
 };
 
 #endif // BIO_TOPO_HPP_

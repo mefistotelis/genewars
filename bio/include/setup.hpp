@@ -61,32 +61,34 @@ struct AudioInitOptions { // sizeof=30
 
 class SoundConfig { // sizeof=10
 public:
-    void Set();
-    void Write(char *arg1);
-    void Read(char *arg1);
     SLONG sfxVolume; // offset=0
     SLONG musicVolume; // offset=4
     BBOOL sfxOn; // offset=8
     BBOOL musicOn; // offset=9
+public:
+    void Read(char *arg1);
+    void Write(char *arg1);
+    void Set();
 };
 
 class Config { // sizeof=184
 public:
-    void CDToSegment(ConfigInstall arg1);
-    BBOOL IsCurrentDriveInstallDrive();
-    BBOOL IsCurrentDriveCDROM();
-    void SetToInstallDrive();
-    void SetToCDROM();
-    char * InstalledFile(char *arg1);
-    char * InsertInstallDir(char *arg1);
-    BBOOL GetConfigs();
-    char cdROMDir[31];
-    BBOOL installedSegments[4];
-    char installDir[127];
-    unsigned int installDriveNum;
-    unsigned int cdDriveNum;
     ConfigLanguage language; // offset=0
     SoundConfig sound; // offset=1
+    unsigned int cdDriveNum; // offset=11
+    unsigned int installDriveNum; // offset=15
+    char installDir[128]; // offset=19
+    BBOOL installedSegments[5]; // offset=147
+    char cdROMDir[32]; // offset=152
+public:
+    BBOOL GetConfigs();
+    char * InsertInstallDir(char *arg1);
+    char * InstalledFile(char *arg1);
+    void SetToCDROM();
+    void SetToInstallDrive();
+    BBOOL IsCurrentDriveCDROM();
+    BBOOL IsCurrentDriveInstallDrive();
+    void CDToSegment(ConfigInstall arg1);
 };
 
 void start_game();

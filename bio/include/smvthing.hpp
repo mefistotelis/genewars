@@ -24,64 +24,71 @@
 
 class SmartMovingThing : public MovingThing { // sizeof=85
 public:
-    SmartMovingThing * operator =(SmartMovingThing *arg1);
-    //SmartMovingThing(class SmartMovingThing *arg1); -- generate default copy constructor
-    SmartMovingThing();
-    BBOOL IsMovingToBuildingInsides();
-    UBYTE ScanAroundObstacleIgnoringBuildings(XY arg1, BBOOL arg2, XY &arg3, UBYTE arg4);
-    UBYTE ScanAroundObstacle(XY arg1, BBOOL arg2, XY &arg3, UBYTE arg4);
-    void VectorToWhereGoingTo(Vector &arg1);
-    SLONG SquareTrueRangeToWhereGoingTo();
-    void TurnToDesiredAngle();
-    void SetSpeedHandler(Normal &arg1, SWORD arg2);
-    BBOOL SetMoveInDir(SWORD arg1, SWORD arg2, BBOOL arg3);
-    void ClearMoveToTgt();
-    void SetIgnoreClutter();
-    void SetMoveToAlt(SLONG arg1);
-    void SetMoveToInsideBuilding(Building *obj1, XY cor1);
-    void SetMoveToBuilding(Building *obj1);
-    void SetMoveToThing(::Thing *tng1);
-    void SetMoveToTgtWithDir(XY cor1);
-    BBOOL SetMoveToTgtTest(XY cor1);
-    void SetMoveToTgt(XY cor1);
-    void SetAvoidLooping();
-    void SetRescanPath();
-    void SetIsFlying();
-    void ClearAvoidLooping();
-    void ClearIgnoreClutter();
-    void ClearIsFlying();
-    void ClearRescanPath();
-    void ClearAvoidActive();
-    void ClearWasDoneMoving();
-    void ClearWasStuck();
-    BBOOL IsAvoidLooping();
-    BBOOL WasDoneMoving();
-    BBOOL WasStuck();
-    BBOOL IsMovingToAlt();
-    BBOOL IsIgnoreClutter();
-    BBOOL IsMovingToBuilding();
-    BBOOL IsStoppedOn(XY arg1);
-    BBOOL IsMovingToTgt();
-    BBOOL IsRescanNeeded();
-    BBOOL IsAvoidWaiting();
-    BBOOL IsAvoidActive();
-    void PreMoveSituationCheck();
-    BBOOL IsFlying();
-    BBOOL IsStuck();
-    BBOOL IsDoneMovingToTgt();
-    void StopMoving();
-    void Physics();
-    void StartAMove(XY arg1);
-    void Init(ThingType arg1, XY arg2, UBYTE arg3, SWORD arg4, SLONG arg5, Vector const &arg6);
-    //void (**__vfptr)();
+  union {
+    XY avoid; // offset=69
     SLONG desiredAngleZ; // offset=69
-    XY avoid; // offset=70
+  };
     UWORD mflags; // offset=73
     SWORD desiredAngle; // offset=75
     ThingIDX tgtBuilding; // offset=77
     ThingIDX moveTgt; // offset=80
     UBYTE impassableBits; // offset=83
     UBYTE routeTries; // offset=84
+//internal:
+    //void (**__vfptr)(); // offset=35
+public:
+    void Init(ThingType arg1, XY arg2, UBYTE arg3, SWORD arg4, SLONG arg5, Vector const &arg6);
+    void StartAMove(XY arg1);
+    void Physics();
+    void StopMoving();
+    BBOOL IsDoneMovingToTgt();
+    BBOOL IsStuck();
+    BBOOL IsFlying();
+    void PreMoveSituationCheck();
+    BBOOL IsAvoidActive();
+    BBOOL IsAvoidWaiting();
+    BBOOL IsRescanNeeded();
+    BBOOL IsMovingToTgt();
+    BBOOL IsStoppedOn(XY arg1);
+    BBOOL IsMovingToBuilding();
+    BBOOL IsIgnoreClutter();
+    BBOOL IsMovingToAlt();
+    BBOOL WasStuck();
+    BBOOL WasDoneMoving();
+    BBOOL IsAvoidLooping();
+    void ClearWasStuck();
+    void ClearWasDoneMoving();
+    void ClearAvoidActive();
+    void ClearRescanPath();
+    void ClearIsFlying();
+    void ClearIgnoreClutter();
+    void ClearAvoidLooping();
+    void SetIsFlying();
+    void SetRescanPath();
+    void SetAvoidLooping();
+    void SetMoveToTgt(XY arg1);
+    BBOOL SetMoveToTgtTest(XY arg1);
+    void SetMoveToTgtWithDir(XY arg1);
+    void SetMoveToThing(Thing *arg1);
+    void SetMoveToBuilding(Building *arg1);
+    void SetMoveToInsideBuilding(Building *arg1, XY arg2);
+    void SetMoveToAlt(SLONG arg1);
+    void SetIgnoreClutter();
+    void ClearMoveToTgt();
+    BBOOL SetMoveInDir(SWORD arg1, SWORD arg2, BBOOL arg3);
+protected:
+    void SetSpeedHandler(Normal &arg1, SWORD arg2);
+    void TurnToDesiredAngle();
+    SLONG SquareTrueRangeToWhereGoingTo();
+    void VectorToWhereGoingTo(Vector &arg1);
+    UBYTE ScanAroundObstacle(XY arg1, BBOOL arg2, XY &arg3, UBYTE arg4);
+    UBYTE ScanAroundObstacleIgnoringBuildings(XY arg1, BBOOL arg2, XY &arg3, UBYTE arg4);
+private:
+    BBOOL IsMovingToBuildingInsides();
+public:
+    SmartMovingThing();
+    //SmartMovingThing(SmartMovingThing const &tng1); -- generate default copy constructor
+    SmartMovingThing & operator =(SmartMovingThing &arg1);
 };
 
 #endif // SMVTHING_HPP_

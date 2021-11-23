@@ -46,23 +46,24 @@ enum ThingType { // type=int8_t
 
 class ThingIDX { // sizeof=3
 public:
-    // ThingIDX(ThingIDX *arg1); -- generate default copy constructor
-    ThingIDX & operator =(ThingIDX const &arg1);
-    Ethereal * IsEthereal();
-    Drone * IsDrone();
-    Event * IsEvent();
-    Effect * IsEffect();
-    Building * IsBuilding();
-    PlSpec * IsPls();
-    Plant * IsPlant();
-    Creature * IsCreature();
-    BBOOL operator ==(Thing *arg1);
-    Thing * operator &();
-    SWORD operator =(Thing *arg1);
-    void Invalidate();
-    BBOOL Valid();
     SWORD idx; // offset=0
     ThingType ttype; // offset=2
+public:
+    BBOOL Valid();
+    void Invalidate();
+    SWORD operator =(Thing *tng1);
+    Thing * operator &();
+    BBOOL operator ==(Thing const *tng1);
+    Creature * IsCreature();
+    Plant * IsPlant();
+    PlSpec * IsPls();
+    Building * IsBuilding();
+    Effect * IsEffect();
+    Event * IsEvent();
+    Drone * IsDrone();
+    Ethereal * IsEthereal();
+    ThingIDX & operator =(ThingIDX const &tidx1);
+    //ThingIDX(ThingIDX const &tidx1); -- generate default copy constructor
 };
 
 #endif // THINGIDX_HPP_

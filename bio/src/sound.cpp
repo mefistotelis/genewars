@@ -18,7 +18,7 @@
 /******************************************************************************/
 #include "sound.hpp"
 
-SoundManager::SoundManager(XY &arg1)
+SoundManager::SoundManager(XY arg1)
 {
 // code at 0001:00037a58
 }

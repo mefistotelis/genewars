@@ -32,31 +32,38 @@ enum { // type=int8_t
 };
 
 struct BuildingStage { // sizeof=1
-    uint8_t player; // offset=0
-    uint8_t stage; // offset=1
+    uint8_t stage:4; // offset=0 bit=0
+    uint8_t player:4; // offset=0 bit=4
 };
 
 struct CreatureSpeciesForHerd { // sizeof=1
-    uint8_t player; // offset=0
-    uint8_t species; // offset=1
+    uint8_t species:5; // offset=0 bit=0
+    uint8_t player:3; // offset=0 bit=5
 };
 
 struct Stuff { // sizeof=8
-    BBOOL IsEZone();
     XY loc; // offset=0
     UBYTE type; // offset=4
+  union {
+    UBYTE species; // offset=5
+    CreatureSpeciesForHerd crSpecies; // offset=5
+    UBYTE score; // offset=5
     SBYTE gpNumber; // offset=5
+  };
+  union {
+    UBYTE player; // offset=6
+    SBYTE ezLinkTo; // offset=6
+    UBYTE crStudy; // offset=6
     BuildingStage building; // offset=6
+  };
+  union {
+    UBYTE ezSize; // offset=7
+    UBYTE numCreatures; // offset=7
+    UBYTE numTrees; // offset=7
     UBYTE buildingPoints; // offset=7
-    UBYTE numTrees; // offset=8
-    UBYTE numCreatures; // offset=9
-    UBYTE ezSize; // offset=10
-    UBYTE crStudy; // offset=11
-    SBYTE ezLinkTo; // offset=12
-    UBYTE player; // offset=13
-    UBYTE score; // offset=14
-    CreatureSpeciesForHerd crSpecies; // offset=15
-    UBYTE species; // offset=16
+  };
+    BBOOL IsEZone();
+    //Stuff(Stuff const &arg1); -- generate default copy constructor
 };
 
 #endif // BIO_STUFF_HPP_
