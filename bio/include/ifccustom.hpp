@@ -89,10 +89,10 @@ class IFCCustom : public IFCBase { // sizeof=3520
     //void (**__vfptr)(); // offset=3501
 public:
     IFCCustom(MyGadget *arg1);
-    void PlugIn();
-    void PullOut();
-    void Draw();
-    void Update();
+    virtual void PlugIn();
+    virtual void PullOut();
+    virtual void Draw();
+    virtual void Update();
     void DrawAvailableSessions(SessionInfo *arg1);
     void DrawChatStrings();
     void ScrollChatString(UBYTE arg1);

@@ -23,12 +23,12 @@
 // code at 0001:00025ab4
 }*/
 
-void BasicPad::Init( Thing * )
+void BasicPad::Init( Thing *tng1 )
 {
 // code at 0001:00019a3d
 }
 
-char unsigned BasicPad::Update( short )
+BBOOL BasicPad::Update( SWORD arg1 )
 {
 // code at 0001:00019b00
 }
@@ -38,7 +38,7 @@ void BasicPad::MapDraw()
 // code at 0001:00019b43
 }
 
-void BasicPad::Draw( char signed )
+void BasicPad::Draw( SBYTE arg1 )
 {
 // code at 0001:00019b5d
 }
@@ -48,7 +48,7 @@ WindowPad::WindowPad(PaletteSelector &palsel)
 // code at 0001:000259bc
 }
 
-void WindowPad::Init( Thing * )
+void WindowPad::Init( Thing *tng1 )
 {
 // code at 0001:0001a152
 }
@@ -73,12 +73,12 @@ void WindowPad::DrawArchitectFoundation()
 // code at 0001:0001a8a9
 }
 
-void WindowPad::Draw( char signed )
+void WindowPad::Draw( SBYTE arg1 )
 {
 // code at 0001:0001adbb
 }
 
-char unsigned WindowPad::Update( short )
+BBOOL WindowPad::Update( SWORD arg1 )
 {
 // code at 0001:0001b024
 }
@@ -98,12 +98,12 @@ void WindowPad::AbortAction()
 // code at 0001:000258e4
 }*/
 
-void BuildingPad::Init( Thing * )
+void BuildingPad::Init( Thing *tng1 )
 {
 // code at 0001:0001bd28
 }
 
-char unsigned BuildingPad::Update( short )
+BBOOL BuildingPad::Update( SWORD arg1 )
 {
 // code at 0001:0001beb1
 }
@@ -113,7 +113,7 @@ void BuildingPad::MapDraw()
 // code at 0001:0001c0ca
 }
 
-void BuildingPad::Draw( char signed )
+void BuildingPad::Draw( SBYTE arg1 )
 {
 // code at 0001:0001c1b1
 }
@@ -123,7 +123,7 @@ CreaturePad::CreaturePad(PaletteSelector &palsel)
 // code at 0001:000257ec
 }
 
-void CreaturePad::Init( Thing * )
+void CreaturePad::Init( Thing *tng1 )
 {
 // code at 0001:0001c1f3
 }
@@ -133,7 +133,7 @@ void CreaturePad::Close()
 // code at 0001:0001c351
 }
 
-char unsigned CreaturePad::Update( short )
+char unsigned CreaturePad::Update( SWORD arg1 )
 {
 // code at 0001:0001c39b
 }
@@ -143,12 +143,12 @@ void CreaturePad::MapDraw()
 // code at 0001:0001c741
 }
 
-void CreaturePad::DrawAllPackMembers( char unsigned )
+void CreaturePad::DrawAllPackMembers( UBYTE arg1 )
 {
 // code at 0001:0001c858
 }
 
-void CreaturePad::Draw( char signed )
+void CreaturePad::Draw( SBYTE arg1 )
 {
 // code at 0001:0001c873
 }

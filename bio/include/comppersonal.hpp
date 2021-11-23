@@ -36,8 +36,8 @@ public:
     BBOOL Update(UBYTE arg1);
     BBOOL Valid();
     void Invalidate();
-    //Trigger(Trigger &trgr1); -- generate default copy constructor
-    //~Trigger();
+    //Trigger(Trigger const &trgr1); -- generate default copy constructor
+    //virtual ~Trigger();
 };
 
 class Personality { // sizeof=142
@@ -86,7 +86,7 @@ public:
     Trigger triggers[8]; // offset=86
 //public:
     //Personality(); -- generate default no-args constructor
-    //Personality(Personality &arg1); -- generate default copy constructor
+    //Personality(Personality const &arg1); -- generate default copy constructor
 };
 
 

@@ -66,10 +66,10 @@ class IFCTitle : public IFCBase { // sizeof=232
     //void (**__vfptr)(); // offset=213
 public:
     IFCTitle(MyGadget *arg1);
-    void PlugIn();
-    void PullOut();
-    void Draw();
-    void Update();
+    virtual void PlugIn();
+    virtual void PullOut();
+    virtual void Draw();
+    virtual void Update();
     //IFCTitle(IFCTitle &arg1); -- generate default copy constructor
 };
 
@@ -78,23 +78,23 @@ class IFCWinLevel : public IFCBase { // sizeof=19
     //unsigned int *__vbptr;
     //void (**__vfptr)(); // offset=4
 public:
-    void PlugIn();
-    void PullOut();
-    void Draw();
-    void Update();
+    virtual void PlugIn();
+    virtual void PullOut();
+    virtual void Draw();
+    virtual void Update();
     //IFCWinLevel(); -- generate default no-args constructor
     //IFCWinLevel(IFCWinLevel &arg1); -- generate default copy constructor
 };
 
 class IFCLoseLevel : public IFCBase { // sizeof=19
 //internal:
-    unsigned int *__vbptr;
-    void (**__vfptr)(); // offset=4
+    //unsigned int *__vbptr;
+    //void (**__vfptr)(); // offset=4
 public:
-    void PlugIn();
-    void PullOut();
-    void Draw();
-    void Update();
+    virtual void PlugIn();
+    virtual void PullOut();
+    virtual void Draw();
+    virtual void Update();
     //IFCLoseLevel(); -- generate default no-args constructor
     //IFCLoseLevel(IFCLoseLevel &arg1); -- generate default copy constructor
 };
@@ -104,10 +104,10 @@ class IFCStatScreen : public IFCBase { // sizeof=19
     //unsigned int *__vbptr;
     //void (**__vfptr)(); // offset=4
 public:
-    void PlugIn();
-    void PullOut();
-    void Draw();
-    void Update();
+    virtual void PlugIn();
+    virtual void PullOut();
+    virtual void Draw();
+    virtual void Update();
     //IFCStatScreen(); -- generate default no-args constructor
     //IFCStatScreen(IFCStatScreen &arg1); -- generate default copy constructor
 };
@@ -117,10 +117,10 @@ class IFCStartNetwork : public IFCBase { // sizeof=19
     //unsigned int *__vbptr;
     //void (**__vfptr)(); // offset=4
 public:
-    void PlugIn();
-    void PullOut();
-    void Draw();
-    void Update();
+    virtual void PlugIn();
+    virtual void PullOut();
+    virtual void Draw();
+    virtual void Update();
     //IFCStartNetwork(); -- generate default no-args constructor
     //IFCStartNetwork(IFCStartNetwork &arg1); -- generate default copy constructor
 };
@@ -132,10 +132,10 @@ class IFCJoiningPlayer : public IFCBase { // sizeof=27
     //unsigned int *__vbptr;
     //void (**__vfptr)(); // offset=12
 public:
-    void PlugIn();
-    void PullOut();
-    void Draw();
-    void Update();
+    virtual void PlugIn();
+    virtual void PullOut();
+    virtual void Draw();
+    virtual void Update();
     //IFCJoiningPlayer(); -- generate default no-args constructor
     //IFCJoiningPlayer(IFCJoiningPlayer &arg1); -- generate default copy constructor
 };
@@ -145,10 +145,10 @@ class IFCGeneratePlanet : public IFCBase { // sizeof=19
     //unsigned int *__vbptr;
     //void (**__vfptr)(); // offset=4
 public:
-    void PlugIn();
-    void PullOut();
-    void Draw();
-    void Update();
+    virtual void PlugIn();
+    virtual void PullOut();
+    virtual void Draw();
+    virtual void Update();
     //IFCGeneratePlanet(); -- generate default no-args constructor
     //IFCGeneratePlanet(IFCGeneratePlanet &arg1); -- generate default copy constructor
 };

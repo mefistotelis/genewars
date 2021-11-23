@@ -46,11 +46,11 @@ class LabPad : public MainInterfacePad { // sizeof=124
     //void (**__vfptr)(); // offset=106
 public:
     //LabPad(); -- generate default no-args constructor
-    void Init(Thing *arg1);
-    void Close();
-    BBOOL Update(SWORD arg1);
-    void MapDraw();
-    void Draw(SBYTE arg1);
+    virtual void Init(Thing *tng1);
+    virtual void Close();
+    virtual BBOOL Update(SWORD arg1);
+    virtual void MapDraw();
+    virtual void Draw(SBYTE arg1);
 private:
     void DrawListCreature(CreatureSpecies arg1, SLONG arg2, SLONG arg3, UBYTE arg4);
     void DrawList();

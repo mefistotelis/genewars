@@ -37,13 +37,13 @@ public:
 //internal:
     //void (**__vfptr)(); // offset=35
 public:
-    void Init(ThingType arg1, XY arg2, UBYTE arg3, SWORD arg4, SLONG arg5, Vector const &arg6);
-    void StartAMove(XY arg1);
-    void Physics();
-    void StopMoving();
-    BBOOL IsDoneMovingToTgt();
-    BBOOL IsStuck();
-    BBOOL IsFlying();
+    virtual void Init(ThingType arg1, XY arg2, UBYTE arg3, SWORD arg4, SLONG arg5, Vector const &arg6);
+    virtual void StartAMove(XY arg1);
+    virtual void Physics();
+    virtual void StopMoving();
+    virtual BBOOL IsDoneMovingToTgt();
+    virtual BBOOL IsStuck();
+    virtual BBOOL IsFlying();
     void PreMoveSituationCheck();
     BBOOL IsAvoidActive();
     BBOOL IsAvoidWaiting();
@@ -51,7 +51,7 @@ public:
     BBOOL IsMovingToTgt();
     BBOOL IsStoppedOn(XY arg1);
     BBOOL IsMovingToBuilding();
-    BBOOL IsIgnoreClutter();
+    virtual BBOOL IsIgnoreClutter();
     BBOOL IsMovingToAlt();
     BBOOL WasStuck();
     BBOOL WasDoneMoving();
@@ -77,10 +77,10 @@ public:
     void ClearMoveToTgt();
     BBOOL SetMoveInDir(SWORD arg1, SWORD arg2, BBOOL arg3);
 protected:
-    void SetSpeedHandler(Normal &arg1, SWORD arg2);
-    void TurnToDesiredAngle();
-    SLONG SquareTrueRangeToWhereGoingTo();
-    void VectorToWhereGoingTo(Vector &arg1);
+    virtual void SetSpeedHandler(Normal &arg1, SWORD arg2);
+    virtual void TurnToDesiredAngle();
+    virtual SLONG SquareTrueRangeToWhereGoingTo();
+    virtual void VectorToWhereGoingTo(Vector &arg1);
     UBYTE ScanAroundObstacle(XY arg1, BBOOL arg2, XY &arg3, UBYTE arg4);
     UBYTE ScanAroundObstacleIgnoringBuildings(XY arg1, BBOOL arg2, XY &arg3, UBYTE arg4);
 private:

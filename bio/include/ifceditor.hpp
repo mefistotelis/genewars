@@ -178,10 +178,10 @@ class IFCEditor : public IFCBase { // sizeof=786
     //void (**__vfptr)(); // offset=767
 public:
     IFCEditor(MyGadget *arg1);
-    void PlugIn();
-    void PullOut();
-    void Draw();
-    void Update();
+    virtual void PlugIn();
+    virtual void PullOut();
+    virtual void Draw();
+    virtual void Update();
     void DrawDropSites();
     void DrawStuff();
     void DrawBuilding(XY arg1, UBYTE arg2, UBYTE arg3);

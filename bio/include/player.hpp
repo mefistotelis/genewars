@@ -113,7 +113,7 @@ public:
     void pPA_WIN_LEVEL(Packet *pkt);
     //Player(Player &arg1); -- generate default copy constructor
     Player & operator =(Player const &player1);
-    ~Player();
+    virtual ~Player();
 };
 
 #endif // BIO_PLAYER_HPP_

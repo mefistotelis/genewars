@@ -59,8 +59,8 @@ public:
     void NewTarget(SWORD arg1, TgtType arg2); // last arg uncertain
     void AssignCreatureToThis(SWORD arg1);
     void StopHuntingThis();
-    //CompTarget(CompTarget &arg1); -- generate default copy constructor
-    //~CompTarget();
+    //CompTarget(CompTarget const &arg1); -- generate default copy constructor
+    //virtual ~CompTarget();
 };
 
 class GuardPoint { // sizeof=38
@@ -103,9 +103,9 @@ public:
     SWORD FindImportance();
     EtherealZone * EZone();
     Computer * Comp();
-    //GuardPoint(GuardPoint &arg1); -- generate default copy constructor
+    //GuardPoint(GuardPoint const &arg1); -- generate default copy constructor
     GuardPoint & operator =(GuardPoint &arg1);
-    //~GuardPoint();
+    //virtual ~GuardPoint();
 };
 
 #endif // BIO_GUPOINT_HPP_

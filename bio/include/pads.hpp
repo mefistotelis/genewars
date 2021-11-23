@@ -34,10 +34,10 @@ class BasicPad : public MainInterfacePad { // sizeof=22
     //void (**__vfptr)(); // offset=4
 public:
     //BasicPad(); -- generate default no-args constructor
-    void Init(Thing *tng1);
-    BBOOL Update(SWORD arg1);
-    void Draw(SBYTE arg1);
-    void MapDraw();
+    virtual void Init(Thing *tng1);
+    virtual BBOOL Update(SWORD arg1);
+    virtual void Draw(SBYTE arg1);
+    virtual void MapDraw();
     //BasicPad(BasicPad &arg1); -- generate default copy constructor
 };
 
@@ -48,10 +48,10 @@ class BuildingPad : public MainInterfacePad { // sizeof=26
     //void (**__vfptr)(); // offset=8
 public:
     //BuildingPad(); -- generate default no-args constructor
-    void Init(Thing *tng1);
-    BBOOL Update(SWORD arg1);
-    void MapDraw();
-    void Draw(SBYTE arg1);
+    virtual void Init(Thing *tng1);
+    virtual BBOOL Update(SWORD arg1);
+    virtual void MapDraw();
+    virtual void Draw(SBYTE arg1);
     void ProjectPowerStationCircles();
     //BuildingPad(BuildingPad &arg1); -- generate default copy constructor
 };
@@ -70,11 +70,11 @@ class WindowPad : public MainInterfacePad { // sizeof=49
     //void (**__vfptr)(); // offset=31
 public:
     WindowPad(PaletteSelector &palsel);
-    void Init(Thing *tng1);
-    void Close();
-    BBOOL Update(SWORD arg1);
-    void MapDraw();
-    void Draw(SBYTE arg1);
+    virtual void Init(Thing *tng1);
+    virtual void Close();
+    virtual BBOOL Update(SWORD arg1);
+    virtual void MapDraw();
+    virtual void Draw(SBYTE arg1);
     void StartAction();
     void AbortAction();
     void DrawArchitectFoundation();
@@ -98,11 +98,11 @@ class CreaturePad : public MainInterfacePad { // sizeof=44
     //void (**__vfptr)(); // offset=26
 public:
     CreaturePad(PaletteSelector &palsel);
-    void Init(Thing *tng1);
-    void Close();
-    BBOOL Update(SWORD arg1);
-    void MapDraw();
-    void Draw(SBYTE arg1);
+    virtual void Init(Thing *tng1);
+    virtual void Close();
+    virtual BBOOL Update(SWORD arg1);
+    virtual void MapDraw();
+    virtual void Draw(SBYTE arg1);
     void DrawAllPackMembers(UBYTE arg1);
     //CreaturePad(CreaturePad &arg1); -- generate default copy constructor
 };

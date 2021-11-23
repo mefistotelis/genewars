@@ -19,7 +19,7 @@
 #include "scanadv.hpp"
 
 PassableTerrainScan::PassableTerrainScan(SmartMovingThing &tng1, ULONG arg2)
-    : PolarRangeScan(tng1.loc, arg2, 0) // verify params
+    : PolarRangeScan(tng1.loc, arg2, 0), thing(tng1) // verify params
 {
 // code at 0001:00088da8
 }

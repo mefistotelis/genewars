@@ -50,10 +50,10 @@ class IFCComputer : public IFCBase { // sizeof=55
 //internal:
     //void (**__vfptr)(); // offset=7
 public:
-    void PlugIn();
-    void PullOut();
-    void Draw();
-    void Update();
+    virtual void PlugIn();
+    virtual void PullOut();
+    virtual void Draw();
+    virtual void Update();
     SBYTE FirstFreeGuardPoint(UBYTE arg1);
     BBOOL BuildingAllowed(UBYTE arg1, UBYTE arg2);
     IFCComputer(MyGadget *arg1);

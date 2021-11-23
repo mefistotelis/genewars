@@ -52,13 +52,13 @@ public:
     //void (**__vfptr)(); // offset=6
 public:
     //MainInterfacePad(); -- generate default no-args constructor
-    void Init(Thing *tng1);
-    BBOOL Update(SWORD arg1);
-    void Draw(SBYTE arg1);
-    void DrawMainPanelEdge();
-    void MapDraw();
-    void Close();
-    void DrawPointerOverThing();
+    virtual void Init(Thing *tng1);
+    virtual BBOOL Update(SWORD arg1);
+    virtual void Draw(SBYTE arg1) = 0;
+    virtual void DrawMainPanelEdge();
+    virtual void MapDraw();
+    virtual void Close();
+    virtual void DrawPointerOverThing();
     void LoadBitmap(PadBmp arg1);
     void DrawBuildingStats(Building *arg1);
     void DrawMainPanelBmp(ULONG *arg1);
@@ -73,7 +73,7 @@ public:
     void DrawStatic(SLONG arg1, SLONG arg2, SLONG arg3, SLONG arg4);
     void StartStaticNoise();
     void StopStaticNoise();
-    //MainInterfacePad(MainInterfacePad &arg1); -- generate default copy constructor
+    //MainInterfacePad(MainInterfacePad const &arg1); -- generate default copy constructor
 };
 
 #endif // BIO_MAINPAD_HPP_

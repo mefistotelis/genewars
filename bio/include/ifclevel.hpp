@@ -81,10 +81,10 @@ class IFCLevel : public IFCBase { // sizeof=2507
     //void (**__vfptr)(); // offset=2488
 public:
     //IFCLevel(); -- generate default no-args constructor
-    void PlugIn();
-    void PullOut();
-    void Draw();
-    void Update();
+    virtual void PlugIn();
+    virtual void PullOut();
+    virtual void Draw();
+    virtual void Update();
     void MoveViewer();
     void DrawGalaxy();
     UBYTE IsAtSystemView();

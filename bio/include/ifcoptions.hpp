@@ -42,10 +42,10 @@ class IFCOptions : public IFCBase { // sizeof=315
     //void (**__vfptr)(); // offset=296
 public:
     IFCOptions(MyGadget *arg1);
-    void PlugIn();
-    void PullOut();
-    void Draw();
-    void Update();
+    virtual void PlugIn();
+    virtual void PullOut();
+    virtual void Draw();
+    virtual void Update();
 private:
     void FindWhichSlotsAreUsed();
 //public:

@@ -75,10 +75,10 @@ class GroupPad : public MainInterfacePad { // sizeof=35
     //void (**__vfptr)(); // offset=17
 public:
     //GroupPad(); -- generate default no-args constructor
-    void Init(Thing *tng1);
-    BBOOL Update(SWORD arg1);
-    void Draw(SBYTE arg1);
-    void MapDraw();
+    virtual void Init(Thing *tng1);
+    virtual BBOOL Update(SWORD arg1);
+    virtual void Draw(SBYTE arg1);
+    virtual void MapDraw();
     //GroupPad(GroupPad &arg1); -- generate default copy constructor
 };
 

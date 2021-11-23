@@ -43,11 +43,11 @@ class IFCCompEditor : public IFCBase { // sizeof=193
     //void (**__vfptr)(); // offset=174
 public:
     IFCCompEditor(MyGadget *arg1);
-    void PlugIn();
-    void PullOut();
-    void Draw();
+    virtual void PlugIn();
+    virtual void PullOut();
+    virtual void Draw();
     UBYTE WantedSpecialists();
-    void Update();
+    virtual void Update();
     BBOOL Read();
     BBOOL Write();
     void DrawCreatureBar();

@@ -36,22 +36,22 @@ protected:
 //internal:
     //void (**__vfptr)(); // offset=35
 public:
-    SLONG Altitude();
-    SLONG AltAboveGround();
-    BBOOL IsMovable();
-    BBOOL IsStaticallyDrawn();
-    BBOOL IsMovingThing();
-    BBOOL IsVectorable();
-    void DrawOnMap(SWORD arg1, SWORD arg2);
-    UBYTE Update();
-    BBOOL IsScreenPointInside(SWORD arg1, SWORD arg2, SWORD arg3, SWORD arg4);
-    void Init(ThingType arg1, XY arg2, UBYTE arg3, SWORD arg4, SLONG arg5, Vector const &arg6);
-    UBYTE ShapeFacing();
-    SWORD MaxMoveSpeed();
-    void StopMoving();
-    void NewGridUpdate(GridTile *arg1);
-    BBOOL NeedToAvoid(GridTile *arg1);
-    BBOOL IsASplasher();
+    virtual SLONG Altitude();
+    virtual SLONG AltAboveGround();
+    virtual BBOOL IsMovable();
+    virtual BBOOL IsStaticallyDrawn();
+    virtual BBOOL IsMovingThing();
+    virtual BBOOL IsVectorable();
+    virtual void DrawOnMap(SWORD arg1, SWORD arg2);
+    virtual UBYTE Update();
+    virtual BBOOL IsScreenPointInside(SWORD arg1, SWORD arg2, SWORD arg3, SWORD arg4);
+    virtual void Init(ThingType arg1, XY arg2, UBYTE arg3, SWORD arg4, SLONG arg5, Vector const &arg6);
+    virtual UBYTE ShapeFacing();
+    virtual SWORD MaxMoveSpeed();
+    virtual void StopMoving();
+    virtual void NewGridUpdate(GridTile *arg1);
+    virtual BBOOL NeedToAvoid(GridTile *arg1);
+    virtual BBOOL IsASplasher();
     void ChangeMove(const Vector &arg1);
     void ChangeMove(const ComponentVector &arg1);
     void ChangeMove(SWORD arg1);
@@ -63,11 +63,11 @@ public:
     SBYTE HugTo(XY arg1, UBYTE arg2, UBYTE arg3, BBOOL arg4, Building *arg5);
     SBYTE HugToIgnoringBuildings(XY arg1, UBYTE arg2, UBYTE arg3, BBOOL arg4);
     void VectorAwayFrom(Thing &arg1, SLONG arg2, BBOOL arg3);
-    void Physics();
-    void TransportIt(XY arg1, BBOOL arg2);
-    void BindItWith(MovingThing &arg1);
+    virtual void Physics();
+    virtual void TransportIt(XY arg1, BBOOL arg2);
+    virtual void BindItWith(MovingThing &arg1);
 protected:
-    void SetSpeedHandler(Normal &arg1, SWORD arg2);
+    virtual void SetSpeedHandler(Normal &arg1, SWORD arg2);
 public:
     MovingThing();
     //MovingThing(MovingThing &arg1); -- generate default copy constructor

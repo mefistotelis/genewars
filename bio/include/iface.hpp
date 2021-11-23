@@ -45,10 +45,10 @@ private:
 //internal:
     //void (**__vfptr)(); // offset=7
 public:
-    void PlugIn();
-    void PullOut();
-    void Update();
-    void Draw();
+    virtual void PlugIn();
+    virtual void PullOut();
+    virtual void Update();
+    virtual void Draw();
     void SetPacket(UBYTE arg1);
     void SetPacket(UBYTE arg1, SWORD arg2);
     void SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3);

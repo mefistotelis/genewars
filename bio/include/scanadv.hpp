@@ -33,7 +33,7 @@ class PassableTerrainScan : public PolarRangeScan { // sizeof=60
 public:
     BBOOL foundAPlace; // offset=51
     XY goToXY; // offset=52
-    SmartMovingThing thing;
+    SmartMovingThing &thing;
 //internal:
     //void (**__vfptr)(); // offset=47
 public:

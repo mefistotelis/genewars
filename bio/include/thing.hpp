@@ -69,35 +69,35 @@ public:
     BBOOL IsEnemy(Thing *tng1);
     UBYTE BaseColor();
     BBOOL IsDitheredColor();
-    SLONG Altitude();
-    SLONG AltAboveGround();
-    BBOOL IsMovable();
-    BBOOL IsMovingThing();
-    BBOOL IsFlying();
-    void Draw(XY cor1);
-    void Draw(SWORD arg1, SWORD arg2);
-    MyFrame * GetFrame();
-    BBOOL IsScreenPointInside(SWORD arg1, SWORD arg2, SWORD arg3, SWORD arg4);
-    void DrawOnMap(SWORD arg1, SWORD arg2);
-    void Init(ThingType arg1, XY cor2, UBYTE arg3, SWORD arg4);
-    void Discover();
-    void Undiscover();
-    BBOOL Damage(SLONG arg1, Thing *tng2);
-    void StartFightWith(Thing *tng1);
-    void Read(SLONG &arg1);
-    void Write(SLONG &arg1);
-    void Sound(SampleID arg1, UBYTE arg2, UBYTE arg3, UBYTE arg4, ULONG arg5);
-    void StopSound(SampleID arg1);
-    void FadeSound(SampleID arg1, SWORD arg2, UBYTE arg3);
-    void FadeOutSound(SampleID arg1, UBYTE arg2);
-    BBOOL IsSoundPlaying(SampleID arg1);
-    BBOOL IsStasis();
-    BBOOL IsIgnoreClutter();
-    void Resync();
-    UBYTE Update();
-    BBOOL IsDead();
-    BBOOL IsStaticallyDrawn();
-    BBOOL operator==(Thing *tng1);
+    virtual SLONG Altitude();
+    virtual SLONG AltAboveGround();
+    virtual BBOOL IsMovable();
+    virtual BBOOL IsMovingThing();
+    virtual BBOOL IsFlying();
+    virtual void Draw(XY cor1);
+    virtual void Draw(SWORD arg1, SWORD arg2);
+    virtual MyFrame * GetFrame();
+    virtual BBOOL IsScreenPointInside(SWORD arg1, SWORD arg2, SWORD arg3, SWORD arg4);
+    virtual void DrawOnMap(SWORD arg1, SWORD arg2);
+    virtual void Init(ThingType arg1, XY cor2, UBYTE arg3, SWORD arg4);
+    virtual void Discover();
+    virtual void Undiscover();
+    virtual BBOOL Damage(SLONG arg1, Thing *tng2);
+    virtual void StartFightWith(Thing *tng1);
+    virtual void Read(SLONG &arg1);
+    virtual void Write(SLONG &arg1);
+    virtual void Sound(SampleID arg1, UBYTE arg2, UBYTE arg3, UBYTE arg4, ULONG arg5);
+    virtual void StopSound(SampleID arg1);
+    virtual void FadeSound(SampleID arg1, SWORD arg2, UBYTE arg3);
+    virtual void FadeOutSound(SampleID arg1, UBYTE arg2);
+    virtual BBOOL IsSoundPlaying(SampleID arg1);
+    virtual BBOOL IsStasis();
+    virtual BBOOL IsIgnoreClutter();
+    virtual void Resync() = 0;
+    virtual UBYTE Update() = 0;
+    virtual BBOOL IsDead() = 0;
+    virtual BBOOL IsStaticallyDrawn() = 0;
+    BBOOL operator ==(Thing *tng1);
     UBYTE CreateEffectExplosion(EffectType arg1, UBYTE arg2, SLONG arg3, SLONG arg4, UBYTE arg5);
     Vector PredictTargetShot(Thing *tng1, SLONG arg2, SLONG arg3, ULONG arg4);
     //Thing(); -- generate default no-args constructor
@@ -111,10 +111,10 @@ protected:
 //internal:
     //void (**__vfptr)(); // offset=35
 public:
-    void DrawOnMap(SWORD arg1, SWORD arg2);
-    void Resync();
-    void DrawNoDraw(SWORD arg1, SWORD arg2);
-    BBOOL IsStaticallyDrawn();
+    virtual void DrawOnMap(SWORD arg1, SWORD arg2);
+    virtual void Resync();
+    virtual void DrawNoDraw(SWORD arg1, SWORD arg2);
+    virtual BBOOL IsStaticallyDrawn();
     //StaticThing(); -- generate default no-args constructor
     //StaticThing(StaticThing const &tng1); -- generate default copy constructor
     StaticThing & operator =(StaticThing &tng1);

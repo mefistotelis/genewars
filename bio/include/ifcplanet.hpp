@@ -91,10 +91,10 @@ class IFCPlanetside : public IFCBase { // sizeof=1326
     //void (**__vfptr)(); // offset=1307
 public:
     IFCPlanetside(MyGadget *arg1);
-    void PlugIn();
-    void PullOut();
-    void Draw();
-    void Update();
+    virtual void PlugIn();
+    virtual void PullOut();
+    virtual void Draw();
+    virtual void Update();
     BBOOL IsThingSelectedInPad(Thing *arg1);
     void CloseActivePad();
     void SetBarsRefresh(UBYTE arg1);
