@@ -67,8 +67,8 @@ class IFCLevel : public IFCBase { // sizeof=2507
     SLONG vry; // offset=2445
     SLONG vrz; // offset=2449
     cPoint orbitOffset; // offset=2453
-    TurnPrintInfo tpi;
-    TurnPrintInfo nameTpi;
+    TurnPrintInfo &tpi;
+    TurnPrintInfo &nameTpi;
     LevelDrawPhase phase; // offset=2473
     UBYTE autopilotStatus; // offset=2474
     UBYTE numSystemGizmosOn; // offset=2475
@@ -80,7 +80,7 @@ class IFCLevel : public IFCBase { // sizeof=2507
     //unsigned int *__vbptr;
     //void (**__vfptr)(); // offset=2488
 public:
-    //IFCLevel(); -- generate default no-args constructor
+    IFCLevel();
     virtual void PlugIn();
     virtual void PullOut();
     virtual void Draw();

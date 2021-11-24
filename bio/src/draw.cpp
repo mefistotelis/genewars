@@ -33,10 +33,11 @@ void HelpDraw::SetColors(UBYTE arg1, UBYTE arg2, UBYTE arg3, UBYTE arg4)
 // code at 0001:0000bb3c
 }
 
-/*TextEntry::TextEntry()
+TextEntry::TextEntry()
 {
-// code at 0001:0000b5ca
-}*/
+  // code at 0001:0000b5ca
+  this->status = TXT_NOT_ACTIVE;
+}
 
 BBOOL TextEntry::IsActive()
 {

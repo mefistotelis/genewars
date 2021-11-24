@@ -40,7 +40,8 @@ BBOOL ScanRecord::IsRecorded(XY cor1)
 
 RangeScan::RangeScan(XY cor1, ULONG arg2, BBOOL arg3)
 {
-// code at 0001:00004ad8
+  // code at 0001:00004ad8
+  this->Init(cor1, arg2, arg3);
 }
 
 void BaseScan::Reset()
@@ -53,10 +54,13 @@ void RangeScan::Init(XY cor1, ULONG arg2, BBOOL arg3)
 // code at 0001:0005d721
 }
 
-RangeScanner::RangeScanner(XY cor1, ULONG arg2)
-    : RangeScan(cor1, arg2, true) // verify params
+RangeScanner::RangeScanner(XY cor1, ULONG range)
+    : RangeScan(cor1, range, true) // verify params
 {
-// code at 0001:00004a74
+  // code at 0001:00004a74
+  this->maxRange = range;
+  this->squareMaxRange = range * range;
+  this->foundAThing = false;
 }
 
 void RangeScanner::Do()

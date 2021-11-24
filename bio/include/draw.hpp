@@ -64,7 +64,7 @@ public:
     BBOOL IsEnteringText();
     BBOOL PressedReturn();
     BBOOL PressedEscape();
-    //TextEntry(); -- generate default no-args constructor
+    TextEntry();
 private:
     BBOOL ValidChar(UBYTE arg1);
 //public:

@@ -52,7 +52,7 @@ public:
 //internal:
     //void (**__vfptr)(); // offset=6
 public:
-    //MainInterfacePad(); -- generate default no-args constructor
+    MainInterfacePad();
     virtual void Init(Thing *tng1);
     virtual BBOOL Update(SWORD arg1);
     virtual void Draw(SBYTE arg1) = 0;

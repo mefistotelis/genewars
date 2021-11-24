@@ -23,9 +23,12 @@ Vector::Vector()
 // code at 0001:00004bac
 }
 
-Vector::Vector(Vector const &v1)
+Vector::Vector(Vector const &src)
 {
-// code at 0001:000013b8
+  // code at 0001:000013b8
+  this->angle = src.angle;
+  this->angleZ = src.angleZ;
+  this->length = src.length;
 }
 
 Vector::Vector(SWORD nang, SWORD nangZ, SWORD nlen)

@@ -18,10 +18,15 @@
 /******************************************************************************/
 #include "scanether.hpp"
 
-EtherealTargetScan::EtherealTargetScan(Ethereal &arg1, ULONG arg2)
-    : RangeScanner(arg1.loc, 0) // verify params
+#include <cstring>
+
+EtherealTargetScan::EtherealTargetScan(Ethereal &etherl, ULONG arg2)
+    : RangeScanner(etherl.loc, arg2), saucer(etherl)
 {
-// code at 0001:00003560
+  // code at 0001:00003560
+  memset(this->tgtThings, 0, sizeof(this->tgtThings));
+  memset(this->bestRanges, 255, sizeof(this->bestRanges));
+  this->numTargets = 0;
 }
 
 void EtherealTargetScan::PerGrid()

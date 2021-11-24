@@ -18,10 +18,48 @@
 /******************************************************************************/
 #include "ifclevel.hpp"
 
-/*IFCLevel::IFCLevel()
+static char nameTpiDrawStr[400] = {
+    0x1, (char)0xE5, 0x2, (char)0xF0, 0x0,
+};
+
+static char briefTpiDrawStr[400] = {
+    0x1, (char)0xE4, 0x2, (char)0xEF, 0x0,
+};
+
+static TurnPrintInfo nameTPI_lv = {
+    .x = 0, .y = 6, .delay = 0, .step = 2, .str = NULL,
+    .hilite = {
+        { 0x1, 0xEB, 0x2, 0xED, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, },
+        { 0x1, 0xE9, 0x2, 0xEE, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, },
+        { 0x1, 0xE7, 0x2, 0xEF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, },
+    },
+    .drawStr = nameTpiDrawStr,
+    .dfi = {0},
+    .drawing = 0, .linesDrawn = 0, .length = 0, .count = 0, .delayCount = 0,
+    .current = NULL,
+    .drawCurrent = NULL,
+};
+
+static TurnPrintInfo briefTPI = {
+    .x = 32, .y = 23, .delay = 0, .step = 2, .str = NULL,
+    .hilite = {
+        { 0x1, 0xEA, 0x2, 0xEC, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, },
+        { 0x1, 0xE8, 0x2, 0xED, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, },
+        { 0x1, 0xE6, 0x2, 0xEE, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, },
+    },
+    .drawStr = briefTpiDrawStr,
+    .dfi = {0},
+    .drawing = 0, .linesDrawn = 0, .length = 0, .count = 0, .delayCount = 0,
+    .current = NULL,
+    .drawCurrent = NULL,
+};
+
+IFCLevel::IFCLevel()
+    : IFCBase(), tpi(briefTPI), nameTpi(nameTPI_lv)
 {
-// code at 0001:0000f70a
-}*/
+  // code at 0001:0000f70a
+  // done
+}
 
 void IFCLevel::DrawRefreshedBox(SLONG arg1, SLONG arg2, SLONG arg3, SLONG arg4, UBYTE arg5)
 {

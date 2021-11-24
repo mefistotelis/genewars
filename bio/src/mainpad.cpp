@@ -27,10 +27,11 @@ MyMinSprite MainInterfacePad::userPointerMMs;
 MySprite *MainInterfacePad::userPointer;
 ULONG *MainInterfacePad::padBmps[3];
 
-/*MainInterfacePad::MainInterfacePad()
+MainInterfacePad::MainInterfacePad()
 {
-// code at 0001:0001822c
-}*/
+  // code at 0001:0001822c
+  MainInterfacePad::pointerMMs.delta = 1;
+}
 
 void MainInterfacePad::ClearUserPointer()
 {

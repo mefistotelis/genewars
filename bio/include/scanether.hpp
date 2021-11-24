@@ -28,7 +28,7 @@ class EtherealTargetScan : public RangeScanner { // sizeof=118
 public:
     Thing *tgtThings[9]; // offset=41
     UBYTE numTargets; // offset=77
-    Ethereal saucer;
+    Ethereal &saucer;
     ULONG bestRanges[9]; // offset=82
 //internal:
     //void (**__vfptr)(); // offset=37
