@@ -59,6 +59,7 @@ public:
 };
 
 class IFCPlanetside : public IFCBase { // sizeof=1326
+public:
     MyGadget *gad; // offset=4
     MyAnimBank *anb; // offset=8
     MySprite *mSpr; // offset=12

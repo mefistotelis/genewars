@@ -18,6 +18,10 @@
 /******************************************************************************/
 #include "ifceditor.hpp"
 
+#include "data.hpp"
+
+TbLoadFiles editorGfx = {"data/ifeditor.anb", (void **)&ifcEditor.anb, 0, 0, 0, 0};
+
 IFCEditor::IFCEditor(MyGadget *arg1)
 {
 // code at 0001:0005e94c

@@ -102,7 +102,7 @@ extern char unsigned redTables[][256];
 extern char unsigned iceTables[][256];
 extern char unsigned globalDebug;
 extern char unsigned thingProcessing;
-extern char * debugFile[];
+extern char const * debugFile[];
 extern long unsigned debugLine[];
 extern long unsigned debugTurn[];
 extern char unsigned debugIndex;
@@ -197,6 +197,17 @@ extern char unsigned const creatureThreatScores[];
 extern char unsigned const cInfo[][5];
 extern char signed const sectorDirs[][2];
 extern FontInfo font_info[];
+
+inline UWORD control_urand(UBYTE shift, ULONG bound)
+{
+    ++control.RndCount;
+    debugLine[debugIndex] = __LINE__;
+    debugFile[debugIndex] = __FILE__;
+    debugTurn[debugIndex] = control.Turn;
+    debugIndex = (debugIndex+1) & 0x1Fu;
+    control.Seed *= 0xE62Du;
+    return (((int)control.Seed >> shift) & 0x7FFF) % bound;
+}
 
 #endif // BIO_DATA_HPP_
 /******************************************************************************/

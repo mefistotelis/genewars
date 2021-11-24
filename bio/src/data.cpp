@@ -132,7 +132,7 @@ char unsigned globalDebug;
 
 char unsigned thingProcessing;
 
-char * debugFile[2]; // array size TBD
+char const * debugFile[2]; // array size TBD
 
 long unsigned debugLine[2]; // array size TBD
 
@@ -191,9 +191,9 @@ ControllerInfo * controller;
 
 Colour savePalette[2]; // array size TBD
 
-TbSpriteData font_sprites[2]; // array size TBD
+TbSpriteData font_sprites[7];
 
-Packet packets[2]; // array size TBD
+Packet packets[8];
 
 BioGame bio;
 

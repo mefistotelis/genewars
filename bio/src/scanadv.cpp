@@ -18,6 +18,8 @@
 /******************************************************************************/
 #include "scanadv.hpp"
 
+#include "data.hpp"
+
 PassableTerrainScan::PassableTerrainScan(SmartMovingThing &tng1, ULONG arg2)
     : PolarRangeScan(tng1.loc, arg2, 0), thing(tng1) // verify params
 {
@@ -73,10 +75,12 @@ void StasisBoltScan::PerGrid()
 // code at 0001:00048a20
 }
 
-TurretScan::TurretScan(Building &arg1)
-    : RangeScanner(arg1.loc, 0) // verify params
+TurretScan::TurretScan(Building &bldng)
+    : RangeScanner(bldng.loc, bldng.TurretRange()), turret(bldng)
 {
-// code at 0001:00040370
+  // code at 0001:00040370
+  this->closestRange = 0x7FFFFFFF;
+  this->tgtThing = NULL;
 }
 
 void TurretScan::PerGrid()
@@ -84,10 +88,12 @@ void TurretScan::PerGrid()
 // code at 0001:000402f8
 }
 
-SawmillScan::SawmillScan(Building &arg1)
-    : RangeScanner(arg1.loc, 0) // verify params
+SawmillScan::SawmillScan(Building &bldng)
+    : RangeScanner(bldng.loc, (bldng.stage == 1) ? 0x400u : 0x800u), sawmill(bldng)
 {
-// code at 0001:00040278
+  // code at 0001:00040278
+  this->bestValue = 0x7FFFFFFF;
+  this->tgtPlant = NULL;
 }
 
 void SawmillScan::PerGrid()
@@ -95,10 +101,12 @@ void SawmillScan::PerGrid()
 // code at 0001:00040214
 }
 
-FarmScan::FarmScan(Building &arg1)
-    : RangeScanner(arg1.loc, 0) // verify params
+FarmScan::FarmScan(Building &bldng)
+    : RangeScanner(bldng.loc, (bldng.stage == 1) ? 0x400u : 0x600u), farm(bldng)
 {
-// code at 0001:00040194
+  // code at 0001:00040194
+  this->bestValue = 0x7FFFFFFF;
+  this->tgt = NULL;
 }
 
 void FarmScan::PerGrid()
@@ -106,10 +114,12 @@ void FarmScan::PerGrid()
 // code at 0001:000400dc
 }
 
-ShieldScan::ShieldScan(Building &arg1)
-    : RangeScanner(arg1.loc, 0) // verify params
+ShieldScan::ShieldScan(Building &bldng)
+    : RangeScanner(bldng.loc, bldng.ShieldRange() + 384), shield(bldng)
 {
-// code at 0001:00040064
+  // code at 0001:00040064
+  this->squareShieldRange = bldng.ShieldRange();
+  this->squareShieldRange *= this->squareShieldRange;
 }
 
 void ShieldScan::BounceThingOffShield(MovingThing *arg1, BBOOL arg2)
@@ -122,10 +132,20 @@ void ShieldScan::PerGrid()
 // code at 0001:0003959f
 }
 
-CollectorScan::CollectorScan(Creature &arg1, BBOOL arg2, BBOOL arg3)
-    : WeightedTgtRangeScanner(arg1.loc, 0) // verify params
+CollectorScan::CollectorScan(Creature &crtr, BBOOL lfPlants, BBOOL lfBones)
+    : WeightedTgtRangeScanner(crtr.loc, crtr.Species().smarts + 512, crtr.IsMemoryValid() ? NULL : &crtr.memory, 300), c(crtr)
 {
-// code at 0001:00082f1c
+  // code at 0001:00082f1c
+  this->lookForPlants = lfPlants;
+  if ( this->lookForPlants )
+  {
+    this->plantBonus = control_urand(8, 255);
+  }
+  this->lookForBones = lfBones;
+  if ( this->lookForBones )
+  {
+    this->bonesBonus = control_urand(8, 255);
+  }
 }
 
 void CollectorScan::PerGrid()

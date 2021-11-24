@@ -18,15 +18,51 @@
 /******************************************************************************/
 #include "printinfo.hpp"
 
+static char titleTpiDrawStr[96] = {
+    0x1, (char)0x82, 0x2, (char)0x80, 0x0,
+};
+
+static char textTpiDrawStr[544] = {
+    0x1, (char)0x82, 0x2, (char)0x80, 0x0,
+};
+
+static TurnPrintInfo titleTPI = {
+    .x = 0, .y = 0, .delay = 0, .step = 1, .str = NULL,
+    .hilite = {
+        { 0x1, 0xEF, 0x2, 0x83, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, },
+        { 0x1, 0x83, 0x2, 0x81, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, },
+        { 0x1, 0x82, 0x2, 0x80, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, },
+    },
+    .drawStr = titleTpiDrawStr,
+    .dfi = {0},
+    .drawing = 0, .linesDrawn = 0, .length = 0, .count = 0, .delayCount = 0,
+    .current = NULL,
+    .drawCurrent = NULL,
+};
+
+static TurnPrintInfo textTPI = {
+    .x = 0, .y = 12, .delay = 0, .step = 2, .str = NULL,
+    .hilite = {
+        { 0x1, 0xEF, 0x2, 0x83, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, },
+        { 0x1, 0x83, 0x2, 0x81, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, },
+        { 0x1, 0x82, 0x2, 0x80, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, },
+    },
+    .drawStr = textTpiDrawStr,
+    .dfi = {0},
+    .drawing = 0, .linesDrawn = 0, .length = 0, .count = 0, .delayCount = 0,
+    .current = NULL,
+    .drawCurrent = NULL,
+};
+
 BBOOL TurnPrintInfo::Print()
 {
 // code at 0001:0001e160
 }
 
-/*InfoRequester::InfoRequester()
+InfoRequester::InfoRequester()
+    : titleTpi(titleTPI), textTpi(textTPI)
 {
-// code at 0001:00024a06
-}*/
+}
 
 void InfoRequester::DrawPic(SLONG arg1, SLONG arg2)
 {

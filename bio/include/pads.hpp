@@ -61,7 +61,7 @@ class WindowPad : public MainInterfacePad { // sizeof=49
     XY tgt; // offset=8
     Thing *actionThing; // offset=12
     clock_t actionClock; // offset=16
-    PaletteSelector aPalette;
+    PaletteSelector &aPalette;
     MyMinSprite mMs; // offset=24
     SBYTE action; // offset=29
     BBOOL canDoAction; // offset=30
@@ -90,7 +90,7 @@ class CreaturePad : public MainInterfacePad { // sizeof=44
     Creature *c; // offset=4
     Thing *cuActionThing; // offset=8
     clock_t cuActionClock; // offset=12
-    PaletteSelector aPalette;
+    PaletteSelector &aPalette;
     MyMinSprite packMMs; // offset=20
     CreatureUserAction cuAction; // offset=25
 //internal:

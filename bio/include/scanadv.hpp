@@ -98,7 +98,7 @@ public:
 class TurretScan : public RangeScanner { // sizeof=53
 public:
     Thing *tgtThing; // offset=41
-    Building turret;
+    Building &turret;
     SLONG closestRange; // offset=49
 //internal:
     //void (**__vfptr)(); // offset=37
@@ -111,7 +111,7 @@ public:
 class SawmillScan : public RangeScanner { // sizeof=53
 public:
     Plant *tgtPlant; // offset=41
-    Building sawmill;
+    Building &sawmill;
     SLONG bestValue; // offset=49
 //internal:
     //void (**__vfptr)(); // offset=37
@@ -124,7 +124,7 @@ public:
 class FarmScan : public RangeScanner { // sizeof=53
 public:
     Thing *tgt; // offset=41
-    Building farm;
+    Building &farm;
     SLONG bestValue; // offset=49
 //internal:
     //void (**__vfptr)(); // offset=37
@@ -136,7 +136,7 @@ public:
 
 class ShieldScan : public RangeScanner { // sizeof=49
 public:
-    Building shield;
+    Building &shield;
     ULONG squareShieldRange; // offset=45
 //internal:
     //void (**__vfptr)(); // offset=37
@@ -151,7 +151,7 @@ private:
 
 class CollectorScan : public WeightedTgtRangeScanner { // sizeof=246
 public:
-    Creature c;
+    Creature &c;
     BBOOL lookForPlants; // offset=242
     BBOOL lookForBones; // offset=243
     UBYTE plantBonus; // offset=244
@@ -227,7 +227,7 @@ public:
 class BestForestScan : public PolarRangeScan { // sizeof=62
 public:
     XY bestPos; // offset=51
-    UBYTE foundationSize; // offset=55
+    UBYTE foundationSize2; // offset=55, parent has first
     UBYTE player; // offset=56
     UBYTE forestType; // offset=57
     SLONG bestValue; // offset=58
@@ -268,7 +268,7 @@ public:
     XY bestPos; // offset=51
     UBYTE bestType; // offset=55
     UBYTE mostPower; // offset=56
-    UBYTE foundationSize; // offset=57
+    UBYTE foundationSize2; // offset=57, parent has first
     UBYTE player; // offset=58
 //internal:
     //void (**__vfptr)(); // offset=47
@@ -307,7 +307,7 @@ class SatisfyBuildings : public PolarRangeScan { // sizeof=64
 public:
     XY bestPos; // offset=51
     UBYTE stage; // offset=55
-    UBYTE foundationSize; // offset=56
+    UBYTE foundationSize2; // offset=56, parent has first
     UBYTE buildingsToSatisfy; // offset=57
     UBYTE buildingsSatisfied; // offset=58
     ULONG maxLandTiles; // offset=59

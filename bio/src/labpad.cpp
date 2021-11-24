@@ -18,10 +18,49 @@
 /******************************************************************************/
 #include "labpad.hpp"
 
-/*LabPad::LabPad()
+static char labTpiDrawStr[64] = {
+    0x1, (char)0x82, 0x2, (char)0x80, 0x0,
+};
+
+static char nameTpiDrawStr_lb[64] = {
+    0x1, (char)0x82, 0x2, (char)0x80, 0x0,
+};
+
+static TurnPrintInfo labTPI = {
+    .x = 20, .y = 196, .delay = 0, .step = 1, .str = NULL,
+    .hilite = {
+        { 0x1, 0xEF, 0x2, 0x83, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, },
+        { 0x1, 0x83, 0x2, 0x81, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, },
+        { 0x1, 0x82, 0x2, 0x80, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, },
+    },
+    .drawStr = labTpiDrawStr,
+    .dfi = {0},
+    .drawing = 0, .linesDrawn = 0, .length = 0, .count = 0, .delayCount = 0,
+    .current = NULL,
+    .drawCurrent = NULL,
+};
+
+static TurnPrintInfo nameTPI_lb = {
+    .x = 20, .y = 186, .delay = 0, .step = 1, .str = NULL,
+    .hilite = {
+        { 0x1, 0xEF, 0x2, 0x83, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, },
+        { 0x1, 0x83, 0x2, 0x81, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, },
+        { 0x1, 0x82, 0x2, 0x80, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, },
+    },
+    .drawStr = nameTpiDrawStr_lb,
+    .dfi = {0},
+    .drawing = 0, .linesDrawn = 0, .length = 0, .count = 0, .delayCount = 0,
+    .current = NULL,
+    .drawCurrent = NULL,
+};
+
+LabPad::LabPad() : MainInterfacePad(), nameTpi(nameTPI_lb), tpi(labTPI)
 {
-// code at 0001:00016c54
-}*/
+  // code at 0001:00016c54, ignored internal flag to skip super ct
+  this->padBmpType = PADBMP_GENELAB;
+  this->panelBmp = &MainInterfacePad::padBmps[1];
+  this->normalPad = 0;
+}
 
 void LabPad::Init(Thing *tng1)
 {

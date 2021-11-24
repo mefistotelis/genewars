@@ -34,6 +34,7 @@ enum PadBmp { // type=int8_t
 };
 
 class MainInterfacePad { // sizeof=10
+public:
     ULONG **panelBmp; // offset=0
     PadBmp padBmpType; // offset=4
     uint8_t normalPad:1; // offset=5 bit=0

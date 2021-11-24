@@ -34,7 +34,7 @@ public:
     SLONG delay; // offset=8
     SLONG step; // offset=12
     char *str; // offset=16
-    char hilite[3][10]; // offset=20
+    unsigned char hilite[3][10]; // offset=20, not sure if unsigned
     char *drawStr; // offset=50
     FontInfo dfi; // offset=54
     ULONG drawing; // offset=82
@@ -49,8 +49,8 @@ public:
 };
 
 class InfoRequester { // sizeof=8334
-    TurnPrintInfo titleTpi;
-    TurnPrintInfo textTpi;
+    TurnPrintInfo &titleTpi;
+    TurnPrintInfo &textTpi;
     char title[64]; // offset=8
     char text[512]; // offset=72
     SLONG textWidth; // offset=584
@@ -58,7 +58,7 @@ class InfoRequester { // sizeof=8334
     UBYTE picReveal; // offset=8332
     uint8_t picActive:1; // offset=8333 bit=0
 public:
-    //InfoRequester(); -- generate default no-args constructor
+    InfoRequester();
     void Create(char *arg1, char *arg2, char *arg3, SLONG arg4, InfoRequesterStyle arg5); // last arg uncertain
     BBOOL Update();
     void Draw();

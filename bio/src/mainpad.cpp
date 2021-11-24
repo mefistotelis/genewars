@@ -18,6 +18,15 @@
 /******************************************************************************/
 #include "mainpad.hpp"
 
+Thing *MainInterfacePad::activeThing;
+MainInterfacePad *MainInterfacePad::previousPad;
+BBOOL MainInterfacePad::go;
+MyMinSprite MainInterfacePad::pointerMMs;
+SWORD MainInterfacePad::pointerDisplacement;
+MyMinSprite MainInterfacePad::userPointerMMs;
+MySprite *MainInterfacePad::userPointer;
+ULONG *MainInterfacePad::padBmps[3];
+
 /*MainInterfacePad::MainInterfacePad()
 {
 // code at 0001:0001822c
@@ -71,7 +80,7 @@ void MainInterfacePad::SetNormalPad()
 void MainInterfacePad::LoadBitmap(PadBmp arg1)
 {
 // code at 0001:00019396
-    static char *panelNames[] = {
+    static char const *panelNames[] = {
         "data/mainpanl.dat",
         "data/genepanl.dat",
         "data/lpanel.dat",

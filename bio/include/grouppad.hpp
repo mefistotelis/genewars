@@ -68,13 +68,13 @@ private:
 class GroupPad : public MainInterfacePad { // sizeof=35
     Thing *actionThing; // offset=4
     clock_t actionClock; // offset=8
-    GroupSelect group;
+    GroupSelect &group;
     SBYTE action; // offset=16
 //internal:
-    //unsigned int *__vbptr;
+    //unsigned int *__vbptr; // offset=0
     //void (**__vfptr)(); // offset=17
 public:
-    //GroupPad(); -- generate default no-args constructor
+    GroupPad();
     virtual void Init(Thing *tng1);
     virtual BBOOL Update(SWORD arg1);
     virtual void Draw(SBYTE arg1);

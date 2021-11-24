@@ -40,6 +40,7 @@ public:
 };
 
 class Creature : public SmartMovingThing { // sizeof=124
+public:
     ThingIDX target; // offset=85
     ThingIDX plTarget; // offset=88
     ThingIDX utility; // offset=91

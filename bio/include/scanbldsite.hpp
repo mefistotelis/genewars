@@ -44,7 +44,7 @@ class NearestBuildingSite : public PolarEverythingScan { // sizeof=53
 public:
     XY bestPos; // offset=47
     UBYTE type; // offset=51
-    UBYTE foundationSize; // offset=52
+    UBYTE foundationSize2; // offset=52, parent has first
 //internal:
     //void (**__vfptr)(); // offset=43
 public:
@@ -71,7 +71,7 @@ class NearestPoweredBuildingSite : public PolarRangeScan { // sizeof=60
 public:
     XY bestPos; // offset=51
     TheBase *b; // offset=55
-    UBYTE foundationSize; // offset=59
+    UBYTE foundationSize2; // offset=59, parent has first
 //internal:
     //void (**__vfptr)(); // offset=47
 public:

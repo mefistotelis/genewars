@@ -18,6 +18,8 @@
 /******************************************************************************/
 #include "grouppad.hpp"
 
+#include "data.hpp"
+
 void GroupSelect::ResetGroup()
 {
 // code at 0001:0001d2f0
@@ -133,10 +135,14 @@ void GroupSelect::SwitchOffGroup(SWORD *arg1, SWORD arg2, UBYTE arg3, UBYTE arg4
 // code at 0001:0001f1f4
 }
 
-/*GroupPad::GroupPad()
+GroupPad::GroupPad() : MainInterfacePad(), group(ifcPls.group)
 {
-// code at 0001:00019b78
-}*/
+  // code at 0001:00019b78, ignored internal flag to skip super ct
+  this->padBmpType = PADBMP_NORMAL;
+  this->panelBmp = &MainInterfacePad::padBmps[0];
+  this->normalPad = 1;
+  this->flickOffOnly = 1;
+}
 
 void GroupPad::Init(Thing *tng1)
 {

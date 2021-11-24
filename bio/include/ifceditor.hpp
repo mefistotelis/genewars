@@ -149,6 +149,7 @@ enum VictoryCondition { // type=int8_t
 };
 
 class IFCEditor : public IFCBase { // sizeof=786
+public:
     MyGadget *gad; // offset=4
     MyAnimBank *anb; // offset=8
     MySprite *spr; // offset=12

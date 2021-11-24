@@ -31,8 +31,8 @@ class LabPad : public MainInterfacePad { // sizeof=124
     MyAnimBank *anb; // offset=9
     MySprite *mSpr; // offset=13
     TbSprite *spr; // offset=17
-    TurnPrintInfo nameTpi;
-    TurnPrintInfo tpi;
+    TurnPrintInfo &nameTpi;
+    TurnPrintInfo &tpi;
     char mainStr[64]; // offset=29
     MyMinSprite mainMMs; // offset=93
     SBYTE listPosition; // offset=98
@@ -45,7 +45,7 @@ class LabPad : public MainInterfacePad { // sizeof=124
     //unsigned int *__vbptr;
     //void (**__vfptr)(); // offset=106
 public:
-    //LabPad(); -- generate default no-args constructor
+    LabPad();
     virtual void Init(Thing *tng1);
     virtual void Close();
     virtual BBOOL Update(SWORD arg1);

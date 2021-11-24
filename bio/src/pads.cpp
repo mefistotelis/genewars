@@ -43,9 +43,13 @@ void BasicPad::Draw( SBYTE arg1 )
 // code at 0001:00019b5d
 }
 
-WindowPad::WindowPad(PaletteSelector &palsel)
+WindowPad::WindowPad(PaletteSelector &palsel) : MainInterfacePad(), aPalette(palsel)
 {
-// code at 0001:000259bc
+  // code at 0001:000259bc, ignored internal flag to skip super ct
+  this->padBmpType = PADBMP_NORMAL;
+  this->panelBmp = &MainInterfacePad::padBmps[0];
+  this->normalPad = 1;
+  this->flickOffOnly = 1;
 }
 
 void WindowPad::Init( Thing *tng1 )
@@ -118,9 +122,14 @@ void BuildingPad::Draw( SBYTE arg1 )
 // code at 0001:0001c1b1
 }
 
-CreaturePad::CreaturePad(PaletteSelector &palsel)
+
+CreaturePad::CreaturePad(PaletteSelector &palsel) : MainInterfacePad(), aPalette(palsel)
 {
-// code at 0001:000257ec
+  // code at 0001:000257ec, ignored internal flag to skip super ct
+  this->padBmpType = PADBMP_NORMAL;
+  this->panelBmp = MainInterfacePad::padBmps;
+  this->normalPad = 1;
+  this->flickOffOnly = 1;
 }
 
 void CreaturePad::Init( Thing *tng1 )

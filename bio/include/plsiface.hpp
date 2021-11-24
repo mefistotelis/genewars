@@ -74,8 +74,8 @@ class PLSInterface { // sizeof=22
 public:
     SBYTE submode; // offset=0
     ThingIDX thingTgt; // offset=1
-    SBYTE go; // offset=4
   union {
+    SBYTE go; // offset=4
     BuilderIFC builder; // offset=4
     CowboyIFC cowboy; // offset=4
     FarmerIFC farmer; // offset=4

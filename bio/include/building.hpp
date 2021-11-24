@@ -29,6 +29,7 @@
 class BioGame;
 
 class Building : public StaticThing { // sizeof=67
+public:
     SWORD build; // offset=43
     BuildingType type; // offset=45
     UBYTE stage; // offset=46
