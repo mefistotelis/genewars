@@ -47,11 +47,11 @@ typedef struct TbNetworkService TbNetworkService;
 struct TbNetworkSession { // sizeof=40
     NSESS_HANDLE Id; // offset=0
     ULONG GameId; // offset=2
-    CBYTE Name[7]; // offset=6
+    CBYTE Name[8]; // offset=6
     SWORD HostPlayerNumber; // offset=14
     SWORD MaxPlayers; // offset=16
     SWORD Flags; // offset=18
-    UBYTE Reserved[19]; // offset=20
+    UBYTE Reserved[20]; // offset=20
 };
 
 typedef struct TbNetworkSession TbNetworkSession;
@@ -59,14 +59,14 @@ typedef struct TbNetworkSession TbNetworkSession;
 struct TbNetworkPlayer { // sizeof=22
     NPLYR_HANDLE Id; // offset=0
     ULONG PlayerNumber; // offset=2
-    CBYTE Name[15]; // offset=6
+    CBYTE Name[16]; // offset=6
 };
 
 typedef struct TbNetworkPlayer TbNetworkPlayer;
 
 struct TbNetworkSessionList { // sizeof=218
     TbNetworkSession Session; // offset=0
-    TbNetworkPlayer Player[7]; // offset=40
+    TbNetworkPlayer Player[8]; // offset=40
     SWORD NumberOfPlayers; // offset=216
 };
 
@@ -76,7 +76,7 @@ struct SessionInfo { // sizeof=225
     clock_t StartTime; // offset=0
     clock_t EndTime; // offset=4
     TbNetworkSession Session; // offset=8
-    TbNetworkPlayer Players[7]; // offset=48
+    TbNetworkPlayer Players[8]; // offset=48
     UBYTE Selected; // offset=224
 };
 
