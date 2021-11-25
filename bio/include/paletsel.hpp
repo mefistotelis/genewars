@@ -46,7 +46,7 @@ class PaletteSelector { // sizeof=81
     uint8_t closed:1; // offset=80 bit=1
     uint8_t open:1; // offset=80 bit=2
 public:
-    //PaletteSelector(); -- generate default no-args constructor
+    PaletteSelector();
     void Init();
     void Create(Thing *tng1);
     void Close();

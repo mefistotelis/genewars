@@ -33,7 +33,7 @@ class BasicPad : public MainInterfacePad { // sizeof=22
     //unsigned int *__vbptr;
     //void (**__vfptr)(); // offset=4
 public:
-    //BasicPad(); -- generate default no-args constructor
+    BasicPad();
     virtual void Init(Thing *tng1);
     virtual BBOOL Update(SWORD arg1);
     virtual void Draw(SBYTE arg1);
@@ -47,7 +47,7 @@ class BuildingPad : public MainInterfacePad { // sizeof=26
     //unsigned int *__vbptr;
     //void (**__vfptr)(); // offset=8
 public:
-    //BuildingPad(); -- generate default no-args constructor
+    BuildingPad();
     virtual void Init(Thing *tng1);
     virtual BBOOL Update(SWORD arg1);
     virtual void MapDraw();

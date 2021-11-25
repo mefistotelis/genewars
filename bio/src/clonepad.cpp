@@ -18,10 +18,14 @@
 /******************************************************************************/
 #include "clonepad.hpp"
 
-/*ClonePad::ClonePad()
+ClonePad::ClonePad()
+    : MainInterfacePad()
 {
-// code at 0001:00025710
-}*/
+  // code at 0001:00025710, ignored internal flag to skip super ct
+  this->padBmpType = PADBMP_CLONE;
+  this->panelBmp = &MainInterfacePad::padBmps[2];
+  this->normalPad = 0;
+}
 
 void ClonePad::Init(Thing *tng1)
 {

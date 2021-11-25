@@ -153,9 +153,69 @@ unsigned char playerDitherTables[][2] = {
     {0xC0, 0xD0}, {0xD0, 0xE0}, {0xE0, 0xF0}, {0xC0, 0xF0}, {0xE0, 0xF0}, {0x0, 0x0},
 };
 
-#if 0 // fill values and enable
-const PSpecies pSpecies[];
-#endif
+const PSpecies pSpecies[] = {
+  {
+    {.name = "Bulb"}, //TODO the braces are due to GCC bug, to be removed later (https://gcc.gnu.org/bugzilla/show_bug.cgi?id=55227)
+    .terrain = {-1, -4, -1, 3, 0, -2, -1, -1,},
+    .seedTime = 4, .range = 1, .maxNeighbours = 3, .lifeSpan = 8,
+    .food = 8, .wood = 2, .seeds = 1, .density = 100,
+  }, {
+    {.name = "Root"},
+    .terrain = {-1, -4, -1, 4, 1, -2, -1, -1,},
+    .seedTime = 4, .range = 2, .maxNeighbours = 4, .lifeSpan = 12,
+    .food = 10, .wood = 4, .seeds = 2, .density = 150,
+  }, {
+    {.name = "Waxleaf"},
+    .terrain = {-1, -4, -1, 5, 2, -1, -1, -1,},
+    .seedTime = 5, .range = 3, .maxNeighbours = 5, .lifeSpan = 16,
+    .food = 12, .wood = 8, .seeds = 3, .density = 200,
+  }, {
+    {.name = "Bloom"},
+    .terrain = {-1, -4, 2, -1, 1, 2, -3, -1,},
+    .seedTime = 3, .range = 1, .maxNeighbours = 2, .lifeSpan = 7,
+    .food = 6, .wood = 2, .seeds = 1, .density = 75,
+  }, {
+    {.name = "Bralm"},
+    .terrain = {-1, -4, 3, -1, 2, 3, -2, 0,},
+    .seedTime = 4, .range = 2, .maxNeighbours = 3, .lifeSpan = 9,
+    .food = 8, .wood = 3, .seeds = 2, .density = 100,
+  }, {
+    {.name = "Palm"},
+    .terrain = {-1, -4, 3, 0, 2, 4, -1, 1,},
+    .seedTime = 4, .range = 3, .maxNeighbours = 4, .lifeSpan = 12,
+    .food = 10, .wood = 6, .seeds = 2, .density = 125,
+  }, {
+    {.name = "Snowdrop"},
+    .terrain = {-1, -4, -3, -1, -2, -3, 2, -1,},
+    .seedTime = 4, .range = 1, .maxNeighbours = 3, .lifeSpan = 8,
+    .food = 6, .wood = 2, .seeds = 1, .density = 100,
+  }, {
+    {.name = "Kelpie"},
+    .terrain = {-1, -4, -2, 0, -1, -2, 3, 0,},
+    .seedTime = 4, .range = 2, .maxNeighbours = 4, .lifeSpan = 12,
+    .food = 8, .wood = 4, .seeds = 2, .density = 150,
+  }, {
+    {.name = "Spikey"},
+    .terrain = {-1, -4, -1, 1, 0, -1, 4, 1,},
+    .seedTime = 4, .range = 3, .maxNeighbours = 5, .lifeSpan = 16,
+    .food = 10, .wood = 8, .seeds = 3, .density = 200,
+  }, {
+    {.name = "Fungus"},
+    .terrain = {-1, -4, 1, 1, 1, 1, 1, 1,},
+    .seedTime = 2, .range = 1, .maxNeighbours = 7, .lifeSpan = 3,
+    .food = 9, .wood = 1, .seeds = 1, .density = 80,
+  }, {
+    {.name = "Spiral"},
+    .terrain = {-1, -4, 2, 2, 2, 2, 2, 2,},
+    .seedTime = 3,.range = 1, .maxNeighbours = 8, .lifeSpan = 6,
+    .food = 12, .wood = 2, .seeds = 2, .density = 160,
+  }, {
+    {.name = "Cone"},
+    .terrain = {-1, -4, 4, 4, 4, 4, 4, 4,},
+    .seedTime = 3,.range = 2, .maxNeighbours = 9, .lifeSpan = 9,
+    .food = 15, .wood = 4, .seeds = 3, .density = 240,
+  },
+};
 
 BuildingType const buildingDisplayList[] = {
     BCID_MINE, BCID_POWERSTATION, BCID_SOLAR, BCID_FARM,

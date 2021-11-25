@@ -18,10 +18,11 @@
 /******************************************************************************/
 #include "paletsel.hpp"
 
-/*PaletteSelector::PaletteSelector()
+PaletteSelector::PaletteSelector()
 {
-// code at 0001:00025e28
-}*/
+  // code at 0001:00025e28
+  this->closed = 1;
+}
 
 void PaletteSelector::SetSelectFilter(UBYTE arg1)
 {

@@ -18,10 +18,12 @@
 /******************************************************************************/
 #include "etherscope.hpp"
 
-/*EtherealScope::EtherealScope()
+EtherealScope::EtherealScope()
 {
-// code at 0001:000256dc
-}*/
+  // code at 0001:000256dc
+  this->etherealMms.delta = 1;
+  this->blipRange = 200;
+}
 
 void EtherealScope::Init()
 {

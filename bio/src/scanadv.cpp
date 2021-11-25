@@ -19,6 +19,7 @@
 #include "scanadv.hpp"
 
 #include "data.hpp"
+#include "tables.hpp"
 
 PassableTerrainScan::PassableTerrainScan(SmartMovingThing &tng1, ULONG arg2)
     : PolarRangeScan(tng1.loc, arg2, 0), thing(tng1) // verify params
@@ -279,10 +280,20 @@ void ChopTreeScan::PerGrid()
 // code at 0001:00027570
 }
 
-ForestScan::ForestScan(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4)
+ForestScan::ForestScan(XY cor1, ULONG arg2, UBYTE forsType, UBYTE plyrid)
     : RangeScanner(cor1, arg2) // verify params
 {
-// code at 0001:00027b98
+  // code at 0001:00027b98
+  this->forestType = forsType;
+  this->player = plyrid;
+  this->bestValue = 0;
+  this->bestType = 0;
+  for (int i = 0; i < 12; i++)
+  {
+    PSpecies const *specie = &pSpecies[i];
+    this->plantGrowth[i] = specie->maxNeighbours + specie->lifeSpan + specie->range - specie->seedTime;
+    this->forestValue[i] = 0;
+  }
 }
 
 void ForestScan::PerGrid()

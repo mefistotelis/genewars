@@ -18,10 +18,15 @@
 /******************************************************************************/
 #include "pads.hpp"
 
-/*BasicPad::BasicPad()
+BasicPad::BasicPad()
+    : MainInterfacePad()
 {
-// code at 0001:00025ab4
-}*/
+  // code at 0001:00025ab4
+  this->padBmpType = PADBMP_NORMAL;
+  this->panelBmp = &MainInterfacePad::padBmps[0];
+  this->normalPad = 1;
+  this->flickOffOnly = 1;
+}
 
 void BasicPad::Init( Thing *tng1 )
 {
@@ -97,10 +102,14 @@ void WindowPad::AbortAction()
 // code at 0001:0001bcd9
 }
 
-/*BuildingPad::BuildingPad()
+BuildingPad::BuildingPad()
+    : MainInterfacePad()
 {
-// code at 0001:000258e4
-}*/
+  // code at 0001:000258e4, ignored internal flag to skip super ct
+  this->padBmpType = PADBMP_NORMAL;
+  this->panelBmp = &MainInterfacePad::padBmps[0];
+  this->normalPad = 1;
+}
 
 void BuildingPad::Init( Thing *tng1 )
 {
@@ -127,7 +136,7 @@ CreaturePad::CreaturePad(PaletteSelector &palsel) : MainInterfacePad(), aPalette
 {
   // code at 0001:000257ec, ignored internal flag to skip super ct
   this->padBmpType = PADBMP_NORMAL;
-  this->panelBmp = MainInterfacePad::padBmps;
+  this->panelBmp = &MainInterfacePad::padBmps[0];
   this->normalPad = 1;
   this->flickOffOnly = 1;
 }

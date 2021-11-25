@@ -28,7 +28,7 @@ class EtherealScope { // sizeof=11
     UBYTE saucerFade; // offset=9
     BBOOL blipHitSaucer; // offset=10
 public:
-    //EtherealScope(); -- generate default no-args constructor
+    EtherealScope();
     void Init();
     void Draw();
     //EtherealScope(EtherealScope &arg1); -- generate default copy constructor
