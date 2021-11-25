@@ -115,7 +115,7 @@ public:
     virtual void Resync();
     virtual void DrawNoDraw(SWORD arg1, SWORD arg2);
     virtual BBOOL IsStaticallyDrawn();
-    //StaticThing(); -- generate default no-args constructor
+    StaticThing();
     //StaticThing(StaticThing const &tng1); -- generate default copy constructor
     StaticThing & operator =(StaticThing &tng1);
 };

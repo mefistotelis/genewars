@@ -20,7 +20,8 @@
 
 /*IFCBase::IFCBase()
 {
-// code at 0001:000156ac
+  // code at 0001:000156ac
+  // done
 }*/
 
 void IFCBase::SetupPacket( Packet * )

@@ -30,6 +30,7 @@ enum IFCPaletteSetMode { // type=int8_t
 };
 
 class IFCBase { // sizeof=11
+public:
     IFCPaletteSetMode paletteSetMode; // offset=0
     BBOOL paletteSet; // offset=1
     UBYTE *palette; // offset=2

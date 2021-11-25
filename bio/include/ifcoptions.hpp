@@ -26,6 +26,7 @@
 class MyGadget;
 
 class IFCOptions : public IFCBase { // sizeof=315
+public:
     SBYTE selectedSlot; // offset=4
     MyAnimBank *anb; // offset=5
     IFCBase *previousIFC; // offset=9

@@ -27,6 +27,7 @@
 class MyGadget;
 
 class IFCCompEditor : public IFCBase { // sizeof=193
+public:
     IFCBase *saveIFC; // offset=4
     MyGadget *gad; // offset=8
     MyAnimBank *anb; // offset=12

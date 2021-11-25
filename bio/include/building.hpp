@@ -119,7 +119,7 @@ public:
     Creature * GeneLabMadeCreature(BBOOL &arg1);
     char * GetName();
     BBOOL operator ==(Building *bldng1);
-    //Building(); -- generate default no-args constructor
+    Building();
     //Building(Building &bldng1); -- generate default copy constructor
     Building & operator =(Building &bldng1);
 };

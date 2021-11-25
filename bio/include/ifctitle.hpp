@@ -54,6 +54,7 @@ struct RocketShip { // sizeof=187
 };
 
 class IFCTitle : public IFCBase { // sizeof=232
+public:
     MyGadget *gad; // offset=4
     MyAnimBank *anb; // offset=8
     MySprite *spr; // offset=12
@@ -126,6 +127,7 @@ public:
 };
 
 class IFCJoiningPlayer : public IFCBase { // sizeof=27
+public:
     ULONG joiningPlayers; // offset=4
     IFCBase *previousIFC; // offset=8
 //internal:

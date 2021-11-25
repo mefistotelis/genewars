@@ -22,7 +22,8 @@ class Player;
 
 /*Thing::Thing()
 {
-// code at 0001:0001cb28
+  // code at 0001:0001cb28
+  // done
 }*/
 
 void Thing::Read(SLONG &arg1)
@@ -275,10 +276,12 @@ BBOOL Thing::IsSoundPlaying(SampleID arg1)
 // code at 0001:000048a8
 }*/
 
-/*StaticThing::StaticThing()
+StaticThing::StaticThing()
+    : Thing()
 {
-// code at 0001:0001cb58
-}*/
+  // code at 0001:0001cb58
+  // done
+}
 
 void StaticThing::DrawOnMap(SWORD arg1, SWORD arg2)
 {

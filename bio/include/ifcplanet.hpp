@@ -40,6 +40,7 @@ enum TeamCircleMode { // type=int8_t
 };
 
 class TeamCircles { // sizeof=63
+public:
     TeamCircleMode modes[5]; // offset=0
     SBYTE circleActive; // offset=5
     SBYTE circleFadeLevel; // offset=6
@@ -91,7 +92,7 @@ public:
     //unsigned int *__vbptr;
     //void (**__vfptr)(); // offset=1307
 public:
-    IFCPlanetside(MyGadget *arg1);
+    IFCPlanetside(MyGadget *gads);
     virtual void PlugIn();
     virtual void PullOut();
     virtual void Draw();

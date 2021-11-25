@@ -66,6 +66,7 @@ enum { // type=int8_t
 };
 
 class IFCCustom : public IFCBase { // sizeof=3520
+public:
     MyGadget *gad; // offset=4
     MyAnimBank *anb; // offset=8
     MySprite *spr; // offset=12

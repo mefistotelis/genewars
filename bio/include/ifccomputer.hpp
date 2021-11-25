@@ -28,6 +28,7 @@
 class MyGadget;
 
 class IFCComputer : public IFCBase { // sizeof=55
+public:
     IFCBase *saveIFC; // offset=11
     MyGadget *gad; // offset=15
     MyAnimBank *anb; // offset=19

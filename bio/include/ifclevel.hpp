@@ -30,6 +30,7 @@
 class MyGadget;
 
 class IFCLevel : public IFCBase { // sizeof=2507
+public:
     MyAnimBank *anb; // offset=4
     MyGadget *gad; // offset=8
     MySprite *spr; // offset=12

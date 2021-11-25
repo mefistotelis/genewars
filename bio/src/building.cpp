@@ -18,10 +18,12 @@
 /******************************************************************************/
 #include "building.hpp"
 
-/*Building::Building()
+Building::Building()
+    : StaticThing()
 {
-// code at 0001:0001cb90
-}*/
+    // code at 0001:0001cb90
+    // done
+}
 
 void Building::SetBusted()
 {

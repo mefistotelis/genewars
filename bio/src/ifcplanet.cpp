@@ -59,9 +59,14 @@ void TeamCircles::Reset()
 }
 
 IFCPlanetside::IFCPlanetside(MyGadget *gads)
-    : winPad(actionPalette), creaturePad(actionPalette) // constructor params uncertain
+    : IFCBase(), actionPalette(), eScope(), basicPad(), labPad(), buildingPad(),
+      winPad(actionPalette), creaturePad(actionPalette), clonePad(), groupPad()
 {
-// code at 0001:00020daa
+  // code at 0001:00020daa
+  this->canPause = 1;
+  this->gad = gads;
+  this->circles.circleActive = -1;
+  this->actionPalette.Init();
 }
 
 void IFCPlanetside::SetOnOffSwitch(BBOOL arg1)
