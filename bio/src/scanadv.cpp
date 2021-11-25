@@ -374,9 +374,13 @@ void NearestLand::PerGrid()
 }
 
 PowerStationScan::PowerStationScan(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4)
-    : PolarRangeScan(cor1, arg2, arg3) // verify params
+    : PolarRangeScan(cor1, arg2, arg3)
 {
-// code at 0001:00028204
+  // code at 0001:00028204
+  this->idx = arg4;
+  this->maxLandTiles = 0;
+  Computer *comp = &computers[this->idx];
+  this->threshold = comp->personality.locationAwareness;
 }
 
 void PowerStationScan::PerGrid()
@@ -395,10 +399,20 @@ void SiteScore::PerGrid()
 // code at 0001:000285b4
 }
 
-PlantScan::PlantScan(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4)
-    : RangeScanner(cor1, arg2) // verify params
+PlantScan::PlantScan(XY cor1, ULONG arg2, UBYTE forsType, UBYTE plyrid)
+    : RangeScanner(cor1, arg2)
 {
-// code at 0001:000289b3
+  // code at 0001:000289b3
+  this->forestType = forsType;
+  this->player = plyrid;
+  this->bestValue = -1;
+  this->bestType = 12;
+  for (int i = 0; i < 12; i++)
+  {
+    PSpecies const *specie = &pSpecies[i];
+    this->plantGrowth[i] = specie->maxNeighbours + specie->food;
+    this->forestValue[i] = 0;
+  }
 }
 
 void PlantScan::PerGrid()

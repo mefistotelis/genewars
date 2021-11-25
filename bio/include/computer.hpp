@@ -42,6 +42,7 @@ class CompDebug { // sizeof=5
 };
 
 class Computer { // sizeof=1726
+public:
     SLONG checksum; // offset=0
     UBYTE idx; // offset=4
     UBYTE testing; // offset=5
@@ -90,7 +91,7 @@ class Computer { // sizeof=1726
     UBYTE currentBase; // offset=1725
 public:
     void Update();
-    //Computer(); -- generate default no-args constructor
+    Computer();
     void DoSetupComputerPlayer();
     void DoInitialActions();
     void DoInitialCreatureActions();

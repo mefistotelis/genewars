@@ -43,20 +43,24 @@ void CompTarget::AssignCreatureToThis(SWORD arg1)
 // code at 0001:00033be8
 }
 
-/*GPointFlags::GPointFlags()
+GPointFlags::GPointFlags()
 {
 // code at 0001:00033fd8
-}*/
+}
 
 GPointFlags & GPointFlags::operator =(GPointFlags const &arg1)
 {
 // code at 0001:0003401f
 }
 
-/*GuardPoint::GuardPoint()
+GuardPoint::GuardPoint()
+    : flags() // for targets[], ct will call automatically
 {
-// code at 0001:0002ce3b
-}*/
+  // code at 0001:0002ce3b
+  this->importance = -1;
+  this->type = MAX_GPOINT_TYPES;
+  this->zoneNumber = -1;
+}
 
 BBOOL GuardPoint::Valid()
 {

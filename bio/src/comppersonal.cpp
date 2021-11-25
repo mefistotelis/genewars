@@ -18,10 +18,12 @@
 /******************************************************************************/
 #include "comppersonal.hpp"
 
-/*Trigger::Trigger()
+Trigger::Trigger()
 {
-// code at 0001:0002cea1
-}*/
+  // code at 0001:0002cea1
+  this->type = MAX_TRIGGER_TYPE;
+  this->doneThis = 0;
+}
 
 BBOOL Trigger::Valid()
 {
@@ -33,10 +35,14 @@ BBOOL Trigger::Update(UBYTE arg1)
 // code at 0001:00033d80
 }
 
-/*Personality::Personality()
+Personality::Personality()
+    // for triggers[], default ct will call automatically
 {
-// code at 0001:0002cdd4
-}*/
+  // code at 0001:0002cdd4
+  this->changingBase = 0;
+  for (int i = 0; i < 5; i++)
+    this->preferredCreatures[i] = 0;
+}
 
 
 /******************************************************************************/

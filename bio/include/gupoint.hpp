@@ -33,7 +33,19 @@ enum TgtType { // type=int8_t
     CL_TGT_MAX,
 };
 
+enum { // type=int8_t
+    GPOINT_ATTACK = 0,
+    GPOINT_STAGE,
+    GPOINT_DEFEND,
+    GPOINT_BREED,
+    GPOINT_WORK,
+    GPOINT_SCORE, // 5
+    GPOINT_MONOLITH,
+    MAX_GPOINT_TYPES,
+};
+
 class GPointFlags { // sizeof=1
+public:
     uint8_t canWalkTo:1; // offset=0 bit=0
     uint8_t triggerOnEnemies:1; // offset=0 bit=1
     uint8_t defendGetsPriority:1; // offset=0 bit=2
@@ -41,13 +53,14 @@ class GPointFlags { // sizeof=1
     uint8_t noSuitableCreatures:1; // offset=0 bit=4
     uint8_t specOnHisWay:1; // offset=0 bit=5
 public:
-    //GPointFlags();
+    GPointFlags();
     GPointFlags * operator =(GPointFlags *arg1); // return type uncertain
     //GPointFlags(GPointFlags &arg1);
     GPointFlags & operator =(GPointFlags const &arg1);
 };
 
 class CompTarget { // sizeof=4
+public:
     SWORD crNo; // offset=0
     UBYTE creaturesOnThis; // offset=2
     TgtType targetType; // offset=3
@@ -64,6 +77,7 @@ public:
 };
 
 class GuardPoint { // sizeof=38
+public:
     XY loc; // offset=0
     SWORD creaturesHere; // offset=4
     SWORD importance; // offset=6
@@ -79,7 +93,7 @@ class GuardPoint { // sizeof=38
     GPointFlags flags; // offset=13
     CompTarget targets[6]; // offset=14
 public:
-    //GuardPoint(); -- generate default no-args constructor
+    GuardPoint();
     BBOOL Valid();
     void Invalidate();
     void Update();

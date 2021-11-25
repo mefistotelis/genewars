@@ -18,15 +18,39 @@
 /******************************************************************************/
 #include "computer.hpp"
 
+#include "data.hpp"
+
 /*CompDebug::CompDebug()
 {
 // code at 0001:000374ac
 }*/
 
-/*Computer::Computer()
+Computer::Computer()
+    : compDebug(), personality() // for gPoints default ct will call automatically
 {
-// code at 0001:0002cc6b
-}*/
+  // code at 0001:0002cc6b
+  this->checksum = sizeof(Computer);
+  this->numberOfBases = 1;
+  this->currentBase = 1;
+  this->mainBase = 1;
+  this->haveDoneInitialActions = 0;
+  this->eZonesDone = -1;
+  this->workPointNo = -1;
+  this->idx = ((UBYTE *)this - (UBYTE *)computers) / sizeof(Computer);
+  this->enemies = 1;
+  this->testing = 0;
+  for (int i = 0; i < 14; i++)
+    this->buildingInProgress[i] = 0;
+  this->doNotUpgrade[2] = 1;
+  this->doNotUpgrade[0] = 1;
+  for (int i = 0; i < 6; i++)
+  {
+    this->mainPowerstation[i] = 64;
+    this->backupPowerstation[i] = 64;
+  }
+  for (int i = 0; i < 4; i++)
+    this->specTypesInTeam[i] = 0;
+ }
 
 /*Computer::~Computer()
 {

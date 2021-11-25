@@ -21,6 +21,14 @@
 
 #include "bftypes.h"
 
+enum { // type=int8_t
+    TRIGGER_BUILDINGS = 0,
+    TRIGGER_CREATURES,
+    TRIGGER_TIME,
+    TRIGGER_POINTS,
+    MAX_TRIGGER_TYPE,
+};
+
 class Trigger { // sizeof=7
     UBYTE type; // offset=0
   union {
@@ -32,7 +40,7 @@ class Trigger { // sizeof=7
     UWORD amount; // offset=4
     BBOOL doneThis; // offset=6
 public:
-    //Trigger(); -- generate default no-ops constructor
+    Trigger();
     BBOOL Update(UBYTE arg1);
     BBOOL Valid();
     void Invalidate();
@@ -84,8 +92,8 @@ public:
     SBYTE goForScore; // offset=84
     UBYTE delayBetweenBuildings; // offset=85
     Trigger triggers[8]; // offset=86
-//public:
-    //Personality(); -- generate default no-args constructor
+public:
+    Personality();
     //Personality(Personality const &arg1); -- generate default copy constructor
 };
 

@@ -217,25 +217,6 @@ enum { // type=int8_t
 };
 
 enum { // type=int8_t
-    GPOINT_ATTACK = 0,
-    GPOINT_STAGE,
-    GPOINT_DEFEND,
-    GPOINT_BREED,
-    GPOINT_WORK,
-    GPOINT_SCORE, // 5
-    GPOINT_MONOLITH,
-    MAX_GPOINT_TYPES,
-};
-
-enum { // type=int8_t
-    TRIGGER_BUILDINGS = 0,
-    TRIGGER_CREATURES,
-    TRIGGER_TIME,
-    TRIGGER_POINTS,
-    MAX_TRIGGER_TYPE,
-};
-
-enum { // type=int8_t
     C_JOB_WORK = 0,
     C_JOB_BUILD,
     C_JOB_FIGHT,
