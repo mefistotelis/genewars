@@ -20,10 +20,12 @@
 
 #include "data.hpp"
 
-FindHighestBuildingSite::FindHighestBuildingSite(XY arg1, ULONG arg2, UBYTE arg3)
-    : RangeScanner(arg1, arg2) // verify params
+FindHighestBuildingSite::FindHighestBuildingSite(XY cor1, ULONG arg2, UBYTE foundtSize)
+    : RangeScanner(cor1, arg2)
 {
-// code at 0001:00036f98
+  // code at 0001:00036f98
+  this->highestPoint = 0;
+  this->foundationSize = foundtSize;
 }
 
 void FindHighestBuildingSite::PerGrid()
@@ -41,10 +43,12 @@ void FindLowestBuildingSite::PerGrid()
 // code at 0001:00036ce8
 }*/
 
-NearestBuildingSite::NearestBuildingSite(XY arg1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5)
-    : PolarEverythingScan(arg1, arg2, arg3, arg4, arg5, 0) // verify params
+NearestBuildingSite::NearestBuildingSite(XY cor1, ULONG arg2, ULONG arg3, UBYTE foundtSize, UBYTE arg5)
+    : PolarEverythingScan(cor1, arg2, arg3, foundtSize, 0xff, 1)
 {
-// code at 0001:00036c7c
+  // code at 0001:00036c7c
+  this->foundationSize2 = foundtSize;
+  this->type = arg5;
 }
 
 void NearestBuildingSite::PerGrid()

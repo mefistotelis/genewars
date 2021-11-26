@@ -155,10 +155,15 @@ void PolarEverythingScan::Do()
 // code at 0001:00026dc0
 }
 
-TimeSliceScan::TimeSliceScan(BaseScan &arg1, XY cor2, ULONG arg3)
-    : RangeScan(cor2, arg3, 0) // verify params
+TimeSliceScan::TimeSliceScan(BaseScan &bs, XY cor2, ULONG arg3)
+    : RangeScan(cor2, arg3, 0), bs(bs)
 {
-// code at 0001:00036fec
+  // code at 0001:00036fec
+  this->maxRange = this->bs.rng;
+  this->squareMaxRange = this->bs.rng * this->bs.rng;
+  this->middle = this->bs.middle;
+  this->tgt = this->bs.xy;
+  this->tileNo = 0;
 }
 
 BBOOL TimeSliceScan::Do()

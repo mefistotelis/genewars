@@ -248,9 +248,10 @@ void HealCreatureScan::PerGrid()
 }
 
 TestSlice::TestSlice(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4)
-    : PolarSliceScan(cor1, arg2, arg3, arg4) // verify params
+    : PolarSliceScan(cor1, arg2, arg3, arg4)
 {
-// code at 0001:00036f40
+  // code at 0001:00036f40
+  this->lowestPoint = 0x40000000;
 }
 
 void TestSlice::PerGrid()
@@ -259,9 +260,10 @@ void TestSlice::PerGrid()
 }
 
 TestEverything::TestEverything(XY cor1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5, BBOOL arg6)
-    : PolarEverythingScan(cor1, arg2, arg3, arg4, arg5, arg6) // verify params
+    : PolarEverythingScan(cor1, arg2, arg3, arg4, arg5, arg6)
 {
-// code at 0001:00036ecc
+  // code at 0001:00036ecc
+  // done
 }
 
 void TestEverything::PerGrid()
@@ -270,9 +272,10 @@ void TestEverything::PerGrid()
 }
 
 ChopTreeScan::ChopTreeScan(XY cor1, ULONG arg2)
-    : RangeScanner(cor1, arg2) // verify params
+    : RangeScanner(cor1, arg2)
 {
-// code at 0001:00036e70
+  // code at 0001:00036e70
+  // done
 }
 
 void ChopTreeScan::PerGrid()
@@ -301,10 +304,14 @@ void ForestScan::PerGrid()
 // code at 0001:00027ab5
 }
 
-BestForestScan::BestForestScan(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5)
-    : PolarRangeScan(cor1, arg2, arg3) // verify params
+BestForestScan::BestForestScan(XY cor1, ULONG arg2, UBYTE foundtSize, UBYTE plyrNo, UBYTE forsType)
+    : PolarRangeScan(cor1, arg2, foundtSize)
 {
-// code at 0001:00036e00
+  // code at 0001:00036e00
+  this->foundationSize2 = foundtSize;
+  this->forestType = forsType;
+  this->player = plyrNo;
+  this->bestValue = 0;
 }
 
 void BestForestScan::PerGrid()
@@ -313,21 +320,26 @@ void BestForestScan::PerGrid()
 }
 
 MineralScan::MineralScan(XY cor1, ULONG arg2)
-    : RangeScanner(cor1, arg2) // verify params
+    : RangeScanner(cor1, arg2)
 {
-// code at 0001:00036db4
+  // code at 0001:00036db4
+  this->minerals = 0;
 }
 
-MineScan::MineScan(XY cor1, ULONG arg2, UBYTE arg3)
-    : RangeScanner(cor1, arg2) // verify params
+MineScan::MineScan(XY cor1, ULONG arg2, UBYTE foundtSize)
+    : RangeScanner(cor1, arg2)
 {
-// code at 0001:00036d60
+  // code at 0001:00036d60
+  this->mostMinerals = 0;
+  this->mineFoundationSize = foundtSize;
 }
 
-PowerScan::PowerScan(XY cor1, ULONG arg2, UBYTE arg3)
-    : PolarRangeScan(cor1, arg2, arg3) // verify params
+PowerScan::PowerScan(XY cor1, ULONG arg2, UBYTE plyrNo)
+    : PolarRangeScan(cor1, arg2, 1)
 {
-// code at 0001:00036d08
+  // code at 0001:00036d08
+  this->mostPower = 0;
+  this->player = plyrNo;
 }
 
 void PowerScan::PerGrid()
@@ -335,10 +347,13 @@ void PowerScan::PerGrid()
 // code at 0001:00027e58
 }
 
-OldPowerTally::OldPowerTally(XY cor1, ULONG arg2, UBYTE arg3)
-    : PolarRangeScan(cor1, arg2, arg3) // verify params
+OldPowerTally::OldPowerTally(XY cor1, ULONG arg2, UBYTE plyrNo)
+    : PolarRangeScan(cor1, arg2, 3)
 {
-// code at 0001:00036c1c
+  // code at 0001:00036c1c
+  this->landTiles = 0;
+  this->satisfiedBuildings = 0;
+  this->player = plyrNo;
 }
 
 void OldPowerTally::PerGrid()
@@ -347,9 +362,11 @@ void OldPowerTally::PerGrid()
 }
 
 NewPowerTally::NewPowerTally(XY cor1, ULONG arg2)
-    : RangeScanner(cor1, arg2) // verify params
+    : RangeScanner(cor1, arg2)
 {
-// code at 0001:00036bc8
+  // code at 0001:00036bc8
+  this->landTiles = 0;
+  this->tiles = 0;
 }
 
 void NewPowerTally::PerGrid()
@@ -508,10 +525,16 @@ void MineScan::PerGrid()
 // code at 0001:00027dd9
 }
 
-SatisfyBuildings::SatisfyBuildings(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4, UBYTE arg5)
-    : PolarRangeScan(cor1, arg2, arg3) // verify params
+SatisfyBuildings::SatisfyBuildings(XY cor1, ULONG arg2, UBYTE foundtSize, UBYTE arg4, UBYTE plyrNo)
+    : PolarRangeScan(cor1, arg2, foundtSize)
 {
-// code at 0001:00036b4c
+  // code at 0001:00036b4c
+  this->buildingsToSatisfy = arg4;
+  this->buildingsSatisfied = 0;
+  this->stage = 0;
+  this->foundationSize2 = foundtSize;
+  this->maxLandTiles = 0;
+  this->player = plyrNo;
 }
 
 void SatisfyBuildings::Do()

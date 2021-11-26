@@ -18,14 +18,31 @@
 /******************************************************************************/
 #include "pointscan.hpp"
 
-PointSample::PointSample(XY arg1, ULONG arg2, ULONG arg3)
+PointSample::PointSample(XY cor1, ULONG range, ULONG arg3)
 {
-// code at 0001:00036ab4
+  // code at 0001:00036ab4
+  this->sectorSize = 326 * arg3 / range;
+  if (this->sectorSize < 1 || this->sectorSize > 2048)
+    this->sectorSize = 256;
+  this->foundAThing = 0;
+  this->center = cor1;
+  this->range = range;
+  this->squareRange = range * range;
 }
 
-PointSample::PointSample(XY arg1, ULONG arg2, UBYTE arg3)
+PointSample::PointSample(XY cor1, ULONG range, UBYTE arg3)
 {
-// code at 0001:000369fc
+  // code at 0001:000369fc
+  if (arg3 > 0)
+    this->sectorSize = 2048 / arg3;
+  else
+    this->sectorSize = 256;
+  if (this->sectorSize < 1 || this->sectorSize > 2048)
+    this->sectorSize = 256;
+  this->foundAThing = 0;
+  this->center = cor1;
+  this->range = range;
+  this->squareRange = range * range;
 }
 
 void PointSample::Do()
