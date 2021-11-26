@@ -18,9 +18,14 @@
 /******************************************************************************/
 #include "ifccomped.hpp"
 
-IFCCompEditor::IFCCompEditor( MyGadget * )
+IFCCompEditor::IFCCompEditor(MyGadget *gads)
+    : IFCBase(), cPersonality(), gad(gads)
 {
-// code at 0001:0005e67c
+  // code at 0001:0005e67c
+  this->playerNumber = 1;
+  this->leftNotch = 53;
+  this->rightNotch = 106;
+  this->triggerNo = 0;
 }
 
 void IFCCompEditor::PlugIn()

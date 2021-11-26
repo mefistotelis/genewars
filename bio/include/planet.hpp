@@ -43,6 +43,7 @@ enum { // type=int8_t
 };
 
 class Planet { // sizeof=639
+public:
     char name[18]; // offset=0
     UBYTE levelNumber; // offset=18
     UBYTE planetClass; // offset=19

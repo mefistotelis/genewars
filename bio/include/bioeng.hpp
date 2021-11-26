@@ -68,7 +68,7 @@ public:
     Drone drones[32]; // offset=376870
     Ethereal ethereals[8]; // offset=379974
 public:
-    //BioGame(); -- generate default no-args constructor
+    BioGame();
     BBOOL Write(char *arg1, UBYTE arg2);
     BBOOL Read(char *arg1, UBYTE arg2, SBYTE arg3, Player *arg4);
     void ResetGameAndControl();

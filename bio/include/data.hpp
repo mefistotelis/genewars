@@ -147,7 +147,7 @@ extern Computer computers[];
 
 extern long unsigned buildingsAllowed;
 extern char unsigned shadeMethod;
-extern Planet planet;
+extern Planet defaultPlanet;
 extern MyGadget ifcPls_gads[];
 extern MyGadget ifcPanel_gads[];
 extern MyGadget ifcPalette_gads[];

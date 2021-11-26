@@ -18,10 +18,13 @@
 /******************************************************************************/
 #include "player.hpp"
 
-/*Player::Player(UBYTE arg1)
+Player::Player(UBYTE skip_init)
+    : theBase()
 {
-// code at 0001:00050843
-}*/
+  // code at 0001:00050843
+  if (!skip_init)
+    this->Init();
+}
 
 Player::~Player() // .tdctor
 {

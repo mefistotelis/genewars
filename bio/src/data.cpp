@@ -222,7 +222,40 @@ long unsigned buildingsAllowed;
 
 char unsigned shadeMethod;
 
-Planet planet;
+Planet defaultPlanet = {
+    {.name = "Exceland"}, //TODO the braces are due to GCC bug, to be removed later (https://gcc.gnu.org/bugzilla/show_bug.cgi?id=55227)
+    .levelNumber = 1,
+    .planetClass = 2,
+    .orbit = 0,
+    .gravity = 1024,
+    .solarEnergy = 6,
+    .meanTemp = 140,
+    .seaLevel = 816,
+    .flags = 0x01,
+    .payment = 2000,
+    .seed = 0x0CF6,
+    .startAlt = 592,
+    .scaler = 0x2400,
+    .nothing = 0,
+    .biomass = 0,
+    .initialBad = 0,
+    .victoryCreatures = 0,
+    .etherealBadLimit = 100,
+    .etherealVisit = 16000,
+    .etherealBonusMono = 1000,
+    .dropSites = {{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0}},
+    .stuff = {0},
+    .boundaries = {{0,0},{0,0}},
+    .victoryGoop = 0,
+    .victoryEnemyBuildings = 0,
+    .victoryEPoints = 0,
+    .etherealStrictness = 0,
+    .terraformXY = {0,0},
+    .computerStartOnTurn = {0,0,0},
+    .specialistsAllowed = 0,
+    .rescuedOnTurn = 0,
+    .victoryFlags = 0,
+};
 
 MyGadget ifcPls_gads[2]; // array size TBD
 

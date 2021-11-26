@@ -18,9 +18,12 @@
 /******************************************************************************/
 #include "ifcoptions.hpp"
 
-IFCOptions::IFCOptions(MyGadget *gad)
+IFCOptions::IFCOptions(MyGadget *gads)
+    : IFCBase(), gad(gads)
 {
-// code at 0001:0005e5bc
+  // code at 0001:0005e5bc, ignored internal flag to skip super ct
+  this->mMs.delta = 1;
+  this->canPause = 1;
 }
 
 void IFCOptions::PlugIn()

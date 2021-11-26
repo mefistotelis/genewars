@@ -56,7 +56,7 @@ public:
     SLONG ReadBuffer(Plant **arg1, SLONG arg2, SLONG arg3, BioGame &game);
     SLONG WriteBuffer(Plant **arg1, SLONG arg2, SLONG arg3, BioGame &game);
     BBOOL operator ==(Plant *arg1);
-    //Plant(); -- generate default no-args constructor
+    Plant();
     //Plant(class Plant &arg1); -- generate default copy constructor
     Plant & operator =(Plant &arg1);
 };

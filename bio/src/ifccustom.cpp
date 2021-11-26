@@ -18,9 +18,12 @@
 /******************************************************************************/
 #include "ifccustom.hpp"
 
-IFCCustom::IFCCustom(MyGadget *arg1)
+IFCCustom::IFCCustom(MyGadget *gads)
+    : IFCBase(), gad(gads)
 {
-// code at 0001:0005e7f4
+  // code at 0001:0005e7f4, ignored internal flag to skip super ct
+  this->service.GameId = 7;
+  this->service.Type = 1;
 }
 
 void IFCCustom::PlugIn()

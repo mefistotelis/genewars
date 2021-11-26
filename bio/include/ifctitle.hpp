@@ -83,7 +83,7 @@ public:
     virtual void PullOut();
     virtual void Draw();
     virtual void Update();
-    //IFCWinLevel(); -- generate default no-args constructor
+    IFCWinLevel();
     //IFCWinLevel(IFCWinLevel &arg1); -- generate default copy constructor
 };
 
@@ -96,7 +96,7 @@ public:
     virtual void PullOut();
     virtual void Draw();
     virtual void Update();
-    //IFCLoseLevel(); -- generate default no-args constructor
+    IFCLoseLevel();
     //IFCLoseLevel(IFCLoseLevel &arg1); -- generate default copy constructor
 };
 
@@ -109,7 +109,7 @@ public:
     virtual void PullOut();
     virtual void Draw();
     virtual void Update();
-    //IFCStatScreen(); -- generate default no-args constructor
+    IFCStatScreen();
     //IFCStatScreen(IFCStatScreen &arg1); -- generate default copy constructor
 };
 
@@ -122,7 +122,7 @@ public:
     virtual void PullOut();
     virtual void Draw();
     virtual void Update();
-    //IFCStartNetwork(); -- generate default no-args constructor
+    IFCStartNetwork();
     //IFCStartNetwork(IFCStartNetwork &arg1); -- generate default copy constructor
 };
 
@@ -138,7 +138,7 @@ public:
     virtual void PullOut();
     virtual void Draw();
     virtual void Update();
-    //IFCJoiningPlayer(); -- generate default no-args constructor
+    IFCJoiningPlayer();
     //IFCJoiningPlayer(IFCJoiningPlayer &arg1); -- generate default copy constructor
 };
 
@@ -151,7 +151,7 @@ public:
     virtual void PullOut();
     virtual void Draw();
     virtual void Update();
-    //IFCGeneratePlanet(); -- generate default no-args constructor
+    IFCGeneratePlanet();
     //IFCGeneratePlanet(IFCGeneratePlanet &arg1); -- generate default copy constructor
 };
 

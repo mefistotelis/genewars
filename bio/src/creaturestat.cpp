@@ -18,10 +18,11 @@
 /******************************************************************************/
 #include "creaturestat.hpp"
 
-/*CreatureInfo::CreatureInfo()
+CreatureInfo::CreatureInfo()
 {
-// code at 0001:0005e7c8
-}*/
+  // code at 0001:0005e7c8
+  this->guardPoint = -1;
+}
 
 /*CreatureInfo::~CreatureInfo()
 {

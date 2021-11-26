@@ -18,10 +18,16 @@
 /******************************************************************************/
 #include "bioeng.hpp"
 
-/*BioGame::BioGame()
+#include "data.hpp"
+
+BioGame::BioGame()
+    : players{0,0,0,0}, // for all items in array, call Player(0)
+      topoMorpher(),
+      planet(defaultPlanet)
 {
-// code at 0001:000612e4
-}*/
+  // code at 0001:000612e4
+  this->checksum = sizeof(BioGame);
+}
 
 BBOOL BioGame::Write(char *arg1, UBYTE arg2)
 {

@@ -97,7 +97,10 @@ ComponentVector ComponentVector::operator +(ComponentVector v1)
 
 ComponentVector::ComponentVector(SWORD nx, SWORD ny, SWORD nz)
 {
-// code at 0001:00049b84
+  // code at 0001:00049b84
+  this->dx = nx;
+  this->dy = ny;
+  this->dz = nz;
 }
 
 void ComponentVector::Clear()

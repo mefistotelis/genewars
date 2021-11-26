@@ -50,7 +50,7 @@ public:
     SBYTE techLevel; // offset=1767
     UBYTE solarSystem; // offset=1768
 public:
-    //Player(UBYTE arg1); -- would replace default no-arg constructor
+    Player(UBYTE arg1);
     void Init();
     BBOOL Valid();
     void MakeValid();

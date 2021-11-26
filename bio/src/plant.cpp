@@ -18,10 +18,12 @@
 /******************************************************************************/
 #include "plant.hpp"
 
-/*Plant::Plant()
+Plant::Plant()
+    : StaticThing()
 {
-// code at 0001:00052994
-}*/
+  // code at 0001:00052994
+  // done
+}
 
 void Plant::Draw(SWORD arg1, SWORD arg2)
 {

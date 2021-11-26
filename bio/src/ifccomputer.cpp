@@ -19,10 +19,17 @@
 #include "ifccomputer.hpp"
 
 
-IFCComputer::IFCComputer( MyGadget * )
+IFCComputer::IFCComputer(MyGadget *gads)
+    : IFCBase(), gad(gads)
 {
-// code at 0001:0005e75c
-}
+  // code at 0001:0005e75c
+  this->drawPowerRange = 0;
+  this->drawCenters = 1;
+  this->fromCenter = 0;
+  this->creatureDebugStuff = 1;
+  this->cPlayer = 0;
+  this->gPointType = 0;
+ }
 
 char unsigned IFCComputer::BuildingAllowed( char unsigned, char unsigned )
 {

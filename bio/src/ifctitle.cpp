@@ -18,9 +18,11 @@
 /******************************************************************************/
 #include "ifctitle.hpp"
 
-IFCTitle::IFCTitle( MyGadget * )
+IFCTitle::IFCTitle(MyGadget *gads)
+    : IFCBase(), gad(gads)
 {
-// code at 0001:0005e8ac
+  // code at 0001:0005e8ac, ignored internal flag to skip super ct
+  // done
 }
 
 void IFCTitle::PlugIn()
@@ -43,10 +45,12 @@ void IFCTitle::Draw()
 // code at 0001:0004c592
 }
 
-/*IFCWinLevel::IFCWinLevel()
+IFCWinLevel::IFCWinLevel()
+    : IFCBase()
 {
-// code at 0001:0005e2b8
-}*/
+  // code at 0001:0005e2b8, ignored internal flag to skip super ct
+  // done
+}
 
 void IFCWinLevel::PlugIn()
 {
@@ -68,10 +72,12 @@ void IFCWinLevel::Draw()
 // code at 0001:0004d953
 }
 
-/*IFCLoseLevel::IFCLoseLevel()
+IFCLoseLevel::IFCLoseLevel()
+    : IFCBase()
 {
-// code at 0001:0005e3dc
-}*/
+  // code at 0001:0005e3dc, ignored internal flag to skip super ct
+  // done
+}
 
 void IFCLoseLevel::PlugIn()
 {
@@ -93,10 +99,12 @@ void IFCLoseLevel::Draw()
 // code at 0001:0004de6e
 }
 
-/*IFCStatScreen::IFCStatScreen()
+IFCStatScreen::IFCStatScreen()
+    : IFCBase()
 {
-// code at 0001:0005e500
-}*/
+  // code at 0001:0005e500, ignored internal flag to skip super ct
+  // done
+}
 
 void IFCStatScreen::PlugIn()
 {
@@ -118,10 +126,12 @@ void IFCStatScreen::Draw()
 // code at 0001:0004e094
 }
 
-/*IFCStartNetwork::IFCStartNetwork()
+IFCStartNetwork::IFCStartNetwork()
+    : IFCBase()
 {
-// code at 0001:0005df4c
-}*/
+  // code at 0001:0005df4c, ignored internal flag to skip super ct
+  // done
+}
 
 void IFCStartNetwork::PlugIn()
 {
@@ -143,10 +153,12 @@ void IFCStartNetwork::Draw()
 // code at 0001:0004c83e
 }
 
-/*IFCJoiningPlayer::IFCJoiningPlayer()
+IFCJoiningPlayer::IFCJoiningPlayer()
+    : IFCBase()
 {
-// code at 0001:0005e194
-}*/
+  // code at 0001:0005e194, ignored internal flag to skip super ct
+  // done
+}
 
 void IFCJoiningPlayer::PlugIn()
 {
@@ -168,10 +180,12 @@ void IFCJoiningPlayer::Draw()
 // code at 0001:0004d74c
 }
 
-/*IFCGeneratePlanet::IFCGeneratePlanet()
+IFCGeneratePlanet::IFCGeneratePlanet()
+    : IFCBase()
 {
-// code at 0001:0005e070
-}*/
+  // code at 0001:0005e070, ignored internal flag to skip super ct
+  // done
+}
 
 void IFCGeneratePlanet::PlugIn()
 {

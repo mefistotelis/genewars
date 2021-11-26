@@ -22,9 +22,19 @@
 
 TbLoadFiles editorGfx = {"data/ifeditor.anb", (void **)&ifcEditor.anb, 0, 0, 0, 0};
 
-IFCEditor::IFCEditor(MyGadget *arg1)
+IFCEditor::IFCEditor(MyGadget *gads)
+    : IFCBase(), gad(gads)
 {
-// code at 0001:0005e94c
+  // code at 0001:0005e94c, ignored internal flag to skip super ct
+  this->currentSpecies = CRS_DINO;
+  this->compValid = 0;
+  this->levelNumber = 1;
+  this->mapType = 0;
+  this->drawZoneInfo = 1;
+  this->editStuffMode = 0;
+  this->gPointType = 0;
+  this->circularWarning = 0;
+  this->enteringName = 0;
 }
 
 void IFCEditor::PlugIn()
