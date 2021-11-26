@@ -22,6 +22,8 @@
 #include "tables.hpp"
 #include <cassert>
 
+#define TILE_UNIT 256
+
 PassableTerrainScan::PassableTerrainScan(SmartMovingThing &tng1, ULONG arg2)
     : PolarRangeScan(tng1.loc, arg2, 0), thing(tng1) // verify params
 {
@@ -33,10 +35,16 @@ void PassableTerrainScan::PerGrid()
 // code at 0001:00085790
 }
 
-ShotHitScan::ShotHitScan(Effect &arg1, SLONG arg2)
-    : RangeScanner(arg1.loc, arg2) // verify params
+ShotHitScan::ShotHitScan(Effect &eff1, SLONG shotRadius)
+    : RangeScanner(eff1.loc, 0x100u), shot(eff1)
 {
-// code at 0001:0004902c
+  // code at 0001:0004902c
+  assert(shotRadius <= TILE_UNIT);
+  this->creator = &eff1.thing;
+  this->sqShotRadius = shotRadius * shotRadius;
+  this->bestRange = 0x7FFFFFFF;
+  this->hitThing = 0;
+  this->ricochet = 0;
 }
 
 void ShotHitScan::PerGrid()
@@ -44,10 +52,11 @@ void ShotHitScan::PerGrid()
 // code at 0001:00048ee0
 }
 
-FireScan::FireScan(Effect &arg1)
-    : RangeScanner(arg1.loc, 0) // verify params
+FireScan::FireScan(Effect &eff1)
+    : RangeScanner(eff1.loc, 0x100u), fire(eff1)
 {
-// code at 0001:00048e90
+  // code at 0001:00048e90
+  // done
 }
 
 void FireScan::PerGrid()
@@ -67,8 +76,6 @@ void MonolithHitScan::PerGrid()
 {
 // code at 0001:00048c08
 }
-
-#define TILE_UNIT 256
 
 StasisBoltScan::StasisBoltScan(Effect &eff1, SLONG shotRadius)
     : RangeScanner(eff1.loc, 0x100u), shot(eff1)

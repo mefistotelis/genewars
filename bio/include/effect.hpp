@@ -31,6 +31,7 @@ class Vector;
 class EtherealZone;
 
 class Effect : public MovingThing { // sizeof=81
+public:
     EffectType type; // offset=69
     SBYTE state; // offset=70
     ThingIDX thing; // offset=71

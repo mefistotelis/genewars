@@ -46,7 +46,7 @@ class ShotHitScan : public RangeScanner { // sizeof=62
 public:
     Thing *hitThing; // offset=41
     BBOOL ricochet; // offset=45
-    Effect shot;
+    Effect &shot;
     Thing *creator; // offset=50
     ULONG sqShotRadius; // offset=54
     ULONG bestRange; // offset=58
@@ -60,7 +60,7 @@ public:
 
 class FireScan : public RangeScanner { // sizeof=45
 public:
-    Effect fire;
+    Effect &fire;
 //internal:
     //void (**__vfptr)(); // offset=37
 public:
@@ -72,7 +72,7 @@ public:
 class MonolithHitScan : public RangeScanner { // sizeof=53
 public:
     Thing *hitThing; // offset=41
-    Effect mono;
+    Effect &mono;
     ULONG bestRange; // offset=49
 //internal:
     //void (**__vfptr)(); // offset=37
