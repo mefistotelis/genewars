@@ -189,7 +189,7 @@ class TimeSliceScan : public RangeScan { // sizeof=47
     BBOOL middle; // offset=20
     UWORD tileNo; // offset=21
 public:
-    BaseScan bs;
+    BaseScan &bs;
 protected:
     GridTile *g; // offset=27
     ULONG squareRange; // offset=31

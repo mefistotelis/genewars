@@ -18,6 +18,8 @@
 /******************************************************************************/
 #include "scanbldsite.hpp"
 
+#include "data.hpp"
+
 FindHighestBuildingSite::FindHighestBuildingSite(XY arg1, ULONG arg2, UBYTE arg3)
     : RangeScanner(arg1, arg2) // verify params
 {
@@ -50,10 +52,12 @@ void NearestBuildingSite::PerGrid()
 // code at 0001:00027fa8
 }
 
-NearestPoweredBuildingSite::NearestPoweredBuildingSite(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4)
-    : PolarRangeScan(arg1, arg2, 0) // verify params
+NearestPoweredBuildingSite::NearestPoweredBuildingSite(XY cor1, ULONG arg2, UBYTE foundtSize, UBYTE plyrNo)
+    : PolarRangeScan(cor1, arg2, foundtSize)
 {
-// code at 0001:00036504
+  // code at 0001:00036504
+  this->foundationSize2 = foundtSize;
+  this->b = &bio.players[plyrNo].theBase;
 }
 
 void NearestPoweredBuildingSite::PerGrid()

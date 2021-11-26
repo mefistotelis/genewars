@@ -33,10 +33,13 @@ void PointSample::Do()
 // code at 0001:00028485
 }
 
-NewBaseScan::NewBaseScan(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4)
-    : PointSample(arg1, arg2, arg3) // verify params
+NewBaseScan::NewBaseScan(XY cor1, ULONG arg2, UBYTE plyrNo, UBYTE arg4)
+    : PointSample(cor1, arg2, arg4)
 {
-// code at 0001:00036410
+  // code at 0001:00036410
+  this->player = plyrNo;
+  this->origin = cor1;
+  this->bestScore = 0;
 }
 
 void NewBaseScan::PerGrid()
@@ -44,10 +47,13 @@ void NewBaseScan::PerGrid()
 // code at 0001:00028625
 }
 
-BestForestSample::BestForestSample(XY arg1, ULONG arg2, UBYTE arg3, UBYTE arg4, ULONG arg5)
-    : PointSample(arg1, arg2, arg3) // verify params
+BestForestSample::BestForestSample(XY cor1, ULONG arg2, UBYTE plyrNo, UBYTE forsType, ULONG arg5)
+    : PointSample(cor1, arg2, arg5)
 {
-// code at 0001:00036998
+  // code at 0001:00036998
+  this->forestType = forsType;
+  this->player = plyrNo;
+  this->bestValue = 0;
 }
 
 void BestForestSample::PerGrid()

@@ -18,13 +18,20 @@
 /******************************************************************************/
 #include "scanaware.hpp"
 
-BaseAwarenessScan::BaseAwarenessScan(BaseScan &arg1, XY arg2, ULONG arg3, UBYTE arg4)
-    : TimeSliceScan(arg1, arg2, arg3) // verify params
+#include "data.hpp"
+
+BaseAwarenessScan::BaseAwarenessScan(BaseScan &arg1, XY cor2, ULONG arg3, UBYTE plyrNo)
+    : TimeSliceScan(arg1, cor2, arg3)
 {
-// code at 0001:000365b4
+  // code at 0001:000365b4
+  this->baseNo = arg1.baseNo;
+  this->player = &bio.players[plyrNo];
+  this->comp = &computers[plyrNo];
+  this->aware = &this->comp->baseAwareness[this->baseNo];
+  this->center = cor2;
 }
 
-UBYTE BaseAwarenessScan::PointInSector(XY arg1, XY arg2)
+UBYTE BaseAwarenessScan::PointInSector(XY cor1, XY cor2)
 {
 // code at 0001:00036574
 }

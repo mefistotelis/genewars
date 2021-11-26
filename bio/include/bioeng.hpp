@@ -42,6 +42,7 @@ struct Reorient { // sizeof=8
 };
 
 class BioGame { // sizeof=380790
+public:
     ULONG checksum; // offset=0
     char saveName[16]; // offset=4
     Player players[4]; // offset=20

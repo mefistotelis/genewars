@@ -45,7 +45,13 @@ void CompTarget::AssignCreatureToThis(SWORD arg1)
 
 GPointFlags::GPointFlags()
 {
-// code at 0001:00033fd8
+  // code at 0001:00033fd8
+  this->canWalkTo = 1;
+  this->triggerOnEnemies = 0;
+  this->defendGetsPriority = 0;
+  this->pointClosed = 0;
+  this->noSuitableCreatures = 0;
+  this->specOnHisWay = 0;
 }
 
 GPointFlags & GPointFlags::operator =(GPointFlags const &arg1)

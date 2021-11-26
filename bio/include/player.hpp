@@ -32,6 +32,7 @@ class PlSpec;
 class Specialist;
 
 class Player { // sizeof=1769
+public:
     UBYTE ControlType; // offset=0
     UBYTE idx; // offset=1
     BBOOL computer; // offset=2

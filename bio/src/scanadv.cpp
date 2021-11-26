@@ -280,12 +280,12 @@ void ChopTreeScan::PerGrid()
 // code at 0001:00027570
 }
 
-ForestScan::ForestScan(XY cor1, ULONG arg2, UBYTE forsType, UBYTE plyrid)
+ForestScan::ForestScan(XY cor1, ULONG arg2, UBYTE forsType, UBYTE plyrNo)
     : RangeScanner(cor1, arg2) // verify params
 {
   // code at 0001:00027b98
   this->forestType = forsType;
-  this->player = plyrid;
+  this->player = plyrNo;
   this->bestValue = 0;
   this->bestType = 0;
   for (int i = 0; i < 12; i++)
@@ -363,9 +363,10 @@ void HarvestScan::PerGrid()
 }
 
 NearestLand::NearestLand(XY cor1, ULONG arg2)
-    : PolarRangeScan(cor1, arg2, 0) // verify params
+    : PolarRangeScan(cor1, arg2, 0)
 {
-// code at 0001:000364c0
+  // code at 0001:000364c0
+  // done
 }
 
 void NearestLand::PerGrid()
@@ -389,9 +390,10 @@ void PowerStationScan::PerGrid()
 }
 
 SiteScore::SiteScore(XY cor1, ULONG arg2)
-    : RangeScanner(cor1, arg2) // verify params
+    : RangeScanner(cor1, arg2)
 {
-// code at 0001:00036474
+  // code at 0001:00036474
+  this->score = 0;
 }
 
 void SiteScore::PerGrid()
@@ -399,12 +401,12 @@ void SiteScore::PerGrid()
 // code at 0001:000285b4
 }
 
-PlantScan::PlantScan(XY cor1, ULONG arg2, UBYTE forsType, UBYTE plyrid)
+PlantScan::PlantScan(XY cor1, ULONG arg2, UBYTE forsType, UBYTE plyrNo)
     : RangeScanner(cor1, arg2)
 {
   // code at 0001:000289b3
   this->forestType = forsType;
-  this->player = plyrid;
+  this->player = plyrNo;
   this->bestValue = -1;
   this->bestType = 12;
   for (int i = 0; i < 12; i++)
@@ -421,9 +423,11 @@ void PlantScan::PerGrid()
 }
 
 ClosestTree::ClosestTree(XY cor1, ULONG arg2)
-    : PolarRangeScan(cor1, arg2, 0) // verify params
+    : PolarRangeScan(cor1, arg2, 0)
 {
-// code at 0001:000363b8
+  // code at 0001:000363b8
+  this->closestDistance = 0x40000000;
+  this->loc = cor1;
 }
 
 void ClosestTree::PerGrid()
@@ -432,9 +436,11 @@ void ClosestTree::PerGrid()
 }
 
 ClosestDeadCreature::ClosestDeadCreature(XY cor1, ULONG arg2)
-    : PolarRangeScan(cor1, arg2, 0) // verify params
+    : PolarRangeScan(cor1, arg2, 0)
 {
-// code at 0001:00036360
+  // code at 0001:00036360
+  this->closestDistance = 0x40000000;
+  this->loc = cor1;
 }
 
 void ClosestDeadCreature::PerGrid()
@@ -448,9 +454,10 @@ void ClosestEnemy::PerGrid()
 }
 
 CountTrees::CountTrees(XY cor1, ULONG arg2)
-    : RangeScanner(cor1, arg2) // verify params
+    : RangeScanner(cor1, arg2)
 {
-// code at 0001:00036314
+  // code at 0001:00036314
+  this->trees = 0;
 }
 
 void CountTrees::PerGrid()
@@ -459,9 +466,10 @@ void CountTrees::PerGrid()
 }
 
 GuardPointImportance::GuardPointImportance(XY cor1, ULONG arg2)
-    : RangeScanner(cor1, arg2) // verify params
+    : RangeScanner(cor1, arg2)
 {
-// code at 0001:000362c8
+  // code at 0001:000362c8
+  this->importance = 0;
 }
 
 void GuardPointImportance::PerGrid()
@@ -469,10 +477,20 @@ void GuardPointImportance::PerGrid()
 // code at 0001:00028f01
 }
 
-ClosestTargets::ClosestTargets(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4)
-    : PolarRangeScan(cor1, arg2, arg3) // verify params
+ClosestTargets::ClosestTargets(XY cor1, ULONG arg2, UBYTE plyrNo, UBYTE arg4)
+    : PolarRangeScan(cor1, arg2, 0), loc(cor1), player(plyrNo)
 {
-// code at 0001:000361dc
+  // code at 0001:000361dc
+  for (int i = 0; i < 3; i++)
+  {
+    this->currentTgt[i] = 0;
+    for (int j = 0; j < 6; j++)
+    {
+      this->clTgts[i][j].idx = -1;
+      this->clTgts[i][j].range = 255;
+    }
+  }
+  this->defend = (arg4 == 2);
 }
 
 void ClosestTargets::PerGrid()
