@@ -50,13 +50,17 @@ struct MyGadget { // sizeof=40
     SWORD h; // offset=10
     SWORD id; // offset=12
     void (*function)(MyGadget *arg1); // offset=14
+  union {
+    struct __3l95t9offset offset; // offset=18
+    struct __f67gospr spr; // offset=18
     struct __1td29bmSpr mSpr; // offset=18
-    struct __f67gospr spr; // offset=19
-    struct __3l95t9offset offset; // offset=20
+  };
     void *userData; // offset=30
+  union {
+    ULONG helpIndex; // offset=34
+    char *helpText; // offset=34
     void (*helpFn)(MyGadget *arg1); // offset=34
-    char *helpText; // offset=35
-    ULONG helpIndex; // offset=36
+  };
     UBYTE pressed; // offset=38
     UBYTE drawFlags; // offset=39
 };
