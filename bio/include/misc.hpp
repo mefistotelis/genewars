@@ -1020,7 +1020,7 @@ class BuildPriority { // sizeof=9
     UWORD powerNeeded; // offset=6
     BBOOL newBaseThisTurn; // offset=8
 public:
-    //BuildPriority(); -- generate default no-args constructor
+    BuildPriority();
     UBYTE BuildHighestPri(PlSpec *arg1);
     UBYTE Emergency(PlSpec *arg1);
     UBYTE Basic(PlSpec *arg1);

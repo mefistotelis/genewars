@@ -18,10 +18,11 @@
 /******************************************************************************/
 #include "gupoint.hpp"
 
-/*CompTarget::CompTarget()
+CompTarget::CompTarget()
 {
-// code at 0001:0003742c
-}*/
+  // code at 0001:0003742c
+  this->crNo = -1;
+}
 
 char unsigned CompTarget::Valid()
 {

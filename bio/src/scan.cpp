@@ -68,10 +68,16 @@ void RangeScanner::Do()
 // code at 0001:0005d926
 }
 
-PolarRangeScan::PolarRangeScan(XY cor1, ULONG arg2, UBYTE arg3)
-    : RangeScan(cor1, arg2, 0) // verify params
+PolarRangeScan::PolarRangeScan(XY cor1, ULONG range, UBYTE foundtSize)
+    : RangeScan(cor1, range, 0)
 {
-// code at 0001:000371ac
+  // code at 0001:000371ac
+  this->maxRange = range;
+  this->squareMaxRange = range * range;
+  this->foundAThing = 0;
+  this->tileRange = (range >> 8);
+  this->foundationSize = foundtSize;
+  this->satisfied = 0;
 }
 
 void PolarRangeScan::Do()
@@ -118,10 +124,17 @@ void WeightedTgtRangeScanner::Do()
 // code at 0001:0005dbb7
 }
 
-PolarSliceScan::PolarSliceScan(XY cor1, ULONG arg2, UBYTE arg3, UBYTE arg4)
-    : RangeScan(cor1, arg2, 0) // verify params
+PolarSliceScan::PolarSliceScan(XY cor1, ULONG range, UBYTE foundtSize, UBYTE nslices)
+    : RangeScan(cor1, range, 0)
 {
-// code at 0001:00037124
+  // code at 0001:00037124
+  this->slices = nslices;
+  this->maxRange = range;
+  this->squareMaxRange = range * range;
+  this->foundAThing = 0;
+  this->tileRange = (range >> 8);
+  this->foundationSize = foundtSize;
+  this->satisfied = 0;
 }
 
 void PolarSliceScan::displayDebug(XY cor1, UBYTE arg2, ULONG &arg3)
@@ -134,10 +147,19 @@ void PolarSliceScan::Do()
 // code at 0001:00026923
 }
 
-PolarEverythingScan::PolarEverythingScan(XY cor1, ULONG arg2, ULONG arg3, UBYTE arg4, UBYTE arg5, BBOOL arg6)
-    : RangeScan(cor1, arg2, 0) // verify params
+PolarEverythingScan::PolarEverythingScan(XY cor1, ULONG range, ULONG arg3, UBYTE foundtSize, UBYTE nslices, BBOOL frCenter)
+    : RangeScan(cor1, range, 0)
 {
-// code at 0001:00037088
+  // code at 0001:00037088
+  this->slices = nslices;
+  this->maxRange = range;
+  this->squareMaxRange = range * range;
+  this->foundAThing = 0;
+  this->tileRange = (range >> 8);
+  this->innerTileRange = (range & 0xff);
+  this->foundationSize = foundtSize;
+  this->satisfied = 0;
+  this->fromCenter = frCenter;
 }
 
 void PolarEverythingScan::displayDebug(XY cor1, UBYTE arg2, ULONG &arg3)

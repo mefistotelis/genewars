@@ -103,10 +103,11 @@ void BoundMmsToMySprite( MyMinSprite &, MySprite & )
 // code at 0001:0001d1f8
 }
 
-/*BuildPriority::BuildPriority()
+BuildPriority::BuildPriority()
 {
-// code at 0001:00037480
-}*/
+  // code at 0001:00037480
+  this->newBaseThisTurn = 0;
+}
 
 char unsigned BuildPriority::Build( PlSpec *, char unsigned, char unsigned )
 {

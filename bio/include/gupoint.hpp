@@ -65,7 +65,7 @@ public:
     UBYTE creaturesOnThis; // offset=2
     TgtType targetType; // offset=3
 public:
-    //CompTarget(); -- generate default no-args constructor
+    CompTarget();
     BBOOL Valid();
     void Invalidate();
     void Update();
