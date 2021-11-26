@@ -19,8 +19,10 @@
 #include "mvthing.hpp"
 
 MovingThing::MovingThing()
+    : Thing(), vel(), acc(), vec()
 {
-// code at 0001:000488c4
+  // code at 0001:000488c4
+  // done
 }
 
 XY MovingThing::UnwindLastMove(SLONG &arg1)

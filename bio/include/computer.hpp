@@ -34,10 +34,11 @@ class Creature;
 class Thing;
 
 class CompDebug { // sizeof=5
+public:
     ULONG scanRange; // offset=0
     UBYTE location; // offset=4
-//public:
-    //CompDebug(); -- generate default no-args constructor
+public:
+    CompDebug();
     //CompDebug(CompDebug &arg1); -- generate default copy constructor
 };
 

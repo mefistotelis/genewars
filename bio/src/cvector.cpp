@@ -33,7 +33,10 @@ Vector::Vector(Vector const &src)
 
 Vector::Vector(SWORD nang, SWORD nangZ, SWORD nlen)
 {
-// code at 0001:00040b04
+  // code at 0001:00040b04
+  this->angle = nang;
+  this->angleZ = nangZ;
+  this->length = nlen;
 }
 
 Vector Vector::operator >>(int arg1)
@@ -63,7 +66,10 @@ ComponentVector ComponentVector::operator +=(ComponentVector v1)
 
 ComponentVector::ComponentVector()
 {
-// code at 0001:00040a68
+  // code at 0001:00040a68
+  this->dz = 0;
+  this->dy = 0;
+  this->dx = 0;
 }
 
 SWORD ComponentVector::ComputeVector(Vector &v1) const
@@ -78,7 +84,10 @@ SLONG ComponentVector::Length()
 
 ComponentVector::ComponentVector(ComponentVector const &v1)
 {
-// code at 0001:0003ffc4
+  // code at 0001:0003ffc4
+  this->dx = v1.dx;
+  this->dy = v1.dy;
+  this->dz = v1.dz;
 }
 
 ComponentVector ComponentVector::operator +(ComponentVector v1)

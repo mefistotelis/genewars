@@ -85,7 +85,7 @@ public:
 class StasisBoltScan : public RangeScanner { // sizeof=50
 public:
     BBOOL hitThing; // offset=41
-    Effect shot;
+    Effect &shot;
     ULONG sqShotRadius; // offset=46
 //internal:
     //void (**__vfptr)(); // offset=37

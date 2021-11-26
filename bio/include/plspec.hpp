@@ -168,7 +168,7 @@ private:
     void SetWaiting();
     void SetAltSpecialFlipToThing(Thing *tng1);
 public:
-    //PlSpec(); -- generate default no-args constructor
+    PlSpec();
     //PlSpec(PlSpec &arg1); -- generate default copy constructor
     PlSpec & operator =(PlSpec const &arg1);
 };

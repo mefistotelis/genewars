@@ -18,9 +18,12 @@
 /******************************************************************************/
 #include "sound.hpp"
 
-SoundManager::SoundManager(XY arg1)
+SoundManager::SoundManager(XY cor1)
 {
-// code at 0001:00037a58
+  // code at 0001:00037a58
+  this->origin = cor1;
+  for (int i = 0; i < 18; i++)
+    this->speech[i].Invalidate();
 }
 
 BBOOL SoundTag::IsNewSample()

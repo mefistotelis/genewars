@@ -20,6 +20,7 @@
 
 #include "data.hpp"
 #include "tables.hpp"
+#include <cassert>
 
 PassableTerrainScan::PassableTerrainScan(SmartMovingThing &tng1, ULONG arg2)
     : PolarRangeScan(tng1.loc, arg2, 0), thing(tng1) // verify params
@@ -54,10 +55,12 @@ void FireScan::PerGrid()
 // code at 0001:00048cf8
 }
 
-MonolithHitScan::MonolithHitScan(Effect &arg1)
-    : RangeScanner(arg1.loc, 0) // verify params
+MonolithHitScan::MonolithHitScan(Effect &eff1)
+    : RangeScanner(eff1.loc, 0x100u), mono(eff1)
 {
-// code at 0001:00048c94
+  // code at 0001:00048c94
+  this->hitThing = 0;
+  this->bestRange = 0x7FFFFFFF;
 }
 
 void MonolithHitScan::PerGrid()
@@ -65,10 +68,15 @@ void MonolithHitScan::PerGrid()
 // code at 0001:00048c08
 }
 
-StasisBoltScan::StasisBoltScan(Effect &arg1, SLONG arg2)
-    : RangeScanner(arg1.loc, arg2) // verify params
+#define TILE_UNIT 256
+
+StasisBoltScan::StasisBoltScan(Effect &eff1, SLONG shotRadius)
+    : RangeScanner(eff1.loc, 0x100u), shot(eff1)
 {
-// code at 0001:00048b78
+  // code at 0001:00048b78
+  assert(shotRadius <= TILE_UNIT);
+  this->sqShotRadius = shotRadius * shotRadius;
+  this->hitThing = 0;
 }
 
 void StasisBoltScan::PerGrid()

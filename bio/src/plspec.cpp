@@ -18,10 +18,11 @@
 /******************************************************************************/
 #include "plspec.hpp"
 
-/*PlSpec::PlSpec()
+PlSpec::PlSpec() : SmartMovingThing()
 {
-// code at 0001:00048968
-}*/
+  // code at 0001:00048968
+  // done
+}
 
 char unsigned PlSpec::IsDead()
 {

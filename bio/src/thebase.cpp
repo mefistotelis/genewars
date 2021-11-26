@@ -33,10 +33,11 @@ void PowerGraph::Draw(SLONG arg1, SLONG arg2)
 // code at 0001:00039b3c
 }
 
-/*TheBase::TheBase()
+TheBase::TheBase()
 {
-// code at 0001:00039cfb
-}*/
+  // code at 0001:00039cfb
+  // done
+}
 
 BBOOL TheBase::AddGoop(ULONG arg1)
 {

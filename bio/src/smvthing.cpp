@@ -19,8 +19,10 @@
 #include "smvthing.hpp"
 
 SmartMovingThing::SmartMovingThing()
+    : MovingThing()
 {
-// code at 0001:00048930
+  // code at 0001:00048930
+  // done
 }
 
 char unsigned SmartMovingThing::IsRescanNeeded()

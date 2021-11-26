@@ -57,7 +57,7 @@ class TheBase { // sizeof=377
     UWORD pad[3]; // offset=367
     SLONG numCreatures; // offset=373
 public:
-    //TheBase(); -- generate default no-args constructor
+    TheBase();
     void Reset();
     Building * AddNewBuilding(BuildingType arg1, XY cor2);
     void RemoveBuilding(UBYTE arg1);

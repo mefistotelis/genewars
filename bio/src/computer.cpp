@@ -20,10 +20,12 @@
 
 #include "data.hpp"
 
-/*CompDebug::CompDebug()
+CompDebug::CompDebug()
 {
-// code at 0001:000374ac
-}*/
+  // code at 0001:000374ac
+  this->scanRange = 1280;
+  this->location = 0;
+}
 
 Computer::Computer()
     : compDebug(), personality() // for gPoints default ct will call automatically
