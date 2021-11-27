@@ -51,7 +51,7 @@ public:
 private:
     BBOOL CreateSphereRing(Point *arg1, BBOOL *arg2, UBYTE arg3);
 public:
-    //Event(); -- generate default no-args constructor
+    Event();
     //Event(Event &arg1); -- generate default copy constructor
     Event & operator =(Event &arg1);
 };

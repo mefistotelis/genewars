@@ -18,10 +18,12 @@
 /******************************************************************************/
 #include "drone.hpp"
 
-/*Drone::Drone()
+Drone::Drone()
+    : SmartMovingThing()
 {
-// code at 0001:0006152c
-}*/
+  // code at 0001:0006152c
+  // done
+}
 
 unsigned char AtMmsEnd(MyMinSprite &spr1, MySprite &spr2)
 {

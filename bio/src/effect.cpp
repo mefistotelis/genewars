@@ -20,10 +20,12 @@
 
 MyMinSprite Effect::ezStarMMs;
 
-/*Effect::Effect()
+Effect::Effect()
+    : MovingThing()
 {
-// code at 0001:000614bc
-}*/
+  // code at 0001:000614bc
+  // done
+}
 
 char unsigned Effect::IsPackSpecValid()
 {

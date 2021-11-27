@@ -27,7 +27,7 @@ struct GEngine { // sizeof=20
     SLONG BaseX; // offset=8
     SLONG BaseY; // offset=12
     SLONG AltScaler; // offset=16
-    //GEngine(); -- generate default no-args constructor
+    GEngine();
     //GEngine(GEngine &engin1); -- generate default copy constructor
 };
 

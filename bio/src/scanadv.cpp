@@ -155,12 +155,12 @@ CollectorScan::CollectorScan(Creature &crtr, BBOOL lfPlants, BBOOL lfBones)
   this->lookForPlants = lfPlants;
   if ( this->lookForPlants )
   {
-    this->plantBonus = control_urand(8, 255);
+    this->plantBonus = URAND8(255);
   }
   this->lookForBones = lfBones;
   if ( this->lookForBones )
   {
-    this->bonesBonus = control_urand(8, 255);
+    this->bonesBonus = URAND8(255);
   }
 }
 
@@ -202,10 +202,14 @@ void LumberjackScan::PerGrid()
 // code at 0001:00077aa8
 }
 
-HarvestClearScan::HarvestClearScan(PlSpec &arg1, BBOOL arg2, BBOOL arg3)
-    : RangeScanner(arg1.loc, 0) // verify params
+HarvestClearScan::HarvestClearScan(PlSpec &pls1, BBOOL doCollect, BBOOL clrFlags)
+    : RangeScanner(pls1.loc, pls1.FarmerHarvestRange()),
+      pls(pls1), rGrid(pls1.Player().grid)
 {
-// code at 0001:00077a20
+  // code at 0001:00077a20
+  this->collect = doCollect;
+  this->clearFlags = clrFlags;
+  this->seedsGot = 0;
 }
 
 void HarvestClearScan::PerGrid()
@@ -218,10 +222,12 @@ void HarvestClearScan::Do()
 // code at 0001:000777f8
 }
 
-FarmerPlantingScan::FarmerPlantingScan(PlSpec &arg1, BBOOL arg2)
-    : WeightedRangeScanner(arg1.loc, 0) // verify params
+FarmerPlantingScan::FarmerPlantingScan(PlSpec &pls1, BBOOL withAbility)
+    : WeightedRangeScanner(pls1.loc, (withAbility ? (pls1.spec->ability / 30 + (URAND8(100) <= pls1.spec->resolve)) : 4) << 8),
+      pls(pls1), pSpc(pSpecies[pls1.crewIDX])
 {
-// code at 0001:00077624
+  // code at 0001:00077624
+  this->rangeInvert = (URAND8(10) < 5);
 }
 
 void FarmerPlantingScan::PerGrid()
@@ -229,10 +235,12 @@ void FarmerPlantingScan::PerGrid()
 // code at 0001:000774e8
 }
 
-SurvivalScan::SurvivalScan(PlSpec &arg1, ULONG arg2)
-    : RangeScanner(arg1.loc, 0) // verify params
+SurvivalScan::SurvivalScan(PlSpec &pls1, ULONG arg2)
+    : RangeScanner(pls1.loc, arg2), pls(pls1)
 {
-// code at 0001:00077488
+  // code at 0001:00077488
+  this->tgtCreature = 0;
+  this->bestRange = -1;
 }
 
 void SurvivalScan::PerGrid()
@@ -240,10 +248,12 @@ void SurvivalScan::PerGrid()
 // code at 0001:000773cc
 }
 
-StudyCreatureScan::StudyCreatureScan(PlSpec &arg1)
-    : RangeScanner(arg1.loc, 0) // verify params
+StudyCreatureScan::StudyCreatureScan(PlSpec &pls1)
+    : RangeScanner(pls1.loc, 16 * pls1.spec->ability + 256), scientist(pls1)
 {
-// code at 0001:00077358
+  // code at 0001:00077358
+  this->tgtCreature = 0;
+  this->bestRange = -1;
 }
 
 void StudyCreatureScan::PerGrid()
@@ -251,11 +261,13 @@ void StudyCreatureScan::PerGrid()
 // code at 0001:00077298
 }
 
-HealCreatureScan::HealCreatureScan(PlSpec &arg1)
-    : RangeScanner(arg1.loc, 0) // verify params
+HealCreatureScan::HealCreatureScan(PlSpec &pls1)
+    : RangeScanner(pls1.loc, 16 * pls1.spec->ability + 256), scientist(pls1)
 {
-// code at 0001:00077224
-}
+  // code at 0001:00077224
+  this->tgtCreature = 0;
+  this->bestRange = -1;
+ }
 
 void HealCreatureScan::PerGrid()
 {

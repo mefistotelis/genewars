@@ -20,10 +20,12 @@
 
 long const punishmentCost[] = { 0, 16, 112, 16, 256, 16, 224, };
 
-/*Ethereal::Ethereal()
+Ethereal::Ethereal()
+    : SmartMovingThing()
 {
-// code at 0001:00061564
-}*/
+  // code at 0001:00061564
+  // done
+}
 
 char unsigned Ethereal::IsDead()
 {

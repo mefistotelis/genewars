@@ -70,7 +70,7 @@ private:
     UBYTE MakeFire(GridTile *gtile1, SLONG arg2);
     void DrawZoneMarker(SLONG arg1, SLONG arg2, SLONG arg3, SLONG arg4);
 public:
-    //Effect(); -- generate default no-args constructor
+    Effect();
     //Effect(Effect &eff1); -- generate default copy constructor
     Effect & operator =(Effect &eff1);
 };

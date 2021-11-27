@@ -47,6 +47,7 @@ enum PlsError { // type=int8_t
 };
 
 class PlSpec : public SmartMovingThing { // sizeof=200
+public:
     SBYTE mode; // offset=85
     SBYTE saveMode; // offset=86
     SBYTE newMode; // offset=87

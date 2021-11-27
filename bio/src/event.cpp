@@ -18,10 +18,12 @@
 /******************************************************************************/
 #include "event.hpp"
 
-/*Event::Event()
+Event::Event()
+    : Thing()
 {
-// code at 0001:000614f4
-}*/
+  // code at 0001:000614f4
+  // done
+}
 
 BBOOL Event::operator ==(Event *arg1)
 {

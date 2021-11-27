@@ -198,16 +198,19 @@ extern char unsigned const cInfo[][5];
 extern char signed const sectorDirs[][2];
 extern FontInfo font_info[];
 
-inline UWORD control_urand(UBYTE shift, ULONG bound)
+inline UWORD control_urand(UBYTE shift, ULONG bound, const char *fn, ULONG ln)
 {
     ++control.RndCount;
-    debugLine[debugIndex] = __LINE__;
-    debugFile[debugIndex] = __FILE__;
+    debugLine[debugIndex] = ln;
+    debugFile[debugIndex] = fn;
     debugTurn[debugIndex] = control.Turn;
     debugIndex = (debugIndex+1) & 0x1Fu;
     control.Seed *= 0xE62Du;
     return (((int)control.Seed >> shift) & 0x7FFF) % bound;
 }
+
+#define URAND8(bound) control_urand(8, bound, __FILE__, __LINE__)
+
 
 #endif // BIO_DATA_HPP_
 /******************************************************************************/

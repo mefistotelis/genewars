@@ -505,8 +505,8 @@ public:
 class HarvestClearScan : public RangeScanner { // sizeof=55
 public:
     ULONG seedsGot; // offset=41
-    PlSpec pls;
-    ResearchGrid rGrid;
+    PlSpec &pls;
+    ResearchGrid &rGrid;
     BBOOL collect; // offset=53
     BBOOL clearFlags; // offset=54
 //internal:
@@ -520,8 +520,8 @@ public:
 
 class FarmerPlantingScan : public WeightedRangeScanner { // sizeof=115
 public:
-    PlSpec pls;
-    PSpecies pSpc;
+    PlSpec &pls;
+    PSpecies const &pSpc;
     BBOOL rangeInvert; // offset=114
 //internal:
     //void (**__vfptr)(); // offset=37
@@ -534,7 +534,7 @@ public:
 class SurvivalScan : public RangeScanner { // sizeof=53
 public:
     Creature *tgtCreature; // offset=41
-    PlSpec pls;
+    PlSpec &pls;
     ULONG bestRange; // offset=49
 //internal:
     //void (**__vfptr)(); // offset=37
@@ -547,7 +547,7 @@ public:
 class StudyCreatureScan : public RangeScanner { // sizeof=53
 public:
     Creature *tgtCreature; // offset=41
-    PlSpec scientist;
+    PlSpec &scientist;
     ULONG bestRange; // offset=49
 //internal:
     //void (**__vfptr)(); // offset=37
@@ -560,7 +560,7 @@ public:
 class HealCreatureScan : public RangeScanner { // sizeof=53
 public:
     Creature *tgtCreature; // offset=41
-    PlSpec scientist;
+    PlSpec &scientist;
     ULONG bestRange; // offset=49
 //internal:
     //void (**__vfptr)(); // offset=37

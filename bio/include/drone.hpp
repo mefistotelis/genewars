@@ -68,7 +68,7 @@ private:
     void SetDraggingTarget();
     void DropWhateverYouWereDragging();
 public:
-    //Drone(); -- generate default no-args constructor
+    Drone();
     //Drone(Drone &drn1); -- generate default copy constructor
     Drone & operator =(Drone &drn1);
 };

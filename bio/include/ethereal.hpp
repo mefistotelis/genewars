@@ -112,7 +112,7 @@ private:
     void SetMoveToTgtWithAlt(XY arg1, SLONG arg2);
     void SetMoveToThingWithAlt(Thing *tng1, SLONG arg2);
 public:
-    //Ethereal(); -- generate default no-args constructor
+    Ethereal();
     //Ethereal(class Ethereal &arg1); -- generate default copy constructor
     Ethereal & operator =(Ethereal &arg1);
 };

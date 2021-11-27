@@ -41,10 +41,12 @@ MyMinSprite Creature::scaredMMs;
 
 MyMinSprite Creature::huntingMMs;
 
-/*Creature::Creature()
+Creature::Creature()
+    : SmartMovingThing()
 {
-// code at 0001:00061484
-}*/
+  // code at 0001:00061484
+  // done
+}
 
 SLONG Creature::Strength()
 {

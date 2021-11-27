@@ -22,8 +22,8 @@
 
 BioGame::BioGame()
     : players{0,0,0,0}, // for all items in array, call Player(0)
-      topoMorpher(),
-      planet(defaultPlanet)
+      planet(defaultPlanet),
+      topoMorpher()
 {
   // code at 0001:000612e4
   this->checksum = sizeof(BioGame);

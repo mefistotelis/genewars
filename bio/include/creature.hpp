@@ -239,7 +239,7 @@ private:
     void EveryCR_BONES2(GridTile *gtile1);
     void EveryCR_BONES3(GridTile *gtile1);
 public:
-    //Creature(); -- generate default no-args constructor
+    Creature();
     //Creature(Creature &arg1); -- generate default copy constructor
     Creature & operator =(Creature &arg1);
 };
