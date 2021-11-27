@@ -21,10 +21,11 @@
 #include <cstring>
 #include <cassert>
 
-/*ScanRecord::ScanRecord()
+ScanRecord::ScanRecord()
 {
-// code at 0001:00088d70
-}*/
+  // code at 0001:00088d70
+  memset(this->used, 0, 128);
+}
 
 int ScanRecord::Hash(XY cor1)
 {

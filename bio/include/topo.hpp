@@ -48,7 +48,7 @@ class TopoMorpher { // sizeof=4401
     TopoGrid topos[25]; // offset=0
     UBYTE numTopos; // offset=4400
 public:
-    //TopoMorpher(); -- generate default no-args constructor
+    TopoMorpher();
     TopoGrid * Create(XY arg1, UBYTE arg2, SLONG arg3, SLONG arg4);
     TopoGrid * Crater(XY arg1, UBYTE arg2);
     TopoGrid * Flat(XY arg1, UBYTE arg2, SLONG arg3, SLONG arg4);

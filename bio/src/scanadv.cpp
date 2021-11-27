@@ -25,9 +25,10 @@
 #define TILE_UNIT 256
 
 PassableTerrainScan::PassableTerrainScan(SmartMovingThing &tng1, ULONG arg2)
-    : PolarRangeScan(tng1.loc, arg2, 0), thing(tng1) // verify params
+    : PolarRangeScan(tng1.loc, arg2, 0), thing(tng1)
 {
-// code at 0001:00088da8
+  // code at 0001:00088da8
+  this->foundAPlace = 0;
 }
 
 void PassableTerrainScan::PerGrid()

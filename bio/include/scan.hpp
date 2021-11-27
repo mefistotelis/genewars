@@ -31,7 +31,7 @@ public:
     XY xy[128];
     BBOOL used[128]; // offset=512
 public:
-    //ScanRecord(); -- generate default no-args constructor
+    ScanRecord();
     void Add(XY arg1);
     BBOOL IsRecorded(XY arg1);
 private:

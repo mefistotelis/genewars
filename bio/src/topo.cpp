@@ -63,10 +63,13 @@ BBOOL TopoGrid::Update()
 // code at 0001:00090fe9
 }
 
-/*TopoMorpher::TopoMorpher()
+TopoMorpher::TopoMorpher()
 {
-// code at 0001:000912b0
-}*/
+  // code at 0001:000912b0
+  for (int i = 0; i < 25; i++)
+    this->topos[i].Invalidate();
+  this->numTopos = 0;
+}
 
 TopoGrid * TopoMorpher::Create(XY arg1, UBYTE arg2, SLONG arg3, SLONG arg4)
 {
