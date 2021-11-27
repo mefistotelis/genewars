@@ -18,6 +18,9 @@
 /******************************************************************************/
 #include "xy.hpp"
 
+#include "gridtile.hpp"
+#include "data.hpp"
+
 XY XY::operator *(int n) const
 {
 // code at 0001:00059970
@@ -28,14 +31,76 @@ XY XY::operator &=(int n)
 // code at 0001:00059934
 }
 
+/** Get grid altitude at current XY.
+ */
 SLONG XY::AltAt() const
 {
-// code at 0001:0004a0d6
+  // code at 0001:0004a0d6
+  SLONG tileX, tileY;
+  SLONG subposX, subposY;
+  GridTile *gtile;
+  SLONG alt1, alt2, alt3, alt4;
+  // We will need tile numbers to get grid points altitudes
+  tileX = this->x >> 8;
+  tileY = this->y >> 8;
+  gtile = &bio.grid[(tileY) & 0x7F][(tileX) & 0x7F];
+  alt1 = gtile->Alt;
+  gtile = &bio.grid[(tileY+1) & 0x7F][(tileX+1) & 0x7F];
+  alt3 = gtile->Alt;
+  // Sub-positions within tiles will be used to weight the altitude inbetween
+  subposX = (this->x & 0xFF);
+  subposY = (this->y & 0xFF);
+  if ( subposX < subposY )
+  {
+    gtile = &bio.grid[(tileY+1) & 0x7F][(tileX) & 0x7F];
+    alt2 = gtile->Alt;
+    alt4 = ((alt2 - alt1) * subposY + (alt3 - alt2) * subposX) >> 7;
+  }
+  else
+  {
+    gtile = &bio.grid[(tileY) & 0x7F][(tileX+1) & 0x7F];
+    alt2 = gtile->Alt;
+    alt4 = ((alt2 - alt1) * subposX + (alt3 - alt2) * subposY) >> 7;
+  }
+  return 2 * alt1 + alt4;
 }
 
+/** Get grid shade at current XY.
+ */
 SLONG XY::ShadeAt() const
 {
 // code at 0001:0004a2a6
+  SLONG tileX, tileY;
+  SLONG subposX, subposY;
+  GridTile *gtile;
+  SLONG shade1, shade2, shade3, shade4, ret;
+
+  tileX = this->x >> 8;
+  tileY = this->y >> 8;
+  gtile = &bio.grid[(tileY) & 0x7F][(tileX) & 0x7F];
+  shade1 = gtile->explored * gtile->Shade >> 6;
+  gtile = &bio.grid[(tileY+1) & 0x7F][(tileX+1) & 0x7F];
+  shade3 = gtile->explored * gtile->Shade >> 6;
+  subposX = (this->x & 0xFF);
+  subposY = (this->y & 0xFF);
+  if ( subposX < subposY )
+  {
+    gtile = &bio.grid[(tileY+1) & 0x7F][(tileX) & 0x7F];
+    shade2 = gtile->explored * gtile->Shade >> 6;
+    shade4 = ((shade2 - shade1) * subposY + subposX * ((shade3 * shade3 >> 6) - shade2)) >> 7;
+  }
+  else
+  {
+    gtile = &bio.grid[(tileY) & 0x7F][(tileX+1) & 0x7F];
+    shade2 = gtile->explored * gtile->Shade >> 6;
+    shade4 = ((shade2 - shade1) * subposX + subposY * ((shade3 * shade3 >> 6) - shade2)) >> 7;
+  }
+  ret = ((2 * shade1 + shade4 - 7680) >> 8) + 16;
+  if (ret > 64)
+    ret = 64;
+  if (ret < 0)
+    ret = 0;
+  return ret;
 }
 
 void XY::EverythingAt(SLONG &arg1, UBYTE &arg2) const
@@ -43,34 +108,48 @@ void XY::EverythingAt(SLONG &arg1, UBYTE &arg2) const
 // code at 0001:0004a4f5
 }
 
-XY XY::operator +=(XY o2)
+XY XY::operator +=(XY cor1)
 {
-// code at 0001:00040be0
+  // code at 0001:00040be0
+  this->x += cor1.x;
+  this->y += cor1.y;
+  return *this;
 }
 
+/** Returns XY at beginning of the tile.
+ */
 XY XY::BaseTile() const
 {
-// code at 0001:00040ba4
+  // code at 0001:00040ba4
+  XY corr;
+
+  corr.x = (this->x & ~0xff);
+  corr.y = (this->y & ~0xff);
+  return corr;
 }
 
 void XY::ClearFoundation(UBYTE arg1) const
 {
-// code at 0001:00040b78
+  // code at 0001:00040b78
+  this->MarkFoundation(arg1, 0);
 }
 
 void XY::SetFoundation(UBYTE arg1) const
 {
-// code at 0001:00040b48
+  // code at 0001:00040b48
+  this->MarkFoundation(arg1, 1);
 }
 
-BBOOL XY::operator ==(XY arg1) const
+BBOOL XY::operator ==(XY cor1) const
 {
-// code at 0001:000378f0
+  // code at 0001:000378f0
+  return cor1.x == this->x && cor1.y == this->y;
 }
 
 UBYTE XY::IsFoundationSiteWrong(UBYTE arg1) const
 {
-// code at 0001:000378bc
+  // code at 0001:000378bc
+  return this->IsFoundationSiteWrong(arg1, 100);
 }
 
 XY XY::operator +(int n) const
@@ -88,24 +167,36 @@ BBOOL XY::IsPassable(UBYTE arg1, Building *arg2, MovingThing *arg3) const
 // code at 0001:00083ff8
 }
 
-BBOOL XY::operator !=(XY arg1) const
+BBOOL XY::operator !=(XY cor1) const
 {
-// code at 0001:00005bc0
+  // code at 0001:00005bc0
+  return cor1.x != this->x || cor1.y != this->y;
 }
 
-XY XY::operator +(XY arg1) const
+XY XY::operator +(XY cor1) const
 {
-// code at 0001:00005b80
+  // code at 0001:00005b80
+  XY corr;
+
+  corr.x = cor1.x + this->x;
+  corr.y = cor1.y + this->y;
+  return corr;
 }
 
-XY XY::Set(SWORD arg1, SWORD arg2)
+XY XY::Set(SWORD nx, SWORD ny)
 {
-// code at 0001:00005b44
+  // code at 0001:00005b44
+  this->x = nx;
+  this->y = ny;
+  return *this;
 }
 
-XY XY::Add(SWORD arg1, SWORD arg2)
+XY XY::Add(SWORD dx, SWORD dy)
 {
-// code at 0001:00004bf4
+  // code at 0001:00004bf4
+  this->x += dx;
+  this->y += dy;
+  return *this;
 }
 
 GridTile * XY::GridtileAt() const
@@ -118,9 +209,16 @@ UBYTE XY::TerrainAt() const
 // code at 0001:00003630
 }
 
+/** Returns XY at center of the tile.
+ */
 XY XY::CenterFrom() const
 {
-// code at 0001:000262ac
+  // code at 0001:000262ac
+  XY corr;
+
+  corr.x = (this->x & ~0xff) | 0x7f;
+  corr.y = (this->y & ~0xff) | 0x7f;
+  return corr;
 }
 
 XY XY::operator >>=(int n)
@@ -295,7 +393,9 @@ BBOOL XY::IsPassable(UBYTE arg1, MovingThing *tng) const
 
 void XY::Clear()
 {
-// code at 0001:0001e10c
+  // code at 0001:0001e10c
+  this->x = 0;
+  this->y = 0;
 }
 
 XY XY::operator &(int n) const
@@ -303,19 +403,32 @@ XY XY::operator &(int n) const
 // code at 0001:00085750
 }
 
-XY XY::operator -(XY arg1) const
+XY XY::operator -(XY cor1) const
 {
-// code at 0001:0003940c
+  // code at 0001:0003940c
+  XY corr;
+
+  corr.x = this->x - cor1.x;
+  corr.y = this->y - cor1.y;
+  return corr;
 }
 
 XY XY::operator /=(int n)
 {
-// code at 0001:000393c0
+  // code at 0001:000393c0
+  this->x /= (SWORD)n;
+  this->y /= (SWORD)n;
+  return *this;
 }
 
 XY XY::operator <<(int n) const
 {
-// code at 0001:0003937c
+  // code at 0001:0003937c
+  XY corr;
+
+  corr.x = this->x << n;
+  corr.y = this->y << n;
+  return corr;
 }
 
 XY XY::operator >>(int n) const

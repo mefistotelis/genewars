@@ -29,6 +29,7 @@ class Thing;
 class PlSpec;
 
 class GridTile { // sizeof=16
+public:
     SWORD Shade; // offset=0
     SWORD Alt; // offset=2
     SWORD Block; // offset=4
