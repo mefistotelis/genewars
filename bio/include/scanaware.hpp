@@ -73,6 +73,7 @@ public:
 
 class AwarenessScan : RangeScanner { // sizeof=484
 public:
+    Creature &c;
     int threats[16]; // offset=45
     int enemies[16]; // offset=109
     int friends[16]; // offset=173
@@ -99,14 +100,12 @@ public:
     SLONG bestMateRanking; // offset=468
     SLONG bestEnemyRanking; // offset=472
     SLONG bestThreatRanking; // offset=476
-public:
-    Creature c;
 private:
-    ASpecies speci;
+    ASpecies &speci;
 //internal:
     //void (**__vfptr)(); // offset=37
 public:
-    AwarenessScan(Creature &arg1);
+    AwarenessScan(Creature &crtr);
     virtual void PerGrid();
     void Do();
     //AwarenessScan(AwarenessScan const &rscan1); -- generate default copy constructor

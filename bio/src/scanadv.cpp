@@ -169,10 +169,12 @@ void CollectorScan::PerGrid()
 // code at 0001:00082cd0
 }
 
-BuilderTreeScan::BuilderTreeScan(Creature &arg1)
-    : RangeScanner(arg1.loc, 0) // verify params
+BuilderTreeScan::BuilderTreeScan(Creature &crtr)
+    : RangeScanner(crtr.loc, crtr.Species().smarts + 256)
 {
-// code at 0001:00082c6c
+  // code at 0001:00082c6c
+  this->tgtPlant = 0;
+  this->bestRange = 0x7FFFFFFF;
 }
 
 void BuilderTreeScan::PerGrid()
@@ -180,10 +182,11 @@ void BuilderTreeScan::PerGrid()
 // code at 0001:00082c08
 }
 
-ChopperScan::ChopperScan(Creature &arg1)
-    : WeightedTgtRangeScanner(arg1.loc, 0) // verify params
+ChopperScan::ChopperScan(Creature &crtr)
+    : WeightedTgtRangeScanner(crtr.loc, crtr.Species().smarts + 512)
 {
-// code at 0001:000831b8
+  // code at 0001:000831b8
+  // done
 }
 
 void ChopperScan::PerGrid()
@@ -191,10 +194,12 @@ void ChopperScan::PerGrid()
 // code at 0001:000830f0
 }
 
-LumberjackScan::LumberjackScan(PlSpec &arg1)
-    : RangeScanner(arg1.loc, 0) // verify params
+LumberjackScan::LumberjackScan(PlSpec &pls1)
+    : RangeScanner(pls1.loc, pls1.LumberjackFellRange()), pls(pls1)
 {
-// code at 0001:00077b34
+  // code at 0001:00077b34
+  this->bestValue = 0x7FFFFFFF;
+  this->tgtPlant = 0;
 }
 
 void LumberjackScan::PerGrid()

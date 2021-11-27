@@ -46,10 +46,56 @@ void BaseAwareness::Reset()
 // code at 0001:00027995
 }
 
-AwarenessScan::AwarenessScan(Creature &arg1)
-    : RangeScanner(arg1.loc, 0) // verify params
+AwarenessScan::AwarenessScan(Creature &crtr)
+    : RangeScanner(crtr.loc, crtr.Species().smarts + 512),
+      c(crtr), speci(crtr.Species())
 {
-// code at 0001:00083c1c
+  // code at 0001:00083c1c
+  memset(this->threats, 0, 64);
+  memset(this->enemies, 0, 64);
+  memset(this->food, 0, 64);
+  memset(this->mates, 0, 64);
+  memset(this->friends, 0, 64);
+  memset(this->terrain, 0, 64);
+  this->foundThreats = 0;
+  this->foundMates = 0;
+  this->foundFood = 0;
+  this->foundFriends = 0;
+  this->foundEnemies = 0;
+  // Sort foods
+  int food[4];
+  for (int i = 0; i < 3; i++)
+    food[i+1] = this->speci.food[i];
+  for (int i = 1; i < 3; i++)
+  {
+    for (; (i > 0) && (food[i+1] < food[i]); i--)
+    {
+      food[0] = food[i+1];
+      food[i+1] = food[i];
+      food[i] = food[0];
+    }
+  }
+  //TODO Overcomplicated clearing food rankings - probably an inlined call
+  for (int i = 0; i < 3; i++)
+  {
+    for (int j = 0; j < 3; j++)
+    {
+      if (this->speci.food[j] == food[i+1])
+      {
+        this->foodRankings[i] = 0;
+        food[i+1] = -1;
+      }
+    }
+  }
+
+  this->bestRanking = -268435455;
+  this->bestMateRanking = -268435455;
+  this->bestEnemyRanking = -268435455;
+  this->bestThreatRanking = -268435455;
+  this->bestThing = 0;
+  this->bestMate = 0;
+  this->bestEnemy = 0;
+  this->bestThreat = 0;
 }
 
 void AwarenessScan::PerGrid()

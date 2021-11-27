@@ -18,6 +18,8 @@
 /******************************************************************************/
 #include "scan.hpp"
 
+#include <cstring>
+
 /*ScanRecord::ScanRecord()
 {
 // code at 0001:00088d70
@@ -91,9 +93,10 @@ void PolarRangeScan::displayDebug(XY cor1, ULONG &arg2)
 }
 
 WeightedRangeScanner::WeightedRangeScanner(XY cor1, ULONG arg2)
-    : RangeScanner(cor1, arg2) // verify params
+    : RangeScanner(cor1, arg2)
 {
-// code at 0001:00078154
+  // code at 0001:00078154
+  memset(this->dirWeights, 0, sizeof(this->dirWeights));
 }
 
 WeightedRangeScanner::WeightedRangeScanner(XY cor1, ULONG arg2, XY *arg3, SLONG arg4)
