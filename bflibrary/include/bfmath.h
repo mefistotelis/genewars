@@ -23,7 +23,7 @@
 extern "C" {
 #endif
 
-int LbSqrL();
+long LbSqrL(long x);
 
 int LbArcTan();
 
