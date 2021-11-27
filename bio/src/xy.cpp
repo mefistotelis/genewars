@@ -23,12 +23,20 @@
 
 XY XY::operator *(int n) const
 {
-// code at 0001:00059970
+  // code at 0001:00059970
+  XY corr;
+
+  corr.x = n * this->x;
+  corr.y = n * this->y;
+  return corr;
 }
 
 XY XY::operator &=(int n)
 {
-// code at 0001:00059934
+  // code at 0001:00059934
+  this->x &= n;
+  this->y &= n;
+  return *this;
 }
 
 /** Get grid altitude at current XY.
@@ -69,11 +77,11 @@ SLONG XY::AltAt() const
  */
 SLONG XY::ShadeAt() const
 {
-// code at 0001:0004a2a6
+  // code at 0001:0004a2a6
   SLONG tileX, tileY;
   SLONG subposX, subposY;
   GridTile *gtile;
-  SLONG shade1, shade2, shade3, shade4, ret;
+  SLONG shade1, shade2, shade3, shade4;
 
   tileX = this->x >> 8;
   tileY = this->y >> 8;
@@ -87,25 +95,64 @@ SLONG XY::ShadeAt() const
   {
     gtile = &bio.grid[(tileY+1) & 0x7F][(tileX) & 0x7F];
     shade2 = gtile->explored * gtile->Shade >> 6;
-    shade4 = ((shade2 - shade1) * subposY + subposX * ((shade3 * shade3 >> 6) - shade2)) >> 7;
+    shade4 = ((shade2 - shade1) * subposY + (shade3 - shade2) * subposX) >> 7;
   }
   else
   {
     gtile = &bio.grid[(tileY) & 0x7F][(tileX+1) & 0x7F];
     shade2 = gtile->explored * gtile->Shade >> 6;
-    shade4 = ((shade2 - shade1) * subposX + subposY * ((shade3 * shade3 >> 6) - shade2)) >> 7;
+    shade4 = ((shade2 - shade1) * subposX + (shade3 - shade2) * subposY) >> 7;
   }
-  ret = ((2 * shade1 + shade4 - 7680) >> 8) + 16;
-  if (ret > 64)
-    ret = 64;
-  if (ret < 0)
-    ret = 0;
-  return ret;
+  shade4 = ((2 * shade1 + shade4 - 7680) >> 8) + 16;
+  if (shade4 > 64)
+    shade4 = 64;
+  if (shade4 < 0)
+    shade4 = 0;
+  return shade4;
 }
 
-void XY::EverythingAt(SLONG &arg1, UBYTE &arg2) const
+void XY::EverythingAt(SLONG &altAt, UBYTE &shadeAt) const
 {
-// code at 0001:0004a4f5
+  // code at 0001:0004a4f5
+  SLONG tileX, tileY;
+  SLONG subposX, subposY;
+  GridTile *gtile;
+  SLONG shade1, shade2, shade3, shade4;
+  SLONG alt1, alt2, alt3, alt4;
+
+  tileX = this->x >> 8;
+  tileY = this->y >> 8;
+  gtile = &bio.grid[(tileY) & 0x7F][(tileX) & 0x7F];
+  alt1 = gtile->Alt;
+  shade1 = gtile->explored * gtile->Shade >> 6;
+  gtile = &bio.grid[(tileY+1) & 0x7F][(tileX+1) & 0x7F];
+  alt3 = gtile->Alt;
+  shade3 = gtile->explored * gtile->Shade >> 6;
+  subposX = (this->x & 0xFF);
+  subposY = (this->y & 0xFF);
+  if ( subposX < subposY )
+  {
+    gtile = &bio.grid[(tileY+1) & 0x7F][(tileX) & 0x7F];
+    alt2 = gtile->Alt;
+    shade2 = gtile->explored * gtile->Shade >> 6;
+    alt4 = (subposX * (alt3 - alt2) + subposY * (alt2 - alt1)) >> 7;
+    shade4 = ((shade2 - shade1) * subposY + (shade3 - shade2) * subposX) >> 7;
+  }
+  else
+  {
+    gtile = &bio.grid[(tileY) & 0x7F][(tileX+1) & 0x7F];
+    alt2 = gtile->Alt;
+    shade2 = gtile->explored * gtile->Shade >> 6;
+    alt4 = ((alt3 - alt2) * subposY + (alt2 - alt1) * subposX) >> 7;
+    shade4 = ((shade2 - shade1) * subposX + (shade3 - shade2) * subposY) >> 7;
+  }
+  shade4 = ((2 * shade1 + shade4 - 7680) >> 8) + 16;
+  if (shade4 >= 64)
+    shade4 = 64;
+  if (shade4 < 0)
+    shade4 = 0;
+  shadeAt = shade4;
+  altAt = 2 * alt1 + alt4;
 }
 
 XY XY::operator +=(XY cor1)
@@ -154,12 +201,22 @@ UBYTE XY::IsFoundationSiteWrong(UBYTE arg1) const
 
 XY XY::operator +(int n) const
 {
-// code at 0001:00084838
+  // code at 0001:00084838
+  XY corr;
+
+  corr.x = n + this->x;
+  corr.y = n + this->y;
+  return corr;
 }
 
 XY XY::operator -(int n) const
 {
-// code at 0001:000847f8
+  // code at 0001:000847f8
+  XY corr;
+
+  corr.x = this->x - n;
+  corr.y = this->y - n;
+  return corr;
 }
 
 BBOOL XY::IsPassable(UBYTE arg1, Building *arg2, MovingThing *arg3) const
@@ -223,15 +280,21 @@ XY XY::CenterFrom() const
 
 XY XY::operator >>=(int n)
 {
-// code at 0001:00056db4
+  // code at 0001:00056db4
+  this->x >>= n;
+  this->y >>= n;
+  return *this;
 }
 
 XY XY::operator <<=(int n)
 {
-// code at 0001:00056d78
+  // code at 0001:00056d78
+  this->x <<= n;
+  this->y <<= n;
+  return *this;
 }
 
-XY XY::operator -=(XY)
+XY XY::operator -=(XY cor1)
 {
 // code at 0001:000938e4
 }
@@ -388,7 +451,8 @@ void XY::UndiscoverMap(SLONG arg1) const
 
 BBOOL XY::IsPassable(UBYTE arg1, MovingThing *tng) const
 {
-// code at 0001:00052a38
+  // code at 0001:00052a38
+  return !(arg1 & (1 << this->TerrainAt())) && (this->GridtileAt()->ClutterRating(tng) < 10);
 }
 
 void XY::Clear()
@@ -400,7 +464,12 @@ void XY::Clear()
 
 XY XY::operator &(int n) const
 {
-// code at 0001:00085750
+  // code at 0001:00085750
+  XY corr;
+
+  corr.x = n & this->x;
+  corr.y = n & this->y;
+  return corr;
 }
 
 XY XY::operator -(XY cor1) const
@@ -433,12 +502,22 @@ XY XY::operator <<(int n) const
 
 XY XY::operator >>(int n) const
 {
-// code at 0001:000781c8
+  // code at 0001:000781c8
+  XY corr;
+
+  corr.x = this->x >> n;
+  corr.y = this->y >> n;
+  return corr;
 }
 
 XY XY::operator /(int n) const
 {
-// code at 0001:00088fc4
+  // code at 0001:00088fc4
+  XY corr;
+
+  corr.x = this->x / n;
+  corr.y = this->y / n;
+  return corr;
 }
 
 /*unsigned char XY::__defarg()
