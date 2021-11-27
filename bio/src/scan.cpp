@@ -19,6 +19,7 @@
 #include "scan.hpp"
 
 #include <cstring>
+#include <cassert>
 
 /*ScanRecord::ScanRecord()
 {
@@ -99,10 +100,18 @@ WeightedRangeScanner::WeightedRangeScanner(XY cor1, ULONG arg2)
   memset(this->dirWeights, 0, sizeof(this->dirWeights));
 }
 
-WeightedRangeScanner::WeightedRangeScanner(XY cor1, ULONG arg2, XY *arg3, SLONG arg4)
-    : RangeScanner(cor1, arg2) // verify params
+WeightedRangeScanner::WeightedRangeScanner(XY cor1, ULONG arg2, XY *cor3, SLONG arg4)
+    : RangeScanner(cor1, arg2)
 {
-// code at 0001:00084770
+  // code at 0001:00084770
+  memset(this->dirWeights, 0, sizeof(this->dirWeights));
+  if (cor3 != NULL)
+  {
+    SWORD angle = cor1.DirTo(*cor3);
+    assert(angle >= 0);
+    assert(angle < 2048);
+    this->dirWeights[angle >> 7] = arg4;
+  }
 }
 
 void WeightedRangeScanner::Do()
@@ -111,15 +120,19 @@ void WeightedRangeScanner::Do()
 }
 
 WeightedTgtRangeScanner::WeightedTgtRangeScanner(XY cor1, ULONG arg2)
-    : WeightedRangeScanner(cor1, arg2) // verify params
+    : WeightedRangeScanner(cor1, arg2)
 {
-// code at 0001:00084708
+  // code at 0001:00084708
+  memset(this->bestPerSector, 0, 64);
+  memset(this->bestThings, 0, 64);
 }
 
-WeightedTgtRangeScanner::WeightedTgtRangeScanner(XY cor1, ULONG arg2, XY *arg3, SLONG arg4)
-    : WeightedRangeScanner(cor1, arg2, arg3, arg4) // verify params
+WeightedTgtRangeScanner::WeightedTgtRangeScanner(XY cor1, ULONG arg2, XY *cor3, SLONG arg4)
+    : WeightedRangeScanner(cor1, arg2, cor3, arg4)
 {
-// code at 0001:00084698
+  // code at 0001:00084698
+  memset(this->bestPerSector, 0, 64);
+  memset(this->bestThings, 0, 64);
 }
 
 void WeightedTgtRangeScanner::Do()
