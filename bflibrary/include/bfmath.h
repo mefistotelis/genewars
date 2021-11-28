@@ -23,9 +23,14 @@
 extern "C" {
 #endif
 
+#define LbFPMath_PI 1024
+#define LbFPMath_AngleMask 0x7FF
+/** Amount of fractional bits in resulting values of trigonometric operations. */
+#define LbFPMath_TrigmBits 16
+
 long LbSqrL(long x);
 
-int LbArcTan();
+long LbArcTanAngle(long x,long n);
 
 extern int lbSinTable;
 
