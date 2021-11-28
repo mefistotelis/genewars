@@ -220,9 +220,15 @@ XY XY::operator -(int n) const
   return corr;
 }
 
-BBOOL XY::IsPassable(UBYTE arg1, Building *arg2, MovingThing *arg3) const
+BBOOL XY::IsPassable(UBYTE arg1, Building *bldng1, MovingThing *tng) const
 {
-// code at 0001:00083ff8
+  // code at 0001:00083ff8
+  Building *bldng2;
+
+  bldng2 = this->ExactBuildingAt(1);
+  return !(arg1 & (1 << this->TerrainAt()))
+    && (bldng2 == NULL || bldng2 == bldng1)
+    && (this->GridtileAt()->ClutterRating(tng) < 10);
 }
 
 BBOOL XY::operator !=(XY cor1) const
@@ -259,12 +265,18 @@ XY XY::Add(SWORD dx, SWORD dy)
 
 GridTile * XY::GridtileAt() const
 {
-// code at 0001:00003664
+  // code at 0001:00003664
+  UWORD tileX, tileY;
+
+  tileX = (this->x >> 8) & 0x7F;
+  tileY = (this->y >> 8) & 0x7F;
+  return &bio.grid[tileY][tileX];
 }
 
 UBYTE XY::TerrainAt() const
 {
-// code at 0001:00003630
+  // code at 0001:00003630
+  return this->GridtileAt()->GetTerrain(*this);
 }
 
 /** Returns XY at center of the tile.
@@ -297,7 +309,10 @@ XY XY::operator <<=(int n)
 
 XY XY::operator -=(XY cor1)
 {
-// code at 0001:000938e4
+  // code at 0001:000938e4
+  this->x -= cor1.x;
+  this->y -= cor1.y;
+  return *this;
 }
 
 Normal XY::NormalAt() const
@@ -440,14 +455,43 @@ void XY::AngleVectorTo(XY arg1, Vector &arg2) const
 // code at 0001:0008c365
 }
 
-void XY::AngleVectorTo(XY arg1, Vector &arg2, SLONG arg3, SLONG arg4) const
+/** Sets angular coords in given vector to point towards given XY.
+ */
+void XY::AngleVectorTo(XY cor1, Vector &corTo, SLONG alt1, SLONG alt2) const
 {
-// code at 0001:0008c405
+  // code at 0001:0008c405
+  SWORD toX, toY, distXY;
+
+  toX = 2 * cor1.x - 2 * this->x;
+  toY = 2 * cor1.y - 2 * this->y;
+  corTo.angle = LbArcTanAngle(toX, toY);
+  distXY = LbSqrL((toX >> 1) * (toX >> 1) + (toY >> 1) * (toY >> 1));
+  corTo.angleZ = LbArcTanAngle(distXY, (alt1 - alt2) >> 3);
 }
 
-XY XY::RangeTargetXYTo(XY, short unsigned, short)
+XY XY::RangeTargetXYTo(XY cor1, UWORD dist, SWORD angle)
 {
-// code at 0001:0008c49a
+  // code at 0001:0008c49a
+  SLONG mag;
+  SWORD angX, angY;
+  XY range;
+  mag = dist;
+  if (angle == -1)
+    angle = this->DirTo(cor1);
+  angle = (angle + LbFPMath_PI) & LbFPMath_AngleMask;
+  mag *= 2;
+  range = cor1 << 1;
+  if ( angle < LbFPMath_PI/2 )
+    angY = angle + 3*LbFPMath_PI/2;
+  else
+    angY = angle - LbFPMath_PI/2;
+  if ( angle < LbFPMath_PI/2 )
+    angX = angle + 3*LbFPMath_PI/2;
+  else
+    angX = angle - LbFPMath_PI/2;
+  range.Add(mag * lbSinTable[angX + 512] >> 16, mag * lbSinTable[angY] >> 16);
+  range >>= 1;
+  return range & 0x7FFF;
 }
 
 XY XY::TargetXYAround(short unsigned)
@@ -548,7 +592,8 @@ void XY::UndiscoverMap(SLONG arg1) const
 BBOOL XY::IsPassable(UBYTE arg1, MovingThing *tng) const
 {
   // code at 0001:00052a38
-  return !(arg1 & (1 << this->TerrainAt())) && (this->GridtileAt()->ClutterRating(tng) < 10);
+  return !(arg1 & (1 << this->TerrainAt()))
+    && (this->GridtileAt()->ClutterRating(tng) < 10);
 }
 
 void XY::Clear()

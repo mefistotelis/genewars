@@ -24,6 +24,7 @@
 class ComponentVector;
 
 class Vector { // sizeof=6
+public:
     SWORD angle; // offset=0
     SWORD angleZ; // offset=2
     SWORD length; // offset=4
@@ -40,6 +41,7 @@ public:
 };
 
 class ComponentVector { // sizeof=6
+public:
     SWORD dx; // offset=0
     SWORD dy; // offset=2
     SWORD dz; // offset=4
