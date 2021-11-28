@@ -20,6 +20,7 @@
 
 #include "gridtile.hpp"
 #include "data.hpp"
+#include "bfmath.h"
 
 XY XY::operator *(int n) const
 {
@@ -301,7 +302,83 @@ XY XY::operator -=(XY cor1)
 
 Normal XY::NormalAt() const
 {
-// code at 0001:0008bc25
+  // code at 0001:0008bc25
+  Normal norr;
+  SLONG tileX, tileY;
+  SLONG subposX, subposY;
+  GridTile *gtile;
+  SWORD dir1, dir2, dir3, dir4, dir5, dir6;
+  SWORD alt1, alt2, alt3;
+  SLONG n4A, n4B, n4C, n4D, n4E, n4F;
+  Normal n5;
+  SLONG len;
+
+  tileX = (this->x >> 8) & 0xFF;
+  tileY = (this->y >> 8) & 0xFF;
+  gtile = &bio.grid[(tileY) & 0x7F][(tileX) & 0x7F];
+  alt1 = gtile->Alt >> 3;
+
+  subposX = (this->x & 0xFF);
+  subposY = (this->y & 0xFF);
+
+  dir2 = 0;
+  dir4 = 0;
+  if (subposY <= subposX)
+  {
+    ++tileX;
+    gtile = &bio.grid[(tileY) & 0x7F][(tileX) & 0x7F];
+    dir1 = 256;
+    dir3 = 0;
+    alt2 = gtile->Alt >> 3;
+    ++tileY;
+    gtile = &bio.grid[(tileY) & 0x7F][(tileX) & 0x7F];
+    dir5 = 256;
+  }
+  else
+  {
+    ++tileX;
+    ++tileY;
+    gtile = &bio.grid[(tileY) & 0x7F][(tileX) & 0x7F];
+    dir1 = 256;
+    dir3 = 256;
+    alt2 = gtile->Alt >> 3;
+    --tileX;
+    gtile = &bio.grid[(tileY) & 0x7F][(tileX) & 0x7F];
+    dir5 = 0;
+  }
+  dir6 = 256;
+  alt3 = gtile->Alt >> 3;
+
+  n4F = dir1 - dir2;
+  n4B = dir3 - dir4;
+  n4D = alt2 - alt1;
+  n4E = dir5 - dir1;
+  n4C = dir6 - dir3;
+  n4A = alt3 - alt2;
+  len = LbSqrL(n4D * n4D + n4B * n4B + n4F * n4F);
+  if ( !len )
+    len = 1;
+  n4F = (n4F << 8) / len;
+  n4B = (n4B << 8) / len;
+  n4D = (n4D << 8) / len;
+  len = LbSqrL(n4E * n4E + n4C * n4C + n4A * n4A);
+  if ( !len )
+    len = 1;
+  n4E = (n4E << 8) / len;
+  n4C = (n4C << 8) / len;
+  n4A = (n4A << 8) / len;
+  // Finally compute the normal vector
+  n5.NX = (n4A * n4B - n4C * n4D) >> 8;
+  n5.NY = (n4E * n4D - n4A * n4F) >> 8;
+  n5.NZ = (n4C * n4F - n4E * n4B) >> 8;
+  // Normalize the normal vector
+  len = LbSqrL(n5.NY * n5.NY + n5.NX * n5.NX + n5.NZ * n5.NZ);
+  if ( !len )
+    len = 1;
+  norr.NX = (n5.NX << 8) / len;
+  norr.NY = (n5.NY << 8) / len;
+  norr.NZ = (n5.NZ << 8) / len;
+  return norr;
 }
 
 ULONG XY::SquareRangeTo(XY arg1) const
