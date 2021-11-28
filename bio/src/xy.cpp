@@ -450,9 +450,10 @@ SWORD XY::DirTo(XY cor1) const
   return LbArcTanAngle((SLONG)cor1.x - 2 * (SLONG)this->x, (SLONG)cor1.y - 2 * (SLONG)this->y);
 }
 
-void XY::AngleVectorTo(XY arg1, Vector &arg2) const
+void XY::AngleVectorTo(XY cor1, Vector &corTo) const
 {
-// code at 0001:0008c365
+  // code at 0001:0008c365
+  this->AngleVectorTo(cor1, corTo, this->AltAt(), cor1.AltAt());
 }
 
 /** Sets angular coords in given vector to point towards given XY.
@@ -460,27 +461,28 @@ void XY::AngleVectorTo(XY arg1, Vector &arg2) const
 void XY::AngleVectorTo(XY cor1, Vector &corTo, SLONG alt1, SLONG alt2) const
 {
   // code at 0001:0008c405
-  SWORD toX, toY, distXY;
+  SWORD distX, distY, distZ, distXY;
 
-  toX = 2 * cor1.x - 2 * this->x;
-  toY = 2 * cor1.y - 2 * this->y;
-  corTo.angle = LbArcTanAngle(toX, toY);
-  distXY = LbSqrL((toX >> 1) * (toX >> 1) + (toY >> 1) * (toY >> 1));
-  corTo.angleZ = LbArcTanAngle(distXY, (alt1 - alt2) >> 3);
+  distX = 2 * cor1.x - 2 * this->x;
+  distY = 2 * cor1.y - 2 * this->y;
+  corTo.angle = LbArcTanAngle(distX, distY);
+  distZ = (alt1 - alt2) >> 3;
+  distXY = LbSqrL((distX >> 1) * (distX >> 1) + (distY >> 1) * (distY >> 1));
+  corTo.angleZ = LbArcTanAngle(distXY, distZ);
 }
 
 XY XY::RangeTargetXYTo(XY cor1, UWORD dist, SWORD angle)
 {
   // code at 0001:0008c49a
-  SLONG mag;
+  SLONG distXY;
   SWORD angX, angY;
-  XY range;
-  mag = dist;
+  XY target;
+  distXY = dist;
   if (angle == -1)
     angle = this->DirTo(cor1);
   angle = (angle + LbFPMath_PI) & LbFPMath_AngleMask;
-  mag *= 2;
-  range = cor1 << 1;
+  distXY *= 2;
+  target = cor1 << 1;
   if ( angle < LbFPMath_PI/2 )
     angY = angle + 3*LbFPMath_PI/2;
   else
@@ -489,14 +491,32 @@ XY XY::RangeTargetXYTo(XY cor1, UWORD dist, SWORD angle)
     angX = angle + 3*LbFPMath_PI/2;
   else
     angX = angle - LbFPMath_PI/2;
-  range.Add(mag * lbSinTable[angX + 512] >> 16, mag * lbSinTable[angY] >> 16);
-  range >>= 1;
-  return range & 0x7FFF;
+  target.Add(distXY * lbSinTable[angX + LbFPMath_PI/2] >> 16, distXY * lbSinTable[angY] >> 16);
+  target >>= 1;
+  return target & 0x7FFF;
 }
 
-XY XY::TargetXYAround(short unsigned)
+XY XY::TargetXYAround(UWORD distMax)
 {
-// code at 0001:0008c599
+  // code at 0001:0008c599
+  UWORD angle, distXY;
+  SWORD angX, angY;
+  XY target;
+
+  angle = 8 * URAND8(256);
+  distXY = 2 * (URAND8(256) * distMax >> 8);
+  target = (*this) << 1;
+  if ( angle < LbFPMath_PI/2 )
+    angY = angle + 3*LbFPMath_PI/2;
+  else
+    angY = angle - LbFPMath_PI/2;
+  if ( angle < LbFPMath_PI/2 )
+    angX = angle + 3*LbFPMath_PI/2;
+  else
+    angX = angle - LbFPMath_PI/2;
+  target.Add(distXY * lbSinTable[angX + LbFPMath_PI/2] >> 16, distXY * lbSinTable[angY] >> 16);
+  target >>= 1;
+  return target & 0x7FFF;
 }
 
 XY XY::ExactTargetXYAround(short unsigned)
