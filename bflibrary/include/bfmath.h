@@ -32,7 +32,7 @@ long LbSqrL(long x);
 
 long LbArcTanAngle(long x,long n);
 
-extern int lbSinTable;
+extern long lbSinTable[];
 
 #ifdef __cplusplus
 };
