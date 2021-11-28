@@ -381,39 +381,58 @@ Normal XY::NormalAt() const
   return norr;
 }
 
-ULONG XY::SquareRangeTo(XY arg1) const
+ULONG XY::SquareRangeTo(XY cor1) const
 {
-// code at 0001:0008bfe6
+  // code at 0001:0008bfe6
+  SLONG dx, dy;
+  cor1 <<= 1;
+  dx = ((SLONG)cor1.x - 2 * (SLONG)this->x) >> 1;
+  dy = ((SLONG)cor1.y - 2 * (SLONG)this->y) >> 1;
+  return dx * dx + dy * dy;
 }
 
-ULONG XY::SquareTrueRangeTo(XY arg1) const
+ULONG XY::SquareTrueRangeTo(XY cor1) const
 {
-// code at 0001:0008c057
+  // code at 0001:0008c057
+  return this->SquareTrueRangeTo(cor1, this->AltAt(), cor1.AltAt());
 }
 
-ULONG XY::SquareTrueRangeTo(XY arg1, SLONG arg2, SLONG arg3) const
+ULONG XY::SquareTrueRangeTo(XY cor1, SLONG arg2, SLONG arg3) const
 {
-// code at 0001:0008c0eb
+  // code at 0001:0008c0eb
+  SLONG dx, dy, dz;
+  dz = ((arg3 - arg2) >> 3);
+  cor1 <<= 1;
+  dx = ((SLONG)cor1.x - 2 * (SLONG)this->x) >> 1;
+  dy = ((SLONG)cor1.y - 2 * (SLONG)this->y) >> 1;
+  return dx * dx + dy * dy + dz * dz;
 }
 
-ULONG XY::RangeTo(XY arg1) const
+ULONG XY::RangeTo(XY cor1) const
 {
-// code at 0001:0008c173
+  // code at 0001:0008c173
+  return LbSqrL(this->SquareRangeTo(cor1));
 }
 
-ULONG XY::TrueRangeTo(XY arg1) const
+ULONG XY::TrueRangeTo(XY cor1) const
 {
-// code at 0001:0008c1e7
+  // code at 0001:0008c1e7
+  return LbSqrL(this->SquareTrueRangeTo(cor1));
 }
 
-ULONG XY::TrueRangeTo(XY arg1, SLONG arg2, SLONG arg3) const
+ULONG XY::TrueRangeTo(XY cor1, SLONG arg2, SLONG arg3) const
 {
-// code at 0001:0008c27e
+  // code at 0001:0008c27e
+  return LbSqrL(this->SquareTrueRangeTo(cor1, arg2, arg3));
 }
 
-SWORD XY::DirTo(XY arg1) const
+/** Returns angular direction towards given XY.
+ */
+SWORD XY::DirTo(XY cor1) const
 {
-// code at 0001:0008c309
+  // code at 0001:0008c309
+  cor1 <<= 1;
+  return LbArcTanAngle((SLONG)cor1.x - 2 * (SLONG)this->x, (SLONG)cor1.y - 2 * (SLONG)this->y);
 }
 
 void XY::AngleVectorTo(XY arg1, Vector &arg2) const
