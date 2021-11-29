@@ -20,6 +20,7 @@
 
 #include "gridtile.hpp"
 #include "data.hpp"
+#include "tables.hpp"
 #include "bfmath.h"
 
 XY XY::operator *(int n) const
@@ -554,9 +555,32 @@ GridTile * XY::NearestGridtileAt() const
   return GridTile::GetRealGrid(corr.x, corr.y);
 }
 
-Building * XY::BuildingAt(UBYTE arg1) const
+Building * XY::BuildingAt(UBYTE bflags) const
 {
-// code at 0001:0008ca56
+  // code at 0001:0008ca56
+  Building *bldng;
+  static UBYTE scanDirs[] = {8, 2, 3, 4, 5, 6, 7, 1, 0,};
+
+  if ( !this->GridtileAt()->IsFoundation() )
+    return 0;
+
+  for (int i = 0; i < 9; i++)
+  {
+    XY cor1;
+    cor1 = (*this) + hdxy[scanDirs[i]];
+    bldng = cor1.GridtileAt()->GetBuilding();
+    if (bldng != NULL)
+    {
+      if ( foundationSizes[bldng->type] != 2 || i < 4 )
+      {
+        if ( (bflags & bldng->flags) == bflags )
+          return bldng;
+        else
+          return NULL;
+      }
+    }
+  }
+  return NULL;
 }
 
 Building * XY::ExactBuildingAt(UBYTE arg1) const

@@ -251,6 +251,8 @@ EventHelpType const buildingHelp[][3] = {
     {EVH_SHIELD_GENERATOR, EVH_SANCTUARY_GENERATOR, EVH_DENIAL_DOME}, {EVH_GOOP_VAT, EVH_NULL, EVH_NULL},
 };
 
+/** Size of foudation needed for each building type.
+ */
 const unsigned char foundationSizes[] = {3, 1, 2, 3, 2, 2, 1, 2, 1, 2, 3, 3, 2, 1, 0, 0,};
 
 const unsigned char foundationArea[] = {0, 1, 4, 9,};
