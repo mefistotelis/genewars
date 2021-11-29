@@ -615,14 +615,16 @@ Building * XY::ExactBuildingAt(UBYTE bflags) const
   return bldng;
 }
 
-BBOOL XY::IsClearToMoveTo(XY cor1, UBYTE arg2, XY &cor3, MovingThing *tng, Building *bldng) const
+/** Returns if a thing is clear to move to XY, sets blockAt if not.
+ */
+BBOOL XY::IsClearToMoveTo(XY cor1, UBYTE arg2, XY &blockAt, MovingThing *tng, Building *bldng) const
 {
-  // code at 0001:0008cc48
-  SLONG ratioX, ratioY;
-  SLONG angle, angX, angY;
-  XY corc;
-  SLONG lnY, lnX;
-  BBOOL repeat;
+    // code at 0001:0008cc48
+    SLONG ratioX, ratioY;
+    SLONG angle, angX, angY;
+    XY corc;
+    SLONG lnY, lnX;
+    BBOOL repeat;
 
     if (!this->IsPassable(arg2, bldng, tng))
       return true;
@@ -638,15 +640,15 @@ BBOOL XY::IsClearToMoveTo(XY cor1, UBYTE arg2, XY &cor3, MovingThing *tng, Build
       {
         angle = corc.DirTo(cor1);
         if ( angle < LbFPMath_PI/2 )
-          angY = angle + 3*LbFPMath_PI/2;
-        else
-          angY = angle - LbFPMath_PI/2;
-        if ( angle < LbFPMath_PI/2 )
           angX = angle + 3*LbFPMath_PI/2;
         else
           angX = angle - LbFPMath_PI/2;
-        ratioX = lbSinTable[angY + 512] << 6;
-        ratioY = lbSinTable[angX] << 6;
+        if ( angle < LbFPMath_PI/2 )
+          angY = angle + 3*LbFPMath_PI/2;
+        else
+          angY = angle - LbFPMath_PI/2;
+        ratioX = lbSinTable[angX + LbFPMath_PI/2] << 6;
+        ratioY = lbSinTable[angY] << 6;
       }
       i++;
       if (corc.SquareRangeTo(cor1) <= 0x1000)
@@ -658,8 +660,8 @@ BBOOL XY::IsClearToMoveTo(XY cor1, UBYTE arg2, XY &cor3, MovingThing *tng, Build
       {
         lnX -= ratioX;
         lnY -= ratioY;
-        cor3.x = (lnX >> 16);
-        cor3.y = (lnY >> 16);
+        blockAt.x = (lnX >> 16);
+        blockAt.y = (lnY >> 16);
         return false;
       }
       lnX += ratioX;
@@ -669,12 +671,64 @@ BBOOL XY::IsClearToMoveTo(XY cor1, UBYTE arg2, XY &cor3, MovingThing *tng, Build
     return true;
 }
 
-BBOOL XY::IsClearToMoveToIgnoringBuildings(XY arg1, UBYTE arg2, XY &arg3, MovingThing *arg4) const
+/** Returns if a thing is clear to move to XY ignoring buildings, sets blockAt if not.
+ */
+BBOOL XY::IsClearToMoveToIgnoringBuildings(XY cor1, UBYTE arg2, XY &blockAt, MovingThing *tng) const
 {
-// code at 0001:0008cdcc
+    // code at 0001:0008cdcc
+    SLONG ratioX, ratioY;
+    SLONG angle, angX, angY;
+    XY corc;
+    SLONG lnY, lnX;
+    BBOOL repeat;
+
+    if (!this->IsPassable(arg2, tng))
+      return true;
+    lnX = this->x << 16;
+    lnY = this->y << 16;
+    repeat = false;
+    int i = 0;
+    ratioX = ratioY = 0; // Just to make the compiler happy - it claims this can be uninitialized
+    do
+    {
+      corc.Set(lnX >> 16, lnY >> 16);
+      if ((i & 0x3F) == 0)
+      {
+        angle = corc.DirTo(cor1);
+        if ( angle < LbFPMath_PI/2 )
+          angX = angle + 3*LbFPMath_PI/2;
+        else
+          angX = angle - LbFPMath_PI/2;
+        if ( angle < LbFPMath_PI/2 )
+          angY = angle + 3*LbFPMath_PI/2;
+        else
+          angY = angle - LbFPMath_PI/2;
+        ratioX = lbSinTable[angX + LbFPMath_PI/2] << 6;
+        ratioY = lbSinTable[angY] << 6;
+      }
+      i++;
+      if (corc.SquareRangeTo(cor1) <= 0x1000)
+      {
+        corc = cor1;
+        repeat = true;
+      }
+      if (!forceAllowRouteThroughStuff() && !corc.IsPassable(arg2, tng))
+      {
+        lnX -= ratioX;
+        lnY -= ratioY;
+        blockAt.x = (lnX >> 16);
+        blockAt.y = (lnY >> 16);
+        return false;
+      }
+      lnX += ratioX;
+      lnY += ratioY;
+    }
+    while ( !repeat );
+    return true;
+
 }
 
-XY XY::FindFirstUnobstructedXY(XY arg1, UBYTE arg2, MovingThing *arg3, Building *arg4) const
+XY XY::FindFirstUnobstructedXY(XY cor1, UBYTE arg2, MovingThing *tng, Building *bldng) const
 {
 // code at 0001:0008cf4a
 }
