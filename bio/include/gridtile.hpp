@@ -42,7 +42,7 @@ public:
     UBYTE minerals; // offset=15
 public:
     GridTile * GetRealGrid(XY cor1);
-    GridTile * GetRealGrid(SWORD arg1, SWORD arg2);
+    static GridTile * GetRealGrid(SWORD arg1, SWORD arg2);
     void Add(Thing *tng1);
     void Remove(Thing *tng1);
     Thing * GetHuntTarget(Creature *arg1);

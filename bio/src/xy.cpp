@@ -481,8 +481,9 @@ XY XY::RangeTargetXYTo(XY cor1, UWORD dist, SWORD angle)
   if (angle == -1)
     angle = this->DirTo(cor1);
   angle = (angle + LbFPMath_PI) & LbFPMath_AngleMask;
-  distXY *= 2;
+
   target = cor1 << 1;
+  distXY *= 2;
   if ( angle < LbFPMath_PI/2 )
     angY = angle + 3*LbFPMath_PI/2;
   else
@@ -499,13 +500,31 @@ XY XY::RangeTargetXYTo(XY cor1, UWORD dist, SWORD angle)
 XY XY::TargetXYAround(UWORD distMax)
 {
   // code at 0001:0008c599
-  UWORD angle, distXY;
+  SWORD angle;
+  UWORD distXY;
+
+  angle = 8 * URAND8(256);
+  distXY = (URAND8(256) * distMax >> 8);
+  return this->AngleRangeFromXY(angle, distXY);
+}
+
+XY XY::ExactTargetXYAround(UWORD distXY)
+{
+  // code at 0001:0008c776
+  SWORD angle;
+
+  angle = 8 * URAND8(256);
+  return this->AngleRangeFromXY(angle, distXY);
+}
+
+XY XY::AngleRangeFromXY(SWORD angle, UWORD distXY)
+{
+  // code at 0001:0008c8cc
   SWORD angX, angY;
   XY target;
 
-  angle = 8 * URAND8(256);
-  distXY = 2 * (URAND8(256) * distMax >> 8);
   target = (*this) << 1;
+  distXY *= 2;
   if ( angle < LbFPMath_PI/2 )
     angY = angle + 3*LbFPMath_PI/2;
   else
@@ -519,19 +538,20 @@ XY XY::TargetXYAround(UWORD distMax)
   return target & 0x7FFF;
 }
 
-XY XY::ExactTargetXYAround(short unsigned)
-{
-// code at 0001:0008c776
-}
-
-XY XY::AngleRangeFromXY(short, short unsigned)
-{
-// code at 0001:0008c8cc
-}
-
 GridTile * XY::NearestGridtileAt() const
 {
-// code at 0001:0008c9a7
+  // code at 0001:0008c9a7
+  SLONG subposX, subposY;
+  XY corr;
+
+  subposX = (this->x & 0xFF);
+  subposY = (this->y & 0xFF);
+  corr = this->BaseTile();
+  if (subposX >= 128)
+      corr.x += 256;
+  if (subposY >= 128)
+      corr.y += 256;
+  return GridTile::GetRealGrid(corr.x, corr.y);
 }
 
 Building * XY::BuildingAt(UBYTE arg1) const
