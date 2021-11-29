@@ -105,6 +105,8 @@ struct GameControl { // sizeof=52
     char SessionName[20]; // offset=32
 };
 
+BBOOL forceAllowRouteThroughStuff(void);
+
 void control_game();
 void setup_controller();
 char * MakeScreenShotName( char * );

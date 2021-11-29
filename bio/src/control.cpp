@@ -18,6 +18,14 @@
 /******************************************************************************/
 #include "control.hpp"
 
+#include "bfkeybd.h"
+
+BBOOL forceAllowRouteThroughStuff(void)
+{
+    //TODO Instead of reading the key directly, we should go through packets
+    return lbKeyOn[KC_Z];
+}
+
 void control_game()
 {
 // code at 0001:00089010
