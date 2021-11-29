@@ -18,23 +18,23 @@
 /******************************************************************************/
 #include "bfkeybd.h"
 
-int lbInkeyToAscii;
+char lbInkeyToAscii[] = {0}; // to be filled
 
-int lbInkeyToAsciiShift;
+char lbInkeyToAsciiShift[] = {0}; // to be filled
 
-int lbExtendedKeyPress;
+unsigned char lbExtendedKeyPress;
 
-int lbKeyOn;
+unsigned char lbKeyOn[256];
 
-int lbInkey;
+unsigned char lbInkey;
 
-int lbInkeyFlags;
+unsigned char lbInkeyFlags;
 
-int lbIInkey;
+unsigned char lbIInkey;
 
-int lbIInkeyFlags;
+unsigned char lbIInkeyFlags;
 
-int lbShift;
+unsigned char lbShift;
 
 
 /******************************************************************************/
