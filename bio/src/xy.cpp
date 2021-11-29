@@ -730,12 +730,104 @@ BBOOL XY::IsClearToMoveToIgnoringBuildings(XY cor1, UBYTE arg2, XY &blockAt, Mov
 
 XY XY::FindFirstUnobstructedXY(XY cor1, UBYTE arg2, MovingThing *tng, Building *bldng) const
 {
-// code at 0001:0008cf4a
+  // code at 0001:0008cf4a
+  SLONG ratioX, ratioY;
+  SLONG angle, angX, angY;
+  XY corc;
+  SLONG lnY, lnX;
+
+  angle = cor1.DirTo(*this);
+  if ( angle < LbFPMath_PI/2 )
+    angX = angle + 3*LbFPMath_PI/2;
+  else
+    angX = angle - LbFPMath_PI/2;
+  if ( angle < LbFPMath_PI/2 )
+    angY = angle + 3*LbFPMath_PI/2;
+  else
+    angY = angle - LbFPMath_PI/2;
+  ratioX = lbSinTable[angX + LbFPMath_PI/2] << 6;
+  ratioY = lbSinTable[angY] << 6;
+  lnX = cor1.x << 16;
+  lnY = cor1.y << 16;
+  do
+  {
+    corc.Set(lnX >> 16, lnY >> 16);
+    if ( corc.SquareRangeTo(*this) <= 0x1000 )
+      corc = *this;
+    if ( corc.IsPassable(arg2, bldng, tng) )
+      break;
+    lnX += ratioX;
+    lnY += ratioY;
+  }
+  while ( corc != (*this) );
+  return corc;
 }
 
-UBYTE XY::IsFoundationSiteWrong(UBYTE arg1, UBYTE arg2) const
+UBYTE XY::IsFoundationSiteWrong(UBYTE foundtSize, UBYTE btype) const
 {
-// code at 0001:0008d067
+  // code at 0001:0008d067
+  GridTile *gtile;
+  ULONG tileX, tileY, tileX_start;
+  ULONG range;
+
+  int numMineralTiles = 0;
+  tileX = (this->x >> 8) & 0xFF;
+  tileY = (this->y >> 8) & 0xFF;
+  switch (foundtSize)
+  {
+  case 1:
+      tileY--;
+      tileX--;
+      break;
+  case 2:
+  case 3:
+      tileY -= 2;
+      tileX -= 2;
+      break;
+  default:
+      break;
+  }
+  tileX_start = tileX;
+  range = foundtSize + 2;
+  for (int iY = 0; iY < range; iY++)
+  {
+    for (int iX = 0; iX < range; iX++)
+    {
+      gtile = &bio.grid[(tileY) & 0x7F][(tileX) & 0x7F];
+      if ( iX && iY )
+      {
+        if ((range - 1 > iX) && (range - 1 > iY))
+        {
+          if (gtile->minerals > 1)
+            numMineralTiles++;
+          if ( gtile->IsFoundation() || gtile->IsCrater() )
+            return 1;
+          if ( gtile->GetLivePlant(0) )
+            return 3;
+        }
+        if ( (1 << (gtile->Orientation & 7)) & 3 )
+          return 2;
+      }
+      tileX++;
+    }
+    tileX = tileX_start;
+    tileY++;
+  }
+  UBYTE siteWrong;
+  if ( btype == 5 )
+  {
+    XY corPad = this->BaseTile() + landingPadDevFromBuilding;
+    siteWrong = corPad.IsFoundationSiteWrong(3u, 100u);
+  }
+  else if ( btype != 11 || numMineralTiles )
+  {
+    siteWrong = 0;
+  }
+  else
+  {
+    siteWrong = 4;
+  }
+  return siteWrong;
 }
 
 XY XY::FoundationSiteAt(UBYTE arg1) const

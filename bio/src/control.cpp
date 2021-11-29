@@ -23,6 +23,7 @@
 BBOOL forceAllowRouteThroughStuff(void)
 {
     //TODO Instead of reading the key directly, we should go through packets
+    //TODO isn't this immediate desync in a network game? This should be a flag somewhere within Player class.
     return lbKeyOn[KC_Z];
 }
 
