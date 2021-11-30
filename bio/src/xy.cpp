@@ -1076,14 +1076,102 @@ BBOOL XY::IsClearLineOfSightTo(XY arg1, SLONG arg2, SLONG arg3) const
 // code at 0001:0008d8ad
 }
 
-void XY::DiscoverMap(SLONG arg1) const
+void XY::DiscoverMap(SLONG rangeIn) const
 {
-// code at 0001:0008d98d
+  // code at 0001:0008d98d
+  SLONG sqRangeMin, sqRangeMax;
+  SLONG sqRangeTo, rangeTo;
+  GridTile *gtile;
+  XY corMin, corMax;
+  XY cor1;
+  UBYTE nExplored;
+
+  // Find a general rectangle of map
+  sqRangeMax = (rangeIn - 256) * (rangeIn - 256);
+  sqRangeMin = (rangeIn) * (rangeIn);
+  corMin = (*this) - rangeIn;
+  corMin &= 0xFF00;
+  corMax = (*this) + rangeIn;
+  corMax.Add(256, 256);
+  corMax &= 0xFF00;
+  // Set discovery it tiles within that rectangle whicg really deserve it
+  for (cor1.y = corMin.y; cor1.y != corMax.y; cor1.y += 256)
+  {
+    for (cor1.x = corMin.x; cor1.x != corMax.x; cor1.x += 256)
+    {
+        gtile = cor1.GridtileAt();
+        // Skip if already explored
+        if (gtile->explored >= 63)
+            continue;
+        sqRangeTo = this->SquareTrueRangeTo(cor1);
+        if (sqRangeTo < sqRangeMax)
+        {
+            // Set to completely explored
+            gtile->explored = 63;
+            mapDisplay.RegisterPointChange(cor1);
+            continue;
+        }
+        if ( sqRangeTo < sqRangeMin )
+        {
+            // Set to partially explored, if the value increased
+            rangeTo = LbSqrL(sqRangeTo);
+            nExplored = (((rangeIn - rangeTo) << 6) - 64) >> 8;
+            if (nExplored > gtile->explored)
+            {
+              gtile->explored = nExplored;
+              mapDisplay.RegisterPointChange(cor1);
+            }
+        }
+    }
+  }
 }
 
-void XY::UndiscoverMap(SLONG arg1) const
+void XY::UndiscoverMap(SLONG rangeIn) const
 {
-// code at 0001:0008daec
+  // code at 0001:0008daec
+  SLONG sqRangeMin, sqRangeMax;
+  SLONG sqRangeTo, rangeTo;
+  GridTile *gtile;
+  XY corMin, corMax;
+  XY cor1;
+  UBYTE nExplored;
+
+  // Find a general rectangle of map
+  sqRangeMax = (rangeIn - 256) * (rangeIn - 256);
+  sqRangeMin = (rangeIn) * (rangeIn);
+  corMin = (*this) - rangeIn;
+  corMin &= 0xFF00;
+  corMax = (*this) + rangeIn;
+  corMax.Add(256, 256);
+  corMax &= 0xFF00;
+  // Set discovery it tiles within that rectangle whicg really deserve it
+  for (cor1.y = corMin.y; cor1.y != corMax.y; cor1.y += 256)
+  {
+    for (cor1.x = corMin.x; cor1.x != corMax.x; cor1.x += 256)
+    {
+        gtile = cor1.GridtileAt();
+        // Skip if already unexplored
+        if (gtile->explored <= 0)
+            continue;
+        sqRangeTo = this->SquareTrueRangeTo(cor1);
+        if (sqRangeTo < sqRangeMax)
+        {
+          gtile->explored = 0;
+          mapDisplay.RegisterPointChange(cor1);
+        }
+        if ( sqRangeTo < sqRangeMin )
+        {
+            // Set to partially explored, if the value decreased
+            rangeTo = LbSqrL(sqRangeTo);
+            nExplored = 64 - ((((rangeIn - rangeTo) << 6) - 64) >> 8);
+            if ( nExplored < gtile->explored )
+            {
+              gtile->explored = nExplored;
+              mapDisplay.RegisterPointChange(cor1);
+            }
+        }
+    }
+  }
 }
 
 BBOOL XY::IsPassable(UBYTE arg1, MovingThing *tng) const
