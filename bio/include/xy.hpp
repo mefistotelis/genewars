@@ -80,7 +80,7 @@ public:
     SLONG ShadeAt() const;
     Normal NormalAt() const;
     UBYTE TerrainAt() const;
-    XY RangeTargetXYTo(XY arg1, UWORD arg2, SWORD arg3);
+    XY RangeTargetXYTo(XY arg1, UWORD arg2, SWORD arg3 = -1);
     XY TargetXYAround(UWORD arg1);
     XY ExactTargetXYAround(UWORD arg1);
     XY AngleRangeFromXY(SWORD arg1, UWORD arg2);

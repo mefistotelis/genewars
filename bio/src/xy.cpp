@@ -414,11 +414,11 @@ ULONG XY::SquareTrueRangeTo(XY cor1) const
   return this->SquareTrueRangeTo(cor1, this->AltAt(), cor1.AltAt());
 }
 
-ULONG XY::SquareTrueRangeTo(XY cor1, SLONG arg2, SLONG arg3) const
+ULONG XY::SquareTrueRangeTo(XY cor1, SLONG alt2, SLONG alt3) const
 {
   // code at 0001:0008c0eb
   SLONG dx, dy, dz;
-  dz = ((arg3 - arg2) >> 3);
+  dz = ((alt3 - alt2) >> 3);
   cor1 <<= 1;
   dx = ((SLONG)cor1.x - 2 * (SLONG)this->x) >> 1;
   dy = ((SLONG)cor1.y - 2 * (SLONG)this->y) >> 1;
@@ -1071,9 +1071,31 @@ BBOOL XY::FlattenFoundation(UBYTE arg1, ULONG arg2, ULONG arg3) const
   return earthMoved > 0;
 }
 
-BBOOL XY::IsClearLineOfSightTo(XY arg1, SLONG arg2, SLONG arg3) const
+BBOOL XY::IsClearLineOfSightTo(XY cor1, SLONG alt2, SLONG alt3) const
 {
-// code at 0001:0008d8ad
+  // code at 0001:0008d8ad
+  ComponentVector cor3;
+  Vector cor2;
+  SLONG lnX, lnY, lnZ;
+  XY cor4;
+
+  this->AngleVectorTo(cor1, cor2, alt2, alt3);
+  cor2.length = 4096;
+  cor2.ComputeComponentVector(cor3);
+  lnX = this->x << 6;
+  lnY = this->y << 6;
+  lnZ = alt2;
+  cor4 = *this;
+  while ( cor4.SquareTrueRangeTo(cor1, lnZ, alt3) > 0x1000 )
+  {
+    lnX += cor3.dx;
+    lnY += cor3.dy;
+    lnZ += cor3.dz >> 3;
+    cor4.Set(lnX >> 6, lnY >> 6);
+    if ( cor4.AltAt() > lnZ )
+      return 0;
+  }
+  return 1;
 }
 
 void XY::DiscoverMap(SLONG rangeIn) const
@@ -1245,20 +1267,5 @@ XY XY::operator /(int n) const
   corr.y = this->y / n;
   return corr;
 }
-
-/*unsigned char XY::__defarg()
-{
-// code at 0001:00004c30
-}*/
-
-/*short XY::__defarg()
-{
-// code at 0001:0001e13c
-}*/
-
-/*Building * XY::__defarg()
-{
-// code at 0001:00052bf0
-}*/
 
 /******************************************************************************/
