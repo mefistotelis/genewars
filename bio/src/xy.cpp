@@ -832,22 +832,129 @@ UBYTE XY::IsFoundationSiteWrong(UBYTE foundtSize, UBYTE btype) const
 
 XY XY::FoundationSiteAt(UBYTE arg1) const
 {
-// code at 0001:0008d25f
+  // code at 0001:0008d25f
+  switch (arg1)
+  {
+  case 1:
+      return this->CenterFrom();
+  case 2:
+      return this->BaseTile();
+  case 3:
+      return this->CenterFrom();
+  default:
+      break;
+  }
+  return *this; // returned random remains from stack in original code
 }
 
-void XY::LockUnlockFoundation(UBYTE arg1, BBOOL arg2) const
+void XY::LockUnlockFoundation(UBYTE arg1, BBOOL doLock) const
 {
-// code at 0001:0008d2c7
+  // code at 0001:0008d2c7
+  XY cor1;
+  UBYTE range;
+
+  cor1 = this->BaseTile();
+  switch (arg1)
+  {
+  case 1:
+      range = 2;
+      break;
+  case 2:
+      cor1 += hdxy[7];
+      range = 3;
+      break;
+  case 3:
+      cor1 += hdxy[7];
+      range = 4;
+      break;
+  default:
+      //TODO this seem error condition - print a message?
+      range = arg1;
+      break;
+  }
+  if ( doLock )
+    GridTile::LockRegion(cor1, range, range);
+  else
+    GridTile::UnlockRegion(cor1, range, range);
 }
 
 XY XY::FoundationUpperLeft(UBYTE arg1) const
 {
-// code at 0001:0008d374
+  // code at 0001:0008d374
+  XY corr;
+
+  corr = this->BaseTile();
+  if ( arg1 >= 2 && arg1 <= 3 )
+    corr += hdxy[7];
+  return corr;
 }
 
-void XY::SetLzPad(Building *arg1, BBOOL arg2, BBOOL arg3) const
+void XY::SetLzPad(Building *bldng, BBOOL arg2, BBOOL arg3) const
 {
-// code at 0001:0008d3d3
+  // code at 0001:0008d3d3
+  BBOOL needStateUpd, doUpdate;
+  XY loc1;
+  GridTile *gtile;
+
+  if (bldng == NULL)
+  {
+    needStateUpd = (bldng->padFlashState) != ((control.Turn & 0x1F) < 0xF);
+    if ( needStateUpd || arg2 || arg3 )
+    {
+      doUpdate = true;
+      if ( arg2 )
+      {
+        this->GridtileAt()->Block = 154;
+        bldng->padBurned = 1;
+      }
+      if ( arg3 )
+      {
+        bldng->padFlashState = 0;
+      }
+      else if ( needStateUpd )
+      {
+        bldng->padFlashState ^= 0x01;
+      }
+    }
+    else
+    {
+      doUpdate = false;
+    }
+  }
+  else
+  {
+    doUpdate = true;
+  }
+
+  if ( doUpdate )
+  {
+    UBYTE blkShift, blkShift2;
+    loc1 = this->BaseTile();
+    if ((bldng != NULL) && bldng->padFlashState)
+      blkShift = 4;
+    else
+      blkShift = 0;
+    for (int i = 0; i < 9; i++)
+    {
+      gtile = loc1.GridtileAt();
+      mapDisplay.RegisterBlockChange(loc1);
+      if (i > 0)
+      {
+        gtile->Block = lzBlockTypes[i] + blkShift;
+      }
+      else
+      {
+        if ((bldng != NULL) && bldng->padBurned)
+          blkShift2 = 4;
+        else
+          blkShift2 = 0;
+        gtile->Block = 150 + blkShift2;
+      }
+      gtile->Orientation = lzBlockOrientations[i] | 0x87;
+      gtile->minerals = 0;
+      loc1 += hdxy[foundationTravel[3][i]];
+    }
+  }
 }
 
 void XY::MarkFoundation(UBYTE arg1, BBOOL arg2) const
