@@ -58,13 +58,13 @@ public:
     void UnpackSpec(Specialist &spec1);
     EtherealZone & GetEZone();
     Plant * StripDragTree(GridTile *gtile1);
-    Effect * Create(EffectType arg1, XY cor2, SLONG arg3, Vector const &vec4, UWORD arg5, UBYTE arg6, SBYTE arg7, Thing *tng8);
+    static Effect * Create(EffectType arg1, XY cor2, SLONG arg3, Vector const &vec4, UWORD arg5 = 0, UBYTE arg6 = 0, SBYTE arg7 = 0, Thing *tng8 = NULL);
     void InitArray();
     void UpdateAll();
     SLONG ReadBuffer(Effect **eff1, SLONG arg2, SLONG arg3, BioGame &game);
     SLONG WriteBuffer(Effect **eff1, SLONG arg2, SLONG arg3, BioGame &game);
-    void KillSoundOffTag(XY cor1, SampleID arg2, BBOOL arg3);
-    BBOOL operator ==(Effect *arg1);
+    static void KillSoundOffTag(XY cor1, SampleID arg2, BBOOL arg3);
+    BBOOL operator ==(Effect *eff1);
 private:
     UBYTE CreateNewEffectFromOld(EffectStats const &effsta);
     UBYTE MakeFire(GridTile *gtile1, SLONG arg2);

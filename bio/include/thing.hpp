@@ -86,7 +86,7 @@ public:
     virtual void StartFightWith(Thing *tng1);
     virtual void Read(SLONG &arg1);
     virtual void Write(SLONG &arg1);
-    virtual void Sound(SampleID arg1, UBYTE arg2, UBYTE arg3, UBYTE arg4, ULONG arg5);
+    virtual void Sound(SampleID arg1, UBYTE arg2, UBYTE arg3, UBYTE arg4 = 127, ULONG arg5 = 100);
     virtual void StopSound(SampleID arg1);
     virtual void FadeSound(SampleID arg1, SWORD arg2, UBYTE arg3);
     virtual void FadeOutSound(SampleID arg1, UBYTE arg2);

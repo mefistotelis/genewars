@@ -624,13 +624,13 @@ BBOOL XY::IsClearToMoveTo(XY cor1, UBYTE arg2, XY &blockAt, MovingThing *tng, Bu
     SLONG angle, angX, angY;
     XY corc;
     SLONG lnY, lnX;
-    BBOOL repeat;
+    BBOOL finish;
 
     if (!this->IsPassable(arg2, bldng, tng))
       return true;
     lnX = this->x << 16;
     lnY = this->y << 16;
-    repeat = false;
+    finish = false;
     int i = 0;
     ratioX = ratioY = 0; // Just to make the compiler happy - it claims this can be uninitialized
     do
@@ -654,7 +654,7 @@ BBOOL XY::IsClearToMoveTo(XY cor1, UBYTE arg2, XY &blockAt, MovingThing *tng, Bu
       if (corc.SquareRangeTo(cor1) <= 0x1000)
       {
         corc = cor1;
-        repeat = true;
+        finish = true;
       }
       if (!forceAllowRouteThroughStuff() && !corc.IsPassable(arg2, bldng, tng))
       {
@@ -667,7 +667,7 @@ BBOOL XY::IsClearToMoveTo(XY cor1, UBYTE arg2, XY &blockAt, MovingThing *tng, Bu
       lnX += ratioX;
       lnY += ratioY;
     }
-    while ( !repeat );
+    while ( !finish );
     return true;
 }
 
@@ -680,13 +680,13 @@ BBOOL XY::IsClearToMoveToIgnoringBuildings(XY cor1, UBYTE arg2, XY &blockAt, Mov
     SLONG angle, angX, angY;
     XY corc;
     SLONG lnY, lnX;
-    BBOOL repeat;
+    BBOOL finish;
 
     if (!this->IsPassable(arg2, tng))
       return true;
     lnX = this->x << 16;
     lnY = this->y << 16;
-    repeat = false;
+    finish = false;
     int i = 0;
     ratioX = ratioY = 0; // Just to make the compiler happy - it claims this can be uninitialized
     do
@@ -710,7 +710,7 @@ BBOOL XY::IsClearToMoveToIgnoringBuildings(XY cor1, UBYTE arg2, XY &blockAt, Mov
       if (corc.SquareRangeTo(cor1) <= 0x1000)
       {
         corc = cor1;
-        repeat = true;
+        finish = true;
       }
       if (!forceAllowRouteThroughStuff() && !corc.IsPassable(arg2, tng))
       {
@@ -723,7 +723,7 @@ BBOOL XY::IsClearToMoveToIgnoringBuildings(XY cor1, UBYTE arg2, XY &blockAt, Mov
       lnX += ratioX;
       lnY += ratioY;
     }
-    while ( !repeat );
+    while ( !finish );
     return true;
 
 }
@@ -957,14 +957,118 @@ void XY::SetLzPad(Building *bldng, BBOOL arg2, BBOOL arg3) const
   }
 }
 
-void XY::MarkFoundation(UBYTE arg1, BBOOL arg2) const
+void XY::MarkFoundation(UBYTE arg1, BBOOL doMark) const
 {
-// code at 0001:0008d58b
+  // code at 0001:0008d58b
+  int dirNo;
+  XY cor1, ctmp;
+  GridTile *gtile;
+  BBOOL finish;
+
+  cor1 = *this;
+  dirNo = 0;
+  finish = 0;
+  do
+  {
+    gtile = cor1.GridtileAt();
+    if ( doMark )
+      gtile->SetFoundation();
+    else
+      gtile->ClearFoundation();
+    switch (arg1)
+    {
+    case 1:
+        finish = true;
+        break;
+    case 2:
+        if (dirNo == 3)
+        {
+            finish = true;
+            break;
+        }
+        ctmp = cor1 + hdxy[foundationTravel[2][dirNo]];
+        cor1 = ctmp.CenterFrom();
+        dirNo++;
+        break;
+    case 3:
+        if (dirNo == 8)
+        {
+            finish = true;
+            break;
+        }
+        ctmp = cor1 + hdxy[foundationTravel[3][dirNo]];
+        cor1 = ctmp.CenterFrom();
+        dirNo++;
+        break;
+    default:
+        break;
+    }
+  }
+  while ( !finish );
+  this->LockUnlockFoundation(arg1, doMark);
 }
 
 BBOOL XY::FlattenFoundation(UBYTE arg1, ULONG arg2, ULONG arg3) const
 {
-// code at 0001:0008d6b0
+  // code at 0001:0008d6b0
+  int dirNo;
+  XY cor1, ctmp;
+  BBOOL finish;
+  ULONG earthMoved;
+
+  cor1 = *this;
+  dirNo = 0;
+  finish = 0;
+  earthMoved = 0;
+  do
+  {
+    switch (arg1)
+    {
+    case 1:
+        finish = true;
+        break;
+    case 2:
+        if (dirNo == 3)
+        {
+            finish = true;
+            break;
+        }
+        ctmp = cor1 + hdxy[foundationTravel[2][dirNo]];
+        cor1 = ctmp.CenterFrom();
+        dirNo++;
+        break;
+    case 3:
+        if (dirNo == 8)
+        {
+            finish = true;
+            break;
+        }
+        ctmp = cor1 + hdxy[foundationTravel[3][dirNo]];
+        cor1 = ctmp.CenterFrom();
+        dirNo++;
+        break;
+    default:
+        break;
+    }
+
+    if ( GridTile::Flatten(cor1, arg2, arg3) == 1 )
+    {
+      ++earthMoved;
+      if ( !editorMode )
+      {
+        Effect *eff1 = Effect::Create(EF_SOUNDTAG, *this, this->AltAt(), zeroVector);
+        if (eff1 != NULL)
+          eff1->Sound(S_EARTHMOV, 2, 255);
+      }
+    }
+    Plant *plant = cor1.GridtileAt()->GetLivePlant(0);
+    if (plant != NULL)
+      plant->ChopDown();
+  }
+  while ( !finish );
+  if ( !earthMoved )
+    Effect::KillSoundOffTag(*this, S_EARTHMOV, 1u);
+  return earthMoved > 0;
 }
 
 BBOOL XY::IsClearLineOfSightTo(XY arg1, SLONG arg2, SLONG arg3) const

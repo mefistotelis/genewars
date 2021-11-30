@@ -84,7 +84,7 @@ public:
     BBOOL IsOffMap();
     XY GetXY();
     SWORD EffectAlt(XY cor1, SWORD arg2);
-    BBOOL Flatten(XY cor1, SWORD arg2, SWORD arg3);
+    static BBOOL Flatten(XY cor1, SWORD arg2, SWORD arg3);
     void UpdateArea(XY cor1, XY cor2);
     static void LockRegion(XY cor1, UBYTE rangeX, UBYTE rangeY);
     static void UnlockRegion(XY cor1, UBYTE rangeX, UBYTE rangeY);
