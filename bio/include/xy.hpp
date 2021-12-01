@@ -88,9 +88,9 @@ public:
     GridTile * GridtileAt() const;
     GridTile * NearestGridtileAt() const;
     BBOOL IsPassable(UBYTE arg1, MovingThing *tng2) const;
-    BBOOL IsPassable(UBYTE arg1, Building *arg2, MovingThing *tng3) const;
-    XY FindFirstUnobstructedXY(XY arg1, UBYTE arg2, MovingThing *tng3, Building *arg4) const;
-    BBOOL IsClearToMoveTo(XY arg1, UBYTE arg2, XY &arg3, MovingThing *tng4, Building *arg5) const;
+    BBOOL IsPassable(UBYTE arg1, Building *bldng, MovingThing *tng3) const;
+    XY FindFirstUnobstructedXY(XY arg1, UBYTE arg2, MovingThing *tng3, Building *bldng = NULL) const;
+    BBOOL IsClearToMoveTo(XY arg1, UBYTE arg2, XY &arg3, MovingThing *tng4, Building *bldng) const;
     BBOOL IsClearToMoveToIgnoringBuildings(XY arg1, UBYTE arg2, XY &arg3, MovingThing *tng4) const;
     BBOOL IsClearLineOfSightTo(XY arg1, SLONG arg2, SLONG arg3) const;
     UBYTE IsFoundationSiteWrong(UBYTE arg1) const;
