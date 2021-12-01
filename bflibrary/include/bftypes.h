@@ -57,6 +57,17 @@ typedef uint32_t REALFAR;
 
 typedef int32_t HTIMER;
 
+enum TbErrorCode {
+    Lb_FAIL                 = -1,
+    Lb_OK                   =  0,
+    Lb_SUCCESS              =  1,
+};
+
+/** Command function result, valid values are of TbErrorCode enumeration. */
+typedef int TbResult;
+typedef unsigned char TbBool;
+typedef long TbScreenCoord;
+
 #ifdef __cplusplus
 };
 #endif

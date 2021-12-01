@@ -25,7 +25,7 @@
 extern "C" {
 #endif
 
-enum TbScreenMode { // type=int8_t
+enum ScreenMode { // type=int8_t
     Lb_SCREEN_MODE_INVALID = 0,
     Lb_SCREEN_MODE_320_200_8,
     Lb_SCREEN_MODE_320_200_16,
@@ -56,11 +56,11 @@ enum TbScreenMode { // type=int8_t
     Lb_SCREEN_MODE_1600_1200_24,
 };
 
-typedef enum TbScreenMode TbScreenMode;
+typedef enum ScreenMode TbScreenMode;
 
 typedef struct TbSprite TbSprite;
 
-struct TbDisplayStruct { // sizeof=118
+struct DisplayStruct { // sizeof=118
     UBYTE *PhysicalScreen; // offset=0
     UBYTE *WScreen; // offset=4
     UBYTE *GlassMap; // offset=8
@@ -103,24 +103,26 @@ struct TbDisplayStruct { // sizeof=118
     UBYTE *Palette; // offset=114
 };
 
-typedef struct TbDisplayStruct TbDisplayStruct;
+typedef struct DisplayStruct TbDisplayStruct;
 
-struct TbScreenModeInfo { // sizeof=38
+struct ScreenModeInfo { // sizeof=38
     UWORD Width; // offset=0
     UWORD Height; // offset=2
     UWORD BitsPerPixel; // offset=4
     BOOL Available; // offset=6
     SLONG VideoMode; // offset=10
-    CBYTE Desc[23]; // offset=14
+    CBYTE Desc[24]; // offset=14
 };
 
-typedef struct TbScreenModeInfo TbScreenModeInfo;
+typedef struct ScreenModeInfo TbScreenModeInfo;
 
-int LbScreenSetup();
+TbResult LbScreenSetup(TbScreenMode mode, TbScreenCoord width, TbScreenCoord height,
+    unsigned char *palette, short buffers_count, TbBool wscreen_vid);
+
 int LbScreenIsModeAvailable();
 int LbScreenSetGraphicsWindow();
-extern int lbScreenModeInfo;
-extern int lbDisplay;
+extern TbScreenModeInfo lbScreenModeInfo[];
+extern TbDisplayStruct lbDisplay;
 
 int LbScreenSetupAnyMode();
 int LbScreenClearGraphicsWindow();
