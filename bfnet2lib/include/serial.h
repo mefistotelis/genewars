@@ -23,10 +23,18 @@
 extern "C" {
 #endif
 
+#include "bftypes.h"
 #include <stdio.h>
 
-struct ComHandlerInfo {
-    int a1; // Type size and fields unknown
+struct ComHandlerInfo { // sizeof=18
+    int a1;
+    UWORD field_4;
+    UWORD field_6;
+    UWORD field_8;
+    UWORD field_A;
+    UWORD field_C;
+    UWORD field_E;
+    UWORD field_10;
 };
 
 typedef struct ComHandlerInfo ComHandlerInfo;
@@ -38,14 +46,8 @@ struct TbSerialDev {
 typedef struct TbSerialDev TbSerialDev;
 
 struct ModemResponse {
-  unsigned char field_0[8];
-  unsigned char field_8[8];
-  unsigned char field_10[8];
-  unsigned char field_18[8];
-  unsigned char field_20[8];
-  unsigned char field_28[8];
-  unsigned char field_30[8];
-  unsigned char field_38[8];
+  char name[40];
+  long idx;
 };
 
 typedef struct ModemResponse ModemResponse;
