@@ -95,7 +95,7 @@ int LbNetworkSessionJoin();
 int LbNetworkHostPlayerNumber();
 int LbNetworkPlayerNumber();
 int LbNetworkPlayerName();
-int LbNetworkSetupIPXAddress();
+int LbNetworkSetupIPXAddress(ULONG nAddress);
 int LbNetworkSessionNumberPlayers();
 int LbNetworkSend();
 int LbNetworkReceive();

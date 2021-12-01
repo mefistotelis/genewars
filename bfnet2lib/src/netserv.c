@@ -93,7 +93,7 @@ int LbNetworkPlayerName()
 // code at 0001:000b0c08
 }
 
-int LbNetworkSetupIPXAddress()
+int LbNetworkSetupIPXAddress(ULONG nAddress)
 {
 // code at 0001:000b0c94
 }
