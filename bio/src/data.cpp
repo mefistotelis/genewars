@@ -18,7 +18,7 @@
 /******************************************************************************/
 #include "data.hpp"
 
-char unsigned * block_ptrs[2]; // array size TBD
+char unsigned * block_ptrs[160];
 
 char unsigned * block_mem;
 
@@ -40,7 +40,7 @@ char * game_text;
 
 char unsigned * scratch;
 
-char * strings[2]; // array size TBD
+char * strings[602];
 
 FontInfo * menu_font;
 

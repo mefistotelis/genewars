@@ -41,7 +41,7 @@ int setup_logging()
   char *userid;
   char err_log_fname[32];
   userid = getenv("USERID");
-  if ( userid )
+  if (userid != NULL)
   {
     // Find log file name which does not exist and is writable
     int i;
@@ -86,7 +86,7 @@ void parse_params(int argc, char *argv[])
         {
           if (cmd_idx == 0)
             break;
-          found_cmd = *cmdp == argv[i][pos];
+          found_cmd = (*cmdp == argv[i][pos]);
           cmdp++;
           cmd_idx--;
         }
@@ -269,11 +269,10 @@ int main(int argc, char *argv[])
   {
     print_usage();
   }
-  printf(
-    "total time = %lu secs  packet time = %lu secs (%lu%%)\n",
-    (gameEndTime - gameStartTime) / 100,
-    pktTotalTime / 100,
-    100 * pktTotalTime / (gameEndTime - gameStartTime));
+  printf("total time = %.03f secs  packet time = %.03f secs (%.03f%%)\n",
+    (gameEndTime - gameStartTime) / 100.0f,
+    pktTotalTime / 100.0f,
+    100 * pktTotalTime / (float)(gameEndTime - gameStartTime));
   //fflush(&__iob[1]);
   return 0;
 }

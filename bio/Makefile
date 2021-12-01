@@ -129,9 +129,16 @@ INCPATHS = ./include ../bflibrary/include ../bfmydraw/include ../bfnet2lib/inclu
 CXXINCPATHS = $(INCPATHS)
 # flags to generate dependency files
 DEPFLAGS = -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" 
-# code optimization flags
-OPTFLAGS = -O2
-DBGFLAGS =
+# code optimization and debugging flags
+DEBUG ?= 0
+ifeq ($(DEBUG), 1)
+  OPTFLAGS = -O0
+  DBGFLAGS = -g -DDEBUG
+else
+  # frame pointer is required for ASM code to work
+  OPTFLAGS = -fno-omit-frame-pointer -O3
+  DBGFLAGS = 
+endif
 # linker flags
 LINKFLAGS = 
 # compiler warning generation flags
@@ -139,8 +146,8 @@ WARNFLAGS = -Wall -Wno-sign-compare -Wno-unused-parameter
 # disable return type warns as our functions are empty
 WARNFLAGS += -Wno-return-type
 # disabled warnings: -Wextra -Wtype-limits
-CXXFLAGS = $(foreach path,$(CXXINCPATHS),-I$(path)) -c -fmessage-length=0 $(WARNFLAGS) $(DEPFLAGS) $(OPTFLAGS)
-CFLAGS = $(foreach path,$(INCPATHS),-I$(path)) -c -fmessage-length=0 $(WARNFLAGS) $(DEPFLAGS) $(OPTFLAGS)
+CXXFLAGS = $(foreach path,$(CXXINCPATHS),-I$(path)) -c -fmessage-length=0 $(WARNFLAGS) $(DEPFLAGS) $(OPTFLAGS) $(DBGFLAGS)
+CFLAGS = $(foreach path,$(INCPATHS),-I$(path)) -c -fmessage-length=0 $(WARNFLAGS) $(DEPFLAGS) $(OPTFLAGS) $(DBGFLAGS)
 LDFLAGS = $(LINKLIB) $(OPTFLAGS) $(DBGFLAGS) $(LINKFLAGS)
 
 # load program version
