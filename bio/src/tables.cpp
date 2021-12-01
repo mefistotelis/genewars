@@ -18,9 +18,67 @@
 /******************************************************************************/
 #include "tables.hpp"
 
-#if 0 // fill values and enable
-TbLoadFiles startup_files[];
+#include "bfscreen.h"
+#include "svesa.h"
+#include "data.hpp"
 
+TbLoadFiles startup_files[] = {
+  { "*W_SCREEN",		(void **)&lbDisplay.WScreen, NULL, 0u, 0u, 0u },
+  { "*B_SCREEN",		(void **)&b_screen, NULL, 0u, 0u, 0u },
+  { "data/main.pal",	(void **)&palette, NULL, 0u, 0u, 0u },
+  { "data/ship.pal",	(void **)&shipPalette, NULL, 0u, 0u, 0u },
+  { "data/pointers.dat", (void **)&pointers_data, NULL, 0u, 0u, 0u },
+  { "data/pointers.tab", (void **)&pointers_sprites, (void **)&end_pointers_sprites, 0u, 0u, 0u },
+  { "data/font0.dat",	(void **)&font_sprites[0].Data, NULL, 0u, 0u, 0u },
+  { "data/font0.tab",	(void **)&font_sprites[0].Start,(void **) &font_sprites[0].End, 0u, 0u, 0u },
+  { "data/font1.dat",	(void **)&font_sprites[1].Data, NULL, 0u, 0u, 0u },
+  { "data/font1.tab",	(void **)&font_sprites[1].Start, (void **)&font_sprites[1].End, 0u, 0u, 0u },
+  { "data/font2.dat",	(void **)&font_sprites[2].Data, NULL, 0u, 0u, 0u },
+  { "data/font2.tab",	(void **)&font_sprites[2].Start, (void **)&font_sprites[2].End, 0u, 0u, 0u },
+  { "data/font3.dat",	(void **)&font_sprites[3].Data, NULL, 0u, 0u, 0u },
+  { "data/font3.tab",	(void **)&font_sprites[3].Start, (void **)&font_sprites[3].End, 0u, 0u, 0u },
+  { "data/font4.dat",	(void **)&font_sprites[4].Data, NULL, 0u, 0u, 0u },
+  { "data/font4.tab",	(void **)&font_sprites[4].Start, (void **)&font_sprites[4].End, 0u, 0u, 0u },
+  { "data/font5.dat",	(void **)&font_sprites[5].Data, NULL, 0u, 0u, 0u },
+  { "data/font5.tab",	(void **)&font_sprites[5].Start, (void **)&font_sprites[5].End, 0u, 0u, 0u },
+  { "data/font7.dat",	(void **)&font_sprites[6].Data, NULL, 0u, 0u, 0u },
+  { "data/font7.tab",	(void **)&font_sprites[6].Start, (void **)&font_sprites[6].End, 0u, 0u, 0u },
+  { "data/block32.dat",	(void **)&block_mem, NULL, 0u, 0u, 0u },
+  { "data/plgbl.anb",	(void **)&plgbl_anb, NULL, 0u, 0u, 0u },
+  { "data/eff.anb",		(void **)&effect_anb, NULL, 0u, 0u, 0u },
+  { "data/ethereal.anb",		(void **)&ethereal_anb, NULL, 0u, 0u, 0u },
+  { "data/building/BGENE.ANB",	(void **)&building_anb[0], NULL, 0u, 0u, 0u },
+  { "data/building/BFARM.ANB",	(void **)&building_anb[4], NULL, 0u, 0u, 0u },
+  { "data/building/BPOWE.ANB",	(void **)&building_anb[3], NULL, 0u, 0u, 0u },
+  { "data/building/BMINE.ANB",	(void **)&building_anb[11], NULL, 0u, 0u, 0u },
+  { "data/building/BWIND.ANB",	(void **)&building_anb[8], NULL, 0u, 0u, 0u },
+  { "data/building/BSOLA.ANB",	(void **)&building_anb[6], NULL, 0u, 0u, 0u },
+  { "data/building/BNUKE.ANB",	(void **)&building_anb[9], NULL, 0u, 0u, 0u },
+  { "data/building/BVAT.ANB",	(void **)&building_anb[13], NULL, 0u, 0u, 0u },
+  { "data/building/BSHIE.ANB",	(void **)&building_anb[12], NULL, 0u, 0u, 0u },
+  { "data/building/BTURR.ANB",	(void **)&building_anb[1], NULL, 0u, 0u, 0u },
+  { "data/building/BSAWM.ANB",	(void **)&building_anb[2], NULL, 0u, 0u, 0u },
+  { "data/building/BLAUN.ANB",	(void **)&building_anb[5], NULL, 0u, 0u, 0u },
+  { "data/building/BOPER.ANB",	(void **)&building_anb[10], NULL, 0u, 0u, 0u },
+  { "data/building/BOBSE.ANB",	(void **)&building_anb[7], NULL, 0u, 0u, 0u },
+  { "data/plant/grass1.anb",	(void **)&plant_anb[0], NULL, 0u, 0u, 0u },
+  { "data/plant/grass2.anb",	(void **)&plant_anb[1], NULL, 0u, 0u, 0u },
+  { "data/plant/grass3.anb",	(void **)&plant_anb[2], NULL, 0u, 0u, 0u },
+  { "data/plant/desert1.anb",	(void **)&plant_anb[3], NULL, 0u, 0u, 0u },
+  { "data/plant/desert2.anb",	(void **)&plant_anb[4], NULL, 0u, 0u, 0u },
+  { "data/plant/desert3.anb",	(void **)&plant_anb[5], NULL, 0u, 0u, 0u },
+  { "data/plant/snow1.anb",		(void **)&plant_anb[6], NULL, 0u, 0u, 0u },
+  { "data/plant/snow2.anb",		(void **)&plant_anb[7], NULL, 0u, 0u, 0u },
+  { "data/plant/snow3.anb",		(void **)&plant_anb[8], NULL, 0u, 0u, 0u },
+  { "data/plant/all1.anb",		(void **)&plant_anb[9], NULL, 0u, 0u, 0u },
+  { "data/plant/all2.anb",		(void **)&plant_anb[10], NULL, 0u, 0u, 0u },
+  { "data/plant/all3.anb",		(void **)&plant_anb[11], NULL, 0u, 0u, 0u },
+  { "*SCRATCH",			(void **)&scratch, NULL, 8192u, 0u, 0u },
+  { "*VESA",			(void **)&lbVesaData, NULL, 256u, 1u, 0u },
+  { "", 				NULL, NULL, 0u, 0u, 0u }
+};
+
+#if 0 // fill values and enable
 TbLoadFiles installedData[];
 #endif
 

@@ -29,7 +29,6 @@
 #include "game.hpp"
 #include "pchost.hpp"
 
-FILE err_log_file;
 BBOOL allow_start_game;
 
 const char cmdln_opts[] = {
@@ -54,8 +53,8 @@ int setup_logging()
       puts(err_log_fname);
       i++;
     }
-    puts(err_log_fname);
-    freopen(err_log_fname, "w", &err_log_file);
+    printf("Error log: %s\n", err_log_fname);
+    freopen(err_log_fname, "w", stderr);
   }
 }
 
@@ -70,20 +69,6 @@ void parse_params(int argc, char *argv[])
   unsigned char cmd_idx;
   long longval;
   BBOOL finish_param;
-/*
-  int v2; // eax
-  signed int v3; // edx
-  char *v4; // edx
-  char *v5; // edx
-  signed int cmd_idx; // ecx
-  char *v7; // edi
-  Recorder *v10; // [esp+0h] [ebp-58h]
-  char *v11; // [esp+4h] [ebp-54h]
-  char v12; // [esp+8h] [ebp-50h]
-  signed int pos; // [esp+18h] [ebp-40h]
-  int v15; // [esp+20h] [ebp-38h]
-  char v18; // [esp+48h] [ebp-10h]
-*/
 
   finish_param = 0;
   for (i = 1; i < argc; i++)
