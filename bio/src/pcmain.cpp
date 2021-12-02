@@ -61,7 +61,18 @@ int setup_logging()
 
 void print_usage()
 {
-// code at 0001:000608a5
+  // code at 0001:000608a5
+  printf("Biosphere Options:\n\n");
+  printf("- n             Network mode enable\n");
+  printf("- x<name>       Network session name\n");
+  printf("- d             Debug mode enable\n");
+  printf("- dl            Debug Lo / Hi res emulation\n");
+  printf("- dk\t\t\tDebug keyboard handler\n");
+  printf("- t             Tester Treatment\n");
+  printf("- s\t\t\t\tEnable hi quality sounds\n");
+  printf("- e             Editor enable\n");
+  printf("- g\t\t\t\tScreen shots mode\n");
+  printf("- z\t\t\t\tTester Autosave\n");
 }
 
 void parse_params(int argc, char *argv[])

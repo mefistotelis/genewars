@@ -18,6 +18,11 @@
 /******************************************************************************/
 #include "player.hpp"
 
+#include "bfsprite.h"
+#include "bfscreen.h"
+#include "data.hpp"
+#include "misc.hpp"
+
 Player::Player(UBYTE skip_init)
     : theBase()
 {
@@ -173,7 +178,12 @@ char signed Player::GetNum( PlSpec * )
 
 void Player::SetPlayerPointer()
 {
-// code at 0001:00015818
+  // code at 0001:00015818
+  TbSprite *spr;
+
+  spr = &pointers_sprites[this->idx + 1];
+  if ( lbDisplay.MouseSprite != spr )
+    SetPointerAndHotpoint(spr, 0, 0);
 }
 
 char unsigned Player::IsSamePlayer( Thing * )

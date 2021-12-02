@@ -47,6 +47,7 @@ void game()
   else
     ifcTitle.PlugIn();
   gameStartTime = LbTimerClock();
+
   while ( !control.Flags.QuitGame && LbWindowsControl() )
   {
     currentSecond = LbTimerClock() / 1000u;
@@ -74,7 +75,7 @@ void game()
     if ( (runFlags.TesterAutosave || runFlags.Tester)
       && control.Flags.GameStart
       && !runFlags.Paused
-      && (control.Turn & 0x7F) == 0
+      && ((control.Turn & 0x7F) == 0)
       && runFlags.TesterAutosave )
     {
       //strcpy(save_fname6, config.InstalledFile("save/save6.sav"));// unused, unless bio.Write gets a struct
@@ -92,14 +93,16 @@ void game()
   LbPaletteFade(0, 0x10u, 1u);
 }
 
-void PlayIntro()
-{
-// code at 0001:0005f640
-}
-
-void PlaySmacker( char *arg1, unsigned char arg2, unsigned char arg3)
+void PlaySmacker( char *fname, unsigned char arg2, unsigned char arg3)
 {
 // code at 0001:0005f67f
+}
+
+void PlayIntro()
+{
+  // code at 0001:0005f640
+  PlaySmacker("intro/biointro.smk", 1, 0);
+  bio.players[localPlayer].SetPlayerPointer();
 }
 
 /******************************************************************************/

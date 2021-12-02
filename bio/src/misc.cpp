@@ -18,6 +18,9 @@
 /******************************************************************************/
 #include "misc.hpp"
 
+#include "bfscreen.h"
+#include "bfmouse.h"
+
 short FindShortDist( char unsigned, char unsigned, char unsigned )
 {
 // code at 0001:000929d9
@@ -88,9 +91,19 @@ MyFrame * UpdateMyMinSprite2( MySprite *, MyMinSprite * )
 // code at 0001:00093536
 }
 
-void SetPointerAndHotpoint( TbSprite *, long unsigned, long unsigned )
+void SetPointerAndHotpoint( TbSprite *spr, unsigned long hsX, unsigned long hsY)
 {
-// code at 0001:000936ac
+  // code at 0001:000936ac
+  if ( spr == lbDisplay.MouseSprite )
+  {
+    LbMouseChangeSpriteOffset(-hsX, -hsY);
+  }
+  else
+  {
+    LbMouseChangeSprite(NULL);
+    LbMouseChangeSpriteOffset(-hsX, -hsY);
+    LbMouseChangeSprite(spr);
+  }
 }
 
 short WeightedAngle( char unsigned )

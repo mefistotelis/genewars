@@ -18,6 +18,8 @@
 /******************************************************************************/
 #include "draw.hpp"
 
+#include "myfont.h"
+
 void HelpDraw::Draw(MyGadget *arg1, char *arg2)
 {
 // code at 0001:0008e1f8
@@ -67,6 +69,7 @@ void TextEntry::SetupText(CBYTE *arg1, UBYTE arg2, UBYTE arg3)
 void draw_game()
 {
 // code at 0001:0005ea70
+  static FontInfo outOfSync_dfi;
 }
 
 /******************************************************************************/

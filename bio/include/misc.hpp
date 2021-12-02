@@ -1065,7 +1065,7 @@ void global_x_rotate_points( Point *, Point *, long, long, long unsigned );
 void global_y_rotate_points( Point *, Point *, long, long, long unsigned );
 void global_z_rotate_points( Point *, Point *, long, long, long unsigned );
 MyFrame * UpdateMyMinSprite2( MySprite *, MyMinSprite * );
-void SetPointerAndHotpoint( TbSprite *, long unsigned, long unsigned );
+void SetPointerAndHotpoint( TbSprite *spr, unsigned long hsX, unsigned long hsY);
 
 #endif // BIO_MISC_HPP_
 /******************************************************************************/
