@@ -56,6 +56,20 @@ struct TbNetworkSession { // sizeof=40
 
 typedef struct TbNetworkSession TbNetworkSession;
 
+struct NetworkServiceFunction { // sizeof=36
+    NSERV_HANDLE SessionCreate; // offset=0
+    NSERV_HANDLE SessionJoin;
+    NSERV_HANDLE SessionExchange;
+    NSERV_HANDLE SessionInit;
+    NSERV_HANDLE SessionDial; // offset=16
+    NSERV_HANDLE SessionAnswer;
+    NSERV_HANDLE SessionHangUp;
+    NSERV_HANDLE UsedSessionInit;
+    NSERV_HANDLE netsvcfunc_unkn20; // offset=32
+};
+
+typedef struct NetworkServiceFunction TbNetworkServiceFunction;
+
 struct TbNetworkPlayer { // sizeof=22
     NPLYR_HANDLE Id; // offset=0
     ULONG PlayerNumber; // offset=2
@@ -120,7 +134,7 @@ int LbNetworkSetSessionHangUpFunction();
 extern TbNetworkService Network_Service_List[];
 extern unsigned char session_active;
 extern TbNetworkService NetworkServicePtr;
-extern int NetworkServiceFunction;
+extern TbNetworkServiceFunction NetworkServiceFunction;
 
 #ifdef __cplusplus
 };

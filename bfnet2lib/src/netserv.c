@@ -204,7 +204,7 @@ unsigned char session_active;
 
 TbNetworkService NetworkServicePtr;
 
-int NetworkServiceFunction;
+TbNetworkServiceFunction NetworkServiceFunction;
 
 
 /******************************************************************************/
