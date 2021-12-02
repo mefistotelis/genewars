@@ -18,6 +18,8 @@
 /******************************************************************************/
 #include "bfmouse.h"
 
+#include "bfscreen.h"
+
 int LbMousePlace()
 {
 // code at 0001:000a6810
@@ -28,12 +30,12 @@ int LbMouseRemove()
 // code at 0001:000a6968
 }
 
-int LbMouseChangeSpriteOffset()
+int LbMouseChangeSpriteOffset(unsigned long hsX, unsigned long hsY)
 {
 // code at 0001:000a6a44
 }
 
-int LbMouseChangeSprite()
+int LbMouseChangeSprite(struct TbSprite *spr)
 {
 // code at 0001:000a6a7c
 }

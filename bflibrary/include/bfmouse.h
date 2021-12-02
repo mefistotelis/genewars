@@ -25,34 +25,36 @@
 extern "C" {
 #endif
 
-struct mouse_buffer { // sizeof=32
+struct TbSprite;
+
+struct mouse_buffer { // sizeof=4128
     BOOL Valid; // offset=0
     SLONG Width; // offset=4
     SLONG Height; // offset=8
     ULONG Offset; // offset=12
-    SLONG X; // offset=16
-    UBYTE Buffer[255]; // offset=17
-    SLONG Y; // offset=20
-    SLONG XOffset; // offset=24
-    SLONG YOffset; // offset=28
+    UBYTE Buffer[4096]; // offset=16
+    SLONG X; // offset=4112
+    SLONG Y; // offset=4116
+    SLONG XOffset; // offset=4120
+    SLONG YOffset; // offset=4124
 };
 
 typedef struct mouse_buffer mouse_buffer;
 
-struct mouse_info { // sizeof=16
+struct mouse_info { // sizeof=4112
     SLONG XMoveRatio; // offset=0
     SLONG YMoveRatio; // offset=4
     SLONG XSpriteOffset; // offset=8
     SLONG YSpriteOffset; // offset=12
-    UBYTE Sprite[255]; // offset=16
+    UBYTE Sprite[4096]; // offset=16
 };
 
 typedef struct mouse_info mouse_info;
 
 int LbMousePlace();
 int LbMouseRemove();
-int LbMouseChangeSpriteOffset();
-int LbMouseChangeSprite();
+int LbMouseChangeSpriteOffset(unsigned long hsX, unsigned long hsY);
+int LbMouseChangeSprite(struct TbSprite *spr);
 int LbMouseChangeMoveRatio();
 int LbMouseSetup();
 int LbMouseReset();
