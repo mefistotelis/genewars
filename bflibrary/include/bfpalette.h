@@ -33,7 +33,7 @@ struct Palette { // sizeof=3
 
 typedef struct Palette Palette;
 
-int LbPaletteFade();
+TbResult LbPaletteFade(UBYTE *from_pal, UBYTE arg2, UBYTE fade_steps);
 int LbPaletteStopOpenFade();
 int LbPaletteFindColour();
 int LbPaletteDraw();

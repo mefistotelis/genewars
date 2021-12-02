@@ -68,6 +68,9 @@ typedef int TbResult;
 typedef unsigned char TbBool;
 typedef long TbScreenCoord;
 
+typedef long long TbClockMSec;
+typedef time_t TbTimeSec;
+
 #ifdef __cplusplus
 };
 #endif

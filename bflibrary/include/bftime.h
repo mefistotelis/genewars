@@ -45,7 +45,8 @@ typedef struct TbTime TbTime;
 
 int LbDate();
 int LbTime();
-int LbTimerClock();
+
+TbClockMSec LbTimerClock(void);
 
 #ifdef __cplusplus
 };

@@ -18,7 +18,7 @@
 /******************************************************************************/
 #include "bfpalette.h"
 
-int LbPaletteFade()
+TbResult LbPaletteFade(UBYTE *from_pal, UBYTE arg2, UBYTE fade_steps)
 {
 // code at 0001:00098ac0
 }
