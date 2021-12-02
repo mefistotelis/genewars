@@ -24,6 +24,7 @@
 #include "bfscreen.h"
 #include "bfmusic.h"
 #include "bfmemory.h"
+#include "bftime.h"
 #include "data.hpp"
 #include "tables.hpp"
 #include "game.hpp"
@@ -270,9 +271,9 @@ int main(int argc, char *argv[])
     print_usage();
   }
   printf("total time = %.03f secs  packet time = %.03f secs (%.03f%%)\n",
-    (gameEndTime - gameStartTime) / 100.0f,
-    pktTotalTime / 100.0f,
-    100 * pktTotalTime / (float)(gameEndTime - gameStartTime));
+    (gameEndTime - gameStartTime) / 1000.0f,
+    pktTotalTime / 1000.0f,
+    100.0f * pktTotalTime / (gameEndTime - gameStartTime));
   //fflush(&__iob[1]);
   return 0;
 }

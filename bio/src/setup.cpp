@@ -68,7 +68,7 @@ void Config::CDToSegment( ConfigInstall )
 // code at 0001:0000b74c
 }
 
-char * Config::InstalledFile(char *arg1)
+char * Config::InstalledFile(const char * fname)
 {
 // code at 0001:000036ac
 }

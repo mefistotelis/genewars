@@ -69,7 +69,7 @@ public:
     Ethereal ethereals[8]; // offset=379974
 public:
     BioGame();
-    BBOOL Write(char *arg1, UBYTE arg2);
+    BBOOL Write(char *arg1, UBYTE arg2 = 0);
     BBOOL Read(char *arg1, UBYTE arg2, SBYTE arg3, Player *arg4);
     void ResetGameAndControl();
     void FreeAllAllocs();

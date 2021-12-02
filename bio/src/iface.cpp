@@ -349,4 +349,10 @@ BBOOL IFCBase::IsCurrent()
 // code at 0001:00003a70
 }*/
 
+IFCBase *IFCBase::plugIn;
+IFCBase *IFCBase::pullOut;
+BBOOL IFCBase::fullCopyToVRAM;
+SWORD IFCBase::gadID;
+Packet *IFCBase::packet;
+
 /******************************************************************************/

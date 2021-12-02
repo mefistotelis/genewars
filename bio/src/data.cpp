@@ -90,8 +90,6 @@ MySprite * plant_spr[2]; // array size TBD
 
 IFCBase * currentIFC;
 
-void * Packet::dataBlast;
-
 long unsigned pointers_data;
 
 long unsigned planets_data;
@@ -140,11 +138,11 @@ long unsigned debugTurn[2]; // array size TBD
 
 char unsigned debugIndex;
 
-long unsigned pktTotalTime;
+TbClockMSec pktTotalTime;
 
-long unsigned gameStartTime;
+TbClockMSec gameStartTime;
 
-long unsigned gameEndTime;
+TbClockMSec gameEndTime;
 
 char unsigned replace_display;
 

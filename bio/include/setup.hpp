@@ -83,7 +83,7 @@ public:
 public:
     BBOOL GetConfigs();
     char * InsertInstallDir(char *arg1);
-    char * InstalledFile(char *arg1);
+    char * InstalledFile(const char * fname);
     void SetToCDROM();
     void SetToInstallDrive();
     BBOOL IsCurrentDriveCDROM();

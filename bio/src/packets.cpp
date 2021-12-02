@@ -48,6 +48,8 @@ void Packet::SetPacket(UBYTE arg1, SWORD arg2, SWORD arg3, SWORD arg4, SWORD arg
 // code at 0001:00037940
 }
 
+void *Packet::dataBlast;
+
 void process_packets()
 {
 // code at 0001:0005f818
