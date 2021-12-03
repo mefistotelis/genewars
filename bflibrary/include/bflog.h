@@ -44,23 +44,12 @@ struct TbLog { // sizeof=194
 
 typedef struct TbLog TbLog;
 
-struct TbDate { // sizeof=5
-    UBYTE Day; // offset=0
-    UBYTE Month; // offset=1
-    UWORD Year; // offset=2
-    UBYTE DayOfWeek; // offset=4
-};
+#ifdef __DEBUG
+#define LIBLOG(format,args...) LbSyncLog("%s: " format "\n", __func__ , ## args)
+#else
+#define LIBLOG(format,args...)
+#endif
 
-typedef struct TbDate TbDate;
-
-struct TbTime { // sizeof=4
-    UBYTE Hour; // offset=0
-    UBYTE Minute; // offset=1
-    UBYTE Second; // offset=2
-    UBYTE HSecond; // offset=3
-};
-
-typedef struct TbTime TbTime;
 
 int LbLogSetup();
 int LbLog();

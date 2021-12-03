@@ -1,7 +1,8 @@
 /******************************************************************************/
-// Free implementation of Bullfrog's GeneWars strategy game.
+// Bullfrog Engine Emulation Library - for use to remake classic games like
+// Syndicate Wars, Magic Carpet or Dungeon Keeper.
 /******************************************************************************/
-/** @file sdir.cpp
+/** @file sdir.c
  *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
@@ -20,6 +21,7 @@
 
 #include <sys/stat.h>
 #include <unistd.h>
+#include <stdbool.h>
 
 /** Changes the current directory on the specified drive to the specified path.
  *  If no drive is specified in path then the current drive is assumed.
@@ -45,7 +47,7 @@ TbResult LbDirectoryCreate(const char *path)
   return 1;
 }
 
-/** Acquires current directory.
+/** Acquires current working directory.
  *
  * Returns the directory without drive letter and without '/' at end
  */
@@ -86,6 +88,69 @@ TbResult LbDirectoryRemove(const char *path)
   if ( rmdir(path) )
     return -1;
   return 1;
+}
+
+TbResult LbFileMakeFullPath(const short append_cur_dir,
+  const char *directory, const char *filename, char *buf, const unsigned long len)
+{
+  if (filename==NULL)
+    { buf[0]='\0'; return -1; }
+  unsigned long namestart;
+  if ( append_cur_dir )
+  {
+    if ( LbDirectoryCurrent(buf, len-2) == -1 )
+    { buf[0]='\0'; return -1; }
+    namestart = strlen(buf);
+    if ( (namestart > 0) && (buf[namestart-1] != '\\') && (buf[namestart-1] != '/'))
+    {
+      buf[namestart] = '/';
+      namestart++;
+    }
+  } else
+  {
+    namestart = 0;
+  }
+  buf[namestart] = '\0';
+
+  if ( directory != NULL )
+  {
+    int copy_len;
+    copy_len = strlen(directory);
+    if ( len-2 <= namestart+copy_len-1 )
+      return -1;
+    memcpy(buf+namestart, directory, copy_len);
+    namestart += copy_len-1;
+    if ( (namestart > 0) && (buf[namestart-1] != '\\') && (buf[namestart-1] != '/'))
+    {
+      buf[namestart] = '/';
+      namestart++;
+    }
+    buf[namestart] = '\0';
+  }
+  if ( strlen(filename)+namestart-1 < len )
+  {
+    const char *ptr = filename;
+    int invlen;
+    for (invlen=-1; invlen != 0; invlen--)
+    {
+     if (*ptr++ == 0)
+       {invlen--;break;}
+    }
+    int copy_len;
+    const char *copy_src;
+    char *copy_dst;
+    copy_len = ~invlen;
+    copy_src = &ptr[-copy_len];
+    copy_dst = buf;
+    for (invlen=-1;invlen!=0;invlen--)
+    {
+     if (*copy_dst++ == 0)
+       {invlen--;break;}
+    }
+    memcpy(copy_dst-1, copy_src, copy_len);
+    return 1;
+  }
+  return -1;
 }
 
 /******************************************************************************/

@@ -133,4 +133,10 @@ obj/general/%.o: src/general/%.c
 	-$(ECHO) 'Finished building: $<'
 	-$(ECHO) ' '
 
+obj/os/%.o: src/os/%.c
+	-$(ECHO) 'Building file: $<'
+	$(CC) $(CFLAGS) -o"$@" "$<"
+	-$(ECHO) 'Finished building: $<'
+	-$(ECHO) ' '
+
 #******************************************************************************
