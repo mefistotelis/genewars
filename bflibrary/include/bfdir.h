@@ -16,8 +16,8 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#ifndef BFLIBRARY_SDIR_H_
-#define BFLIBRARY_SDIR_H_
+#ifndef BFLIBRARY_BFDIR_H_
+#define BFLIBRARY_BFDIR_H_
 
 #include "bftypes.h"
 
@@ -25,15 +25,15 @@
 extern "C" {
 #endif
 
-int LbDirectoryChange();
-int LbDirectoryCreate();
-int LbDirectoryCurrent();
-int LbDirectoryExists();
-int LbDirectoryRemove();
+TbResult LbDirectoryChange(const char *path);
+TbResult LbDirectoryCreate(const char *path);
+TbResult LbDirectoryCurrent(char *buf, unsigned long buflen);
+TbBool LbDirectoryExists(const char *dirname);
+TbResult LbDirectoryRemove(const char *path);
 
 #ifdef __cplusplus
 };
 #endif
 
-#endif // BFLIBRARY_SDIR_H_
+#endif // BFLIBRARY_BFDIR_H_
 /******************************************************************************/

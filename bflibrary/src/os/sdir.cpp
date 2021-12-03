@@ -18,30 +18,74 @@
 /******************************************************************************/
 #include "bfdir.h"
 
-int LbDirectoryChange()
+#include <sys/stat.h>
+#include <unistd.h>
+
+/** Changes the current directory on the specified drive to the specified path.
+ *  If no drive is specified in path then the current drive is assumed.
+ *  The path can be either relative to the current directory
+ *  on the specified drive or it can be an absolute path name.
+ *
+ * @param path
+ * @return
+ */
+TbResult LbDirectoryChange(const char *path)
 {
-// code at 0001:000bc450
+  // code at 0001:000bc450
+  if ( chdir(path) )
+    return -1;
+  return 1;
 }
 
-int LbDirectoryCreate()
+TbResult LbDirectoryCreate(const char *path)
 {
-// code at 0001:000bc478
+  // code at 0001:000bc478
+  if ( mkdir(path) )
+    return -1;
+  return 1;
 }
 
-int LbDirectoryCurrent()
+/** Acquires current directory.
+ *
+ * Returns the directory without drive letter and without '/' at end
+ */
+TbResult LbDirectoryCurrent(char *buf, unsigned long buflen)
 {
-// code at 0001:000bc4a0
+    // code at 0001:000bc4a0
+    if ( getcwd(buf,buflen) == NULL )
+      return -1;
+    if ( buf[1] == ':' )
+      // Unsafe to use strcpy() on overlapping buffers, but we can memmove().
+      memmove(buf, buf+2, strlen(buf+2) + 1);
+    int len = strlen(buf);
+    if ( len > 1 )
+    {
+      if ( (buf[len-1] == '\\') || (buf[len-1] == '/') )
+        buf[len-1] = '\0';
+    }
+    return 1;
 }
 
-int LbDirectoryExists()
+/** Checks if a given file entry exist and is a directory.
+ */
+TbBool LbDirectoryExists(const char *dirname)
 {
-// code at 0001:000bc530
+  // code at 0001:000bc530
+  struct stat stbuf;
+
+  if ( access(dirname, 0) || stat(dirname, &stbuf) == -1 )
+    return false;
+  return S_ISDIR(stbuf.st_mode);
 }
 
-int LbDirectoryRemove()
+/** Removes given empty directory entry.
+ */
+TbResult LbDirectoryRemove(const char *path)
 {
-// code at 0001:000bc578
+  // code at 0001:000bc578
+  if ( rmdir(path) )
+    return -1;
+  return 1;
 }
-
 
 /******************************************************************************/
