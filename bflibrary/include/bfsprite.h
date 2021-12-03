@@ -1,5 +1,6 @@
 /******************************************************************************/
-// Free implementation of Bullfrog's GeneWars strategy game.
+// Bullfrog Engine Emulation Library - for use to remake classic games like
+// Syndicate Wars, Magic Carpet, Genewars or Dungeon Keeper.
 /******************************************************************************/
 /** @file bfsprite.h
  *     Header file for gsprite.cpp, gspr_std.cpp, gspr_col.cpp, spr_scl.asm.

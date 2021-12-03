@@ -1,6 +1,6 @@
 /******************************************************************************/
 // Bullfrog Engine Emulation Library - for use to remake classic games like
-// Syndicate Wars, Magic Carpet or Dungeon Keeper.
+// Syndicate Wars, Magic Carpet, Genewars or Dungeon Keeper.
 /******************************************************************************/
 /** @file bffile.h
  *     Header file for gfile.cpp, sfile.c.

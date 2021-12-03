@@ -1,5 +1,6 @@
 /******************************************************************************/
-// Free implementation of Bullfrog's GeneWars strategy game.
+// Bullfrog Engine Emulation Library - for use to remake classic games like
+// Syndicate Wars, Magic Carpet, Genewars or Dungeon Keeper.
 /******************************************************************************/
 /** @file bfgentab.h
  *     Header file for ggengh.cpp and ggenf.cpp.
