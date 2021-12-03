@@ -3,7 +3,7 @@
 // Syndicate Wars, Magic Carpet, Genewars or Dungeon Keeper.
 /******************************************************************************/
 /** @file bffile.h
- *     Header file for gfile.cpp, sfile.c.
+ *     Header file for gfile.c, sfile.c.
  * @par Purpose:
  *     File handling routines wrapper.
  * @par Comment:
@@ -165,7 +165,10 @@ int LbFileLengthRnc();
 int LbFileLoadAt();
 int LbFileSaveAt();
 int LbFileStringSearch();
-int LbFileMakeFullPath();
+
+TbResult LbFileMakeFullPath(const short append_cur_dir,
+  const char *directory, const char *filename, char *buf, const unsigned long len);
+
 int LbFileCopy();
 
 #ifdef __cplusplus

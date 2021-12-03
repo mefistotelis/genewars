@@ -3,13 +3,15 @@
 // Syndicate Wars, Magic Carpet, Genewars or Dungeon Keeper.
 /******************************************************************************/
 /** @file sfile.c
- *     Implementation of related functions.
+ *     File handling routines wrapper.
  * @par Purpose:
- *     Unknown.
+ *     OS separation library for file i/o and compression routines.
+ *     These should be used for all file access in the game.
  * @par Comment:
- *     None.
+ *     Wraps standard c file handling routines. You could say this has no purpose,
+ *     but here it is anyway.
  * @author   Tomasz Lis
- * @date     12 Nov 2008 - 05 Nov 2021
+ * @date     10 Feb 2008 - 05 Nov 2021
  * @par  Copying and copyrights:
  *     This program is free software; you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
