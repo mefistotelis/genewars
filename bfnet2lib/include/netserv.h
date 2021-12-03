@@ -94,7 +94,7 @@ struct SessionInfo { // sizeof=225
     UBYTE Selected; // offset=224
 };
 
-int LbNetworkUpdate();
+int LbNetworkUpdate(void);
 int LbNetworkSessionList();
 int LbNetworkServiceList();
 int LbNetworkServiceStart();

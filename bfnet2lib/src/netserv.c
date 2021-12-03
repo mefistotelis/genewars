@@ -18,9 +18,12 @@
 /******************************************************************************/
 #include "netserv.h"
 
-int LbNetworkUpdate()
+int LbNetworkUpdate(void)
 {
-// code at 0001:000b0490
+  // code at 0001:000b0490
+  if (NetworkServicePtr.Type == 1)
+    ipx_update();
+  return 1;
 }
 
 int LbNetworkSessionList()
