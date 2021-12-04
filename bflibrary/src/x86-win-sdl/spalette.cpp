@@ -2,12 +2,12 @@
 // Bullfrog Engine Emulation Library - for use to remake classic games like
 // Syndicate Wars, Magic Carpet, Genewars or Dungeon Keeper.
 /******************************************************************************/
-/** @file bfexe_key.h
- *     Header file for gexe_key.cpp.
+/** @file spalette.cpp
+ *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
  * @par Comment:
- *     Just a header file - #defines, typedefs, function prototypes etc.
+ *     None.
  * @author   Tomasz Lis
  * @date     12 Nov 2008 - 05 Nov 2021
  * @par  Copying and copyrights:
@@ -17,18 +17,17 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#ifndef BFLIBRARY_BFEXE_KEY_H_
-#define BFLIBRARY_BFEXE_KEY_H_
+#include "bfpalette.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+int LbPaletteGet()
+{
+// code at 0001:000989f0
+}
 
-unsigned long LbExeReferenceNumber(void);
+int LbPaletteSet()
+{
+// code at 0001:00098a54
+}
 
-#ifdef __cplusplus
-};
-#endif
 
-#endif // BFLIBRARY_BFEXE_KEY_H_
 /******************************************************************************/

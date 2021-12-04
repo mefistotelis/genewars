@@ -2,7 +2,7 @@
 // Bullfrog Engine Emulation Library - for use to remake classic games like
 // Syndicate Wars, Magic Carpet, Genewars or Dungeon Keeper.
 /******************************************************************************/
-/** @file gexe_key.cpp
+/** @file sscreen.cpp
  *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
@@ -17,18 +17,83 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#include "bfexe_key.h"
+#include "bfscreen.h"
 
-const unsigned char exe_key[] = {
-    0x89, 0x0C, 0x0D5, 0x11,
-    0x00, 0x00, 0x00, 0x00,
-    0xE9, 0x2A, 0x80, 0x0C5,
-};
-
-unsigned long LbExeReferenceNumber(void)
+int LbScreenSetupAnyMode()
 {
-  return *(unsigned long *)&exe_key[4];
-// code at 0001:000bafe0
+// code at 0001:000954e0
+}
+
+int LbScreenClearGraphicsWindow()
+{
+// code at 0001:000956dc
+}
+
+int LbScreenClear()
+{
+// code at 0001:00095728
+}
+
+int LbScreenReset()
+{
+// code at 0001:00095754
+}
+
+int LbScreenLock()
+{
+// code at 0001:000957a0
+}
+
+int LbScreenUnlock()
+{
+// code at 0001:000957ac
+}
+
+int LbScreenSetDoubleBuffering()
+{
+// code at 0001:000957b8
+}
+
+int LbScreenSetWScreenInVideo()
+{
+// code at 0001:000957d8
+}
+
+int lbScreenDirectAccessActive;
+
+int LbScreenFindVideoModes()
+{
+// code at 0001:000957f8
+}
+
+int LbScreenSwap()
+{
+// code at 0001:000958b0
+}
+
+int LbScreenSwapBoxClear()
+{
+// code at 0001:00095964
+}
+
+int LbScreenSwapClear()
+{
+// code at 0001:00095b34
+}
+
+int LbScreenSwapBox()
+{
+// code at 0001:00095c38
+}
+
+int LbScreenDrawHVLineDirect()
+{
+// code at 0001:00095dc4
+}
+
+int LbScreenWaitVbi()
+{
+// code at 0001:000961b0
 }
 
 

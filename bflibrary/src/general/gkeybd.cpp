@@ -45,7 +45,7 @@ unsigned char lbExtendedKeyPress;
 
 unsigned char lbKeyOn[256];
 
-unsigned char lbInkey;
+TbKeyCode lbInkey;
 
 unsigned char lbInkeyFlags;
 
@@ -53,7 +53,20 @@ unsigned char lbIInkey;
 
 unsigned char lbIInkeyFlags;
 
-unsigned char lbShift;
+int lbKeyboardLang;
 
+void LbKeyboardSetLanguage(int lngnum)
+{
+    lbKeyboardLang = lngnum;
+}
+
+TbBool LbKeyCodeValid(TbKeyCode key)
+{
+    if (key <= KC_UNASSIGNED)
+        return false;
+    if (key > KC_WAKE) // last key in enumeration - update if enumeration is changed
+        return false;
+    return true;
+}
 
 /******************************************************************************/

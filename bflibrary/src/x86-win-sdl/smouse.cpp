@@ -2,12 +2,12 @@
 // Bullfrog Engine Emulation Library - for use to remake classic games like
 // Syndicate Wars, Magic Carpet, Genewars or Dungeon Keeper.
 /******************************************************************************/
-/** @file bfexe_key.h
- *     Header file for gexe_key.cpp.
+/** @file smouse.cpp
+ *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
  * @par Comment:
- *     Just a header file - #defines, typedefs, function prototypes etc.
+ *     None.
  * @author   Tomasz Lis
  * @date     12 Nov 2008 - 05 Nov 2021
  * @par  Copying and copyrights:
@@ -17,18 +17,66 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#ifndef BFLIBRARY_BFEXE_KEY_H_
-#define BFLIBRARY_BFEXE_KEY_H_
+#include "bfmouse.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "bfscreen.h"
 
-unsigned long LbExeReferenceNumber(void);
+int LbMousePlace()
+{
+// code at 0001:000a6810
+}
 
-#ifdef __cplusplus
-};
-#endif
+int LbMouseRemove()
+{
+// code at 0001:000a6968
+}
 
-#endif // BFLIBRARY_BFEXE_KEY_H_
+int LbMouseChangeSpriteOffset(unsigned long hsX, unsigned long hsY)
+{
+// code at 0001:000a6a44
+}
+
+int LbMouseChangeSprite(struct TbSprite *spr)
+{
+// code at 0001:000a6a7c
+}
+
+int LbMouseChangeMoveRatio()
+{
+// code at 0001:000a6c04
+}
+
+int LbMouseSetup()
+{
+// code at 0001:000a6c7c
+}
+
+int LbMouseReset()
+{
+// code at 0001:000a6e24
+}
+
+int LbMouseSuspend()
+{
+// code at 0001:000a6ea8
+}
+
+int LbMouseSetWindow()
+{
+// code at 0001:000a6f0c
+}
+
+int LbMouseSetPosition()
+{
+// code at 0001:000a6f78
+}
+
+int LbMouseUpdatePosition()
+{
+// code at 0001:000a7004
+}
+
+int lbMouseInstalled;
+
+
 /******************************************************************************/

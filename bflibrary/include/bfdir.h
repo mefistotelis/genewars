@@ -26,10 +26,32 @@
 extern "C" {
 #endif
 
+/** Changes the current directory on the specified drive to the specified path.
+ *  If no drive is specified in path then the current drive is assumed.
+ *  The path can be either relative to the current directory
+ *  on the specified drive or it can be an absolute path name.
+ *
+ * @param path
+ * @return
+ */
 TbResult LbDirectoryChange(const char *path);
+
+/** Creates last directory in provided path.
+ */
 TbResult LbDirectoryCreate(const char *path);
+
+/** Acquires current working directory.
+ *
+ * @return Returns the directory, without drive letter and without '/' at end.
+ */
 TbResult LbDirectoryCurrent(char *buf, unsigned long buflen);
+
+/** Checks if a given file entry exist and is a directory.
+ */
 TbBool LbDirectoryExists(const char *dirname);
+
+/** Removes given empty directory entry.
+ */
 TbResult LbDirectoryRemove(const char *path);
 
 #ifdef __cplusplus

@@ -2,12 +2,12 @@
 // Bullfrog Engine Emulation Library - for use to remake classic games like
 // Syndicate Wars, Magic Carpet, Genewars or Dungeon Keeper.
 /******************************************************************************/
-/** @file bfexe_key.h
- *     Header file for gexe_key.cpp.
+/** @file svesa.cpp
+ *     Implementation of related functions.
  * @par Purpose:
  *     Unknown.
  * @par Comment:
- *     Just a header file - #defines, typedefs, function prototypes etc.
+ *     None.
  * @author   Tomasz Lis
  * @date     12 Nov 2008 - 05 Nov 2021
  * @par  Copying and copyrights:
@@ -17,18 +17,44 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#ifndef BFLIBRARY_BFEXE_KEY_H_
-#define BFLIBRARY_BFEXE_KEY_H_
+#include "svesa.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+int LbVesaGetGran()
+{
+// code at 0001:000b2730
+}
 
-unsigned long LbExeReferenceNumber(void);
+int LbVesaSetMode()
+{
+// code at 0001:000b2838
+}
 
-#ifdef __cplusplus
-};
-#endif
+int LbVesaSetPage()
+{
+// code at 0001:000b2894
+}
 
-#endif // BFLIBRARY_BFEXE_KEY_H_
+int LbVesaGetInfo()
+{
+// code at 0001:000b2914
+}
+
+int LbVesaIsModeAvailable()
+{
+// code at 0001:000b29d8
+}
+
+int lbVesaBytesPerLine;
+
+int lbVesaHRes;
+
+int lbVesaVRes;
+
+int lbVesaData;
+
+int lbVesaPage;
+
+int lbVesaGran;
+
+
 /******************************************************************************/

@@ -26,4 +26,11 @@ All the files can be compiled and linked using a modern version of GCC/G++.
 
 ## Building.
 
-Just run `make`.
+Just run `make`. To get the version for your platform.
+If you lack a library and it will error out - install said library and retry.
+
+For 32-bit windows version using mingw32:
+
+```
+make clean; PATH="/mingw32/bin:$PATH" make DEBUG=1 CROSS_COMPILE=i686-w64-mingw32-
+```

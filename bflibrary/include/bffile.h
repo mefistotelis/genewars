@@ -118,13 +118,13 @@ long LbFileRead(TbFileHandle handle, void *buffer, unsigned long len);
  * to be transmitted is located at the address specified by buffer.
  * @return Returns the number of bytes (does not include any extra carriage-return
  * characters transmitted) of data transmitted to the file.
-*/
+ */
 long LbFileWrite(TbFileHandle handle, const void *buffer, const unsigned long len);
 
 /**
  * Flushes the file buffers, writing all data immediately.
  * @return Returns 1 on success, 0 on error.
-*/
+ */
 TbBool LbFileFlush(TbFileHandle handle);
 
 /** Returns size of an already opened file.

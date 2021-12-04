@@ -17,9 +17,9 @@
 #      (at your option) any later version.
 #
 #******************************************************************************
-CPP  = g++
-CC   = gcc
-AR   = ar
+CPP  = $(CROSS_COMPILE)g++
+CC   = $(CROSS_COMPILE)gcc
+AR   = $(CROSS_COMPILE)ar
 RM = rm -f
 MV = mv -f
 CP = cp -f

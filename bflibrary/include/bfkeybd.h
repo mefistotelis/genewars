@@ -5,11 +5,11 @@
 /** @file bfkeybd.h
  *     Header file for gkeybd.cpp, skeybd.cpp.
  * @par Purpose:
- *     Unknown.
+ *     Keyboard related routines - reading keyboard.
  * @par Comment:
- *     None.
+ *     Just a header file - #defines, typedefs, function prototypes etc.
  * @author   Tomasz Lis
- * @date     12 Nov 2008 - 05 Nov 2021
+ * @date     10 Feb 2008 - 05 Nov 2021
  * @par  Copying and copyrights:
  *     This program is free software; you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -17,8 +17,8 @@
  *     (at your option) any later version.
  */
 /******************************************************************************/
-#ifndef BFLIBRARY_GKEYBD_H_
-#define BFLIBRARY_GKEYBD_H_
+#ifndef BFLIBRARY_BFKEYBD_H_
+#define BFLIBRARY_BFKEYBD_H_
 
 #include "bftypes.h"
 
@@ -168,26 +168,48 @@ enum KeyCodes {
         KC_WAKE        = 0xE3,    // System Wake
 };
 
-int LbKeyboardOpen();
-int LbKeyboardClose();
-int LbKeyboard();
-int LbIKeyboardOpen();
-int LbIKeyboardClose();
-int LbDosKeyboard();
+typedef unsigned char TbKeyCode;
+
+enum KeyAction {
+        KActn_NONE = 0,
+        KActn_KEYDOWN,
+        KActn_KEYUP,
+};
+
+enum KeyModifiers {
+        KMod_NONE        = 0x00,
+        KMod_SHIFT       = 0x10,
+        KMod_CONTROL     = 0x20,
+        KMod_ALT         = 0x40,
+};
+#define KMod_DONTCARE -1
+
+typedef short TbKeyMods;
 
 extern char lbInkeyToAscii[];
 extern char lbInkeyToAsciiShift[];
+
 extern unsigned char lbExtendedKeyPress;
 extern unsigned char lbKeyOn[];
 extern unsigned char lbInkey;
 extern unsigned char lbInkeyFlags;
 extern unsigned char lbIInkey;
 extern unsigned char lbIInkeyFlags;
-extern unsigned char lbShift;
+
+void LbKeyboardSetLanguage(int lngnum);
+TbBool LbKeyCodeValid(TbKeyCode key);
+
+
+TbResult LbKeyboardOpen(void);
+TbResult LbKeyboardClose(void);
+
+char LbKeyboard(void);
+TbResult LbIKeyboardOpen(void);
+TbResult LbIKeyboardClose(void);
 
 #ifdef __cplusplus
 };
 #endif
 
-#endif // BFLIBRARY_GKEYBD_H_
+#endif // BFLIBRARY_BFKEYBD_H_
 /******************************************************************************/
