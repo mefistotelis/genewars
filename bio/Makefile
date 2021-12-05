@@ -29,8 +29,8 @@ else
   PKGOS = lin
 endif
 
-CPP  = g++
-CC   = gcc
+CPP  = $(CROSS_COMPILE)g++
+CC   = $(CROSS_COMPILE)gcc
 WINDRES = windres
 DLLTOOL = dlltool
 RM = rm -f
