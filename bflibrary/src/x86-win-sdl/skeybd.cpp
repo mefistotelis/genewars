@@ -37,7 +37,7 @@ TbResult LbKeyboardClose(void)
 
 static std::map<int, TbKeyCode> keymap_sdl_to_bf;
 
-static void prepare_keys_mapping(void)
+static void keyboardMappingPrepare(void)
 {
     keymap_sdl_to_bf.insert(pair<int, TbKeyCode>(SDLK_a, KC_A));
     keymap_sdl_to_bf.insert(pair<int, TbKeyCode>(SDLK_b, KC_B));
@@ -176,9 +176,60 @@ static void prepare_keys_mapping(void)
     keymap_sdl_to_bf.insert(pair<int, TbKeyCode>(SDLK_UNDO, KC_UNASSIGNED));
 }
 
+static unsigned int keyboardKeysMapping(const SDL_KeyboardEvent * key)
+{
+    /*
+    key->keysym.scancode;         < hardware specific scancode
+    key->keysym.sym;         < SDL virtual keysym
+    key->keysym.unicode;         < translated character
+    */
+    int keycode = key->keysym.sym;
+    std::map<int, TbKeyCode>::iterator iter;
+
+    iter = keymap_sdl_to_bf.find(keycode);
+    if (iter != keymap_sdl_to_bf.end())
+    {
+        return iter->second;
+    }
+
+    return KC_UNASSIGNED;
+}
+
+static TbKeyMods keyboardModsMapping(const SDL_KeyboardEvent * key)
+{
+    TbKeyMods keymod = KMod_NONE;
+    switch (key->keysym.sym)
+    {
+    // Pressing only a modifier will not treat the key as modifier.
+    // If that happens, don't care, so that keyboard control won't try to fix anything.
+    case SDLK_RSHIFT:
+    case SDLK_LSHIFT:
+    case SDLK_RCTRL:
+    case SDLK_LCTRL:
+    case SDLK_RALT:
+    case SDLK_LALT:
+    case SDLK_RMETA:
+    case SDLK_LMETA:
+    case SDLK_LSUPER:
+    case SDLK_RSUPER:
+        keymod = KMod_DONTCARE;
+        break;
+    // If pressed any other key, mind the modifiers, to allow keyboard control fixes.
+    default:
+        if ((key->keysym.mod & KMOD_CTRL) != 0)
+            keymod |= KMod_CONTROL;
+        if ((key->keysym.mod & KMOD_SHIFT) != 0)
+            keymod |= KMod_SHIFT;
+        if ((key->keysym.mod & KMOD_ALT) != 0)
+            keymod |= KMod_ALT;
+        break;
+    }
+    return keymod;
+}
+
 TbResult LbSDLKeyboard(void)
 {
-  //TODO verify it we can do something here
+  // No need to do anything - keyboard read happens in SDL event handler
 }
 
 char LbKeyboard(void)
@@ -189,10 +240,108 @@ char LbKeyboard(void)
     return 0;
 }
 
+/** Check for undetected/incorrectly maintained modifiers.
+ */
+static inline TbResult KEventModsCheck(TbKeyMods modifiers)
+{
+    if (modifiers == KMod_DONTCARE)
+        return Lb_OK;
+    // If modifiers were supplied, make sure they are correctly set in lbKeyOn[]
+    if (modifiers & KMod_SHIFT)
+    {
+        if (!lbKeyOn[KC_RSHIFT] && !lbKeyOn[KC_LSHIFT])
+            lbKeyOn[KC_LSHIFT] = 1;
+    } else
+    {
+        lbKeyOn[KC_LSHIFT] = 0;
+        lbKeyOn[KC_RSHIFT] = 0;
+    }
+    if (modifiers & KMod_CONTROL)
+    {
+        if (!lbKeyOn[KC_RCONTROL] && !lbKeyOn[KC_LCONTROL])
+            lbKeyOn[KC_LCONTROL] = 1;
+    } else
+    {
+        lbKeyOn[KC_LCONTROL] = 0;
+        lbKeyOn[KC_RCONTROL] = 0;
+    }
+    if (modifiers & KMod_ALT)
+    {
+        if (!lbKeyOn[KC_RALT] && !lbKeyOn[KC_LALT])
+            lbKeyOn[KC_LALT] = 1;
+    } else
+    {
+        lbKeyOn[KC_LALT] = 0;
+        lbKeyOn[KC_RALT] = 0;
+    }
+    return Lb_SUCCESS;
+}
+
+/** Update modifiers flags based on previously set lbKeyOn[] array.
+ */
+static inline TbResult KEventModsUpdate(TbKeyCode code)
+{
+    lbInkeyFlags = 0;
+    if (lbKeyOn[KC_LSHIFT] || lbKeyOn[KC_RSHIFT])
+        lbInkeyFlags |= KMod_SHIFT;
+    if (lbKeyOn[KC_LCONTROL] || lbKeyOn[KC_RCONTROL])
+        lbInkeyFlags |= KMod_CONTROL;
+    if (lbKeyOn[KC_LALT] || lbKeyOn[KC_RALT])
+        lbInkeyFlags |= KMod_ALT;
+    if (lbKeyOn[code] != 0)
+        lbKeyOn[code] |= lbInkeyFlags;
+    if (lbInkey < 0x80)
+    {
+        if (lbIInkey == 0)
+        {
+            lbIInkey = lbInkey;
+            lbIInkeyFlags = lbInkeyFlags;
+        }
+    }
+    return Lb_SUCCESS;
+}
+
+/** @internal
+ * Triggers keyboard control function for given SDL keyboard event.
+ * @return SUCCESS if the event was processed, FAIL if key isn't supported, OK if no keyboard event.
+ */
+TbResult KEvent(const SDL_Event *ev)
+{
+    TbKeyCode code;
+    TbKeyMods modifiers;
+    switch (ev->type)
+    {
+    case SDL_KEYDOWN:
+        code = keyboardKeysMapping(&ev->key);
+        if (code != KC_UNASSIGNED) {
+            lbKeyOn[code] = 1;
+            lbInkey = code;
+            modifiers = keyboardModsMapping(&ev->key);
+            KEventModsCheck(modifiers);
+            KEventModsUpdate(code);
+            return Lb_SUCCESS;
+        }
+        return Lb_FAIL;
+
+    case SDL_KEYUP:
+        code = keyboardKeysMapping(&ev->key);
+        if (code != KC_UNASSIGNED) {
+            lbKeyOn[code] = 0;
+            lbExtendedKeyPress = 0;
+            modifiers = keyboardModsMapping(&ev->key);
+            KEventModsCheck(modifiers);
+            KEventModsUpdate(code);
+            return Lb_SUCCESS;
+        }
+        return Lb_FAIL;
+    }
+    return Lb_OK;
+}
+
 TbResult LbIKeyboardOpen(void)
 {
     memset(lbKeyOn, 0, 256);
-    prepare_keys_mapping();
+    keyboardMappingPrepare();
     SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY,SDL_DEFAULT_REPEAT_INTERVAL);
     return 1;
 }

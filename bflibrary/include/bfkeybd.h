@@ -170,12 +170,6 @@ enum KeyCodes {
 
 typedef unsigned char TbKeyCode;
 
-enum KeyAction {
-        KActn_NONE = 0,
-        KActn_KEYDOWN,
-        KActn_KEYUP,
-};
-
 enum KeyModifiers {
         KMod_NONE        = 0x00,
         KMod_SHIFT       = 0x10,
@@ -184,15 +178,17 @@ enum KeyModifiers {
 };
 #define KMod_DONTCARE -1
 
-typedef short TbKeyMods;
+typedef signed char TbKeyMods;
 
 extern char lbInkeyToAscii[];
 extern char lbInkeyToAsciiShift[];
 
 extern unsigned char lbExtendedKeyPress;
 extern unsigned char lbKeyOn[];
+
 extern unsigned char lbInkey;
 extern unsigned char lbInkeyFlags;
+
 extern unsigned char lbIInkey;
 extern unsigned char lbIInkeyFlags;
 
