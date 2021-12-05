@@ -25,7 +25,6 @@
 
 TbResult LbDirectoryChange(const char *path)
 {
-  // code at 0001:000bc450
   if ( chdir(path) )
     return -1;
   return 1;
@@ -33,7 +32,6 @@ TbResult LbDirectoryChange(const char *path)
 
 TbResult LbDirectoryCreate(const char *path)
 {
-  // code at 0001:000bc478
   if ( mkdir(path) )
     return -1;
   return 1;
@@ -41,7 +39,6 @@ TbResult LbDirectoryCreate(const char *path)
 
 TbResult LbDirectoryCurrent(char *buf, unsigned long buflen)
 {
-    // code at 0001:000bc4a0
     if ( getcwd(buf,buflen) == NULL )
       return -1;
     if ( buf[1] == ':' )
@@ -58,7 +55,6 @@ TbResult LbDirectoryCurrent(char *buf, unsigned long buflen)
 
 TbBool LbDirectoryExists(const char *dirname)
 {
-  // code at 0001:000bc530
   struct stat stbuf;
 
   if ( access(dirname, 0) || stat(dirname, &stbuf) == -1 )
@@ -68,7 +64,6 @@ TbBool LbDirectoryExists(const char *dirname)
 
 TbResult LbDirectoryRemove(const char *path)
 {
-  // code at 0001:000bc578
   if ( rmdir(path) )
     return -1;
   return 1;

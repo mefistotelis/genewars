@@ -19,53 +19,25 @@
 /******************************************************************************/
 #include "bfkeybd.h"
 
-include "<string.h>"
+#include <map>
+#include <cstring>
+#include <SDL/SDL.h>
+
+using namespace std;
 
 TbResult LbKeyboardOpen(void)
 {
-    // code at 0001:000b2080
     return 1;
 }
 
 TbResult LbKeyboardClose(void)
 {
-    // code at 0001:000b208c
     return 1;
 }
 
-#if defined(DOS)||defined(GO32)
+static std::map<int, TbKeyCode> keymap_sdl_to_bf;
 
-unsigned char lbShift;
-
-TbResult LbDosKeyboard(void)
-{
-    // code at 0001:000b2138
-    union REGS regs;
-
-    regs.h.ah = 18;
-    int386(22, &regs, &regs);
-    lbShift = 0;
-    if ( regs.h.al & 3 )
-      lbShift = 1;
-    if ( regs.h.al & 4 )
-      lbShift |= 2u;
-    if ( regs.h.al & 8 )
-      lbShift |= 4u;
-    lbInkey = 0;
-    __asm { int     16h; KEYBOARD - CHECK ENHANCED KEYSTROKE  }
-    lbInkey = _ah
-}
-
-void KInt(void)
-{
-    assert(!"not implemented");
-}
-
-#else
-
-#include <SDL/SDL.h>
-
-void prepare_keys_mapping(void)
+static void prepare_keys_mapping(void)
 {
     keymap_sdl_to_bf.insert(pair<int, TbKeyCode>(SDLK_a, KC_A));
     keymap_sdl_to_bf.insert(pair<int, TbKeyCode>(SDLK_b, KC_B));
@@ -204,15 +176,14 @@ void prepare_keys_mapping(void)
     keymap_sdl_to_bf.insert(pair<int, TbKeyCode>(SDLK_UNDO, KC_UNASSIGNED));
 }
 
-#endif
+TbResult LbSDLKeyboard(void)
+{
+  //TODO verify it we can do something here
+}
 
 char LbKeyboard(void)
 {
-    // code at 0001:000b2098
-#if defined(DOS)||defined(GO32)
-    LbDosKeyboard();
-#else
-#endif
+    LbSDLKeyboard();
     if (lbInkey < 128)
         return lbInkeyToAscii[lbInkey];
     return 0;
@@ -220,24 +191,14 @@ char LbKeyboard(void)
 
 TbResult LbIKeyboardOpen(void)
 {
-    // code at 0001:000b20c8
     memset(lbKeyOn, 0, 256);
-#if defined(DOS)||defined(GO32)
-    OldInt, OldIntNum = dos_getvect(9); // Returns one val in eax, 2nd in dx
-    dos_setvect(9, KInt);
-#else
     prepare_keys_mapping();
     SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY,SDL_DEFAULT_REPEAT_INTERVAL);
-#endif
     return 1;
 }
 
 TbResult LbIKeyboardClose(void)
 {
-  // code at 0001:000b2110
-#if defined(DOS)||defined(GO32)
-    dos_setvect(9, OldInt);
-#endif
     return 1;
 }
 

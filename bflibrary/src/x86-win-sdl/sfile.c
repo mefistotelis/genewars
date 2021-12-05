@@ -69,20 +69,17 @@ WINBASEAPI DWORD WINAPI GetLastError(void);
 
 TbBool LbFileExists(const char *fname)
 {
-  // code at 0001:000a12d0
   return access(fname,F_OK) == 0;
 }
 
 long LbFilePosition(TbFileHandle handle)
 {
-  // code at 0001:000a12f4
   int result = tell(handle);
   return result;
 }
 
 TbFileHandle LbFileOpen(const char *fname, const TbFileOpenMode accmode)
 {
-  // code at 0001:000a1320
   TbFileOpenMode mode = accmode;
 
   if ( !LbFileExists(fname) )
@@ -128,7 +125,6 @@ TbFileHandle LbFileOpen(const char *fname, const TbFileOpenMode accmode)
 
 TbResult LbFileClose(TbFileHandle handle)
 {
-  // code at 0001:000a13fc
   if ( close(handle) )
     return -1;
   return 1;
@@ -143,7 +139,6 @@ TbBool LbFileEof(TbFileHandle handle)
 
 TbResult LbFileSeek(TbFileHandle handle, long offset, TbFileSeekMode origin)
 {
-  // code at 0001:000a1424
   int rc;
   switch (origin)
   {
@@ -165,7 +160,6 @@ TbResult LbFileSeek(TbFileHandle handle, long offset, TbFileSeekMode origin)
 
 long LbFileRead(TbFileHandle handle, void *buffer, unsigned long len)
 {
-  // code at 0001:000a1498
   int result;
   //'read' returns (-1) on error
   result = read(handle,buffer,len);
@@ -174,7 +168,6 @@ long LbFileRead(TbFileHandle handle, void *buffer, unsigned long len)
 
 long LbFileWrite(TbFileHandle handle, const void *buffer, const unsigned long len)
 {
-  // code at 0001:000a14d0
   long result;
   result = write(handle, buffer, len);
   return result;
@@ -192,14 +185,9 @@ TbBool LbFileFlush(TbFileHandle handle)
   result = GetLastError();
   return ((result == 0) || (result == 6));
 #else
-#if defined(DOS)||defined(GO32)
-  // No idea how to do this on old systems
-  return 1;
-#else
   // For normal POSIX systems
   // (should also work on Win, as its IEEE standard... but it currently isn't)
   return (ioctl(handle,I_FLUSH,FLUSHRW) != -1);
-#endif
 #endif
 }
 
@@ -212,7 +200,6 @@ long LbFileLengthHandle(TbFileHandle handle)
 
 long LbFileLength(const char *fname)
 {
-  // code at 0001:000a1508
   TbFileHandle handle;
   handle = LbFileOpen(fname, Lb_FILE_MODE_READ_ONLY);
   long result = handle;
@@ -250,10 +237,7 @@ static void convert_find_info(struct TbFileFind *ffind)
 
 TbResult LbFileFindFirst(const char *filespec, struct TbFileFind *ffind,unsigned int attributes)
 {
-    // code at 0001:000a155c
-    // original Watcom code was
-    //dos_findfirst_(path, attributes,&(ffind->Reserved))
-    //The new code skips 'attributes' as Win32 prototypes seem not to use them
+    // We skip 'attributes' as Win32 prototypes seem not to use them
     ffind->ReservedHandle = _findfirst(filespec,&(ffind->Reserved));
     int result;
     if (ffind->ReservedHandle == -1)
@@ -269,7 +253,6 @@ TbResult LbFileFindFirst(const char *filespec, struct TbFileFind *ffind,unsigned
 
 TbResult LbFileFindNext(struct TbFileFind *ffind)
 {
-    // code at 0001:000a15a0
     int result;
     if ( _findnext(ffind->ReservedHandle,&(ffind->Reserved)) < 0 )
     {
@@ -286,7 +269,6 @@ TbResult LbFileFindNext(struct TbFileFind *ffind)
 
 TbResult LbFileFindEnd(struct TbFileFind *ffind)
 {
-    // code at 0001:000a15d4
     if (ffind->ReservedHandle != -1)
     {
         _findclose(ffind->ReservedHandle);
@@ -296,7 +278,6 @@ TbResult LbFileFindEnd(struct TbFileFind *ffind)
 
 TbResult LbFileRename(const char *fname_old, const char *fname_new)
 {
-  // code at 0001:000a15e8
   int result;
   if ( rename(fname_old,fname_new) )
     result = -1;
@@ -307,7 +288,6 @@ TbResult LbFileRename(const char *fname_old, const char *fname_new)
 
 TbResult LbFileDelete(const char *filename)
 {
-  // code at 0001:000a1618
   int result;
   if ( remove(filename) )
     result = -1;

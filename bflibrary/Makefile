@@ -19,12 +19,19 @@
 #******************************************************************************
 CPP  = $(CROSS_COMPILE)g++
 CC   = $(CROSS_COMPILE)gcc
-AR   = $(CROSS_COMPILE)ar
+AR   = ar
 RM = rm -f
 MV = mv -f
 CP = cp -f
 MKDIR = mkdir -p
 ECHO = @echo
+
+# select platform sources dir
+ifneq (,$(findstring i686-w64-mingw32-,$(CROSS_COMPILE)))
+OS_SOURCES=x86-win-sdl
+else
+OS_SOURCES=x86-dos-watcom
+endif
 
 STATLIB=lib/libbflibrary.a
 
@@ -121,7 +128,7 @@ obj/general/%.o: src/general/%.cpp
 	-$(ECHO) 'Finished building: $<'
 	-$(ECHO) ' '
 
-obj/os/%.o: src/os/%.cpp
+obj/os/%.o: src/$(OS_SOURCES)/%.cpp
 	-$(ECHO) 'Building file: $<'
 	$(CPP) $(CXXFLAGS) -o"$@" "$<"
 	-$(ECHO) 'Finished building: $<'
@@ -133,7 +140,7 @@ obj/general/%.o: src/general/%.c
 	-$(ECHO) 'Finished building: $<'
 	-$(ECHO) ' '
 
-obj/os/%.o: src/os/%.c
+obj/os/%.o: src/$(OS_SOURCES)/%.c
 	-$(ECHO) 'Building file: $<'
 	$(CC) $(CFLAGS) -o"$@" "$<"
 	-$(ECHO) 'Finished building: $<'

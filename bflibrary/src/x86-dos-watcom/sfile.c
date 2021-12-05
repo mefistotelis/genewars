@@ -30,59 +30,22 @@
 #include <stdio.h>
 #include "bflog.h"
 
-#if defined(WIN32)||defined(DOS)||defined(GO32)
 #include <dos.h>
 #include <direct.h>
-#endif
-
-#if defined(WIN32)
-#ifdef __cplusplus
-extern "C" {
-#endif
-//Selected declarations frow Win32 API - I don't want to use whole API
-// since it influences everything
-#ifndef WINBASEAPI
-#ifdef __W32API_USE_DLLIMPORT__
-#define WINBASEAPI DECLSPEC_IMPORT
-#else
-#define WINBASEAPI
-#endif
-#endif
-#define WINAPI __stdcall
-typedef char *PCHAR,*LPCH,*PCH,*NPSTR,*LPSTR,*PSTR;
-typedef const char *LPCCH,*PCSTR,*LPCSTR;
-typedef unsigned long DWORD;
-typedef int WINBOOL,*PWINBOOL,*LPWINBOOL;
-#define BOOL WINBOOL
-typedef void *PVOID,*LPVOID;
-typedef PVOID HANDLE;
-#define DECLARE_HANDLE(n) typedef HANDLE n
-typedef HANDLE *PHANDLE,*LPHANDLE;
-WINBASEAPI DWORD WINAPI GetShortPathNameA(LPCSTR,LPSTR,DWORD);
-#define GetShortPathName GetShortPathNameA
-WINBASEAPI BOOL WINAPI FlushFileBuffers(HANDLE);
-WINBASEAPI DWORD WINAPI GetLastError(void);
-#ifdef __cplusplus
-}
-#endif
-#endif
 
 TbBool LbFileExists(const char *fname)
 {
-  // code at 0001:000a12d0
   return access(fname,F_OK) == 0;
 }
 
 long LbFilePosition(TbFileHandle handle)
 {
-  // code at 0001:000a12f4
   int result = tell(handle);
   return result;
 }
 
 TbFileHandle LbFileOpen(const char *fname, const TbFileOpenMode accmode)
 {
-  // code at 0001:000a1320
   TbFileOpenMode mode = accmode;
 
   if ( !LbFileExists(fname) )
@@ -94,7 +57,6 @@ TbFileHandle LbFileOpen(const char *fname, const TbFileOpenMode accmode)
       mode = Lb_FILE_MODE_NEW;
   }
   TbFileHandle rc;
-/* DISABLED - NOT NEEDED
   if ( mode == Lb_FILE_MODE_NEW )
   {
     LIBLOG("creating file: %s", fname);
@@ -102,7 +64,6 @@ TbFileHandle LbFileOpen(const char *fname, const TbFileOpenMode accmode)
     setmode(rc,_O_TRUNC);
     close(rc);
   }
-*/
   rc = -1;
   switch (mode)
   {
@@ -165,7 +126,6 @@ TbResult LbFileSeek(TbFileHandle handle, long offset, TbFileSeekMode origin)
 
 long LbFileRead(TbFileHandle handle, void *buffer, unsigned long len)
 {
-  // code at 0001:000a1498
   int result;
   //'read' returns (-1) on error
   result = read(handle,buffer,len);
@@ -174,7 +134,6 @@ long LbFileRead(TbFileHandle handle, void *buffer, unsigned long len)
 
 long LbFileWrite(TbFileHandle handle, const void *buffer, const unsigned long len)
 {
-  // code at 0001:000a14d0
   long result;
   result = write(handle, buffer, len);
   return result;
@@ -182,25 +141,9 @@ long LbFileWrite(TbFileHandle handle, const void *buffer, const unsigned long le
 
 TbBool LbFileFlush(TbFileHandle handle)
 {
-#if defined(WIN32)
-  int result;
-  // Crappy Windows has its own
-  result = FlushFileBuffers((HANDLE)handle);
-  // It returns 'invalid handle' error sometimes for no reason.. so disabling this error
-  if (result != 0)
-      return 1;
-  result = GetLastError();
-  return ((result == 0) || (result == 6));
-#else
-#if defined(DOS)||defined(GO32)
-  // No idea how to do this on old systems
-  return 1;
-#else
-  // For normal POSIX systems
-  // (should also work on Win, as its IEEE standard... but it currently isn't)
-  return (ioctl(handle,I_FLUSH,FLUSHRW) != -1);
-#endif
-#endif
+  long result;
+  result = fsync(handle);
+  return result;
 }
 
 long LbFileLengthHandle(TbFileHandle handle)
@@ -212,7 +155,6 @@ long LbFileLengthHandle(TbFileHandle handle)
 
 long LbFileLength(const char *fname)
 {
-  // code at 0001:000a1508
   TbFileHandle handle;
   handle = LbFileOpen(fname, Lb_FILE_MODE_READ_ONLY);
   long result = handle;
@@ -226,94 +168,69 @@ long LbFileLength(const char *fname)
 
 /** @internal
  * Converts file search information from platform-specific into independent form.
- * Yeah, right...
  */
 static void convert_find_info(struct TbFileFind *ffind)
 {
-  struct _finddata_t *fdata=&(ffind->Reserved);
+  struct find_t *fdata = &(ffind->Reserved);
   strncpy(ffind->Filename,fdata->name,144);
-  ffind->Filename[143]='\0';
-#if defined(WIN32)
-  GetShortPathName(fdata->name,ffind->AlternateFilename,14);
-#else
+  ffind->Filename[143] = '\0';
   strncpy(ffind->AlternateFilename,fdata->name,14);
-#endif
-  ffind->AlternateFilename[13]='\0';
-  if (fdata->size>ULONG_MAX)
-    ffind->Length=ULONG_MAX;
-  else
-    ffind->Length = fdata->size;
+  ffind->AlternateFilename[13] = '\0';
+  ffind->Length = fdata->size;
   ffind->Attributes = fdata->attrib;
-  LbDateTimeDecode(&fdata->time_create,&ffind->CreationDate,&ffind->CreationTime);
-  LbDateTimeDecode(&fdata->time_write,&ffind->LastWriteDate,&ffind->LastWriteTime);
+  ffind->CreationDate.Day = 0;
+  ffind->CreationDate.Month = 0;
+  ffind->CreationDate.Year = 0;
+  ffind->CreationDate.DayOfWeek = 0;
+  ffind->CreationTime.HSecond = 0;
+  ffind->CreationTime.Second = 0;
+  ffind->CreationTime.Minute = 0;
+  ffind->CreationTime.Hour = 0;
+  ffind->LastWriteDate.Day = fdata->wr_date & 0x1F;
+  ffind->LastWriteDate.Month = (fdata->wr_date & 0x1E0u) >> 5;
+  ffind->LastWriteDate.Year = ((fdata->wr_date & 0xFE00) >> 9) + 1980;
+  ffind->LastWriteDate.DayOfWeek = 0;
+  ffind->LastWriteTime.HSecond = 0;
+  ffind->LastWriteTime.Second = (fdata->wr_time & 0x1F) << 1;
+  ffind->LastWriteTime.Minute = (fdata->wr_time & 0x7E0u) >> 5;
+  ffind->LastWriteTime.Hour = (fdata->wr_time & 0xF800u) >> 11;
 }
 
 TbResult LbFileFindFirst(const char *filespec, struct TbFileFind *ffind,unsigned int attributes)
 {
-    // code at 0001:000a155c
-    // original Watcom code was
-    //dos_findfirst_(path, attributes,&(ffind->Reserved))
-    //The new code skips 'attributes' as Win32 prototypes seem not to use them
-    ffind->ReservedHandle = _findfirst(filespec,&(ffind->Reserved));
-    int result;
-    if (ffind->ReservedHandle == -1)
-    {
-      result = -1;
-    } else
-    {
-      convert_find_info(ffind);
-      result = 1;
-    }
-    return result;
+    ffind->ReservedHandle = -1;
+    if (dos_findfirst(filespec, attributes, &(ffind->Reserved)))
+        return -1;
+    ffind->ReservedHandle = 1;
+    convert_find_info(ffind);
+    return 1;
 }
 
 TbResult LbFileFindNext(struct TbFileFind *ffind)
 {
-    // code at 0001:000a15a0
-    int result;
-    if ( _findnext(ffind->ReservedHandle,&(ffind->Reserved)) < 0 )
-    {
-        _findclose(ffind->ReservedHandle);
-        ffind->ReservedHandle = -1;
-        result = -1;
-    } else
-    {
-        convert_find_info(ffind);
-        result = 1;
-    }
-    return result;
+    if (dos_findnext(&(ffind->Reserved)))
+        return -1;
+    convert_find_info(ffind);
+    return 1;
 }
 
 TbResult LbFileFindEnd(struct TbFileFind *ffind)
 {
-    // code at 0001:000a15d4
-    if (ffind->ReservedHandle != -1)
-    {
-        _findclose(ffind->ReservedHandle);
-    }
     return 1;
 }
 
 TbResult LbFileRename(const char *fname_old, const char *fname_new)
 {
-  // code at 0001:000a15e8
-  int result;
-  if ( rename(fname_old,fname_new) )
-    result = -1;
-  else
-    result = 1;
-  return result;
+    if ( rename(fname_old,fname_new) )
+        return -1;
+    return 1;
 }
 
 TbResult LbFileDelete(const char *filename)
 {
-  // code at 0001:000a1618
-  int result;
-  if ( remove(filename) )
-    result = -1;
-  else
-    result = 1;
-  return result;
+    if ( remove(filename) )
+        return -1;
+    return 1;
 }
 
 /******************************************************************************/
