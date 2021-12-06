@@ -74,6 +74,10 @@ TbResult LbMemoryReset(void);
  *  If the function failed to allocate the requested block of memory,
  *  a NULL pointer is returned.
  *
+ *  Change to original: This function originally returned TbResult, and
+ *  the resulting pointer couldn't be changed. This reimplementation
+ *  allows the pointer to change, so the uses have to be updated.
+ *
  * @param ptr The previously allocated memory block.
  * @param size New size of the block.
  */
@@ -85,19 +89,19 @@ void * LbMemoryGrow(void *ptr, TbMemSize size);
  *  in the block. A pointer to the reallocated memory block is returned,
  *  which usually is the same as the ptr argument.
  *
+ *  Change to original: This function originally returned TbResult, and
+ *  the resulting pointer couldn't be changed. This reimplementation
+ *  allows the pointer to change, so the uses have to be updated.
+ *
  * @param ptr The previously allocated memory block.
  * @param size New size of the block.
  */
 void * LbMemoryShrink(void *ptr, TbMemSize size);
 
-/** Reduce previously allocated memory block.
- *  The size of the memory block pointed to by the ptr parameter is
- *  changed to the size bytes, reducing the amount of memory available
- *  in the block. A pointer to the reallocated memory block is returned,
- *  which usually is the same as the ptr argument.
+/** Compare two memory blocks.
  *
- * @param ptr The previously allocated memory block.
- * @param size New size of the block.
+ * @param ptr1 The first pointer.
+ * @param size Amount of bytes to compare.
  */
 int LbMemoryCompare(void *ptr1, void *ptr2, TbMemSize size);
 

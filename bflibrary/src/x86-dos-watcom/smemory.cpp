@@ -58,7 +58,7 @@ void * LbMemoryAlloc(TbMemSize size)
   TbMemSize match_size;
 
   LbMemorySetup();
-  pad_size = (size + 3) & ~0x04u;
+  pad_size = (size + 3) & ~0x03u;
   match_size = -1;
   match_marena = 0;
   for ( marena = memory_arenas; marena != NULL; marena = marena->Child )
@@ -79,9 +79,33 @@ void * LbMemoryAlloc(TbMemSize size)
   return match_marena->Pointer;
 }
 
-int LbMemoryAllocLow()
+void * LbMemoryAllocLow(TbMemSize size)
 {
-// code at 0001:0006f528
+  TbMemSize pad_size;
+  struct mem_arena *marena;
+  struct mem_arena *match_marena;
+  TbMemSize match_size;
+
+  LbMemorySetup();
+  pad_size = (v1 + 0x0F) & ~0x0F;
+  match_size = -1;
+  match_marena = 0;
+  for ( marena = memory_arenas; marena != NULL; marena = marena->Child )
+  {
+    if ( pad_size <= marena->Size && marena->Size < match_size && !marena->Used )
+    {
+      if ( memory_blocks[marena->Section].Selector )
+      {
+        match_size = marena->Size;
+        match_marena = marena;
+      }
+    }
+  }
+  if ( !match_marena || !split_arena(match_marena, pad_size) )
+    return 0;
+  LbMemoryCheck();
+  memset(match_marena->Pointer, 0, pad_size);
+  return match_marena->Pointer;
 }
 
 int LbMemoryCheck()
@@ -110,37 +134,216 @@ int LbMemoryCheck()
       lbMemoryAvailable.TotalBytes += marena->Size;
     }
   }
-  lbMemoryAvailable.TotalBytes &= ~0x04u;
-  lbMemoryAvailable.TotalBytesFree &= ~0x04u;
-  lbMemoryAvailable.TotalBytesUsed &= ~0x04u;
-  lbMemoryAvailable.LargestBlock &= ~0x04u;
-  lbMemoryAvailable.SmallestBlock &= ~0x04u;
+  lbMemoryAvailable.TotalBytes &= ~0x03u;
+  lbMemoryAvailable.TotalBytesFree &= ~0x03u;
+  lbMemoryAvailable.TotalBytesUsed &= ~0x03u;
+  lbMemoryAvailable.LargestBlock &= ~0x03u;
+  lbMemoryAvailable.SmallestBlock &= ~0x03u;
   return 1;
 }
 
-int LbMemoryFree()
+TbResult LbMemoryFree(void *mem_ptr)
 {
-// code at 0001:0006f712
+  struct mem_arena *marena;
+  TbBool found;
+
+  if ( ptr == NULL )
+    return -1;
+  
+  found = 0;
+  for ( marena = memory_arenas; marena != NULL; marena = marena->Child )
+  {
+    if ( marena->Pointer == ptr )
+    {
+      marena->Used = 0;
+      found = 1;
+      break;
+    }
+  }
+  if ( found != 1 )
+    return -1;
+  for ( marena = memory_arenas; marena != NULL; marena = marena->Child )
+  {
+    if ( !marena->Used )
+      delete_arena(marena);
+  }
+  LbMemoryCheck();
+  return 1;
 }
 
-int LbMemoryGrow()
+void * LbMemoryGrow(void *ptr, TbMemSize size)
 {
-// code at 0001:0006f7ce
+  struct mem_arena *marena;
+  TbBool found;
+
+  pad_size = (size + 3) & ~0x03u;
+  found = 0;
+  for ( marena = memory_arenas; marena != NULL; marena = marena->Child )
+  {
+      if ( marena->Pointer != ptr )
+        continue;
+      if ( pad_size <= marena->Size )
+        return ptr;
+      marena->Used = 0;
+      if ( !marena->Child || marena->Child->Used )
+        return NULL;
+      if ( marena->Size + marena->Child->Size <= pad_size )
+      {
+        if ( marena->Size + marena->Child->Size < pad_size )
+          return NULL;
+        delete_arena(marena->Child);
+      }
+      else
+      {
+        marena->Child->Size = marena->Size + marena->Child->Size - pad_size;
+        marena->Size = pad_size;
+        marena->Child->Used = 1;
+      }
+      marena->Used = 1;
+      found = 1;
+      break;
+  }
+  if ( !found )
+    return NULL;
+  for ( marena = memory_arenas; marena != NULL; marena = marena->Child )
+  {
+    if ( !marena->Used )
+      delete_arena(marena);
+  }
+  LbMemoryCheck();
+  return ptr;
 }
 
-int LbMemoryReset()
+TbResult LbMemoryReset(void)
 {
-// code at 0001:0006f95f
+  struct mem_block *mblock;
+
+  for ( mblock = memory_blocks; mblock->Size; ++mblock )
+  {
+    if ( mblock->Selector )
+      dos_free(mblock->Selector);
+    else
+      nfree(mblock->Pointer);
+    mblock->Size = 0;
+    mblock->Pointer = 0;
+    mblock->Selector = 0;
+  }
+  return 1;
 }
 
-int LbMemorySetup()
+TbResult LbMemorySetup(void)
 {
-// code at 0001:0006f9de
+    TbMemSize sz;
+    void * low_ptr;
+    void * ptr;
+    int i, n, nblks;
+
+    if ( memory_blocks[0].Size )
+      return 1;
+    low_ptr = dos_alloc(0x10000u);
+    for ( i = 0; i < 256; ++i )
+      memset(&memory_blocks[i], 0, sizeof(memory_blocks[0]));
+    for ( i = 0; i < 256; ++i )
+      memset(&memory_arenas[i], 0, sizeof(memory_arenas[0]));
+
+    nblks = 0;
+    for ( sz = 0x0A0000; sz >= 1024; sz -= 1024 )
+    {
+      ptr = dos_alloc(sz);
+      if ( ptr != NULL )
+      {
+        memory_blocks[nblks].Size = sz;
+        memory_blocks[nblks].Pointer = (16 * ptr);
+        memory_blocks[nblks].Selector = ptr >> 16;
+        sz += 1024;
+        ++nblks;
+      }
+    }
+
+    for ( sz = 0x1000000; sz >= 4096; sz -= 4096 )
+    {
+      memory_blocks[nblks].Pointer = nmalloc(sz);
+      if ( memory_blocks[nblks].Pointer )
+      {
+        for ( n = 4096; n > 0; n -= 16 )
+        {
+          if ( nexpand(memory_blocks[nblks].Pointer, n + sz) )
+          {
+            memory_blocks[nblks].Size = n + sz;
+            memory_blocks[nblks].Selector = 0;
+            break;
+          }
+        }
+        sz += 4096;
+        ++nblks;
+      }
+    }
+    for ( n = 4096; n >= 16; n -= 16 )
+    {
+      memory_blocks[nblks].Pointer = (UBYTE *)nmalloc(n);
+      if ( memory_blocks[nblks].Pointer )
+      {
+        memory_blocks[nblks].Size = n;
+        memory_blocks[nblks].Selector = 0;
+        n += 4096;
+        ++nblks;
+      }
+    }
+
+    qsort(memory_blocks, nblks, sizeof(memory_blocks[0]), compare);
+    for ( i = 0; i < 256; ++i )
+      memory_arenas[i].Size = 0;
+    for ( i = 0; i < nblks; ++i )
+    {
+      memory_arenas[i].Pointer = memory_blocks[i].Pointer;
+      memory_arenas[i].Size = memory_blocks[i].Size;
+      if ( i )
+        memory_arenas[i].Parent = &memory_arenas[i - 1];
+      else
+        memory_arenas[0].Parent = 0;
+      memory_arenas[i].Child = &memory_arenas[i + 1];
+      memory_arenas[i].Used = 0;
+      memory_arenas[i].Section = i;
+    }
+    memory_arenas[nblks - 1].Child = NULL;
+    dos_free(low_ptr >> 16);
+    return 1;
 }
 
-int LbMemoryShrink()
+void * LbMemoryShrink(void *ptr, TbMemSize size)
 {
-// code at 0001:0006fce9
+    struct mem_arena *marena;
+    TbBool found;
+
+    pad_size = (size + 3) & ~0x03u;
+    found = 0;
+    for ( marena = memory_arenas; marena != NULL; marena = marena->Child )
+    {
+      if ( marena->Pointer == ptr )
+      {
+          if ( pad_size >= marena->Size ) {
+            return ptr;
+          }
+          marena->Used = 0;
+          split_arena(marena, pad_size);
+          found = 1;
+          break;
+      }
+    }
+    if ( !found )
+      return NULL;
+    for ( marena = memory_arenas; marena != NULL; marena = marena->Child )
+    {
+      if ( !marena->Used )
+        delete_arena(marena);
+    }
+    LbMemoryCheck();
+    return ptr;
+}
+
+int LbMemoryCompare(void *ptr1, void *ptr2, TbMemSize size)
+{
+    return memcmp(ptr1, ptr2, size);
 }
 
 /******************************************************************************/
