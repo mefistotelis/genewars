@@ -41,7 +41,6 @@
 #define WINBASEAPI
 #endif
 #endif
-
 #define WINAPI __stdcall
 
 typedef unsigned long DWORD;
@@ -59,7 +58,7 @@ typedef struct _MEMORYSTATUS {
 
 WINBASEAPI VOID WINAPI GlobalMemoryStatus(LPMEMORYSTATUS);
 
-#endif
+#endif // defined(WIN32)
 
 struct TbMemoryAvailable { // sizeof=20
     TbMemSize TotalBytes; // offset=0
@@ -122,9 +121,9 @@ TbResult LbMemoryCheck(void)
   lbMemoryAvailable.TotalBytes = msbuffer.dwTotalPhys;
   // We no longer care for the rest - memory usage is not tracked on
   // application level
-  lbMemoryAvailable.TotalBytesFree = lbMemoryAvailable.TotalBytes;
+  lbMemoryAvailable.TotalBytesFree = msbuffer.dwAvailPhys;
   lbMemoryAvailable.TotalBytesUsed = 0;
-  lbMemoryAvailable.LargestBlock = lbMemoryAvailable.TotalBytes;
+  lbMemoryAvailable.LargestBlock = msbuffer.dwAvailPhys;
   lbMemoryAvailable.SmallestBlock = 4;
   return Lb_SUCCESS;
 }

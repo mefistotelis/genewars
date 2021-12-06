@@ -36,11 +36,14 @@
 #endif
 
 #if defined(WIN32)
+
+// Selected declarations frow Win32 API - we don't want to use whole API
+// since it influences everything
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-//Selected declarations frow Win32 API - I don't want to use whole API
-// since it influences everything
+
 #ifndef WINBASEAPI
 #ifdef __W32API_USE_DLLIMPORT__
 #define WINBASEAPI DECLSPEC_IMPORT
@@ -49,6 +52,7 @@ extern "C" {
 #endif
 #endif
 #define WINAPI __stdcall
+
 typedef char *PCHAR,*LPCH,*PCH,*NPSTR,*LPSTR,*PSTR;
 typedef const char *LPCCH,*PCSTR,*LPCSTR;
 typedef unsigned long DWORD;
@@ -58,14 +62,17 @@ typedef void *PVOID,*LPVOID;
 typedef PVOID HANDLE;
 #define DECLARE_HANDLE(n) typedef HANDLE n
 typedef HANDLE *PHANDLE,*LPHANDLE;
+
 WINBASEAPI DWORD WINAPI GetShortPathNameA(LPCSTR,LPSTR,DWORD);
 #define GetShortPathName GetShortPathNameA
 WINBASEAPI BOOL WINAPI FlushFileBuffers(HANDLE);
 WINBASEAPI DWORD WINAPI GetLastError(void);
+
 #ifdef __cplusplus
 }
 #endif
-#endif
+
+#endif // defined(WIN32)
 
 TbBool LbFileExists(const char *fname)
 {
