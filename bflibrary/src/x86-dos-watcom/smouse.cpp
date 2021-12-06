@@ -21,6 +21,8 @@
 
 #include "bfscreen.h"
 
+TbBool volatile lbMouseInstalled = false;
+
 int LbMousePlace()
 {
 // code at 0001:000a6810
@@ -75,8 +77,5 @@ int LbMouseUpdatePosition()
 {
 // code at 0001:000a7004
 }
-
-int lbMouseInstalled;
-
 
 /******************************************************************************/

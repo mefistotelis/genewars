@@ -63,7 +63,8 @@ int LbMouseSuspend();
 int LbMouseSetWindow();
 int LbMouseSetPosition();
 int LbMouseUpdatePosition();
-extern int lbMouseInstalled;
+
+extern volatile TbBool lbMouseInstalled;
 
 #ifdef __cplusplus
 };
