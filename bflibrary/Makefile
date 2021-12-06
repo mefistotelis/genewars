@@ -77,6 +77,7 @@ obj/os/smemory.o \
 obj/os/smouse.o \
 obj/os/spalette.o \
 obj/os/sscreen.o \
+obj/os/ssemphr.o \
 obj/os/stime.o \
 obj/os/svesa.o \
 obj/os/swindows.o \
