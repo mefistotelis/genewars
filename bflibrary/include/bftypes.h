@@ -67,6 +67,9 @@ enum TbErrorCode {
 /** Command function result, valid values are of TbErrorCode enumeration. */
 typedef int TbResult;
 typedef unsigned char TbBool;
+
+typedef size_t TbMemSize;
+
 typedef long TbScreenCoord;
 
 typedef long long TbClockMSec;

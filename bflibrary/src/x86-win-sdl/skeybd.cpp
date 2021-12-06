@@ -37,7 +37,7 @@ TbResult LbKeyboardClose(void)
 
 static std::map<int, TbKeyCode> keymap_sdl_to_bf;
 
-static void keyboardMappingPrepare(void)
+static void KeyboardMappingPrepare(void)
 {
     keymap_sdl_to_bf.insert(pair<int, TbKeyCode>(SDLK_a, KC_A));
     keymap_sdl_to_bf.insert(pair<int, TbKeyCode>(SDLK_b, KC_B));
@@ -176,7 +176,7 @@ static void keyboardMappingPrepare(void)
     keymap_sdl_to_bf.insert(pair<int, TbKeyCode>(SDLK_UNDO, KC_UNASSIGNED));
 }
 
-static unsigned int keyboardKeysMapping(const SDL_KeyboardEvent * key)
+static unsigned int KeyboardKeysMapping(const SDL_KeyboardEvent * key)
 {
     /*
     key->keysym.scancode;         < hardware specific scancode
@@ -195,7 +195,7 @@ static unsigned int keyboardKeysMapping(const SDL_KeyboardEvent * key)
     return KC_UNASSIGNED;
 }
 
-static TbKeyMods keyboardModsMapping(const SDL_KeyboardEvent * key)
+static TbKeyMods KeyboardModsMapping(const SDL_KeyboardEvent * key)
 {
     TbKeyMods keymod = KMod_NONE;
     switch (key->keysym.sym)
@@ -312,11 +312,11 @@ TbResult KEvent(const SDL_Event *ev)
     switch (ev->type)
     {
     case SDL_KEYDOWN:
-        code = keyboardKeysMapping(&ev->key);
+        code = KeyboardKeysMapping(&ev->key);
         if (code != KC_UNASSIGNED) {
             lbKeyOn[code] = 1;
             lbInkey = code;
-            modifiers = keyboardModsMapping(&ev->key);
+            modifiers = KeyboardModsMapping(&ev->key);
             KEventModsCheck(modifiers);
             KEventModsUpdate(code);
             return Lb_SUCCESS;
@@ -324,11 +324,11 @@ TbResult KEvent(const SDL_Event *ev)
         return Lb_FAIL;
 
     case SDL_KEYUP:
-        code = keyboardKeysMapping(&ev->key);
+        code = KeyboardKeysMapping(&ev->key);
         if (code != KC_UNASSIGNED) {
             lbKeyOn[code] = 0;
             lbExtendedKeyPress = 0;
-            modifiers = keyboardModsMapping(&ev->key);
+            modifiers = KeyboardModsMapping(&ev->key);
             KEventModsCheck(modifiers);
             KEventModsUpdate(code);
             return Lb_SUCCESS;
@@ -341,7 +341,7 @@ TbResult KEvent(const SDL_Event *ev)
 TbResult LbIKeyboardOpen(void)
 {
     memset(lbKeyOn, 0, 256);
-    keyboardMappingPrepare();
+    KeyboardMappingPrepare();
     SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY,SDL_DEFAULT_REPEAT_INTERVAL);
     return 1;
 }

@@ -29,17 +29,11 @@ struct TbMemoryAvailable { // sizeof=20
     ULONG SmallestBlock; // offset=16
 };
 
-typedef struct TbMemoryAvailable TbMemoryAvailable;
-
 struct mem_block { // sizeof=12
     UBYTE *Pointer; // offset=0
     ULONG Selector; // offset=4
     ULONG Size; // offset=8
 };
-
-typedef struct mem_block mem_block;
-
-typedef struct mem_arena mem_arena;
 
 struct mem_arena { // sizeof=18
     UBYTE *Pointer; // offset=0
@@ -50,15 +44,39 @@ struct mem_arena { // sizeof=18
     UBYTE Section; // offset=17
 };
 
-TbMemoryAvailable lbMemoryAvailable;
+struct TbMemoryAvailable lbMemoryAvailable;
 
-mem_block memory_blocks[2]; // size to be determined
+mem_block memory_blocks[256];
 
-mem_arena memory_arenas[2]; // size to be determined
+mem_arena memory_arenas[256];
 
-int LbMemoryAlloc()
+void * LbMemoryAlloc(TbMemSize size)
 {
-// code at 0001:0006f444
+  TbMemSize pad_size;
+  struct mem_arena *marena;
+  struct mem_arena *match_marena;
+  TbMemSize match_size;
+
+  LbMemorySetup();
+  pad_size = (size + 3) & ~0x04u;
+  match_size = -1;
+  match_marena = 0;
+  for ( marena = memory_arenas; marena != NULL; marena = marena->Child )
+  {
+    if ( pad_size <= marena->Size
+      && marena->Size < match_size
+      && !marena->Used
+      && !memory_blocks[marena->Section].Selector )
+    {
+      match_size = marena->Size;
+      match_marena = marena;
+    }
+  }
+  if ( !match_marena || !split_arena(match_marena, pad_size) )
+    return LbMemoryAllocLow();
+  LbMemoryCheck();
+  memset(match_marena->Pointer, 0, pad_size);
+  return match_marena->Pointer;
 }
 
 int LbMemoryAllocLow()
@@ -68,7 +86,36 @@ int LbMemoryAllocLow()
 
 int LbMemoryCheck()
 {
-// code at 0001:0006f608
+  struct mem_arena *marena;
+
+  lbMemoryAvailable.TotalBytes = 0;
+  lbMemoryAvailable.TotalBytesFree = 0;
+  lbMemoryAvailable.TotalBytesUsed = 0;
+  lbMemoryAvailable.LargestBlock = 0;
+  lbMemoryAvailable.SmallestBlock = -1;
+  for ( marena = memory_arenas; marena != NULL; marena = marena->Child )
+  {
+    if ( marena->Used )
+    {
+      lbMemoryAvailable.TotalBytesUsed += marena->Size;
+      lbMemoryAvailable.TotalBytes += marena->Size;
+    }
+    else
+    {
+      lbMemoryAvailable.TotalBytesFree += marena->Size;
+      if ( marena->Size > lbMemoryAvailable.LargestBlock )
+        lbMemoryAvailable.LargestBlock = marena->Size;
+      if ( marena->Size < lbMemoryAvailable.SmallestBlock )
+        lbMemoryAvailable.SmallestBlock = marena->Size;
+      lbMemoryAvailable.TotalBytes += marena->Size;
+    }
+  }
+  lbMemoryAvailable.TotalBytes &= ~0x04u;
+  lbMemoryAvailable.TotalBytesFree &= ~0x04u;
+  lbMemoryAvailable.TotalBytesUsed &= ~0x04u;
+  lbMemoryAvailable.LargestBlock &= ~0x04u;
+  lbMemoryAvailable.SmallestBlock &= ~0x04u;
+  return 1;
 }
 
 int LbMemoryFree()
