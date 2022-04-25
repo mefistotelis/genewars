@@ -26,6 +26,9 @@
 extern "C" {
 #endif
 
+#define MAX_SUPPORTED_SCREEN_WIDTH  3840
+#define MAX_SUPPORTED_SCREEN_HEIGHT 2160
+
 enum ScreenMode { // type=int8_t
     Lb_SCREEN_MODE_INVALID = 0,
     Lb_SCREEN_MODE_320_200_8,
@@ -60,6 +63,21 @@ enum ScreenMode { // type=int8_t
 typedef enum ScreenMode TbScreenMode;
 
 typedef struct TbSprite TbSprite;
+
+enum TbDrawFlags {
+    Lb_SPRITE_FLIP_HORIZ   = 0x0001,
+    Lb_SPRITE_FLIP_VERTIC  = 0x0002,
+    Lb_SPRITE_TRANSPAR4    = 0x0004,
+    Lb_SPRITE_TRANSPAR8    = 0x0008,
+    Lb_SPRITE_OUTLINE      = 0x0010,
+    Lb_TEXT_HALIGN_LEFT    = 0x0020,
+    Lb_TEXT_ONE_COLOR      = 0x0040,
+    Lb_TEXT_HALIGN_RIGHT   = 0x0080,
+    Lb_TEXT_HALIGN_CENTER  = 0x0100,
+    Lb_TEXT_HALIGN_JUSTIFY = 0x0200,
+    Lb_TEXT_UNDERLINE      = 0x0400,
+    Lb_TEXT_UNDERLNSHADOW  = 0x0800,
+};
 
 struct DisplayStruct { // sizeof=118
     UBYTE *PhysicalScreen; // offset=0

@@ -141,7 +141,7 @@ class CreatureInfo { // sizeof=2
     uint8_t baseNo:3; // offset=0 bit=5
     SBYTE guardPoint; // offset=1
 public:
-    //CreatureInfo(); -- generate default no-args constructor
+    CreatureInfo();
     void Invalidate();
     //CreatureInfo(CreatureInfo &arg1); -- generate default copy constructor
 };

@@ -7,7 +7,8 @@
  * @par Purpose:
  *     Unknown.
  * @par Comment:
- *     None.
+ *     Part of 8-bit graphics canvas drawing library.
+ *     Used for drawing sprites on screen.
  * @author   Tomasz Lis
  * @date     12 Nov 2008 - 05 Nov 2021
  * @par  Copying and copyrights:
@@ -23,6 +24,5 @@ int LbSpriteDrawOneColour()
 {
 // code at 0001:000af330
 }
-
 
 /******************************************************************************/

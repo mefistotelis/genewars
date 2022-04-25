@@ -72,6 +72,11 @@ typedef size_t TbMemSize;
 
 typedef long TbScreenCoord;
 
+/** 8-bit pixel definition.
+ * Represents value of one point on the graphics screen.
+ */
+typedef unsigned char TbPixel;
+
 typedef long long TbClockMSec;
 typedef time_t TbTimeSec;
 

@@ -26,6 +26,8 @@
 extern "C" {
 #endif
 
+#define MAX_SUPPORTED_SPRITE_DIM 256
+
 struct TbSprite { // sizeof=6
     SBYTE *Data; // offset=0
     UBYTE SWidth; // offset=4

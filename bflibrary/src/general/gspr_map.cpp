@@ -2,10 +2,10 @@
 // Bullfrog Engine Emulation Library - for use to remake classic games like
 // Syndicate Wars, Magic Carpet, Genewars or Dungeon Keeper.
 /******************************************************************************/
-/** @file spr_scl.c
- *     Sprite scaling arrays preparations.
+/** @file gspr_map.cpp
+ *     Implementation of related functions.
  * @par Purpose:
- *     Fills arrays used for drawing scaled sprites.
+ *     Unknown.
  * @par Comment:
  *     Part of 8-bit graphics canvas drawing library.
  *     Used for drawing sprites on screen.
@@ -19,11 +19,6 @@
  */
 /******************************************************************************/
 #include "bfsprite.h"
-
-int LbSpriteSetScalingData()
-{
-// code at 0001:000e79c8
-}
 
 
 /******************************************************************************/
