@@ -1,8 +1,8 @@
 ACLOCAL_AMFLAGS = --install -I m4
 
-lib_LTLIBRARIES = libsmack.la 
+lib_LIBRARIES = libsmack.a
 
-libsmack_la_SOURCES = \
+libsmack_a_SOURCES = \
   src/dossmk.c \
   src/rfile.c \
   src/smackinp.c \
@@ -10,7 +10,7 @@ libsmack_la_SOURCES = \
   src/sndnone.c \
   src/unsmack.c
 
-libsmack_la_CPPFLAGS = \
+libsmack_a_CPPFLAGS = \
   -I$(top_srcdir)/include -I$(builddir)/include
 
 include_HEADERS = $(wildcard include/*.h)

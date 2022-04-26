@@ -1,8 +1,8 @@
 ACLOCAL_AMFLAGS = --install -I m4
 
-lib_LTLIBRARIES = libbfmydraw.la 
+lib_LIBRARIES = libbfmydraw.a
 
-libbfmydraw_la_SOURCES = \
+libbfmydraw_a_SOURCES = \
   src/drawrng.cpp \
   src/drawspr.cpp \
   src/drawsprr.cpp \
@@ -14,7 +14,7 @@ libbfmydraw_la_SOURCES = \
   src/pixbuf.cpp \
   src/str.cpp
 
-libbfmydraw_la_CPPFLAGS = \
+libbfmydraw_a_CPPFLAGS = \
   -I$(top_srcdir)/include -I$(builddir)/include \
   -I$(top_srcdir)/../bflibrary/include
 

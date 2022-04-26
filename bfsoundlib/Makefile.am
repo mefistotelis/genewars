@@ -1,8 +1,8 @@
 ACLOCAL_AMFLAGS = --install -I m4
 
-lib_LTLIBRARIES = libbfsound.la 
+lib_LIBRARIES = libbfsound.a
 
-libbfsound_la_SOURCES = \
+libbfsound_a_SOURCES = \
   src/adpcm.cpp \
   src/ail.c \
   src/aila.c \
@@ -44,7 +44,7 @@ libbfsound_la_SOURCES = \
   src/switchso.cpp \
   src/variable.cpp
 
-libbfsound_la_CPPFLAGS = \
+libbfsound_a_CPPFLAGS = \
   -I$(top_srcdir)/include -I$(builddir)/include \
   -I$(top_srcdir)/../bflibrary/include
 

@@ -43,7 +43,7 @@ esac
 # Checks for programs.
 AC_PROG_CC
 AC_PROG_CXX
-AC_PROG_LIBTOOL
+#AC_PROG_LIBTOOL
 PKG_PROG_PKG_CONFIG
 AC_CHECK_PROGS(WINDRES, $WINDRES "${target_alias}-windres" "${target}-windres", "windres", :)
 

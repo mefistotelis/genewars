@@ -100,11 +100,11 @@ bio_RESRCS =
 endif
 
 bio_LDADD= \
-  $(builddir)/../bflibrary/libbullfrog.la \
-  $(builddir)/../bfmydraw/libbfmydraw.la \
-  $(builddir)/../bfnet2lib/libbfnet2.la \
-  $(builddir)/../bfsoundlib/libbfsound.la \
-  $(builddir)/../smacklib/libsmack.la \
+  $(builddir)/../bflibrary/libbullfrog.a \
+  $(builddir)/../bfmydraw/libbfmydraw.a \
+  $(builddir)/../bfnet2lib/libbfnet2.a \
+  $(builddir)/../bfsoundlib/libbfsound.a \
+  $(builddir)/../smacklib/libsmack.a \
   $(bio_RESRCS)
 
 if HAS_WINDRES

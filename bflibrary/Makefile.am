@@ -1,8 +1,8 @@
 ACLOCAL_AMFLAGS = --install -I m4
 
-lib_LTLIBRARIES = libbullfrog.la 
+lib_LIBRARIES = libbullfrog.a
 
-libbullfrog_la_SOURCES = \
+libbullfrog_a_SOURCES = \
   src/general/arctan.c \
   src/general/box_clip.c \
   src/general/gbox.cpp \
@@ -39,7 +39,7 @@ libbullfrog_la_SOURCES = \
   src/general/spr_sstd.c \
   src/general/sqroot.c
 
-libbullfrog_la_SOURCES += \
+libbullfrog_a_SOURCES += \
   src/x86-win-sdl/sdir.c \
   src/x86-win-sdl/sfile.c \
   src/x86-win-sdl/skeybd.cpp \
@@ -52,7 +52,7 @@ libbullfrog_la_SOURCES += \
   src/x86-win-sdl/svesa.cpp \
   src/x86-win-sdl/swindows.cpp
 
-libbullfrog_la_CPPFLAGS = \
+libbullfrog_a_CPPFLAGS = \
   -I$(top_srcdir)/include -I$(builddir)/include
 
 include_HEADERS = $(wildcard include/*.h) $(wildcard include/*.hpp)

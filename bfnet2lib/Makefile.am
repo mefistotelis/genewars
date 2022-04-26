@@ -1,14 +1,14 @@
 ACLOCAL_AMFLAGS = --install -I m4
 
-lib_LTLIBRARIES = libbfnet2.la 
+lib_LIBRARIES = libbfnet2.a
 
-libbfnet2_la_SOURCES = \
+libbfnet2_a_SOURCES = \
   src/ipx.c \
   src/netserv.c \
   src/serasm.c \
   src/serial.cpp
 
-libbfnet2_la_CPPFLAGS = \
+libbfnet2_a_CPPFLAGS = \
   -I$(top_srcdir)/include -I$(builddir)/include \
   -I$(top_srcdir)/../bflibrary/include
 
