@@ -26,11 +26,27 @@ All the files can be compiled and linked using a modern version of GCC/G++.
 
 ## Building.
 
-Just run `make`. To get the version for your platform.
-If you lack a library and it will error out - install said library and retry.
-
-For 32-bit windows version using mingw32:
+To generate build scripts, use autotools:
 
 ```
-make clean; PATH="/mingw32/bin:$PATH" make DEBUG=1 CROSS_COMPILE=i686-w64-mingw32-
+autoreconf -ivf
 ```
+
+Then, to build the 32-bit executable on Linux:
+
+
+```
+mkdir -p release; cd release
+CFLAGS="-m32" LDFLAGS="-m32" PKG_CONFIG_PATH="/usr/lib/i386-linux-gnu/pkgconfig" ../configure
+make V=1
+```
+
+To build 32-bit executable on Windows using MinGW32 from MSYS2:
+
+```
+mkdir -p release; cd release
+PATH="/mingw32/bin:$PATH" CFLAGS="-m32" LDFLAGS="-m32" ../configure
+PATH="/mingw32/bin:$PATH" make V=1
+```
+
+EOF
