@@ -19,7 +19,7 @@
 /******************************************************************************/
 
 #include <windows.h> // include for version info constants
-#include "../include/bio_ver.h" // define values for version info
+#include "bio_ver.h" // define values for version info
 
 A ICON MOVEABLE PURE LOADONCALL DISCARDABLE "genewars-64.ico"
 

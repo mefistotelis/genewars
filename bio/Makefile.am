@@ -82,16 +82,32 @@ bio_SOURCES = \
   src/xy.cpp
 
 bio_CPPFLAGS = \
-  -I"$(top_srcdir)/include" \
+  -I"$(top_srcdir)/include" -I"$(builddir)/include" \
   -I"$(top_srcdir)/../bflibrary/include" \
   -I"$(top_srcdir)/../bfmydraw/include" \
   -I"$(top_srcdir)/../bfnet2lib/include" \
   -I"$(top_srcdir)/../bfsoundlib/include" \
   -I"$(top_srcdir)/../smacklib/include"
 
+bio_RCFLAGS = \
+  -I"$(top_srcdir)/include" -I"$(builddir)/include" \
+  $(RCFLAGS)
+
+if HAS_WINDRES
+bio_RESRCS = bio_stdres.res
+else
+bio_RESRCS =
+endif
+
 bio_LDADD= \
   $(builddir)/../bflibrary/libbullfrog.la \
   $(builddir)/../bfmydraw/libbfmydraw.la \
   $(builddir)/../bfnet2lib/libbfnet2.la \
   $(builddir)/../bfsoundlib/libbfsound.la \
-  $(builddir)/../smacklib/libsmack.la
+  $(builddir)/../smacklib/libsmack.la \
+  $(bio_RESRCS)
+
+if HAS_WINDRES
+%.res: $(top_srcdir)/res/%.rc
+	$(WINDRES) $(bio_RCFLAGS) -i $< -J rc -o $@ -O coff
+endif

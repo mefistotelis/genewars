@@ -10,6 +10,7 @@ libsmack_la_SOURCES = \
   src/sndnone.c \
   src/unsmack.c
 
-libsmack_la_CPPFLAGS = -I$(top_srcdir)/include
+libsmack_la_CPPFLAGS = \
+  -I$(top_srcdir)/include -I$(builddir)/include
 
 include_HEADERS = $(wildcard include/*.h)

@@ -52,6 +52,7 @@ libbullfrog_la_SOURCES += \
   src/x86-win-sdl/svesa.cpp \
   src/x86-win-sdl/swindows.cpp
 
-libbullfrog_la_CPPFLAGS = -I$(top_srcdir)/include
+libbullfrog_la_CPPFLAGS = \
+  -I$(top_srcdir)/include -I$(builddir)/include
 
 include_HEADERS = $(wildcard include/*.h) $(wildcard include/*.hpp)

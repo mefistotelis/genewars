@@ -44,6 +44,8 @@ libbfsound_la_SOURCES = \
   src/switchso.cpp \
   src/variable.cpp
 
-libbfsound_la_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/../bflibrary/include
+libbfsound_la_CPPFLAGS = \
+  -I$(top_srcdir)/include -I$(builddir)/include \
+  -I$(top_srcdir)/../bflibrary/include
 
 include_HEADERS = $(wildcard include/*.h)

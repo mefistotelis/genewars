@@ -8,6 +8,8 @@ libbfnet2_la_SOURCES = \
   src/serasm.c \
   src/serial.cpp
 
-libbfnet2_la_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/../bflibrary/include
+libbfnet2_la_CPPFLAGS = \
+  -I$(top_srcdir)/include -I$(builddir)/include \
+  -I$(top_srcdir)/../bflibrary/include
 
 include_HEADERS = $(wildcard include/*.h)

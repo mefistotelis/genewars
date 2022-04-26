@@ -14,6 +14,8 @@ libbfmydraw_la_SOURCES = \
   src/pixbuf.cpp \
   src/str.cpp
 
-libbfmydraw_la_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/../bflibrary/include
+libbfmydraw_la_CPPFLAGS = \
+  -I$(top_srcdir)/include -I$(builddir)/include \
+  -I$(top_srcdir)/../bflibrary/include
 
 include_HEADERS = $(wildcard include/*.h)
